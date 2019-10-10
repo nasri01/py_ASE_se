@@ -6,22 +6,30 @@ from django_jalali.db import models as jmodels
 
 class az_Status(models.Model):
     status = models.CharField(max_length=12)
+
     class Meta:
         verbose_name_plural = "Status"
     def __str__(self):
         return  str(self.status)
+
+
 class req_Status(models.Model):
     status = models.CharField(max_length=12)
+
     class Meta:
         verbose_name_plural = "req_Status"
+
     def __str__(self):
         return str(self.status)
+
+
 class acc_Status(models.Model):
     status = models.CharField(max_length=12)
+
     class Meta:
-        verbose_name_plural = "acc_Status"
-    def __str__(self):
-        return str(self.status)
+        verbose_name_plural = "accStatus"
+    # def __str__(self):
+    #     return str(self.status)
 
 class test_type(models.Model):#class
     type = models.CharField(max_length=12)

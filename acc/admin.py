@@ -59,11 +59,11 @@ admin.site.register(qualitive_comment_anesthesia_machine)
 admin.site.register(quantitive_comment_anesthesia_machine)
 admin.site.register(test_type)
 admin.site.register(test_type2)
-class status(admin.ModelAdmin):
-    list_display = ("id", "status")
-admin.site.register(req_Status,status)
+# class status(admin.ModelAdmin):
+#     list_display = ("id", "status")
+# admin.site.register(req_Status,status)
 
-admin.site.register(az_Status,status)
+admin.site.register(acc_Status)
 
 
 
