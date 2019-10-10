@@ -103,7 +103,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'kaadco.ir',
-        'NAME': 'kaadcoir_azma',
+        'NAME': 'kaadcoir_test',
         'PASSWORD': 'L@!Go&H^?f@a',
         'PORT': '5432',
         'USER': 'kaadcoir_admin',
