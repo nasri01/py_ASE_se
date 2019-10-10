@@ -38,8 +38,9 @@ def logout(request):
 
 @login_required
 def submit(request):
+    auser = aUserProfile.objects.get(user=request.user)
     if request.user.last_name == 'admin':
-        return render(request, 'acc/admin/index.html', {'status': 'Welcome Back', 'flag': '1'})
+        return render(request, 'acc/admin/index.html', {'status': 'Welcome Back', 'flag': '1','auser':auser})
 
     elif request.user.last_name == 'hospital':
         if (jdatetime.date.today().month < 10):
@@ -48,10 +49,10 @@ def submit(request):
             mm = jdatetime.date.today().month
         req = Request.objects.filter(hospital__user = request.user).order_by('date')
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm,'request':req})
+                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm,'request':req,'auser':auser})
 
     elif request.user.last_name == 'employee':
-        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید'})
+        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید','auser':auser})
 
 
 # list of requests
