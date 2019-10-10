@@ -383,39 +383,270 @@
 </form>
 
 
-{##}
-{#<span id="e11">a</span>#}
+<script>
 
-          <script>
+$( "#id_s1_e1_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
 
-     var t=document.getElementById("txt");
-           {#t.firstChild.nodeValue="humidity is normal.";#}
+      var n=($( "#id_s1_e1_nibpp" ).val()-$( "#id_s1_e1_simp" ).val())/$( "#id_s1_e1_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e1_nibpp" ).val()-$( "#id_s1_e1_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e1_nibpp").val().length !=0)){
+        $("#id_s1_e1_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e1_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e1_nibpp").val().length ==0)) {
+        $("#id_s1_e1_nibpp").css("background-color", "white");
+      $("#id_s1_e1_nibpp").css("color", "black");
+        
+    }
+    });
 
-        {#document.write('ss');#}
-    document.getElementById("eee").addEventListener("click",function () {
-       var humidity=document.getElementById("id_humidity").value;
 
-       if( humidity> 20 && humidity < 40){
-           t.firstChild.nodeValue="humidity is normal.";
-           t.firstChild.nodeValue+=humidity;
+    $( "#id_s1_e2_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
 
-           {#document.write("humidity is normal. ");#}
-           {#document.write(humidity);#}
-       }
-       else if (humidity >=40){
-           t.firstChild.nodeValue="humidity is high.";
-           t.firstChild.nodeValue+=humidity;
+      var n=($( "#id_s1_e2_nibpp" ).val()-$( "#id_s1_e2_simp" ).val())/$( "#id_s1_e2_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e2_nibpp" ).val()-$( "#id_s1_e2_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e2_nibpp").val().length !=0)){
+        $("#id_s1_e2_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e2_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e2_nibpp").val().length ==0)) {
+        $("#id_s1_e2_nibpp").css("background-color", "white");
+      $("#id_s1_e2_nibpp").css("color", "black");
+        
+    }
+    });
 
-           {#document.write("humidity is high. ");#}
-           {#document.write(humidity);#}
+    $( "#id_s1_e3_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
 
-       }
-       else {
-           t.firstChild.nodeValue="humidity is low.";
-           t.firstChild.nodeValue+=humidity;
-           {#document.write("humidity is low. ");#}
-           {#document.write(humidity);#}
+      var n=($( "#id_s1_e3_nibpp" ).val()-$( "#id_s1_e3_simp" ).val())/$( "#id_s1_e3_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e3_nibpp" ).val()-$( "#id_s1_e3_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e3_nibpp").val().length !=0)){
+        $("#id_s1_e3_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e3_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e3_nibpp").val().length ==0)) {
+        $("#id_s1_e3_nibpp").css("background-color", "white");
+      $("#id_s1_e3_nibpp").css("color", "black");
+        
+    }
+    });
 
-       }
-       })
+    $( "#id_s1_e4_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
+
+      var n=($( "#id_s1_e4_nibpp" ).val()-$( "#id_s1_e4_simp" ).val())/$( "#id_s1_e4_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e4_nibpp" ).val()-$( "#id_s1_e4_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e4_nibpp").val().length !=0)){
+        $("#id_s1_e4_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e4_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e4_nibpp").val().length ==0)) {
+        $("#id_s1_e4_nibpp").css("background-color", "white");
+      $("#id_s1_e4_nibpp").css("color", "black");
+        
+    }
+    });
+
+    $( "#id_s1_e5_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
+
+      var n=($( "#id_s1_e5_nibpp" ).val()-$( "#id_s1_e5_simp" ).val())/$( "#id_s1_e5_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e5_nibpp" ).val()-$( "#id_s1_e5_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e5_nibpp").val().length !=0)){
+        $("#id_s1_e5_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e5_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e5_nibpp").val().length ==0)) {
+        $("#id_s1_e5_nibpp").css("background-color", "white");
+      $("#id_s1_e5_nibpp").css("color", "black");
+        
+    }
+    });
+
+    $( "#id_s1_e6_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
+
+      var n=($( "#id_s1_e6_nibpp" ).val()-$( "#id_s1_e6_simp" ).val())/$( "#id_s1_e6_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e6_nibpp" ).val()-$( "#id_s1_e6_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e6_nibpp").val().length !=0)){
+        $("#id_s1_e6_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e6_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e6_nibpp").val().length ==0)) {
+        $("#id_s1_e6_nibpp").css("background-color", "white");
+      $("#id_s1_e6_nibpp").css("color", "black");
+        
+    }
+    });
+
+    $( "#id_s1_e7_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
+
+      var n=($( "#id_s1_e7_nibpp" ).val()-$( "#id_s1_e7_simp" ).val())/$( "#id_s1_e7_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e7_nibpp" ).val()-$( "#id_s1_e7_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e7_nibpp").val().length !=0)){
+        $("#id_s1_e7_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e7_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e7_nibpp").val().length ==0)) {
+        $("#id_s1_e7_nibpp").css("background-color", "white");
+      $("#id_s1_e7_nibpp").css("color", "black");
+        
+    }
+    });
+
+    $( "#id_s1_e8_nibpp" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
+
+      var n=($( "#id_s1_e8_nibpp" ).val()-$( "#id_s1_e8_simp" ).val())/$( "#id_s1_e8_simp" ).val();
+      if(n<0)
+        {
+          n=-n;
+        }
+      var n2=($( "#id_s1_e8_nibpp" ).val()-$( "#id_s1_e8_simp" ).val());
+      if(n2<0){
+        n2=-n2;
+      }
+      if( n>0.03 && n2>3   && ($( "#id_s1_e8_nibpp").val().length !=0)){
+        $("#id_s1_e8_nibpp").css("background-color", "#f24858");
+      $("#id_s1_e8_nibpp").css("color", "white");  
+    }
+      else if( n<=0.03 || n2<=3 || ($( "#id_s1_e8_nibpp").val().length ==0)) {
+        $("#id_s1_e8_nibpp").css("background-color", "white");
+      $("#id_s1_e8_nibpp").css("color", "black");
+        
+    }
+    });
+    // ///////////////////////////table 2
+
+
+
+
+    $( "#id_s2_e1_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e1_comment" ).val());
+      if($( "#id_s2_e1_hr" ).val() <=0  && ($( "#id_s2_e1_hr").val().length !=0)){
+        $("#id_s2_e1_hr").css("background-color", "#f24858");
+      $("#id_s2_e1_hr").css("color", "white");
+        
+      $("#id_s2_e1_comment").css("background-color", "#f24858");
+      $("#id_s2_e1_comment").css("color", "white");
+      $("#id_s2_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e1_hr").val() >0) || ($( "#id_s2_e1_hr").val().length ==0)) {
+        $("#id_s2_e1_hr").css("background-color", "white");
+      $("#id_s2_e1_hr").css("color", "black");
+    
+      $("#id_s2_e1_comment").css("background-color", "white");
+      $("#id_s2_e1_comment").css("color", "black");
+      $("#id_s2_e1_comment").val("1");
+        
+    }
+    });
+
+//    table 2///////////////
+
+
+
+    
+
+// id='id_s2_e1_td1'
+    $( "#id_s2_e1_pr1" )
+    .focusout(function() {
+      // alert($( "#id_s2_e1_comment" ).val());
+      var k=$( "#id_s2_e1_pr1" ).val().split('/');
+      alert(k[0]);
+      alert(k[1]);
+      var a=k[0]-30;
+      var b=k[1]-60;
+      if(a<0)
+        a=-a;
+      if(b<0)
+        b=-b;
+
+      $( "#id_s2_e1_td1" ).text(a+'/'+b);
+    //   if($( "#id_s2_e1_pr1" ).val() <=0  && ($( "#id_s2_e1_pr1").val().length !=0)){
+    //     $("#id_s2_e1_pr1").css("background-color", "#f24858");
+    //   $("#id_s2_e1_pr1").css("color", "white");
+        
+    //   $("#id_s2_e1_comment").css("background-color", "#f24858");
+    //   $("#id_s2_e1_comment").css("color", "white");
+    //   $("#id_s2_e1_comment").val("2");
+        
+    // }
+    //   else if(($( "#id_s2_e1_pr1").val() >0) || ($( "#id_s2_e1_pr1").val().length ==0)) {
+    //     $("#id_s2_e1_pr1").css("background-color", "white");
+    //   $("#id_s2_e1_pr1").css("color", "black");
+    
+    //   $("#id_s2_e1_comment").css("background-color", "white");
+    //   $("#id_s2_e1_comment").css("color", "black");
+    //   $("#id_s2_e1_comment").val("1");
+        
+    // }
+    });
+
+
 </script>
+
+

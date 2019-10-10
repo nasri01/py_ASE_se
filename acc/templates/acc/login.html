@@ -156,11 +156,14 @@
     
     // alert($("#in-pass").val().length);
 
-    if($("#in-pass").val().length !=0 || $("#in-username").val().val !=""){
+    if($("#in-pass").val().length ==0){
+
+    }
+    else{
         $("#lb-pass").css("top", "-10px");
-  $("#lb-pass").css("color", "blue");
-  $("#lb-pass").css("transition", ".15s ease all");
-  $("#lb-pass").css("font-size", "12px");
+        $("#lb-pass").css("color", "blue");
+        $("#lb-pass").css("transition", ".15s ease all");
+        $("#lb-pass").css("font-size", "12px");
     }
     $("#in-pass").focus(function(){
   $("#lb-pass").css("top", "-10px");

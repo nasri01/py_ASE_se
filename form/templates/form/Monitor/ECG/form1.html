@@ -899,40 +899,1036 @@
     </table>
 </form>
 
+<script>
 
-{##}
-{#<span id="e11">a</span>#}
+  // alert($( "#id_s1_e1_hr").val().length );
+$( "#id_s1_e1_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e1_comment" ).val());
+      if($( "#id_s1_e1_hr" ).val() <=0  && ($( "#id_s1_e1_hr").val().length !=0)){
+        $("#id_s1_e1_hr").css("background-color", "#f24858");
+      $("#id_s1_e1_hr").css("color", "white");
+        
+      $("#id_s1_e1_comment").css("background-color", "#f24858");
+      $("#id_s1_e1_comment").css("color", "white");
+      $("#id_s1_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s1_e1_hr").val() >0) || ($( "#id_s1_e1_hr").val().length ==0)) {
+        $("#id_s1_e1_hr").css("background-color", "white");
+      $("#id_s1_e1_hr").css("color", "black");
+    
+      $("#id_s1_e1_comment").css("background-color", "white");
+      $("#id_s1_e1_comment").css("color", "black");
+      $("#id_s1_e1_comment").val("1");
+        
+    }
+    });
 
-          <script>
+    $( "#id_s1_e2_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e2_comment" ).val());
+      if($( "#id_s1_e2_hr" ).val() <=0  && ($( "#id_s1_e2_hr").val().length !=0)){
+        $("#id_s1_e2_hr").css("background-color", "#f24858");
+      $("#id_s1_e2_hr").css("color", "white");
+        
+      $("#id_s1_e2_comment").css("background-color", "#f24858");
+      $("#id_s1_e2_comment").css("color", "white");
+      $("#id_s1_e2_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e2_hr").val() >0) || ($( "#id_s1_e2_hr").val().length ==0)) {
+        $("#id_s1_e2_hr").css("background-color", "white");
+      $("#id_s1_e2_hr").css("color", "black");
+    
+      $("#id_s1_e2_comment").css("background-color", "white");
+      $("#id_s1_e2_comment").css("color", "black");
+      $("#id_s1_e2_comment").val("1");
+        
+    }
+    });
+    $( "#id_s1_e3_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e3_comment" ).val());
+      if($( "#id_s1_e3_hr" ).val() <=0  && ($( "#id_s1_e3_hr").val().length !=0)){
+        $("#id_s1_e3_hr").css("background-color", "#f24858");
+      $("#id_s1_e3_hr").css("color", "white");
+        
+      $("#id_s1_e3_comment").css("background-color", "#f24858");
+      $("#id_s1_e3_comment").css("color", "white");
+      $("#id_s1_e3_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e3_hr").val() >0) || ($( "#id_s1_e3_hr").val().length ==0)) {
+        $("#id_s1_e3_hr").css("background-color", "white");
+      $("#id_s1_e3_hr").css("color", "black");
+    
+      $("#id_s1_e3_comment").css("background-color", "white");
+      $("#id_s1_e3_comment").css("color", "black");
+      $("#id_s1_e3_comment").val("1");
+        
+    }
+    });
+    $( "#id_s1_e4_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e4_comment" ).val());
+      if($( "#id_s1_e4_hr" ).val() <=0  && ($( "#id_s1_e4_hr").val().length !=0)){
+        $("#id_s1_e4_hr").css("background-color", "#f24858");
+      $("#id_s1_e4_hr").css("color", "white");
+        
+      $("#id_s1_e4_comment").css("background-color", "#f24858");
+      $("#id_s1_e4_comment").css("color", "white");
+      $("#id_s1_e4_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e4_hr").val() >0) || ($( "#id_s1_e4_hr").val().length ==0)) {
+        $("#id_s1_e4_hr").css("background-color", "white");
+      $("#id_s1_e4_hr").css("color", "black");
+    
+      $("#id_s1_e4_comment").css("background-color", "white");
+      $("#id_s1_e4_comment").css("color", "black");
+      $("#id_s1_e4_comment").val("1");
+        
+    }
+    });
+    $( "#id_s1_e5_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e5_comment" ).val());
+      if($( "#id_s1_e5_hr" ).val() <=0  && ($( "#id_s1_e5_hr").val().length !=0)){
+        $("#id_s1_e5_hr").css("background-color", "#f24858");
+      $("#id_s1_e5_hr").css("color", "white");
+        
+      $("#id_s1_e5_comment").css("background-color", "#f24858");
+      $("#id_s1_e5_comment").css("color", "white");
+      $("#id_s1_e5_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e5_hr").val() >0) || ($( "#id_s1_e5_hr").val().length ==0)) {
+        $("#id_s1_e5_hr").css("background-color", "white");
+      $("#id_s1_e5_hr").css("color", "black");
+    
+      $("#id_s1_e5_comment").css("background-color", "white");
+      $("#id_s1_e5_comment").css("color", "black");
+      $("#id_s1_e5_comment").val("1");
+        
+    }
+    });
+    $( "#id_s1_e6_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e6_comment" ).val());
+      if($( "#id_s1_e6_hr" ).val() <=0  && ($( "#id_s1_e6_hr").val().length !=0)){
+        $("#id_s1_e6_hr").css("background-color", "#f24858");
+      $("#id_s1_e6_hr").css("color", "white");
+        
+      $("#id_s1_e6_comment").css("background-color", "#f24858");
+      $("#id_s1_e6_comment").css("color", "white");
+      $("#id_s1_e6_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e6_hr").val() >0) || ($( "#id_s1_e6_hr").val().length ==0)) {
+        $("#id_s1_e6_hr").css("background-color", "white");
+      $("#id_s1_e6_hr").css("color", "black");
+    
+      $("#id_s1_e6_comment").css("background-color", "white");
+      $("#id_s1_e6_comment").css("color", "black");
+      $("#id_s1_e6_comment").val("1");
+        
+    }
+    });
+    $( "#id_s1_e7_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e7_comment" ).val());
+      if($( "#id_s1_e7_hr" ).val() <=0  && ($( "#id_s1_e7_hr").val().length !=0)){
+        $("#id_s1_e7_hr").css("background-color", "#f24858");
+      $("#id_s1_e7_hr").css("color", "white");
+        
+      $("#id_s1_e7_comment").css("background-color", "#f24858");
+      $("#id_s1_e7_comment").css("color", "white");
+      $("#id_s1_e7_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e7_hr").val() >0) || ($( "#id_s1_e7_hr").val().length ==0)) {
+        $("#id_s1_e7_hr").css("background-color", "white");
+      $("#id_s1_e7_hr").css("color", "black");
+    
+      $("#id_s1_e7_comment").css("background-color", "white");
+      $("#id_s1_e7_comment").css("color", "black");
+      $("#id_s1_e7_comment").val("1");
+        
+    }
+    });
+    $( "#id_s1_e8_hr" )
+    .focusout(function() {
+      // alert($( "#id_s1_e8_comment" ).val());
+      if($( "#id_s1_e8_hr" ).val() <=0  && ($( "#id_s1_e8_hr").val().length !=0)){
+        $("#id_s1_e8_hr").css("background-color", "#f24858");
+      $("#id_s1_e8_hr").css("color", "white");
+        
+      $("#id_s1_e8_comment").css("background-color", "#f24858");
+      $("#id_s1_e8_comment").css("color", "white");
+      $("#id_s1_e8_comment").val("2");
+        
+    }
+    else if(($( "#id_s1_e8_hr").val() >0) || ($( "#id_s1_e8_hr").val().length ==0)) {
+        $("#id_s1_e8_hr").css("background-color", "white");
+      $("#id_s1_e8_hr").css("color", "black");
+    
+      $("#id_s1_e8_comment").css("background-color", "white");
+      $("#id_s1_e8_comment").css("color", "black");
+      $("#id_s1_e8_comment").val("1");
+        
+    }
+    });
 
-     var t=document.getElementById("txt");
-           {#t.firstChild.nodeValue="humidity is normal.";#}
 
-        {#document.write('ss');#}
-    document.getElementById("eee").addEventListener("click",function () {
-       var humidity=document.getElementById("id_humidity").value;
+    // table 2////////////////////////////////////////////////////////////////
 
-       if( humidity> 20 && humidity < 40){
-           t.firstChild.nodeValue="humidity is normal.";
-           t.firstChild.nodeValue+=humidity;
+    $( "#id_s2_e1_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e1_comment" ).val());
+      if(($( "#id_s2_e1_hr" ).val() >35 || $( "#id_s2_e1_hr" ).val() <25 )&& ($( "#id_s2_e1_hr").val().length !=0)){
+        $("#id_s2_e1_hr").css("background-color", "#f24858");
+      $("#id_s2_e1_hr").css("color", "white");
+        
+      $("#id_s2_e1_comment").css("background-color", "#f24858");
+      $("#id_s2_e1_comment").css("color", "white");
+      $("#id_s2_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e1_hr").val() >0) || ($( "#id_s2_e1_hr").val().length ==0)) {
+        $("#id_s2_e1_hr").css("background-color", "white");
+      $("#id_s2_e1_hr").css("color", "black");
+    
+      $("#id_s2_e1_comment").css("background-color", "white");
+      $("#id_s2_e1_comment").css("color", "black");
+      $("#id_s2_e1_comment").val("1");
+        
+    }
+    });
 
-           {#document.write("humidity is normal. ");#}
-           {#document.write(humidity);#}
-       }
-       else if (humidity >=40){
-           t.firstChild.nodeValue="humidity is high.";
-           t.firstChild.nodeValue+=humidity;
+    $( "#id_s2_e2_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e2_comment" ).val());
+      if(($( "#id_s2_e2_hr" ).val() >88 || $( "#id_s2_e2_hr" ).val() <72 )&& ($( "#id_s2_e2_hr").val().length !=0)){
+        $("#id_s2_e2_hr").css("background-color", "#f24858");
+      $("#id_s2_e2_hr").css("color", "white");
+        
+      $("#id_s2_e2_comment").css("background-color", "#f24858");
+      $("#id_s2_e2_comment").css("color", "white");
+      $("#id_s2_e2_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e2_hr").val() >0) || ($( "#id_s2_e2_hr").val().length ==0)) {
+        $("#id_s2_e2_hr").css("background-color", "white");
+      $("#id_s2_e2_hr").css("color", "black");
+    
+      $("#id_s2_e2_comment").css("background-color", "white");
+      $("#id_s2_e2_comment").css("color", "black");
+      $("#id_s2_e2_comment").val("1");
+        
+    }
+    });
 
-           {#document.write("humidity is high. ");#}
-           {#document.write(humidity);#}
 
-       }
-       else {
-           t.firstChild.nodeValue="humidity is low.";
-           t.firstChild.nodeValue+=humidity;
-           {#document.write("humidity is low. ");#}
-           {#document.write(humidity);#}
 
-       }
-       })
+    $( "#id_s2_e3_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e3_comment" ).val());
+      if(($( "#id_s2_e3_hr" ).val() >132 || $( "#id_s2_e3_hr" ).val() <108 )&& ($( "#id_s2_e3_hr").val().length !=0)){
+        $("#id_s2_e3_hr").css("background-color", "#f24858");
+      $("#id_s2_e3_hr").css("color", "white");
+        
+      $("#id_s2_e3_comment").css("background-color", "#f24858");
+      $("#id_s2_e3_comment").css("color", "white");
+      $("#id_s2_e3_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e3_hr").val() >0) || ($( "#id_s2_e3_hr").val().length ==0)) {
+        $("#id_s2_e3_hr").css("background-color", "white");
+      $("#id_s2_e3_hr").css("color", "black");
+    
+      $("#id_s2_e3_comment").css("background-color", "white");
+      $("#id_s2_e3_comment").css("color", "black");
+      $("#id_s2_e3_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s2_e4_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e4_comment" ).val());
+      if(($( "#id_s2_e4_hr" ).val() >220 || $( "#id_s2_e4_hr" ).val() <180 )&& ($( "#id_s2_e4_hr").val().length !=0)){
+        $("#id_s2_e4_hr").css("background-color", "#f24858");
+      $("#id_s2_e4_hr").css("color", "white");
+        
+      $("#id_s2_e4_comment").css("background-color", "#f24858");
+      $("#id_s2_e4_comment").css("color", "white");
+      $("#id_s2_e4_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e4_hr").val() >0) || ($( "#id_s2_e4_hr").val().length ==0)) {
+        $("#id_s2_e4_hr").css("background-color", "white");
+      $("#id_s2_e4_hr").css("color", "black");
+    
+      $("#id_s2_e4_comment").css("background-color", "white");
+      $("#id_s2_e4_comment").css("color", "black");
+      $("#id_s2_e4_comment").val("1");
+        
+    }
+    });
+
+    
+    $( "#id_s2_e5_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e5_comment" ).val());
+      if(($( "#id_s2_e5_hr" ).val() <300)&& ($( "#id_s2_e5_hr").val().length !=0)){
+        $("#id_s2_e5_hr").css("background-color", "#f24858");
+      $("#id_s2_e5_hr").css("color", "white");
+        
+      $("#id_s2_e5_comment").css("background-color", "#f24858");
+      $("#id_s2_e5_comment").css("color", "white");
+      $("#id_s2_e5_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e5_hr").val() >0) || ($( "#id_s2_e5_hr").val().length ==0)) {
+        $("#id_s2_e5_hr").css("background-color", "white");
+      $("#id_s2_e5_hr").css("color", "black");
+    
+      $("#id_s2_e5_comment").css("background-color", "white");
+      $("#id_s2_e5_comment").css("color", "black");
+      $("#id_s2_e5_comment").val("1");
+        
+    }
+    });
+
+    // /////////////////////////////
+    $( "#id_s2_e6_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e6_comment" ).val());
+      if(($( "#id_s2_e6_hr" ).val() >35 || $( "#id_s2_e6_hr" ).val() <25 )&& ($( "#id_s2_e6_hr").val().length !=0)){
+        $("#id_s2_e6_hr").css("background-color", "#f24858");
+      $("#id_s2_e6_hr").css("color", "white");
+        
+      $("#id_s2_e6_comment").css("background-color", "#f24858");
+      $("#id_s2_e6_comment").css("color", "white");
+      $("#id_s2_e6_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e6_hr").val() >0) || ($( "#id_s2_e6_hr").val().length ==0)) {
+        $("#id_s2_e6_hr").css("background-color", "white");
+      $("#id_s2_e6_hr").css("color", "black");
+    
+      $("#id_s2_e6_comment").css("background-color", "white");
+      $("#id_s2_e6_comment").css("color", "black");
+      $("#id_s2_e6_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s2_e7_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e7_comment" ).val());
+      if(($( "#id_s2_e7_hr" ).val() >88 || $( "#id_s2_e7_hr" ).val() <72 )&& ($( "#id_s2_e7_hr").val().length !=0)){
+        $("#id_s2_e7_hr").css("background-color", "#f24858");
+      $("#id_s2_e7_hr").css("color", "white");
+        
+      $("#id_s2_e7_comment").css("background-color", "#f24858");
+      $("#id_s2_e7_comment").css("color", "white");
+      $("#id_s2_e7_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e7_hr").val() >0) || ($( "#id_s2_e7_hr").val().length ==0)) {
+        $("#id_s2_e7_hr").css("background-color", "white");
+      $("#id_s2_e7_hr").css("color", "black");
+    
+      $("#id_s2_e7_comment").css("background-color", "white");
+      $("#id_s2_e7_comment").css("color", "black");
+      $("#id_s2_e7_comment").val("1");
+        
+    }
+    });
+
+
+
+    $( "#id_s2_e8_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e8_comment" ).val());
+      if(($( "#id_s2_e8_hr" ).val() >132 || $( "#id_s2_e8_hr" ).val() <108 )&& ($( "#id_s2_e8_hr").val().length !=0)){
+        $("#id_s2_e8_hr").css("background-color", "#f24858");
+      $("#id_s2_e8_hr").css("color", "white");
+        
+      $("#id_s2_e8_comment").css("background-color", "#f24858");
+      $("#id_s2_e8_comment").css("color", "white");
+      $("#id_s2_e8_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e8_hr").val() >0) || ($( "#id_s2_e8_hr").val().length ==0)) {
+        $("#id_s2_e8_hr").css("background-color", "white");
+      $("#id_s2_e8_hr").css("color", "black");
+    
+      $("#id_s2_e8_comment").css("background-color", "white");
+      $("#id_s2_e8_comment").css("color", "black");
+      $("#id_s2_e8_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s2_e9_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e9_comment" ).val());
+      if(($( "#id_s2_e9_hr" ).val() >220 || $( "#id_s2_e9_hr" ).val() <180 )&& ($( "#id_s2_e9_hr").val().length !=0)){
+        $("#id_s2_e9_hr").css("background-color", "#f24858");
+      $("#id_s2_e9_hr").css("color", "white");
+        
+      $("#id_s2_e9_comment").css("background-color", "#f24858");
+      $("#id_s2_e9_comment").css("color", "white");
+      $("#id_s2_e9_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e9_hr").val() >0) || ($( "#id_s2_e9_hr").val().length ==0)) {
+        $("#id_s2_e9_hr").css("background-color", "white");
+      $("#id_s2_e9_hr").css("color", "black");
+    
+      $("#id_s2_e9_comment").css("background-color", "white");
+      $("#id_s2_e9_comment").css("color", "black");
+      $("#id_s2_e9_comment").val("1");
+        
+    }
+    });
+
+    
+    $( "#id_s2_e10_hr" )
+    .focusout(function() {
+      // alert($( "#id_s2_e10_comment" ).val());
+      if(($( "#id_s2_e10_hr" ).val() <300)&& ($( "#id_s2_e10_hr").val().length !=0)){
+        $("#id_s2_e10_hr").css("background-color", "#f24858");
+      $("#id_s2_e10_hr").css("color", "white");
+        
+      $("#id_s2_e10_comment").css("background-color", "#f24858");
+      $("#id_s2_e10_comment").css("color", "white");
+      $("#id_s2_e10_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e10_hr").val() >0) || ($( "#id_s2_e10_hr").val().length ==0)) {
+        $("#id_s2_e10_hr").css("background-color", "white");
+      $("#id_s2_e10_hr").css("color", "black");
+    
+      $("#id_s2_e10_comment").css("background-color", "white");
+      $("#id_s2_e10_comment").css("color", "black");
+      $("#id_s2_e10_comment").val("1");
+        
+    }
+    });
+
+
+
+// table 3/////////////////////////////
+
+
+$( "#id_s3_e1_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e1_comment" ).val());
+      if(($( "#id_s3_e1_hr" ).val() >35 || $( "#id_s3_e1_hr" ).val() <25 )&& ($( "#id_s3_e1_hr").val().length !=0)){
+        $("#id_s3_e1_hr").css("background-color", "#f24858");
+      $("#id_s3_e1_hr").css("color", "white");
+        
+      $("#id_s3_e1_comment").css("background-color", "#f24858");
+      $("#id_s3_e1_comment").css("color", "white");
+      $("#id_s3_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e1_hr").val() >0) || ($( "#id_s3_e1_hr").val().length ==0)) {
+        $("#id_s3_e1_hr").css("background-color", "white");
+      $("#id_s3_e1_hr").css("color", "black");
+    
+      $("#id_s3_e1_comment").css("background-color", "white");
+      $("#id_s3_e1_comment").css("color", "black");
+      $("#id_s3_e1_comment").val("1");
+        
+    }
+    });
+
+
+
+
+
+    $( "#id_s3_e2_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e2_comment" ).val());
+      if($( "#id_s3_e2_hr" ).val() <=0  && ($( "#id_s3_e2_hr").val().length !=0)){
+        $("#id_s3_e2_hr").css("background-color", "#f24858");
+      $("#id_s3_e2_hr").css("color", "white");
+        
+      $("#id_s3_e2_comment").css("background-color", "#f24858");
+      $("#id_s3_e2_comment").css("color", "white");
+      $("#id_s3_e2_comment").val("2");
+        
+    }
+    else if(($( "#id_s3_e2_hr").val() >0) || ($( "#id_s3_e2_hr").val().length ==0)) {
+        $("#id_s3_e2_hr").css("background-color", "white");
+      $("#id_s3_e2_hr").css("color", "black");
+    
+      $("#id_s3_e2_comment").css("background-color", "white");
+      $("#id_s3_e2_comment").css("color", "black");
+      $("#id_s3_e2_comment").val("1");
+        
+    }
+    });
+    $( "#id_s3_e3_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e3_comment" ).val());
+      if($( "#id_s3_e3_hr" ).val() <=0  && ($( "#id_s3_e3_hr").val().length !=0)){
+        $("#id_s3_e3_hr").css("background-color", "#f24858");
+      $("#id_s3_e3_hr").css("color", "white");
+        
+      $("#id_s3_e3_comment").css("background-color", "#f24858");
+      $("#id_s3_e3_comment").css("color", "white");
+      $("#id_s3_e3_comment").val("2");
+        
+    }
+    else if(($( "#id_s3_e3_hr").val() >0) || ($( "#id_s3_e3_hr").val().length ==0)) {
+        $("#id_s3_e3_hr").css("background-color", "white");
+      $("#id_s3_e3_hr").css("color", "black");
+    
+      $("#id_s3_e3_comment").css("background-color", "white");
+      $("#id_s3_e3_comment").css("color", "black");
+      $("#id_s3_e3_comment").val("1");
+        
+    }
+    });
+    $( "#id_s3_e4_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e4_comment" ).val());
+      if($( "#id_s3_e4_hr" ).val() <=0  && ($( "#id_s3_e4_hr").val().length !=0)){
+        $("#id_s3_e4_hr").css("background-color", "#f24858");
+      $("#id_s3_e4_hr").css("color", "white");
+        
+      $("#id_s3_e4_comment").css("background-color", "#f24858");
+      $("#id_s3_e4_comment").css("color", "white");
+      $("#id_s3_e4_comment").val("2");
+        
+    }
+    else if(($( "#id_s3_e4_hr").val() >0) || ($( "#id_s3_e4_hr").val().length ==0)) {
+        $("#id_s3_e4_hr").css("background-color", "white");
+      $("#id_s3_e4_hr").css("color", "black");
+    
+      $("#id_s3_e4_comment").css("background-color", "white");
+      $("#id_s3_e4_comment").css("color", "black");
+      $("#id_s3_e4_comment").val("1");
+        
+    }
+    });
+
+  
+$( "#id_s3_e5_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e5_comment" ).val());
+      if(($( "#id_s3_e5_hr" ).val() >88 || $( "#id_s3_e5_hr" ).val() <72 )&& ($( "#id_s3_e5_hr").val().length !=0)){
+        $("#id_s3_e5_hr").css("background-color", "#f24858");
+      $("#id_s3_e5_hr").css("color", "white");
+        
+      $("#id_s3_e5_comment").css("background-color", "#f24858");
+      $("#id_s3_e5_comment").css("color", "white");
+      $("#id_s3_e5_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e5_hr").val() >0) || ($( "#id_s3_e5_hr").val().length ==0)) {
+        $("#id_s3_e5_hr").css("background-color", "white");
+      $("#id_s3_e5_hr").css("color", "black");
+    
+      $("#id_s3_e5_comment").css("background-color", "white");
+      $("#id_s3_e5_comment").css("color", "black");
+      $("#id_s3_e5_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s3_e6_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e6_comment" ).val());
+      if(($( "#id_s3_e6_hr" ).val() >220 || $( "#id_s3_e6_hr" ).val() <180 )&& ($( "#id_s3_e6_hr").val().length !=0)){
+        $("#id_s3_e6_hr").css("background-color", "#f24858");
+      $("#id_s3_e6_hr").css("color", "white");
+        
+      $("#id_s3_e6_comment").css("background-color", "#f24858");
+      $("#id_s3_e6_comment").css("color", "white");
+      $("#id_s3_e6_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e6_hr").val() >0) || ($( "#id_s3_e6_hr").val().length ==0)) {
+        $("#id_s3_e6_hr").css("background-color", "white");
+      $("#id_s3_e6_hr").css("color", "black");
+    
+      $("#id_s3_e6_comment").css("background-color", "white");
+      $("#id_s3_e6_comment").css("color", "black");
+      $("#id_s3_e6_comment").val("1");
+        
+    }
+    });
+
+    
+    
+
+    $( "#id_s3_e7_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e7_comment" ).val());
+      if($( "#id_s3_e7_hr" ).val() <=0  && ($( "#id_s3_e7_hr").val().length !=0)){
+        $("#id_s3_e7_hr").css("background-color", "#f24858");
+      $("#id_s3_e7_hr").css("color", "white");
+        
+      $("#id_s3_e7_comment").css("background-color", "#f24858");
+      $("#id_s3_e7_comment").css("color", "white");
+      $("#id_s3_e7_comment").val("2");
+        
+    }
+    else if(($( "#id_s3_e7_hr").val() >0) || ($( "#id_s3_e7_hr").val().length ==0)) {
+        $("#id_s3_e7_hr").css("background-color", "white");
+      $("#id_s3_e7_hr").css("color", "black");
+    
+      $("#id_s3_e7_comment").css("background-color", "white");
+      $("#id_s3_e7_comment").css("color", "black");
+      $("#id_s3_e7_comment").val("1");
+        
+    }
+    });
+    $( "#id_s3_e8_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e8_comment" ).val());
+      if($( "#id_s3_e8_hr" ).val() <=0  && ($( "#id_s3_e8_hr").val().length !=0)){
+        $("#id_s3_e8_hr").css("background-color", "#f24858");
+      $("#id_s3_e8_hr").css("color", "white");
+        
+      $("#id_s3_e8_comment").css("background-color", "#f24858");
+      $("#id_s3_e8_comment").css("color", "white");
+      $("#id_s3_e8_comment").val("2");
+        
+    }
+    else if(($( "#id_s3_e8_hr").val() >0) || ($( "#id_s3_e8_hr").val().length ==0)) {
+        $("#id_s3_e8_hr").css("background-color", "white");
+      $("#id_s3_e8_hr").css("color", "black");
+    
+      $("#id_s3_e8_comment").css("background-color", "white");
+      $("#id_s3_e8_comment").css("color", "black");
+      $("#id_s3_e8_comment").val("1");
+        
+    }
+    });
+    $( "#id_s3_e9_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e9_comment" ).val());
+      if($( "#id_s3_e9_hr" ).val() <=0  && ($( "#id_s3_e9_hr").val().length !=0)){
+        $("#id_s3_e9_hr").css("background-color", "#f24858");
+      $("#id_s3_e9_hr").css("color", "white");
+        
+      $("#id_s3_e9_comment").css("background-color", "#f24858");
+      $("#id_s3_e9_comment").css("color", "white");
+      $("#id_s3_e9_comment").val("2");
+        
+    }
+    else if(($( "#id_s3_e9_hr").val() >0) || ($( "#id_s3_e9_hr").val().length ==0)) {
+        $("#id_s3_e9_hr").css("background-color", "white");
+      $("#id_s3_e9_hr").css("color", "black");
+    
+      $("#id_s3_e9_comment").css("background-color", "white");
+      $("#id_s3_e9_comment").css("color", "black");
+      $("#id_s3_e9_comment").val("1");
+        
+    }
+    });
+
+
+
+
+    $( "#id_s3_e10_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e10_comment" ).val());
+      if(($( "#id_s3_e10_hr" ).val() >35 || $( "#id_s3_e10_hr" ).val() <25 )&& ($( "#id_s3_e10_hr").val().length !=0)){
+        $("#id_s3_e10_hr").css("background-color", "#f24858");
+      $("#id_s3_e10_hr").css("color", "white");
+        
+      $("#id_s3_e10_comment").css("background-color", "#f24858");
+      $("#id_s3_e10_comment").css("color", "white");
+      $("#id_s3_e10_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e10_hr").val() >0) || ($( "#id_s3_e10_hr").val().length ==0)) {
+        $("#id_s3_e10_hr").css("background-color", "white");
+      $("#id_s3_e10_hr").css("color", "black");
+    
+      $("#id_s3_e10_comment").css("background-color", "white");
+      $("#id_s3_e10_comment").css("color", "black");
+      $("#id_s3_e10_comment").val("1");
+        
+    }
+    });
+    $( "#id_s3_e11_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e11_comment" ).val());
+      if(($( "#id_s3_e11_hr" ).val() >90 || $( "#id_s3_e11_hr" ).val() <110 )&& ($( "#id_s3_e11_hr").val().length !=0)){
+        $("#id_s3_e11_hr").css("background-color", "#f24858");
+      $("#id_s3_e11_hr").css("color", "white");
+        
+      $("#id_s3_e11_comment").css("background-color", "#f24858");
+      $("#id_s3_e11_comment").css("color", "white");
+      $("#id_s3_e11_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e11_hr").val() >0) || ($( "#id_s3_e11_hr").val().length ==0)) {
+        $("#id_s3_e11_hr").css("background-color", "white");
+      $("#id_s3_e11_hr").css("color", "black");
+    
+      $("#id_s3_e11_comment").css("background-color", "white");
+      $("#id_s3_e11_comment").css("color", "black");
+      $("#id_s3_e11_comment").val("1");
+        
+    }
+    });
+    $( "#id_s3_e12_hr" )
+    .focusout(function() {
+      // alert($( "#id_s3_e12_comment" ).val());
+      if(($( "#id_s3_e12_hr" ).val() >275 || $( "#id_s3_e12_hr" ).val() <225 )&& ($( "#id_s3_e12_hr").val().length !=0)){
+        $("#id_s3_e12_hr").css("background-color", "#f24858");
+      $("#id_s3_e12_hr").css("color", "white");
+        
+      $("#id_s3_e12_comment").css("background-color", "#f24858");
+      $("#id_s3_e12_comment").css("color", "white");
+      $("#id_s3_e12_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e12_hr").val() >0) || ($( "#id_s3_e12_hr").val().length ==0)) {
+        $("#id_s3_e12_hr").css("background-color", "white");
+      $("#id_s3_e12_hr").css("color", "black");
+    
+      $("#id_s3_e12_comment").css("background-color", "white");
+      $("#id_s3_e12_comment").css("color", "black");
+      $("#id_s3_e12_comment").val("1");
+        
+    }
+    });
+
+    // table 4  /////////////////////
+    $( "#id_s4_e1_hr" )
+    .focusout(function() {
+      // alert($( "#id_s4_e1_comment" ).val());
+      if(($( "#id_s4_e1_hr" ).val() >88 || $( "#id_s4_e1_hr" ).val() <72 )&& ($( "#id_s4_e1_hr").val().length !=0)){
+        $("#id_s4_e1_hr").css("background-color", "#f24858");
+      $("#id_s4_e1_hr").css("color", "white");
+        
+      $("#id_s4_e1_comment").css("background-color", "#f24858");
+      $("#id_s4_e1_comment").css("color", "white");
+      $("#id_s4_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s4_e1_hr").val() >0) || ($( "#id_s4_e1_hr").val().length ==0)) {
+        $("#id_s4_e1_hr").css("background-color", "white");
+      $("#id_s4_e1_hr").css("color", "black");
+    
+      $("#id_s4_e1_comment").css("background-color", "white");
+      $("#id_s4_e1_comment").css("color", "black");
+      $("#id_s4_e1_comment").val("1");
+        
+    }
+    });
+
+
+
+    $( "#id_s5_e1_comment" )
+    .focusout(function() {
+      // alert($( "#id_s5_e1_comment" ).val());
+      if($( "#id_s5_e1_comment" ).val() >=3){
+      $("#id_s5_e1_comment").css("background-color", "#f24858");
+      $("#id_s5_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s5_e1_comment").val() ==1)) {
+      $("#id_s5_e1_comment").css("background-color", "white");
+      $("#id_s5_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s5_e1_comment").val() ==2)){
+      $("#id_s5_e1_comment").css("background-color", 'yellow');
+      $("#id_s5_e1_comment").css("color", "black");
+    }
+    });
+
+    $( "#id_s5_e2_delay" )
+    .focusout(function() {
+      if($( "#id_s5_e2_delay" ).val() >10  && ($( "#id_s5_e2_delay").val().length !=0)){
+        $("#id_s5_e2_delay").css("background-color", "#f24858");
+      $("#id_s5_e2_delay").css("color", "white");
+        
+      $("#id_s5_e2_comment").css("background-color", "#f24858");
+      $("#id_s5_e2_comment").css("color", "white");
+      $("#id_s5_e2_comment").val("2");
+        
+    }
+      else if(($( "#id_s5_e2_delay").val() <=10) || ($( "#id_s5_e2_delay").val().length ==0)) {
+        $("#id_s5_e2_delay").css("background-color", "white");
+      $("#id_s5_e2_delay").css("color", "black");
+    
+      $("#id_s5_e2_comment").css("background-color", "white");
+      $("#id_s5_e2_comment").css("color", "black");
+      $("#id_s5_e2_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s5_e3_delay" )
+    .focusout(function() {
+      if($( "#id_s5_e3_delay" ).val() >10  && ($( "#id_s5_e3_delay").val().length !=0)){
+        $("#id_s5_e3_delay").css("background-color", "#f24858");
+      $("#id_s5_e3_delay").css("color", "white");
+        
+      $("#id_s5_e3_comment").css("background-color", "#f24858");
+      $("#id_s5_e3_comment").css("color", "white");
+      $("#id_s5_e3_comment").val("2");
+        
+    }
+      else if(($( "#id_s5_e3_delay").val() <=10) || ($( "#id_s5_e3_delay").val().length ==0)) {
+        $("#id_s5_e3_delay").css("background-color", "white");
+      $("#id_s5_e3_delay").css("color", "black");
+    
+      $("#id_s5_e3_comment").css("background-color", "white");
+      $("#id_s5_e3_comment").css("color", "black");
+      $("#id_s5_e3_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s5_e4_delay" )
+    .focusout(function() {
+      if($( "#id_s5_e4_delay" ).val() >10  && ($( "#id_s5_e4_delay").val().length !=0)){
+        $("#id_s5_e4_delay").css("background-color", "#f24858");
+      $("#id_s5_e4_delay").css("color", "white");
+        
+      $("#id_s5_e4_comment").css("background-color", "#f24858");
+      $("#id_s5_e4_comment").css("color", "white");
+      $("#id_s5_e4_comment").val("2");
+        
+    }
+      else if(($( "#id_s5_e4_delay").val() <=10) || ($( "#id_s5_e4_delay").val().length ==0)) {
+        $("#id_s5_e4_delay").css("background-color", "white");
+      $("#id_s5_e4_delay").css("color", "black");
+    
+      $("#id_s5_e4_comment").css("background-color", "white");
+      $("#id_s5_e4_comment").css("color", "black");
+      $("#id_s5_e4_comment").val("1");
+        
+    }
+    });
+
+    // /////////////////////table 6
+
+    $( "#id_s6_e1_damp" )
+    .focusout(function() {
+      if( ($( "#id_s6_e1_damp" ).val() >5.5 || $( "#id_s6_e1_damp" ).val() <4.5 )  && ($( "#id_s6_e1_damp").val().length !=0)){
+        $("#id_s6_e1_damp").css("background-color", "#f24858");
+      $("#id_s6_e1_damp").css("color", "white");
+        
+      $("#id_s6_e1_comment").css("background-color", "#f24858");
+      $("#id_s6_e1_comment").css("color", "white");
+      $("#id_s6_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s6_e1_damp" ).val() <=5.5 && $( "#id_s6_e1_damp" ).val() >=4.5 ) || ($( "#id_s6_e1_damp").val().length ==0)) {
+        $("#id_s6_e1_damp").css("background-color", "white");
+      $("#id_s6_e1_damp").css("color", "black");
+    
+      $("#id_s6_e1_comment").css("background-color", "white");
+      $("#id_s6_e1_comment").css("color", "black");
+      $("#id_s6_e1_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s6_e2_damp" )
+    .focusout(function() {
+      if( ($( "#id_s6_e2_damp" ).val() >11 || $( "#id_s6_e2_damp" ).val() <9 )  && ($( "#id_s6_e2_damp").val().length !=0)){
+        $("#id_s6_e2_damp").css("background-color", "#f24858");
+      $("#id_s6_e2_damp").css("color", "white");
+        
+      $("#id_s6_e2_comment").css("background-color", "#f24858");
+      $("#id_s6_e2_comment").css("color", "white");
+      $("#id_s6_e2_comment").val("2");
+        
+    }
+      else if(($( "#id_s6_e2_damp" ).val() <=11 && $( "#id_s6_e2_damp" ).val() >=9 ) || ($( "#id_s6_e2_damp").val().length ==0)) {
+        $("#id_s6_e2_damp").css("background-color", "white");
+      $("#id_s6_e2_damp").css("color", "black");
+    
+      $("#id_s6_e2_comment").css("background-color", "white");
+      $("#id_s6_e2_comment").css("color", "black");
+      $("#id_s6_e2_comment").val("1");
+        
+    }
+    });
+
+    
+    $( "#id_s6_e3_damp" )
+    .focusout(function() {
+      if( ($( "#id_s6_e3_damp" ).val() >22 || $( "#id_s6_e3_damp" ).val() <18 )  && ($( "#id_s6_e3_damp").val().length !=0)){
+        $("#id_s6_e3_damp").css("background-color", "#f24858");
+      $("#id_s6_e3_damp").css("color", "white");
+        
+      $("#id_s6_e3_comment").css("background-color", "#f24858");
+      $("#id_s6_e3_comment").css("color", "white");
+      $("#id_s6_e3_comment").val("2");
+        
+    }
+      else if(($( "#id_s6_e3_damp" ).val() <=22 && $( "#id_s6_e3_damp" ).val() >=18 ) || ($( "#id_s6_e3_damp").val().length ==0)) {
+        $("#id_s6_e3_damp").css("background-color", "white");
+      $("#id_s6_e3_damp").css("color", "black");
+    
+      $("#id_s6_e3_comment").css("background-color", "white");
+      $("#id_s6_e3_comment").css("color", "black");
+      $("#id_s6_e3_comment").val("1");
+        
+    }
+    });
+
+    //  ////table 7
+
+    
+    $( "#id_s7_e1_damp" )
+    .focusout(function() {
+      if( ($( "#id_s7_e1_damp" ).val() !=5 )  && ($( "#id_s7_e1_damp").val().length !=0)){
+        $("#id_s7_e1_damp").css("background-color", "#f24858");
+      $("#id_s7_e1_damp").css("color", "white");
+        
+      $("#id_s7_e1_comment").css("background-color", "#f24858");
+      $("#id_s7_e1_comment").css("color", "white");
+      $("#id_s7_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s7_e1_damp" ).val() ==5 ) || ($( "#id_s7_e1_damp").val().length ==0)) {
+        $("#id_s7_e1_damp").css("background-color", "white");
+      $("#id_s7_e1_damp").css("color", "black");
+    
+      $("#id_s7_e1_comment").css("background-color", "white");
+      $("#id_s7_e1_comment").css("color", "black");
+      $("#id_s7_e1_comment").val("1");
+        
+    }
+    });
+
+    $( "#id_s7_e2_damp" )
+    .focusout(function() {
+      if( (  $( "#id_s7_e2_damp" ).val()>(1.1 * $("#id_s7_e1_damp")).val() || $( "#id_s7_e2_damp" ).val()<(0.71 * $("#id_s7_e1_damp").val()) )  && ($( "#id_s7_e2_damp").val().length !=0)){
+        $("#id_s7_e2_damp").css("background-color", "#f24858");
+      $("#id_s7_e2_damp").css("color", "white");
+        
+      $("#id_s7_e2_comment").css("background-color", "#f24858");
+      $("#id_s7_e2_comment").css("color", "white");
+      $("#id_s7_e2_comment").val("2");
+        
+    }
+      else if(($( "#id_s7_e2_damp" ).val()<=(1.1 * $("#id_s7_e1_damp").val()) &&$( "#id_s7_e2_damp" ).val()>=(0.71 * $("#id_s7_e1_damp").val()) ) || ($( "#id_s7_e2_damp").val().length ==0)) {
+        $("#id_s7_e2_damp").css("background-color", "white");
+      $("#id_s7_e2_damp").css("color", "black");
+    
+      $("#id_s7_e2_comment").css("background-color", "white");
+      $("#id_s7_e2_comment").css("color", "black");
+      $("#id_s7_e2_comment").val("1");
+        
+    }
+    });
+    
+    $( "#id_s7_e3_damp" )
+    .focusout(function() {
+      if( ($( "#id_s7_e3_damp" ).val()>(1.1 * $("#id_s7_e1_damp").val()) ||$( "#id_s7_e3_damp" ).val()<(0.71 * $("#id_s7_e1_damp").val()) )  && ($( "#id_s7_e3_damp").val().length !=0)){
+        $("#id_s7_e3_damp").css("background-color", "#f24858");
+      $("#id_s7_e3_damp").css("color", "white");
+        
+      $("#id_s7_e3_comment").css("background-color", "#f24858");
+      $("#id_s7_e3_comment").css("color", "white");
+      $("#id_s7_e3_comment").val("2");
+        
+    }
+      else if(($( "#id_s7_e3_damp" ).val()<=(1.1 * $("#id_s7_e1_damp").val()) &&$( "#id_s7_e3_damp" ).val()>=(0.71 * $("#id_s7_e1_damp").val()) ) || ($( "#id_s7_e3_damp").val().length ==0)) {
+        $("#id_s7_e3_damp").css("background-color", "white");
+      $("#id_s7_e3_damp").css("color", "black");
+    
+      $("#id_s7_e3_comment").css("background-color", "white");
+      $("#id_s7_e3_comment").css("color", "black");
+      $("#id_s7_e3_comment").val("1");
+        
+    }
+    });
+
+
+
+
+    
+    $( "#id_s7_e4_damp" )
+    .focusout(function() {
+      if( ($( "#id_s7_e4_damp" ).val() !=200 )  && ($( "#id_s7_e4_damp").val().length !=0)){
+        $("#id_s7_e4_damp").css("background-color", "#f24858");
+      $("#id_s7_e4_damp").css("color", "white");
+        
+      $("#id_s7_e4_comment").css("background-color", "#f24858");
+      $("#id_s7_e4_comment").css("color", "white");
+      $("#id_s7_e4_comment").val("2");
+        
+    }
+      else if(($( "#id_s7_e4_damp" ).val() ==200 ) || ($( "#id_s7_e4_damp").val().length ==0)) {
+        $("#id_s7_e4_damp").css("background-color", "white");
+      $("#id_s7_e4_damp").css("color", "black");
+    
+      $("#id_s7_e4_comment").css("background-color", "white");
+      $("#id_s7_e4_comment").css("color", "black");
+      $("#id_s7_e4_comment").val("1");
+        
+    }
+    });
+
+
+    
+    $( "#id_s7_e3_damp" )
+    .focusout(function() {
+      if( ($( "#id_s7_e3_damp" ).val()>(1.1 * $("#id_s7_e4_damp").val()) ||$( "#id_s7_e3_damp" ).val()<(0.71 * $("#id_s7_e4_damp").val()) )  && ($( "#id_s7_e3_damp").val().length !=0)){
+        $("#id_s7_e3_damp").css("background-color", "#f24858");
+      $("#id_s7_e3_damp").css("color", "white");
+        
+      $("#id_s7_e3_comment").css("background-color", "#f24858");
+      $("#id_s7_e3_comment").css("color", "white");
+      $("#id_s7_e3_comment").val("2");
+        
+    }
+      else if(($( "#id_s7_e3_damp" ).val()<=(1.1 * $("#id_s7_e4_damp").val()) &&$( "#id_s7_e3_damp" ).val()>=(0.71 * $("#id_s7_e4_damp").val()) ) || ($( "#id_s7_e3_damp").val().length ==0)) {
+        $("#id_s7_e3_damp").css("background-color", "white");
+      $("#id_s7_e3_damp").css("color", "black");
+    
+      $("#id_s7_e3_comment").css("background-color", "white");
+      $("#id_s7_e3_comment").css("color", "black");
+      $("#id_s7_e3_comment").val("1");
+        
+    }
+    });
+
+
+
+    $( "#id_s8_e1_comment" )
+    .focusout(function() {
+      if($( "#id_s8_e1_comment" ).val() >=3){
+      $("#id_s8_e1_comment").css("background-color", "#f24858");
+      $("#id_s8_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s8_e1_comment").val() ==1)) {
+      $("#id_s8_e1_comment").css("background-color", "white");
+      $("#id_s8_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s8_e1_comment").val() ==2)){
+      $("#id_s8_e1_comment").css("background-color", 'yellow');
+      $("#id_s8_e1_comment").css("color", "black");
+    }
+    });
+
+
 </script>
+
+
+
+
+
