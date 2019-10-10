@@ -104,7 +104,7 @@
                                     {% for req in request %}
                                         <tr>
                                         <td>{{ forloop.counter }}</td>
-                                        <td>{{ req.date }}</td>
+                                        <td>{{ req.date.month }}</td>
                                         <td>{{ req.status }}</td>
                                         </tr>
                                     {% endfor %}
