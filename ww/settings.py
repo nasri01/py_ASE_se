@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'ww.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'kaadco.ir',
+        'HOST': 'localhost',
         'NAME': 'kaadcoir_azma',
         'PASSWORD': 'L@!Go&H^?f@a',
         'PORT': '5432',
