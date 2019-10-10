@@ -102,11 +102,11 @@ WSGI_APPLICATION = 'ww.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
-        'NAME': 'main',
-        'PASSWORD': '1',
+        'HOST': 'kaadco.ir',
+        'NAME': 'kaadcoir_azma',
+        'PASSWORD': 'L@!Go&H^?f@a',
         'PORT': '5432',
-        'USER': 'postgres',
+        'USER': 'kaadcoir_admin',
     }
 }
 LOGIN_URL = '/'
