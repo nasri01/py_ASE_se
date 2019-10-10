@@ -75,7 +75,7 @@ class Parameters(models.Model):
 
 
 class aUserProfile(models.Model):
-    user   = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
     avatar = models.ImageField()
     signature = models.ImageField()
     status = models.ForeignKey(acc_Status,on_delete=models.PROTECT)
