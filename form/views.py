@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 import jdatetime , pytz
 from .forms import *
-from acc.models import licence , Cal_device ,Section ,All_Device , record
+from acc.models import licence , Cal_device ,Section ,All_Device , record ,aUserProfile
 
 
 diclist = [['monitor_spo2',monitor_spo2_1, monitor_spO2_1_Form ,3],
@@ -24,14 +24,17 @@ diclist = [['monitor_spo2',monitor_spo2_1, monitor_spO2_1_Form ,3],
         ['electrocauter', electrocauter_1, electrocauter_1_Form,5],
 
            ]
+
 @login_required
 def router(request):
+
     if request.user.last_name == 'employee':
+        auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if request.GET['type'] == item[0]:
                 form1 = item[2]
                     ############################pop up a confirmation
-                return render(request, 'acc/employee/index.html',{'form': form1, 'form_type': item[0]})
+                return render(request, 'acc/employee/index.html',{'form': form1, 'form_type': item[0],'auser':auser})
 
     else:
         raise Http404
@@ -39,6 +42,7 @@ def router(request):
 
 def save_router(request,formtype):
     if request.user.last_name == 'employee':
+        auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
                 form1 = item[2](request.POST)
@@ -83,15 +87,16 @@ def save_router(request,formtype):
                     sform.save()
                     form1.save_m2m()
                     return render(request, 'acc/employee/index.html',
-                                  {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی:{ln}'})
+                                  {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی:{ln}','auser':auser})
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0]})
+                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
     else:
         raise Http404
 
 def save_edit_router(request,formtype):
     if request.user.last_name == 'employee':
+        auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype==item[0]:
                 data = item[1].objects.all().get(record__number=request.POST['record_num'])
@@ -144,17 +149,18 @@ def save_edit_router(request,formtype):
                     sform.save()
                     form1.save_m2m()
                     return render(request, 'acc/employee/index.html',
-                                  {'green_status': f'اطلاعات با موفقیت ویرایش  شد! شماره گواهی:{ln}'})
+                                  {'green_status': f'اطلاعات با موفقیت ویرایش  شد! شماره گواهی:{ln}','auser':auser})
 
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', item[0]: 1})
+                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', item[0]: 1,'auser':auser})
     else:
         raise Http404
 
 
 def save_recal_router(request,formtype):
     if request.user.last_name == 'employee':
+        auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
 
@@ -207,17 +213,18 @@ def save_recal_router(request,formtype):
                     sform.save()
                     form1.save_m2m()
                     return render(request, 'acc/employee/index.html',
-                                  {'status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}'})
+                                  {'status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
 
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'status': 'اطلاعات ناقص است!', 'form_type': item[0]})
+                                  {'form': form1, 'status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
     else:
         raise Http404
 
 
 def save_recal_edit_router(request,formtype):
     if request.user.last_name == 'employee':
+        auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
 
@@ -276,7 +283,7 @@ def save_recal_edit_router(request,formtype):
 
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'status': 'اطلاعات ناقص است!', 'form_type': item[0]})
+                                  {'form': form1, 'status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
     else:
         raise Http404
 

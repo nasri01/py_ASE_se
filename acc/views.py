@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect ,render_to_response
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from acc.models import Request, excel_arg ,Parameters
@@ -6,6 +6,7 @@ from form.forms import *
 from .forms import *
 from django.contrib.auth.models import User
 import jdatetime
+from django.template import RequestContext
 
 #color_scheme = Parameters.objects.get(name__exact='color').value
 color_scheme = 2 #test
@@ -141,10 +142,50 @@ def change_email(request):
         return render(request, 'acc/employee/index.html', {'settings':1,'change_email': 1, 'form': 1})
 
 
-def add_device(request):
-    form1 = add_device_Form
-    if(request.method=='POST'):
-        pass
-    else:
+# def add_device(request):
+#     form1 = add_device_Form
+#     if(request.method=='POST'):
+#         pass
+#     else:
+#
+#         return render(request,'acc/employee/Add_Device.html',{'form':form1})
 
-        return render(request,'acc/employee/Add_Device.html',{'form':form1})
+def handler_400(request):
+    response = render_to_response(
+        '/acc/400.html',
+        context_instance=RequestContext(request)
+    )
+
+    response.status_code = 400
+
+    return response
+
+def handler_403(request):
+    response = render_to_response(
+        '/acc/403.html',
+        context_instance=RequestContext(request)
+    )
+
+    response.status_code = 403
+
+    return response
+
+def handler_404(request):
+    response = render_to_response(
+        '/acc/404.html',
+        context_instance=RequestContext(request)
+    )
+
+    response.status_code = 404
+
+    return response
+
+def handler_500(request):
+    response = render_to_response(
+        '/acc/500.html',
+        context_instance=RequestContext(request)
+    )
+
+    response.status_code = 500
+
+    return response
