@@ -12,5 +12,5 @@ urlpatterns = [
     path('edit/', views.edit_report,name='edit_report'),
     path('recal/', views.recal_report,name='recal_report'),
     path('change_email/', views.change_email,name='change_email'),
-    path('add_device/', views.add_device,name='add_device'),
+
 ]
