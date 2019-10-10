@@ -78,7 +78,7 @@
         </tr>
         <tr>
             <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
+            <td class="no-border"><span>{{form.device.serial_number}}</span>شماره سريال: </td >
         </tr>
         <tr>
             <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
@@ -112,7 +112,7 @@
             <td>ردیف</td>
         </tr>
         <tr class="time">
-            <td></td>
+            <td>{{ form.cal_dev_1_cd.year }}/{{ form.cal_dev_1_cd.month }}/{{ form.cal_dev_1_cd.day }}</td>
             <td>{{ form.cal_dev_1_cd.year }}/{{ form.cal_dev_1_cd.month }}/{{ form.cal_dev_1_cd.day }}</td>
             <td>{{ form.cal_dev1.serial }}</td>
             <td>{{ form.cal_dev1.name }}</td>
@@ -120,7 +120,7 @@
             <td>1</td>
         </tr>
         <tr class="time">
-            <td></td>
+            <td>{{ form.cal_dev_2_cd.year }}/{{ form.cal_dev_2_cd.month }}/{{ form.cal_dev_2_cd.day }}</td>
             <td>{{ form.cal_dev_2_cd.year }}/{{ form.cal_dev_2_cd.month }}/{{ form.cal_dev_2_cd.day }}</td>
             <td>{{ form.cal_dev2.serial }}</td>
             <td>{{ form.cal_dev2.name }}</td>
@@ -128,7 +128,7 @@
             <td>2</td>
         </tr>
         <tr class="time">
-            <td></td>
+            <td>{{ form.cal_dev_3_cd.year }}/{{ form.cal_dev_3_cd.month }}/{{ form.cal_dev_3_cd.day }}</td>
             <td>{{ form.cal_dev_3_cd.year }}/{{ form.cal_dev_3_cd.month }}/{{ form.cal_dev_3_cd.day }}</td>
             <td>{{ form.cal_dev3.serial }}</td>
             <td>{{ form.cal_dev3.name }}</td>
@@ -136,11 +136,11 @@
             <td>3</td>
         </tr>
         <tr class="time">
-            <td></td>
+            <td>{{ form.cal_dev_4_cd.year }}/{{ form.cal_dev_4_cd.month }}/{{ form.cal_dev_4_cd.day }}</td>
             <td>{{ form.cal_dev_3_cd.year }}/{{ form.cal_dev_3_cd.month }}/{{ form.cal_dev_3_cd.day }}</td>
-            <td>{{ form.cal_dev3.serial }}</td>
-            <td>{{ form.cal_dev3.name }}</td>
-            <td>{{ form.cal_dev3.type.name }}</td>
+            <td>{{ form.cal_dev4.serial }}</td>
+            <td>{{ form.cal_dev4.name }}</td>
+            <td>{{ form.cal_dev4.type.name }}</td>
             <td>4</td>
         </tr>
 
@@ -200,158 +200,422 @@
                     <td>Ok</td>
                 </tr>
             <tr>
-              <td>{{ form.s0_e1_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e1_comment }}</td>
+                {% endif %}
+               {% if form.s0_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">بدنه و شاسی</td>
               <td>1</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e2_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e2_comment }}</td>
+                {% endif %}
+               {% if form.s0_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e2_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">نصب و نگهدارنده ها</td>
               <td>2</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e3_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e3_comment }}</td>
+                {% endif %}
+               {% if form.s0_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e3_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">چرخ ها و ترمزها</td>
               <td>3</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e4_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e4_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e4_comment }}</td>
+                {% endif %}
+               {% if form.s0_e4_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e4_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">دوشاخه برق</td>
               <td>4</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e5_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e5_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e5_comment }}</td>
+                {% endif %}
+               {% if form.s0_e5_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e5_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">پریزها</td>
               <td>5</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e6_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e6_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e6_comment }}</td>
+                {% endif %}
+               {% if form.s0_e6_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e6_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">فیوزها</td>
               <td>6</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e7_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e7_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e7_comment }}</td>
+                {% endif %}
+               {% if form.s0_e7_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e7_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">سیم برق</td>
               <td>7</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e8_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e8_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e8_comment }}</td>
+                {% endif %}
+               {% if form.s0_e8_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e8_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">استرین ریلیف</td>
               <td>8</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e9_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e9_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e9_comment }}</td>
+                {% endif %}
+               {% if form.s0_e9_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e9_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">کابل ها</td>
               <td>9</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e10_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e10_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e10_comment }}</td>
+                {% endif %}
+               {% if form.s0_e10_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e10_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">جفت کننده ها و اتصالات</td>
               <td>10</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e11_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e11_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e11_comment }}</td>
+                {% endif %}
+               {% if form.s0_e11_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e11_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">پدلها والکترودها</td>
               <td>11</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e12_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e12_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e12_comment }}</td>
+                {% endif %}
+               {% if form.s0_e12_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e12_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">کنترل ها و سوئیچ ها</td>
               <td>12</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e13_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e13_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e13_comment }}</td>
+                {% endif %}
+               {% if form.s0_e13_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e13_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">باتری و شارژر</td>
               <td>13</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e14_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e14_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e14_comment }}</td>
+                {% endif %}
+               {% if form.s0_e14_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e14_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">نشانگرها و نمایشگرها</td>
               <td>14</td>
             </tr>
 
             <tr>
-              <td>{{ form.s0_e15_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e15_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e15_comment }}</td>
+                {% endif %}
+               {% if form.s0_e15_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e15_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;" class="time">Self-Test</td>
               <td>15</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e16_comment }}</td>
-              <td></td>
-              <td>N.A</td>
+              {% if form.s0_e16_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e16_comment }}</td>
+                {% endif %}
+               {% if form.s0_e16_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e16_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">تنظیمات زمان و تاریخ</td>
               <td>16</td>
             </tr>
 
             <tr>
-              <td>{{ form.s0_e17_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e17_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e17_comment }}</td>
+                {% endif %}
+               {% if form.s0_e17_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e17_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">سنکرون کننده</td>
               <td>17</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e18_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e18_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e18_comment }}</td>
+                {% endif %}
+               {% if form.s0_e18_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e18_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">آلارم ها</td>
               <td>18</td>
             </tr>
             <tr>
-              <td>{{ form.s0_e19_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e18_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e18_comment }}</td>
+                {% endif %}
+               {% if form.s0_e19_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e18_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">فعال و متوقف شدن مد تقاضای پیس میکر</td>
               <td>19</td>
             </tr>
           <tr>
-              <td>{{ form.s0_e20_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e20_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e20_comment }}</td>
+                {% endif %}
+               {% if form.s0_e20_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e20_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">سیگنالهای صوتی</td>
               <td>20</td>
             </tr>
           <tr>
-              <td>{{ form.s0_e21_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e21_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e21_comment }}</td>
+                {% endif %}
+               {% if form.s0_e21_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e21_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">برچسب</td>
               <td>21</td>
             </tr>
           <tr>
-              <td>{{ form.s0_e22_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s0_e22_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s0_e22_comment }}</td>
+                {% endif %}
+               {% if form.s0_e22_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s0_e22_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td style="text-align: right;">اکسسوری ها</td>
               <td>22</td>
             </tr>
@@ -383,7 +647,17 @@
 
 
                     <div style="font-weight: bold;">
-                1) مقاومت زمین حفاظتی( مطابق بند 18.fاز مرجع [2]): مقدار اندازه-گیری شده: <td> {{ form.s1_res }} </td>
+                1) مقاومت زمین حفاظتی( مطابق بند 18.fاز مرجع [2]):  <td> {{ form.s1_res }} </td>
+
+            </div>
+             <div>
+
+                مقدار اندازه گیری شده:
+                {% if form.s1_e1_res == -1 %}
+                   N/A
+                {% else %}
+                    {{form.s1_e1_res}}
+                {% endif %}
 
             </div>
 
@@ -401,10 +675,23 @@
                 <td>Ok</td>
             </tr>
         <tr class="time">
-          <td>{{ form.s1_e1_comment }}</td>
-          <td></td>
-          <td></td>
+          {% if form.s1_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s1_e1_comment }}</td>
+                {% endif %}
+          {% if form.s1_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s1_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
           <td>0.2</td>
+
 
         </tr>
 
@@ -435,58 +722,142 @@
                     <td>Ok</td>
                 </tr>
             <tr>
-              <td>{{ form.s2_e1_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e1_comment }}</td>
+                {% endif %}
+          {% if form.s2_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s2_e1_lc }}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="6">عادی</td>
             </tr>
             <tr>
-              <td>{{ form.s2_e2_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e2_comment }}</td>
+                {% endif %}
+          {% if form.s2_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e2_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s2_e2_lc }}</td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
-              <td>{{ form.s2_e3_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e3_comment }}</td>
+                {% endif %}
+          {% if form.s2_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e3_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s2_e3_lc }}</td>
               <td class="time" style="text-align: right;"> Standby -</td>
             </tr>
             <tr>
-              <td>{{ form.s2_e4_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e4_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e4_comment }}</td>
+                {% endif %}
+          {% if form.s2_e4_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e4_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s2_e4_lc }}</td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
-              <td>{{ form.s2_e5_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e5_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e5_comment }}</td>
+                {% endif %}
+          {% if form.s2_e5_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e5_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s2_e5_lc }}</td>
               <td style="text-align: right;">- طی آنالیز ریتم</td>
             </tr>
             <tr>
-              <td>{{ form.s2_e6_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e6_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e6_comment }}</td>
+                {% endif %}
+          {% if form.s2_e6_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e6_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s2_e6_lc }}</td>
               <td style="text-align: right;">- لحظۀ تخلیۀ شوک</td>
             </tr>
             <tr>
-              <td>{{ form.s2_e7_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s2_e7_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s2_e7_comment }}</td>
+                {% endif %}
+          {% if form.s2_e7_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s2_e7_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">1000</td>
               <td>{{ form.s2_e7_lc }}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
@@ -523,58 +894,142 @@
                     <td>Ok</td>
                 </tr>
             <tr>
-              <td>{{ form.s3_e1_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e1_comment }}</td>
+                {% endif %}
+          {% if form.s3_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td>{{ form.s3_e1_lc }}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="6">عادی</td>
             </tr>
             <tr>
-              <td>{{ form.s3_e2_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e2_comment }}</td>
+                {% endif %}
+          {% if form.s3_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e2_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td>{{ form.s3_e2_lc }}</td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
-              <td>{{ form.s3_e3_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e3_comment }}</td>
+                {% endif %}
+          {% if form.s3_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e3_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td>{{ form.s3_e3_lc }}</td>
               <td  style="text-align: right;" class="time"> Standby -</td>
             </tr>
             <tr>
-              <td>{{ form.s3_e4_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e4_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e4_comment }}</td>
+                {% endif %}
+          {% if form.s3_e4_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e4_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td>{{ form.s3_e4_lc }}</td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
-              <td>{{ form.s3_e5_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e5_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e5_comment }}</td>
+                {% endif %}
+          {% if form.s3_e5_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e5_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td>{{ form.s3_e5_lc }}</td>
               <td style="text-align: right;">- طی آنالیز ریتم</td>
             </tr>
             <tr>
-              <td>{{ form.s3_e6_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e6_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e6_comment }}</td>
+                {% endif %}
+          {% if form.s3_e6_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e6_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td>{{ form.s3_e6_lc }}</td>
               <td style="text-align: right;">- لحظۀ تخلیۀ شوک</td>
             </tr>
             <tr>
-              <td>{{ form.s3_e7_comment }}</td>
-              <td></td>
-              <td></td>
+              {% if form.s3_e7_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s3_e7_comment }}</td>
+                {% endif %}
+          {% if form.s3_e7_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s3_e7_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td>{{ form.s3_e7_lc }}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
@@ -647,9 +1102,21 @@
                     <td style="padding: 0;" class="time">1</td>
                 </tr>
             <tr>
-              <td>{{form.s4_e1_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e1_comment }}</td>
+                {% endif %}
+          {% if form.s4_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -662,9 +1129,21 @@
               <td rowspan="8">عادی</td>
             </tr>
             <tr>
-              <td>{{form.s4_e2_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e2_comment }}</td>
+                {% endif %}
+          {% if form.s4_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e2_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -676,9 +1155,21 @@
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
-              <td>{{form.s4_e3_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e3_comment }}</td>
+                {% endif %}
+          {% if form.s4_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e3_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -690,9 +1181,21 @@
               <td class="time" style="text-align: right;"> Standby -</td>
             </tr>
             <tr>
-              <td>{{form.s4_e4_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e4_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e4_comment }}</td>
+                {% endif %}
+          {% if form.s4_e4_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e4_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -704,9 +1207,21 @@
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
-              <td>{{form.s4_e5_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e5_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e5_comment }}</td>
+                {% endif %}
+          {% if form.s4_e5_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e5_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -723,9 +1238,21 @@
               </td>
             </tr>
             <tr>
-              <td>{{form.s4_e6_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e6_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e6_comment }}</td>
+                {% endif %}
+          {% if form.s4_e6_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e6_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -749,9 +1276,21 @@
               </td>
             </tr>
             <tr>
-              <td>{{form.s4_e7_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e7_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e7_comment }}</td>
+                {% endif %}
+          {% if form.s4_e7_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e7_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -763,9 +1302,21 @@
               <td style="text-align: right;">- 1ثانیه بعد از تخلیه در بار 50 اهم به مدت 1 دقیقه</td>
             </tr>
             <tr>
-              <td>{{form.s4_e8_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e8_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e8_comment }}</td>
+                {% endif %}
+          {% if form.s4_e8_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e8_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -777,9 +1328,21 @@
               <td style="text-align: right;">- طی آنالیز ریتم</td>
             </tr>
             <tr>
-              <td>{{form.s4_e9_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e9_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e9_comment }}</td>
+                {% endif %}
+          {% if form.s4_e9_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e9_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td class="time">50</td>
               <td class="time">50</td>
@@ -793,9 +1356,21 @@
             </tr>
 
             <tr>
-              <td>{{form.s4_e10_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s4_e10_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s4_e10_comment }}</td>
+                {% endif %}
+          {% if form.s4_e10_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s4_e10_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td class="time">50</td>
               <td class="time">50</td>
@@ -867,9 +1442,21 @@
                     <td style="padding: 0;" class="time">1</td>
                 </tr>
             <tr>
-              <td>{{form.s5_e1_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e1_comment }}</td>
+                {% endif %}
+          {% if form.s5_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -882,9 +1469,21 @@
               <td rowspan="8">عادی</td>
             </tr>
             <tr>
-              <td>{{form.s5_e2_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e2_comment }}</td>
+                {% endif %}
+          {% if form.s5_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e2_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -896,9 +1495,21 @@
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
-              <td>{{form.s5_e3_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e3_comment }}</td>
+                {% endif %}
+          {% if form.s5_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e3_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -910,9 +1521,21 @@
               <td class="time" style="text-align: right;"> Standby -</td>
             </tr>
             <tr>
-              <td>{{form.s5_e4_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e4_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e4_comment }}</td>
+                {% endif %}
+          {% if form.s5_e4_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e4_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -924,9 +1547,21 @@
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
-              <td>{{form.s5_e5_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e5_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e5_comment }}</td>
+                {% endif %}
+          {% if form.s5_e5_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e5_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -943,9 +1578,21 @@
               </td>
             </tr>
             <tr>
-              <td>{{form.s5_e6_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e6_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e6_comment }}</td>
+                {% endif %}
+          {% if form.s5_e6_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e6_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -969,9 +1616,21 @@
               </td>
             </tr>
             <tr>
-              <td>{{form.s5_e7_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e7_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e7_comment }}</td>
+                {% endif %}
+          {% if form.s5_e7_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e7_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -983,9 +1642,21 @@
               <td style="text-align: right;">- 1ثانیه بعد از تخلیه در بار 50 اهم به مدت 1 دقیقه</td>
             </tr>
             <tr>
-              <td>{{form.s5_e8_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e8_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e8_comment }}</td>
+                {% endif %}
+          {% if form.s5_e8_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e8_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">100</td>
               <td class="time">10</td>
               <td class="time">10</td>
@@ -997,9 +1668,21 @@
               <td style="text-align: right;">- طی آنالیز ریتم</td>
             </tr>
             <tr>
-              <td>{{form.s5_e9_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e9_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e9_comment }}</td>
+                {% endif %}
+          {% if form.s5_e9_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e9_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td class="time">50</td>
               <td class="time">50</td>
@@ -1013,9 +1696,21 @@
             </tr>
 
             <tr>
-              <td>{{form.s5_e10_comment}}</td>
-              <td></td>
-              <td></td>
+               {% if form.s5_e10_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s5_e10_comment }}</td>
+                {% endif %}
+          {% if form.s5_e10_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s5_e10_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">500</td>
               <td class="time">50</td>
               <td class="time">50</td>
@@ -1069,9 +1764,21 @@
                     <td>1</td>
                 </tr>
             <tr>
-              <td>{{form.s6_e1_comment}}</td>
-              <td></td>
-              <td></td>
+              {% if form.s6_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s6_e1_comment }}</td>
+                {% endif %}
+          {% if form.s6_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s6_e1_comment.id == 2 %}
+                <td></td>
+                <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
               <td class="time">5000</td>
               <td class="time">100</td>
               <td>{{form.s6_e1_lc4}}</td>
@@ -1125,9 +1832,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
+                {% if form.s7a_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7a_e1_comment }}</td>
+                {% endif %}
+          {% if form.s7a_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7a_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7a_e1_v }}</td>
                 <td>{{ form.s7a_e1_ec }}</td>
                 <td>{{ form.s7a_e1_em }}</td>
@@ -1136,9 +1855,21 @@
                 <td>حداقل</td>
             </tr>
              <tr>
+                {% if form.s7a_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7a_e2_comment }}</td>
+                {% endif %}
+          {% if form.s7a_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7a_e2_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7a_e2_v }}</td>
                 <td>{{ form.s7a_e2_ec }}</td>
                 <td>{{ form.s7a_e2_em }}</td>
@@ -1147,9 +1878,21 @@
                 <td>حد وسط</td>
             </tr>
                    <tr>
+                {% if form.s7a_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7a_e3_comment }}</td>
+                {% endif %}
+          {% if form.s7a_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7a_e3_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7a_e3_v }}</td>
                 <td>{{ form.s7a_e3_ec }}</td>
                 <td>{{ form.s7a_e3_em }}</td>
@@ -1197,9 +1940,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
+                {% if form.s7b_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7b_e1_comment }}</td>
+                {% endif %}
+          {% if form.s7b_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7b_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7b_e1_v }}</td>
                 <td>{{ form.s7b_e1_ec }}</td>
                 <td>{{ form.s7b_e1_em }}</td>
@@ -1208,9 +1963,21 @@
                 <td>حداقل</td>
             </tr>
              <tr>
+                {% if form.s7b_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7b_e2_comment }}</td>
+                {% endif %}
+          {% if form.s7b_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7b_e2_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7b_e2_v }}</td>
                 <td>{{ form.s7b_e2_ec }}</td>
                 <td>{{ form.s7b_e2_em }}</td>
@@ -1219,9 +1986,21 @@
                 <td>حد وسط</td>
             </tr>
                    <tr>
+                {% if form.s7b_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7b_e3_comment }}</td>
+                {% endif %}
+          {% if form.s7b_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7b_e3_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7b_e3_v }}</td>
                 <td>{{ form.s7b_e3_ec }}</td>
                 <td>{{ form.s7b_e3_em }}</td>
@@ -1264,9 +2043,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
+                {% if form.s7c_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7c_e1_comment }}</td>
+                {% endif %}
+          {% if form.s7c_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7c_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7c_e1_v }}</td>
                 <td>{{ form.s7c_e1_ec }}</td>
                 <td>{{ form.s7c_e1_em }}</td>
@@ -1275,9 +2066,21 @@
                 <td>حداقل</td>
             </tr>
              <tr>
+                {% if form.s7c_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7c_e2_comment }}</td>
+                {% endif %}
+          {% if form.s7c_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7c_e2_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7c_e2_v }}</td>
                 <td>{{ form.s7c_e2_ec }}</td>
                 <td>{{ form.s7c_e2_em }}</td>
@@ -1286,9 +2089,21 @@
                 <td>حد وسط</td>
             </tr>
                    <tr>
+                {% if form.s7c_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s7c_e3_comment }}</td>
+                {% endif %}
+          {% if form.s7c_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7c_e3_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{ form.s7c_e3_v }}</td>
                 <td>{{ form.s7c_e3_ec }}</td>
                 <td>{{ form.s7c_e3_em }}</td>
@@ -1346,9 +2161,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
-                <td>{{form.s7d_e1_comment}}</td>
+                {% if form.s7d_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s7d_e1_comment }}</td>
+                {% endif %}
+          {% if form.s7d_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s7d_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s7d_e1_ec}}</td>
                 <td>{{form.s7d_e1_es}}</td>
                 <td>{{form.s7d_e1_en}}</td>
@@ -1393,9 +2220,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
-                <td>{{form.s8_e1_comment}}</td>
+                {% if form.s8_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s8_e1_comment }}</td>
+                {% endif %}
+          {% if form.s8_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s8_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s8_e1_ec}}</td>
                 <td>{{form.s8_e1_em2}}</td>
                 <td>{{form.s8_e1_em1}}</td>
@@ -1442,9 +2281,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
-                <td>{{form.s9_e1_comment}}</td>
+                {% if form.s9_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s9_e1_comment }}</td>
+                {% endif %}
+          {% if form.s9_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s9_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td><td>{{form.s9_e1_tc}}</td></td>
                 <td><td><td>{{form.s9_e1_t1}}</td></td></td>
                 <td><td><td>{{form.s9_e1_en}}</td></td></td>
@@ -1531,9 +2382,21 @@
                 <td>Ok</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e1_comment }}</td>
+                {% endif %}
+          {% if form.s10_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e1_enl}}</td>
                 <td>{{form.s10_e1_en}}</td>
                 <td>15</td>
@@ -1541,9 +2404,21 @@
                 <td>1</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e2_comment }}</td>
+                {% endif %}
+          {% if form.s10_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e2_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e2_enl}}</td>
                 <td>{{form.s10_e2_en}}</td>
                 <td>15</td>
@@ -1551,9 +2426,21 @@
                 <td>2</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e3_comment }}</td>
+                {% endif %}
+          {% if form.s10_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e3_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e3_enl}}</td>
                 <td>{{form.s10_e3_en}}</td>
                 <td>15</td>
@@ -1561,9 +2448,21 @@
                 <td>3</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e4_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e4_comment }}</td>
+                {% endif %}
+          {% if form.s10_e4_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e4_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e4_enl}}</td>
                 <td>{{form.s10_e4_en}}</td>
                 <td>15</td>
@@ -1571,9 +2470,21 @@
                 <td>4</td>
             </tr>
             <tr  class="time">
+                {% if form.s10_e5_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e5_comment }}</td>
+                {% endif %}
+          {% if form.s10_e5_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e5_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e5_enl}}</td>
                 <td>{{form.s10_e5_en}}</td>
                 <td>15</td>
@@ -1581,9 +2492,21 @@
                 <td>5</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e6_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e6_comment }}</td>
+                {% endif %}
+          {% if form.s10_e6_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e6_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e6_enl}}</td>
                 <td>{{form.s10_e6_en}}</td>
                 <td>15</td>
@@ -1591,9 +2514,21 @@
                 <td>6</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e7_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e7_comment }}</td>
+                {% endif %}
+          {% if form.s10_e7_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e7_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e7_enl}}</td>
                 <td>{{form.s10_e7_en}}</td>
                 <td>15</td>
@@ -1601,9 +2536,21 @@
                 <td>7</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e8_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e8_comment }}</td>
+                {% endif %}
+          {% if form.s10_e8_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e8_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e8_enl}}</td>
                 <td>{{form.s10_e8_en}}</td>
                 <td>15</td>
@@ -1611,9 +2558,21 @@
                 <td>8</td>
             </tr>
             <tr class="time">
+                {% if form.s10_e9_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s10_e9_comment }}</td>
+                {% endif %}
+          {% if form.s10_e9_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e9_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e9_enl}}</td>
                 <td>{{form.s10_e9_en}}</td>
                 <td>15</td>
@@ -1621,9 +2580,21 @@
                 <td>9</td>
             </tr>
             <tr class="time">
-                <td>{{form.s10_e10_comment }}</td>
+                {% if form.s10_e10_comment.id == 1%}
+                <td></td>
+                {% else %}
+                <td>{{ form.s10_e10_comment }}</td>
+                {% endif %}
+          {% if form.s10_e10_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s10_e10_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>{{form.s10_e10_enl}}</td>
                 <td>{{form.s10_e10_en}}</td>
                 <td>15</td>
@@ -1664,9 +2635,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
+                {% if form.s11_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s11_e1_comment }}</td>
+                {% endif %}
+          {% if form.s11_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s11_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>كوچكتر
                     <br>
                     <span class="time">60</span>
@@ -1700,9 +2683,21 @@
                 <td>Ok</td>
             </tr>
             <tr>
+                {% if form.s12_e1_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s12_e1_comment }}</td>
+                {% endif %}
+          {% if form.s12_e1_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s12_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td>
                     <span class="time">3</span>
                     <br>
@@ -1712,18 +2707,42 @@
             </tr>
 
             <tr>
+                {% if form.s12_e2_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s12_e2_comment }}</td>
+                {% endif %}
+          {% if form.s12_e2_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s12_e2_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td class="time">3</td>
                 <td>{{ form.s12_e2_cc }}</td>
                 <td>{{ form.s12_e2_en }}</td>
             </tr>
 
             <tr>
+                {% if form.s12_e3_comment.id == 1%}
+                <td></td>
+                {% else %}
                 <td>{{ form.s12_e3_comment }}</td>
+                {% endif %}
+          {% if form.s12_e3_comment.id == 1 %}
+                <td></td>
+                <td>&#10004;</td>
+                {% elif form.s12_e3_comment.id == 2 %}
                 <td></td>
                 <td></td>
+                {% else %}
+                <td>&#10004;</td>
+                <td></td>
+                {% endif %}
                 <td class="time">3</td>
                 <td>{{ form.s12_e3_cc }}</td>
                 <td>{{ form.s12_e3_en }}</td>

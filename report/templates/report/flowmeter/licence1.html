@@ -96,7 +96,7 @@
         </tr>
         <tr>
             <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
+            <td class="no-border"><span>{{form.device.serial_number}}</span>شماره سريال: </td >
         </tr>
         <tr>
             <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
@@ -130,7 +130,7 @@
             <td>ردیف</td>
         </tr>
         <tr class="time">
-            <td></td>
+            <td>{{ form.cal_dev_1_cd.year }}/{{ form.cal_dev_1_cd.month }}/{{ form.cal_dev_1_cd.day }}</td>
             <td>{{ form.cal_dev_1_cd.year }}/{{ form.cal_dev_1_cd.month }}/{{ form.cal_dev_1_cd.day }}</td>
             <td>{{ form.cal_dev1.serial }}</td>
             <td>{{ form.cal_dev1.name }}</td>
