@@ -1,0 +1,193 @@
+{% extends 'base3.html' %}
+{% load static %}
+
+{% block content %}
+<title>پنل کاربری بیمارستان</title>
+
+
+<input type="text" id="target">
+
+<!-- <span class="blink" >jjjjjjjjjjjjjjjjjjjjjj</span> -->
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-12" style="direction: rtl;">
+                <div>
+                    <div style="width: 100%;text-align: center;">
+                    <img src="{% static 'img/sairan.svg' %}" class="logo" alt="">
+                    </div>
+                        <div class="data-box-2">
+
+                            {% if date_error %}
+                            <div class="warning-box">
+                                {{date_error}}
+                            </div>
+                            {% endif %}
+                            <div class="hospital">
+                                <div style="font-size: 12px;">
+                                بیمارستان آموزشی درمانی فوق تخصصی الزهرا (س)
+                                آدرس: استان اصفهان، اصفهان، بلوار صفه
+                                    ساعات بازدید: شبانه‌روزی باز است
+                                </div>
+                                <!-- <span class="blink" >jjjjjjjjjjjjjjjjjjjjjj</span> -->
+                                <img src="{% static 'img/a.png' %}" class="hospital-img">
+                                <div class="setting-icon">
+                                    <a href="{% url  'report-pdf1'%}" >
+                                        <img style="display: block" src="{% static 'img/setting2.ico' %}"  alt="">
+                                    </a>
+                                </div>
+                                <div class="exit-btn">
+                                    <a href="{% url 'logout1'%}" style="display: block;"> خروج <img src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;" alt=""></a>
+                                </div>
+                            </div>
+                            <br>
+                            <!--<button type="button" class="btn btn-outline-primary" style="border-radius: 20px;">PDF</button>-->
+                            <!--<button type="button" class="btn btn-outline-success" style="border-radius: 20px;">Exel</button>-->
+                            
+                            <!-- &#10004; ///////////////////// tick  -->
+                            
+                            <div class="excel-report">
+                                <div class="excel-btn">گزارش Excel</div>
+                                <!-- <br> -->
+                                <!-- <br> -->
+                                <div style="height: 250px;"></div>
+                                <!-- <div class="card card-body" style="border:none;"> -->
+                                    <form action="{% url 'report-xlsx' %}" method="GET">
+                                        <div class="fm">
+                                            <div>
+                                                <div class="form-group">
+                                                    <label>از: </label>
+                                                        <input type="text"  name="start_date" class="form-control inp" >
+                                                        <img  src="{% static 'img/calender.svg' %}" onclick="Mh1PersianDatePicker.Show(start_date,'{{date.year}}/{{month}}/{{date.day}}')" height="25px">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>تا: </label>
+                                                    <input type="text" name="end_date" class="form-control inp" >
+
+                                                    <img  src="{% static 'img/calender.svg' %}" onclick="Mh1PersianDatePicker.Show(end_date,'{{date.year}}/{{month}}/{{date.day}}')" height="25px" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="is_recal" class="custom-control-input" id="defaultUnchecked">
+                                                        <label class="custom-control-label" for="defaultUnchecked">فقط گزارشات ریکالیبراسیون</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+
+                                    <div class="flex-btn">
+                                        <button type="submit" class="btn btn-primary" name="action" value="show" style="border-radius: 20px;width: 125px;padding: 10px 0;background-color: #114476;border-color:#114476;">نمایش</button>
+                                        <button type="submit" class="btn btn-success" name="action" value="download" style="border-radius: 20px;width: 125px;padding: 10px 0;">دانلود</button>
+                                    </div>
+                                 </form>
+                                <!-- </div> -->
+
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="report-list" style="position: relative;">
+                            <div class="report-list-btn">
+                                لیست گزارشات
+                            </div>
+                            <div style="margin-top: 240px;"></div>
+                            <div class="report-table">
+                                <table style="width: 100%;text-align: center;">
+                                    <thead>
+                                        <tr>
+                                            <th>a</th>
+                                            <th>b</th>
+                                            <th><div style="background-color:rgba(225, 240, 21, 0.753);width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <th><div style="background-color:#dc3546b6;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>
+                                        </tr>
+                                        <tr>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <th><div style="background-color:#18da32ab;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>                                            
+                                        </tr>
+                                        <tr>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <td>c</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            {% if data %}
+            <div class="col-lg-8 col-md-12" style="direction: rtl;">
+                <div class="data-box">
+                    <table style="border-radius: 10px; width: 100%;">
+                        <!--///////////////////////////////////-->
+                            <tr class="t-row">
+                                <th>{{firstrow.1}}</th>
+                                <th>{{firstrow.2}}</th>
+                                <th>{{firstrow.3}}</th>
+                                <th>{{firstrow.4}}</th>
+                                <th>{{firstrow.5}}</th>
+                                <th>{{firstrow.6}}</th>
+                                <th>{{firstrow.7}}</th>
+                                <th>{{firstrow.8}}</th>
+                                <th>{{firstrow.9}}</th>
+                                <th>{{firstrow.10}}</th>
+                                <th>{{firstrow.11}}</th>
+                                <th>{{firstrow.12}}</th>
+                                <th>{{firstrow.13}}</th>
+                                <th>{{firstrow.14}}</th>
+                                <th>{{firstrow.15}}</th>
+                                <th>PDF</th>
+                            </tr>
+                            {% for i in data %}
+
+                                <tr class="t-row">
+                                    <th>{{forloop.counter}}</th>
+                                    <th>{{i.device.hospital.city.state_name.name}}</th>
+                                    <th>{{i.device.hospital.city.name}}</th>
+                                    <th>{{i.device.hospital.name}}</th>
+                                    <th>{{i.device.section.name}}</th>
+                                    <th>{{i.device.name.type.name}}</th>
+                                    <th>{{i.device.name.creator.name}}</th>
+                                    <th>{{i.device.name.name}}</th>
+                                    <th>{{i.device.serial_number}}</th>
+                                    <th>{{i.device.property_number}}</th>
+                                    <th>{{i.status.status}}</th>
+                                    <th>{{i.date|date:'Y-m-d'}}</th>
+                                    <th>{{firstrow.0}}</th>
+                                    {% if i.licence.number != -1%}
+                                        <th>{{i.licence.number}}</th>
+                                    {% else%}
+                                        <th>-</th>
+                                    {% endif %}
+                                    <th>
+                                        {% for t in i.totalcomment.all %}
+                                        {{t}}
+                                        {% endfor %}
+                                    </th>
+                                    {% if i.status.id != 4 %}
+                                        <form method="GET" action="{% url 'report-pdf1'%}">
+                                            <td> <button type="submit" value="{{i.licence.number}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
+                                        </form>
+                                    {% endif %}
+                            </tr>
+                            {% empty %}
+                                norecord
+                            {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

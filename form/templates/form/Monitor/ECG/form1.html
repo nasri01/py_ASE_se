@@ -1,0 +1,938 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+
+
+<form method="POST" class="post-form">
+
+    {% csrf_token %}
+
+    <table class="table-bordered">
+        <!--////////////////////////////////////////////////////////////-->
+        <div class="data container-fluid">
+          {% if edit %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش شماره {{ licence_num }} هستید
+        </div>
+          {% elif recal %}
+          <div class="alert alert-warning">
+               شما در حال ثبت گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+          {% elif edit_recal %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+
+          {% endif %}
+<h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
+گواهينامه کنترل کيفي دستگاه مانيتورينگECG
+    </h1>
+
+
+            <div class="row" style="margin-right: 40px;">
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      	<span style="margin-right: 30px;"> نام دستگاه : </span>
+        <span class="ee">
+          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
+        </span>
+
+
+        <!--
+      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+          <span> شماره درخواست  : </span>
+        <span class="ee"> {{form.request}} </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+      </div>
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <span> رطوبت محیطی : </span>
+        <span class="ee">
+            {{form.humidity}}
+        </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <label style="margin-right: 17px;" > دمای محیطی : </label>
+                  <span class="ee"> {{form.temp}} </span>
+
+      <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+      </div>
+
+
+
+
+
+
+
+	<!--</form>-->
+
+<br><br>
+
+
+<h2>تجهیزات آزمون : </h2>
+
+<div class="container">
+  <label>نام تجهیز :</label><br>
+  <label>دستگاه شماره 1 :</label>
+    <span class="ee">
+      {{form.cal_dev1}}
+    </span><br>
+  <label>دستگاه شماره 2 :</label>
+    <span class="ee">
+      {{form.cal_dev2}}
+    </span><br>
+  <label>دستگاه شماره 3 :</label>
+    <span class="ee">
+      {{form.cal_dev3}}
+    </span><br>
+</div>
+<br><br>
+
+<div style="font-weight: bold;">
+
+1.حذف پالس پیس میکر
+        </div>
+<br>
+<br>
+
+<table style="margin: auto;width: 100%;text-align: center; direction: ltr;" class="tb-2 time">
+          <thead>
+              <tr>
+                <th rowspan="2">SETTING</th>
+                <th rowspan="2">Width</th>
+                <th rowspan="2">Amp</th>
+                <th rowspan="2">PACE Mark</th>
+                <th rowspan="2">HR</th>
+                <th colspan="2">Result</th>
+                <th rowspan="2">Comment</th>
+              </tr>
+                <tr>
+                    <th>OK</th>
+                    <th>Rej</th>
+                </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="8" style="width: 4cm;">Lead II ASync No Overshoot HR=80bpm</td>
+              <td rowspan="4">0.1ms</td>
+              <td>-700 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e1_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e1_comment }}</td>
+
+            </tr>
+            <tr>
+              <td>-2 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e2_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e2_comment }}</td>
+            </tr>
+
+
+            <tr>
+              <td>+2 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e3_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e3_comment }}</td>
+            </tr>
+
+
+            <tr>
+              <td>+700 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e4_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e4_comment }}</td>
+            </tr>
+
+            <tr>
+                <td rowspan="4">2 ms</td>
+              <td>-700 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e5_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e5_comment }}</td>
+            </tr>
+
+            <tr>
+              <td>-2 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e6_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e6_comment }}</td>
+            </tr>
+
+            <tr>
+              <td>+2 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e7_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e7_comment }}</td>
+            </tr>
+
+            <tr>
+              <td>+700 mv</td>
+              <td>tick</td>
+              <td>{{ form.s1_e8_hr }}</td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s1_e8_comment }}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+<br><br>
+<span style="font-weight: bold;">
+2.گستره و درستی نرخ ضربان قلب</span>
+
+
+<br><br>
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Mode</th>
+            <th rowspan="2">Amp (mv)</th>
+              <th rowspan="2">HR</th>
+            <th rowspan="2">Max Error</th>
+            <th rowspan="2">HR</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>Rej</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="5">Adult</td>
+          <td rowspan="5">1</td>
+          <td>30</td>
+          <td>±5 bpm</td>
+          <td>{{ form.s2_e1_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e1_comment }}</td>
+
+        </tr>
+        <tr>
+          <td>80</td>
+          <td>±8 bpm</td>
+          <td>{{ form.s2_e2_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e2_comment }}</td>
+        </tr>
+      <tr>
+          <td>120</td>
+          <td>±12 bpm</td>
+          <td>{{ form.s2_e3_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e3_comment }}</td>
+        </tr>
+      <tr>
+          <td>200</td>
+          <td>±20 bpm</td>
+          <td>{{ form.s2_e4_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e4_comment }}</td>
+        </tr>
+      <tr>
+          <td>300</td>
+          <td >
+              <span style="font-family: 'B Nazanin';">
+                  نرخ ضربان نباید کمتراز حد بالای ضربان
+              </span>
+              <br>
+              <span style="font-family: 'B Nazanin';">باشد</span>
+              300
+              <span style="font-family: 'B Nazanin';">مانيتور یا</span>
+          </td>
+          <td>{{ form.s2_e5_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e5_comment }}</td>
+        </tr>
+      <tr>
+          <td rowspan="5">Neonate</td>
+          <td rowspan="5">1</td>
+          <td>30</td>
+          <td>±5 bpm</td>
+          <td>{{ form.s2_e6_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e6_comment }}</td>
+        </tr>
+        <tr>
+          <td>80</td>
+          <td>±8 bpm</td>
+          <td>{{ form.s2_e7_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e7_comment }}</td>
+        </tr>
+      <tr>
+          <td>120</td>
+          <td>±12 bpm</td>
+          <td>{{ form.s2_e8_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e8_comment }}</td>
+        </tr>
+      <tr>
+          <td>200</td>
+          <td>±20 bpm</td>
+          <td>{{ form.s2_e9_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e9_comment }}</td>
+        </tr>
+      <tr>
+          <td>300</td>
+     <td >
+              <span style="font-family: 'B Nazanin';">
+                  نرخ ضربان نباید کمتراز حد بالای ضربان
+              </span>
+              <br>
+              <span style="font-family: 'B Nazanin';">باشد</span>
+              300
+              <span style="font-family: 'B Nazanin';">مانيتور یا</span>
+          </td>
+          <td>{{ form.s2_e10_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s2_e10_comment }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+<br><br>
+
+
+<span style="font-weight: bold;">
+3.گستره شناساییQRS
+</span>
+<br><br>
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Mode</th>
+            <th rowspan="2">HR</th>
+              <th rowspan="2">Amp</th>
+            <th rowspan="2">Width</th>
+            <th rowspan="2">Max Error</th>
+            <th rowspan="2">HR</th>
+            <th colspan="2" >Result</th>
+              <th rowspan="2">Comment</th>
+
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>REJ</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="9">Adult</td>
+          <td rowspan="4">30</td>
+          <td>0.5 mv</td>
+          <td>70 ms</td>
+          <td>±5 bpm</td>
+          <td>{{ form.s3_e1_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e1_comment }}</td>
+
+        </tr>
+        <tr>
+          <td>1 mv</td>
+          <td>10 ms</td>
+          <td rowspan="3" style="font-family: 'B Nazanin';">دستگاه شمارش کند</td>
+          <td>{{ form.s3_e2_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e2_comment }}</td>
+        </tr>
+      <tr>
+          <td rowspan="2">0.15 mv</td>
+          <td>70 ms</td>
+          <td>{{ form.s3_e3_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e3_comment }}</td>
+        </tr>
+      <tr>
+          <td>120 ms</td>
+          <td>{{ form.s3_e4_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e4_comment }}</td>
+        </tr>
+      <tr>
+          <td>80</td>
+          <td>2 ms</td>
+          <td>100 ms</td>
+          <td>±8 bpm</td>
+          <td>{{ form.s3_e5_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e5_comment }}</td>
+        </tr>
+      <tr>
+          <td rowspan="4">200</td>
+          <td>5 ms</td>
+          <td>120 ms</td>
+          <td>±20 bpm</td>
+          <td>{{ form.s3_e6_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e6_comment }}</td>
+        </tr>
+        <tr>
+            <td>1 mv</td>
+          <td>10 ms</td>
+          <td rowspan="3" style="font-family: 'B Nazanin';">دستگاه شمارش کند</td>
+          <td>{{ form.s3_e7_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e7_comment }}</td>
+        </tr>
+      <tr>
+          <td rowspan="2">0.15 mv</td>
+          <td>120 ms</td>
+          <td>{{ form.s3_e8_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e8_comment }}</td>
+        </tr>
+      <tr>
+          <td>70 ms</td>
+          <td>{{ form.s3_e9_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e9_comment }}</td>
+        </tr>
+      <tr>
+          <td rowspan="3">Neonate</td>
+          <td>30</td>
+          <td>0.5 mv</td>
+          <td>40 ms</td>
+          <td>±5 bpm</td>
+          <td>{{ form.s3_e10_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e10_comment }}</td>
+        </tr>
+      <tr>
+          <td>100</td>
+          <td>2 mv</td>
+          <td>80 ms</td>
+          <td>±10 bpm</td>
+          <td>{{ form.s3_e11_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e11_comment }}</td>
+        </tr>
+      <tr>
+          <td>250</td>
+          <td>5 mv</td>
+          <td>120 ms</td>
+          <td>±25 bpm</td>
+          <td>{{ form.s3_e12_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s3_e12_comment }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+<br><br>
+
+
+<span style="font-weight: bold;">
+4.خطای مجاز ولتاژ برق شهر</span>
+<br><br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Mode</th>
+            <th rowspan="2">HR</th>
+            <th rowspan="2">Amp</th>
+            <th rowspan="2">ART.Size</th>
+            <th rowspan="2">ARTF</th>
+            <th rowspan="2">Max Error</th>
+            <th rowspan="2">HR</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>REJ</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Adult</td>
+          <td>80</td>
+          <td>0.5 mv</td>
+          <td>0.25</td>
+          <td>50 Hz</td>
+          <td>±8 bpm</td>
+          <td>{{ form.s4_e1_hr }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s4_e1_comment }}</td>
+      </tbody>
+
+    </table>
+
+<br><br>
+
+
+<span style="font-weight: bold;">
+5.آلارم</span>
+<br><br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+          <thead>
+              <tr>
+                <th rowspan="2" style="width: 6cm;">SETTING</th>
+                <th rowspan="2">Indicated on Display</th>
+                <th colspan="2">Result</th>
+                <th rowspan="2">Comment</th>
+              </tr>
+                <tr>
+                    <th>OK</th>
+                    <th>Rej</th>
+                </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Reduces the volume of auditory alarm signals to zero</td>
+              <td>Audio OFF</td>
+              <td>{{ form.s5_e1_status }}</td>
+              <td></td>
+              <td>{{ form.s5_e1_comment }}</td>
+            </tr>
+          </tbody>
+
+        </table>
+        <br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4 time">
+      <thead>
+          <tr>
+            <th rowspan="2" colspan="2">Test Condition</th>
+            <th rowspan="2">HR <br> (1)</th>
+              <th rowspan="2">HR <br>(2)</th>
+            <th rowspan="2">Amp <br>(mv)</th>
+            <th rowspan="2">Width <br>(ms)</th>
+            <th rowspan="2">Alarm Delay Time</th>
+            <th rowspan="2">Max Permissible Error</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>Rej</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Low</td>
+          <td style="width: 3cm;padding: 0.05cm;">Set Lower Alarm <br> Limit : 60 (bpm)</td>
+          <td>80</td>
+          <td>40</td>
+          <td rowspan="3">1</td>
+          <td rowspan="3">70</td>
+          <td>{{ form.s5_e2_delay }}</td>
+          <td rowspan="3">10 s</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s5_e2_comment }}</td>
+
+        </tr>
+        <tr>
+          <td>High</td>
+          <td style="padding: 0.1cm;">Set Upper Alarm <br> Limit: 100 (bpm)</td>
+          <td>80</td>
+          <td>120</td>
+          <td>{{ form.s5_e3_delay }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s5_e3_comment }}</td>
+
+        </tr>
+      <tr>
+          <td>Asystole</td>
+          <td style="padding: 0.1cm;">Set Lower Alarm Limit : 60 (bpm )</td>
+          <td>80</td>
+          <td>0</td>
+          <td>{{ form.s5_e4_delay }}</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s5_e4_comment }}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+        <br><br>
+
+    <span style="font-weight: bold;">
+6.پایداری و کنترل بهره</span>
+<br><br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4 time">
+      <thead>
+          <tr>
+            <th rowspan="2" >Wave</th>
+            <th rowspan="2">Amp (mv)</th>
+            <th rowspan="2">Lead</th>
+            <th rowspan="2">Gain <br>(mm/mv)</th>
+            <th rowspan="2">Display Amp (mm)</th>
+            <th rowspan="2">Recorder Amp (mm)</th>
+            <th rowspan="2">Permissible Error</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>Rej</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3">10Hz</td>
+          <td rowspan="3">1</td>
+          <td rowspan="3">II</td>
+          <td>5</td>
+          <td>{{ form.s6_e1_damp }}</td>
+          <td>{{ form.s6_e1_ramp }}</td>
+          <td>±0.5 mm</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s6_e1_comment }}</td>
+
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>{{ form.s6_e2_damp }}</td>
+          <td>{{ form.s6_e2_ramp }}</td>
+          <td>±1 mm</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s6_e2_comment }}</td>
+
+        </tr>
+      <tr>
+
+          <td>20</td>
+          <td>{{ form.s6_e3_damp }}</td>
+          <td>{{ form.s6_e3_ramp }}</td>
+          <td>±2 mm</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s6_e3_comment }}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+<br><li>
+         نتایج در خروجی پرینتر (10،20،40پیک متوالی) و صفحه نمایش (10پیک متوالی)در گین های تنظیمی بررسی شود
+
+            </li><br>
+
+
+        <span style="font-weight: bold;">
+7.پاسخ فرکانسی</span>
+<br><br>
+<table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5 time">
+          <thead>
+              <tr>
+                <th rowspan="2" colspan="2" style="width: 6cm;">Setting</th>
+                <th rowspan="2">Wave (Hz)</th>
+                <th rowspan="2">Display Amp (mm)</th>
+                <th rowspan="2">Recorder Amp (mm)</th>
+                <th rowspan="2">Permissible Error</th>
+                <th colspan="2">Result</th>
+                <th rowspan="2">Comment</th>
+              </tr>
+                <tr>
+                    <th>OK</th>
+                    <th>REJ</th>
+                </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gain (mm/mv)</td>
+              <td>1</td>
+              <td>5</td>
+              <td>{{ form.s7_e1_damp }}</td>
+              <td>{{ form.s7_e1_ramp }}</td>
+              <td style="background-color: grey;"></td>
+              <td></td>
+              <td></td>
+              <td>{{ form.s7_e1_comment }}</td>
+            </tr>
+          <tr>
+              <td>Amp(mv)</td>
+              <td>1</td>
+              <td rowspan="2">0.67</td>
+              <td rowspan="2">{{ form.s7_e2_damp }}</td>
+              <td rowspan="2">{{ form.s7_e2_ramp }}</td>
+              <td rowspan="2">71%-110% @5Hz</td>
+              <td rowspan="2"></td>
+              <td rowspan="2"></td>
+              <td rowspan="2">{{ form.s7_e2_comment }}</td>
+            </tr>
+          <tr>
+              <td rowspan="2">Sweep speed(mm/s)</td>
+              <td rowspan="2">25</td>
+
+            </tr>
+            <tr>
+
+              <td rowspan="2">40</td>
+              <td rowspan="2">{{ form.s7_e3_damp }}</td>
+              <td rowspan="2">{{ form.s7_e3_ramp }}</td>
+              <td rowspan="2">71%-110% @5Hz</td>
+              <td rowspan="2"></td>
+              <td rowspan="2"></td>
+              <td rowspan="2">{{ form.s7_e3_comment }}</td>
+
+            </tr>
+          <tr>
+              <td>Lead</td>
+              <td>II</td>
+
+
+
+          </tr>
+          </tbody>
+
+        </table>
+        <br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Gain (mm/mv)</th>
+            <th rowspan="2">Amp (mv)</th>
+            <th rowspan="2">Width (ms)</th>
+            <th rowspan="2">Display Amp (mm)</th>
+            <th rowspan="2">Recorder Amp (mm)</th>
+            <th rowspan="2">Permissible Error</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>REJ</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">10</td>
+          <td rowspan="2">2</td>
+          <td>200</td>
+          <td>{{ form.s7_e4_damp }}</td>
+          <td>{{ form.s7_e4_ramp }}</td>
+          <td style="background-color: grey;"></td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s7_e4_comment }}</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>{{ form.s7_e5_damp }}</td>
+          <td>{{ form.s7_e5_ramp }}</td>
+          <td>75%-100% @200ms</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s7_e5_comment }}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+    <<br><br>
+
+            <span style="font-weight: bold;">
+            8.پاسخ ضربه</span>
+<br><br>
+<table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Wave</th>
+            <th rowspan="2">Baseline Displacement</th>
+            <th rowspan="2">Permissible Range</th>
+            <th rowspan="2">Slope</th>
+            <th rowspan="2">Permissible Range</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>REJ</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Impulse 3mv 100ms</td>
+          <td>{{ form.s8_e1_bdisp }}</td>
+          <td>0.1 mv</td>
+          <td>{{ form.s8_e1_slope }}</td>
+          <td>0.3 mv/s</td>
+          <td></td>
+          <td></td>
+          <td>{{ form.s8_e1_comment }}</td>
+        </tr>
+      </tbody>
+
+    </table><br><br>
+
+            <span style="font-weight: bold;">
+9.نشانگر بهره</span>
+<br><br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5 time">
+      <thead>
+          <tr>
+            <th rowspan="2"style="width: 8cm;">Qualitative Compliance</th>
+            <th colspan="2">Result</th>
+            <th rowspan="2">Comment</th>
+
+          </tr>
+            <tr>
+                <th>OK</th>
+                <th>REJ</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gain Indicator</td>
+          <td>{{ form.s8_e1_status }}</td>
+          <td></td>
+          <td>{{ form.s8_e1_comment }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+<br><br>
+
+	<!--</div>-->
+{#/////////////////////////////////////////////#}
+    <br>
+
+
+
+            {% render_field form.status class="1" %}
+
+            {{form.totalcomment}}
+
+
+        {% if edit %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_ecg' %}";'>
+        ذخیره نهایی اصلاح
+        </button>
+        {% elif recal %}
+        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_ecg' %}";'>
+        ذخیره نهایی ریکالیبراسیون
+        </button>
+        {% elif edit_recal %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_ecg' %}";'>
+        ذخیره نهایی ویرایش ریکالیبراسیون
+        </button>
+
+        {% else %}{# normal save #}
+        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_ecg' %}";' >
+         ذخیره نهایی فرم
+        </button>
+        {% endif %}
+
+
+        </div>
+
+
+        <!--//////////////////////////////////////////////////////////-->
+
+    </table>
+</form>
+
+
+{##}
+{#<span id="e11">a</span>#}
+
+          <script>
+
+     var t=document.getElementById("txt");
+           {#t.firstChild.nodeValue="humidity is normal.";#}
+
+        {#document.write('ss');#}
+    document.getElementById("eee").addEventListener("click",function () {
+       var humidity=document.getElementById("id_humidity").value;
+
+       if( humidity> 20 && humidity < 40){
+           t.firstChild.nodeValue="humidity is normal.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is normal. ");#}
+           {#document.write(humidity);#}
+       }
+       else if (humidity >=40){
+           t.firstChild.nodeValue="humidity is high.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is high. ");#}
+           {#document.write(humidity);#}
+
+       }
+       else {
+           t.firstChild.nodeValue="humidity is low.";
+           t.firstChild.nodeValue+=humidity;
+           {#document.write("humidity is low. ");#}
+           {#document.write(humidity);#}
+
+       }
+       })
+</script>

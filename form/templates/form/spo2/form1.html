@@ -1,0 +1,648 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+
+
+<form method="POST" class="post-form">
+
+    {% csrf_token %}
+
+    <table class="table-bordered">
+        <!--////////////////////////////////////////////////////////////-->
+        <div class="data container-fluid">
+          {% if edit %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش شماره {{ licence_num }} هستید
+        </div>
+          {% elif recal %}
+          <div class="alert alert-warning">
+               شما در حال ثبت گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+          {% elif edit_recal %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+
+          {% endif %}
+<h1 class="header-t" align="center" style="font-size: 20pt;font-weight: bold;">
+گواهينامه کنترل کيفي دستگاه پالس اکسی متری</h1>
+
+
+            <div class="row" style="margin-right: 40px;">
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      	<span style="margin-right: 30px;"> نام دستگاه : </span>
+        <span class="ee">
+          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
+        </span>
+
+
+        <!--
+      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+          <span> شماره درخواست  : </span>
+        <span class="ee"> {{form.request}} </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+      </div>
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <span> رطوبت محیطی : </span>
+        <span class="ee">
+            {{form.humidity}}
+        </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <label style="margin-right: 17px;" > دمای محیطی : </label>
+                  <span class="ee"> {{form.temp}} </span>
+
+      <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+      </div>
+
+
+
+
+
+
+
+	<!--</form>-->
+
+<br><br>
+
+
+<h2>تجهیزات آزمون : </h2>
+
+<div class="container">
+  <label>نام تجهیز :</label><br>
+  <label>دستگاه شماره 1 :</label>
+    <span class="ee">
+      {{form.cal_dev1}}
+    </span><br>
+  <label>دستگاه شماره 2 :</label>
+    <span class="ee">
+      {{form.cal_dev2}}
+    </span><br>
+<label>دستگاه شماره 3 :</label>
+    <span class="ee">
+      {{form.cal_dev3}}
+    </span><br>
+    <label>دستگاه شماره 4 :</label>
+    <span class="ee">
+      {{form.cal_dev3}}
+    </span><br>
+</div>
+<br><br>
+
+ <div style="font-weight: bold;direction: ltr;">
+
+
+                    <span class="time">Pulse Rate</span>
+                    و
+                    <span class="time">SPO2</span>
+                      1-
+عملکرد
+<br>
+<br>
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 tb-4 time">
+<tbody>
+<tr>
+<td rowspan="2">DESCRIPTION OF TEST</td>
+<td colspan="2">SETTING</td>
+<td colspan="2">READING</td>
+<td rowspan="2" style="width: 5cm;">(PR<sub>setting</sub>-PR<sub>reading</sub>)<sup>2</sup></td>
+</tr>
+<tr>
+<td>SPO2</td>
+<td>PR</td>
+<td>SPO2</td>
+<td>PR</td>
+</tr>
+<tr>
+<td rowspan="3">SPO2%</td>
+<td>96%</td>
+<td>75</td>
+<td>{{ form.s1_e1_spo2}}</td>
+<td>{{ form.s1_e1_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>86%</td>
+<td>75</td>
+<td>{{ form.s1_e2_spo2}}</td>
+<td>{{ form.s1_e2_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>76%</td>
+<td>75</td>
+<td>{{ form.s1_e3_spo2}}</td>
+<td>{{ form.s1_e3_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="4">PULSE RATE</td>
+<td>96%</td>
+<td>35</td>
+<td>{{ form.s1_e4_spo2}}</td>
+<td>{{ form.s1_e4_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>96%</td>
+<td>100</td>
+<td>{{ form.s1_e5_spo2}}</td>
+<td>{{ form.s1_e5_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>96%</td>
+<td>200</td>
+<td>{{ form.s1_e6_spo2}}</td>
+<td>{{ form.s1_e6_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>96%</td>
+<td>240</td>
+<td>{{ form.s1_e7_spo2}}</td>
+<td>{{ form.s1_e7_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>PATIENT CONDITIONS</td>
+<td colspan="5">-</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>98%</td>
+<td>55</td>
+<td>{{ form.s1_e8_spo2}}</td>
+<td>{{ form.s1_e8_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Weak pulse</td>
+<td>90%</td>
+<td>95</td>
+<td>{{ form.s1_e9_spo2}}</td>
+<td>{{ form.s1_e9_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Bradycardia</td>
+<td>88%</td>
+<td>45</td>
+<td>{{ form.s1_e10_spo2}}</td>
+<td>{{ form.s1_e10_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Hypoxic</td>
+<td>70%</td>
+<td>95</td>
+<td>{{ form.s1_e11_spo2}}</td>
+<td>{{ form.s1_e11_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Neonate</td>
+<td>90%</td>
+<td>180</td>
+<td>{{ form.s1_e12_spo2}}</td>
+<td>{{ form.s1_e12_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Tachycardia</td>
+<td>85%</td>
+<td>130</td>
+<td>{{ form.s1_e13_spo2}}</td>
+<td>{{ form.s1_e13_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Geriatric</td>
+<td>92%</td>
+<td>95</td>
+<td>{{ form.s1_e14_spo2}}</td>
+<td>{{ form.s1_e14_pr}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>
+<div class="formol"></div>
+</td>
+<td colspan="5">-</td>
+</tr>
+</tbody></table>
+
+
+<br><br>
+
+
+       2-حساسيت به آرتيفکت ها
+
+                <div style="direction: ltr;">
+                    <span class="time">Low Perfusion</span>
+                    2-1-حالت
+                </div>
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+
+<tbody>
+<tr>
+<td rowspan="3">WEAK PULSE</td>
+<td colspan="2" rowspan="2">SETTING</td>
+<td colspan="2" rowspan="2">Reading @ low perfusion</td>
+<td colspan="2" rowspan="2">ERROR</td>
+</tr>
+<tr></tr>
+<tr>
+<td>SPO2</td>
+<td>PR</td>
+<td>SPO2</td>
+<td>PR</td>
+<td>SPO2</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>Pulse Strength = 3</td>
+<td>94%</td>
+<td>45</td>
+<td>{{ form.s2_e1_spo2}}</td>
+<td>{{ form.s2_e1_pr}}</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pulse Strength = 0.4</td>
+<td>94%</td>
+<td>45</td>
+<td>{{ form.s2_e2_spo2}}</td>
+<td>{{ form.s2_e2_pr}}</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pulse Strength = 0.2</td>
+<td>94%</td>
+<td>45</td>
+<td>{{ form.s2_e3_spo2}}</td>
+<td>{{ form.s2_e3_pr}}</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pulse Strength = 0.1</td>
+<td>94%</td>
+<td>45</td>
+<td>{{ form.s2_e4_spo2}}</td>
+<td>{{ form.s2_e4_pr}}</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+        </table>
+
+
+
+
+
+3- بررسی لوازم جانبی
+
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+<tbody>
+<tr>
+<td></td>
+<td rowspan="2">Accessory</td>
+<td rowspan="2">Model</td>
+<td colspan="2">Result</td>
+<td rowspan="2">Comment</td>
+</tr>
+<tr>
+<td>Ok</td>
+<td>Rej</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Spo2</td>
+<td>{{ form.s3_e1_accessory}}</td>
+<td>{{ form.s3_e1_status}}</td>
+<td>-</td>
+<td>{{ form.s3_e1_comment}}</td>
+</tr>
+
+</tbody></table>
+                <br>
+
+
+4- بررسی ظاهری دستگاه
+
+
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+<tbody>
+<tr>
+<td rowspan="2">Function</td>
+<td rowspan="2">Comment</td>
+<td colspan="2">Result</td>
+</tr>
+<tr>
+<td>Ok</td>
+<td>Rej</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>{{ form.s4_e1_comment}}</td>
+<td>{{ form.s4_e1_status}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Keys and Controllers</td>
+<td>{{ form.s4_e2_comment}}</td>
+<td>{{ form.s4_e2_status}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Indicators and display</td>
+<td>{{ form.s4_e3_comment}}</td>
+<td>{{ form.s4_e3_status}}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Battery</td>
+<td>{{ form.s4_e4_comment}}</td>
+<td>{{ form.s4_e4_status}}</td>
+<td>-</td>
+</tr>
+</tbody>
+        </table>
+                <br>
+
+5-بررسی توان دستگاه
+
+
+                       <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 tb-4 time">
+<tbody>
+<tr>
+    <td colspan="2">Nominal Power</td>
+    <td colspan="2">Measured Power</td>
+    <td colspan="2">Result</td>
+</tr>
+<tr>
+    <td>V.A</td>
+        <td>Watt</td>
+    <td>Voltage<br>(V)</td>
+    <td>Current <br> (A)</td>
+    <td>Ok</td>
+    <td>REJ</td>
+
+</tr>
+<tr>
+    <td>{{ form.s5_e1_va}}</td>
+    <td>{{ form.s5_e1_watt}}</td>
+    <td>{{ form.s5_e1_v}}</td>
+    <td>{{ form.s5_e1_a}}</td>
+    <td>-</td>
+    <td>-</td>
+</tr>
+
+</tbody>
+        </table>
+                <br>
+
+6- زمين حفاظتی
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+<tbody>
+<tr style="font-weight: bold;">
+<td colspan="2">Setting</td>
+<td>Type</td>
+<td colspan="5">READING</td>
+</tr>
+<tr>
+<td rowspan="5">Protective Earth Resistance</td>
+<td rowspan="5">Test current 25A</td>
+<td rowspan="5">
+    <span style="font-weight: bold;">power supply cord</span>
+    <br><br>
+     Yes{{ form.s6_e1_type}}
+    <br>
+    No
+</td>
+<td rowspan="4">Earth Resistance</td>
+<td rowspan="4">Permissible Error</td>
+<td colspan="2" rowspan="3">Result</td>
+<td rowspan="4">Comment</td>
+</tr>
+<tr></tr>
+<tr></tr>
+<tr>
+<td>Rej</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>{{ form.s6_e1_er}}</td>
+<td>-</td>{# TODO Permisible error of spo2 #}
+<td>-</td>
+<td>-</td>
+<td>{{ form.s6_e1_comment}}</td>
+</tr>
+</tbody>
+</table>
+
+<div style="font-weight: bold;direction: rtl;">
+
+
+7- اندازه گيری جريان نشتی زمين
+                   </div>
+
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+<tbody>
+<tr>
+<td colspan="2">Setting</td>
+<td colspan="2">Reading [&mu;A]</td>
+<td rowspan="2">Permissible Error [&mu;A]</td>
+<td colspan="2">Result</td>
+<td rowspan="2">Comment</td>
+</tr>
+<tr>
+<td>Device</td>
+<td>Safety Analyzer</td>
+<td>AP-Earth</td>
+<td>No AP-Earth</td>
+<td>Ok</td>
+<td>Rej</td>
+</tr>
+<tr>
+<td>Device on</td>
+<td>Earth Leakage: Norm Pol,No Earth ,L2</td>
+<td>{{ form.s7_e1_aplc}}</td>
+<td>{{ form.s7_e1_noaplc}}</td>
+<td>500</td>
+<td>&uuml;</td>
+<td>-</td>
+<td>{{ form.s7_e1_comment }}</td>
+</tr>
+<tr>
+<td>Device off</td>
+<td>Earth Leakage: Norm Pol,No Earth ,L2</td>
+<td>{{ form.s7_e2_aplc}}</td>
+<td>{{ form.s7_e2_noaplc}}</td>
+<td>500</td>
+<td>&uuml;</td>
+<td>-</td>
+<td>{{ form.s7_e2_comment }}</td>
+</tr>
+</tbody>
+</table>
+                <br>
+
+
+                  <div style="font-weight: bold;direction: rtl;">
+
+
+8- اندازه گيری جريان کمکی بيمار
+                  </div>
+{# TODO s8 ap type #}
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 tb-4 time">
+<tbody>
+<tr>
+<td colspan="4">Setting</td>
+<td rowspan="2">Patient Auxiliary Current</td>
+<td rowspan="2">Permissible Error</td>
+<td colspan="2">Result</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>AP Type&nbsp;</td>
+<td>DUT Status</td>
+<td>Analyzer Status</td>
+<td>Rej</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>RA</td>
+<td>-</td>
+<td>Device ON</td>
+<td>Norm Pol,No Earth, L2</td>
+<td>-</td>
+<td><span>N.A</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LA</td>
+<td>-</td>
+<td>Device ON</td>
+<td>Norm Pol,No Earth, L2</td>
+<td>-</td>
+<td><span>N.A</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LL</td>
+<td>-</td>
+<td>Device ON</td>
+<td>Norm Pol,No Earth, L2</td>
+<td>-</td>
+<td><span>N.A</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+	<!--</div>-->
+{#/////////////////////////////////////////////#}
+    <br>
+
+
+
+            {% render_field form.status class="1" %}
+
+            {{form.totalcomment}}
+
+
+        {% if edit %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='aed' %}";'>
+        ذخیره نهایی اصلاح
+        </button>
+        {% elif recal %}
+        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='aed' %}";'>
+        ذخیره نهایی ریکالیبراسیون
+        </button>
+        {% elif edit_recal %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='aed' %}";'>
+        ذخیره نهایی ویرایش ریکالیبراسیون
+        </button>
+
+        {% else %}{# normal save #}
+        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='aed' %}";' >
+         ذخیره نهایی فرم
+        </button>
+        {% endif %}
+
+
+        </div>
+
+
+        <!--//////////////////////////////////////////////////////////-->
+
+    </table>
+
+</form>
+
+
+{##}
+{#<span id="e11">a</span>#}
+
+          <script>
+
+     var t=document.getElementById("txt");
+           {#t.firstChild.nodeValue="humidity is normal.";#}
+
+        {#document.write('ss');#}
+    document.getElementById("eee").addEventListener("click",function () {
+       var humidity=document.getElementById("id_humidity").value;
+
+       if( humidity> 20 && humidity < 40){
+           t.firstChild.nodeValue="humidity is normal.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is normal. ");#}
+           {#document.write(humidity);#}
+       }
+       else if (humidity >=40){
+           t.firstChild.nodeValue="humidity is high.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is high. ");#}
+           {#document.write(humidity);#}
+
+       }
+       else {
+           t.firstChild.nodeValue="humidity is low.";
+           t.firstChild.nodeValue+=humidity;
+           {#document.write("humidity is low. ");#}
+           {#document.write(humidity);#}
+
+       }
+       })
+</script>

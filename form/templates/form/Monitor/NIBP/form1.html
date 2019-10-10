@@ -1,0 +1,421 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+
+
+<form method="POST" class="post-form">
+
+    {% csrf_token %}
+
+    <table class="table-bordered">
+        <!--////////////////////////////////////////////////////////////-->
+        <div class="data container-fluid">
+          {% if edit %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش شماره {{ licence_num }} هستید
+        </div>
+          {% elif recal %}
+          <div class="alert alert-warning">
+               شما در حال ثبت گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+          {% elif edit_recal %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+
+          {% endif %}
+<h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
+گواهينامه کنترل کيفي دستگاه مانیتور علائم حیاتی ماژولNIBP
+
+    </h1>
+
+
+            <div class="row" style="margin-right: 40px;">
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      	<span style="margin-right: 30px;"> نام دستگاه : </span>
+        <span class="ee">
+          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
+        </span>
+
+
+        <!--
+      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+          <span> شماره درخواست  : </span>
+        <span class="ee"> {{form.request}} </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+      </div>
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <span> رطوبت محیطی : </span>
+        <span class="ee">
+            {{form.humidity}}
+        </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <label style="margin-right: 17px;" > دمای محیطی : </label>
+                  <span class="ee"> {{form.temp}} </span>
+
+      <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+      </div>
+
+
+
+
+
+
+
+	<!--</form>-->
+
+<br><br>
+
+
+<h2>تجهیزات آزمون : </h2>
+
+<div class="container">
+  <label>نام تجهیز :</label><br>
+  <label>دستگاه شماره 1 :</label>
+    <span class="ee">
+      {{form.cal_dev1}}
+    </span><br>
+  <label>دستگاه شماره 2 :</label>
+    <span class="ee">
+      {{form.cal_dev2}}
+    </span><br>
+  <label>دستگاه شماره 3 :</label>
+    <span class="ee">
+      {{form.cal_dev3}}
+    </span><br>
+</div>
+<br><br>
+
+<div style="font-weight: bold;">
+1. آزمون حدود خطای فشارسنج ناشی از شرایط محیطی</div>
+<br>
+<br>
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+          <thead>
+              <tr>
+                <th rowspan="2">Mode</th>
+                <th colspan="2">Setting</th>
+                <th rowspan="2">Setpoint [mmHg]</th>
+                <th rowspan="2">Simulator Pressure [mmHg]</th>
+                <th rowspan="2">NIBP Pressure [mmHg]</th>
+                <th rowspan="2">Permissible Error [mmHg]</th>
+                <th colspan="2">Result</th>
+              </tr>
+                <tr>
+                    <th>Cuff</th>
+                    <th>NIBP</th>
+                    <th>OK</th>
+                    <th>REJ</th>
+                </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="8" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Adult</td>
+              <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Standard</td>
+              <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Manometer</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e1_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e1_nibpp }}</td>
+              <td rowspan="8" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">±3 mmHg or 3% of reading</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+            <tr>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e2_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e2_nibpp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+
+            </tr>
+
+
+            <tr>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e3_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e3_nibpp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+
+
+            <tr>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e4_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e4_nibpp }}</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Hospital</td>
+              <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Monometer</td>
+                 <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_nibpp }}</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+
+            <tr>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_nibpp }}</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+
+            <tr>
+                 <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_nibpp }}</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+
+            <tr>
+                 <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_simp }}</td>
+              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_nibpp }}</td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+<br><br>
+<span style="font-weight: bold;">
+2. آزمون کارایی کلی سیستم</span>
+
+
+<br><br>
+
+ <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Mode</th>
+            <th rowspan="2">Pressure Setting</th>
+            <th>Pressure Reading</th>
+            <th>Pressure Error</th>
+            <th>Pressure Reading</th>
+            <th>Pressure Error</th>
+            <th>Pressure Reading</th>
+            <th>Pressure Error</th>
+
+          </tr>
+            <tr>
+                <th>1st</th>
+                <th>1st</th>
+                <th>2st</th>
+                <th>2st</th>
+                <th>3st</th>
+                <th>3st</th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4">Adult</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">30/60</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e1_pr1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e1_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e1_pr3 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+
+        </tr>
+        <tr>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50/80</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e2_pr1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e2_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e2_pr3 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+
+        </tr>
+      <tr>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80/120</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e3_pr1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e3_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e3_pr3 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+        </tr>
+      <tr>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">150/200</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr3 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+        </tr>
+      <tr>
+          <td rowspan="2">NEO/PED</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">15/35</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e5_pr1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e5_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e5_pr3 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+        </tr>
+      <tr>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">70/100</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e6_pr1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e6_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e6_pr3 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+        </tr>
+      </tbody>
+
+    </table>
+                <br>
+
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+      <thead>
+          <tr>
+            <th rowspan="2">Pressure</th>
+            <th rowspan="2">Error Sum</th>
+            <th><span style="border-top: 1px solid black;">x</span></th>
+            <th>Permissible Error</th>
+            <th>SD</th>
+            <th>Permissible Error</th>
+            <th>Pressure Reading</th>
+            <th>Pressure Error</th>
+
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Systolic</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">≤(±5 mmHg)</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">≤8 mmHg</td>
+             <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+             <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+
+        </tr>
+        <tr>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Diastolic</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">≤(±5 mmHg)</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">≤8 mmHg</td>
+             <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+             <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+<br><br>
+
+
+	<!--</div>-->
+{#/////////////////////////////////////////////#}
+    <br>
+
+
+
+            {% render_field form.status class="1" %}
+
+            {{form.totalcomment}}
+
+
+        {% if edit %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_nibp' %}";'>
+        ذخیره نهایی اصلاح
+        </button>
+        {% elif recal %}
+        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_nibp' %}";'>
+        ذخیره نهایی ریکالیبراسیون
+        </button>
+        {% elif edit_recal %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_nibp' %}";'>
+        ذخیره نهایی ویرایش ریکالیبراسیون
+        </button>
+
+        {% else %}{# normal save #}
+        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_nibp' %}";' >
+         ذخیره نهایی فرم
+        </button>
+        {% endif %}
+
+
+        </div>
+
+
+        <!--//////////////////////////////////////////////////////////-->
+
+    </table>
+
+</form>
+
+
+{##}
+{#<span id="e11">a</span>#}
+
+          <script>
+
+     var t=document.getElementById("txt");
+           {#t.firstChild.nodeValue="humidity is normal.";#}
+
+        {#document.write('ss');#}
+    document.getElementById("eee").addEventListener("click",function () {
+       var humidity=document.getElementById("id_humidity").value;
+
+       if( humidity> 20 && humidity < 40){
+           t.firstChild.nodeValue="humidity is normal.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is normal. ");#}
+           {#document.write(humidity);#}
+       }
+       else if (humidity >=40){
+           t.firstChild.nodeValue="humidity is high.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is high. ");#}
+           {#document.write(humidity);#}
+
+       }
+       else {
+           t.firstChild.nodeValue="humidity is low.";
+           t.firstChild.nodeValue+=humidity;
+           {#document.write("humidity is low. ");#}
+           {#document.write(humidity);#}
+
+       }
+       })
+</script>

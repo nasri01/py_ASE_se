@@ -1,0 +1,464 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+<div class="alert alert-danger">
+ {{ massage }}
+</div>
+
+
+<form method="POST" action="{% url 'router' formtype='monitor_spo2_1' %}" class="post-form">
+    {% csrf_token %}
+
+
+    <table class="table-bordered">
+        <!--////////////////////////////////////////////////////////////-->
+        <div class="data container-fluid">
+          {% render_field form.status class="12556" %}
+          {{form.is_done}}
+          {{form.totalcomment}}
+	   <h1 align="center">
+        گواهينامه کنترل کيفي دستگاه مانیتور علائم حیاتی ماژول NIBP
+       </h1>
+
+
+
+            <div class="row" style="margin-right: 40px;">
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      	<span style="margin-right: 30px;"> نام دستگاه : </span>
+        <span class="ee">
+          {{form.device}}
+        </span>
+
+
+        <!--
+      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+          <span> شماره درخواست  : </span>
+        <span class="ee"> {{form.request}} </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+      </div>
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <span> رطوبت محیطی : </span>
+        <span class="ee">
+            {{form.humidity}}
+        </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <label style="margin-right: 17px;" > دمای محیطی : </label>
+                  <span class="ee"> {{form.temp}} </span>
+
+      <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+      </div>
+
+
+	<!--</form>-->
+
+<br><br>
+
+
+<h2>تجهیزات آزمون : </h2>
+
+<div class="container">
+  <label>نام تجهیز :</label><br>
+  <label>دستگاه شماره 1 :</label>
+    <span class="ee">
+      {{form.cal_dev1}}
+    </span><br>
+  <label>دستگاه شماره 2 :</label>
+    <span class="ee">
+      {{form.cal_dev2}}
+    </span><br>
+  <label>دستگاه شماره 3 :</label>
+    <span class="ee">
+      {{form.cal_dev3}}
+    </span><br>
+</div>
+
+<br><br>
+
+<span style="font-weight: bold;">
+	1. آزمون حدود خطای فشارسنج ناشی از شرایط محیطی (بند201.12.1.102 استانداردIEC 80601-2-30:2013 ):
+</span>
+<br>
+<br>
+
+<table style="direction: ltr;margin: auto;">
+  <thead>
+              <tr>
+                <th rowspan="2" style="text-align: center;">Mode</th>
+                <th colspan="2" style="text-align: center;">Setting</th>
+                <th rowspan="2" style="text-align: center;">Setpoint [mmHg]</th>
+                <th rowspan="2" style="text-align: center;">Simulator Pressure [mmHg]</th>
+                <th rowspan="2" style="text-align: center;">NIBP Pressure [mmHg]</th>
+                <th rowspan="2" style="text-align: center;">Permissible Error [mmHg]</th>
+                <th colspan="2" style="text-align: center;">Result</th>
+              </tr>
+                <tr>
+                    <th>Cuff</th>
+                    <th>NIBP</th>
+                    <th>OK</th>
+                    <th>REJ</th>
+                </tr>
+          </thead>
+  <tbody>
+            <tr>
+              <td rowspan="8">Adult</td>
+              <td rowspan="4">Standard</td>
+              <td rowspan="4">Manometer</td>
+              <td>50</td>
+              <td></td>
+              <td></td>
+              <td rowspan="8">±3 mmHg or 3% of reading</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>80</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+
+            </tr>
+
+
+            <tr>
+              <td>120</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+
+            <tr>
+              <td>200</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td rowspan="4">Hospital</td>
+              <td>Monometer</td>
+                <td>50</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>80</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+                <td>120</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+                <td>200</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+
+</table>
+
+
+
+<br><br>
+<span style="font-weight: bold;">
+	2. آزمون کارایی کلی سیستم (بند 4.4.5.B استانداردAAMI SP10:2006 ) :
+</span>
+
+
+<br><br>
+
+<table style="direction: ltr;margin: auto;">
+    <thead>
+          <tr>
+            <th rowspan="2" style="text-align: center;">Mode</th>
+            <th rowspan="2" style="text-align: center;">Pressure Setting</th>
+            <th style="text-align: center;">Pressure Reading</th>
+            <th style="text-align: center;">Pressure Error</th>
+            <th style="text-align: center;">Pressure Reading</th>
+            <th style="text-align: center;">Pressure Error</th>
+            <th style="text-align: center;">Pressure Reading</th>
+            <th style="text-align: center;">Pressure Error</th>
+
+          </tr>
+            <tr>
+                <th>1st</th>
+                <th>1st</th>
+                <th>2st</th>
+                <th>2st</th>
+                <th>3st</th>
+                <th>3st</th>
+            </tr>
+      </thead>
+    <tbody>
+        <tr>
+          <td rowspan="4">Adult</td>
+          <td>30/60</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+        <tr>
+          <td>50/80</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>80/120</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>150/200</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>NEO/PED</td>
+          <td>15/35</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>70/100</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      </tbody>
+
+</table>
+
+
+<br><br>
+
+
+<table style="direction: ltr;margin: auto;overflow: scroll;">
+
+   <thead>
+          <tr>
+            <th rowspan="2" style="text-align: center;">Pressure</th>
+            <th rowspan="2" style="text-align: center;">Error Sum</th>
+            <th style="text-align: center;"><span style="border-top: 1px solid black;">x</span></th>
+            <th style="text-align: center;">Permissible Error</th>
+            <th style="text-align: center;">SD</th>
+            <th style="text-align: center;">Permissible Error</th>
+            <th style="text-align: center;">Pressure Reading</th>
+            <th style="text-align: center;">Pressure Error</th>
+
+          </tr>
+      </thead>
+   <tbody>
+        <tr>
+          <td>Systolic</td>
+          <td></td>
+          <td></td>
+          <td>≤(±5 mmHg)</td>
+          <td></td>
+          <td>≤8 mmHg</td>
+
+        </tr>
+        <tr>
+          <td>Diastolic</td>
+          <td></td>
+          <td></td>
+          <td>≤(±5 mmHg)</td>
+          <td></td>
+          <td>≤8 mmHg</td>
+
+        </tr>
+      <tr>
+          <td>80/120</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>150/200</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>NEO/PED</td>
+          <td>15/35</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      <tr>
+          <td>70/100</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+      </tbody>
+
+</table>
+
+
+<br><br>
+
+
+
+    <br>
+
+            <!-- Button trigger modal -->
+<button type="button" id="eee" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  ذخیره
+</button>
+
+<!-- Modal -->
+<div style="direction: ltr;text-align: left;" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">؟</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="direction: rtl;text-align: right;">
+
+{#          /////////////////////////////#}
+
+            <div id="txt">.</div>
+
+{#          ///////////////////////////////#}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+        <input type="submit" class="btn btn-primary" value="ذخیره نهایی">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{#            //////////////////////////////////////////#}
+        </div>
+
+
+        <!--//////////////////////////////////////////////////////////-->
+
+    </table>
+
+</form>
+
+
+{##}
+{#<span id="e11">a</span>#}
+
+          <script>
+
+     var t=document.getElementById("txt");
+           {#t.firstChild.nodeValue="humidity is normal.";#}
+
+        {#document.write('ss');#}
+    document.getElementById("eee").addEventListener("click",function () {
+       var humidity=document.getElementById("id_humidity").value;
+
+       if( humidity> 20 && humidity < 40){
+           t.firstChild.nodeValue="humidity is normal.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is normal. ");#}
+           {#document.write(humidity);#}
+       }
+       else if (humidity >=40){
+           t.firstChild.nodeValue="humidity is high.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is high. ");#}
+           {#document.write(humidity);#}
+
+       }
+       else {
+           t.firstChild.nodeValue="humidity is low.";
+           t.firstChild.nodeValue+=humidity;
+           {#document.write("humidity is low. ");#}
+           {#document.write(humidity);#}
+
+       }
+       })
+</script>

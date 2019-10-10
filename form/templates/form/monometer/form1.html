@@ -1,0 +1,413 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+
+
+<form method="POST" class="post-form">
+
+    {% csrf_token %}
+
+    <table class="table-bordered">
+        <!--////////////////////////////////////////////////////////////-->
+        <div class="data container-fluid">
+          {% if edit %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش شماره {{ licence_num }} هستید
+        </div>
+          {% elif recal %}
+          <div class="alert alert-warning">
+               شما در حال ثبت گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+          {% elif edit_recal %}
+          <div class="alert alert-warning">
+               شما در حال ویرایش گزارش ریکالیبراسیون گواهی شماره {{ licence_num }} هستید
+        </div>
+
+          {% endif %}
+<h1 class="header-t" align="center" style="font-size: 20pt;font-weight: bold;">
+        گواهينامه کنترل کيفي دستگاه فشارسنج
+</h1>
+
+
+            <div class="row" style="margin-right: 40px;">
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      	<span style="margin-right: 30px;"> نام دستگاه : </span>
+        <span class="ee">
+          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
+        </span>
+
+
+        <!--
+      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+          <span> شماره درخواست  : </span>
+        <span class="ee"> {{form.request}} </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+      </div>
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <span> رطوبت محیطی : </span>
+        <span class="ee">
+            {{form.humidity}}
+        </span>
+
+        <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+
+      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+      <label style="margin-right: 17px;" > دمای محیطی : </label>
+                  <span class="ee"> {{form.temp}} </span>
+
+      <!--
+        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
+      </div>
+
+      </div>
+
+
+
+
+
+
+
+	<!--</form>-->
+
+<br><br>
+
+
+<h2>تجهیزات آزمون : </h2>
+
+<div class="container">
+  <label>نام تجهیز :</label><br>
+  <label>دستگاه شماره 1 :</label>
+    <span class="ee">
+      {{form.cal_dev1}}
+    </span><br>
+  <label>دستگاه شماره 2 :</label>
+    <span class="ee">
+      {{form.cal_dev2}}
+    </span><br>
+<label>دستگاه شماره 3 :</label>
+    <span class="ee">
+      {{form.cal_dev3}}
+    </span><br>
+</div>
+<br><br>
+
+<div style="font-weight: bold;">
+
+تستهای کیفی:
+        </div>
+<br>
+<br>
+
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1">
+<tbody>
+<tr>
+<th rowspan="2">توضیحات</th>
+<th colspan="2">نتیجه</th>
+<th colspan="2" rowspan="2">عنوان آزمون</th>
+<th rowspan="2">ردیف</th>
+</tr>
+<tr>
+<th>مردود</th>
+<th>تائید</th>
+</tr>
+<tr>
+<td>{{form.s0_e1_comment}}</td>
+<td></td>
+<td></td>
+<td><span>استحکام و عدم ترک</span></td>
+<td rowspan="3"><span>شاسی/ بدنه</span></td>
+<td rowspan="3" class="time">1</td>
+</tr>
+<tr>
+<td>{{form.s0_e2_comment}}</td>
+<td></td>
+<td></td>
+<td><span>تمیزی و عاری از محلول ها</span></td>
+</tr>
+<tr>
+<td>{{form.s0_e3_comment}}</td>
+<td></td>
+<td></td>
+<td><span>کامل بودن قطعات دستگاه</span></td>
+</tr>
+<tr>
+<td>{{form.s0_e4_comment}}</td>
+<td></td>
+<td></td>
+<td><span>استحکام و امنیت</span></td>
+<td><span>نصب</span></td>
+<td class="time">2</td>
+</tr>
+<tr>
+<td>{{form.s0_e5_comment}}</td>
+<td></td>
+<td></td>
+<td><span>روانی چرخ ها</span></td>
+<td rowspan="2"><span>چرخ ها / ترمزها</span></td>
+<td rowspan="2" class="time">3</td>
+</tr>
+<tr>
+<td>{{form.s0_e6_comment}}</td>
+<td></td>
+<td></td>
+<td><span>عملکرد ترمز ها</span></td>
+</tr>
+<tr>
+<td>{{form.s0_e7_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>لوله ها / شیلنگ ها / دمنده</span></td>
+<td class="time">4</td>
+</tr>
+<tr>
+<td>{{form.s0_e8_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>بست ها / اتصالات</span></td>
+<td class="time">5</td>
+</tr>
+<tr>
+<td>{{form.s0_e9_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>فیلترها</span></td>
+<td class="time">6</td>
+</tr>
+<tr>
+<td>{{form.s0_e10_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>ولو تنظیم فشار</span></td>
+<td class="time">7</td>
+</tr>
+<tr>
+<td>{{form.s0_e11_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>نشانگرها / نمایشگرها</span></td>
+<td class="time">8</td>
+</tr>
+<tr>
+<td>{{form.s0_e12_comment}}
+    <span>(±1 mm Hg)</span>
+    <span>حد مجاز </span>
+</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>تنظیم فشار صفر</span></td>
+<td class="time">9</td>
+</tr>
+<tr>
+<td>{{form.s0_e13_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>برچسب گذاری</span></td>
+<td class="time">10</td>
+</tr>
+<tr>
+<td>{{form.s0_e14_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>کاف ها</span></td>
+<td class="time">11</td>
+</tr>
+<tr>
+<td>{{form.s0_e15_comment}}</td>
+<td></td>
+<td></td>
+<td colspan="2"><span>گیج / ستون جیوه</span></td>
+<td class="time">12</td>
+</tr>
+</tbody>
+</table>
+
+
+<br><br>
+<span style="font-weight: bold;">
+                تست های کمی:
+</span>
+
+
+
+
+
+<br><br>
+
+
+<span style="font-weight: bold;">1.آزمون نشتي فشار </span>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+<tbody>
+<tr>
+<th colspan="3">SETTING</th>
+<th rowspan="2">READING</th>
+<th rowspan="2">Permissible Error</th>
+<th colspan="2">Result</th>
+<th rowspan="2">Comment</th>
+</tr>
+<tr>
+<th>Set Point</th>
+<th>Bleed valve</th>
+<th>CUFF</th>
+<th>OK</th>
+<th>REJ</th>
+</tr>
+<tr>
+<td>maximum scale indication</td>
+<td>Close</td>
+<td>External</td>
+<td>{{form.s1_e1_r}}</td>
+<td>&lt;15mmHg/min</td>
+<td></td>
+<td></td>
+<td>{{form.s1_e1_comment}}</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<span style="font-weight: bold;">2. آزمون صحت فشار</span>
+                <br>
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
+<tbody>
+<tr>
+<th colspan="2">Setting</th>
+<th rowspan="2">Setpoint [mmHg]</th>
+<th rowspan="2">Simulator Pressure [mmHg]</th>
+<th rowspan="2">NIBP Pressure [mmHg]</th>
+<th rowspan="2">Permissible Error [mmHg]</th>
+<th colspan="2">Result</th>
+</tr>
+<tr>
+<th>Cuff</th>
+<th>NIBP</th>
+<th>Ok</th>
+<th>Rej</th>
+</tr>
+<tr>
+<td rowspan="4">Internal</td>
+<td rowspan="4">Manometer</td>
+<td>0</td>
+<td>{{form.s2_e1_sp}}</td>
+<td>{{form.s2_e1_np}}</td>
+<td><span>&nbsp;&plusmn;1</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>60</td>
+<td>{{form.s2_e2_sp}}</td>
+<td>{{form.s2_e2_np}}</td>
+<td><span>&nbsp;&plusmn;3</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>120</td>
+<td>{{form.s2_e3_sp}}</td>
+<td>{{form.s2_e3_np}}</td>
+<td><span>&nbsp;&plusmn;3</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>200</td>
+<td>{{form.s2_e4_sp}}</td>
+<td>{{form.s2_e4_np}}</td>
+<td><span>&nbsp;&plusmn;3</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+	<!--</div>-->
+{#/////////////////////////////////////////////#}
+    <br>
+
+
+
+            {% render_field form.status class="1" %}
+
+            {{form.totalcomment}}
+
+
+        {% if edit %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monometer' %}";'>
+        ذخیره نهایی اصلاح
+        </button>
+        {% elif recal %}
+        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monometer' %}";'>
+        ذخیره نهایی ریکالیبراسیون
+        </button>
+        {% elif edit_recal %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monometer' %}";'>
+        ذخیره نهایی ویرایش ریکالیبراسیون
+        </button>
+
+        {% else %}{# normal save #}
+        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monometer' %}";' >
+         ذخیره نهایی فرم
+        </button>
+        {% endif %}
+
+
+        </div>
+
+
+        <!--//////////////////////////////////////////////////////////-->
+
+    </table>
+
+</form>
+
+
+{##}
+{#<span id="e11">a</span>#}
+
+          <script>
+
+     var t=document.getElementById("txt");
+           {#t.firstChild.nodeValue="humidity is normal.";#}
+
+        {#document.write('ss');#}
+    document.getElementById("eee").addEventListener("click",function () {
+       var humidity=document.getElementById("id_humidity").value;
+
+       if( humidity> 20 && humidity < 40){
+           t.firstChild.nodeValue="humidity is normal.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is normal. ");#}
+           {#document.write(humidity);#}
+       }
+       else if (humidity >=40){
+           t.firstChild.nodeValue="humidity is high.";
+           t.firstChild.nodeValue+=humidity;
+
+           {#document.write("humidity is high. ");#}
+           {#document.write(humidity);#}
+
+       }
+       else {
+           t.firstChild.nodeValue="humidity is low.";
+           t.firstChild.nodeValue+=humidity;
+           {#document.write("humidity is low. ");#}
+           {#document.write(humidity);#}
+
+       }
+       })
+</script>

@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'iransans';
+
+  src: url('https://changal.com/assets/fonts/iran-sans/eot/IRANSansWeb_UltraLight.eot') format('eot'),
+       url('https://changal.com/assets/fonts/iran-sans/woff/IRANSansWeb_UltraLight.woff') format('woff'),
+  		url('https://changal.com/assets/fonts/iran-sans/woff2/IRANSansWeb_UltraLight.woff2') format('woff2'),
+       url('https://changal.com/assets/fonts/iran-sans/ttf/IRANSansWeb_UltraLight.ttf') format('truetype');
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'light-iransans';
+
+  src: url('https://changal.com/assets/fonts/iran-sans/eot/IRANSansWeb_Light.eot') format('eot'),
+       url('https://changal.com/assets/fonts/iran-sans/woff/IRANSansWeb_Light.woff') format('woff'),
+	url('https://changal.com/assets/fonts/iran-sans/woff2/IRANSansWeb_Light.woff2')format('woff2'),
+       url('https://changal.com/assets/fonts/iran-sans/ttf/IRANSansWeb_Light.ttf') format('truetype');
+  font-style:normal;
+  font-weight:normal;
+}
+.main{
+        background: url('../img/spo2/back1.png') no-repeat;
+        background-size: cover;
+}
+.page1{
+    background: url('../img/spo2/back 2.png') no-repeat;
+    background-size: cover;
+}
+@page {
+   font-family: 'light-iransans';
+
+    margin: 0;
+    padding: 0;
+    size: "A4";
+}
+.header-t{
+    text-align: center;
+    padding-bottom: 0.5cm;
+    padding-top: 5cm;
+}
+
+td,th{
+    padding: 0.2cm 0.3cm;
+    border: 1px solid black;
+}
+th{
+    background-color: lightgray;
+}
+.no-border{
+    border: none;
+    min-width: 6.5cm;
+    min-height: 1cm;
+    text-align: right;
+}
+
+.stamp{
+
+    width:4cm;
+    height:4cm;
+    /*margin-top: -1cm;*/
+    background: url('../img/spo2/stamp.jpg') no-repeat;
+    background-size: cover;
+    margin-left: 2cm;
+}
+.sign{
+
+    width:6cm;
+    height:4cm;
+    /*margin-top: -1cm;*/
+    background: url('../img/spo2/signature1.jpg') no-repeat;
+    background-size: cover;
+    margin-right: 2cm;
+}
+
+.tb-1 td,th{
+        /*padding: 0;*/
+        padding: 0.2cm 0.2cm;
+
+}
+.tb-2 th,td{
+    padding: 0.2cm 0.3cm;
+
+}
+.tb-3 th,td{
+    padding: 0.2cm 0.3cm;
+    min-width: 1.5cm;
+}
+.sign-2{
+
+    width:10cm;
+    height:7.75cm;
+    background: url('../img/spo2/signature2.jpg') no-repeat;
+    /*background-size: cover;*/
+}
+.sign-2-small{
+    width:7cm;
+    height:5.5cm;
+    background: url('../img/spo2/signature2.jpg') no-repeat;
+    /*background-size: cover;*/
+}
+.formol{
+    width:9cm;
+    height:2.5cm;
+    background: url('../img/formol.PNG') no-repeat;
+    margin-left: 3cm;
+}
