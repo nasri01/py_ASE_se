@@ -46,8 +46,9 @@ def submit(request):
             mm = f'0{jdatetime.date.today().month}'
         else:
             mm = jdatetime.date.today().month
+        req = Request.objects.filter(hospital__user = request.user).order_by('date')
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm})
+                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm,'request':req})
 
     elif request.user.last_name == 'employee':
         return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید'})

@@ -88,34 +88,26 @@
                         <br>
                         <div class="report-list" style="position: relative;">
                             <div class="report-list-btn">
-                                لیست گزارشات
+                                لیست درخواست ها
                             </div>
                             <div style="margin-top: 240px;"></div>
                             <div class="report-table">
                                 <table style="width: 100%;text-align: center;">
                                     <thead>
                                         <tr>
-                                            <th>a</th>
-                                            <th>b</th>
-                                            <th><div style="background-color:rgba(225, 240, 21, 0.753);width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>
+                                            <th>ردیف</th>
+                                            <th>تاریخ</th>
+                                            <th>وضعیت</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {% for req in request %}
                                         <tr>
-                                            <td>a</td>
-                                            <td>b</td>
-                                            <th><div style="background-color:#dc3546b6;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ req.date }}</td>
+                                        <td>{{ req.status }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>a</td>
-                                            <td>b</td>
-                                            <th><div style="background-color:#18da32ab;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>                                            
-                                        </tr>
-                                        <tr>
-                                            <td>a</td>
-                                            <td>b</td>
-                                            <td>c</td>
-                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
