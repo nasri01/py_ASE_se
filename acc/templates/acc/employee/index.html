@@ -2,19 +2,32 @@
 {% load static %}
 
 {% block content %}
-
-
-
+      
 <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-xl-3 col-md-12" style="direction: rtl;">
-                <div>
-                    <div style="width: 100%;text-align: center;">
+            <div class="col-lg-4 col-xl-3 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">
+                    <!-- <div style="width: 100%;text-align: center;">
                     <a href="{% url 'dashboard' %}">
                         <img src="{% static 'img/logo2.jpg' %}" class="logo" alt="">
                     </a>
-                    </div>
+                    </div> -->
                         <div class="data-box-2">
+
+                                <select class="mdb-select md-form" searchable="Search here..">
+                                        <option value="" disabled selected>Choose your country</option>
+                                        <option value="1">USA</option>
+                                        <option value="2">Germany</option>
+                                        <option value="3">France</option>
+                                        <option value="3">Poland</option>
+                                        <option value="3">Japan</option>
+                                      </select>
+
+                                      <script>
+                                            // Material Select Initialization
+                                            $(document).ready(function() {
+                                            $('.mdb-select').materialSelect();
+                                            });
+                                            </script>
 
                             {% if red_status%}
                             <div class="alert alert-danger">
@@ -94,7 +107,7 @@
                                 <div class="row" style="margin-top: 10px;padding: 0;">
                                     <div class="col-6" style="padding: 0;margin: 0;">
                                         <a href="/admin/acc/all_device/add/" target="_blank">
-                                            <button type="button" class="btn btn-success op-btn">افزودن دستگاه</button>
+                                            <button style="margin-right: -4px;" type="button" class="btn btn-success op-btn">افزودن دستگاه</button>
                                         </a>
                                     </div>
                                     <div class="col-6" style="padding: 0;margin: 0;">
@@ -111,7 +124,7 @@
 
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'monitor_spo2' %}
                                                 <button name="type" value="monitor_spo2" type="submit" class="btn btn-danger op-btn-2"> SPO <sub>2</sub></button>
@@ -120,10 +133,11 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
 
                                         <form action="{% url 'router' %}" method="GET">
 
+                                            <input name="flag" value="1" hidden>
                                             {% if form_type == 'monitor_ecg' %}
                                                 <button name="type" value="monitor_ecg" type="submit" class="btn btn-danger op-btn-2">ECG</button>
                                             {% else %}
@@ -132,8 +146,8 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'monitor_nibp' %}
                                                 <button name="type" value="monitor_nibp" type="submit" class="btn btn-danger op-btn-2"> NIBP</button>
@@ -142,7 +156,7 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                            {% if form_type == 'monitor_safety' %}
 
@@ -154,8 +168,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'aed' %}
                                                 <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2"> AED</button>
@@ -164,19 +178,19 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'anesthesia_machine' %}
-                                                <button name="type" value="anesthesia_machine" type="submit" class="btn btn-danger op-btn-2"> Anesthesia Machine</button>
+                                                <button name="type" value="anesthesia_machine" type="submit" class="btn btn-danger op-btn-2" style="font-size: 8px;"> Anesthesia Machine</button>
                                             {% else %}
-                                                <button name="type" value="anesthesia_machine" type="submit" class="btn btn-info op-btn-2" > Anesthesia Machine</button>
+                                                <button name="type" value="anesthesia_machine" type="submit" class="btn btn-info op-btn-2"  style="font-size: 8px;"> Anesthesia Machine</button>
                                             {% endif %}
                                         </form>
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'defibrilator' %}
                                                 <button name="type" value="defibrilator" type="submit" class="btn btn-danger op-btn-2"> Defibrilator</button>
@@ -185,7 +199,7 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'ecg' %}
                                                 <button name="type" value="ecg" type="submit" class="btn btn-danger op-btn-2"> ECG</button>
@@ -196,8 +210,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'flowmeter' %}
                                                 <button name="type" value="flowmeter" type="submit" class="btn btn-danger op-btn-2"> Flow Meter</button>
@@ -206,7 +220,7 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'incubator' %}
                                                 <button name="type" value="incubator" type="submit" class="btn btn-danger op-btn-2"> Incubator</button>
@@ -217,8 +231,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'infusion_pump' %}
                                                 <button name="type" value="infusion_pump" type="submit" class="btn btn-danger op-btn-2"> Infusion Pump</button>
@@ -227,7 +241,7 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'monometer' %}
                                                 <button name="type" value="monometer" type="submit" class="btn btn-danger op-btn-2"> Mono Meter</button>
@@ -238,8 +252,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'spo2' %}
                                                 <button name="type" value="spo2" type="submit" class="btn btn-danger op-btn-2"> Pulse Oximetery</button>
@@ -248,7 +262,7 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'suction' %}
                                                 <button name="type" value="suction" type="submit" class="btn btn-danger op-btn-2"> Suction</button>
@@ -259,8 +273,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'syringe_pump' %}
                                                 <button name="type" value="syringe_pump" type="submit" class="btn btn-danger op-btn-2"> Syringe Pump</button>
@@ -269,7 +283,7 @@
                                             {% endif %}
                                         </form>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'ventilator' %}
                                                 <button name="type" value="ventilator" type="submit" class="btn btn-danger op-btn-2"> Ventilator</button>
@@ -280,8 +294,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-6">
+                                <div class="row" style="margin-top: 0;">
+                                    <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
                                             {% if form_type == 'electrocauter' %}
                                                 <button name="type" value="electrocauter" type="submit" class="btn btn-danger op-btn-2"> ElectroCauter</button>
@@ -304,13 +318,10 @@
 {#                            /////////////////////////////////////#}
 
                     </div>
-                </div>
-{#                <div style="height: 100px;width: 100px;background-color: #00be8a;">#}
-{##}
-{#                </div>#}
+                
             </div>
             {% if form_type %}
-            <div class="col-lg-8 col-xl-9 col-md-12" style="direction: rtl;">
+            <div class="col-lg-8 col-xl-9 col-md-12" style="direction: rtl;height: 800px;overflow:hidden;">
                 <div class="form-box">
                 {% if form_type == 'monitor_spo2' %}
                     {% include 'form/Monitor/Spo2/form1.html' %}
