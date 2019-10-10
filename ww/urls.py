@@ -27,4 +27,4 @@ urlpatterns = [
     path('dashboard/', acc.views.submit,name='dashboard'),
     path('report/', include('report.urls')),
     path('form/', include('form.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
