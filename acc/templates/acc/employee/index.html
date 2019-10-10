@@ -13,7 +13,7 @@
                     </div> -->
                         <div class="data-box-2">
 
-                                <select class="mdb-select md-form" searchable="Search here..">
+                                <!-- <select class="mdb-select md-form" searchable="Search here..">
                                         <option value="" disabled selected>Choose your country</option>
                                         <option value="1">USA</option>
                                         <option value="2">Germany</option>
@@ -27,7 +27,7 @@
                                             $(document).ready(function() {
                                             $('.mdb-select').materialSelect();
                                             });
-                                            </script>
+                                            </script> -->
 
                             {% if red_status%}
                             <div class="alert alert-danger">
@@ -169,27 +169,7 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'aed' %}
-                                                <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2"> AED</button>
-                                            {% else %}
-                                                <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2" > AED</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'anesthesia_machine' %}
-                                                <button name="type" value="anesthesia_machine" type="submit" class="btn btn-danger op-btn-2" style="font-size: 8px;"> Anesthesia Machine</button>
-                                            {% else %}
-                                                <button name="type" value="anesthesia_machine" type="submit" class="btn btn-info op-btn-2"  style="font-size: 8px;"> Anesthesia Machine</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="row" style="margin-top: 0;">
                                     <div class="col-6" style="padding: 0;margin: 0;">
                                         <form action="{% url 'router'  %}" method="get">
@@ -305,8 +285,32 @@
                                             {% endif %}
                                         </form>
                                     </div>
-
+                                    <div class="col-6" style="padding: 0;margin: 0;">
+                                        <form action="{% url 'router'  %}" method="get">
+                                            {% if form_type == 'aed' %}
+                                                <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2"> AED</button>
+                                            {% else %}
+                                                <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2" > AED</button>
+                                            {% endif %}
+                                        </form>
+                                    </div>
                                 </div>
+
+                                    <div class="row" style="margin-top: 0;">
+                                        
+                                        <div class="col-12" style="padding: 0;margin: 0;">
+                                            <form action="{% url 'router'  %}" method="get">
+                                                {% if form_type == 'anesthesia_machine' %}
+                                                    <button name="type" value="anesthesia_machine" type="submit" class="btn btn-danger op-btn-2"> Anesthesia Machine</button>
+                                                {% else %}
+                                                    <button name="type" value="anesthesia_machine" type="submit" class="btn btn-info op-btn-2"> Anesthesia Machine</button>
+                                                {% endif %}
+                                            </form>
+    
+                                        </div>
+                                    </div>
+
+
 
                                 </div>
 
