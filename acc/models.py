@@ -97,6 +97,7 @@ class Hospital(models.Model):
 
 class Company(models.Model):
     name = models.TextField()
+    en_name = models.TextField()
     country = models.ForeignKey(Country , on_delete=models.CASCADE)
     class Meta:
         verbose_name_plural = "Companies"

@@ -30,6 +30,6 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'acc.views.handler_404'
-handler500 = 'acc.views.handler_500'
+#handler500 = 'acc.views.handler_500'
 handler403 = 'acc.views.handler_403'
 handler400 = 'acc.views.handler_400'
