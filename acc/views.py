@@ -1,24 +1,23 @@
-from django.shortcuts import render, redirect ,render_to_response
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from acc.models import Request, excel_arg ,Parameters
+from acc.models import Request, ad_excel_arg, Parameters
 from form.forms import *
 from .forms import *
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 import jdatetime
 from django.template import RequestContext
 
-#color_scheme = Parameters.objects.get(name__exact='color').value
-color_scheme = 2 #test
+# color_scheme = Parameters.objects.get(name__exact='color').value
+color_scheme = 2  # test
 
+model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, aed_1, monitor_safety_1, anesthesia_machine_1,
+              defibrilator_1, ]
 
-
-model_list = [monitor_spo2_1,monitor_ecg_1,monitor_nibp_1,aed_1,monitor_safety_1,anesthesia_machine_1,defibrilator_1,]
-
-
-modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'aed','monitor_safety','anesthesia_machine','defibrilator',]
-form_list = [monitor_spO2_1_Form,monitor_ecg_1_Form,monitor_nibp_1_Form,aed_1_Form,monitor_safety_1_Form,anesthesia_machine_1_Form,defibrilator_1_Form]
-
+modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'aed', 'monitor_safety', 'anesthesia_machine',
+             'defibrilator', ]
+form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, aed_1_Form, monitor_safety_1_Form,
+             anesthesia_machine_1_Form, defibrilator_1_Form]
 
 
 def login(request):
@@ -28,32 +27,39 @@ def login(request):
             auth.login(request, user)
             return redirect('dashboard')
         else:
-            return render(request, 'acc/login.html', {'error': 'نام کاربری یا رمز عبور اشتباه است!','color':color_scheme})
+            return render(request, 'acc/login.html',
+                          {'error': 'نام کاربری یا رمز عبور اشتباه است!', 'color': color_scheme})
     elif request.user.is_anonymous:
-        return render(request, 'acc/login.html',{'color':color_scheme})
+        return render(request, 'acc/login.html', {'color': color_scheme})
     else:
         return redirect('dashboard')
+
+
 def logout(request):
     auth.logout(request)
     return redirect('login1')
 
+
 @login_required
 def submit(request):
     auser = aUserProfile.objects.get(user=request.user)
-    if request.user.last_name == 'admin':
-        return render(request, 'acc/admin/index.html', {'status': 'Welcome Back', 'flag': '1','auser':auser})
+    if request.user.groups.all()[0] == Group.objects.get(name='admin'):
+        return render(request, 'acc/admin/index.html', {'status': 'Welcome Back', 'flag': '1', 'auser': auser})
 
-    elif request.user.last_name == 'hospital':
+    elif request.user.groups.all()[0] == Group.objects.get(name='hospital'):
+
         if (jdatetime.date.today().month < 10):
             mm = f'0{jdatetime.date.today().month}'
         else:
             mm = jdatetime.date.today().month
-        req = Request.objects.filter(hospital__user = request.user).order_by('date')
+        req = Request.objects.filter(hospital__user=request.user).order_by('date')
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm,'request':req,'auser':auser})
+                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm, 'request': req,
+                       'auser': auser})
 
-    elif request.user.last_name == 'employee':
-        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید','auser':auser})
+
+    elif request.user.groups.all()[0] == Group.objects.get(name='employee'):
+        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'auser': auser})
 
 
 # list of requests
@@ -61,18 +67,22 @@ def req_list(request):
     model = Request.objects.all()
 
     return render(request, 'acc/employee/request_list.html', {'model': model})
+
+
 # List of recalibration
 def recal_list(request):
-    fr1 = excel_arg.objects.all().order_by('order')
+    fr1 = ad_excel_arg.objects.all().order_by('order')
     listt = []
     for model in model_list:
         modelobj = model.objects.filter(is_done=False)
         listt.extend(modelobj)
 
     return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': listt})
+
+
 # list of all records
 def report_list(request):
-    fr1 = excel_arg.objects.all().order_by('order')
+    fr1 = ad_excel_arg.objects.all().order_by('order')
     data = []
     for model in model_list:
         modelobj = model.objects.all()
@@ -97,7 +107,7 @@ def edit_report(request):
                  'record_num': modelobj[0].record.number,
                  'licence_num': modelobj[0].licence.number
                  }
-        
+
         if (modelobj[0].is_recal == False):  # its calibration
             edata['edit'] = 1
         else:
@@ -108,9 +118,10 @@ def edit_report(request):
 # Perepare the appropiate Recalibration form for Frame
 def recal_report(request):
     if (request.method == 'GET'):
-        c=0
+        c = 0
         for form in form_list:
-            modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(is_done__exact=False)
+            modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(
+                is_done__exact=False)
             if (len(modelobj) == 1):
                 form_type = form
                 break
@@ -129,17 +140,18 @@ def recal_report(request):
 
 
 def change_email(request):
-    if(request.method=='POST'):
-        if(request.POST['email1']==request.POST['email2']):
+    if (request.method == 'POST'):
+        if (request.POST['email1'] == request.POST['email2']):
             d = User.objects.get(id=request.user.id)
             d.email = request.POST['email1']
             d.save()
-            return render(request, 'acc/employee/index.html', {'settings':1,'change_email': 1, 'change_email_done': 1, })
+            return render(request, 'acc/employee/index.html',
+                          {'settings': 1, 'change_email': 1, 'change_email_done': 1, })
         else:
             return render(request, 'acc/employee/index.html',
-                          {'settings':1,'change_email': 1, 'red_status': 'ایمیل ها مطابقت ندارند!', 'form': 1})
+                          {'settings': 1, 'change_email': 1, 'red_status': 'ایمیل ها مطابقت ندارند!', 'form': 1})
     else:
-        return render(request, 'acc/employee/index.html', {'settings':1,'change_email': 1, 'form': 1})
+        return render(request, 'acc/employee/index.html', {'settings': 1, 'change_email': 1, 'form': 1})
 
 
 # def add_device(request):
@@ -150,7 +162,7 @@ def change_email(request):
 #
 #         return render(request,'acc/employee/Add_Device.html',{'form':form1})
 
-def handler_400(request,Exception):
+def handler_400(request, Exception):
     response = render_to_response(
         '/acc/400.html',
         context_instance=RequestContext(request)
@@ -160,7 +172,8 @@ def handler_400(request,Exception):
 
     return response
 
-def handler_403(request,Exception):
+
+def handler_403(request, Exception):
     response = render_to_response(
         '/acc/403.html',
         context_instance=RequestContext(request)
@@ -170,7 +183,8 @@ def handler_403(request,Exception):
 
     return response
 
-def handler_404(request,Exception):
+
+def handler_404(request, Exception):
     response = render_to_response(
         '/acc/404.html',
         context_instance=RequestContext(request)
@@ -180,7 +194,8 @@ def handler_404(request,Exception):
 
     return response
 
-def handler_500(request,Exception):
+
+def handler_500(request, Exception):
     response = render_to_response(
         '/acc/500.html',
         context_instance=RequestContext(request)

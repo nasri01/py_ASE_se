@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 import jdatetime , pytz
 from .forms import *
 from acc.models import licence , Cal_device ,Section ,All_Device , record ,aUserProfile
+from django.contrib.auth.models import Group
+
 
 
 diclist = [['monitor_spo2',monitor_spo2_1, monitor_spO2_1_Form ,3],
@@ -22,13 +24,12 @@ diclist = [['monitor_spo2',monitor_spo2_1, monitor_spO2_1_Form ,3],
         ['syringe_pump', syringe_pump_1, syringe_pump_1_Form,4],
         ['ventilator', ventilator_1,ventilator_1_Form,4],
         ['electrocauter', electrocauter_1, electrocauter_1_Form,5],
-
            ]
 
 @login_required
 def router(request):
 
-    if request.user.last_name == 'employee':
+    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if request.GET['type'] == item[0]:
@@ -41,7 +42,7 @@ def router(request):
 
 
 def save_router(request,formtype):
-    if request.user.last_name == 'employee':
+    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
@@ -95,7 +96,7 @@ def save_router(request,formtype):
         raise Http404
 
 def save_edit_router(request,formtype):
-    if request.user.last_name == 'employee':
+    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype==item[0]:
@@ -159,7 +160,7 @@ def save_edit_router(request,formtype):
 
 
 def save_recal_router(request,formtype):
-    if request.user.last_name == 'employee':
+    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
@@ -223,7 +224,7 @@ def save_recal_router(request,formtype):
 
 
 def save_recal_edit_router(request,formtype):
-    if request.user.last_name == 'employee':
+    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:

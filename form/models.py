@@ -12,7 +12,7 @@ class monitor_spo2_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='ms1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE,related_name='ms1r')
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_spo2,related_name='ms1totalcomment')
@@ -89,7 +89,7 @@ class monitor_ecg_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='me1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE,related_name='me1r')
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_ecg)
@@ -233,7 +233,7 @@ class monitor_nibp_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='mn1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE, related_name='mn1r')
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_nibp)
@@ -270,24 +270,24 @@ class monitor_nibp_1(models.Model):
     s1_e8_simp = models.IntegerField(default=200)
     s1_e8_nibpp = models.IntegerField()
 
-    s2_e1_pr1 = models.IntegerField()
-    s2_e1_pr2 = models.IntegerField()
-    s2_e1_pr3 = models.IntegerField()
-    s2_e2_pr1 = models.IntegerField()
-    s2_e2_pr2 = models.IntegerField()
-    s2_e2_pr3 = models.IntegerField()
-    s2_e3_pr1 = models.IntegerField()
-    s2_e3_pr2 = models.IntegerField()
-    s2_e3_pr3 = models.IntegerField()
-    s2_e4_pr1 = models.IntegerField()
-    s2_e4_pr2 = models.IntegerField()
-    s2_e4_pr3 = models.IntegerField()
-    s2_e5_pr1 = models.IntegerField()
-    s2_e5_pr2 = models.IntegerField()
-    s2_e5_pr3 = models.IntegerField()
-    s2_e6_pr1 = models.IntegerField()
-    s2_e6_pr2 = models.IntegerField()
-    s2_e6_pr3 = models.IntegerField()
+    s2_e1_pr1 = models.CharField(max_length=8)
+    s2_e1_pr2 = models.CharField(max_length=8)
+    s2_e1_pr3 = models.CharField(max_length=8)
+    s2_e2_pr1 = models.CharField(max_length=8)
+    s2_e2_pr2 = models.CharField(max_length=8)
+    s2_e2_pr3 = models.CharField(max_length=8)
+    s2_e3_pr1 = models.CharField(max_length=8)
+    s2_e3_pr2 = models.CharField(max_length=8)
+    s2_e3_pr3 = models.CharField(max_length=8)
+    s2_e4_pr1 = models.CharField(max_length=8)
+    s2_e4_pr2 = models.CharField(max_length=8)
+    s2_e4_pr3 = models.CharField(max_length=8)
+    s2_e5_pr1 = models.CharField(max_length=8)
+    s2_e5_pr2 = models.CharField(max_length=8)
+    s2_e5_pr3 = models.CharField(max_length=8)
+    s2_e6_pr1 = models.CharField(max_length=8)
+    s2_e6_pr2 = models.CharField(max_length=8)
+    s2_e6_pr3 = models.CharField(max_length=8)
 
 
 
@@ -303,7 +303,7 @@ class aed_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='aed1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE, related_name='aed1r')
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_aed)
@@ -320,8 +320,9 @@ class aed_1(models.Model):
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
 
-
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed,on_delete=models.PROTECT,related_name='aed1s0e1comment',default=1)
+    
+    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed,on_delete=models.PROTECT,
+                                     related_name='aed1s0e1comment',default=1)
 
     s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
                                       related_name='aed1s0e2comment',default=1)
@@ -359,7 +360,7 @@ class aed_1(models.Model):
     s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
                                       related_name='aed1s0e13comment',default=1)
 
-    test_type = models.ForeignKey(acc.models.test_type,on_delete=models.CASCADE,related_name='aed1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='aed1tt')
 
     s1_e1_res = models.IntegerField(default=-1)
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed,on_delete=models.PROTECT, related_name='aed1s1e1comment',default=2)
@@ -394,7 +395,7 @@ class aed_1(models.Model):
     s3_e7_lc = models.IntegerField()
     s3_e7_comment = models.ForeignKey(acc.models.quantitive_comment_aed,on_delete=models.PROTECT, related_name='aed1s3e7comment',default=1)
 
-    s4_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='aed1s4_t')
+    s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s4_t')
 
     s4_e1_lc1 = models.IntegerField(null=True, blank=True)
     s4_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -447,7 +448,7 @@ class aed_1(models.Model):
     s4_e10_lc4 = models.IntegerField(null=True, blank=True)
     s4_e10_comment = models.ForeignKey(acc.models.quantitive_comment_aed,on_delete=models.PROTECT, related_name='aed1s4e10comment',default=1)
 
-    s5_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='aed1s5_t')
+    s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s5_t')
 
     s5_e1_lc1 = models.IntegerField(null=True, blank=True)
     s5_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -500,7 +501,7 @@ class aed_1(models.Model):
     s5_e10_lc4 = models.IntegerField(null=True, blank=True)
     s5_e10_comment = models.ForeignKey(acc.models.quantitive_comment_aed,on_delete=models.PROTECT, related_name='aed1s5e10comment',default=1)
 
-    s6_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='aed1s6_t')
+    s6_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s6_t')
 
     s6_e1_lc1 = models.IntegerField()
     s6_e1_lc2 = models.IntegerField()
@@ -531,7 +532,7 @@ class monitor_safety_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='msa1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE, related_name='msa1r')
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_safety)
@@ -719,7 +720,7 @@ class anesthesia_machine_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='am1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_anesthesia_machine)
@@ -833,7 +834,7 @@ class anesthesia_machine_1(models.Model):
     s0_e31_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
                                        related_name='am1s0e31comment',default=1)
 
-    test_type = models.ForeignKey(acc.models.test_type,on_delete=models.CASCADE,related_name='am1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='am1tt')
 
     s1_res = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine,on_delete=models.PROTECT, related_name='am1s1e1comment',default=1)
@@ -997,7 +998,7 @@ class defibrilator_1(models.Model):
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='df1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_defibrilator)
@@ -1087,7 +1088,7 @@ class defibrilator_1(models.Model):
     s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
                                        related_name='df1s0e22comment',default=1)
 
-    test_type = models.ForeignKey(acc.models.test_type,on_delete=models.CASCADE,related_name='df1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='df1tt')
 
     s1_res = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
@@ -1138,7 +1139,7 @@ class defibrilator_1(models.Model):
     s3_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
                                       related_name='df1s3e7comment',default=1)
 
-    s4_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='df1s4_t')
+    s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s4_t')
 
     s4_e1_lc1 = models.IntegerField(null=True, blank=True)
     s4_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -1201,7 +1202,7 @@ class defibrilator_1(models.Model):
     s4_e10_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
                                        related_name='df1s4e10comment',default=1)
 
-    s5_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE, related_name='df1s5_t')
+    s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s5_t')
 
     s5_e1_lc1 = models.IntegerField(null=True, blank=True)
     s5_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -1264,7 +1265,7 @@ class defibrilator_1(models.Model):
     s5_e10_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
                                        related_name='df1s5e10comment',default=1)
 
-    s6_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE, related_name='df1s6_t')
+    s6_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s6_t')
 
     s6_e1_lc1 = models.IntegerField(null=True, blank=True)
     s6_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -1439,7 +1440,7 @@ class ecg_1(models.Model):
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='e1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_ecg)
@@ -1447,6 +1448,7 @@ class ecg_1(models.Model):
 
     humidity = models.IntegerField(default=45)
     temp = models.IntegerField(default=25)
+    #TODO Ecg template
 
     # cd = calibration date xd = expire date
     cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev1')
@@ -1462,7 +1464,7 @@ class ecg_1(models.Model):
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-#TODO Ecg template
+    #TODO Ecg template
     s1_e1_damp = models.FloatField()
     s1_e1_ramp = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
@@ -1659,7 +1661,7 @@ class flowmeter_1(models.Model):
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='fm1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_flowmeter)
@@ -1695,7 +1697,7 @@ class infusion_pump_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='ip1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_infusion_pump)
@@ -1787,7 +1789,7 @@ class infusion_pump_1(models.Model):
     s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
                                        related_name='ip1s0e23comment')
 
-    test_type = models.ForeignKey(acc.models.test_type,on_delete=models.CASCADE,related_name='ip1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ip1tt')
 
     s1_res = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump,on_delete=models.PROTECT, related_name='ip1s1e1comment')
@@ -1871,7 +1873,7 @@ class monometer_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='mm1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monometer)
@@ -1962,7 +1964,7 @@ class spo2_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='sp1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_spo2,related_name='sp1totalcomment')
@@ -2062,7 +2064,7 @@ class spo2_1(models.Model):
     s7_e2_noaplc = models.IntegerField(null=True,blank=True)
     s7_e2_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
                                       related_name='sp1s7e2comment')
-#TODO S8 ap type
+    #TODO S8 ap type
 
     def __str__(self):
         return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
@@ -2075,7 +2077,7 @@ class suction_1(models.Model):
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='su1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_suction, related_name='su1totalcomment')
@@ -2167,7 +2169,7 @@ class suction_1(models.Model):
     s0_e23_status = models.BooleanField(default=False)
     s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e23comment')
-#TODO permisible error
+    #TODO permisible error
     s1_e1_rr = models.IntegerField()
     s1_e2_rr = models.IntegerField()
     s1_e3_rr = models.IntegerField()
@@ -2201,7 +2203,7 @@ class syringe_pump_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='spmp1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_syringe_pump)
@@ -2293,7 +2295,7 @@ class syringe_pump_1(models.Model):
     s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
                                        related_name='spmp1s0e23comment')
 
-    test_type = models.ForeignKey(acc.models.test_type,on_delete=models.CASCADE,related_name='spmp1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='spmp1tt')
 
     s1_res = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump,on_delete=models.PROTECT, related_name='spmp1s1e1comment')
@@ -2377,7 +2379,7 @@ class electrocauter_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='ec1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_electrocouter)
@@ -2679,7 +2681,7 @@ class electrocauter_1(models.Model):
     s5c_e2 = models.FloatField(default=-1)
     s5c_e3 = models.FloatField(default=-1)
 
-    test_type = models.ForeignKey(acc.models.test_type, on_delete=models.CASCADE, related_name='ec1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ec1tt')
 
     s11_e1_res = models.IntegerField()
     s11_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
@@ -2701,7 +2703,7 @@ class electrocauter_1(models.Model):
     s13_e2_lc = models.IntegerField()
     s13_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
                                        related_name='ec1s13e2comment')
-    s14_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='ec1s14_t')
+    s14_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s14_t')
 
     s14_e1_lc1 = models.IntegerField(null=True,blank=True)
     s14_e1_lc2 = models.IntegerField(null=True,blank=True)
@@ -2716,7 +2718,7 @@ class electrocauter_1(models.Model):
     s14_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
                                        related_name='ec1s14e2comment')
 
-    s15_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='ec1s15_t')
+    s15_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s15_t')
 
     s15_e1_lc1 = models.IntegerField(null=True,blank=True)
     s15_e1_lc2 = models.IntegerField(null=True,blank=True)
@@ -2731,7 +2733,7 @@ class electrocauter_1(models.Model):
     s15_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
                                        related_name='ec1s15e2comment')
 
-    s16_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='ec1s16_t')
+    s16_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s16_t')
 
     s16_e1_lc1 = models.IntegerField(null=True,blank=True)
     s16_e1_lc2 = models.IntegerField(null=True,blank=True)
@@ -2755,7 +2757,7 @@ class ventilator_1(models.Model):
     request = models.ForeignKey(acc.models.Request,on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.az_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE,related_name='ven1licence')
     record = models.ForeignKey(acc.models.record,on_delete=models.CASCADE)
     totalcomment = models.ManyToManyField(acc.models.qualitive_comment_ventilator)
@@ -2843,7 +2845,7 @@ class ventilator_1(models.Model):
                                        related_name='ven1s0e21comment')
 
 
-    test_type = models.ForeignKey(acc.models.test_type, on_delete=models.CASCADE, related_name='ven1tt')
+    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ven1tt')
 
     s1_res = models.IntegerField(default=-1)
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
@@ -2865,7 +2867,7 @@ class ventilator_1(models.Model):
     s3_e2_lc = models.IntegerField()
     s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
                                        related_name='ven1s3e2comment')
-    s4_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='ven1s4_t')
+    s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ven1s4_t')
 
     s4_e1_lcac = models.IntegerField(default=-1)
     s4_e1_lcdc = models.IntegerField(default=-1)
@@ -2876,7 +2878,7 @@ class ventilator_1(models.Model):
     s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
                                        related_name='ven1s4e2comment')
 
-    s5_type = models.ForeignKey(acc.models.test_type2, on_delete=models.CASCADE,related_name='ven1s5_t')
+    s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ven1s5_t')
 
     s2_e1_lcbf = models.IntegerField(default=-1)
     s5_e1_lccf = models.IntegerField(default=-1)

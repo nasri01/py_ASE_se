@@ -4,14 +4,14 @@ from django_jalali.db import models as jmodels
 
 
 
-class az_Status(models.Model):
+class ad_az_Status(models.Model):
     status = models.CharField(max_length=12)
 
     class Meta:
         verbose_name_plural = "Status"
     def __str__(self):
         return  str(self.status)
-class req_Status(models.Model):
+class ad_req_Status(models.Model):
     status = models.CharField(max_length=12)
 
     class Meta:
@@ -19,7 +19,7 @@ class req_Status(models.Model):
 
     def __str__(self):
         return str(self.status)
-class acc_Status(models.Model):
+class ad_acc_Status(models.Model):
     status = models.CharField(max_length=12)
 
     class Meta:
@@ -28,11 +28,11 @@ class acc_Status(models.Model):
         return str(self.status)
 
 
-class test_type(models.Model):#class
+class ad_test_type(models.Model):#class
     type = models.CharField(max_length=12)
     def __str__(self):
         return str(self.type)
-class test_type2(models.Model):#bf/cf ac/dc
+class ad_test_type2(models.Model):#bf/cf ac/dc
     type = models.CharField(max_length=12)
     def __str__(self):
         return str(self.type)
@@ -76,7 +76,7 @@ class aUserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     avatar = models.ImageField()
     signature = models.ImageField()
-    status = models.ForeignKey(acc_Status,on_delete=models.PROTECT)
+    status = models.ForeignKey(ad_acc_Status,on_delete=models.PROTECT)
     def __str__(self):
         return self.user
     
@@ -146,7 +146,7 @@ class Request(models.Model):
     date = jmodels.jDateField()
     hospital = models.ForeignKey(Hospital , on_delete=models.CASCADE)
     number = models.IntegerField()
-    status = models.ForeignKey(req_Status,on_delete=models.CASCADE,default=1)
+    status = models.ForeignKey(ad_req_Status,on_delete=models.CASCADE,default=1)
     def __str__(self):
         return str(self.number)
 
@@ -172,7 +172,7 @@ class accessory(models.Model):
         return str(self.name)
 
 
-class excel_arg(models.Model):
+class ad_excel_arg(models.Model):
     arg = models.TextField()
     order = models.IntegerField()
     def __str__(self):

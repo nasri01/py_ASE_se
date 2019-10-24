@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 
 from form.models import *
-from acc.models import excel_arg ,aUserProfile as uu
+from acc.models import ad_excel_arg ,aUserProfile as uu
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render
@@ -56,7 +56,7 @@ def xlsx(request):
         
 
 
-        fr1 = excel_arg.objects.all().order_by('order')
+        fr1 = ad_excel_arg.objects.all().order_by('order')
         if (request.GET['action'] == 'download'):
 
             output = io.BytesIO()
