@@ -150,7 +150,7 @@ def change_email(request):
 #
 #         return render(request,'acc/employee/Add_Device.html',{'form':form1})
 
-def handler_400(request):
+def handler_400(request,Exception):
     response = render_to_response(
         '/acc/400.html',
         context_instance=RequestContext(request)
@@ -160,7 +160,7 @@ def handler_400(request):
 
     return response
 
-def handler_403(request):
+def handler_403(request,Exception):
     response = render_to_response(
         '/acc/403.html',
         context_instance=RequestContext(request)
@@ -170,7 +170,7 @@ def handler_403(request):
 
     return response
 
-def handler_404(request):
+def handler_404(request,Exception):
     response = render_to_response(
         '/acc/404.html',
         context_instance=RequestContext(request)
@@ -180,7 +180,7 @@ def handler_404(request):
 
     return response
 
-def handler_500(request):
+def handler_500(request,Exception):
     response = render_to_response(
         '/acc/500.html',
         context_instance=RequestContext(request)

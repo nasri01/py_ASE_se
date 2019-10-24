@@ -29,7 +29,7 @@ urlpatterns = [
     path('form/', include('form.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'acc.views.my_custom_page_not_found_view'
-handler500 = 'acc.views.my_custom_error_view'
-handler403 = 'acc.views.my_custom_permission_denied_view'
-handler400 = 'acc.views.my_custom_bad_request_view'
+handler404 = 'acc.views.handler_404'
+handler500 = 'acc.views.handler_500'
+handler403 = 'acc.views.handler_403'
+handler400 = 'acc.views.handler_400'

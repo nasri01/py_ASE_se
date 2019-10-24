@@ -13,7 +13,6 @@ admin.site.register(State,StateAdmin)
 class CityAdmin(admin.ModelAdmin):
     list_display = ("name", "state_name")
 admin.site.register(City,CityAdmin)
-
 admin.site.register(device_type)
 
 class DeviceAdmin(admin.ModelAdmin):
