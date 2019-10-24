@@ -193,10 +193,10 @@ body{
     justify-content: space-evenly;
 }
 
-.btn-pdf:hover{
+/* .btn-pdf:hover{ */
     /*background-color: #86cfda;*/
     /*border: 1px solid #86cfda;*/
-}
+/* } */
 
 .fm{
     display: flex;
@@ -285,7 +285,6 @@ table{
     overflow: auto;
 }
 
-
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -301,7 +300,7 @@ tr:nth-child(even) {
 td,th{
     padding-top: 7px;
     padding-bottom: 7px;
-    min-width: 70px;
+    /* min-width: 70px; */
 }
 tr:hover{
     background-color: #17a2b8;

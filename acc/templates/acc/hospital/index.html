@@ -5,10 +5,14 @@
 <title>پنل کاربری بیمارستان</title>
 
 
-<input type="text" id="target">
+<link rel="stylesheet" type="text/css" media="all" href="{% static 'JalaliJSCalendar/skins/calendar-blue.css' %}" title="Aqua" />
+<script src="{% static 'JalaliJSCalendar/jalali.js' %}"></script>
+<script src="{% static 'JalaliJSCalendar/calendar.js' %}"></script>
+<script src="{% static 'JalaliJSCalendar/calendar-setup.js'%}"></script>
+<script src="{% static 'JalaliJSCalendar/lang/calendar-fa.js' %}"></script>
 
-<!-- <span class="blink" >jjjjjjjjjjjjjjjjjjjjjj</span> -->
-<div class="container-fluid">
+  <div class="container-fluid">
+
         <div class="row">
             <div class="col-lg-4 col-md-12" style="direction: rtl;">
                 <div>
@@ -28,7 +32,6 @@
                                 آدرس: استان اصفهان، اصفهان، بلوار صفه
                                     ساعات بازدید: شبانه‌روزی باز است
                                 </div>
-                                <!-- <span class="blink" >jjjjjjjjjjjjjjjjjjjjjj</span> -->
                                 <img src="{% static 'img/a.png' %}" class="hospital-img">
                                 <div class="setting-icon">
                                     <a href="{% url  'report-pdf1'%}" >
@@ -56,14 +59,33 @@
                                             <div>
                                                 <div class="form-group">
                                                     <label>از: </label>
-                                                        <input type="text"  name="start_date" class="form-control inp" >
-                                                        <img  src="{% static 'img/calender.svg' %}" onclick="Mh1PersianDatePicker.Show(start_date,'{{date.year}}/{{month}}/{{date.day}}')" height="25px">
+                                                
+                                                        <input type="text"  name="start_date" id="date_input" class="form-control inp" >
+                                                        <img  src="{% static 'img/calender.svg' %}"  id="date_btn" height="25px">
+                                                        
+
+                                                        <script>
+                                                                Calendar.setup({
+                                                                  inputField: 'date_input',
+                                                                  button: 'date_btn',
+                                                                  ifFormat: '%Y/%m/%d',
+                                                                  dateType: 'jalali'
+                                                                });
+                                                                </script>
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label>تا: </label>
-                                                    <input type="text" name="end_date" class="form-control inp" >
-
-                                                    <img  src="{% static 'img/calender.svg' %}" onclick="Mh1PersianDatePicker.Show(end_date,'{{date.year}}/{{month}}/{{date.day}}')" height="25px" >
+                                                    <input type="text" name="end_date"  class="form-control inp" >
+                                                    <img  src="{% static 'img/calender.svg' %}"  id="date_btn_2" height="25px" >
+                                                    <script>
+                                                            Calendar.setup({
+                                                              inputField: 'date_input_2',
+                                                              button: 'date_btn_2',
+                                                              ifFormat: '%Y/%m/%d',
+                                                              dateType: 'jalali'
+                                                            });
+                                                            </script>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="custom-control custom-checkbox">
@@ -88,35 +110,43 @@
                         <br>
                         <div class="report-list" style="position: relative;">
                             <div class="report-list-btn">
-                                لیست درخواست ها
+                                لیست گزارشات
                             </div>
                             <div style="margin-top: 240px;"></div>
                             <div class="report-table">
                                 <table style="width: 100%;text-align: center;">
                                     <thead>
                                         <tr>
-                                            <th>ردیف</th>
-                                            <th>تاریخ</th>
-                                            <th>وضعیت</th>
+                                            <th>a</th>
+                                            <th>b</th>
+                                            <th><div style="background-color:rgba(225, 240, 21, 0.753);width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% for req in request %}
                                         <tr>
-                                        <td>{{ forloop.counter }}</td>
-                                        <td>{{ req.date.month }}</td>
-                                        <td>{{ req.status }}</td>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <th><div style="background-color:#dc3546b6;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>
                                         </tr>
-                                    {% endfor %}
+                                        <tr>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <th><div style="background-color:#18da32ab;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink"></div></th>                                            
+                                        </tr>
+                                        <tr>
+                                            <td>a</td>
+                                            <td>b</td>
+                                            <td>c</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                 </div>
             </div>
-
-            {% if data %}
+            <!--  -->
             <div class="col-lg-8 col-md-12" style="direction: rtl;">
+                    {% if data %}
                 <div class="data-box">
                     <table style="border-radius: 10px; width: 100%;">
                         <!--///////////////////////////////////-->
@@ -176,10 +206,14 @@
 
                     </table>
                 </div>
-            </div>
             {% endif %}
+            <div class="data-box" style="max-width: 500px;">
+                    <canvas id="doughnutChart" style="max-width: 800px;"></canvas>
+                            </div>
+                
+        </div>
+            <!--  -->
         </div>
     </div>
-
 
 {% endblock %}

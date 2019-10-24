@@ -2,14 +2,36 @@
 {% load widget_tweaks %}
 
 
-<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
-
-
 <form method="POST" class="post-form">
 
     {% csrf_token %}
 
     <table class="table-bordered">
+      
+
+      
+            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+            <script src="{% static 'js/selectize.min.js' %}"></script>
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
+            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
+            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
+            <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
+            <!-- <script>
+            $(document).ready(function() {
+                $('select').niceSelect();
+                $('.search-a').niceSelect('destroy');
+                });
+          </script>-->
+          <script> 
+                    
+              $(document).ready(function () {
+                $('.search-a').selectize({
+                    sortField: 'text'
+                });
+            });
+                  </script>        
+        <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+
         <!--////////////////////////////////////////////////////////////-->
         <div class="data container-fluid">
           {% if edit %}
@@ -26,86 +48,90 @@
         </div>
 
           {% endif %}
-<h1 class="header-t" align="center" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي دستگاه الکتروشوک
+          <h1  class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
+              گواهينامه کنترل کيفي دستگاه الکتروشوک
 </h1>
 
 
-            <div class="row" style="margin-right: 40px;">
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-      	<span style="margin-right: 30px;"> نام دستگاه : </span>
-        <span class="ee">
-          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
-        </span>
 
 
-        <!--
-      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
+    <div class="row" style="margin-right: 40px;">
+        <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+          <span style="margin-right: 30px;"> نام دستگاه : </span>
+          <span>
+  
+            
+            {% render_field form.device style="display:inline;width:50%;" class="search-a" searchable="Search here.." %}
+      
+            </span>
+            <br>
+  <!-- / -->
+  
+  <span style="margin-right: 17px;"> شماره درخواست  : </span>
+  <span class="ee">
+      {% render_field form.request  class="search-a" style="display:inline;width:50%;"%}
+  
+     </span>
+  <br>
+  <span style="margin-right: 17px;"> رطوبت محیطی : </span>
+  <br>
+  <span class="ee">
+      {% render_field form.humidity style="display:block;max-width:500px;width:50%;"%}
+    
+  </span>
+  
+  <br>
+  <!-- / -->
+  <label style="margin-right: 17px;" > دمای محیطی : </label>
+  <br>
+  <span class="ee"> 
+      {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
+    
+  </span>
+  
+  
+  <!--
+  
+  
+    <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+    
+  </div>
+  
+  <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+  
+      <h2 style="font-family: light-iransans">تجهیزات آزمون : </h2>
+  
+      <div class="container">
+        <label>نام تجهیز :</label><br>
+        <label>دستگاه شماره 1 :</label>
+          <span class="ee">
+            {{form.cal_dev1}}
+          </span><br>
+        <label>دستگاه شماره 2 :</label>
+          <span class="ee">
+            {{form.cal_dev2}}
+          </span><br>
+          <label>دستگاه شماره 3 :</label>
+          <span class="ee">
+            {{form.cal_dev3}}
+          </span><br>
+          <label>دستگاه شماره 4 :</label>
+          <span class="ee">
+            {{form.cal_dev4}}
+          </span><br>
+      
       </div>
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-          <span> شماره درخواست  : </span>
-        <span class="ee"> {{form.request}} </span>
-
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
-      </div>
-
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-      <span> رطوبت محیطی : </span>
-        <span class="ee">
-            {{form.humidity}}
-        </span>
-
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
-
-
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-      <label style="margin-right: 17px;" > دمای محیطی : </label>
-                  <span class="ee"> {{form.temp}} </span>
-
-      <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
-
-      </div>
-
-
-
-
-
-
-
+      <br><br>
+      
+  
+  
+        </div>
+  
+        </div>
+  
+  
 	<!--</form>-->
 
-<br><br>
-
-
-<h2>تجهیزات آزمون : </h2>
-
-<div class="container">
-  <label>نام تجهیز :</label><br>
-  <label>دستگاه شماره 1 :</label>
-    <span class="ee">
-      {{form.cal_dev1}}
-    </span><br>
-  <label>دستگاه شماره 2 :</label>
-    <span class="ee">
-      {{form.cal_dev2}}
-    </span><br>
-<label>دستگاه شماره 3 :</label>
-    <span class="ee">
-      {{form.cal_dev3}}
-    </span><br>
-    <label>دستگاه شماره 4 :</label>
-    <span class="ee">
-      {{form.cal_dev4}}
-    </span><br>
-</div>
 <br><br>
 
 <div style="font-weight: bold;">
@@ -290,13 +316,14 @@
 
 
 <br><br>
-<span style="font-weight: bold;">
+<span style="font-weight: bold;font-size: 18px;">
                 تست های کمی:
 </span>
 <br>
             <span style="font-weight: bold;">کلاس دستگاه:</span>
-            {{ form.test_type }}
-
+            <div style="width: 20%;">
+             {{ form.test_type }}
+            </div>
 
 <br><br>
 
@@ -421,7 +448,11 @@
 
           </tbody>
         </table>
-<div>
+
+
+        <br>
+        <div>
+
 نکات: 1- در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمتهای کاربردی نوع F  به زمین متصل و از آن جدا می باشند نیز تکرار شود.            </div>
 <br><br>
 
@@ -1017,20 +1048,24 @@
                 <td>حداکثر</td>
             </tr>
         </table>
-
+        <br>
          <div>
-            <span class="time">
-                	 (E<sub>S</sub>)
-            </span>
+            
             <span>
-                : انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی
+                 انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی
             </span>
+            <span class="time">
+              
+              (E<sub>S</sub>):
+         </span>
             <br>
+            <span> انرژی اندازه گیری شده توسط تستر خارجی</span>
             <span class="time">(E<sub>M</sub>)</span>
-            <span>: انرژی اندازه گیری شده توسط تستر خارجی</span>
+
             <br>
+            <span>حد مجاز انرژی 4J± یا %15± از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد</span>
             <span class="time">(E<sub>C</sub>)</span>
-            <span>:حد مجاز انرژی 4J± یا %15± از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد</span>
+           
             <br><br>
             ب)پدل اینترنال
             <br>
@@ -1085,18 +1120,22 @@
                 <td>حداکثر</td>
             </tr>
         </table>
-            <div>
+        <br>
+        <div>
 
+            <span>  انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی</span>
             <span class="time">(E<sub>S</sub>)</span>
-            <span> : انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی</span>
+
             <br>
+            <span>   انرژی اندازه گیری شده توسط تستر خارجی</span>
             <span class="time">(E<sub>M</sub>)</span>
-            <span>  : انرژی اندازه گیری شده توسط تستر خارجی</span>
+
             <br>
-            <span class="time">(E<sub>C</sub>)</span>
             <span>
-                               :حد مجاز انرژی 4j± یا %15± از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد
+                               حد مجاز انرژی 4j± یا %15± از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد
             </span>
+            <span class="time">(E<sub>C</sub>)</span>
+
             <br><br>
 ج)پدل اطفال
 
@@ -1156,14 +1195,17 @@
 
         <br>
         <div>
+            <sppan>  انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی</sppan>
             <span class="time">(E<sub>S</sub>)</span>
-            <sppan> : انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی</sppan>
+
             <br>
+            <span>   انرژی اندازه گیری شده توسط تستر خارجی</span>
             <span class="time">(E<sub>M</sub>)</span>
-            <span>  : انرژی اندازه گیری شده توسط تستر خارجی</span>
+
             <br>
+            <span>   حد مجاز انرژی 4j± یا 15%± از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد</span>
             <span class="time">(E<sub>C</sub>)</span>
-            <span>   :حد مجاز انرژی 4j± یا 15%± از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد</span>
+
             <br><br>
 
             <br>
@@ -1200,20 +1242,22 @@
         </table>
         <br>
     <div>
-        <span class="time">(E<sub>M1</sub>)</span>
         <span>
             *: انرژی اندازه گیری شده توسط تستر خارجی در لحظۀ اولیه بعد از شارژ کامل
         </span>
+        <span class="time">(E<sub>M1</sub>)</span>
+
         <br>
-        <span class="time">(E<sub>M2</sub>)</span>
         <span>
             **: انرژی اندازه گیری شده توسط تستر خارجی 30 ثانیه بعد از شارژ کامل یا پیش از disarm (هر کدام که بزرگتر است)
         </span>
+        <span class="time">(E<sub>M2</sub>)</span>
+
         <br>
-        <span>(E<sub>C</sub>)</span>
         <span>
-            ***:حد مجاز انرژی حداقل 85% از EM1 می باشد
+            ***حد مجاز انرژی حداقل 85% از EM1 می باشد
         </span>
+        <span>(E<sub>C</sub>)</span>
 
 
     </div>
@@ -1247,20 +1291,23 @@
             </tr>
         </table>
 
-
+        <br>
 
         <div>
 
             <span>
-                (T<sub>1</sub>):زمان اندازه گیری شده قبل از disarm
+                زمان اندازه گیری شده قبل از
+                 disarm
+                 (T<sub>1</sub>)
 
             </span>
 
             <br>
-            <span class="time">(E<sub>C</sub>)</span>
             <span>
-                :حد مجاز در صورتی که تنظیمی توسط سازنده بیان نشده باشد بین30 تا120 ثانیه(30 و120 هم قبول است) می باشد
+                حد مجاز در صورتی که تنظیمی توسط سازنده بیان نشده باشد بین30 تا120 ثانیه(30 و120 هم قبول است) می باشد
             </span>
+            <span class="time">(E<sub>C</sub>)</span>
+
             <br>
 نکته: در صورت تنظیم بیش از 120 ثانیه باید پیغام مربوطه (اشاره شده در دستورالعمل دفیبریلاتور) موجود باشد.
         </div>
@@ -1571,7 +1618,7 @@
 
 </form>
 
-
+<script>
 {##}$( "#id_s1_e1_res" )
     .focusout(function() {
       if($( "#id_s1_e1_res" ).val() >0.2  && ($( "#id_s1_e1_res").val().length !=0)){
@@ -1925,12 +1972,12 @@ $( "#id_s3_e7_lc" )
 var f= $("#id_s4_type").val();
 
   if( f==4){
-    var a1=10;
-    var b1=50;
+    var a1=100;
+    var b1=500;
   }
   else{
-    var a1=100;
-    var b1= 500;
+    var a1=10;
+    var b1= 50;
   }
   
   
@@ -2429,12 +2476,12 @@ $( "#id_s4_e1_lc1" )
 var f2= $("#id_s5_type").val();
 
   if( f2==4){
-    var a2=10;
-    var b2=50;
+    var a2=100;
+    var b2=500;
   }
   else{
-    var a2=100;
-    var b2= 500;
+    var a2=10;
+    var b2= 50;
   }
   
   
@@ -2932,10 +2979,10 @@ $( "#id_s5_e1_lc1" )
     var f2= $("#id_s6_type").val();
 
 if( f2==2){
-  var a3=100;
+  var a3=5000;
 }
 else{
-  var a3=5000;
+  var a3=100;
 }
 
 
@@ -3411,4 +3458,3 @@ $( "#id_s6_e1_lc1" )
 
 
 </script>
-

@@ -2,7 +2,6 @@
 {% load widget_tweaks %}
 
 
-<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
 
 <form method="POST" class="post-form">
@@ -10,6 +9,29 @@
     {% csrf_token %}
 
     <table class="table-bordered">
+
+                  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+                  <script src="{% static 'js/selectize.min.js' %}"></script>
+                  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
+                  <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
+                  <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
+                  <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
+                  <!-- <script>
+                  $(document).ready(function() {
+                      $('select').niceSelect();
+                      $('.search-a').niceSelect('destroy');
+                      });
+                </script>-->
+                <script> 
+                          
+                    $(document).ready(function () {
+                      $('.search-a').selectize({
+                          sortField: 'text'
+                      });
+                  });
+                        </script>        
+              <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+      
         <!--////////////////////////////////////////////////////////////-->
         <div class="data container-fluid">
           {% if edit %}
@@ -26,86 +48,89 @@
         </div>
 
           {% endif %}
-<h1 class="header-t" align="center" style="font-size: 20pt;font-weight: bold;">
- گواهينامه کنترل کيفي دستگاه ECG
+          <h1  class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
+              گواهينامه کنترل کيفي دستگاه ECG
 </h1>
 
 
-            <div class="row" style="margin-right: 40px;">
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-      	<span style="margin-right: 30px;"> نام دستگاه : </span>
-        <span class="ee">
-          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
+
+<div class="row" style="margin-right: 40px;">
+    <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      <span style="margin-right: 30px;"> نام دستگاه : </span>
+      <span>
+
+        
+        {% render_field form.device style="display:inline;width:50%;" class="search-a" searchable="Search here.." %}
+  
         </span>
+        <br>
+<!-- / -->
+
+<span style="margin-right: 17px;"> شماره درخواست  : </span>
+<span class="ee">
+  {% render_field form.request  class="search-a" style="display:inline;width:50%;"%}
+
+ </span>
+<br>
+<span style="margin-right: 17px;"> رطوبت محیطی : </span>
+<br>
+<span class="ee">
+  {% render_field form.humidity style="display:block;max-width:500px;width:50%;"%}
+
+</span>
+
+<br>
+<!-- / -->
+<label style="margin-right: 17px;" > دمای محیطی : </label>
+<br>
+<span class="ee"> 
+  {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
+
+</span>
 
 
-        <!--
-      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
-      </div>
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-          <span> شماره درخواست  : </span>
-        <span class="ee"> {{form.request}} </span>
-
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
-      </div>
-
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-      <span> رطوبت محیطی : </span>
-        <span class="ee">
-            {{form.humidity}}
-        </span>
-
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
+<!--
 
 
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
 
-      <label style="margin-right: 17px;" > دمای محیطی : </label>
-                  <span class="ee"> {{form.temp}} </span>
-
-      <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
-
-      </div>
-
-
-
-
-
-
-
-	<!--</form>-->
-
-<br><br>
-
-
-<h2>تجهیزات آزمون : </h2>
-
-<div class="container">
-  <label>نام تجهیز :</label><br>
-  <label>دستگاه شماره 1 :</label>
-    <span class="ee">
-      {{form.cal_dev1}}
-    </span><br>
-  <label>دستگاه شماره 2 :</label>
-    <span class="ee">
-      {{form.cal_dev2}}
-    </span><br>
-<label>دستگاه شماره 3 :</label>
-    <span class="ee">
-      {{form.cal_dev3}}
-    </span><br>
-    <label>دستگاه شماره 4 :</label>
-    <span class="ee">
-      {{form.cal_dev4}}
-    </span><br>
 </div>
+
+<div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+  <h2 style="font-family: light-iransans">تجهیزات آزمون : </h2>
+
+  <div class="container">
+    <label>نام تجهیز :</label><br>
+    <label>دستگاه شماره 1 :</label>
+      <span class="ee">
+        {{form.cal_dev1}}
+      </span><br>
+    <label>دستگاه شماره 2 :</label>
+      <span class="ee">
+        {{form.cal_dev2}}
+      </span><br>
+      <label>دستگاه شماره 3 :</label>
+      <span class="ee">
+        {{form.cal_dev3}}
+      </span><br>
+      <label>دستگاه شماره 4 :</label>
+      <span class="ee">
+        {{form.cal_dev4}}
+      </span><br>
+  
+  </div>
+  <br><br>
+  
+
+
+    </div>
+
+    </div>
+
+
+<!--</form>-->
+
 <br><br>
 
 <div style="font-weight: bold;">
@@ -116,8 +141,8 @@
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time">
 <tbody>
         <tr>
-        <td rowspan="3">Wave</td>
-        <td rowspan="3">Amp (mv)</td>
+        <td rowspan="2">Wave</td>
+        <td rowspan="2">Amp (mv)</td>
         <td rowspan="2">Time (sec)</td>
         <td rowspan="2">Gain <br>(mm/mv)</td>
         <td rowspan="2">Display Amp (mm)</td>
@@ -131,6 +156,9 @@
         <td>Rej</td>
         </tr>
         <tr>
+          
+        <td rowspan="4">2Hz Square</td>
+        <td rowspan="4">1</td>
         <td rowspan="4">10</td>
         <td rowspan="2">5</td>
         <td>{{ form.s1_e1_damp }}</td>
@@ -141,8 +169,6 @@
         <td rowspan="2">.</td>
         </tr>
         <tr>
-        <td rowspan="3">2Hz Square</td>
-        <td rowspan="3">1</td>
         <td>.</td>
         <td>.</td>
         </tr>
@@ -578,7 +604,7 @@
                                 7- تستهاي کيفي:
                         </div>
 
-                    <table style="margin: auto;width: 100%;text-align:center;font-family:'B Nazanin';direction: ltr;" class="tb-4 time">
+                    <table style="margin: auto;width: 100%;text-align:center;direction: ltr;" class="tb-4 time">
                             <tbody>
                                     <tr>
                                     <td>توضیحات</td>
@@ -703,7 +729,7 @@
                         </tbody>
                         </table>
 
-
+                        <br>
 
                         <div style="font-weight: bold;">
 
@@ -747,7 +773,7 @@
                                         </tbody>
 
                             </table>
-
+                            <br>
     <div style="font-weight: bold;">
 
                                     <span> 3-بررسی توان دستگاه </span>
@@ -1702,11 +1728,6 @@ $( "#id_s6_e1_ramp" )
     $("#id_s6_e2_comment").css("background-color", "#f24858");
       $("#id_s6_e2_comment").css("color", "white");
       $("#id_s6_e2_comment").val("2");
-       
-      $("#id_s6_e2_comment").css("background-color", "white");
-      $("#id_s6_e2_comment").css("color", "black");
-      $("#id_s6_e2_comment").val("1");
-   
      
       
   }
@@ -1728,6 +1749,11 @@ $( "#id_s6_e3_ramp" )
       $("#id_s6_e3_ramp").css("background-color", "#f24858");
     $("#id_s6_e3_ramp").css("color", "white");
       
+      
+    $("#id_s6_e3_comment").css("background-color", "#f24858");
+      $("#id_s6_e3_comment").css("color", "white");
+      $("#id_s6_e3_comment").val("2");
+     
   }
     else if(($( "#id_s6_e3_ramp" ).val() <=21 && $( "#id_s6_e3_ramp" ).val() >=19  ) || ($( "#id_s6_e3_ramp").val().length ==0)) {
       $("#id_s6_e3_ramp").css("background-color", "white");
@@ -1742,8 +1768,86 @@ $( "#id_s6_e3_ramp" )
   });
 
 
-// ////////////////////////table 7
+// ////////////////////////table 15
 
+$( "#id_s15_e1_aplc" )
+
+    .focusout(function() {
+    if($( "#id_s15_e1_noaplc").val().length !=0){
+        var n=$( "#id_s15_e1_noaplc").val() - $( "#id_s15_e1_aplc" ).val();
+        if(n<0){
+                n=-n;
+        }
+      if( ( n>500 )  && ($( "#id_s15_e1_aplc").val().length !=0)){
+        $("#id_s15_e1_aplc").css("background-color", "#f24858");
+      $("#id_s15_e1_aplc").css("color", "white");
+
+      
+      $("#id_s15_e1_comment").css("background-color", "#f24858");
+      $("#id_s15_e1_comment").css("color", "white");
+      $("#id_s15_e1_comment").val("2");
+     
+
+    }
+      else if(( n<=500 ) || ($( "#id_s15_e1_aplc").val().length ==0)) {
+        $("#id_s15_e1_aplc").css("background-color", "white");
+      $("#id_s15_e1_aplc").css("color", "black");
+
+      $("#id_s15_e1_noaplc").css("background-color", "white");
+      $("#id_s15_e1_noaplc").css("color", "black");
+      
+
+      $("#id_s15_e1_comment").css("background-color", "white");
+      $("#id_s15_e1_comment").css("color", "black");
+      $("#id_s15_e1_comment").val("1");
+   
+    }
+    }
+    });
+
+
+
+
+    $( "#id_s15_e2_noaplc" )
+
+    .focusout(function() {
+    if($( "#id_s15_e2_aplc").val().length !=0){
+        var n=$( "#id_s15_e2_noaplc").val() - $( "#id_s15_e2_aplc" ).val();
+        if(n<0){
+                n=-n;
+        }
+      if( ( n>500 )  && ($( "#id_s15_e2_noaplc").val().length !=0)){
+        $("#id_s15_e2_noaplc").css("background-color", "#f24858");
+      $("#id_s15_e2_noaplc").css("color", "white");
+
+      
+      $("#id_s15_e2_comment").css("background-color", "#f24858");
+      $("#id_s15_e2_comment").css("color", "white");
+      $("#id_s15_e2_comment").val("2");
+     
+
+
+    }
+      else if(( n<=500 ) || ($( "#id_s15_e2_noaplc").val().length ==0)) {
+        $("#id_s15_e2_aplc").css("background-color", "white");
+      $("#id_s15_e2_aplc").css("color", "black");
+      
+        $("#id_s3_e2_noaplc").css("background-color", "white");
+      $("#id_s3_e2_noaplc").css("color", "black");
+
+      
+      $("#id_s15_e2_comment").css("background-color", "white");
+      $("#id_s15_e2_comment").css("color", "black");
+      $("#id_s15_e2_comment").val("1");
+   
+    }
+    }
+    });
+
+
+
+
+///////////////////table 16
 $( "#id_s16_e1_aplc" )
 
     .focusout(function() {
@@ -1752,24 +1856,36 @@ $( "#id_s16_e1_aplc" )
         if(n<0){
                 n=-n;
         }
-      if( ( n>100 )  && ($( "#id_s16_e1_aplc").val().length !=0)){
+      if( ( n>500 )  && ($( "#id_s16_e1_aplc").val().length !=0)){
         $("#id_s16_e1_aplc").css("background-color", "#f24858");
       $("#id_s16_e1_aplc").css("color", "white");
 
+       
+      $("#id_s16_e1_comment").css("background-color", "#f24858");
+      $("#id_s16_e1_comment").css("color", "white");
+      $("#id_s16_e1_comment").val("2");
+     
+
     }
-      else if(( n<=100 ) || ($( "#id_s16_e1_aplc").val().length ==0)) {
+      else if(( n<=500 ) || ($( "#id_s16_e1_aplc").val().length ==0)) {
         $("#id_s16_e1_aplc").css("background-color", "white");
       $("#id_s16_e1_aplc").css("color", "black");
 
       $("#id_s16_e1_noaplc").css("background-color", "white");
       $("#id_s16_e1_noaplc").css("color", "black");
       
+      $("#id_s16_e1_comment").css("background-color", "white");
+      $("#id_s16_e1_comment").css("color", "black");
+      $("#id_s16_e1_comment").val("1");
+   
     }
     }
     });
 
 
 
+
+    
 
     $( "#id_s16_e1_noaplc" )
 
@@ -1779,20 +1895,103 @@ $( "#id_s16_e1_aplc" )
         if(n<0){
                 n=-n;
         }
-      if( ( n>100 )  && ($( "#id_s16_e1_noaplc").val().length !=0)){
+      if( ( n>500 )  && ($( "#id_s16_e1_noaplc").val().length !=0)){
         $("#id_s16_e1_noaplc").css("background-color", "#f24858");
       $("#id_s16_e1_noaplc").css("color", "white");
 
+      $("#id_s16_e1_comment").css("background-color", "#f24858");
+      $("#id_s16_e1_comment").css("color", "white");
+      $("#id_s16_e1_comment").val("2");
+
+
     }
-      else if(( n<=100 ) || ($( "#id_s16_e1_noaplc").val().length ==0)) {
+      else if(( n<=500 ) || ($( "#id_s16_e1_noaplc").val().length ==0)) {
         $("#id_s16_e1_aplc").css("background-color", "white");
       $("#id_s16_e1_aplc").css("color", "black");
       
-        $("#id_s3_e1_noaplc").css("background-color", "white");
-      $("#id_s3_e1_noaplc").css("color", "black");
+        $("#id_s16_e1_noaplc").css("background-color", "white");
+      $("#id_s16_e1_noaplc").css("color", "black");
+
+      $("#id_s16_e1_comment").css("background-color", "white");
+      $("#id_s16_e1_comment").css("color", "black");
+      $("#id_s16_e1_comment").val("1");
+   
     }
     }
     });
+
+
+    $( "#id_s16_e2_aplc" )
+
+.focusout(function() {
+if($( "#id_s16_e2_noaplc").val().length !=0){
+    var n=$( "#id_s16_e2_noaplc").val() - $( "#id_s16_e2_aplc" ).val();
+    if(n<0){
+            n=-n;
+    }
+  if( ( n>500 )  && ($( "#id_s16_e2_aplc").val().length !=0)){
+    $("#id_s16_e2_aplc").css("background-color", "#f24858");
+  $("#id_s16_e2_aplc").css("color", "white");
+
+   
+  $("#id_s16_e2_comment").css("background-color", "#f24858");
+  $("#id_s16_e2_comment").css("color", "white");
+  $("#id_s16_e2_comment").val("2");
+ 
+
+}
+  else if(( n<=500 ) || ($( "#id_s16_e2_aplc").val().length ==0)) {
+    $("#id_s16_e2_aplc").css("background-color", "white");
+  $("#id_s16_e2_aplc").css("color", "black");
+
+  $("#id_s16_e2_noaplc").css("background-color", "white");
+  $("#id_s16_e2_noaplc").css("color", "black");
+  
+  $("#id_s16_e2_comment").css("background-color", "white");
+  $("#id_s16_e2_comment").css("color", "black");
+  $("#id_s16_e2_comment").val("1");
+
+}
+}
+});
+
+
+
+
+
+
+$( "#id_s16_e2_noaplc" )
+
+.focusout(function() {
+if($( "#id_s16_e2_aplc").val().length !=0){
+    var n=$( "#id_s16_e2_noaplc").val() - $( "#id_s16_e2_aplc" ).val();
+    if(n<0){
+            n=-n;
+    }
+  if( ( n>500 )  && ($( "#id_s16_e2_noaplc").val().length !=0)){
+    $("#id_s16_e2_noaplc").css("background-color", "#f24858");
+  $("#id_s16_e2_noaplc").css("color", "white");
+
+  $("#id_s16_e2_comment").css("background-color", "#f24858");
+  $("#id_s16_e2_comment").css("color", "white");
+  $("#id_s16_e2_comment").val("2");
+
+
+}
+  else if(( n<=500 ) || ($( "#id_s16_e2_noaplc").val().length ==0)) {
+    $("#id_s16_e2_aplc").css("background-color", "white");
+  $("#id_s16_e2_aplc").css("color", "black");
+  
+    $("#id_s16_e2_noaplc").css("background-color", "white");
+  $("#id_s16_e2_noaplc").css("color", "black");
+
+  $("#id_s16_e2_comment").css("background-color", "white");
+  $("#id_s16_e2_comment").css("color", "black");
+  $("#id_s16_e2_comment").val("1");
+
+}
+}
+});
 
 
 

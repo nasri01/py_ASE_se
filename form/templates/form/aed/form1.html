@@ -17,9 +17,24 @@
             <script src="{% static 'js/selectize.min.js' %}"></script>
             <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
             <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-          
-              
-        <!--////////////////////////////////////////////////////////////-->
+            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script>
+            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+            <script>
+            $(document).ready(function() {
+                $('select').niceSelect();
+                $('.search-a').niceSelect('destroy');
+                });
+          </script> -->
+          <script>
+                    
+              $(document).ready(function () {
+                $('.search-a').selectize({
+                    sortField: 'text'
+                });
+            });
+                  </script>        
+
+
         <div class="data container-fluid">
           {% if edit %}
           <div class="alert alert-warning">
@@ -35,7 +50,7 @@
         </div>
 
           {% endif %}
-<h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
+<h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
 گواهينامه کنترل کيفي دستگاهAED
 </h1>
 
@@ -46,50 +61,63 @@
         <span>
 
           
-          {% render_field form.device style="display:inline;width:50%;" id="select-state" searchable="دستگاه" %}
-          <script>
+          {% render_field form.device style="display:inline;width:50%;" class="search-a" searchable="Search here.." %}
           
-              $(document).ready(function () {
-                $('select').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>
     
           </span>
+          <br>
+<!-- / -->
+
+<span style="margin-right: 17px;"> شماره درخواست  : </span>
+<span class="ee">
+    {% render_field form.request  class="search-a" style="display:inline;width:50%;"%}
+
+   </span>
+<br>
+<span style="margin-right: 17px;"> رطوبت محیطی : </span>
+<br>
+<span class="ee">
+    {% render_field form.humidity style="display:block;max-width:500px;width:50%;"%}
+  
+</span>
+
+<br>
+<!-- / -->
+<label style="margin-right: 17px;" > دمای محیطی : </label>
+<br>
+<span class="ee"> 
+    {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
+  
+</span>
 
 
-        <!--
-      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
-      </div>
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+<!--
 
-          <span> شماره درخواست  : </span>
-        <span class="ee"> {{form.request}} </span>
 
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
-      </div>
+  <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+  
+</div>
 
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+<div class="col-md-6 col-sm-12" style="margin-top: 10px;">
 
-      <span> رطوبت محیطی : </span>
+    <h2 style="font-family: light-iransans">تجهیزات آزمون : </h2>
+
+    <div class="container">
+      <label>نام تجهیز :</label><br>
+      <label>دستگاه شماره 1 :</label>
         <span class="ee">
-            {{form.humidity}}
-        </span>
+          {{form.cal_dev1}}
+        </span><br>
+      <label>دستگاه شماره 2 :</label>
+        <span class="ee">
+          {{form.cal_dev2}}
+        </span><br>
+    
+    </div>
+    <br><br>
+    
 
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
 
-
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-      <label style="margin-right: 17px;" > دمای محیطی : </label>
-                  <span class="ee"> {{form.temp}} </span>
-
-      <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
       </div>
 
       </div>
@@ -105,27 +133,10 @@
 <br><br>
 
 
-<h2>تجهیزات آزمون : </h2>
-
-<div class="container">
-  <label>نام تجهیز :</label><br>
-  <label>دستگاه شماره 1 :</label>
-    <span class="ee">
-      {{form.cal_dev1}}
-    </span><br>
-  <label>دستگاه شماره 2 :</label>
-    <span class="ee">
-      {{form.cal_dev2}}
-    </span><br>
-
-</div>
-<br><br>
-
-<div style="font-weight: bold;">
+<div style="font-weight: bold;font-size: 18px;">
 
 تستهای کیفی:
         </div>
-<br>
 <br>
 
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-2">
@@ -238,14 +249,14 @@
 
 
 <br><br>
-<span style="font-weight: bold;">
+<span style="font-weight: bold;font-size: 18px;">
                 تست های کمی:
 </span>
 <br>
             <span style="font-weight: bold;">کلاس دستگاه:</span>
-            {{ form.test_type }}
-
-
+            <div style="width: 20%;">
+            {% render_field form.test_type%}
+          </div>
 <br><br>
 
 
@@ -370,6 +381,7 @@
           </tbody>
         </table>
 <div>
+  <br>
 نکات: 1- در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمتهای کاربردی نوع F  به زمین متصل و از آن جدا می باشند نیز تکرار شود.            </div>
 <br><br>
 
@@ -982,6 +994,7 @@
           </tbody>
 
         </table>
+          <br>
             *: زمان اندازه گیری شده قبل از disarm
 
             <br>
@@ -995,9 +1008,9 @@
                 <table style="margin: auto;width: 90%;text-align: center;direction: ltr;" class="tb-4 time">
           <tbody>
           <tr style="font-weight: bold;">
-                <td colspan="2" style="font-family: 'B Nazanin';">نتیجه</td>
-                <td rowspan="2" style="font-family: 'B Nazanin';">انرژی اندازه گیری شده توسط تستر(J) </td>
-                <td rowspan="2" style="font-family: 'B Nazanin';">نوع سیگنال</td>
+                <td colspan="2">نتیجه</td>
+                <td rowspan="2">انرژی اندازه گیری شده توسط تستر(J) </td>
+                <td rowspan="2">نوع سیگنال</td>
               </tr>
                 <tr style="font-weight: bold;">
                     <td>Rej</td>
@@ -1420,12 +1433,12 @@ $( "#id_s3_e7_lc" )
 var f= $("#id_s4_type").val();
 
   if( f==4){
-    var a1=10;
-    var b1=50;
+    var a1=100;
+    var b1=500;
   }
   else{
-    var a1=100;
-    var b1= 500;
+    var a1=10;
+    var b1= 50;
   }
   
   
@@ -1924,12 +1937,12 @@ $( "#id_s4_e1_lc1" )
 var f2= $("#id_s5_type").val();
 
   if( f2==4){
-    var a2=10;
-    var b2=50;
+    var a2=100;
+    var b2=500;
   }
   else{
-    var a2=100;
-    var b2= 500;
+    var a2=10;
+    var b2= 50;
   }
   
   
@@ -2428,10 +2441,10 @@ $( "#id_s5_e1_lc1" )
 var f2= $("#id_s6_type").val();
 
 if( f2==2){
-  var a3=100;
+  var a3=5000;
 }
 else{
-  var a3=5000;
+  var a3=100;
 }
 
 
@@ -2550,96 +2563,7 @@ $( "#id_s6_e1_lc1" )
 
 
 
-
-
  
-
-
-
-
-
-
-<script>
-
-function filterFunction(that, event) {
-    let container, input, filter, li, input_val;
-    container = $(that).closest(".searchable");
-    input_val = container.find("input").val().toUpperCase();
-
-    if (["ArrowDown", "ArrowUp", "Enter"].indexOf(event.key) != -1) {
-        keyControl(event, container)
-    } else {
-        li = container.find("ul li");
-        li.each(function (i, obj) {
-            if ($(this).text().toUpperCase().indexOf(input_val) > -1) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-
-        container.find("ul li").removeClass("selected");
-        setTimeout(function () {
-            container.find("ul li:visible").first().addClass("selected");
-        }, 100)
-    }
-}
-
-function keyControl(e, container) {
-    if (e.key == "ArrowDown") {
-
-        if (container.find("ul li").hasClass("selected")) {
-            if (container.find("ul li:visible").index(container.find("ul li.selected")) + 1 < container.find("ul li:visible").length) {
-                container.find("ul li.selected").removeClass("selected").nextAll().not('[style*="display: none"]').first().addClass("selected");
-            }
-
-        } else {
-            container.find("ul li:first-child").addClass("selected");
-        }
-
-    } else if (e.key == "ArrowUp") {
-
-        if (container.find("ul li:visible").index(container.find("ul li.selected")) > 0) {
-            container.find("ul li.selected").removeClass("selected").prevAll().not('[style*="display: none"]').first().addClass("selected");
-        }
-    } else if (e.key == "Enter") {
-        container.find("input").val(container.find("ul li.selected").text()).blur();
-        onSelect(container.find("ul li.selected").text())
-    }
-
-    container.find("ul li.selected")[0].scrollIntoView({
-        behavior: "smooth",
-    });
-}
-
-function onSelect(val) {
-    alert(val)
-}
-
-$(".searchable input").focus(function () {
-    $(this).closest(".searchable").find("ul").show();
-    $(this).closest(".searchable").find("ul li").show();
-});
-$(".searchable input").blur(function () {
-    let that = this;
-    setTimeout(function () {
-        $(that).closest(".searchable").find("ul").hide();
-    }, 300);
-});
-
-$(document).on('click', '.searchable ul li', function () {
-    $(this).closest(".searchable").find("input").val($(this).text()).blur();
-    onSelect($(this).text())
-});
-
-$(".searchable ul li").hover(function () {
-    $(this).closest(".searchable").find("ul li.selected").removeClass("selected");
-    $(this).addClass("selected");
-});
-
-</script>
-
-
 
 
 
