@@ -53,7 +53,7 @@ def xlsx(request):
                     modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
                         request__hospital__user__id__exact=request.user.id)
                     data.extend(modelobj)
-
+        
 
 
         fr1 = excel_arg.objects.all().order_by('order')
