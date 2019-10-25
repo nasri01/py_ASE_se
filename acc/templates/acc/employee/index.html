@@ -66,25 +66,25 @@
                             {% if settings %}
                                 {% if change_password %}
                                     {% if change_password_done %}
-                                        Finally you did t, DumbAss! password
+                                        Finally you did t password
                                     {% elif form %}
                                         <form action="{% url  'change_password' %}" method="post">
                                             {% csrf_token %}
                                             <input type="password" name="password1">
                                             <input type="password" name="password2">
-                                            <input type="submit" value="submit the Shit!">
+                                            <input type="submit" value="submit!">
                                         </form>
                                     {% endif %}
 
                                 {% elif change_email %}
                                     {% if change_email_done %}
-                                        Finally you did t, DumbAss!email
+                                        Finally you did t!email
                                     {% elif form %}
                                         <form action="{% url  'change_email' %}" method="post">
                                             {% csrf_token %}
                                             <input type="email" name="email1">
                                             <input type="email" name="email2">
-                                            <input type="submit" value="submit the Shit!">
+                                            <input type="submit" value="submit!">
                                         </form>
                                     {% endif %}
 
