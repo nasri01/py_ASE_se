@@ -78,7 +78,7 @@ class aUserProfile(models.Model):
     signature = models.ImageField()
     status = models.ForeignKey(ad_acc_Status,on_delete=models.PROTECT)
     def __str__(self):
-        return self.user
+        return self.user.first_name
     
 
 
@@ -136,8 +136,8 @@ class All_Device(models.Model):
     name = models.ForeignKey(Device , on_delete=models.CASCADE)
     hospital = models.ForeignKey(Hospital , on_delete=models.CASCADE)
     section = models.ForeignKey(Section , on_delete=models.CASCADE)
-    serial_number = models.TextField()
-    property_number = models.IntegerField()
+    serial_number = models.TextField(null=True,blank=True)
+    property_number = models.IntegerField(null=True,blank=True)
     def __str__(self):
         return str(self.name) + ' - ' + str(self.hospital.name) + ' - ' + str(self.serial_number)
 

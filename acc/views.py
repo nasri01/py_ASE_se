@@ -11,13 +11,16 @@ from django.template import RequestContext
 # color_scheme = Parameters.objects.get(name__exact='color').value
 color_scheme = 2  # test
 
-model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, aed_1, monitor_safety_1, anesthesia_machine_1,
-              defibrilator_1, ]
+model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
+              defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
+              ventilator_1, electrocauter_1 ]
 
-modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'aed', 'monitor_safety', 'anesthesia_machine',
-             'defibrilator', ]
-form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, aed_1_Form, monitor_safety_1_Form,
-             anesthesia_machine_1_Form, defibrilator_1_Form]
+modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'aed', 'anesthesia_machine',
+             'defibrilator','ecg', 'flowmeter', 'infusion_pump', 'monometer', 'spo2', 'suction', 'syringe_pump',
+             'ventilator', 'electrocauter' ]
+form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, monitor_safety_1_Form, aed_1_Form,
+             anesthesia_machine_1_Form, defibrilator_1_Form, ecg_1_Form, flowmeter_1_Form, infusion_pump_1_Form,
+             monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form]
 
 
 def login(request):
