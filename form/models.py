@@ -16,8 +16,7 @@ class monitor_spo2_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ms1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ms1r')
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_spo2, related_name='ms1totalcomment',
-                                          blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_spo2, related_name='ms1totalcomment')
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -92,7 +91,7 @@ class monitor_ecg_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='me1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='me1r')
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_ecg, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_ecg )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -275,7 +274,7 @@ class monitor_nibp_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='mn1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='mn1r')
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_nibp, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_nibp )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -343,7 +342,7 @@ class aed_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='aed1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='aed1r')
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_aed, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_aed )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -607,7 +606,7 @@ class monitor_safety_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='msa1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='msa1r')
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_safety, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monitor_safety )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -785,7 +784,7 @@ class anesthesia_machine_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='am1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_anesthesia_machine, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_anesthesia_machine )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -1070,7 +1069,7 @@ class defibrilator_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='df1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_defibrilator, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_defibrilator )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -1509,7 +1508,7 @@ class ecg_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='e1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_ecg, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_ecg )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -1725,7 +1724,7 @@ class flowmeter_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='fm1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_flowmeter, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_flowmeter )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -1758,7 +1757,7 @@ class infusion_pump_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ip1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_infusion_pump, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_infusion_pump )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -1944,7 +1943,7 @@ class monometer_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='mm1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monometer, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_monometer )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -2035,8 +2034,7 @@ class spo2_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='sp1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_spo2, related_name='sp1totalcomment', blank=True,
-                                          null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_spo2, related_name='sp1totalcomment')
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -2148,8 +2146,7 @@ class suction_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='su1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_suction, related_name='su1totalcomment',
-                                          blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_suction, related_name='su1totalcomment')
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -2274,7 +2271,7 @@ class syringe_pump_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='spmp1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_syringe_pump, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_syringe_pump )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -2460,7 +2457,7 @@ class electrocauter_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ec1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_electrocouter, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_electrocouter )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
@@ -2835,7 +2832,7 @@ class ventilator_1(models.Model):
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
     licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ven1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
-    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_ventilator, blank=True, null=True)
+    totalcomment = models.ManyToManyField(acc.models.qualitive_comment_ventilator )
     is_done = models.BooleanField(default=False)
 
     humidity = models.IntegerField(default=45)
