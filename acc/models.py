@@ -29,11 +29,11 @@ class ad_acc_Status(models.Model):
 
 
 class ad_test_type(models.Model):#class
-    type = models.CharField(max_length=12)
+    type = models.CharField(max_length=30)
     def __str__(self):
         return str(self.type)
 class ad_test_type2(models.Model):#bf/cf ac/dc
-    type = models.CharField(max_length=12)
+    type = models.CharField(max_length=30)
     def __str__(self):
         return str(self.type)
 
@@ -74,8 +74,8 @@ class Parameters(models.Model):
 
 class aUserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    avatar = models.ImageField()
-    signature = models.ImageField()
+    avatar = models.ImageField(upload_to='avatar/')
+    signature = models.ImageField(upload_to='signature/',null=True,blank=True)
     status = models.ForeignKey(ad_acc_Status,on_delete=models.PROTECT)
     def __str__(self):
         return self.user.first_name

@@ -103,7 +103,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
-        'NAME': 'kaadcoir_azma',
+        'NAME': 'kaadcoir_azma_test',
         'PASSWORD': 'L@!Go&H^?f@a',
         'PORT': '5432',
         'USER': 'kaadcoir_admin',
@@ -150,10 +150,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'ww/static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ww/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
