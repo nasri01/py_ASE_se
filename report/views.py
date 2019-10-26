@@ -198,7 +198,7 @@ def pdf1(request):
                     data.append((int(modelobj[0].s3_e5_pr) - 240)**2)
                     for i in range(12,17):
                         sss+=data[i]
-                    data.append((sss/5)**0.5)
+                    data.append(int(((sss/5)**0.5)*100)/100)
                 break
 
             # TODO licence doesn't exist
