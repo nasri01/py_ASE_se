@@ -169,7 +169,8 @@ def xlsx(request):
 
 def pdf1(request):
     if request.method == 'GET':
-
+        ss = 0
+        sss = 0
         for model in model_list:
             modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
