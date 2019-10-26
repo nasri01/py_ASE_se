@@ -212,7 +212,7 @@ def pdf1(request):
         )
 
         font_config = FontConfiguration()
-        template_name = 'report/Monitor/ECG/licence1.html'
+        template_name = 'report/Monitor/Spo2/licence1.html'
         html = render_to_string(template_name, {
             'form': modelobj[0], 'time': t2,'usr':usr,'data':data
         })
