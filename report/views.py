@@ -176,6 +176,7 @@ def pdf1(request):
             modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
                 if(model == monitor_spo2_1):
+                    template_name = 'report/Monitor/Spo2/licence1.html'
                     data = []
                     data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)
                     data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)
@@ -200,7 +201,9 @@ def pdf1(request):
                     for i in range(12,17):
                         sss+=data[i]
                     data.append(int(((sss/5)**0.5)*100)/100)
+                
                 elif (model == monitor_nibp_1):
+                    template_name = 'report/Monitor/NIBP/licence1.html'
                     ss += modelobj[0].s2_e1_pr1.split('/')[0]
                     ss += modelobj[0].s2_e1_pr2.split('/')[0]
                     ss += modelobj[0].s2_e1_pr3.split('/')[0]
@@ -237,6 +240,48 @@ def pdf1(request):
                     sss += modelobj[0].s2_e6_pr1.split('/')[1]
                     sss += modelobj[0].s2_e6_pr2.split('/')[1]
                     sss += modelobj[0].s2_e6_pr3.split('/')[1]
+                elif (model == monitor_ecg_1):
+                    template_name = 'report/Monitor/ECG/licence1.html'
+
+                elif (model == monitor_safety_1):
+                    template_name = 'report/Monitor/SAFETY/licence1.html'
+
+                elif (model == aed_1):
+                    template_name = 'report/aed/licence1.html'
+
+                elif (model == anesthesia_machine_1):
+                    template_name = 'report/anesthesiamachine/licence1.html'
+
+                elif (model == defibrilator_1):
+                    template_name = 'report/defibrilator/licence1.html'
+                
+                elif (model == ecg_1):
+                    template_name = 'report/ecg/licence1.html'
+                
+                elif (model == electrocauter_1):
+                    template_name = 'report/electrocauter/licence1.html'
+                
+                elif (model == flowmeter_1):
+                    template_name = 'report/flowmeter/licence1.html'
+                
+                elif (model == infusion_pump_1):
+                    template_name = 'report/infusion_pump/licence1.html'
+                
+                elif (model == monometer_1):
+                    template_name = 'report/monometer/licence1.html'
+                
+                elif (model == spo2_1):
+                    template_name = 'report/spo2/licence1.html'
+                
+                elif (model == suction_1):
+                    template_name = 'report/suction/licence1.html'
+                
+                elif (model == syringe_pump_1):
+                    template_name = 'report/syringe_pump/licence1.html'
+                
+                elif (model == ventilator_1):
+                    template_name = 'report/ventilator/licence1.html'
+
                 break
 
             # TODO licence doesn't exist
@@ -250,7 +295,7 @@ def pdf1(request):
         )
 
         font_config = FontConfiguration()
-        template_name = 'report/Monitor/Spo2/licence1.html'
+        
         html = render_to_string(template_name, {
             'form': modelobj[0], 'time': t2,'usr':usr,'data':data
         })
