@@ -9,9 +9,9 @@
     <table class="table-bordered">
 
             <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            <script src="{% static 'js/selectize.min.js' %}"></script>
+            {% comment %} <script src="{% static 'js/selectize.min.js' %}"></script> {% endcomment %}
             <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
+            {% comment %} <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " /> {% endcomment %}
             <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script>
             <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
             <script>
@@ -66,8 +66,15 @@
   
   <span style="margin-right: 17px;"> شماره درخواست  : </span>
   <span class="ee">
-      {% render_field form.request  class="search-a" style="display:inline;width:50%;"%}
-  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+
+      {% render_field form.request  id="select-state" class="search-a" style="display:inline;width:50%;"%}
+    
+
+    
      </span>
   <br>
   <span style="margin-right: 17px;"> رطوبت محیطی : </span>
