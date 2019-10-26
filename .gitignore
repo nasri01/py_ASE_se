@@ -223,3 +223,4 @@ modules.xml
 
 # End of https://www.gitignore.io/api/django,pycharm+all
 ww/settings.py
+.vscode/settings.json

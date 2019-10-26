@@ -171,7 +171,7 @@ def pdf1(request):
     if request.method == 'GET':
 
         for model in model_list:
-            modelobj = model.objects.filter(licence__number=2)
+            modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
                 if(model == monitor_spo2_1):
                     data = []
