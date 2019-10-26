@@ -139,10 +139,10 @@
             </div>
             <!--  -->
             <div class="col-lg-8 col-md-12" style="direction: rtl;">
-                    {% if data %}
-                <div class="data-box">
-                    <table style="border-radius: 10px; width: 100%;">
-                        <!--///////////////////////////////////-->
+                {% if data %}
+                    <div class="data-box">
+                        <table style="border-radius: 10px; width: 100%;">
+                            <!--///////////////////////////////////-->
                             <tr class="t-row">
                                 <th>{{firstrow.1}}</th>
                                 <th>{{firstrow.2}}</th>
@@ -177,30 +177,35 @@
                                     <th>{{i.status.status}}</th>
                                     <th>{{i.date|date:'Y-m-d'}}</th>
                                     <th>{{firstrow.0}}</th>
+                                    
                                     {% if i.licence.number != -1%}
                                         <th>{{i.licence.number}}</th>
                                     {% else%}
                                         <th>-</th>
                                     {% endif %}
+                                    
                                     <th>
                                         {% for t in i.totalcomment.all %}
-                                        {{t}}
+                                            {{t}}
                                         {% endfor %}
                                     </th>
+                                    
                                     {% if i.status.id != 4 %}
                                         <form method="GET" action="{% url 'report-pdf1'%}">
                                             <td> <button type="submit" value="{{i.licence.number}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
                                         </form>
                                     {% endif %}
-                            </tr>
+                                
+                                </tr>
                             {% empty %}
                                 norecord
                             {% endfor %}
 
-                    </table>
-                </div>
+                        </table>
+                     </div>
                          
-            {% endif %}
+                {% endif %}
+                
                     <div class="data-box" style="max-width: 500px;">
                         <canvas id="doughnutChart" style="max-width: 800px;"></canvas>
                     </div>

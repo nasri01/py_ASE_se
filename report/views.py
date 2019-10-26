@@ -12,7 +12,9 @@ from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 
-model_list = [monitor_spo2_1]
+model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
+              defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
+              ventilator_1, electrocauter_1 ]
 
 
 def xlsx(request):
