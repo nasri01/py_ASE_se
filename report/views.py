@@ -187,7 +187,7 @@ def pdf1(request):
                     data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)
                     data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)
                     data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)
-                    for i in range(11):
+                    for i in range(12):
                         ss+=data[i]
                     data.append((ss/11)**0.5)
 
@@ -196,7 +196,7 @@ def pdf1(request):
                     data.append((int(modelobj[0].s3_e3_pr) - 100)**2)
                     data.append((int(modelobj[0].s3_e4_pr) - 200)**2)
                     data.append((int(modelobj[0].s3_e5_pr) - 240)**2)
-                    for i in range(11,17):
+                    for i in range(12,17):
                         sss+=data[i]
                     data.append((sss/5)**0.5)
                 break
