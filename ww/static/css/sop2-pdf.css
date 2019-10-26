@@ -58,7 +58,7 @@ th{
     width:4cm;
     height:4cm;
     /*margin-top: -1cm;*/
-    background: url('../img/spo2/stamp.jpg') no-repeat;
+    background: url('http://kaadco.ir/static/img/spo2/stamp.jpg') no-repeat;
     background-size: cover;
     margin-left: 2cm;
 }
