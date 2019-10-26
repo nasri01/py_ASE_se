@@ -171,6 +171,7 @@ def pdf1(request):
     if request.method == 'GET':
         ss = 0
         sss = 0
+        data = []
         for model in model_list:
             modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
@@ -199,6 +200,43 @@ def pdf1(request):
                     for i in range(12,17):
                         sss+=data[i]
                     data.append(int(((sss/5)**0.5)*100)/100)
+                elif (model == monitor_nibp_1):
+                    ss += modelobj[0].s2_e1_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e1_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e1_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e2_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e2_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e2_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e3_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e3_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e3_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e4_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e4_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e4_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e5_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e5_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e5_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e6_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e6_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e6_pr3.split('/')[0]
+                    sss += modelobj[0].s2_e1_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e1_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e1_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e2_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e2_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e2_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e3_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e3_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e3_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e4_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e4_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e4_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e5_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e5_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e5_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e6_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e6_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e6_pr3.split('/')[1]
                 break
 
             # TODO licence doesn't exist
