@@ -169,10 +169,74 @@ def xlsx(request):
 
 def pdf1(request):
     if request.method == 'GET':
-
+        ss = 0
+        sss = 0
+        data = []
         for model in model_list:
-            modelobj = model.objects.filter(licence__number=2)
+            modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
+                if(model == monitor_spo2_1):
+                    data = []
+                    data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)
+                    data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)
+                    data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)
+                    data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)
+                    data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)
+                    data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)
+                    data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)
+                    data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)
+                    data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)
+                    data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)
+                    data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)
+                    for i in range(11):
+                        ss+=data[i]
+                    data.append(int(((ss/11)**0.5)*100)/100)
+
+                    data.append((int(modelobj[0].s3_e1_pr) - 35)**2)
+                    data.append((int(modelobj[0].s3_e2_pr) - 60)**2)
+                    data.append((int(modelobj[0].s3_e3_pr) - 100)**2)
+                    data.append((int(modelobj[0].s3_e4_pr) - 200)**2)
+                    data.append((int(modelobj[0].s3_e5_pr) - 240)**2)
+                    for i in range(12,17):
+                        sss+=data[i]
+                    data.append(int(((sss/5)**0.5)*100)/100)
+                elif (model == monitor_nibp_1):
+                    ss += modelobj[0].s2_e1_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e1_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e1_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e2_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e2_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e2_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e3_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e3_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e3_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e4_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e4_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e4_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e5_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e5_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e5_pr3.split('/')[0]
+                    ss += modelobj[0].s2_e6_pr1.split('/')[0]
+                    ss += modelobj[0].s2_e6_pr2.split('/')[0]
+                    ss += modelobj[0].s2_e6_pr3.split('/')[0]
+                    sss += modelobj[0].s2_e1_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e1_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e1_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e2_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e2_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e2_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e3_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e3_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e3_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e4_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e4_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e4_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e5_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e5_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e5_pr3.split('/')[1]
+                    sss += modelobj[0].s2_e6_pr1.split('/')[1]
+                    sss += modelobj[0].s2_e6_pr2.split('/')[1]
+                    sss += modelobj[0].s2_e6_pr3.split('/')[1]
                 break
 
             # TODO licence doesn't exist
@@ -188,7 +252,7 @@ def pdf1(request):
         font_config = FontConfiguration()
         template_name = 'report/Monitor/Spo2/licence1.html'
         html = render_to_string(template_name, {
-            'form': modelobj[0], 'time': t2,'usr':usr
+            'form': modelobj[0], 'time': t2,'usr':usr,'data':data
         })
 
         css_root = static('/css')
@@ -196,8 +260,5 @@ def pdf1(request):
         css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
 
         document = HTML(string=html).write_pdf(response,font_config=font_config, stylesheets=[css1, css2])
-
-        # all_pages = [page for document in documents for page in document.pages]
-        # documents[0].copy(all_pages).write_pdf(response)
 
         return response
