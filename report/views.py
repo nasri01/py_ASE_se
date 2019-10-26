@@ -196,7 +196,7 @@ def pdf1(request):
                     data.append((int(modelobj[0].s3_e3_pr) - 80)**2)
                     data.append((int(modelobj[0].s3_e4_pr) - 85)**2)
                     data.append((int(modelobj[0].s3_e5_pr) - 88)**2)
-                    for i in range(12,18):
+                    for i in range(11,17):
                         sss+=data[i]
                     data.append((sss/5)**0.5)
                 break
