@@ -63,56 +63,57 @@
             <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
               
         <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
+    <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
         <span class="time">ECG</span>
 گواهينامه کنترل کيفي دستگاه مانيتورينگ
     </h1>
     <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
         <tr>
             <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
+            <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
 
         </tr>
         <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+            <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
             <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
 
         </tr>
 
         <tr>
+            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+            <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+
+        </tr>
+        <tr>
             <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
+            <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
         </tr>
         <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
+            <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+            <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
         </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
         <tr>
             <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+            <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
         </tr>
 
         <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
+            <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+            <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+    
         </tr>
 
         <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
+            <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
 
+        </tr>
+    
     </table>
-    <br>
+    <div style="height:5.85cm;">
+              <span>{{ form.status.status }}</span>موارد عدم شمول: 
+
+    </div>
+    
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
     <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
         <tr>
@@ -1061,8 +1062,8 @@
           <td>5</td>
           <td>{{ form.s6_e1_damp }}</td>
           <td>{{ form.s6_e1_ramp }}</td>
-          <td>±0.5 mm<td>
-           {% if form.s6_e1_damp == -1 %}
+          <td>±0.5 mm</td>
+          {% if form.s6_e1_damp == -1 %}
                 <td></td>
                 <td></td>
             {% elif form.s6_e1_damp < 0.95 or form.s6_e1_damp > 1.05 %}
@@ -1085,7 +1086,7 @@
           <td>10</td>
           <td>{{ form.s6_e2_damp }}</td>
           <td>{{ form.s6_e2_ramp }}</td>
-          <td>±1 mm<td>
+          <td>±1 mm</td>
           {% if form.s6_e2_damp == -1 %}
                 <td></td>
                 <td></td>
@@ -1110,7 +1111,7 @@
           <td>20</td>
           <td>{{ form.s6_e3_damp }}</td>
           <td>{{ form.s6_e3_ramp }}</td>
-          <td>±2 mm<td>
+          <td>±2 mm</td>
       
             {% if form.s6_e3_damp == -1 %}
                 <td></td>
