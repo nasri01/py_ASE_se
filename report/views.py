@@ -187,7 +187,7 @@ def pdf1(request):
                     data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)
                     data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)
                     data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)
-                    for i in range(12):
+                    for i in range(11):
                         ss+=data[i]
                     data.append((ss/11)**0.5)
 
