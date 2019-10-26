@@ -43,14 +43,25 @@
         padding: 0.02cm 0.1cm;
 
        }
-
+       /* .dirr{ */
+        /* unicode-bidi: bidi-override !important; */
+        /* direction: unset !important; */
+        /* direction: rtl !important; */
+       /* } */
+       /* td,th,span{
+        unicode-bidi: bidi-override !important;
+        direction: unset !important;
+        direction: rtl;
+       } */
     </style>
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
 
+
+        <div class="cover main" style="font-family:'B Lotus';">
+            <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
+              
         <br>
     <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
         <span class="time">ECG</span>
@@ -166,26 +177,27 @@
     </table>
 
     </div>
-        <br><br><br><br><br><br><br>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-    <div style="margin-right: 2cm;margin-left: 4cm;">
-        <div style="font-weight: bold;padding-top: 6cm;">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+        <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
 1.حذف پالس پیس میکر(استاندارد
         </div>
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-2 time">
           <thead>
               <tr>
-                <th rowspan="2">SETTING</th>
+                <th rowspan="2">
+                  SETTING
+                </th>
                 <th rowspan="2">Width</th>
                 <th rowspan="2">Amp</th>
                 <th rowspan="2">PACE Mark</th>
                 <th rowspan="2">HR</th>
                 <th colspan="2">Result</th>
-                <th rowspan="2">Comment</th>
+                <th rowspan="2" style="min-width: 5cm;">Comment</th>
               </tr>
                 <tr>
                     <th>OK</th>
@@ -196,7 +208,7 @@
             <tr>
               <td rowspan="8" style="width: 4cm;">Lead II ASync No Overshoot HR=80bpm</td>
               <td rowspan="4">0.1ms</td>
-              <td>-700 mv</td>
+              <td>-700mv</td>
               <td>&#10004;</td>
               <td>{{ form.s1_e1_hr }}</td>
             {% if  form.s1_e1_hr <= 0 %}
@@ -252,7 +264,7 @@
 
 
             <tr>
-              <td>+700 mv</td>
+              <td>+700mv</td>
               <td>&#10004;</td>
               <td>{{ form.s1_e4_hr }}</td>
               {% if  form.s1_e4_hr <= 0 %}
@@ -271,7 +283,7 @@
 
             <tr>
                 <td rowspan="4">2 ms</td>
-              <td>-700 mv</td>
+              <td>-700mv</td>
               <td>&#10004;</td>
               <td>{{ form.s1_e5_hr }}</td>
               {% if  form.s1_e5_hr <= 0 %}
@@ -325,7 +337,7 @@
             </tr>
 
             <tr>
-              <td>+700 mv</td>
+              <td>+700mv</td>
               <td>&#10004;</td>
               <td>{{ form.s1_e8_hr }}</td>
               {% if  form.s1_e8_hr <= 0 %}
@@ -344,9 +356,6 @@
           </tbody>
 
         </table>
-
-
-
             <br>
 
             <div style="font-weight: bold;">
@@ -362,7 +371,7 @@
             <th rowspan="2">Max Error</th>
             <th rowspan="2">HR</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>
@@ -445,13 +454,12 @@
       <tr>
           <td>300</td>
           <td >
-              <span style="font-family: 'B Nazanin';">
-                  نرخ ضربان نباید کمتراز حد بالای ضربان
-              </span>
-              <br>
-              <span style="font-family: 'B Nazanin';">باشد</span>
+            
+        <div style="font-family: 'B Nazanin';font-size: 12pt; ">
+            نرخ ضربان نباید کمتراز حد بالای ضربان مانيتور یا
               300
-              <span style="font-family: 'B Nazanin';">مانيتور یا</span>
+          باشد
+    </div>
           </td>
           <td>{{ form.s2_e5_hr }}</td>
           {% if  form.s2_e5_hr < 300  %}
@@ -539,14 +547,12 @@
         </tr>
       <tr>
           <td>300</td>
-     <td >
-              <span style="font-family: 'B Nazanin';">
-                  نرخ ضربان نباید کمتراز حد بالای ضربان
-              </span>
-              <br>
-              <span style="font-family: 'B Nazanin';">باشد</span>
-              300
-              <span style="font-family: 'B Nazanin';">مانيتور یا</span>
+     <td>
+        <div style="font-family: 'B Nazanin';font-size: 12pt; ">
+                نرخ ضربان نباید کمتراز حد بالای ضربان مانيتور یا
+                  300
+              باشد
+        </div>
           </td>
           <td>{{ form.s2_e10_hr }}</td>
           {% if  form.s2_e10_hr < 300  %}
@@ -572,10 +578,10 @@
     </div>
 </div>
 
-    <div class="page-2 page1" style="font-family:'B Nazanin';">
-
-    <div style="margin-right: 2cm;margin-left: 4cm;">
-        <div style="font-weight: bold;padding-top: 6cm;">
+<div class="page-2 page1" style="font-family:'B Nazanin';">
+    <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+      
+        <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
             (استاندارد
             <span class="time">QRS</span>
@@ -592,7 +598,7 @@
             <th rowspan="2">Max Error</th>
             <th rowspan="2">HR</th>
             <th colspan="2" >Result</th>
-              <th rowspan="2">Comment</th>
+              <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
 
           </tr>
@@ -626,7 +632,7 @@
         <tr>
           <td>1 mv</td>
           <td>10 ms</td>
-          <td rowspan="3" style="font-family: 'B Nazanin';">دستگاه شمارش کند</td>
+          <td rowspan="3" style="font-family: 'B Nazanin';font-size: 12pt;">دستگاه شمارش کند</td>
           <td>{{ form.s3_e2_hr }}</td>
             {% if form.s3_e2_hr > 0 %}
                 <td></td>
@@ -715,7 +721,7 @@
         <tr>
             <td>1 mv</td>
           <td>10 ms</td>
-          <td rowspan="3" style="font-family: 'B Nazanin';">دستگاه شمارش کند</td>
+          <td rowspan="3" style="font-family: 'B Nazanin';font-size: 12pt;">دستگاه شمارش کند</td>
           <td>{{ form.s3_e7_hr }}</td>
           {% if form.s3_e7_hr > 0  %}
                 <td></td>
@@ -844,7 +850,7 @@
             <th rowspan="2">Max Error</th>
             <th rowspan="2">HR</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>
@@ -877,8 +883,6 @@
 
     </table>
                 <br>
-
-        <br><br><br><br><br><br><br><br>
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 5</div>
 
 
@@ -887,8 +891,9 @@
     </div>
 
     <div class="page-3 page1" style="font-family:'B Nazanin';">
-        <div style="margin-right: 2cm;margin-left: 4cm;">
-        <div style="font-weight: bold;padding-top: 6cm;">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+          
+        <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
 5.آلارم (استاندارد
         </div>
@@ -898,7 +903,7 @@
                 <th rowspan="2" style="width: 6cm;">SETTING</th>
                 <th rowspan="2">Indicated on Display</th>
                 <th colspan="2">Result</th>
-                <th rowspan="2">Comment</th>
+                <th rowspan="2" style="min-width: 5cm;">Comment</th>
               </tr>
                 <tr>
                     <th>OK</th>
@@ -940,7 +945,7 @@
             <th rowspan="2">Alarm Delay Time</th>
             <th rowspan="2">Max Permissible Error</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>
@@ -951,7 +956,7 @@
       <tbody>
         <tr>
           <td>Low</td>
-          <td style="width: 3cm;padding: 0.05cm;">Set Lower Alarm <br> Limit : 60 (bpm)</td>
+          <td style="width: 2.75cm;padding: 0.05cm;font-size: 13pt;">Set Lower Alarm Limit : 60 (bpm)</td>
           <td>80</td>
           <td>40</td>
           <td rowspan="3">1</td>
@@ -977,7 +982,7 @@
         </tr>
         <tr>
           <td>High</td>
-          <td style="padding: 0.1cm;">Set Upper Alarm <br> Limit: 100 (bpm)</td>
+          <td style="width: 2.75cm;padding: 0.05cm;font-size: 13pt;">Set Lower Alarm Limit : 100 (bpm)</td>
           <td>80</td>
           <td>120</td>
           <td>{{ form.s5_e3_delay }}</td>
@@ -1000,7 +1005,7 @@
         </tr>
       <tr>
           <td>Asystole</td>
-          <td style="padding: 0.1cm;">Set Lower Alarm Limit : 60 (bpm )</td>
+          <td style="width: 2.75cm;padding: 0.05cm;font-size: 13pt;">Set Lower Alarm Limit : 60 (bpm)</td>
           <td>80</td>
           <td>0</td>
           <td>{{ form.s5_e4_delay }}</td>
@@ -1040,7 +1045,7 @@
             <th rowspan="2">Recorder Amp (mm)</th>
             <th rowspan="2">Permissible Error</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>
@@ -1067,12 +1072,14 @@
                 <td>&#10004;</td>
                 <td></td>
             {% endif %}
-          {% if form.s6_e1_comment.id == 1%}
-          <td></td>
-            {% else %}
-            <td>{{ form.s6_e1_comment }}</td>
-            {% endif %}
-
+            <td>
+                {% if form.s6_e2_comment.id == 1%}
+                {% else %}
+                {{ form.s6_e2_comment }}
+                {% endif %}
+      
+                  </td>
+      
         </tr>
         <tr>
           <td>10</td>
@@ -1089,11 +1096,13 @@
                 <td>&#10004;</td>
                 <td></td>
             {% endif %}
+            <td>
           {% if form.s6_e2_comment.id == 1%}
-          <td></td>
-            {% else %}
-            <td>{{ form.s6_e2_comment }}</td>
-            {% endif %}
+          {% else %}
+          {{ form.s6_e2_comment }}
+          {% endif %}
+
+            </td>
 
         </tr>
       <tr>
@@ -1102,7 +1111,8 @@
           <td>{{ form.s6_e3_damp }}</td>
           <td>{{ form.s6_e3_ramp }}</td>
           <td>±2 mm<td>
-          {% if form.s6_e3_damp == -1 %}
+      
+            {% if form.s6_e3_damp == -1 %}
                 <td></td>
                 <td></td>
             {% elif form.s6_e3_damp < 0.8 or form.s6_e1_damp > 1.2 %}
@@ -1112,11 +1122,14 @@
                 <td>&#10004;</td>
                 <td></td>
             {% endif %}
-          {% if form.s6_e3_comment.id == 1%}
-          <td></td>
-            {% else %}
-            <td>{{ form.s6_e3_comment }}</td>
-            {% endif %}
+            <td>
+                {% if form.s6_e2_comment.id == 1%}
+                {% else %}
+                {{ form.s6_e2_comment }}
+                {% endif %}
+      
+                  </td>
+      
 
         </tr>
       </tbody>
@@ -1125,31 +1138,25 @@
 
 
         <br>
-        <div style="font-weight: bold;display: inline-block;">
-        <ul style="display: inline-block;direction: rtl;">
-            <li>
-         نتایج در خروجی پرینتر (10،20،40پیک متوالی) و صفحه نمایش (10پیک متوالی)در گین های تنظیمی بررسیشود
-
-            </li>
-        </ul>
-
-
-
+        <div style="font-weight: bold;">
+                      نتایج در خروجی پرینتر (10،20،40پیک متوالی) و صفحه نمایش (10پیک متوالی)در گین های تنظیمی بررسی شود
+                <span style="font-size: 16pt;">•</span>
         </div>
 
 
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 5</div>
 
         <br>
-            <br><br><br><br>
 
 
     </div>
     </div>
+
+    
     <div class="page-4 page1" style="font-family:'B Nazanin';">
-
-        <div style="margin-right: 2cm;margin-left: 4cm;">
-        <div style="font-weight: bold;padding-top: 5cm;">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+          
+        <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
 7.پاسخ فرکانسی(استاندارد
         </div>
@@ -1162,7 +1169,7 @@
                 <th rowspan="2">Recorder Amp (mm)</th>
                 <th rowspan="2">Permissible Error</th>
                 <th colspan="2">Result</th>
-                <th rowspan="2">Comment</th>
+                <th rowspan="2" style="min-width: 5cm;">Comment</th>
               </tr>
                 <tr>
                     <th>OK</th>
@@ -1210,7 +1217,7 @@
 
             </tr>
           <tr>
-              <td rowspan="2">Sweep speed(mm/s)</td>
+              <td rowspan="2">Sweep speed <br>(mm/s)</td>
               <td rowspan="2">25</td>
 
             </tr>
@@ -1250,7 +1257,7 @@
             <th rowspan="2">Recorder Amp (mm)</th>
             <th rowspan="2">Permissible Error</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>
@@ -1307,7 +1314,7 @@
             <th rowspan="2">Slope</th>
             <th rowspan="2">Permissible Range</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>
@@ -1356,7 +1363,7 @@
           <tr>
             <th rowspan="2"style="width: 8cm;">Qualitative Compliance</th>
             <th colspan="2">Result</th>
-            <th rowspan="2">Comment</th>
+            <th rowspan="2" style="min-width: 5cm;">Comment</th>
 
           </tr>
             <tr>

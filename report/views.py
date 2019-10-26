@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 
 from form.models import *
-from acc.models import ad_excel_arg
+from acc.models import ad_excel_arg,aUserProfile
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render
@@ -171,12 +171,12 @@ def pdf1(request):
     if request.method == 'GET':
 
         for model in model_list:
-            modelobj = model.objects.get(licence__number=int(request.GET['licence_num']))
+            modelobj = model.objects.filter(licence__number=2)
             if len(modelobj) == 1:
                 break
 
             # TODO licence doesn't exist
-
+        usr= aUserProfile.objects.get(user=modelobj[0].user)
         t2 = jdatetime.datetime.today()
 
         response = HttpResponse(content_type='application/pdf')
@@ -185,21 +185,19 @@ def pdf1(request):
             f'filename=licence.pdf'
         )
 
-        documents = []
         font_config = FontConfiguration()
-        template_name = 'report/aed/licence1.html'
+        template_name = 'report/Monitor/Spo2/licence1.html'
         html = render_to_string(template_name, {
-            'form': modelobj[0], 'time': t2,
+            'form': modelobj[0], 'time': t2,'usr':usr
         })
 
         css_root = static('/css')
-
         css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
         css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
 
-        document = HTML(string=html).render(font_config=font_config, stylesheets=[css1, css2])
+        document = HTML(string=html).write_pdf(response,font_config=font_config, stylesheets=[css1, css2])
 
-        all_pages = [page for document in documents for page in document.pages]
-        documents[0].copy(all_pages).write_pdf(response)
+        # all_pages = [page for document in documents for page in document.pages]
+        # documents[0].copy(all_pages).write_pdf(response)
 
         return response
