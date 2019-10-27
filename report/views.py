@@ -243,7 +243,10 @@ def pdf1(request):
                     data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))
                     data.append(sum(data1))
                     data.append(sum(data2))
-                    data.append(round(mean(data2),2))
+                    data.append(round(np.mean(data1),2))
+                    data.append(round(np.mean(data2),2))
+                    data.append(round(np.std(data1),2))
+                    data.append(round(np.std(data2),2))
 
                 elif (model == monitor_ecg_1):
                     template_name = 'report/Monitor/ECG/licence1.html'
