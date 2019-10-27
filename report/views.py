@@ -19,7 +19,7 @@ model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, a
 
 def xlsx(request):
     if request.method == 'GET':
-
+        
         ey, em, ed = request.GET['end_date'].split('/')
         sy, sm, sd = request.GET['start_date'].split('/')
         ey = int(ey)
@@ -147,14 +147,11 @@ def xlsx(request):
 
 
         else:  # display table
-
-            # if (jdatetime.date.today().month < 10):
-            #     mm = f'0{jdatetime.date.today().month}'
-            # else:
-            #     mm = jdatetime.date.today().month
-
+            auser = aUserProfile.objects.get(user=request.user)
+            req = Request.objects.filter(hospital__user=request.user).order_by('date')
             return render(request, 'acc/hospital/index.html',
-                          {'firstrow': fr1, 'data': data, })  # 'date':jdatetime.date.today(),'month': mm
+                          {'firstrow': fr1, 'data': data,'request': req,'auser': auser })
+                            # 'date':jdatetime.date.today(),'month': mm
 
     # return render(request, 'acc/hospital/index.html', { 'status': 'Successfully Created!','hflag':1})
     # return FileResponse(wb,as_attachment=True,filename=f'report {datetime.date.today()}.xlsx')

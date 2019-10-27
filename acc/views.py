@@ -52,14 +52,14 @@ def submit(request):
 
     elif request.user.groups.all()[0] == Group.objects.get(name='hospital'):
 
-        if (jdatetime.date.today().month < 10):
-            mm = f'0{jdatetime.date.today().month}'
-        else:
-            mm = jdatetime.date.today().month
+        # if (jdatetime.date.today().month < 10):
+        #     mm = f'0{jdatetime.date.today().month}'
+        # else:
+        #     mm = jdatetime.date.today().month
         req = Request.objects.filter(hospital__user=request.user).order_by('date')
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'flag': 1, 'date': jdatetime.date.today(), 'month': mm, 'request': req,
-                       'auser': auser})
+                      {'status': 'خوش آمدید', 'flag': 1,  'request': req,'auser': auser})
+                    #    'date': jdatetime.date.today(), 'month': mm,
 
 
     elif request.user.groups.all()[0] == Group.objects.get(name='employee'):
