@@ -110,6 +110,20 @@ body{
     bottom: -14px;
     left: 85px;
 }
+.home-icon{
+    /* background-color: white; */
+    /*padding:6px 8px 4px 8px;*/
+    /* padding: 7px; */
+    /*padding: 1px 4px;*/
+    box-shadow: 0px 0 10px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    position: absolute;
+    bottom: -14px;
+    right: 15px;
+}
+
+
+
 .exit-btn{
     background-color: #dc3545;
     padding:3px 5px;

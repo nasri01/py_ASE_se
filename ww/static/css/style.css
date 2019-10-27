@@ -175,7 +175,7 @@ input {
 	margin-top: 5px;
 	margin-bottom: 0;
 	font-weight: bold;
-	background-color: #17a2b8;
+	/* background-color: #17a2b8; */
 	color: white;
 	border-radius: 2px;
 	height: 40px;
@@ -257,7 +257,7 @@ hr{
 		top:0;
 		width: 25%;
 		height:4000px;
-		background-color: #17a2b8;
+		/* background-color: #17a2b8; */
 		overflow: hidden;
 	}
 

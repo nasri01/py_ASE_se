@@ -27826,3 +27826,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ///////
 //doughnut
+
+
+
+
+            var ctxD = document.getElementById("doughnutChart").getContext('2d');
+var myLineChart = new Chart(ctxD, {
+type: 'doughnut',
+data: {
+labels: [ "Yellow", "Grey", "Dark Grey"],
+datasets: [{
+data: [ 40, 120],
+backgroundColor: [ "#949FB1", "#4D5360"],
+hoverBackgroundColor: [ "#A8B3C5", "#616774"]
+}]
+},
+options: {
+responsive: true
+}
+});
