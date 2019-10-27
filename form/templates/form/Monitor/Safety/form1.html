@@ -7,21 +7,6 @@
     {% csrf_token %}
 
     <table class="table-bordered">
-
-
-      
-            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            <script src="{% static 'js/selectize.min.js' %}"></script>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
-            <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
-            <!-- <script>
-            $(document).ready(function() {
-                $('select').niceSelect();
-                $('.search-a').niceSelect('destroy');
-                });
-          </script>-->
           <script> 
                     
               $(document).ready(function () {
@@ -56,6 +41,10 @@
     <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
       <span style="margin-right: 30px;"> نام دستگاه : </span>
       <span>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
         
         {% render_field form.device style="display:inline;width:50%;" class="search-a" searchable="Search here.." %}
@@ -127,11 +116,10 @@
 
 <br><br>
 
-<div style="font-weight: bold;">
+<div style="font-weight: bold;font-size:18px;">
 
 تستهای کیفی:
         </div>
-<br>
 <br>
 
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1">
@@ -309,17 +297,11 @@
 
 
 <br><br>
-<span style="font-weight: bold;">
+<span style="font-weight: bold;font-size:18px;">
                 تست های کمی:
 </span>
 <br>
 
-<br><br>
-
-
-
-
-<br><br>
 
 
 <span style="font-weight: bold;">
@@ -441,6 +423,7 @@
                             </tbody>
                     </table>
 <div>
+<br>
 نکات: 1- در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمتهای کاربردی نوع F  به زمین متصل و از آن جدا می باشند نیز تکرار شود.            </div>
 <br><br>
 
@@ -859,30 +842,30 @@
     <br>
 
 
-
-            {% render_field form.status class="1" %}
-
-            {{form.totalcomment}}
-
-
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_safety' %}";'>
+            
+            <br>
+            
+            {% render_field form.totalcomment style="display:inline-block;width:45%;height:45px;" %}
+           {% if edit %}
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_nibp' %}";'>
         ذخیره نهایی اصلاح
         </button>
         {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_safety' %}";'>
+        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_nibp' %}";'>
         ذخیره نهایی ریکالیبراسیون
         </button>
         {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_safety' %}";'>
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_nibp' %}";'>
         ذخیره نهایی ویرایش ریکالیبراسیون
         </button>
 
         {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_safety' %}";' >
+        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_nibp' %}";' >
          ذخیره نهایی فرم
         </button>
         {% endif %}
+        
+
 
 
         </div>
@@ -896,6 +879,411 @@
 
 
 <script>
+
+
+  $( "#id_s0_e1_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e1_comment" ).val() >=3){
+      $("#id_s0_e1_comment").css("background-color", "#f24858");
+      $("#id_s0_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e1_comment").val() ==1)) {
+      $("#id_s0_e1_comment").css("background-color", "white");
+      $("#id_s0_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e1_comment").val() ==2)){
+      $("#id_s0_e1_comment").css("background-color", 'yellow');
+      $("#id_s0_e1_comment").css("color", "black");
+    }
+    });
+
+
+  $( "#id_s0_e2_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e2_comment" ).val() >=3){
+      $("#id_s0_e2_comment").css("background-color", "#f24858");
+      $("#id_s0_e2_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e2_comment").val() ==1)) {
+      $("#id_s0_e2_comment").css("background-color", "white");
+      $("#id_s0_e2_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e2_comment").val() ==2)){
+      $("#id_s0_e2_comment").css("background-color", 'yellow');
+      $("#id_s0_e2_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e3_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e3_comment" ).val() >=3){
+      $("#id_s0_e3_comment").css("background-color", "#f24858");
+      $("#id_s0_e3_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e3_comment").val() ==1)) {
+      $("#id_s0_e3_comment").css("background-color", "white");
+      $("#id_s0_e3_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e3_comment").val() ==2)){
+      $("#id_s0_e3_comment").css("background-color", 'yellow');
+      $("#id_s0_e3_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e4_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e4_comment" ).val() >=3){
+      $("#id_s0_e4_comment").css("background-color", "#f24858");
+      $("#id_s0_e4_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e4_comment").val() ==1)) {
+      $("#id_s0_e4_comment").css("background-color", "white");
+      $("#id_s0_e4_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e4_comment").val() ==2)){
+      $("#id_s0_e4_comment").css("background-color", 'yellow');
+      $("#id_s0_e4_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e5_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e5_comment" ).val() >=3){
+      $("#id_s0_e5_comment").css("background-color", "#f24858");
+      $("#id_s0_e5_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e5_comment").val() ==1)) {
+      $("#id_s0_e5_comment").css("background-color", "white");
+      $("#id_s0_e5_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e5_comment").val() ==2)){
+      $("#id_s0_e5_comment").css("background-color", 'yellow');
+      $("#id_s0_e5_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e6_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e6_comment" ).val() >=3){
+      $("#id_s0_e6_comment").css("background-color", "#f24858");
+      $("#id_s0_e6_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e6_comment").val() ==1)) {
+      $("#id_s0_e6_comment").css("background-color", "white");
+      $("#id_s0_e6_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e6_comment").val() ==2)){
+      $("#id_s0_e6_comment").css("background-color", 'yellow');
+      $("#id_s0_e6_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e7_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e7_comment" ).val() >=3){
+      $("#id_s0_e7_comment").css("background-color", "#f24858");
+      $("#id_s0_e7_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e7_comment").val() ==1)) {
+      $("#id_s0_e7_comment").css("background-color", "white");
+      $("#id_s0_e7_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e7_comment").val() ==2)){
+      $("#id_s0_e7_comment").css("background-color", 'yellow');
+      $("#id_s0_e7_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e8_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e8_comment" ).val() >=3){
+      $("#id_s0_e8_comment").css("background-color", "#f24858");
+      $("#id_s0_e8_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e8_comment").val() ==1)) {
+      $("#id_s0_e8_comment").css("background-color", "white");
+      $("#id_s0_e8_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e8_comment").val() ==2)){
+      $("#id_s0_e8_comment").css("background-color", 'yellow');
+      $("#id_s0_e8_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e9_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e9_comment" ).val() >=3){
+      $("#id_s0_e9_comment").css("background-color", "#f24858");
+      $("#id_s0_e9_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e9_comment").val() ==1)) {
+      $("#id_s0_e9_comment").css("background-color", "white");
+      $("#id_s0_e9_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e9_comment").val() ==2)){
+      $("#id_s0_e9_comment").css("background-color", 'yellow');
+      $("#id_s0_e9_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e10_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e10_comment" ).val() >=3){
+      $("#id_s0_e10_comment").css("background-color", "#f24858");
+      $("#id_s0_e10_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e10_comment").val() ==1)) {
+      $("#id_s0_e10_comment").css("background-color", "white");
+      $("#id_s0_e10_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e10_comment").val() ==2)){
+      $("#id_s0_e10_comment").css("background-color", 'yellow');
+      $("#id_s0_e10_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e11_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e11_comment" ).val() >=3){
+      $("#id_s0_e11_comment").css("background-color", "#f24858");
+      $("#id_s0_e11_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e11_comment").val() ==1)) {
+      $("#id_s0_e11_comment").css("background-color", "white");
+      $("#id_s0_e11_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e11_comment").val() ==2)){
+      $("#id_s0_e11_comment").css("background-color", 'yellow');
+      $("#id_s0_e11_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e12_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e12_comment" ).val() >=3){
+      $("#id_s0_e12_comment").css("background-color", "#f24858");
+      $("#id_s0_e12_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e12_comment").val() ==1)) {
+      $("#id_s0_e12_comment").css("background-color", "white");
+      $("#id_s0_e12_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e12_comment").val() ==2)){
+      $("#id_s0_e12_comment").css("background-color", 'yellow');
+      $("#id_s0_e12_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e13_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e13_comment" ).val() >=3){
+      $("#id_s0_e13_comment").css("background-color", "#f24858");
+      $("#id_s0_e13_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e13_comment").val() ==1)) {
+      $("#id_s0_e13_comment").css("background-color", "white");
+      $("#id_s0_e13_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e13_comment").val() ==2)){
+      $("#id_s0_e13_comment").css("background-color", 'yellow');
+      $("#id_s0_e13_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e14_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e14_comment" ).val() >=3){
+      $("#id_s0_e14_comment").css("background-color", "#f24858");
+      $("#id_s0_e14_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e14_comment").val() ==1)) {
+      $("#id_s0_e14_comment").css("background-color", "white");
+      $("#id_s0_e14_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e14_comment").val() ==2)){
+      $("#id_s0_e14_comment").css("background-color", 'yellow');
+      $("#id_s0_e14_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e15_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e15_comment" ).val() >=3){
+      $("#id_s0_e15_comment").css("background-color", "#f24858");
+      $("#id_s0_e15_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e15_comment").val() ==1)) {
+      $("#id_s0_e15_comment").css("background-color", "white");
+      $("#id_s0_e15_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e15_comment").val() ==2)){
+      $("#id_s0_e15_comment").css("background-color", 'yellow');
+      $("#id_s0_e15_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e16_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e16_comment" ).val() >=3){
+      $("#id_s0_e16_comment").css("background-color", "#f24858");
+      $("#id_s0_e16_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e16_comment").val() ==1)) {
+      $("#id_s0_e16_comment").css("background-color", "white");
+      $("#id_s0_e16_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e16_comment").val() ==2)){
+      $("#id_s0_e16_comment").css("background-color", 'yellow');
+      $("#id_s0_e16_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e17_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e17_comment" ).val() >=3){
+      $("#id_s0_e17_comment").css("background-color", "#f24858");
+      $("#id_s0_e17_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e17_comment").val() ==1)) {
+      $("#id_s0_e17_comment").css("background-color", "white");
+      $("#id_s0_e17_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e17_comment").val() ==2)){
+      $("#id_s0_e17_comment").css("background-color", 'yellow');
+      $("#id_s0_e17_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e18_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e18_comment" ).val() >=3){
+      $("#id_s0_e18_comment").css("background-color", "#f24858");
+      $("#id_s0_e18_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e18_comment").val() ==1)) {
+      $("#id_s0_e18_comment").css("background-color", "white");
+      $("#id_s0_e18_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e18_comment").val() ==2)){
+      $("#id_s0_e18_comment").css("background-color", 'yellow');
+      $("#id_s0_e18_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e19_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e19_comment" ).val() >=3){
+      $("#id_s0_e19_comment").css("background-color", "#f24858");
+      $("#id_s0_e19_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e19_comment").val() ==1)) {
+      $("#id_s0_e19_comment").css("background-color", "white");
+      $("#id_s0_e19_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e19_comment").val() ==2)){
+      $("#id_s0_e19_comment").css("background-color", 'yellow');
+      $("#id_s0_e19_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e20_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e20_comment" ).val() >=3){
+      $("#id_s0_e20_comment").css("background-color", "#f24858");
+      $("#id_s0_e20_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e20_comment").val() ==1)) {
+      $("#id_s0_e20_comment").css("background-color", "white");
+      $("#id_s0_e20_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e20_comment").val() ==2)){
+      $("#id_s0_e20_comment").css("background-color", 'yellow');
+      $("#id_s0_e20_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e21_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e21_comment" ).val() >=3){
+      $("#id_s0_e21_comment").css("background-color", "#f24858");
+      $("#id_s0_e21_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e21_comment").val() ==1)) {
+      $("#id_s0_e21_comment").css("background-color", "white");
+      $("#id_s0_e21_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e21_comment").val() ==2)){
+      $("#id_s0_e21_comment").css("background-color", 'yellow');
+      $("#id_s0_e21_comment").css("color", "black");
+    }
+    });
+
+  $( "#id_s0_e22_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e22_comment" ).val() >=3){
+      $("#id_s0_e22_comment").css("background-color", "#f24858");
+      $("#id_s0_e22_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e22_comment").val() ==1)) {
+      $("#id_s0_e22_comment").css("background-color", "white");
+      $("#id_s0_e22_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e22_comment").val() ==2)){
+      $("#id_s0_e22_comment").css("background-color", 'yellow');
+      $("#id_s0_e22_comment").css("color", "black");
+    }
+    });
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
 $( "#id_s1_e1_res" )
     .focusout(function() {
       if( ($( "#id_s1_e1_res" ).val() >100 )  && ($( "#id_s1_e1_res").val().length !=0)){

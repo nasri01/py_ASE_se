@@ -130,5 +130,6 @@ option{
 	/* margin-right: 2rem; */
 	padding: 0.5rem 0.2rem;
 	padding-right: 1.2rem;
+	min-width: 120px;
 	/* padding-right: 2rem; */
   }
