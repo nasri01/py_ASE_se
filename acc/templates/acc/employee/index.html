@@ -5,7 +5,7 @@
       
 <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 col-xl-3 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">
+            <div class="col-lg-5 col-xl-4 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">
                     <!-- <div style="width: 100%;text-align: center;">
                     <a href="{% url 'dashboard' %}">
                         <img src="{% static 'img/logo2.jpg' %}" class="logo" alt="">
@@ -42,13 +42,21 @@
                             {% endif%}
 
                             <div class="employee">
-                                <div style="font-size: 12px;">
+
+
+                                <div style="font-size: 15px;width:50%;text-align:center;">
                                 {{auser.user.first_name }}
                                     <br>
                                 سمت: {{ auser.status.status }}
 
                                 </div>
+                                <div style="width:50%;text-align:center;">
                                  <img src="{{auser.avatar.url}}" class="employee-img">
+                                </div>
+                                <div class="home-icon" style="display: block;">
+                                <img src="{% static 'img/vectorpaint(2).svg' %}" style="background-color:#5578bb;border-radius:40%;padding:5px 4px 5px 2px;width:30px;">
+                                </div>
+
                                 <div class="setting-icon" style="display: block;">
 
 
@@ -326,7 +334,7 @@
                 
             </div>
             {% if form_type %}
-            <div class="col-lg-8 col-xl-9 col-md-12" style="direction: rtl;height: 800px;overflow:hidden;">
+            <div class="col-lg-7 col-xl-8 col-md-12" style="direction: rtl;height: 800px;overflow:hidden;">
                 <div class="form-box">
                 {% if form_type == 'monitor_spo2' %}
                     {% include 'form/Monitor/Spo2/form1.html' %}

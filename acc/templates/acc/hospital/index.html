@@ -39,7 +39,7 @@
                                     </a>
                                 </div>
                                 <div class="exit-btn">
-                                    <a href="{% url 'logout1'%}" style="display: block;"> خروج <img src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;" alt=""></a>
+                                    <a href="{% url 'logout1'%}" style="display: block;color:white;"> خروج <img src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;" alt=""></a>
                                 </div>
                             </div>
                             <br>
@@ -112,25 +112,38 @@
                             <div class="report-list-btn">
                                 لیست درخواست
                             </div>
-                            <div style="margin-top: 240px;"></div>
+                            <div style="margin-top: 140px;"></div>
                             <div class="report-table">
-                                <table style="width: 100%;text-align: center;">
+                                <table style="width: 100%;text-align: center;height: 100px;">
                                     <thead>
-                                        <tr>
-                                            <th>ردیف</th>
-                                            <th>تاریخ</th>
-                                            <th>وضعیت</th>
-                                        </tr>
+                                    
+                                            <tr class="th-head">
+                                                    <th style="background-color:#74c4b6;border-top-right-radius: 10px;">ردیف</th>
+                                                    <th style="background-color:#74c4b6;">تاریخ</th>
+                                                    <th style="background-color:#74c4b6;">وضعیت</th>
+                                                </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="height: 100px;">
+
+
+
+
                                         {% for req in request %}
                                         <tr>
                                             <td>{{ forloop.counter }}</td>
                                             <td>{{ req.date }}</td>
-                                            <th><div style="background-color:#dc3546b6;width: 30px;height: 30px;margin: auto;border-radius: 100%;" class="blink">{{ req.status }}</div></th>
+                                            <td>
+                                                <div style="background-color:#ff5050;width: 15px;height: 15px;border-radius: 100%;display: inline-block;margin-bottom: -3px;" class="blink">
+                                                </div>
+                                                {{ req.status }}
+                                            </td>
                                         </tr>
 
                                         {% endfor %}
+
+
+                            
+                                  
                                     </tbody>
                                 </table>
                             </div>
@@ -139,7 +152,6 @@
             </div>
             <!--  -->
             <div class="col-lg-8 col-md-12" style="direction: rtl;">
-                {% if data %}
                     <div class="data-box">
                         <table style="border-radius: 10px; width: 100%;">
                             <!--///////////////////////////////////-->
@@ -204,30 +216,26 @@
                         </table>
                      </div>
                          
-                {% endif %}
-                
-                    <div class="data-box" style="max-width: 500px;">
-                        <canvas id="doughnutChart" style="max-width: 800px;"></canvas>
-                    </div>
+                     <div class="row">
+                   
+                            <div class="col-md-12 col-lg-5">
+                                <div class="data-box-em">
+
+                                </div>
+                                </div>
             
-            <script>
-   
-            var ctxD = document.getElementById("doughnutChart").getContext('2d');
-var myLineChart = new Chart(ctxD, {
-type: 'doughnut',
-data: {
-labels: [ "Yellow", "Grey", "Dark Grey"],
-datasets: [{
-data: [ 40, 120],
-backgroundColor: [ "#949FB1", "#4D5360"],
-hoverBackgroundColor: [ "#A8B3C5", "#616774"]
-}]
-},
-options: {
-responsive: true
-}
-});
-            </script>
+                   
+                        <div class="col-md-12 col-lg-7">
+                        <div class="chart-box">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+                </div><!---row end -->
+
+
+
+                </div>
+            
         </div>
             <!--  -->
         </div>
