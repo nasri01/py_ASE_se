@@ -280,7 +280,8 @@ def save_recal_edit_router(request,formtype):
                     sform.save()
                     form1.save_m2m()
 
-                    return redirect('dashboard')
+                    return render(request, 'acc/employee/index.html',
+                                  {'status': f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
 
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
