@@ -886,20 +886,20 @@
             
             {% render_field form.totalcomment style="display:inline-block;width:45%;height:45px;" %}
            {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_nibp' %}";'>
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_ecg' %}";'>
         ذخیره نهایی اصلاح
         </button>
         {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_nibp' %}";'>
+        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_ecg' %}";'>
         ذخیره نهایی ریکالیبراسیون
         </button>
         {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_nibp' %}";'>
+        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_ecg' %}";'>
         ذخیره نهایی ویرایش ریکالیبراسیون
         </button>
 
         {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_nibp' %}";' >
+        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_ecg' %}";' >
          ذخیره نهایی فرم
         </button>
         {% endif %}
