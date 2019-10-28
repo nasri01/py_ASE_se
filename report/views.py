@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from acc.models import ad_excel_arg,aUserProfile
+from acc.models import ad_excel_arg,aUserProfile,Request
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render
