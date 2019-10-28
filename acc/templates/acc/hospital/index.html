@@ -1,4 +1,4 @@
-{% extends 'base3.html' %}
+﻿{% extends 'base3.html' %}
 {% load static %}
 
 {% block content %}
@@ -166,55 +166,72 @@
             <!--  -->
             <div class="col-lg-8 col-md-12" style="direction: rtl;">
                     <div class="data-box">
-                        <table style="border-radius: 10px; width: 100%;">
+                       
+                        <style>
+                        
+                            table.dataTable thead .sorting:after,
+                            table.dataTable thead .sorting:before,
+                            table.dataTable thead .sorting_asc:after,
+                            table.dataTable thead .sorting_asc:before,
+                            table.dataTable thead .sorting_asc_disabled:after,
+                            table.dataTable thead .sorting_asc_disabled:before,
+                            table.dataTable thead .sorting_desc:after,
+                            table.dataTable thead .sorting_desc:before,
+                            table.dataTable thead .sorting_desc_disabled:after,
+                            table.dataTable thead .sorting_desc_disabled:before {
+                            bottom: .5em;
+                            }
+                        </style>
+                        <table style="border-radius: 10px; width: 100%;" id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0">
                             <!--///////////////////////////////////-->
-                            <tr class="t-row">
-                                <th>{{firstrow.1}}</th>
-                                <th>{{firstrow.2}}</th>
-                                <th>{{firstrow.3}}</th>
-                                <th>{{firstrow.4}}</th>
-                                <th>{{firstrow.5}}</th>
-                                <th>{{firstrow.6}}</th>
-                                <th>{{firstrow.7}}</th>
-                                <th>{{firstrow.8}}</th>
-                                <th>{{firstrow.9}}</th>
-                                <th>{{firstrow.10}}</th>
-                                <th>{{firstrow.11}}</th>
-                                <th>{{firstrow.12}}</th>
-                                <th>{{firstrow.13}}</th>
-                                <th>{{firstrow.14}}</th>
-                                <th>{{firstrow.15}}</th>
+                                <thead  class="thead-light">		
+				<tr class="t-row">
+                                <th class="th-sm">{{firstrow.1}}</th>
+                                <th class="th-sm">{{firstrow.2}}</th>
+                                <th class="th-sm">{{firstrow.3}}</th>
+                                <th class="th-sm">{{firstrow.4}}</th>
+                                <th class="th-sm">{{firstrow.5}}</th>
+                                <th class="th-sm">{{firstrow.6}}</th>
+                                <th class="th-sm">{{firstrow.7}}</th>
+                                <th class="th-sm">{{firstrow.8}}</th>
+                                <th class="th-sm">{{firstrow.9}}</th>
+                                <th class="th-sm">{{firstrow.10}}</th>
+                                <th class="th-sm">{{firstrow.11}}</th>
+                                <th class="th-sm">{{firstrow.12}}</th>
+                                <th class="th-sm">{{firstrow.13}}</th>
+                                <th class="th-sm">{{firstrow.14}}</th>
+                                <th class="th-sm">{{firstrow.15}}</th>
                                 {% if data %}
-                                <th>PDF</th>
+                                	<th class="th-sm">PDF</th>
                                 {% endif %}
                             </tr>
                             {% for i in data %}
 
                                 <tr class="t-row">
-                                    <th>{{i.device.hospital.city.state_name.name}}</th>
-                                    <th>{{i.device.hospital.city.name}}</th>
-                                    <th>{{i.device.hospital.name}}</th>
-                                    <th>{{i.device.section.name}}</th>
-                                    <th>{{i.device.name.type.name}}</th>
-                                    <th>{{i.device.name.creator.name}}</th>
-                                    <th>{{i.device.name.name}}</th>
-                                    <th>{{i.device.serial_number}}</th>
-                                    <th>{{i.device.property_number}}</th>
-                                    <th>{{i.status.status}}</th>
-                                    <th>{{i.date|date:'Y-m-d'}}</th>
-                                    <th>{{firstrow.0}}</th>
+                                     <td>{{i.device.hospital.city.state_name.name}}</td>
+                                    <td>{{i.device.hospital.city.name}}</td>
+                                    <td>{{i.device.hospital.name}}</td>
+                                    <td>{{i.device.section.name}}</td>
+                                    <td>{{i.device.name.type.name}}</td>
+                                    <td>{{i.device.name.creator.name}}</td>
+                                    <td>{{i.device.name.name}}</td>
+                                    <td>{{i.device.serial_number}}</td>
+                                    <td>{{i.device.property_number}}</td>
+                                    <td>{{i.status.status}}</td>
+                                    <td>{{i.date|date:'Y-m-d'}}</td>
+                                    <td>{{firstrow.0}}</td>
                                     
                                     {% if i.licence.number != -1%}
-                                        <th>{{i.licence.number}}</th>
+					<td>{{i.licence.number}}</td>
                                     {% else%}
-                                        <th>-</th>
+                                    	<td>-</td>
                                     {% endif %}
                                     
-                                    <th>
+                                    <td>
                                         {% for t in i.totalcomment.all %}
                                             {{t}}
                                         {% endfor %}
-                                    </th>
+                                    </td>
                                     
                                     {% if i.status.id != 4 %}
                                         <form method="GET" action="{% url 'report-pdf1'%}">
@@ -224,12 +241,13 @@
                                 
                                 </tr>
                             {% empty %}
-                                <span style="text-align:center;font-size: 20px;">داده ای جهت نمایش وجود ندارد.</span>
+                                <div style="text-align:center;font-size: 25px;margin-top: 240px;font-weight: bold;">داده ای جهت نمایش وجود ندارد.</div>
                             {% endfor %}
 
+                          </tbody>
                         </table>
                      </div>
-                         
+			<!-- end of data-box -->
                      <div class="row">
                    
                             <div class="col-md-12 col-lg-5">
