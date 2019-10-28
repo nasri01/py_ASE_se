@@ -57,6 +57,9 @@ def submit(request):
         # else:
         #     mm = jdatetime.date.today().month
         req = Request.objects.filter(hospital__user=request.user).order_by('date')
+
+        for t in req:
+            t.date = t.date.today()
         return render(request, 'acc/hospital/index.html',
                       {'status': 'خوش آمدید', 'flag': 1,  'request': req,'auser': auser})
                     #    'date': jdatetime.date.today(), 'month': mm,

@@ -149,6 +149,8 @@ def xlsx(request):
         else:  # display table
             auser = aUserProfile.objects.get(user=request.user)
             req = Request.objects.filter(hospital__user=request.user).order_by('date')
+            for t in req:
+                t.date = t.date.today()
             return render(request, 'acc/hospital/index.html',
                           {'firstrow': fr1, 'data': data,'request': req,'auser': auser })
                             # 'date':jdatetime.date.today(),'month': mm
