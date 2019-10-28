@@ -214,11 +214,11 @@ def save_recal_router(request,formtype):
                     sform.save()
                     form1.save_m2m()
                     return render(request, 'acc/employee/index.html',
-                                  {'status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
+                                  {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
 
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
+                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
     else:
         raise Http404
 
@@ -281,11 +281,11 @@ def save_recal_edit_router(request,formtype):
                     form1.save_m2m()
 
                     return render(request, 'acc/employee/index.html',
-                                  {'status': f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
+                                  {'green_status': f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
 
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
+                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
     else:
         raise Http404
 
