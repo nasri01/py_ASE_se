@@ -98,6 +98,7 @@ def report_list(request):
 # Perepare the appropiate Edit form for Frame
 def edit_report(request):
     if (request.method == 'GET'):
+        auser = aUserProfile.objects.get(user=request.user)
         c = 0
         for form in form_list:
             modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num']))
@@ -109,7 +110,8 @@ def edit_report(request):
         edata = {'form': form1,
                  'form_type': modellist[c],
                  'record_num': modelobj[0].record.number,
-                 'licence_num': modelobj[0].licence.number
+                 'licence_num': modelobj[0].licence.number,
+                 'auser':auser
                  }
 
         if (modelobj[0].is_recal == False):  # its calibration
