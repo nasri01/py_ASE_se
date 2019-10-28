@@ -71,9 +71,10 @@ def submit(request):
 
 # list of requests
 def req_list(request):
-    model = Request.objects.all()
-
-    return render(request, 'acc/employee/request_list.html', {'model': model})
+    req = Request.objects.all()
+    for t in req:
+        t.date = t.date.today()
+    return render(request, 'acc/employee/request_list.html', {'req': req})
 
 
 # List of recalibration
