@@ -25,7 +25,7 @@ SECRET_KEY = 'qhh(ydahm&a&(z45^jpsk2v@r7q2h_-@furoe@&md=s#f5)-c&'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['192.168.1.5','0.0.0.0','10.42.0.1','127.0.0.1','192.168.1.104']
-ALLOWED_HOSTS = ['www.kaadco.ir', 'kaadco.ir']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -103,10 +103,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
-        'NAME': 'kaadcoir_azma_test',
-        'PASSWORD': 'L@!Go&H^?f@a',
+        'NAME': 'kaadcoir_azma',
+        'PASSWORD': '1',
         'PORT': '5432',
-        'USER': 'kaadcoir_admin',
+        'USER': 'kaadcoir_azma',
     }
 }
 LOGIN_URL = '/'
@@ -150,10 +150,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'ww/static')
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'ww/static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
