@@ -2,7 +2,7 @@ from django import forms
 from acc.models import All_Device
 from .models import *
 
-class vant_test_Form(forms.ModelForm):
+class cant_test_Form(forms.ModelForm):
     class Meta:
         model = cant_test
         #fields = '__all__'
