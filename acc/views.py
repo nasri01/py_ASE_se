@@ -22,7 +22,7 @@ modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'a
 form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, monitor_safety_1_Form, aed_1_Form,
              anesthesia_machine_1_Form, defibrilator_1_Form, ecg_1_Form, flowmeter_1_Form, infusion_pump_1_Form,
              monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
-             cant_test_form]
+             cant_test_Form]
 
 
 def login(request):

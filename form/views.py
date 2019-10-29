@@ -24,6 +24,7 @@ diclist = [['monitor_spo2',monitor_spo2_1, monitor_spO2_1_Form ,3],
         ['syringe_pump', syringe_pump_1, syringe_pump_1_Form,4],
         ['ventilator', ventilator_1,ventilator_1_Form,4],
         ['electrocauter', electrocauter_1, electrocauter_1_Form,5],
+        ['cant_test', cant_test, cant_test_Form,5],
            ]
 
 @login_required
