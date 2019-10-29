@@ -332,12 +332,14 @@ def req_summary(request):
         except:#get report
             s = 0
             data = []
+            sn = request.GET['sec_name']
+            rn = int(request.GET['req_num'])
             types = device_type.objects.get(id__gte=13)
             for model in model_list:
-                temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(#number of test of each device
-                    device__section__name__exact=request.GET['sec_name'])
-                temp2 = cant_test.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(#number of cant test of each device
-                    device__section__name__exact=request.GET['sec_name']).filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
+                temp = model.objects.filter(request__number__exact = rn).filter(#number of test of each device
+                    device__section__name__exact = sn)
+                temp2 = cant_test.objects.filter(request__number__exact=rn).filter(#number of cant test of each device
+                    device__section__name__exact= sn ).filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
                 data[s] = len(temp)
                 data[s+1] = len(temp2)     
                 s += 2
@@ -346,7 +348,7 @@ def req_summary(request):
             response = HttpResponse(content_type='application/pdf')
             response['Content-Disposition'] = (
                 'inline; '
-                f'filename=summary_{request.GET['req_num']}_{request.GET['sec_name']}.pdf'
+                f'filename=summary_{sn}_{rn}.pdf'
             )
             font_config = FontConfiguration()
             #TODO add hospital infos
