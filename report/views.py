@@ -320,7 +320,7 @@ def req_summary(request):
         # try:
         sections = []
         for model in model_list:
-            temp = model.objects.filter(request__number__exact=int(Request.GET['req_number']))
+            temp = model.objects.filter(request__number__exact=int(request.GET['req_number']))
             if len(t) != 0:
                 for t in temp:
                     sections.append(t.device.section)
