@@ -314,3 +314,19 @@ def pdf1(request):
         document = HTML(string=html).write_pdf(response,font_config=font_config, stylesheets=[css1, css2])
 
         return response
+
+def req_summary(Request):
+    if Request.method = 'Get':
+        try:
+            sections = []
+            for model in model_list:
+            temp = model.objects.filter(request__number__exact=Request.GET['req_number'])
+            if len(t) != 0:
+                    for t in temp:
+                        sections.append(t.device.section)
+            sections = list(set(sections)) #get unique values 
+            for sec in sections:
+                sec = sec.name
+            return render(Request,'acc/employee/dlsum.html',{'data':sections})
+
+        

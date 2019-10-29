@@ -5,22 +5,24 @@ from acc.models import Request, ad_excel_arg, Parameters
 from form.forms import *
 from .forms import *
 from django.contrib.auth.models import User, Group
-import jdatetime
+import jdatetime 
+import pandas as pd
 from django.template import RequestContext
 
 color_scheme = Parameters.objects.get(name__exact='color').value
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
               defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
-              ventilator_1, electrocauter_1 ]
+              ventilator_1, electrocauter_1, cant_test ]
 
 modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'aed', 'anesthesia_machine',
              'defibrilator','ecg', 'flowmeter', 'infusion_pump', 'monometer', 'spo2', 'suction', 'syringe_pump',
-             'ventilator', 'electrocauter' ]
+             'ventilator', 'electrocauter','cant_test' ]
              
 form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, monitor_safety_1_Form, aed_1_Form,
              anesthesia_machine_1_Form, defibrilator_1_Form, ecg_1_Form, flowmeter_1_Form, infusion_pump_1_Form,
-             monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form]
+             monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
+             cant_test_form]
 
 
 def login(request):
@@ -51,10 +53,7 @@ def submit(request):
 
     elif request.user.groups.all()[0] == Group.objects.get(name='hospital'):
 
-        # if (jdatetime.date.today().month < 10):
-        #     mm = f'0{jdatetime.date.today().month}'
-        # else:
-        #     mm = jdatetime.date.today().month
+
         req = Request.objects.filter(hospital__user=request.user).order_by('date')
 
         for t in req:
@@ -71,8 +70,11 @@ def submit(request):
 # list of requests
 def req_list(request):
     req = Request.objects.all()
+    
     for t in req:
         t.date = t.date.today()
+
+    
     return render(request, 'acc/employee/request_list.html', {'req': req})
 
 
