@@ -316,7 +316,7 @@ def pdf1(request):
         return response
 
 def req_summary(Request):
-    if Request.method = 'Get':
+    if Request.method == 'Get':
         try:
             sections = []
             for model in model_list:
