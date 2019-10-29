@@ -335,9 +335,9 @@ def req_summary(request):
             types = device_type.objects.get(id__gte=13)
             for model in model_list:
                 temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(#number of test of each device
-                    device__section__name__exact=request.GET['sec_name')
+                    device__section__name__exact=request.GET['sec_name'])
                 temp2 = cant_test.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(#number of cant test of each device
-                    device__section__name__exact=request.GET['sec_name').filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
+                    device__section__name__exact=request.GET['sec_name']).filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
                 data[s] = len(temp)
                 data[s+1] = len(temp2)     
                 s += 2
