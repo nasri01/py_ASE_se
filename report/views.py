@@ -328,5 +328,6 @@ def req_summary(Request):
             for sec in sections:
                 sec = sec.name
             return render(Request,'acc/employee/dlsum.html',{'data':sections})
-
+        except:
+            print('hello')
         
