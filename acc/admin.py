@@ -57,6 +57,7 @@ admin.site.register(quantitive_comment_aed)
 admin.site.register(qualitive_comment_anesthesia_machine)
 admin.site.register(quantitive_comment_anesthesia_machine)
 admin.site.register(ad_test_type)
+admin.site.register(ad_test_type0)
 admin.site.register(ad_test_type2)
 class status(admin.ModelAdmin):
     list_display = ("id", "status")
