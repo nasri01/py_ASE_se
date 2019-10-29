@@ -321,7 +321,7 @@ def req_summary(request):
         sections = []
         for model in model_list:
             temp = model.objects.filter(request__number__exact=int(request.GET['req_number']))
-            if len(t) != 0:
+            if len(temp) != 0:
                 for t in temp:
                     sections.append(t.device.section)
         sections = list(set(sections)) #get unique values 
