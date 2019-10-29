@@ -182,8 +182,10 @@ class ad_excel_arg(models.Model):
 
 
 
-
-
+class comment_cant_test(models.Model):
+    comment = models.CharField(max_length=50)
+    def __str__(self):
+       return  str(self.comment)
 
 
 

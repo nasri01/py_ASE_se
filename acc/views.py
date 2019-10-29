@@ -8,8 +8,7 @@ from django.contrib.auth.models import User, Group
 import jdatetime
 from django.template import RequestContext
 
-# color_scheme = Parameters.objects.get(name__exact='color').value
-color_scheme = 2  # test
+color_scheme = Parameters.objects.get(name__exact='color').value
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
               defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,

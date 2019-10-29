@@ -64,6 +64,7 @@ admin.site.register(ad_req_Status,status)
 admin.site.register(ad_az_Status,status)
 
 admin.site.register(ad_acc_Status)
+admin.site.register(Parameters)
 
 
 
