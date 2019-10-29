@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
 class cant_test(models.Model):
+    tt = models.ForeignKey(acc.models.ad_test_type0, on_delete=models.PROTECT)
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()

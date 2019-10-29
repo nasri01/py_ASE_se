@@ -27,7 +27,10 @@ class ad_acc_Status(models.Model):
     def __str__(self):
         return str(self.status)
 
-
+class ad_test_type0(models.Model):#class
+    type = models.CharField(max_length=30)
+    def __str__(self):
+        return str(self.type)
 class ad_test_type(models.Model):#class
     type = models.CharField(max_length=30)
     def __str__(self):

@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from acc.models import ad_excel_arg, aUserProfile, Request, device_type
+from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render
@@ -12,9 +12,9 @@ from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 
-model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1,defibrilator_1,ecg_1,infusion_pump_1,syringe_pump_1,
-                spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, suction_1, electrocauter_1, monometer_1,
-                     aed_1,
+model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
+                infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
+                suction_1, electrocauter_1, monometer_1, 
                 ]
 
 
@@ -334,9 +334,31 @@ def req_summary(request):
             data = []
             types = device_type.objects.get(id__gte=13)
             for model in model_list:
-                temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(
-                    device__section__name__exact=request.GET['sec_num')
+                temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(#number of test of each device
+                    device__section__name__exact=request.GET['sec_name')
+                temp2 = cant_test.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(#number of cant test of each device
+                    device__section__name__exact=request.GET['sec_name').filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
                 data[s] = len(temp)
-                s += 1
-    
+                data[s+1] = len(temp2)     
+                s += 2
+            
+            t2 = jdatetime.datetime.today()
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = (
+                'inline; '
+                f'filename=summary_{request.GET['req_num']}_{request.GET['sec_name']}.pdf'
+            )
+            font_config = FontConfiguration()
+            #TODO add hospital infos
+            html = render_to_string('report/sections_summary.html', {
+                'time': t2,'data':data
+            })
+
+            css_root = static('/css')
+            css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
+            css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
+
+            document = HTML(string=html).write_pdf(response,font_config=font_config, stylesheets=[css1, css2])
+
+            return response
                 
