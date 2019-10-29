@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from acc.models import ad_excel_arg,aUserProfile,Request
+from acc.models import ad_excel_arg, aUserProfile, Request, device_type
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render
@@ -317,17 +317,26 @@ def pdf1(request):
 
 def req_summary(request):
     if request.method == 'GET':
-        # try:
-        sections = []
-        for model in model_list:
-            temp = model.objects.filter(request__number__exact=int(request.GET['req_number']))
-            if len(temp) != 0:
-                for t in temp:
-                    sections.append(t.device.section)
-        sections = list(set(sections)) #get unique values 
-        for sec in sections:
-            sec = sec.name
-        return render(request,'acc/employee/dlsum.html',{'data':sections})
-        # except:
-        #     return HttpResponse('fuck you')
-        
+        try:#get sections
+            sections = []
+            for model in model_list:
+                temp = model.objects.filter(request__number__exact=int(request.GET['req_number']))
+                if len(temp) != 0:
+                    for t in temp:
+                        sections.append(t.device.section)
+            sections = list(set(sections)) #get unique values 
+            for sec in sections:
+                sec = sec.name
+            return render(request,'acc/employee/dlsum.html',{'data':sections,'req_num':request.GET['req_number']})
+        except:#get report
+            s = 0
+            data = []
+            types = device_type.objects.get(id__gte=13)
+            for model in model_list[:4]:
+                for tp in types:    
+                    temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(
+                        device__section__name__exact=request.GET['sec_num').filter(device__name__device_type__exact=tp)
+                    data[s] = len(temp)
+                    s += 1
+
+                type = device_type.objects.get(id__exact=13)#مانیتور علائم حیاتی
