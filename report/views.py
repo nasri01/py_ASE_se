@@ -12,8 +12,8 @@ from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 
-model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
-              defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
+model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1,defibrilator_1,ecg_1, aed_1, anesthesia_machine_1,
+               flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
               ventilator_1, electrocauter_1 ]
 
 
@@ -332,11 +332,10 @@ def req_summary(request):
             s = 0
             data = []
             types = device_type.objects.get(id__gte=13)
-            for model in model_list[:4]:
-                for tp in types:    
-                    temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(
-                        device__section__name__exact=request.GET['sec_num').filter(device__name__device_type__exact=tp)
-                    data[s] = len(temp)
-                    s += 1
-
-                type = device_type.objects.get(id__exact=13)#مانیتور علائم حیاتی
+            for model in model_list:
+                temp = model.objects.filter(request__number__exact=int(request.GET['req_num'])).filter(
+                    device__section__name__exact=request.GET['sec_num')
+                data[s] = len(temp)
+                s += 1
+    
+                
