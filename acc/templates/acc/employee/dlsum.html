@@ -92,7 +92,7 @@
                     <td>{{ forloop.counter }}</td>
                     <td>{{i}}</td>
                     <td>
-                      <form action="{{ url 'req_summary'}}" method="GET">    
+                      <form action="{% url 'req_summary' %}" method="GET">    
                         <input type="text" hidden name="sec_name" value="{{i.}}">
                         <button class="btn btn-primary" type="submit" value="!">
                         </form>
