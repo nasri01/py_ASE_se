@@ -22,8 +22,8 @@ urlpatterns = [
 
     path('', views.router, name='router'),
     path('save/<slug:formtype>/', views.save_router, name='save_router'),
-    path('save_edit/<slug:formtype>/', views.save_edit_router, name='save_edit_router'),
-    path('save_recal/<slug:formtype>/', views.save_recal_router, name='save_recal_router'),
-    path('save_recal_edit/<slug:formtype>/', views.save_recal_edit_router, name='save_recal_edit_router'),
+    # path('save_edit/<slug:formtype>/', views.save_edit_router, name='save_edit_router'),
+    # path('save_recal/<slug:formtype>/', views.save_recal_router, name='save_recal_router'),
+    # path('save_recal_edit/<slug:formtype>/', views.save_recal_edit_router, name='save_recal_edit_router'),
     path('delete/', views.delete_report, name='delete_report'),
 ]
