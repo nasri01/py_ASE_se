@@ -145,7 +145,7 @@ def recal_report(request):
                  'form': form1,
                  'form_type': modellist[c],
                  'ref_record_num': modelobj[0].record.number,
-                 'ref_licence_num': modelobj[0].licence.number
+                 'ref_licence_num': modelobj[0].licence.number,
                  'auser':auser
                  }
 
