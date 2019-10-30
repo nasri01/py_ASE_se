@@ -42,253 +42,255 @@ def router(request):
         raise Http404
 
 
-def save_router(request,formtype):
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
-        auser = aUserProfile.objects.get(user=request.user)
-        for item in diclist:
-            if formtype == item[0]:
-                form1 = item[2](request.POST)
-                if form1.is_valid():
-                    sform = form1.save(commit=False)
-                    sform.user = request.user
-                    sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
-                    sform.record = record.objects.create(number=int(record.objects.last().number)+1)
-                    sform.is_recal = False
-                    sform.ref_record = record.objects.get(number=-1)
-                    # Cant Test Conditio
-                    if (request.POST['status'] == '4'):
-                        ln = -1
-                        sform.licence = licence.objects.create(number=ln)
-                    else:
-                        ln = int(licence.objects.order_by('number')[len(licence.objects.all())-1].number) + 1
-                        sform.licence = licence.objects.create(number=ln)
-                    if (request.POST['status'] == '1'):
-                        sform.is_done = True
-                    else:
-                        sform.is_done = False
-                    sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
-                    sform.cal_dev_1_xd = Cal_device.objects.get(
-                        id=request.POST['cal_dev1']).calibration_Expire_date
-                    if (item[3] >= 2):
-                        sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
-                        sform.cal_dev_2_xd = Cal_device.objects.get(
-                            id=request.POST['cal_dev2']).calibration_Expire_date
-                        if (item[3] >= 3):
-                            sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
-                            sform.cal_dev_3_xd = Cal_device.objects.get(
-                                id=request.POST['cal_dev3']).calibration_Expire_date
-                            if (item[3] >= 4):
-                                sform.cal_dev_4_cd = Cal_device.objects.get(id=request.POST['cal_dev4']).calibration_date
-                                sform.cal_dev_4_xd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_Expire_date
-                                if (item[3] == 5):
-                                    sform.cal_dev_5_cd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_date
-                                    sform.cal_dev_5_xd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_Expire_date
-                    sform.save()
-                    form1.save_m2m()
-                    return render(request, 'acc/employee/index.html',
-                                  {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی:{ln}','auser':auser})
-                else:  # form imcomplete
-                    return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
-    else:
-        raise Http404
+# def save_router(request,formtype):
+#     if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+#         auser = aUserProfile.objects.get(user=request.user)
+#         for item in diclist:
+#             if formtype == item[0]:
+#                 form1 = item[2](request.POST)
+#                 if form1.is_valid():
+#                     sform = form1.save(commit=False)
+#                     sform.user = request.user
+#                     sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
+#                     sform.record = record.objects.create(number=int(record.objects.last().number)+1)
+#                     sform.is_recal = False
+#                     sform.ref_record = record.objects.get(number=-1)
+#                     # Cant Test Conditio
+#                     if (request.POST['status'] == '4'):
+#                         ln = -1
+#                         sform.licence = licence.objects.create(number=ln)
+#                     else:
+#                         ln = int(licence.objects.order_by('number')[len(licence.objects.all())-1].number) + 1
+#                         sform.licence = licence.objects.create(number=ln)
+#                     if (request.POST['status'] == '1'):
+#                         sform.is_done = True
+#                     else:
+#                         sform.is_done = False
+#                     sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
+#                     sform.cal_dev_1_xd = Cal_device.objects.get(
+#                         id=request.POST['cal_dev1']).calibration_Expire_date
+#                     if (item[3] >= 2):
+#                         sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
+#                         sform.cal_dev_2_xd = Cal_device.objects.get(
+#                             id=request.POST['cal_dev2']).calibration_Expire_date
+#                         if (item[3] >= 3):
+#                             sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
+#                             sform.cal_dev_3_xd = Cal_device.objects.get(
+#                                 id=request.POST['cal_dev3']).calibration_Expire_date
+#                             if (item[3] >= 4):
+#                                 sform.cal_dev_4_cd = Cal_device.objects.get(id=request.POST['cal_dev4']).calibration_date
+#                                 sform.cal_dev_4_xd = Cal_device.objects.get(
+#                                     id=request.POST['cal_dev4']).calibration_Expire_date
+#                                 if (item[3] == 5):
+#                                     sform.cal_dev_5_cd = Cal_device.objects.get(
+#                                         id=request.POST['cal_dev5']).calibration_date
+#                                     sform.cal_dev_5_xd = Cal_device.objects.get(
+#                                         id=request.POST['cal_dev5']).calibration_Expire_date
+#                     sform.save()
+#                     form1.save_m2m()
+#                     return render(request, 'acc/employee/index.html',
+#                                   {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی:{ln}','auser':auser})
+#                 else:  # form imcomplete
+#                     return render(request, 'acc/employee/index.html',
+#                                   {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
+#     else:
+#         raise Http404
 
-def save_edit_router(request,formtype):
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
-        auser = aUserProfile.objects.get(user=request.user)
-        for item in diclist:
-            if formtype==item[0]:
-                data = item[1].objects.all().get(record__number=request.POST['record_num'])
-                form1 = item[2](request.POST , instance=data)
-
-
-                if form1.is_valid():
-                    sform = form1.save(commit=False)
-                    sform.user = request.user
-                    sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
-
-                    # Cant Test Condition
-                    if (request.POST['status'] == '4'):#assign untestable
-                        ln = -1
-                        sform.licence = licence.objects.create(number=ln)
-
-                    elif(data.licence.number==-1):#assign a new one
-                        ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
-                        sform.licence = licence.objects.create(number=ln)
-                    else:#assign pervious one
-                        ln = data.licence.number
+# def save_edit_router(request,formtype):
+#     if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+#         auser = aUserProfile.objects.get(user=request.user)
+#         for item in diclist:
+#             if formtype==item[0]:
+#                 data = item[1].objects.all().get(record__number=request.POST['record_num'])
+#                 form1 = item[2](request.POST , instance=data)
 
 
-                    if (request.POST['status'] == '1'):
-                        sform.is_done = True
-                    else:
-                        sform.is_done = False
+#                 if form1.is_valid():
+#                     sform = form1.save(commit=False)
+#                     sform.user = request.user
+#                     sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
 
-                    sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
-                    sform.cal_dev_1_xd = Cal_device.objects.get(
-                        id=request.POST['cal_dev1']).calibration_Expire_date
-                    if (item[3] >= 2):
-                        sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
-                        sform.cal_dev_2_xd = Cal_device.objects.get(
-                            id=request.POST['cal_dev2']).calibration_Expire_date
-                        if (item[3] >= 3):
-                            sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
-                            sform.cal_dev_3_xd = Cal_device.objects.get(
-                                id=request.POST['cal_dev3']).calibration_Expire_date
-                            if (item[3] >= 4):
-                                sform.cal_dev_4_cd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_date
-                                sform.cal_dev_4_xd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_Expire_date
-                                if (item[3] == 5):
-                                    sform.cal_dev_5_cd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_date
-                                    sform.cal_dev_5_xd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_Expire_date
-                    sform.save()
-                    form1.save_m2m()
-                    return render(request, 'acc/employee/index.html',
-                                  {'green_status': f'اطلاعات با موفقیت ویرایش  شد! شماره گواهی:{ln}','auser':auser})
+#                     # Cant Test Condition
+#                     if (request.POST['status'] == '4'):#assign untestable
+#                         ln = -1
+#                         sform.licence = licence.objects.create(number=ln)
 
-                else:  # form imcomplete
-                    return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', item[0]: 1,'auser':auser})
-    else:
-        raise Http404
+#                     elif(data.licence.number==-1):#assign a new one
+#                         ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
+#                         sform.licence = licence.objects.create(number=ln)
+#                     else:#assign pervious one
+#                         ln = data.licence.number
 
 
-def save_recal_router(request,formtype):
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
-        auser = aUserProfile.objects.get(user=request.user)
-        for item in diclist:
-            if formtype == item[0]:
+#                     if (request.POST['status'] == '1'):
+#                         sform.is_done = True
+#                     else:
+#                         sform.is_done = False
 
-                ref_data = item[1].objects.get(record__number=request.POST['ref_record_num'])
-                form1 = item[2](request.POST)
+#                     sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
+#                     sform.cal_dev_1_xd = Cal_device.objects.get(
+#                         id=request.POST['cal_dev1']).calibration_Expire_date
+#                     if (item[3] >= 2):
+#                         sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
+#                         sform.cal_dev_2_xd = Cal_device.objects.get(
+#                             id=request.POST['cal_dev2']).calibration_Expire_date
+#                         if (item[3] >= 3):
+#                             sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
+#                             sform.cal_dev_3_xd = Cal_device.objects.get(
+#                                 id=request.POST['cal_dev3']).calibration_Expire_date
+#                             if (item[3] >= 4):
+#                                 sform.cal_dev_4_cd = Cal_device.objects.get(
+#                                     id=request.POST['cal_dev4']).calibration_date
+#                                 sform.cal_dev_4_xd = Cal_device.objects.get(
+#                                     id=request.POST['cal_dev4']).calibration_Expire_date
+#                                 if (item[3] == 5):
+#                                     sform.cal_dev_5_cd = Cal_device.objects.get(
+#                                         id=request.POST['cal_dev5']).calibration_date
+#                                     sform.cal_dev_5_xd = Cal_device.objects.get(
+#                                         id=request.POST['cal_dev5']).calibration_Expire_date
+#                     sform.save()
+#                     form1.save_m2m()
+#                     return render(request, 'acc/employee/index.html',
+#                                   {'green_status': f'اطلاعات با موفقیت ویرایش  شد! شماره گواهی:{ln}','auser':auser})
 
-                if form1.is_valid():
-                    sform = form1.save(commit=False)
-                    sform.user = request.user
-                    sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
-                    sform.record = record.objects.create(number=int(record.objects.last().number) + 1)
-                    sform.is_recal = True
-                    sform.ref_record = ref_data.record
-                    # Cant Test Condition
-
-                    if (request.POST['status'] == '4'):
-                        ln = -1
-                        sform.licence = licence.objects.create(number=ln)
-
-                    else:
-                        ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
-                        sform.licence = licence.objects.create(number=ln)
-
-                    if (request.POST['status'] == '1'):
-                        ref_data.is_done = True
-                        ref_data.save()
-
-                    sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
-                    sform.cal_dev_1_xd = Cal_device.objects.get(
-                        id=request.POST['cal_dev1']).calibration_Expire_date
-                    if (item[3] >= 2):
-                        sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
-                        sform.cal_dev_2_xd = Cal_device.objects.get(
-                            id=request.POST['cal_dev2']).calibration_Expire_date
-                        if (item[3] >= 3):
-                            sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
-                            sform.cal_dev_3_xd = Cal_device.objects.get(
-                                id=request.POST['cal_dev3']).calibration_Expire_date
-                            if (item[3] >= 4):
-                                sform.cal_dev_4_cd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_date
-                                sform.cal_dev_4_xd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_Expire_date
-                                if (item[3] == 5):
-                                    sform.cal_dev_5_cd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_date
-                                    sform.cal_dev_5_xd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_Expire_date
-
-                    sform.save()
-                    form1.save_m2m()
-                    return render(request, 'acc/employee/index.html',
-                                  {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
-
-                else:  # form imcomplete
-                    return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
-    else:
-        raise Http404
+#                 else:  # form imcomplete
+#                     return render(request, 'acc/employee/index.html',
+#                                   {'form': form1, 'red_status': 'اطلاعات ناقص است!', item[0]: 1,'auser':auser})
+#     else:
+#         raise Http404
 
 
-def save_recal_edit_router(request,formtype):
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
-        auser = aUserProfile.objects.get(user=request.user)
-        for item in diclist:
-            if formtype == item[0]:
+# def save_recal_router(request,formtype):
+#     if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+#         auser = aUserProfile.objects.get(user=request.user)
+#         for item in diclist:
+#             if formtype == item[0]:
 
-                data = item[1].objects.all().get(record__number=request.POST['record_num'])
-                ref_data = item[1].objects.get(record=data.ref_record)
-                form1 = item[2](request.POST,instance=data)
+#                 ref_data = item[1].objects.get(record__number=request.POST['ref_record_num'])
+#                 form1 = item[2](request.POST)
 
-                if form1.is_valid():
+#                 if form1.is_valid():
+#                     sform = form1.save(commit=False)
+#                     sform.user = request.user
+#                     sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
+#                     sform.record = record.objects.create(number=int(record.objects.last().number) + 1)
+#                     sform.is_recal = True
+#                     sform.ref_record = ref_data.record
+#                     # Cant Test Condition
 
-                    sform = form1.save(commit=False)
-                    sform.user = request.user
-                    sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
-                    # Cant Test Condition
+#                     if (request.POST['status'] == '4'):
+#                         ln = -1
+#                         sform.licence = licence.objects.create(number=ln)
 
-                    if (request.POST['status'] == '4'):
-                        ln = -1
-                        sform.licence = licence.objects.create(number=ln)
-                    elif(data.status.id==4):
-                        ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
-                        sform.licence = licence.objects.create(number=ln)
-                    else:
-                        ln = ref_data.licence.number
-                    if (request.POST['status'] == '1'):
-                        ref_data.is_done = True
-                        ref_data.save()
-                    else:
-                        ref_data.is_done = False
-                        ref_data.save()
+#                     else:
+#                         ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
+#                         sform.licence = licence.objects.create(number=ln)
 
-                    sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
-                    sform.cal_dev_1_xd = Cal_device.objects.get(
-                        id=request.POST['cal_dev1']).calibration_Expire_date
-                    if (item[3] >= 2):
-                        sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
-                        sform.cal_dev_2_xd = Cal_device.objects.get(
-                            id=request.POST['cal_dev2']).calibration_Expire_date
-                        if (item[3] >= 3):
-                            sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
-                            sform.cal_dev_3_xd = Cal_device.objects.get(
-                                id=request.POST['cal_dev3']).calibration_Expire_date
-                            if (item[3] >= 4):
-                                sform.cal_dev_4_cd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_date
-                                sform.cal_dev_4_xd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_Expire_date
-                                if (item[3] == 5):
-                                    sform.cal_dev_5_cd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_date
-                                    sform.cal_dev_5_xd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_Expire_date
+#                     if (request.POST['status'] == '1'):
+#                         ref_data.is_done = True
+#                         ref_data.save()
 
-                    sform.save()
-                    form1.save_m2m()
+#                     sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
+#                     sform.cal_dev_1_xd = Cal_device.objects.get(
+#                         id=request.POST['cal_dev1']).calibration_Expire_date
+#                     if (item[3] >= 2):
+#                         sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
+#                         sform.cal_dev_2_xd = Cal_device.objects.get(
+#                             id=request.POST['cal_dev2']).calibration_Expire_date
+#                         if (item[3] >= 3):
+#                             sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
+#                             sform.cal_dev_3_xd = Cal_device.objects.get(
+#                                 id=request.POST['cal_dev3']).calibration_Expire_date
+#                             if (item[3] >= 4):
+#                                 sform.cal_dev_4_cd = Cal_device.objects.get(
+#                                     id=request.POST['cal_dev4']).calibration_date
+#                                 sform.cal_dev_4_xd = Cal_device.objects.get(
+#                                     id=request.POST['cal_dev4']).calibration_Expire_date
+#                                 if (item[3] == 5):
+#                                     sform.cal_dev_5_cd = Cal_device.objects.get(
+#                                         id=request.POST['cal_dev5']).calibration_date
+#                                     sform.cal_dev_5_xd = Cal_device.objects.get(
+#                                         id=request.POST['cal_dev5']).calibration_Expire_date
 
-                    return render(request, 'acc/employee/index.html',
-                                  {'green_status': f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
+#                     sform.save()
+#                     form1.save_m2m()
+#                     return render(request, 'acc/employee/index.html',
+#                                   {'green_status': f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
 
-                else:  # form imcomplete
-                    return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
-    else:
-        raise Http404
+#                 else:  # form imcomplete
+#                     return render(request, 'acc/employee/index.html',
+#                                   {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
+#     else:
+#         raise Http404
+
+
+# def save_recal_edit_router(request,formtype):
+    # if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+    #     auser = aUserProfile.objects.get(user=request.user)
+    #     for item in diclist:
+    #         if formtype == item[0]:
+
+    #             data = item[1].objects.all().get(record__number=request.POST['record_num'])
+    #             ref_data = item[1].objects.get(record=data.ref_record)
+    #             form1 = item[2](request.POST,instance=data)
+
+    #             if form1.is_valid():
+
+    #                 sform = form1.save(commit=False)
+    #                 sform.user = request.user
+    #                 sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
+    #                 # Cant Test Condition
+
+    #                 if (request.POST['status'] == '4'):
+    #                     ln = -1
+    #                     sform.licence = licence.objects.create(number=ln)
+    #                 elif(data.status.id == 4):
+    #                     ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
+    #                     sform.licence = licence.objects.create(number=ln)
+    #                 else:
+    #                     ln = ref_data.licence.number
+                    
+                    
+    #                 if (request.POST['status'] == '1'):
+    #                     ref_data.is_done = True
+    #                     ref_data.save()
+    #                 else:
+    #                     ref_data.is_done = False
+    #                     ref_data.save()
+
+    #                 sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
+    #                 sform.cal_dev_1_xd = Cal_device.objects.get(
+    #                     id=request.POST['cal_dev1']).calibration_Expire_date
+    #                 if (item[3] >= 2):
+    #                     sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
+    #                     sform.cal_dev_2_xd = Cal_device.objects.get(
+    #                         id=request.POST['cal_dev2']).calibration_Expire_date
+    #                     if (item[3] >= 3):
+    #                         sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
+    #                         sform.cal_dev_3_xd = Cal_device.objects.get(
+    #                             id=request.POST['cal_dev3']).calibration_Expire_date
+    #                         if (item[3] >= 4):
+    #                             sform.cal_dev_4_cd = Cal_device.objects.get(
+    #                                 id=request.POST['cal_dev4']).calibration_date
+    #                             sform.cal_dev_4_xd = Cal_device.objects.get(
+    #                                 id=request.POST['cal_dev4']).calibration_Expire_date
+    #                             if (item[3] == 5):
+    #                                 sform.cal_dev_5_cd = Cal_device.objects.get(
+    #                                     id=request.POST['cal_dev5']).calibration_date
+    #                                 sform.cal_dev_5_xd = Cal_device.objects.get(
+    #                                     id=request.POST['cal_dev5']).calibration_Expire_date
+
+    #                 sform.save()
+    #                 form1.save_m2m()
+
+    #                 return render(request, 'acc/employee/index.html',
+    #                               {'green_status': f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}','auser':auser})
+
+    #             else:  # form imcomplete
+    #                 return render(request, 'acc/employee/index.html',
+    #                               {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
+    # else:
+    #     raise Http404
 
 
 def delete_report(request):
@@ -297,6 +299,104 @@ def delete_report(request):
 
     return redirect('report_list')
 
+def save(request,formtype):
+    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+        auser = aUserProfile.objects.get(user=request.user)
+        for item in diclist:
+            if formtype == item[0]:
+                
+                if request.POST['op_type'] == 'save':    
+                    form1 = item[2](request.POST)
+                
+                elif request.POST['op_type'] == 'save_recal':
+                    ref_data = item[1].objects.get(record__number=request.POST['ref_record_num'])
+                    form1 = item[2](request.POST)
+                
+                elif request.POST['op_type'] == 'save_edit':
+                    data = item[1].objects.all().get(record__number=request.POST['record_num'])
+                    form1 = item[2](request.POST , instance=data)
+                
+                elif request.POST['op_type'] == 'save_edit_recal':
+                    data = item[1].objects.all().get(record__number=request.POST['record_num'])
+                    ref_data = item[1].objects.get(record=data.ref_record)
+                    form1 = item[2](request.POST,instance=data)
+                   
+                   
+                   
+                    if form1.is_valid():
+                        sform = form1.save(commit=False)
+                        sform.user = request.user
+                        sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
+                        sform.record = record.objects.create(number=int(record.objects.last().number)+1)
+                        
+                        if request.POST['op_type'] == 'save':    
+                            sform.is_recal = False
+                            sform.ref_record = record.objects.get(number=-1)
+                            ln = int(licence.objects.order_by('number')[len(licence.objects.all())-1].number) + 1
+                            sform.licence = licence.objects.create(number=ln)
+                            if (request.POST['status'] == '1'):
+                                sform.is_done = True
+                            else:
+                                sform.is_done = False
+                            green_status = f'اطلاعات با موفقیت ذخیره شد! شماره گواهی:{ln}'
 
+                        elif request.POST['op_type'] == 'save_edit':
+                            ln = data.licence.number
+                            if (request.POST['status'] == '1'):
+                                sform.is_done = True
+                            else:
+                                sform.is_done = False
+                            green_status = f'اطلاعات با موفقیت ویرایش  شد! شماره گواهی:{ln}'
+
+
+                        elif request.POST['op_type'] == 'save_recal':
+                            sform.is_recal = True
+                            sform.is_done = True #always True
+                            sform.ref_record = record.objects.get(number=request.POST['ref_record_num'])
+                            ln = int(licence.objects.order_by('number')[len(licence.objects.all()) - 1].number) + 1
+                            sform.licence = licence.objects.create(number=ln)
+                            if (request.POST['status'] == '1'):
+                                ref_data.is_done = True
+                                ref_data.save()
+                            green_status = f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}'
+
+                        elif request.POST['op_type'] == 'save_edit_recal':
+                            if (request.POST['status'] == '1'):
+                                ref_data.is_done = True
+                                ref_data.save()
+                        green_status = f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}'
+
+
+                        sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
+                        sform.cal_dev_1_xd = Cal_device.objects.get(
+                            id=request.POST['cal_dev1']).calibration_Expire_date
+                        if (item[3] >= 2):
+                            sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
+                            sform.cal_dev_2_xd = Cal_device.objects.get(
+                                id=request.POST['cal_dev2']).calibration_Expire_date
+                            if (item[3] >= 3):
+                                sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
+                                sform.cal_dev_3_xd = Cal_device.objects.get(
+                                    id=request.POST['cal_dev3']).calibration_Expire_date
+                                if (item[3] >= 4):
+                                    sform.cal_dev_4_cd = Cal_device.objects.get(id=request.POST['cal_dev4']).calibration_date
+                                    sform.cal_dev_4_xd = Cal_device.objects.get(
+                                        id=request.POST['cal_dev4']).calibration_Expire_date
+                                    if (item[3] == 5):
+                                        sform.cal_dev_5_cd = Cal_device.objects.get(
+                                            id=request.POST['cal_dev5']).calibration_date
+                                        sform.cal_dev_5_xd = Cal_device.objects.get(
+                                            id=request.POST['cal_dev5']).calibration_Expire_date
+                        sform.save()
+                        form1.save_m2m()
+
+
+                        return render(request, 'acc/employee/index.html',
+                                    {'green_status': green_status,'auser':auser})
+                    else:  # form imcomplete
+                        return render(request, 'acc/employee/index.html',
+                                    {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0],'auser':auser})
+    else:
+        raise Http404
 
 
