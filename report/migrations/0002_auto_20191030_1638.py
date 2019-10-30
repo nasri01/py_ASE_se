@@ -36,10 +36,5 @@ class Migration(migrations.Migration):
             name='record',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rr', to='report.record'),
         ),
-        migrations.AddField(
-            model_name='report',
-            name='licence',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='me1licence', to='report.licence'),
-            preserve_default=False,
-        ),
+        
     ]
