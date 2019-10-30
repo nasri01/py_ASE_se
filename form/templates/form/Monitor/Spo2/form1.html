@@ -51,26 +51,6 @@
       گواهينامه کنترل کيفي دستگاه پالس اکسيمتر</h1>
       
       
-      <!-- {% if edit %}
-      <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='monitor_spo2' %}";'>
-      ذخیره نهایی اصلاح
-      </button>
-      {% elif recal %}
-      <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='monitor_spo2' %}";'>
-      ذخیره نهایی ریکالیبراسیون
-      </button>
-      {% elif edit_recal %}
-      <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='monitor_spo2' %}";'>
-      ذخیره نهایی ویرایش ریکالیبراسیون
-      </button>
-
-      {% else %}{# normal save #}
-      <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='monitor_spo2' %}";' >
-       ذخیره نهایی فرم
-      </button>
-      {% endif %}
-       -->
-
 
      <div class="row" style="margin-right: 40px;">
         <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
@@ -441,7 +421,7 @@
             <input type="text" name="op_type" value="save_recal_edit" hidden>
             <input type="text" name="record_num" value="{{record_num}}" hidden>
           {% else %}
-          
+
             <input type="text" name="op_type" value="save" hidden>
           {% endif %}
 
