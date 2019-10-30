@@ -515,11 +515,61 @@ def pdf(request):
                         comment.objects.get(name = obj)
                     except:
                         pass
-                    report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
+                    a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
                                             request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                             record = rd.objects.create(number=int(rd.objects.last().number)+1),
                                             license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
-                                            totalcomment = obj.totalcomment, is_done = obj.is_done)
+                                             is_done = obj.is_done)
+                    a12.save()
+                    
+                    if(model == monitor_spo2_1):
+                        template_name = 'report/Monitor/Spo2/licence1.html'            
+                    
+                    elif (model == monitor_nibp_1):
+                        template_name = 'report/Monitor/NIBP/licence1.html'
+
+                    elif (model == monitor_ecg_1):
+                        template_name = 'report/Monitor/ECG/licence1.html'
+
+                    elif (model == monitor_safety_1):
+                        template_name = 'report/Monitor/SAFETY/licence1.html'
+
+                    elif (model == aed_1):
+                        template_name = 'report/aed/licence1.html'
+
+                    elif (model == anesthesia_machine_1):
+                        template_name = 'report/anesthesiamachine/licence1.html'
+
+                    elif (model == defibrilator_1):
+                        template_name = 'report/defibrilator/licence1.html'
+                    
+                    elif (model == ecg_1):
+                        template_name = 'report/ecg/licence1.html'
+                    
+                    elif (model == electrocauter_1):
+                        template_name = 'report/electrocauter/licence1.html'
+                    
+                    elif (model == flowmeter_1):
+                        template_name = 'report/flowmeter/licence1.html'
+                    
+                    elif (model == infusion_pump_1):
+                        template_name = 'report/infusion_pump/licence1.html'
+                    
+                    elif (model == monometer_1):
+                        template_name = 'report/monometer/licence1.html'
+                    
+                    elif (model == spo2_1):
+                        template_name = 'report/spo2/licence1.html'
+                    
+                    elif (model == suction_1):
+                        template_name = 'report/suction/licence1.html'
+                    
+                    elif (model == syringe_pump_1):
+                        template_name = 'report/syringe_pump/licence1.html'
+                    
+                    elif (model == ventilator_1):
+                        template_name = 'report/ventilator/licence1.html'
+                    
                     obj.delete()
             s+=1
         return HttpResponse('done!')
