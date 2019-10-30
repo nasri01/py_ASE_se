@@ -361,6 +361,7 @@ def save_router(request,formtype):
                         green_status = f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}'
 
                     elif request.POST['op_type'] == 'save_edit_recal':
+                        ln = data.licence.number
                         if (request.POST['status'] == '1'):
                             ref_data.is_done = True
                             ref_data.save()
