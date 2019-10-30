@@ -2,6 +2,9 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
+from .models import report, 
+from .models import record as rd
+from .models import licence as lcc
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
@@ -15,9 +18,11 @@ import weasyprint
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
                 infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
-                suction_1, electrocauter_1, monometer_1, 
-                ]
-
+                suction_1, electrocauter_1, monometer_1, cant_test ]
+                #TODO organize
+modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'defibrilator', 'aed', 'ecg',
+             'infusion_pump', 'syringe_pump', 'spo2', 'flowmeter', 'anesthesia_machine', 'ventilator', 
+              'suction', 'electrocauter', 'monometer','cant_test' ]
 
 def xlsx(request):
     if request.method == 'GET':
@@ -368,6 +373,7 @@ def req_summary(request):
 
 def pdf(request):
     if request.method == 'GET':
+        s = 0
         ss = 0
         sss = 0
         data = []
@@ -492,17 +498,9 @@ def pdf(request):
 
                     break
 
-                    # TODO licence doesn't exist
+                    
                     usr= aUserProfile.objects.get(user=obj.user)
                     t2 = jdatetime.datetime.today()
-                    output = io.BytesIO()
-
-                    # response = HttpResponse(content_type='application/pdf')
-                    # response['Content-Disposition'] = (
-                    #     'inline; '
-                    #     f'filename=licence.pdf'
-                    # )
-
                     font_config = FontConfiguration()
                     
                     html = render_to_string(template_name, {
@@ -512,9 +510,14 @@ def pdf(request):
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
-
-                    HTML(string=html).write_pdf('reza.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
-
-        return HttpResponse('done biiiiiitch!')
+                    HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
+                    report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
+                                            request = obj.request, date = obj.date, user = obj.user, status = obj.status,
+                                            record = rd.objects.create(number=int(rd.objects.last().number)+1),
+                                            license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
+                                            totalcomment = obj.totalcomment, is_done = obj.is_done)
+                    obj.delete()
+            s+=1
+        return HttpResponse('done!')
     else: 
         raise Http404
