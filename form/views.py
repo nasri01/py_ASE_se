@@ -299,7 +299,7 @@ def delete_report(request):
 
     return redirect('report_list')
 
-def save(request,formtype):
+def save_router(request,formtype):
     if request.user.groups.all()[0] == Group.objects.get(name='employee'):
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
