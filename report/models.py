@@ -1,4 +1,7 @@
 from django.db import models
+import acc.models
+from django.contrib.auth.models import User
+from django_jalali.db import models as jmodels
 
 # Create your models here.
 class report(models.Model):
