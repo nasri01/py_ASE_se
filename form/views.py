@@ -24,7 +24,7 @@ diclist = [['monitor_spo2',monitor_spo2_1, monitor_spO2_1_Form ,3],
         ['syringe_pump', syringe_pump_1, syringe_pump_1_Form,4],
         ['ventilator', ventilator_1,ventilator_1_Form,4],
         ['electrocauter', electrocauter_1, electrocauter_1_Form,5],
-        ['cant_test', cant_test, cant_test_Form,5],
+        ['cant_test', cant_test, cant_test_Form,0],
            ]
 
 @login_required
@@ -364,29 +364,29 @@ def save_router(request,formtype):
                         if (request.POST['status'] == '1'):
                             ref_data.is_done = True
                             ref_data.save()
-                    green_status = f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}'
+                            green_status = f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}'
 
-
-                    sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
-                    sform.cal_dev_1_xd = Cal_device.objects.get(
-                        id=request.POST['cal_dev1']).calibration_Expire_date
-                    if (item[3] >= 2):
-                        sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
-                        sform.cal_dev_2_xd = Cal_device.objects.get(
-                            id=request.POST['cal_dev2']).calibration_Expire_date
-                        if (item[3] >= 3):
-                            sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
-                            sform.cal_dev_3_xd = Cal_device.objects.get(
-                                id=request.POST['cal_dev3']).calibration_Expire_date
-                            if (item[3] >= 4):
-                                sform.cal_dev_4_cd = Cal_device.objects.get(id=request.POST['cal_dev4']).calibration_date
-                                sform.cal_dev_4_xd = Cal_device.objects.get(
-                                    id=request.POST['cal_dev4']).calibration_Expire_date
-                                if (item[3] == 5):
-                                    sform.cal_dev_5_cd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_date
-                                    sform.cal_dev_5_xd = Cal_device.objects.get(
-                                        id=request.POST['cal_dev5']).calibration_Expire_date
+                    if (item[3] != 0):
+                        sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date
+                        sform.cal_dev_1_xd = Cal_device.objects.get(
+                            id=request.POST['cal_dev1']).calibration_Expire_date
+                        if (item[3] >= 2):
+                            sform.cal_dev_2_cd = Cal_device.objects.get(id=request.POST['cal_dev2']).calibration_date
+                            sform.cal_dev_2_xd = Cal_device.objects.get(
+                                id=request.POST['cal_dev2']).calibration_Expire_date
+                            if (item[3] >= 3):
+                                sform.cal_dev_3_cd = Cal_device.objects.get(id=request.POST['cal_dev3']).calibration_date
+                                sform.cal_dev_3_xd = Cal_device.objects.get(
+                                    id=request.POST['cal_dev3']).calibration_Expire_date
+                                if (item[3] >= 4):
+                                    sform.cal_dev_4_cd = Cal_device.objects.get(id=request.POST['cal_dev4']).calibration_date
+                                    sform.cal_dev_4_xd = Cal_device.objects.get(
+                                        id=request.POST['cal_dev4']).calibration_Expire_date
+                                    if (item[3] == 5):
+                                        sform.cal_dev_5_cd = Cal_device.objects.get(
+                                            id=request.POST['cal_dev5']).calibration_date
+                                        sform.cal_dev_5_xd = Cal_device.objects.get(
+                                            id=request.POST['cal_dev5']).calibration_Expire_date
                         sform.save()
                         form1.save_m2m()
 
