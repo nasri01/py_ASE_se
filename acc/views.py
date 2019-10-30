@@ -129,6 +129,7 @@ def edit_report(request):
 # Perepare the appropiate Recalibration form for Frame
 def recal_report(request):
     if (request.method == 'GET'):
+        auser = aUserProfile.objects.get(user=request.user)
         c = 0
         for form in form_list:
             modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(
@@ -145,6 +146,7 @@ def recal_report(request):
                  'form_type': modellist[c],
                  'ref_record_num': modelobj[0].record.number,
                  'ref_licence_num': modelobj[0].licence.number
+                 'auser':auser
                  }
 
         return render(request, 'acc/employee/index.html', rdata)
