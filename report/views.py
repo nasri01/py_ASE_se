@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from .models import report ,comment
+from .models import report
 from .models import record as rd
 from .models import licence as lcc
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
