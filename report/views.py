@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from .models import report
+from .models import report ,comment
 from .models import record as rd
 from .models import licence as lcc
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
@@ -511,6 +511,10 @@ def pdf(request):
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
                     HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
+                    try:
+                        comment.objects.get(name = obj)
+                    except:
+                        pass
                     report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
                                             request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                             record = rd.objects.create(number=int(rd.objects.last().number)+1),
