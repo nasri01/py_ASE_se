@@ -5,12 +5,13 @@ from form.models import *
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.shortcuts import render
+from django.shortcuts import render ,Http404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
+import weasyprint
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
                 infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
@@ -364,3 +365,156 @@ def req_summary(request):
 
             return response
                 
+
+def pdf(request):
+    if request.method == 'GET':
+        ss = 0
+        sss = 0
+        data = []
+        for model in model_list:
+            dd = model.objects.all()
+            if len(modelobj) != 0:        
+                for obj in dd :    
+                    if(model == monitor_spo2_1):
+                        template_name = 'report/Monitor/Spo2/licence1.html'            
+                        data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)
+                        data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)
+                        data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)
+                        data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)
+                        data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)
+                        data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)
+                        data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)
+                        data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)
+                        data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)
+                        data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)
+                        data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)
+                        for i in range(11):
+                            ss+=data[i]
+                        data.append(int(((ss/11)**0.5)*100)/100)
+
+                        data.append((int(modelobj[0].s3_e1_pr) - 35)**2)
+                        data.append((int(modelobj[0].s3_e2_pr) - 60)**2)
+                        data.append((int(modelobj[0].s3_e3_pr) - 100)**2)
+                        data.append((int(modelobj[0].s3_e4_pr) - 200)**2)
+                        data.append((int(modelobj[0].s3_e5_pr) - 240)**2)
+                        for i in range(12,17):
+                            sss+=data[i]
+                        data.append(int(((sss/5)**0.5)*100)/100)
+                    
+                    elif (model == monitor_nibp_1):
+                        template_name = 'report/Monitor/NIBP/licence1.html'
+                        data1=[]
+                        data2=[]
+                        data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))##
+                        data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e2_pr1.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e2_pr2.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e2_pr3.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e3_pr1.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e3_pr2.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e3_pr3.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e4_pr1.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e4_pr2.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e4_pr3.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e5_pr1.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e5_pr2.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e5_pr3.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e6_pr1.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e6_pr2.split('/')[0]))
+                        data1.append(int(modelobj[0].s2_e6_pr3.split('/')[0]))
+                        data2.append(int(modelobj[0].s2_e1_pr1.split('/')[1]))##
+                        data2.append(int(modelobj[0].s2_e1_pr2.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e1_pr3.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e2_pr1.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e2_pr2.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e2_pr3.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e3_pr1.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e3_pr2.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e3_pr3.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e4_pr1.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e4_pr2.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e4_pr3.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e5_pr1.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e5_pr2.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e5_pr3.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))
+                        data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))
+                        data.append(sum(data1))
+                        data.append(sum(data2))
+                        data.append(round(np.mean(data1),2))
+                        data.append(round(np.mean(data2),2))
+                        data.append(round(np.std(data1),2))
+                        data.append(round(np.std(data2),2))
+
+                    elif (model == monitor_ecg_1):
+                        template_name = 'report/Monitor/ECG/licence1.html'
+
+                    elif (model == monitor_safety_1):
+                        template_name = 'report/Monitor/SAFETY/licence1.html'
+
+                    elif (model == aed_1):
+                        template_name = 'report/aed/licence1.html'
+
+                    elif (model == anesthesia_machine_1):
+                        template_name = 'report/anesthesiamachine/licence1.html'
+
+                    elif (model == defibrilator_1):
+                        template_name = 'report/defibrilator/licence1.html'
+                    
+                    elif (model == ecg_1):
+                        template_name = 'report/ecg/licence1.html'
+                    
+                    elif (model == electrocauter_1):
+                        template_name = 'report/electrocauter/licence1.html'
+                    
+                    elif (model == flowmeter_1):
+                        template_name = 'report/flowmeter/licence1.html'
+                    
+                    elif (model == infusion_pump_1):
+                        template_name = 'report/infusion_pump/licence1.html'
+                    
+                    elif (model == monometer_1):
+                        template_name = 'report/monometer/licence1.html'
+                    
+                    elif (model == spo2_1):
+                        template_name = 'report/spo2/licence1.html'
+                    
+                    elif (model == suction_1):
+                        template_name = 'report/suction/licence1.html'
+                    
+                    elif (model == syringe_pump_1):
+                        template_name = 'report/syringe_pump/licence1.html'
+                    
+                    elif (model == ventilator_1):
+                        template_name = 'report/ventilator/licence1.html'
+
+                    break
+
+                    # TODO licence doesn't exist
+                    usr= aUserProfile.objects.get(user=obj.user)
+                    t2 = jdatetime.datetime.today()
+                    output = io.BytesIO()
+
+                    # response = HttpResponse(content_type='application/pdf')
+                    # response['Content-Disposition'] = (
+                    #     'inline; '
+                    #     f'filename=licence.pdf'
+                    # )
+
+                    font_config = FontConfiguration()
+                    
+                    html = render_to_string(template_name, {
+                        'form': obj, 'time': t2,'usr':usr,'data':data
+                    })
+
+                    css_root = static('/css')
+                    css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
+                    css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
+
+                    HTML(string=html).write_pdf('reza.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
+
+        return HttpResponse('done biiiiiitch!')
+    else: 
+        raise Http404
