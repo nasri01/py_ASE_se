@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime, os
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from .models import report as rp
+from .models import report
 
 from .models import record as rd
 from .models import licence as lcc
@@ -19,7 +19,7 @@ import weasyprint
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
                 infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
-                suction_1, electrocauter_1, monometer_1, cant_test ,rp ]
+                suction_1, electrocauter_1, monometer_1, cant_test ,report ]
                 #TODO organize
 modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'defibrilator', 'aed', 'ecg',
              'infusion_pump', 'syringe_pump', 'spo2', 'flowmeter', 'anesthesia_machine', 'ventilator', 
@@ -63,6 +63,7 @@ def xlsx(request):
                 modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
                     request__hospital__user__id__exact=request.user.id)
                 data1.append(modelobj)
+
         for obj in data1:
             tcomment = []
             row = []
@@ -84,6 +85,7 @@ def xlsx(request):
             else:
                 row.append('-')
             row.append(tcomment)
+            row.append(len(data1))
             data.append(row)    
 
 
