@@ -5,14 +5,14 @@ from django_jalali.db import models as jmodels
 
 
 class ad_az_Status(models.Model):
-    status = models.CharField(max_length=12)
+    status = models.CharField(max_length=30)
 
     class Meta:
         verbose_name_plural = "Status"
     def __str__(self):
         return  str(self.status)
 class ad_req_Status(models.Model):
-    status = models.CharField(max_length=12)
+    status = models.CharField(max_length=30)
 
     class Meta:
         verbose_name_plural = "req_Status"
@@ -20,7 +20,7 @@ class ad_req_Status(models.Model):
     def __str__(self):
         return str(self.status)
 class ad_acc_Status(models.Model):
-    status = models.CharField(max_length=12)
+    status = models.CharField(max_length=30)
 
     class Meta:
         verbose_name_plural = "accStatus"
