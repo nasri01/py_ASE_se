@@ -155,6 +155,5 @@ def reload(request,formtype):
         for item in diclist:
             if formtype == item[0]:
                 form1 = item[2](request.POST)
-                form1.is_valid()
                 return render(request, 'acc/employee/index.html',
                                 {'form': form1, 'form_type': item[0],'auser':auser})

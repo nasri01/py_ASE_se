@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 
 
-<form method="POST" class="post-form" action="{% url 'save_router' formtype='monitor_spo2' %}"  %}>
+<form method="POST" class="post-form"   %}>
 
     {% csrf_token %}
 
@@ -49,7 +49,7 @@
           {% endif %}
      <h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
       گواهينامه کنترل کيفي دستگاه پالس اکسيمتر</h1>
-      
+      <button type="submit" onclick="this.form.action={% url 'reload' formtype='monitor_spo2' %}" formnovalidate></button>
       
 
      <div class="row" style="margin-right: 40px;">
@@ -425,7 +425,7 @@
             <input type="text" name="op_type" value="save" hidden>
           {% endif %}
 
-          <button type="submit"  class="btn btn-primary">
+          <button type="submit"  class="btn btn-primary" onclick="this.form.action={% url 'save_router' formtype='monitor_spo2' %}>
             ذخیره نهایی
           </button>
 
