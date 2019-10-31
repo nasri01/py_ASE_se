@@ -65,29 +65,29 @@ def xlsx(request):
                 data1.append(modelobj)
 
         for obj1 in data1:
-            for obj in obj1:
-                tcomment = []
-                row = []
-                for tc in obj.totalcomment.all():
-                    tcomment.append(tc)
-                row.append(obj.deivce.hospital.city.state_name.name)
-                row.append(obj.deivce.hospital.city.name)
-                row.append(obj.deivce.hospital.name)
-                row.append(obj.deivce.section.name)
-                row.append(obj.deivce.name.type.name)
-                row.append(obj.deivce.name.creator.name)
-                row.append(obj.deivce.name.name)
-                row.append(obj.deivce.serial_number)
-                row.append(obj.deivce.property_number)
-                row.append(obj.status.status)
-                row.append(obj.date.strftime("%Y-%m-%d"))
-                if obj.licence.number != -1 :
-                    row.append(obj.licence.number)
-                else:
-                    row.append('-')
-                row.append(tcomment)
-                row.append(len(data1))
-                data.append(row)    
+            # for obj in obj1:
+            tcomment = []
+            row = []
+            for tc in obj.totalcomment.all():
+                tcomment.append(tc)
+            row.append(obj.deivce.hospital.city.state_name.name)
+            row.append(obj.deivce.hospital.city.name)
+            row.append(obj.deivce.hospital.name)
+            row.append(obj.deivce.section.name)
+            row.append(obj.deivce.name.type.name)
+            row.append(obj.deivce.name.creator.name)
+            row.append(obj.deivce.name.name)
+            row.append(obj.deivce.serial_number)
+            row.append(obj.deivce.property_number)
+            row.append(obj.status.status)
+            row.append(obj.date.strftime("%Y-%m-%d"))
+            if obj.licence.number != -1 :
+                row.append(obj.licence.number)
+            else:
+                row.append('-')
+            row.append(tcomment)
+            row.append(len(data1))
+            data.append(row)    
 
 
         fr1 = ad_excel_arg.objects.all().order_by('order')
@@ -114,7 +114,7 @@ def xlsx(request):
                          str(fr1[11]),
                          str(fr1[12]),
                          str(fr1[13]),
-                         str(fr1[14])############################
+                         str(fr1[14]),
                          str(fr1[15])
                          )
             fr = wb.add_format({'font_size': 11, 'align': 'center', 'valign': 'vcenter', 'bottom': True, 'left': True})
