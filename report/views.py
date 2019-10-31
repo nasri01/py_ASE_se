@@ -1,4 +1,4 @@
-import io, pytz, xlsxwriter, jdatetime
+import io, pytz, xlsxwriter, jdatetime, os
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
@@ -514,6 +514,8 @@ def pdf(request):
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
+                    if not os.path.exists(f'{obj.request.number}/'):
+                        os.makedir(f'{obj.request.number}/')
                     HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
@@ -574,7 +576,7 @@ def pdf(request):
                         elif (model == ventilator_1):
                             a12.ventilator_totalcomment.add(w)
                     a12.save()
-                    obj.delete()
+                    # obj.delete()
             s+=1
         return HttpResponse(ddd)
     else: 
