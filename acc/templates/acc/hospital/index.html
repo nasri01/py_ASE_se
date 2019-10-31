@@ -234,12 +234,13 @@
                                     {% endif %} -->
                                 
                                 </tr>
-                            {% empty %}
-                                <div style="text-align:center;font-size: 25px;margin-top: 240px;font-weight: bold;">داده ای جهت نمایش وجود ندارد.</div>
+                                
                             {% endfor %}
 
                           </tbody>
                         </table>
+                        {% else %}
+                        <div style="text-align:center;font-size: 25px;margin-top: 240px;font-weight: bold;">داده ای جهت نمایش وجود ندارد.</div>
                         {% endif %}
                      </div>
 			<!-- end of data-box -->
