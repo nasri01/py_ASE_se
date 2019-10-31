@@ -160,10 +160,10 @@ def xlsx(request):
                         idata[7],
                         idata[8],
                         idata[9],
-                        idata[10]
+                        idata[10],
                         str(fr1[0]),
                         idata[11],
-                        total_com
+                        total_com,
                         )
 
                 ws.write_row(row=cursor, col=0, data=data, cell_format=fstate)
