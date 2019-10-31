@@ -60,8 +60,9 @@ def xlsx(request):
                     
         except:
             for model in model_list:
-                modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
-                    request__hospital__user__id__exact=request.user.id)
+                # modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
+                #     request__hospital__user__id__exact=request.user.id)
+                modelobj = model.objects.all()
                 data1.append(modelobj)
 
         for obj1 in data1:
