@@ -2,7 +2,7 @@ import io, pytz, xlsxwriter, jdatetime, os
 from jdatetime import timedelta
 import numpy as np
 from form.models import *
-from .models import report
+from .models import report as rp
 
 from .models import record as rd
 from .models import licence as lcc
@@ -19,7 +19,7 @@ import weasyprint
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
                 infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
-                suction_1, electrocauter_1, monometer_1, cant_test ]
+                suction_1, electrocauter_1, monometer_1, cant_test ,rp ]
                 #TODO organize
 modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'defibrilator', 'aed', 'ecg',
              'infusion_pump', 'syringe_pump', 'spo2', 'flowmeter', 'anesthesia_machine', 'ventilator', 
@@ -42,27 +42,50 @@ def xlsx(request):
             pytz.timezone('UTC'))
         end = jdatetime.datetime(ey, em, ed, 19, 30).astimezone(pytz.timezone('UTC'))
         if end < start:
-            # if (jdatetime.date.today().month < 10):
-            #     mm = f'0{jdatetime.date.today().month}'
-            # else:
-            #     mm = jdatetime.date.today().month
             return render(request, 'acc/hospital/index.html', {'date_error': 'بازه زمانی وارد شده نا معتبر است',
                                                                'flag': 1})  # , 'date': jdatetime.date.today(),
             # 'month': mm
 
         ##Create Excel
+        tcomment = []
+        row = []
         data = []
+        data1 = []
         try:
             if request.GET['is_recal'] == 'on':
                 for model in model_list:
                     modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
                         request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
-                    data.extend(modelobj)
+                    data1.append(modelobj)       
+                    
         except:
             for model in model_list:
                 modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
                     request__hospital__user__id__exact=request.user.id)
-                data.extend(modelobj)
+                data1.append(modelobj)
+        for obj in data1:
+            tcomment = []
+            row = []
+            for tc in obj.totalcomment.all():
+                tcomment.append(tc)
+            row.append(obj.deivce.hospital.city.state_name.name)
+            row.append(obj.deivce.hospital.city.name)
+            row.append(obj.deivce.hospital.name)
+            row.append(obj.deivce.section.name)
+            row.append(obj.deivce.name.type.name)
+            row.append(obj.deivce.name.creator.name)
+            row.append(obj.deivce.name.name
+            row.append(obj.deivce.serial_number)
+            row.append(obj.deivce.property_number)
+            row.append(obj.status.status)
+            row.append(obj.date.strftime("%Y-%m-%d"))
+            if obj.licence.number != -1 :
+                row.append(obj.licence.number)
+            else:
+                row.append('-')
+            row.append(tcomment)
+            data.append(row)    
+
 
         fr1 = ad_excel_arg.objects.all().order_by('order')
         if request.GET['action'] == 'download':
@@ -121,23 +144,23 @@ def xlsx(request):
                 else:
                     fstate = fr
                 total_com = ''
-                for t in idata.totalcomment.all():
+                for t in idata[12]:
                     total_com += f'{t}-'
 
                 data = (cursor,
-                        idata.device.hospital.city.state_name.name,
-                        idata.device.hospital.city.name,
-                        idata.device.hospital.name,
-                        idata.device.section.name,
-                        idata.device.name.type.name,
-                        idata.device.name.creator.name,
-                        idata.device.name.name,
-                        idata.device.serial_number,
-                        idata.device.property_number,
-                        idata.status.status,
-                        str(idata.date.astimezone(pytz.timezone('Asia/Tehran'))).split()[0],
+                        idata[0],
+                        idata[1],
+                        idata[2],
+                        idata[3],
+                        idata[4],
+                        idata[5],
+                        idata[6],
+                        idata[7],
+                        idata[8],
+                        idata[9],
+                        idata[10]
                         str(fr1[0]),
-                        idata.licence.number,
+                        idata[11],
                         total_com
                         )
 
