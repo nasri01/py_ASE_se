@@ -511,7 +511,8 @@ def pdf(request):
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
-                    HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
+                    HTML(string=html).write_pdf('reza.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
+                    # f'{obj.request.number}/{obj.licence.number}.pdf'
                     try:
                         comment.objects.get(name = obj)
                     except:
