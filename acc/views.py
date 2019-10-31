@@ -117,7 +117,7 @@ def recal_list(request):
 def report_list(request):
     data = []
     data1=[]
-    for model in model_list[]:
+    for model in model_list:
         modelobj = model.objects.all()
         data1.append(modelobj)
     for obj1 in data1:
