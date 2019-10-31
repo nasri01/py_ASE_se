@@ -46,59 +46,59 @@
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
-
+            <div class="cover main" style="font-family:'B Lotus';">
+                    <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
+                      
         <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
+        <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
         گواهينامه کنترل کيفي دستگاه فشارسنج
     </h1>
     <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
         <tr>
             <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
+            <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
 
         </tr>
         <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+            <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
             <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
 
         </tr>
 
         <tr>
+            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+            <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+
+        </tr>
+        <tr>
             <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
+            <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
         </tr>
         <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
+            <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+            <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
         </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
         <tr>
             <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+            <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
         </tr>
 
         <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
+            <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+            <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+    
         </tr>
 
         <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
+            <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
 
+        </tr>
+    
     </table>
-    <br>
+    <div style="height:5.85cm;">
+              <span>{{ form.status.status }}</span>موارد عدم شمول: 
+
+    </div>
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
     <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2">
         <tr>
@@ -168,19 +168,19 @@
     </table>
 
     </div>
-        <br><br><br>
     </div>
 
 
+    
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="font-weight: bold;padding-top: 6cm;text-align: center;font-family: 'B Titr',tahoma;">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-weight: bold;text-align: center;font-family: 'B Titr',tahoma;">
             تست های  های کیفی
         </div>
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 <tbody>
 <tr>
-<th rowspan="2">توضیحات</th>
+<th rowspan="2" style="min-width: 5cm;">توضیحات</th>
 <th colspan="2">نتیجه</th>
 <th colspan="2" rowspan="2">عنوان آزمون</th>
 <th rowspan="2">ردیف</th>
@@ -268,7 +268,7 @@
 </tr>
 <tr>
 <td>{{form.s0_e12_comment}}
-    <span>(±1 mm Hg)</span>
+    <span class="time">(±1 mm Hg)</span>
     <span>حد مجاز </span>
 </td>
 <td></td>
@@ -305,13 +305,11 @@
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 2 از 3</div>
 
     </div>
-        <div style="height: 10cm;"></div>
-
 </div>
 
-    <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="font-weight: bold;padding-top: 6cm;text-align: center;font-family: 'B Titr',tahoma;">
+<div class="page-2 page1" style="font-family:'B Nazanin';">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-weight: bold;text-align: center;font-family: 'B Titr',tahoma;">
 تست های کمی
                 </div>
                 <span style="font-weight: bold;" class="time">: (IPM 424-20081015-01)</span>
@@ -404,7 +402,7 @@
 </table>
 
 
-                <br><br><br><br><br><br><br>
+                <br><br><br><br>
             <div style="width:100%;direction: rtl; text-align: right;">
                 <div class="sign-2"></div>
             </div>

@@ -54,65 +54,68 @@
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
-
+    
+            <div class="cover main" style="font-family:'B Lotus';">
+                    <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
+                  
         <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي دستگاه پالس اکسی متری
+        <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
+                گواهينامه کنترل کيفي دستگاه پالس اکسی متری
     </h1>
-    <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
-        <tr>
-            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
+  
+    <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-4">
+            <tr>
+                <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+                <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
+                <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
+    
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+                <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
+                <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
+            </tr>
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+                <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+                <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+                <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+        
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
+    
+            </tr>
+        
+        </table>
+        <div style="height:3.85cm;">
+                  <span>{{ form.status.status }}</span>موارد عدم شمول: 
+    
+        </div>
 
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
-            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
-
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
-        </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
-
-    </table>
-            <div style="font-weight: bold;">موارد عدم شمول:</div>
         <ul style="direction: rtl;">
             <li>مطابق استاندارد ISO 9919 از تسترهای پالس اکسيمتر نميتوان برای تعيين صحت دستگاه پالس اکسيمتر استفاده کردو تنها برای تعيين اينکه آيا مانيتور پالس اکسيمتر تحت آزمون با مشخصات عملکردی سازنده تطابق دارد يا خير بدون تعيين اينکه آيا طراحی اصلی صحيح بوده يا نه می توان از آن استفاده کرد.</li>
             <li>همچنين با اين تسترها تنها برخي از مشخصات پروبها ونه همه آنهاتحت آزمون قرار مي گيردکه آيا با مشخصات عملکردی سازنده تطابق دارد يا خيروهرگز نميتوان باآنها صحيح بودن طراحی اصلی را موردبررسی قرارداد.</li>
         </ul>
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
-    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-4">
         <tr>
             <td>تاريخ انقضاء</td>
             <td>تاريخ کاليبراسيون</td>
@@ -150,7 +153,7 @@
         </tr>
 
     </table>
-    <br>
+
 
         <div style="font-weight: bold;">
             <span class="time">2005</span>
@@ -184,13 +187,12 @@
     </table>
 
     </div>
-        <br><br><br>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 5cm;font-weight: bold;">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-weight: bold;">
                 <span class="time">:(20-5</span>
                     نسخه
                     <span class="time">ISO9919</span>
@@ -203,7 +205,7 @@
                     1- عملکرد
                 </div>
 
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4 time">
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-4 time">
 <tbody>
 <tr>
 <td rowspan="2">DESCRIPTION OF TEST</td>
@@ -419,11 +421,9 @@
     </div>
 
 
-
-        <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-
-                  <div style="padding-top: 5cm;font-weight: bold;">
+    <div class="page-2 page1" style="font-family:'B Nazanin';">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                  <div style="font-weight: bold;">
                 <span class="time">:(EN 60601-1</span>
                     استاندارد
                     <span class="time">2.2.15 , 3.1</span>
@@ -433,7 +433,7 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
 <tbody>
 <tr>
-<td></td>
+<td rowspan="2"></td>
 <td rowspan="2">Accessory</td>
 <td rowspan="2">Model</td>
 <td colspan="2">Result</td>
@@ -581,9 +581,6 @@
 </tbody>
 </table>
 
-                <br>
-                <br><br>
-                <br><br>
 
                         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 4</div>
         </div>
@@ -594,12 +591,9 @@
 
 
 
-
-            <div class="page-3 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-
-
-                   <div style="padding-top: 5cm;font-weight: bold;">
+        <div class="page-3 page1" style="font-family:'B Nazanin';">
+                <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                   <div style="font-weight: bold;">
 
                     <span style="font-weight: bold;">
                     :(
@@ -635,8 +629,8 @@
 <td>{{ form.s7_e1_aplc}}</td>
 <td>{{ form.s7_e1_noaplc}}</td>
 <td>500</td>
-<td>&uuml;</td>
-<td>-</td>
+<td></td>
+<td></td>
 <td>{{ form.s7_e1_comment }}</td>
 </tr>
 <tr>
@@ -645,8 +639,8 @@
 <td>{{ form.s7_e2_aplc}}</td>
 <td>{{ form.s7_e2_noaplc}}</td>
 <td>500</td>
-<td>&uuml;</td>
-<td>-</td>
+<td></td>
+<td></td>
 <td>{{ form.s7_e2_comment }}</td>
 </tr>
 </tbody>
@@ -661,7 +655,7 @@
 8- اندازه گيری جريان کمکی بيمار(بند
                   </div>
 {# TODO s8 ap type #}
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4 time">
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-4 time">
 <tbody>
 <tr>
 <td colspan="4">Setting</td>
@@ -709,7 +703,7 @@
 </tr>
 </tbody></table>
 
-                           <br><br><br><br><br><br><br>
+                           <br><br><br><br><br>
             <div style="width:100%;direction: rtl; text-align: right;">
                 <div class="sign-2"></div>
             </div>

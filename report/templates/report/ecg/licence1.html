@@ -56,58 +56,59 @@ margin-right: 0.1cm;
 
 <body style="text-align: right;font-size: 16pt;">
 
-<div class="cover main" style="font-family:'B Lotus';">
-<div style="margin-right: 2.5cm;margin-left: 4cm;">
 
+        <div class="cover main" style="font-family:'B Lotus';">
+                <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
 <br>
-<h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي ايمني دستگاه الكتريكي پزشكي
+<h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
+        گواهينامه کنترل کيفي ايمني دستگاه الكتريكي پزشكي
 </h1>
 <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
-<tr>
-<td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-<td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
+        <tr>
+            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+            <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
 
-</tr>
-<tr>
-<td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
-<td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
+        </tr>
+        <tr>
+            <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
+            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
 
-</tr>
+        </tr>
 
-<tr>
-<td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-<td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
+        <tr>
+            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+            <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
 
-</tr>
-<tr>
-<td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-<td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
-</tr>
-<tr>
-<td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-<td class="no-border"><span>{{form.device.serial_number}}</span>شماره سريال: </td >
-</tr>
-<tr>
-<td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-</tr>
+        </tr>
+        <tr>
+            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
+            <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
+        </tr>
+        <tr>
+            <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+            <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
+        </tr>
+        <tr>
+            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+            <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+        </tr>
 
-<tr>
-<td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-</tr>
+        <tr>
+            <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+            <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+    
+        </tr>
 
-<tr>
-<td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
+        <tr>
+            <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
 
-<td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
-</tr>
+        </tr>
+    
+    </table>
+    <div style="height:5.85cm;">
+              <span>{{ form.status.status }}</span>موارد عدم شمول: 
 
-<tr>
-<td class="no-border"></td>
-<td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-</tr>
-
-</table>
+    </div>
 
 <span style="font-weight: bold;">تجهيزات آزمون:</span>
 <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
@@ -191,7 +192,6 @@ margin-right: 0.1cm;
 
 
 </div>
-<br><br><br> <br><br><br><br><br><br><br>
 </div>
 
 <div class="page-1 page1" style="font-family:'B Lotus';">
@@ -206,8 +206,8 @@ margin-right: 0.1cm;
 <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
 <tbody>
         <tr>
-        <td rowspan="3">Wave</td>
-        <td rowspan="3">Amp (mv)</td>
+        <td rowspan="2">Wave</td>
+        <td rowspan="2">Amp (mv)</td>
         <td rowspan="2">Time (sec)</td>
         <td rowspan="2">Gain <br>(mm/mv)</td>
         <td rowspan="2">Display Amp (mm)</td>
@@ -221,38 +221,39 @@ margin-right: 0.1cm;
         <td>Rej</td>
         </tr>
         <tr>
+            
+        <td rowspan="4">2Hz Square</td>
+        <td rowspan="4">1</td>
         <td rowspan="4">10</td>
         <td rowspan="2">5</td>
         <td>{{ form.s1_e1_damp }}</td>
         <td rowspan="2">.</td>
         <td rowspan="2">4.75~5.25</td>
-        <td rowspan="2">&uuml;</td>
-        <td>.</td>
+        <td rowspan="2"></td>
+        <td></td>
         <td rowspan="2">.</td>
         </tr>
         <tr>
-        <td rowspan="3">2Hz Square</td>
-        <td rowspan="3">1</td>
-        <td>.</td>
-        <td>.</td>
+        <td></td>
+        <td></td>
         </tr>
         <tr>
         <td>10</td>
-        <td>.</td>
-        <td>.</td>
+        <td></td>
+        <td></td>
         <td>&nbsp;9.5~10.5</td>
-        <td>&uuml;</td>
-        <td>.</td>
-        <td>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
         </tr>
         <tr>
         <td>20</td>
-        <td>.</td>
-        <td>.</td>
+        <td></td>
+        <td></td>
         <td>19~21</td>
-        <td>&uuml;</td>
-        <td>.</td>
-        <td>.</td>
+        <td></td>
+        <td></td>
+        <td></td>
         </tr>
         </tbody>
 </table>
@@ -296,8 +297,8 @@ margin-right: 0.1cm;
                 <td>{{ form.s2_e1_nspeak}}</td>
                 <td>10</td>
                 <td>&nbsp;9.5~10.5</td>
-                <td rowspan="3">&uuml;</td>
-                <td rowspan="3">.</td>
+                <td rowspan="3"></td>
+                <td rowspan="3"></td>
                 </tr>
                 <tr>
                 <td>{{ form.s2_e2_nspeak}}</td>
@@ -317,8 +318,8 @@ margin-right: 0.1cm;
                 <td>{{ form.s2_e4_nspeak}}</td>
                 <td>20</td>
                 <td>19~21</td>
-                <td rowspan="3">&uuml;</td>
-                <td rowspan="3">.</td>
+                <td rowspan="3"></td>
+                <td rowspan="3"></td>
                 </tr>
                 <tr>
                 <td>{{ form.s2_e5_nspeak}}</td>
@@ -362,14 +363,14 @@ margin-right: 0.1cm;
                 <td>30 line</td>
                 <td>{{ form.s3_e1_mr}}</td>
                 <td>29.4~30.6</td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s3_e1_comment}}</td>
                 </tr>
                 </tbody>
         </table>
 <div>
-<div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 2 از 10</div>
+<div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 2 از 6</div>
 
 </div>
 
@@ -410,8 +411,8 @@ margin-right: 0.1cm;
                 <td>10 Hz</td>
                 <td>{{ form.s4_e1_mr}}</td>
                 <td style="background-color: grey;"></td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s4_e1_comment}}</td>
                 </tr>
                 <tr>
@@ -421,8 +422,8 @@ margin-right: 0.1cm;
                 <td>0.5Hz</td>
                 <td>{{ form.s4_e2_mr}}</td>
                 <td>90%-110%<br />@10 Hz</td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s4_e2_comment}}</td>
                 </tr>
                 <tr>
@@ -432,8 +433,8 @@ margin-right: 0.1cm;
                 <td>25Hz</td>
                 <td>{{ form.s4_e3_mr}}</td>
                 <td>90%-110%<br />@10 Hz</td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s4_e3_comment}}</td>
                 </tr>
                 <tr>
@@ -443,8 +444,8 @@ margin-right: 0.1cm;
                 <td>40 Hz</td>
                 <td>{{ form.s4_e4_mr}}</td>
                 <td>90%-110%<br />@10 Hz</td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s4_e4_comment}}</td>
                 </tr>
                 <tr>
@@ -454,8 +455,8 @@ margin-right: 0.1cm;
                 <td>60 Hz</td>
                 <td>{{ form.s4_e5_mr}}</td>
                 <td>70%-110%<br />@10 Hz</td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s4_e5_comment}}</td>
                 </tr>
                 <tr>
@@ -465,8 +466,8 @@ margin-right: 0.1cm;
                 <td>100 Hz</td>
                 <td>{{ form.s4_e6_mr}}</td>
                 <td>70%-110%<br />@10 Hz</td>
-                <td>&uuml;</td>
-                <td>.</td>
+                <td></td>
+                <td></td>
                 <td>{{ form.s4_e6_comment}}</td>
                 </tr>
                 </tbody>
@@ -506,8 +507,8 @@ margin-right: 0.1cm;
                     <td>LA,LL,RL</td>
                     <td>{{ form.s5_e1_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>aVF</td>
@@ -517,8 +518,8 @@ margin-right: 0.1cm;
                     <td>LA,LL,RL</td>
                     <td>{{ form.s5_e2_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>aVR</td>
@@ -528,8 +529,8 @@ margin-right: 0.1cm;
                     <td>RA,LL,RL</td>
                     <td>{{ form.s5_e3_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>aVL</td>
@@ -539,8 +540,8 @@ margin-right: 0.1cm;
                     <td>RA,LL,RL</td>
                     <td>{{ form.s5_e4_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>aVL</td>
@@ -550,8 +551,8 @@ margin-right: 0.1cm;
                     <td>RA,LA,RL</td>
                     <td>{{ form.s5_e5_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>aVF</td>
@@ -561,8 +562,8 @@ margin-right: 0.1cm;
                     <td>RA,LA,RL</td>
                     <td>{{ form.s5_e6_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>V1</td>
@@ -572,8 +573,8 @@ margin-right: 0.1cm;
                     <td>LA,RL,RA,LL</td>
                     <td>{{ form.s5_e7_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>V1</td>
@@ -583,8 +584,8 @@ margin-right: 0.1cm;
                     <td>V1,RL,RA,LL</td>
                     <td>{{ form.s5_e8_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>V2</td>
@@ -594,8 +595,8 @@ margin-right: 0.1cm;
                     <td>RA,RL,LA,LL</td>
                     <td>{{ form.s5_e9_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>V2</td>
@@ -605,8 +606,8 @@ margin-right: 0.1cm;
                     <td>V2,RL,LA,LL</td>
                     <td>{{ form.s5_e10_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>V3</td>
@@ -616,8 +617,8 @@ margin-right: 0.1cm;
                     <td>LL,RL,LA,RA</td>
                     <td>{{ form.s5_e11_mr}}</td>
                     <td>20&plusmn;2!</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     <tr>
                     <td>V3</td>
@@ -627,17 +628,18 @@ margin-right: 0.1cm;
                     <td>V3,RL,LA,RA</td>
                     <td>{{ form.s5_e12_mr}}</td>
                     <td>20&plusmn;2</td>
-                    <td>&uuml;</td>
-                    <td>.</td>
+                    <td></td>
+                    <td></td>
                     </tr>
                     </tbody>
     </table>
+    <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 6</div>
 
 </div>
 </div>
 
 
-<div class="page-2 page1" style="font-family:'B Lotus';">
+<div class="page-3 page1" style="font-family:'B Lotus';">
         <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
                 <div style="font-weight: bold;">
@@ -646,7 +648,7 @@ margin-right: 0.1cm;
                         <span class="time"> 3.2.8  </span>
                         <span> 6- ولتاژ استاندارد کننده(بند </span>
                     </div>
-                    <table style="margin: auto;width: 80%;text-align:center;" class="tb-4 time">
+                    <table style="margin: auto;width: 95%;text-align:center;" class="tb-4 time">
                         <tbody>
                             <tr>
                                 <td rowspan="2">Gain <br>(mm/mv)</td>
@@ -697,7 +699,7 @@ margin-right: 0.1cm;
                                 7- تستهاي کيفي:
                         </div>
 
-                {# todo font #}    <table style="margin: auto;width: 100%;text-align:center;font-family:'B Nazanin'" class="tb-4 time">
+                    <table style="margin: auto;width: 100%;text-align:center;font-family:'B Nazanin'" class="tb-4">
                             <tbody>
                                     <tr>
                                     <td>توضیحات</td>
@@ -707,49 +709,49 @@ margin-right: 0.1cm;
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e1_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td><span>اتصالات و کانکتورها</span></td>
                                     <td>1</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e2_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td><span>کنترل ها و سوئیچ ها</span></td>
                                     <td>2</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e3_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td><span>بدنه دستگاه</span></td>
                                     <td>3</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e4_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td>دوشاخه برق</td>
                                     <td>4</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e5_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td><span>سیم برق</span></td>
                                     <td>5</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e6_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td>نشانگرها و نمایشگرها</td>
                                     <td>6</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e7_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td>تنظیمات زمان و تاریخ</td>
                                     <td>7</td>
                                     </tr>
                                     <tr>
                                     <td>{{ form.s7_e8_comment}}</td>
-                                    <td>&uuml;</td>
+                                    <td></td>
                                     <td>باتری و شارژر</td>
                                     <td>8</td>
                                     </tr>
@@ -846,30 +848,33 @@ margin-right: 0.1cm;
                                         <tr>
                                         <td>Connection</td>
                                         <td>{{ form.s12_e1_comment}}</td>
-                                        <td>&uuml;</td>
-                                        <td>.</td>
+                                        <td></td>
+                                        <td></td>
                                         </tr>
                                         <tr>
                                         <td>Keys and Controllers</td>
                                         <td>{{ form.s12_e2_comment}}</td>
-                                        <td>&uuml;</td>
-                                        <td>.</td>
+                                        <td></td>
+                                        <td></td>
                                         </tr>
                                         <tr>
                                         <td>Indicators and display</td>
                                         <td>{{ form.s12_e3_comment}}</td>
-                                        <td>&uuml;</td>
-                                        <td>.</td>
+                                        <td></td>
+                                        <td></td>
                                         </tr>
                                         <tr>
                                         <td>Battery</td>
                                         <td>{{ form.s12_e4_comment}}</td>
-                                        <td>&uuml;</td>
-                                        <td>.</td>
+                                        <td></td>
+                                        <td></td>
                                         </tr>
                                         </tbody>
 
                             </table>
+                 
+                            <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 6</div>
+
                         </div>
 
 
@@ -877,7 +882,7 @@ margin-right: 0.1cm;
 
 
 
-            <div class="page-2 page1" style="font-family:'B Lotus';">
+            <div class="page-4 page1" style="font-family:'B Lotus';">
                     <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
                             <div style="font-weight: bold;">
@@ -906,8 +911,8 @@ margin-right: 0.1cm;
                                                 <td>{{form.s13_e1_watt}}</td>
                                                 <td>{{form.s13_e1_v}}</td>
                                                 <td>{{form.s13_e1_a}}</td>
-                                                <td>&uuml;</td>
-                                                <td>.</td>
+                                                <td></td>
+                                                <td></td>
                                                 </tr>
                                                 </tbody>
                                 </table>
@@ -933,9 +938,9 @@ margin-right: 0.1cm;
                                         <td rowspan="3">Test current 25A</td>
                                         <td rowspan="3">power supply cord
                                             <br>
-                                            Yes
+                                            Yes&#9633;
                                             <br>
-                                            No
+                                            No&#9633;
                                         </td>
                                         <td rowspan="2">Earth Resistance</td>
                                         <td rowspan="2">Permissible Error</td>
@@ -990,8 +995,8 @@ margin-right: 0.1cm;
                                                 <td>{{form.s15_e1_aplc}}</td>
                                                 <td>{{form.s15_e1_noaplc}}</td>
                                                 <td>500</td>
-                                                <td>&uuml;</td>
-                                                <td>.</td>
+                                                <td></td>
+                                                <td></td>
                                                 <td>{{form.s15_e1_comment}}</td>
                                                 </tr>
                                                 <tr>
@@ -1000,8 +1005,8 @@ margin-right: 0.1cm;
                                                 <td>{{form.s15_e2_aplc}}</td>
                                                 <td>{{form.s15_e2_noaplc}}</td>
                                                 <td>500</td>
-                                                <td>&uuml;</td>
-                                                <td>.</td>
+                                                <td></td>
+                                                <td></td>
                                                 <td>{{form.s15_e2_comment}}</td>
                                                 </tr>
                                                 </tbody>
@@ -1040,8 +1045,8 @@ margin-right: 0.1cm;
                                                         <td>{{form.s16_e1_aplc}}</td>
                                                         <td>{{form.s16_e1_noaplc}}</td>
                                                         <td>500</td>
-                                                        <td>&uuml;</td>
-                                                        <td>.</td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td>{{form.s16_e1_comment}}</td>
                                                         </tr>
                                                         <tr>
@@ -1052,12 +1057,13 @@ margin-right: 0.1cm;
                                                         <td>{{form.s16_e2_aplc}}</td>
                                                         <td>{{form.s16_e2_noaplc}}</td>
                                                         <td>500</td>
-                                                        <td>&uuml;</td>
-                                                        <td>.</td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td>{{form.s16_e2_comment}}</td>
                                                         </tr>
                                                         </tbody>
                                             </table>
+                                            <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 5 از 6</div>
 
                         </div>
                         </div>
@@ -1065,7 +1071,7 @@ margin-right: 0.1cm;
 
 
 
-                        <div class="page-2 page1" style="font-family:'B Lotus';">
+                        <div class="page-5 page1" style="font-family:'B Lotus';">
                                 <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
 
@@ -1098,23 +1104,23 @@ margin-right: 0.1cm;
                                                             <td rowspan="3">Device ON</td>
                                                             <td style="font-size: 12pt;">Norm Pol, Earth, L2</td>
                                                             <td>{{form.s17_e1_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                             <td>{{form.s17_e2_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Mains On AP</td>
                                                             <td>{{form.s17_e3_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td rowspan="3">LA</td>
@@ -1122,23 +1128,23 @@ margin-right: 0.1cm;
                                                             <td rowspan="3">Device ON</td>
                                                             <td style="font-size: 12pt;">Norm Pol, Earth, L2</td>
                                                             <td>{{form.s17_e4_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                             <td>{{form.s17_e5_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Mains On AP</td>
                                                             <td>{{form.s17_e6_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td rowspan="3">LL</td>
@@ -1146,23 +1152,23 @@ margin-right: 0.1cm;
                                                             <td rowspan="3">Device ON</td>
                                                             <td style="font-size: 12pt;">Norm Pol, Earth, L2</td>
                                                             <td>{{form.s17_e7_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                             <td>{{form.s17_e8_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Mains On AP</td>
                                                             <td>{{form.s17_e9_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td rowspan="3">V1</td>
@@ -1170,23 +1176,23 @@ margin-right: 0.1cm;
                                                             <td rowspan="3">Device ON</td>
                                                             <td style="font-size: 12pt;">Norm Pol, Earth, L2</td>
                                                             <td>{{form.s17_e10_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                             <td>{{form.s17_e11_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             <tr>
                                                             <td style="font-size: 12pt;">Mains On AP</td>
                                                             <td>{{form.s17_e12_plc}}</td>
-                                                            <td>.</td>
-                                                            <td>&uuml;</td>
-                                                            <td>.</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                             </tr>
                                                             </tbody>
                                                 </table>
@@ -1222,9 +1228,9 @@ margin-right: 0.1cm;
                                                     <td>Device ON</td>
                                                     <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                     <td>{{form.s18_e1_pac}}</td>
-                                                    <td>.</td>
-                                                    <td>&uuml;</td>
-                                                    <td>.</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     </tr>
                                                     <tr>
                                                     <td>LA</td>
@@ -1232,9 +1238,9 @@ margin-right: 0.1cm;
                                                     <td>Device ON</td>
                                                     <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                     <td>{{form.s18_e2_pac}}</td>
-                                                    <td>.</td>
-                                                    <td>&uuml;</td>
-                                                    <td>.</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     </tr>
                                                     <tr>
                                                     <td>LL</td>
@@ -1242,9 +1248,9 @@ margin-right: 0.1cm;
                                                     <td>Device ON</td>
                                                     <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                     <td>{{form.s18_e3_pac}}</td>
-                                                    <td>.</td>
-                                                    <td>&uuml;</td>
-                                                    <td>.</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     </tr>
                                                     <tr>
                                                     <td>V1</td>
@@ -1252,9 +1258,9 @@ margin-right: 0.1cm;
                                                     <td>Device ON</td>
                                                     <td style="font-size: 12pt;">Norm Pol,No Earth, L2</td>
                                                     <td>{{form.s18_e4_pac}}</td>
-                                                    <td>.</td>
-                                                    <td>&uuml;</td>
-                                                    <td>.</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -1269,7 +1275,7 @@ margin-right: 0.1cm;
                                                         <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: مهندس سعید نریمانی</div>
                                                     </div>
 
-                                        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 4</div>
+                                        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 6 از 6</div>
 
                                     </div>
                                     </div>

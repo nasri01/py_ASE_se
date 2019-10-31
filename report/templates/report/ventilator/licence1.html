@@ -48,65 +48,70 @@
     .tb-5 td{
                 padding: 0.01cm 0.1cm;
        }
+
+       .tb-6 td,th{
+                padding: 0.001cm 0.05cm;
+       }
     </style>
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
-
+   
+            <div class="cover main" style="font-family:'B Lotus';">
+                    <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
+           
         <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي دستگاه ونتیلاتور
+        <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
+                گواهينامه کنترل کيفي دستگاه ونتیلاتور
     </h1>
     <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
-        <tr>
-            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
-            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
-
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
-        </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
-
-    </table>
-    <br>
+            <tr>
+                <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+                <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
+                <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
+    
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+                <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
+                <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
+            </tr>
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+                <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+                <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+                <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+        
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
+    
+            </tr>
+        
+        </table>
+        <div style="height:5.85cm;">
+                  <span>{{ form.status.status }}</span>موارد عدم شمول: 
+    
+        </div>
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
-    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-4">
         <tr>
             <td>تاريخ انقضاء</td>
             <td>تاريخ کاليبراسيون</td>
@@ -183,23 +188,19 @@
     </table>
 
     </div>
-        <br><br><br><br><br>
     </div>
 
-
+    
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 5cm;font-size:18pt; ">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-size:18pt;font-weight: bold; ">
 تستهای کیفی:
                 </div>
-
-
-
 
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 <tbody>
 <tr>
-<td rowspan="2"><span>توضیحات</span></td>
+<td rowspan="2" style="min-width: 6cm;"><span>توضیحات</span></td>
 <td colspan="2"><span>نتیجه</span></td>
 <td rowspan="2"><span>عنوان بررسی</span></td>
 <td rowspan="2"><span>ردیف</span></td>
@@ -366,9 +367,10 @@
     </div>
 
 
+    
     <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-               <div style="padding-top: 6cm;">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+               <div>
                     <span style="font-weight: bold;font-size: 18pt;">تستهای کمی:</span>
                    <br>
                    <span>کلاس دستگاه:</span>
@@ -391,10 +393,10 @@
 
 
 
-<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+<table style="text-align:center;margin: auto;width: 100%;font-weight: bold;" class="tb-2 tb-4">
       <tbody>
          <tr>
-            <td rowspan="2">توضیحات</td>
+            <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
             <td colspan="2">نتیجه</td>
             <td rowspan="2">حد مجاز (Ω)</td>
             <td rowspan="2">نوع کابل</td>
@@ -438,11 +440,11 @@
 
 
 
-<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+<table style="text-align:center;margin: auto;width: 100%;font-weight: bold;" class="tb-2 tb-4">
 
           <tbody>
           <tr>
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td rowspan="2">مقدار مجاز (µa)</td>
                 <td rowspan="2">مقدار قرائت شده (µa)</td>
@@ -458,7 +460,7 @@
               <td></td>
               <td></td>
               <td class="time">500</td>
-                <td>{{ form.s2_e1_lc}}</td>
+                <td class="time">{{ form.s2_e1_lc}}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="4">عادی</td>
             </tr>
@@ -467,7 +469,7 @@
               <td></td>
               <td></td>
               <td class="time">500</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
@@ -475,7 +477,7 @@
               <td></td>
               <td></td>
               <td class="time">500</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;" class="time"> Standby -</td>
             </tr>
             <tr>
@@ -483,7 +485,7 @@
               <td></td>
               <td></td>
               <td class="time">500</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
@@ -491,7 +493,7 @@
               <td></td>
               <td></td>
               <td class="time">1000</td>
-              <td>{{ form.s2_e2_lc}}</td>
+              <td class="time">{{ form.s2_e2_lc}}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
               <td>تک اشکالی</td>
             </tr>
@@ -519,10 +521,10 @@
 3) جریان نشتی محفظه(بند
                      </div>
 
-<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+<table style="text-align:center;margin: auto;width: 100%;font-weight: bold;" class="tb-2 tb-4">
           <tbody>
                         <tr>
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td rowspan="2">مقدار مجاز (µa)</td>
                 <td rowspan="2">مقدار قرائت شده (µa)</td>
@@ -538,7 +540,7 @@
                 <td></td>
               <td></td>
               <td class="time">100</td>
-            <td>{{ form.s3_e1_lc}}</td>
+            <td class="time">{{ form.s3_e1_lc}}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="4">عادی</td>
             </tr>
@@ -547,7 +549,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
@@ -555,7 +557,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;" class="time"> Standby -</td>
             </tr>
             <tr>
@@ -563,7 +565,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
@@ -571,7 +573,7 @@
               <td></td>
               <td></td>
               <td class="time">500</td>
-              <td>{{ form.s3_e2_lc}}</td>
+              <td class="time">{{ form.s3_e2_lc}}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
               <td>تک اشکالی</td>
             </tr>
@@ -594,10 +596,10 @@
     </div>
 
 
-
-            <div class="page-3 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                      <div style="padding-top: 5cm;">
+    
+    <div class="page-3 page1" style="font-family:'B Nazanin';">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                      <div>
 
                    <div style="font-weight: bold;">
                        <span class="time">:([3]</span>
@@ -613,7 +615,7 @@
 
 
 
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time tb-4">
+        <table style="margin: auto;width: 100%;text-align: center;" class="time tb-6">
 <tbody>
 <tr>
 <td colspan="3" style="border: none;"></td>
@@ -634,7 +636,7 @@
 </tr>
 <tr>
 <td rowspan="2">
-        <span style="font-family: 'B Nazanin';">توضیحات</span>
+        <span style="font-family: 'B Nazanin';min-width: 5cm;">توضیحات</span>
 </td>
 <td colspan="2">
         <span style="font-family: 'B Nazanin';">نتیجه</span>
@@ -653,7 +655,7 @@
 <td>dc</td>
 </tr>
 <tr>
-<td> {{ form.s4_e1_comment }}</td>
+<td style="font-family: 'B Nazanin';"> {{ form.s4_e1_comment }}</td>
 <td>-</td>
 <td>-</td>
 <td>100</td>
@@ -670,7 +672,7 @@
 </td>
 </tr>
 <tr>
-<td>-</td>
+<td style="font-family: 'B Nazanin';">-</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>100</td>
@@ -686,7 +688,7 @@
 </td>
 </tr>
 <tr>
-<td>-</td>
+<td style="font-family: 'B Nazanin';">-</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>100</td>
@@ -698,7 +700,7 @@
 <td style="text-align: right;">Standby -</td>
 </tr>
 <tr>
-<td>-</td>
+<td style="font-family: 'B Nazanin';">-</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>100</td>
@@ -712,7 +714,7 @@
 </td>
 </tr>
 <tr>
-<td> {{ form.s4_e2_comment }}</td>
+<td style="font-family: 'B Nazanin';"> {{ form.s4_e2_comment }}</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>500</td>
@@ -731,7 +733,7 @@
 </td>
 </tr>
 <tr>
-<td>-</td>
+<td style="font-family: 'B Nazanin';">-</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>500</td>
@@ -756,10 +758,10 @@
 5) جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)(بند                    </div>
                </div>
 
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time tb-4">
+        <table style="margin: auto;width: 100%;text-align: center;" class="time tb-6">
           <tbody>
                     <tr style="font-family: 'B Nazanin';">
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td colspan="2">
                     <span style="font-family: 'Times New Roman';">(µa)</span>
@@ -783,7 +785,7 @@
 
                 </tr>
             <tr>
-              <td> {{ form.s5_e1_comment }}</td>
+              <td style="font-family: 'B Nazanin';"> {{ form.s5_e1_comment }}</td>
               <td></td>
               <td></td>
               <td>5000</td>
@@ -802,8 +804,8 @@
         <div style="font-weight: bold;">
             6) ولو فلاش اکسیژن:
         </div>
-                <br>
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4">
+            
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-6">
           <tbody>
           <tr>
                 <td rowspan="2">فلوی تنظیمی
@@ -851,10 +853,10 @@
         <div style="font-weight: bold;">
         7) نشتی های فشار بالا(مرجع 3)
         </div>
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-6">
           <tbody>
           <tr>
-                <td rowspan="2">تمام ولوهای
+                <td rowspan="2" style="width: 4.5cm;">تمام ولوهای
                     <br>
                     کنترل فلو: بسته
                     <br>
@@ -865,7 +867,7 @@
                     <span class="time">N<sub>2</sub>O</span>
                     و
                 </td>
-                <td rowspan="2">تمام ولوهای
+                <td rowspan="2" style="width: 4.5cm;">تمام ولوهای
                     <br>
                     کنترل فلو: بسته
                     <br>
@@ -876,12 +878,12 @@
                     <span class="time">N<sub>2</sub>O</span>
                     و
                 </td>
-              <td rowspan="2">ولوهای سیلندر
+              <td rowspan="2" style="width: 6.5cm;">ولوهای سیلندر
                   <span class="time">: N<sub>2</sub>O</span>
                   و
                   <span class="time">O<sub>2</sub></span>
                   بسته</td>
-                <td rowspan="2">ولو کنترل
+                <td rowspan="2" style="width: 4.5cm;">ولو کنترل
                     <span class="time">:N<sub>2</sub>O</span>
                     فلوی
                     <br>
@@ -909,7 +911,7 @@
         <div style="font-weight: bold;">
             8) نشتی های فشارمتوسط(مرجع 3)
         </div>
-        <table style="margin: auto;width: 30%;text-align: center;" class="tb-4">
+        <table style="margin: auto;width: 30%;text-align: center;" class="tb-6">
           <tbody>
           <tr>
                 <td colspan="2">نتیجه</td>
@@ -938,16 +940,16 @@
 
 
 
-   <div class="page-4 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
+    
+<div class="page-4 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
 
-
-                      <div style="font-weight: bold;padding-top: 5cm;">
+                      <div style="font-weight: bold;">
 9) نشتی های فشار پایین(مرجع 3)
         </div>
 
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-2 tb-5">
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-5">
           <tbody>
           <tr>
                 <td rowspan="3">
@@ -977,10 +979,10 @@
 <div style="font-weight: bold;">
 10) سیستم تنفس(مرجع 3)
         </div>
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-2 tb-5">
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-5">
           <tbody>
           <tr>
-                <td rowspan="3">
+                <td rowspan="3" style="width: 5cm;">
                     : بسته
                     <span class="time">APL</span>
                     ولو
@@ -1013,7 +1015,7 @@
         <div style="font-weight: bold;">
 11) ولو APL (مرجع 3)
         </div>
-        <table style="margin: auto;width: 30%;text-align: center;" class="tb-2 tb-5">
+        <table style="margin: auto;width: 30%;text-align: center;" class="tb-5">
           <tbody>
           <tr>
                 <td colspan="2">نتیجه</td>
@@ -1034,10 +1036,12 @@
         <div style="font-weight: bold;">
 12) فلومترها(مرجع 3)
         </div>
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-2 tb-5">
+
+
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-5">
 <tbody>
 <tr>
-<td>
+<td style="width: 9cm;">
     <span class="time">O<sub>2</sub></span>
     <span>فلوی</span>
 </td>
@@ -1058,7 +1062,7 @@
     <br>
     تنظیمی
 </span></td>
-<td><span>
+<td style="width: 9cm;"><span>
     مقدار
     <span class="time"> &plusmn;10% </span>
     مقدار مجاز:
@@ -1081,11 +1085,12 @@
                 <div style="font-weight: bold;">
 13) مینیمم فلوی اکسیژن و درصد آن(مرجع 3)
         </div>
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-2 tb-5">
+
+<table style="margin: auto;width: 100%;text-align: center;" class="tb-5">
 <tbody>
 <tr>
-<td><span>دورترین ولو فلومتر اکسیژن : بسته</span></td>
-<td><span>تنظیم فلوی اکسیژن
+<td style="width: 8cm;"><span>دورترین ولو فلومتر اکسیژن : بسته</span></td>
+<td style="width: 10cm;"><span>تنظیم فلوی اکسیژن
     <br>
     و افزایش تدریجی
     <span class="time"> 200ml/min </span>
@@ -1131,9 +1136,9 @@
 <table style="margin: auto;width: 100%;text-align: center;" class="tb-2 tb-5">
       <tbody>
 <tr>
-<td class="time">PEEP: 0cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
-<td class="time">PEEP: 5cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
-<td class="time">PEEP: 10cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
+<td class="time" style="width: 6.5cm;">PEEP: 0cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
+<td class="time" style="width: 6.5cm;">PEEP: 5cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
+<td class="time" style="width: 6.5cm;">PEEP: 10cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
 <td colspan="2"><span>نتیجه&nbsp;</span></td>
 </tr>
 <tr>
@@ -1172,13 +1177,11 @@
 
 
 
-
+    
    <div class="page-5 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
-
-
-                      <div style="font-weight: bold;padding-top: 5cm;">
+                      <div style="font-weight: bold;">
             <span>(مرجع 3)</span>
             <span class="time">Exhaled Volume Monitor</span>
             (15
@@ -1187,17 +1190,18 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-5">
           <tbody>
 <tr>
-<td><span>
+<td style="width: 9cm;"><span>
     <span class="time">500ml</span>
     تنظیم حجم جاری روی
     </span></td>
-<td><span>
+<td style="width: 9cm;"><span>
+        
+        <span>یک دقیقه</span>
     تنفس در
     <span class="time"> 6 </span>
     پس از اعمال
 
-    <br>
-    یک دقیقه</span></td>
+ </span></td>
 <td colspan="2"><span>نتیجه</span></td>
 </tr>
 <tr>
@@ -1208,10 +1212,10 @@
 
     </span></td>
 <td><span>
+        مقدار تنظیمی
+
     <span class="time">3Litr &plusmn; 15%</span>
     مقدار مجاز:
-    <br>
-    مقدار تنظیمی
 
 
 </span></td>
@@ -1302,15 +1306,17 @@
 <tr>
 <td rowspan="2"><span>نوع آلارم</span></td>
 <td rowspan="2"><span>درستی عملکرد آلارم</span></td>
-<td rowspan="2">صحت آلارم های
+<td rowspan="2" style="width: 6cm;">صحت آلارم های
     <br>
     تنظیمی
     <br>
+    <span>
+    تنظیمی)
+    </span>
     مقدار
     <span class="time">±10%</span>
     )
     <br>
-    تنظیمی)
 </td>
 <td colspan="2"><span>نتیجه</span></td>
 </tr>
@@ -1318,75 +1324,75 @@
 <td>Rej</td>
 <td>Ok</td>
 </tr>
-<tr>
-<td><span>آلارم قطع منبع تغذیه</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم قطع منبع تغذیه</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم فشار پایین</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم فشار پایین</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم فشار بالا</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم فشار بالا</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم کمبود درصد اکسیژن</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم کمبود درصد اکسیژن</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم افت فشار گاز</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم افت فشار گاز</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم خرابی ونتیلاتور</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم خرابی ونتیلاتور</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>--</span></td>
 </tr>
-<tr>
-<td><span>آلارم کمبود شارژ باطری</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم کمبود شارژ باطری</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم باز بودن مسیر تنفس</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم باز بودن مسیر تنفس</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم فشار پیوسته</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم فشار پیوسته</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
-<tr>
-<td><span>آلارم حجم بازدمی</span></td>
+<tr class="time">
+<td style="font-family: 'B Nazanin';"><span>آلارم حجم بازدمی</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
 <td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
 </tr>
 </tbody>
 </table>

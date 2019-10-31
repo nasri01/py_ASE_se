@@ -45,63 +45,66 @@
         padding: 0.03cm 0.1cm;
 
     }
+    .tb-5 td{
+        padding: 0.002cm 0.05cm;
 
+    }
     </style>
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
-
+            <div class="cover main" style="font-family:'B Lotus';">
+                    <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
+             
         <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي دستگاه پمپ سرنگ    </h1>
-    <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
-        <tr>
-            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
-            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
-
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
-        </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
-
-    </table>
-    <br>
+        <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
+                گواهينامه کنترل کيفي دستگاه پمپ سرنگ    </h1>
+                <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
+                        <tr>
+                            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+                            <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+                
+                        </tr>
+                        <tr>
+                            <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
+                            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
+                
+                        </tr>
+                
+                        <tr>
+                            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+                            <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+                
+                        </tr>
+                        <tr>
+                            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
+                            <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
+                        </tr>
+                        <tr>
+                            <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+                            <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
+                        </tr>
+                        <tr>
+                            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+                            <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+                        </tr>
+                
+                        <tr>
+                            <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+                            <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+                    
+                        </tr>
+                
+                        <tr>
+                            <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
+                
+                        </tr>
+                    
+                    </table>
+                    <div style="height:5.85cm;">
+                              <span>{{ form.status.status }}</span>موارد عدم شمول: 
+                
+                    </div>
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
     <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
         <tr>
@@ -180,13 +183,12 @@
     </table>
 
     </div>
-        <br><br><br><br>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 5cm;font-size:18pt; ">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-size:18pt;font-weight: bold; ">
 تستهای کیفی:
                 </div>
 
@@ -196,7 +198,7 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
             <tbody>
 <tr>
-<td rowspan="2">توضیحات</td>
+<td rowspan="2" style="min-width: 5cm;">توضیحات</td>
 <td colspan="2">نتیجه</td>
 <td rowspan="2">عنوان بررسی</td>
 <td rowspan="2">ردیف</td>
@@ -377,14 +379,20 @@
     </div>
 </div>
     </div>
+
+
+
+
+    
+    
     <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-               <div style="padding-top: 6cm;">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+               <div>
                     <span style="font-weight: bold;font-size: 18pt;">تستهای کمی:</span>
                    <br>
                    <span>کلاس دستگاه:</span>
                    <br>
-                   <span>
+                   <span class="time">
 1Class I  &Internally Powered2 Internally Powered         3 Class I 4Class II                   </span>
                    <div style="font-weight: bold;">
                        <span class="time">:([2]</span>
@@ -402,10 +410,10 @@
 
 
 
-<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-4">
       <tbody>
          <tr>
-            <td rowspan="2">توضیحات</td>
+            <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
             <td colspan="2">نتیجه</td>
             <td rowspan="2">حد مجاز (Ω)</td>
             <td rowspan="2">نوع کابل</td>
@@ -419,14 +427,14 @@
           <td>{{form.s1_e1_comment}}</td>
           <td></td>
           <td></td>
-          <td>0.1</td>
+          <td class="time">0.1</td>
             <td>جدا شدنی</td>
         </tr>
         <tr>
           <td>{{form.s1_e2_comment}}</td>
           <td></td>
           <td></td>
-          <td>0.2</td>
+          <td class="time">0.2</td>
             <td>جدا نشدنی</td>
         </tr>
 
@@ -449,11 +457,11 @@
 
 
 
-<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+<table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-4">
 
           <tbody>
           <tr>
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td rowspan="2">مقدار مجاز (µa)</td>
                 <td rowspan="2">مقدار قرائت شده (µa)</td>
@@ -468,8 +476,8 @@
               <td>{{form.s2_e1_comment}}</td>
               <td></td>
               <td></td>
-              <td>500</td>
-              <td>{{form.s2_e1_lc}}</td>
+              <td class="time">500</td>
+              <td class="time">{{form.s2_e1_lc}}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="4">عادی</td>
             </tr>
@@ -477,32 +485,32 @@
               <td>{{form.s2_e2_comment}}</td>
               <td></td>
               <td></td>
-              <td>500</td>
-              <td>{{form.s2_e2_lc}}</td>
+              <td class="time">500</td>
+              <td class="time">{{form.s2_e2_lc}}</td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
               <td>{{form.s2_e3_comment}}</td>
               <td></td>
               <td></td>
-              <td>500</td>
-              <td>{{form.s2_e3_lc}}</td>
+              <td class="time">500</td>
+              <td class="time">{{form.s2_e3_lc}}</td>
               <td class="time" style="text-align: right;"> Standby -</td>
             </tr>
             <tr>
               <td>{{form.s2_e4_comment}}</td>
               <td></td>
               <td></td>
-              <td>500</td>
-              <td>{{form.s2_e4_lc}}</td>
+              <td class="time">500</td>
+              <td class="time">{{form.s2_e4_lc}}</td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
               <td>{{form.s2_e5_comment}}</td>
               <td></td>
               <td></td>
-              <td>1000</td>
-              <td>{{form.s2_e5_lc}}</td>
+              <td class="time">1000</td>
+              <td class="time">{{form.s2_e5_lc}}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
               <td>تک اشکالی</td>
             </tr>
@@ -533,7 +541,7 @@
 <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
           <tbody>
                         <tr>
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width:5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td rowspan="2">مقدار مجاز (µa)</td>
                 <td rowspan="2">مقدار قرائت شده (µa)</td>
@@ -548,8 +556,8 @@
               <td>{{form.s3_e1_comment}}</td>
               <td></td>
               <td></td>
-              <td>100</td>
-              <td>{{form.s3_e1_lc}}</td>
+              <td class="time">100</td>
+              <td class="time">{{form.s3_e1_lc}}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="4">عادی</td>
             </tr>
@@ -557,32 +565,32 @@
               <td>{{form.s3_e2_comment}}</td>
               <td></td>
               <td></td>
-              <td>100</td>
-              <td>{{form.s3_e2_lc}}</td>
+              <td class="time">100</td>
+              <td class="time">{{form.s3_e2_lc}}</td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
               <td>{{form.s3_e3_comment}}</td>
               <td></td>
               <td></td>
-              <td>100</td>
-              <td>{{form.s3_e3_lc}}</td>
+              <td class="time">100</td>
+              <td class="time">{{form.s3_e3_lc}}</td>
               <td class="time" style="text-align: right;"> Standby -</td>
             </tr>
             <tr>
               <td>{{form.s3_e4_comment}}</td>
               <td></td>
               <td></td>
-              <td>100</td>
-              <td>{{form.s3_e4_lc}}</td>
+              <td class="time">100</td>
+              <td class="time">{{form.s3_e4_lc}}</td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
               <td>{{form.s3_e5_comment}}</td>
               <td></td>
               <td></td>
-              <td>500</td>
-              <td>{{form.s3_e5_lc}}</td>
+              <td class="time">500</td>
+              <td class="time">{{form.s3_e5_lc}}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
               <td>تک اشکالی</td>
             </tr>
@@ -624,7 +632,7 @@
 
 
 
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time tb-4">
+        <table style="margin: auto;width: 100%;text-align: center;" class="time tb-5">
 <tbody>
 <tr>
 <td colspan="3" style="border: none;"></td>
@@ -645,7 +653,7 @@
 </tr>
 <tr>
 <td rowspan="2">
-        <span style="font-family: 'B Nazanin';">توضیحات</span>
+        <span style="font-family: 'B Nazanin';min-width: 6cm;">توضیحات</span>
 </td>
 <td colspan="2">
         <span style="font-family: 'B Nazanin';">نتیجه</span>
@@ -664,7 +672,7 @@
 <td>dc</td>
 </tr>
 <tr>
-<td>{{form.s4_e1_comment}}</td>
+<td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e1_comment}}</td>
 <td>-</td>
 <td>-</td>
 <td>100</td>
@@ -681,7 +689,7 @@
 </td>
 </tr>
 <tr>
-<td>{{form.s4_e2_comment}}</td>
+<td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e2_comment}}</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>100</td>
@@ -697,7 +705,7 @@
 </td>
 </tr>
 <tr>
-<td>{{form.s4_e3_comment}}</td>
+<td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e3_comment}}</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>100</td>
@@ -709,7 +717,7 @@
 <td style="text-align: right;">Standby -</td>
 </tr>
 <tr>
-<td>{{form.s4_e4_comment}}</td>
+<td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e4_comment}}</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>100</td>
@@ -723,7 +731,7 @@
 </td>
 </tr>
 <tr>
-<td>{{form.s4_e5_comment}}</td>
+<td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e5_comment}}</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>500</td>
@@ -742,7 +750,7 @@
 </td>
 </tr>
 <tr>
-<td>{{form.s4_e6_comment}}</td>
+<td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e6_comment}}</td>
 <td>-</td>
 <td><span>-</span></td>
 <td>500</td>
@@ -764,15 +772,15 @@
                        <span class="time">:([2]</span>
                        ازمرجع
                        <span class="time">19</span>
-                       بند
-5) جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)(بند                    </div>
+                       
+5) جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)(                    </div>
                </div>
 
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time tb-4">
+        <table style="margin: auto;width: 100%;text-align: center;" class="time tb-5">
 
           <tbody>
                     <tr style="font-family: 'B Nazanin';">
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td colspan="2">
                     <span style="font-family: 'Times New Roman';">(µa)</span>
@@ -796,7 +804,7 @@
 
                 </tr>
             <tr>
-              <td>{{form.s5_e1_comment}}</td>
+              <td style="font-family: 'B Nazanin';text-align: right;">{{form.s5_e1_comment}}</td>
               <td></td>
               <td></td>
               <td>5000</td>
@@ -813,7 +821,7 @@
                 <div style="font-weight:bold; ">
                     6) صحت فلو:
                 </div>
-        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4 time">
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-5 time">
         <tbody>
             <tr style="font-family: 'B Nazanin';">
                 <td rowspan="2">فلوی تنظیمی
@@ -850,7 +858,7 @@
             7) فشار ماکزیمم
         </div>
 
-     <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4 time">
+     <table style="margin: auto;width: 100%;text-align: center;" class="tb-5 time">
         <tbody>
             <tr style="font-family: 'B Nazanin';">
                 <td rowspan="2">فلوی تنظیمی
@@ -894,7 +902,7 @@
             8) فعال شدن آلارم آشکارساز هوا با تزریق
         </div>
                 <div style="margin-right: 3cm;">
-                    <span class="time">{{ form.s8_e1_status }}</span>
+                    <!-- <span class="time">N.A:</span> -->
                     نتیجه
                 </div>
 
@@ -913,6 +921,7 @@
 
 
 </div>
+
 
 
 

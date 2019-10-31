@@ -104,3 +104,32 @@ th{
     background: url('../img/formol.PNG') no-repeat;
     margin-left: 3cm;
 }
+
+
+
+/* form */
+.logo{
+
+    /* width:2cm; */
+    height:3.5cm;
+    background: url('../img/spo2/optic.jfif') no-repeat;
+    background-size: cover;
+    /* margin-right: 2cm; */
+}
+
+.monitor{
+
+    /* width:2cm; */
+    height:3.25cm;
+    background: url('../img/spo2/Capture.PNG') no-repeat;
+    /* background-size: cover; */
+    /* margin-right: 2cm; */
+}
+.sairan{
+
+    /* width:4cm; */
+    height:3.5cm;
+    background: url('../img/spo2/sairan.jpg') no-repeat;
+    /* background-size: cover; */
+    /* margin-right: 2cm; */
+}

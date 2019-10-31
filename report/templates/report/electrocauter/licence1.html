@@ -35,14 +35,14 @@
         .time{
             font-family: "Times New Roman";
         }
-        {#.cover{#}
-        {#    font-family:'BLotus',Tahoma;#}
-        {#}#}
-        {#.page-1{#}
-        {#    font-family:'Nazanin',Tahoma;#}
-        {#}#}
+
     .tb-4 td{
         padding: 0.08cm 0.1cm;
+
+       }
+       
+    .tb-5 td,th{
+        padding: 0.03cm 0.1cm;
 
        }
     .line-1 {
@@ -57,61 +57,60 @@
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
-
-        <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي دستگاه الکتروسرجری
+            <div class="cover main" style="font-family:'B Lotus';">
+                    <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
+                
+        <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
+                گواهينامه کنترل کيفي دستگاه الکتروسرجری
     </h1>
     <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
-        <tr>
-            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
-            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
-
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
-        </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
-
-    </table>
-    <br>
+            <tr>
+                <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+                <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
+                <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
+    
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+                <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
+                <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
+            </tr>
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+                <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+                <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+                <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+        
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
+    
+            </tr>
+        
+        </table>
+        <div style="height:5.85cm;">
+                  <span>{{ form.status.status }}</span>موارد عدم شمول: 
+    
+        </div>
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
-    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-5">
         <tr>
             <td>تاريخ انقضاء</td>
             <td>تاريخ کاليبراسيون</td>
@@ -190,13 +189,12 @@
     </table>
 
     </div>
-        <br><br><br>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 6cm;font-weight: bold;font-size: 18pt;">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-weight: bold;font-size: 18pt;">
 تستهای کیفی:
                 </div>
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
@@ -560,9 +558,9 @@
 
 
 
-    <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-               <div style="padding-top: 6cm;font-weight: bold;font-size: 18pt;">
+<div class="page-2 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+               <div style="font-weight: bold;font-size: 18pt;">
                    • آزمون های کمی :
 
                </div>
@@ -593,8 +591,8 @@
                 <td>&#10004;</td>
                 <td></td>
                 {% endif %}
-<td>{{form.s1_res}}</td>
-<td>
+<td class="time">{{form.s1_res}}</td>
+<td style="width: 6cm;">
         مگا اهم <
     <span class="time">20</span>
     <br>
@@ -631,8 +629,8 @@
                 <td>&#10004;</td>
                 <td></td>
                 {% endif %}
-<td>{{ form.s2_e1 }}</td>
-<td>
+<td class="time">{{ form.s2_e1 }}</td>
+<td style="width: 5cm;">
     اهم
     <span class="time"> (1000≥) </span>
 </td>
@@ -649,7 +647,7 @@
                 <td>&#10004;</td>
                 <td></td>
                 {% endif %}
-<td>{{ form.s2_e2 }}</td>
+<td class="time">{{ form.s2_e2 }}</td>
 <td>
     اهم
     <span class="time"> (5 &lt;&lt; 150) </span>
@@ -663,16 +661,18 @@
                 <span class="time">: RF</span>
                        3. اندازه گیری جریان / توان خروجی
                </div>
-    <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
+    <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
 <tbody>
-<tr style="font-weight: bold;">
+<tr style="font-weight: bold;font-family:'B Nazanin';">
 <td colspan="5">
       <span class="time">RF</span>
+      <span>
     اندازه گیری جریان / توان خروجی
+      </span>
 </td>
 <td>مد : منوپلار- برش</td>
 </tr>
-<tr style="font-weight: bold;">
+<tr style="font-weight: bold;font-family:'B Nazanin';">
 <td colspan="2">نتيجه</td>
 <td rowspan="2">مقدار اندازه گیری شده</td>
 <td rowspan="2">مقدار تنظیم شده</td>
@@ -688,7 +688,7 @@
 <td></td>
 <td>{{ form.s3a_e1_m }}</td>
 <td>{{ form.s3a_e1_s }}</td>
-<td>
+<td style="font-family: 'B Nazanin';">
     <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
@@ -704,8 +704,8 @@
 <td></td>
 <td>{{ form.s3a_e2_m }}</td>
 <td>{{ form.s3a_e2_s }}</td>
-<td>
-    <span> وات </span>
+<td style="font-family: 'B Nazanin';">
+        <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
     <span> یا </span>
@@ -720,8 +720,8 @@
 <td></td>
 <td>{{ form.s3a_e3_m }}</td>
 <td>{{ form.s3a_e3_s }}</td>
-<td>
-    <span> وات </span>
+<td style="font-family: 'B Nazanin';">
+        <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
     <span> یا </span>
@@ -736,8 +736,8 @@
 <td></td>
 <td>{{ form.s3a_e4_m }}</td>
 <td>{{ form.s3a_e4_s }}</td>
-<td>
-    <span> وات </span>
+<td style="font-family: 'B Nazanin';">
+        <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
     <span> یا </span>
@@ -752,8 +752,8 @@
 <td></td>
 <td>{{ form.s3a_e5_m }}</td>
 <td>{{ form.s3a_e5_s }}</td>
-<td>
-    <span> وات </span>
+<td style="font-family: 'B Nazanin';">
+        <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
     <span> یا </span>
@@ -768,8 +768,8 @@
 <td></td>
 <td>{{ form.s3a_e6_m }}</td>
 <td>{{ form.s3a_e6_s }}</td>
-<td>
-    <span> وات </span>
+<td style="font-family: 'B Nazanin';">
+        <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
     <span> یا </span>
@@ -784,8 +784,8 @@
 <td></td>
 <td>{{ form.s3a_e7_m }}</td>
 <td>{{ form.s3a_e7_s }}</td>
-<td>
-    <span> وات </span>
+<td style="font-family: 'B Nazanin';width: 4.5cm;">
+        <span> وات </span>
         <span> </span>
     <span class="time"> 5 </span>
     <span> یا </span>
@@ -795,8 +795,8 @@
 
 <td>{{ form.s3a_e7_1 }}</td>
 </tr>
-</tbody></table>
-                <br><br><br><br><br>
+</tbody>
+</table>
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 16</div>
 
     </div>
@@ -804,281 +804,282 @@
     </div>
 
 
-
-            <div class="page-3 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-        <div style="padding-top: 6cm; "></div>
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
-<tbody>
-<tr style="font-weight: bold;">
-<td colspan="5">
-      <span class="time">RF</span>
-    اندازه گیری جریان / توان خروجی
-</td>
-<td>مد : منوپلار- انعقاد</td>
-</tr>
-<tr style="font-weight: bold;">
-<td colspan="2">نتيجه</td>
-<td rowspan="2">مقدار اندازه گیری شده</td>
-<td rowspan="2">مقدار تنظیم شده</td>
-<td rowspan="2">حد مجاز خطا</td>
-<td rowspan="2">مقدار بار قرار داده شده</td>
-</tr>
-<tr style="font-weight: bold;">
-<td class="time">REJ</td>
-<td class="time">OK</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e1_m }}</td>
-<td>{{ form.s3b_e1_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e1_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e2_m }}</td>
-<td>{{ form.s3b_e2_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e2_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e3_m }}</td>
-<td>{{ form.s3b_e3_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e3_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e4_m }}</td>
-<td>{{ form.s3b_e4_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e4_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e5_m }}</td>
-<td>{{ form.s3b_e5_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e5_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e6_m }}</td>
-<td>{{ form.s3b_e6_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e6_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3b_e7_m }}</td>
-<td>{{ form.s3b_e7_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3b_e7_1 }}</td>
-</tr>
-</tbody></table>
-
+    <div class="page-3 page1" style="font-family:'B Nazanin';">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                    <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+                            <tbody>
+                            <tr style="font-weight: bold;font-family:'B Nazanin';">
+                            <td colspan="5">
+                                  <span class="time">RF</span>
+                                  <span>
+                                اندازه گیری جریان / توان خروجی
+                                  </span>
+                            </td>
+                            <td>مد : منوپلار- انعقاد</td>
+                            </tr>
+                            <tr style="font-weight: bold;font-family:'B Nazanin';">
+                            <td colspan="2">نتيجه</td>
+                            <td rowspan="2">مقدار اندازه گیری شده</td>
+                            <td rowspan="2">مقدار تنظیم شده</td>
+                            <td rowspan="2">حد مجاز خطا</td>
+                            <td rowspan="2">مقدار بار قرار داده شده</td>
+                            </tr>
+                            <tr style="font-weight: bold;">
+                            <td class="time">REJ</td>
+                            <td class="time">OK</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e1_m }}</td>
+                            <td>{{ form.s3a_e1_s }}</td>
+                            <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e1_1 }}</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e2_m }}</td>
+                            <td>{{ form.s3a_e2_s }}</td>
+                            <td style="font-family: 'B Nazanin';">
+                                    <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e2_1 }}</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e3_m }}</td>
+                            <td>{{ form.s3a_e3_s }}</td>
+                            <td style="font-family: 'B Nazanin';">
+                                    <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e3_1 }}</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e4_m }}</td>
+                            <td>{{ form.s3a_e4_s }}</td>
+                            <td style="font-family: 'B Nazanin';">
+                                    <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e4_1 }}</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e5_m }}</td>
+                            <td>{{ form.s3a_e5_s }}</td>
+                            <td style="font-family: 'B Nazanin';">
+                                    <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e5_1 }}</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e6_m }}</td>
+                            <td>{{ form.s3a_e6_s }}</td>
+                            <td style="font-family: 'B Nazanin';">
+                                    <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e6_1 }}</td>
+                            </tr>
+                            <tr>
+                            <td><span></span></td>
+                            <td></td>
+                            <td>{{ form.s3a_e7_m }}</td>
+                            <td>{{ form.s3a_e7_s }}</td>
+                            <td style="font-family: 'B Nazanin';width: 4.5cm;">
+                                    <span> وات </span>
+                                    <span> </span>
+                                <span class="time"> 5 </span>
+                                <span> یا </span>
+                                <span class="time">15%</span>
+                                <br>
+                            </td>
+                            
+                            <td>{{ form.s3a_e7_1 }}</td>
+                            </tr>
+                            </tbody>
+                            </table>
 <br>
 
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
-<tbody>
-<tr style="font-weight: bold;">
-<td colspan="5">
-      <span class="time">RF</span>
-    اندازه گیری جریان / توان خروجی
-</td>
-<td>مد : منوپلار- ترکیبی</td>
-</tr>
-<tr style="font-weight: bold;">
-<td colspan="2">نتيجه</td>
-<td rowspan="2">مقدار اندازه گیری شده</td>
-<td rowspan="2">مقدار تنظیم شده</td>
-<td rowspan="2">حد مجاز خطا</td>
-<td rowspan="2">مقدار بار قرار داده شده</td>
-</tr>
-<tr style="font-weight: bold;">
-<td class="time">REJ</td>
-<td class="time">OK</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e1_m }}</td>
-<td>{{ form.s3c_e1_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e1_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e2_m }}</td>
-<td>{{ form.s3c_e2_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e2_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e3_m }}</td>
-<td>{{ form.s3c_e3_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e3_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e4_m }}</td>
-<td>{{ form.s3c_e4_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e4_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e5_m }}</td>
-<td>{{ form.s3c_e5_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e5_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e6_m }}</td>
-<td>{{ form.s3c_e6_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e6_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3c_e7_m }}</td>
-<td>{{ form.s3c_e7_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3c_e7_1 }}</td>
-</tr>
-</tbody></table>
-                <br><br><br><br><br>
-
+<table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+        <tbody>
+        <tr style="font-weight: bold;font-family:'B Nazanin';">
+        <td colspan="5">
+              <span class="time">RF</span>
+              <span>
+            اندازه گیری جریان / توان خروجی
+              </span>
+        </td>
+        <td>مد : منوپلار- ترکیبی</td>
+        </tr>
+        <tr style="font-weight: bold;font-family:'B Nazanin';">
+        <td colspan="2">نتيجه</td>
+        <td rowspan="2">مقدار اندازه گیری شده</td>
+        <td rowspan="2">مقدار تنظیم شده</td>
+        <td rowspan="2">حد مجاز خطا</td>
+        <td rowspan="2">مقدار بار قرار داده شده</td>
+        </tr>
+        <tr style="font-weight: bold;">
+        <td class="time">REJ</td>
+        <td class="time">OK</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e1_m }}</td>
+        <td>{{ form.s3a_e1_s }}</td>
+        <td style="font-family: 'B Nazanin';">
+            <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e1_1 }}</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e2_m }}</td>
+        <td>{{ form.s3a_e2_s }}</td>
+        <td style="font-family: 'B Nazanin';">
+                <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e2_1 }}</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e3_m }}</td>
+        <td>{{ form.s3a_e3_s }}</td>
+        <td style="font-family: 'B Nazanin';">
+                <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e3_1 }}</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e4_m }}</td>
+        <td>{{ form.s3a_e4_s }}</td>
+        <td style="font-family: 'B Nazanin';">
+                <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e4_1 }}</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e5_m }}</td>
+        <td>{{ form.s3a_e5_s }}</td>
+        <td style="font-family: 'B Nazanin';">
+                <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e5_1 }}</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e6_m }}</td>
+        <td>{{ form.s3a_e6_s }}</td>
+        <td style="font-family: 'B Nazanin';">
+                <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e6_1 }}</td>
+        </tr>
+        <tr>
+        <td><span></span></td>
+        <td></td>
+        <td>{{ form.s3a_e7_m }}</td>
+        <td>{{ form.s3a_e7_s }}</td>
+        <td style="font-family: 'B Nazanin';width: 4.5cm;">
+                <span> وات </span>
+                <span> </span>
+            <span class="time"> 5 </span>
+            <span> یا </span>
+            <span class="time">15%</span>
+            <br>
+        </td>
+        
+        <td>{{ form.s3a_e7_1 }}</td>
+        </tr>
+        </tbody>
+        </table>
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 16</div>
 
     </div>
@@ -1086,280 +1087,285 @@
 
 </div>
 
-                <div class="page-4 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-        <div style="padding-top: 6cm; "></div>
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
-<tbody>
-<tr style="font-weight: bold;">
-<td colspan="5">
-      <span class="time">RF</span>
-    اندازه گیری جریان / توان خروجی
-</td>
-<td>مد : بایپلار- برش</td>
-</tr>
-<tr style="font-weight: bold;">
-<td colspan="2">نتيجه</td>
-<td rowspan="2">مقدار اندازه گیری شده</td>
-<td rowspan="2">مقدار تنظیم شده</td>
-<td rowspan="2">حد مجاز خطا</td>
-<td rowspan="2">مقدار بار قرار داده شده</td>
-</tr>
-<tr style="font-weight: bold;">
-<td class="time">REJ</td>
-<td class="time">OK</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e1_m }}</td>
-<td>{{ form.s3d_e1_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e1_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e2_m }}</td>
-<td>{{ form.s3d_e2_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e2_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e3_m }}</td>
-<td>{{ form.s3d_e3_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e3_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e4_m }}</td>
-<td>{{ form.s3d_e4_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e4_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e5_m }}</td>
-<td>{{ form.s3d_e5_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e5_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e6_m }}</td>
-<td>{{ form.s3d_e6_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e6_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3d_e7_m }}</td>
-<td>{{ form.s3d_e7_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3d_e7_1 }}</td>
-</tr>
-</tbody></table>
-
+<div class="page-4 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+                        <tbody>
+                        <tr style="font-weight: bold;font-family:'B Nazanin';">
+                        <td colspan="5">
+                              <span class="time">RF</span>
+                              <span>
+                                    اندازه گیری جریان / توان خروجی
+                                </span>
+                        </td>
+                        <td>
+                                مد : بایپلار- برش
+                        </td>
+                        </tr>
+                        <tr style="font-weight: bold;font-family:'B Nazanin';">
+                        <td colspan="2">نتيجه</td>
+                        <td rowspan="2">مقدار اندازه گیری شده</td>
+                        <td rowspan="2">مقدار تنظیم شده</td>
+                        <td rowspan="2">حد مجاز خطا</td>
+                        <td rowspan="2">مقدار بار قرار داده شده</td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                        <td class="time">REJ</td>
+                        <td class="time">OK</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e1_m }}</td>
+                        <td>{{ form.s3a_e1_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                            <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e1_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e2_m }}</td>
+                        <td>{{ form.s3a_e2_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e2_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e3_m }}</td>
+                        <td>{{ form.s3a_e3_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e3_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e4_m }}</td>
+                        <td>{{ form.s3a_e4_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e4_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e5_m }}</td>
+                        <td>{{ form.s3a_e5_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e5_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e6_m }}</td>
+                        <td>{{ form.s3a_e6_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e6_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e7_m }}</td>
+                        <td>{{ form.s3a_e7_s }}</td>
+                        <td style="font-family: 'B Nazanin';width: 4.5cm;">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e7_1 }}</td>
+                        </tr>
+                        </tbody>
+                        </table>
                 <br>
-
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
-<tbody>
-<tr style="font-weight: bold;">
-<td colspan="5">
-      <span class="time">RF</span>
-    اندازه گیری جریان / توان خروجی
-</td>
-<td>مد : بایپلار- انعقاد</td>
-</tr>
-<tr style="font-weight: bold;">
-<td colspan="2">نتيجه</td>
-<td rowspan="2">مقدار اندازه گیری شده</td>
-<td rowspan="2">مقدار تنظیم شده</td>
-<td rowspan="2">حد مجاز خطا</td>
-<td rowspan="2">مقدار بار قرار داده شده</td>
-</tr>
-<tr style="font-weight: bold;">
-<td class="time">REJ</td>
-<td class="time">OK</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e1_m }}</td>
-<td>{{ form.s3e_e1_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e1_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e2_m }}</td>
-<td>{{ form.s3e_e2_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e2_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e3_m }}</td>
-<td>{{ form.s3e_e3_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e3_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e4_m }}</td>
-<td>{{ form.s3e_e4_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e4_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e5_m }}</td>
-<td>{{ form.s3e_e5_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e5_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e6_m }}</td>
-<td>{{ form.s3e_e6_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e6_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3e_e7_m }}</td>
-<td>{{ form.s3e_e7_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3e_e7_1 }}</td>
-</tr>
-</tbody></table>
-                <br><br><br><br><br>
-
+                <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+                        <tbody>
+                        <tr style="font-weight: bold;font-family:'B Nazanin';">
+                        <td colspan="5">
+                              <span class="time">RF</span>
+                              <span>
+                                    اندازه گیری جریان / توان خروجی
+                                </span>
+                        </td>
+                        <td>
+                                مد : بایپلار- انعقاد
+                        </td>
+                        </tr>
+                        <tr style="font-weight: bold;font-family:'B Nazanin';">
+                        <td colspan="2">نتيجه</td>
+                        <td rowspan="2">مقدار اندازه گیری شده</td>
+                        <td rowspan="2">مقدار تنظیم شده</td>
+                        <td rowspan="2">حد مجاز خطا</td>
+                        <td rowspan="2">مقدار بار قرار داده شده</td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                        <td class="time">REJ</td>
+                        <td class="time">OK</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e1_m }}</td>
+                        <td>{{ form.s3a_e1_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                            <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e1_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e2_m }}</td>
+                        <td>{{ form.s3a_e2_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e2_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e3_m }}</td>
+                        <td>{{ form.s3a_e3_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e3_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e4_m }}</td>
+                        <td>{{ form.s3a_e4_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e4_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e5_m }}</td>
+                        <td>{{ form.s3a_e5_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e5_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e6_m }}</td>
+                        <td>{{ form.s3a_e6_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e6_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e7_m }}</td>
+                        <td>{{ form.s3a_e7_s }}</td>
+                        <td style="font-family: 'B Nazanin';width: 4.5cm;">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e7_1 }}</td>
+                        </tr>
+                        </tbody>
+                        </table>
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 5 از 16</div>
 
     </div>
@@ -1373,145 +1379,147 @@
 
 
 
+<div class="page-5 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
-                <div class="page-5 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-
-<div style="padding-top: 5cm;"></div>
-
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
-<tbody>
-<tr style="font-weight: bold;">
-<td colspan="5">
-      <span class="time">RF</span>
-    اندازه گیری جریان / توان خروجی
-</td>
-<td>مد : بایپلار- ترکیبی</td>
-</tr>
-<tr style="font-weight: bold;">
-<td colspan="2">نتيجه</td>
-<td rowspan="2">مقدار اندازه گیری شده</td>
-<td rowspan="2">مقدار تنظیم شده</td>
-<td rowspan="2">حد مجاز خطا</td>
-<td rowspan="2">مقدار بار قرار داده شده</td>
-</tr>
-<tr style="font-weight: bold;">
-<td class="time">REJ</td>
-<td class="time">OK</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e1_m }}</td>
-<td>{{ form.s3f_e1_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e1_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e2_m }}</td>
-<td>{{ form.s3f_e2_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e2_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e3_m }}</td>
-<td>{{ form.s3f_e3_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e3_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e4_m }}</td>
-<td>{{ form.s3f_e4_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e4_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e5_m }}</td>
-<td>{{ form.s3f_e5_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e5_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e6_m }}</td>
-<td>{{ form.s3f_e6_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e6_1 }}</td>
-</tr>
-<tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3f_e7_m }}</td>
-<td>{{ form.s3f_e7_s }}</td>
-<td>
-    <span> وات </span>
-        <span> </span>
-    <span class="time"> 5 </span>
-    <span> یا </span>
-    <span class="time">15%</span>
-    <br>
-</td>
-
-<td>{{ form.s3f_e7_1 }}</td>
-</tr>
-</tbody></table>
+                <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+                        <tbody>
+                        <tr style="font-weight: bold;font-family:'B Nazanin';">
+                        <td colspan="5">
+                              <span class="time">RF</span>
+                              <span>
+                                    اندازه گیری جریان / توان خروجی
+                                </span>
+                        </td>
+                        <td>
+                                مد : بایپلار- ترکیبی
+                        </td>
+                        </tr>
+                        <tr style="font-weight: bold;font-family:'B Nazanin';">
+                        <td colspan="2">نتيجه</td>
+                        <td rowspan="2">مقدار اندازه گیری شده</td>
+                        <td rowspan="2">مقدار تنظیم شده</td>
+                        <td rowspan="2">حد مجاز خطا</td>
+                        <td rowspan="2">مقدار بار قرار داده شده</td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                        <td class="time">REJ</td>
+                        <td class="time">OK</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e1_m }}</td>
+                        <td>{{ form.s3a_e1_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                            <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e1_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e2_m }}</td>
+                        <td>{{ form.s3a_e2_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e2_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e3_m }}</td>
+                        <td>{{ form.s3a_e3_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e3_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e4_m }}</td>
+                        <td>{{ form.s3a_e4_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e4_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e5_m }}</td>
+                        <td>{{ form.s3a_e5_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e5_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e6_m }}</td>
+                        <td>{{ form.s3a_e6_s }}</td>
+                        <td style="font-family: 'B Nazanin';">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e6_1 }}</td>
+                        </tr>
+                        <tr>
+                        <td><span></span></td>
+                        <td></td>
+                        <td>{{ form.s3a_e7_m }}</td>
+                        <td>{{ form.s3a_e7_s }}</td>
+                        <td style="font-family: 'B Nazanin';width: 4.5cm;">
+                                <span> وات </span>
+                                <span> </span>
+                            <span class="time"> 5 </span>
+                            <span> یا </span>
+                            <span class="time">15%</span>
+                            <br>
+                        </td>
+                        
+                        <td>{{ form.s3a_e7_1 }}</td>
+                        </tr>
+                        </tbody>
+                        </table>
                 <br>
                          <div style="font-weight: bold;">
 4. اندازه گیری جریان های نشتی فرکانس بالا :               </div>
@@ -1543,12 +1551,12 @@
                 <td></td>
                 {% endif %}
 {% if form.s4a_e1 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4a_e1}}</td>
+    <td class="time">{{ form.s4a_e1}}</td>
 {% endif %}
 
-<td>
+<td style="width: 5cm">
     میلی آمپر&ge;
     <span class="time">150</span>
 </td>
@@ -1566,9 +1574,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4a_e2 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4a_e2}}</td>
+    <td class="time">{{ form.s4a_e2}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1588,9 +1596,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4a_e3 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4a_e3}}</td>
+    <td class="time">{{ form.s4a_e3}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1629,11 +1637,11 @@
                 <td></td>
                 {% endif %}
 {% if form.s4b_e1 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4b_e1}}</td>
+    <td class="time">{{ form.s4b_e1}}</td>
 {% endif %}
-<td>
+<td style="width: 5cm;">
     میلی آمپر&ge;
     <span class="time">150</span>
 </td>
@@ -1651,9 +1659,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4b_e2 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4b_e2}}</td>
+    <td class="time">{{ form.s4b_e2}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1673,9 +1681,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4b_e3 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4b_e3}}</td>
+    <td class="time">{{ form.s4b_e3}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1695,9 +1703,8 @@
 </div>
 
 
- <div class="page-6 page1" style="font-family:'B Nazanin';">
-    <div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 7cm;"></div>
+<div class="page-6 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 7cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
                 <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 <tbody>
@@ -1727,11 +1734,11 @@
                 <td></td>
                 {% endif %}
 {% if form.s4c_e1 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4c_e1}}</td>
+    <td class="time">{{ form.s4c_e1}}</td>
 {% endif %}
-<td>
+<td style="width: 5cm;">
     میلی آمپر&ge;
     <span class="time">150</span>
 </td>
@@ -1749,9 +1756,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4c_e2 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4c_e2}}</td>
+    <td class="time">{{ form.s4c_e2}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1771,9 +1778,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4c_e3 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4c_e3}}</td>
+    <td class="time">{{ form.s4c_e3}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1813,11 +1820,11 @@
                 <td></td>
                 {% endif %}
 {% if form.s4d_e1 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4d_e1}}</td>
+    <td class="time">{{ form.s4d_e1}}</td>
 {% endif %}
-<td>
+<td style="width: 5cm;">
     میلی آمپر&ge;
     <span class="time">150</span>
 </td>
@@ -1835,9 +1842,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4d_e2 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4d_e2}}</td>
+    <td class="time">{{ form.s4d_e2}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1857,9 +1864,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4d_e3 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4d_e3}}</td>
+    <td class="time">{{ form.s4d_e3}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1899,11 +1906,11 @@
                 <td></td>
                 {% endif %}
 {% if form.s4e_e1 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4e_e1}}</td>
+    <td class="time">{{ form.s4e_e1}}</td>
 {% endif %}
-<td>
+<td style="width: 5cm;">
     میلی آمپر&ge;
     <span class="time">150</span>
 </td>
@@ -1921,9 +1928,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4e_e2 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4e_e2}}</td>
+    <td class="time">{{ form.s4e_e2}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1943,9 +1950,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4e_e3 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4e_e3}}</td>
+    <td class="time">{{ form.s4e_e3}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -1955,8 +1962,6 @@
 </tr>
 </tbody>
 </table>
-<br>
-<br><br><br><br><br><br>
 
 <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 7 از 16</div>
 
@@ -1965,10 +1970,8 @@
 
 </div>
 
- <div class="page-7 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 6cm;"></div>
-
+<div class="page-7 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
                 <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 <tbody>
@@ -1998,11 +2001,11 @@
                 <td></td>
                 {% endif %}
 {% if form.s4f_e1 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4f_e1}}</td>
+    <td class="time">{{ form.s4f_e1}}</td>
 {% endif %}
-<td>
+<td style="width: 5cm;">
     میلی آمپر&ge;
     <span class="time">150</span>
 </td>
@@ -2020,9 +2023,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4f_e2 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4f_e2}}</td>
+    <td class="time">{{ form.s4f_e2}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -2042,9 +2045,9 @@
                 <td></td>
                 {% endif %}
 {% if form.s4f_e3 == -1 %}
-<td>N/A</td>
+<td class="time">N/A</td>
 {% else %}
-    <td>{{ form.s4f_e3}}</td>
+    <td class="time">{{ form.s4f_e3}}</td>
 {% endif %}
 <td>
     میلی آمپر&ge;
@@ -2078,9 +2081,9 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4g_e1 }}</td>
+<td class="time">{{ form.s4g_e1 }}</td>
 
-  <td class="time" style="line-height: 0.25cm;">
+  <td class="time" style="line-height: 0.25cm;width: 5cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2095,7 +2098,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4g_e2 }}</td>
+<td class="time">{{ form.s4g_e2 }}</td>
     <td class="time" style="line-height: 0.25cm;">
 
        <div style="padding-top: 0.2cm;">
@@ -2112,7 +2115,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4g_e3 }}</td>
+<td class="time">{{ form.s4g_e3 }}</td>
    <td class="time" style="line-height: 0.25cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2151,9 +2154,9 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4h_e1 }}</td>
+<td class="time">{{ form.s4h_e1 }}</td>
 
-  <td class="time" style="line-height: 0.25cm;">
+  <td class="time" style="line-height: 0.25cm;width:5cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2168,7 +2171,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4h_e2 }}</td>
+<td class="time">{{ form.s4h_e2 }}</td>
     <td class="time" style="line-height: 0.25cm;">
 
        <div style="padding-top: 0.2cm;">
@@ -2185,7 +2188,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4h_e3 }}</td>
+<td class="time">{{ form.s4h_e3 }}</td>
    <td class="time" style="line-height: 0.25cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2200,7 +2203,6 @@
 </tr>
 </tbody>
 </table>
-<br><br><br><br><br>
 <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 8 از 16</div>
 
 </div>
@@ -2208,9 +2210,9 @@
 
 </div>
 
- <div class="page-8 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 6cm;"></div>
+
+<div class="page-8 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
 <br>
                 <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
@@ -2236,10 +2238,10 @@
 <tr>
 <td>.</td>
 <td></td>
-<td>{{ form.s4i_e1 }}</td>
+<td class="time">{{ form.s4i_e1 }}</td>
 
 
-  <td class="time" style="line-height: 0.25cm;">
+  <td class="time" style="line-height: 0.25cm;width: 5cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2254,7 +2256,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4i_e2 }}</td>
+<td class="time">{{ form.s4i_e2 }}</td>
   <td class="time" style="line-height: 0.25cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2270,7 +2272,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4i_e3 }}</td>
+<td class="time">{{ form.s4i_e3 }}</td>
    <td class="time" style="line-height: 0.25cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2309,8 +2311,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4j_e1 }}</td>
-  <td class="time" style="line-height: 0.25cm;">
+<td class="time">{{ form.s4j_e1 }}</td>
+  <td class="time" style="line-height: 0.25cm;width: 5cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2325,7 +2327,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4j_e2 }}</td>
+<td class="time">{{ form.s4j_e2 }}</td>
   <td class="time" style="line-height: 0.25cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2341,7 +2343,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4j_e3 }}</td>
+<td class="time">{{ form.s4j_e3 }}</td>
 </td>
    <td class="time" style="line-height: 0.25cm;">
        <div style="padding-top: 0.2cm;">
@@ -2383,8 +2385,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4k_e1 }}</td>
-<td>
+<td class="time">{{ form.s4k_e1 }}</td>
+<td style="width: 5cm;">
     <span>&le;</span>
     میلی آمپر
     <span class="time">100</span>
@@ -2394,7 +2396,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4k_e2 }}</td>
+<td class="time">{{ form.s4k_e2 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2405,7 +2407,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4k_e3 }}</td>
+<td class="time">{{ form.s4k_e3 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2416,15 +2418,13 @@
 </tbody>
                 </table>
 <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 9 از 16</div>
-<br><br><br><br><br><br>
 
 </div>
  </div>
 
 
-     <div class="page-9 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 6cm;"></div>
+ <div class="page-9 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
            <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 
@@ -2448,8 +2448,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4l_e1 }}</td>
-<td>
+<td class="time">{{ form.s4l_e1 }}</td>
+<td style="width: 5cm;">
     <span>&le;</span>
     میلی آمپر
     <span class="time">100</span>
@@ -2459,7 +2459,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4l_e2 }}</td>
+<td class="time">{{ form.s4l_e2 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2470,7 +2470,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4l_e3 }}</td>
+<td class="time">{{ form.s4l_e3 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2504,8 +2504,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4m_e1 }}</td>
-<td>
+<td class="time">{{ form.s4m_e1 }}</td>
+<td style="width: 5cm;">
     <span>&le;</span>
     میلی آمپر
     <span class="time">100</span>
@@ -2515,7 +2515,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4m_e2 }}</td>
+<td class="time">{{ form.s4m_e2 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2526,7 +2526,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4m_e3 }}</td>
+<td class="time">{{ form.s4m_e3 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2560,8 +2560,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4n_e1 }}</td>
-<td>
+<td class="time">{{ form.s4n_e1 }}</td>
+<td style="width: 5cm;">
     <span>&le;</span>
     میلی آمپر
     <span class="time">100</span>
@@ -2571,7 +2571,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4n_e2 }}</td>
+<td class="time">{{ form.s4n_e2 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2582,7 +2582,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4n_e3 }}</td>
+<td class="time">{{ form.s4n_e3 }}</td>
 <td>
     <span>&le;</span>
     میلی آمپر
@@ -2595,17 +2595,14 @@
 <br>
 <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 10 از 16</div>
 
-                <br><br><br><br><br><br>
             </div>
      </div>
 
 
 
 
-
-<div class="page-10 page1" style="font-family:'B Nazanin';">
-<div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 6cm;"></div>
+     <div class="page-10 page1" style="font-family:'B Nazanin';">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
 
             <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 
@@ -2633,8 +2630,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4o_e1 }}</td>
-    <td class="time" style="line-height: 0.35cm;">
+<td class="time">{{ form.s4o_e1 }}</td>
+    <td class="time" style="line-height: 0.35cm;width: 6cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2652,7 +2649,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4o_e2 }}</td>
+<td class="time">{{ form.s4o_e2 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2671,7 +2668,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4o_e3 }}</td>
+<td class="time">{{ form.s4o_e3 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2717,8 +2714,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4p_e1 }}</td>
-    <td class="time" style="line-height: 0.35cm;">
+<td class="time">{{ form.s4p_e1 }}</td>
+    <td class="time" style="line-height: 0.35cm;width: 6cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2736,7 +2733,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4p_e2 }}</td>
+<td class="time">{{ form.s4p_e2 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2755,7 +2752,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4p_e3 }}</td>
+<td class="time">{{ form.s4p_e3 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2802,8 +2799,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4q_e1 }}</td>
-    <td class="time" style="line-height: 0.35cm;">
+<td class="time">{{ form.s4q_e1 }}</td>
+    <td class="time" style="line-height: 0.35cm;width: 6cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2821,7 +2818,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4q_e2 }}</td>
+<td class="time">{{ form.s4q_e2 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2840,7 +2837,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4q_e3 }}</td>
+<td class="time">{{ form.s4q_e3 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2860,15 +2857,15 @@
 </table>
 <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 11 از 16</div>
 
-<br><br><br><br><br><br><br>
 </div>
 </div>
 
 
 
 <div class="page-11 page1" style="font-family:'B Nazanin';">
-<div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 6cm;"></div>
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+
+
             <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
 
 <tbody>
@@ -2895,8 +2892,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4r_e1 }}</td>
-    <td class="time" style="line-height: 0.35cm;">
+<td class="time">{{ form.s4r_e1 }}</td>
+    <td class="time" style="line-height: 0.35cm;width: 6cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
     <br>
@@ -2914,7 +2911,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4r_e2 }}</td>
+<td class="time">{{ form.s4r_e2 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2933,7 +2930,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s4r_e3 }}</td>
+<td class="time">{{ form.s4r_e3 }}</td>
  <td class="time" style="line-height: 0.35cm;">
        <div style="padding-top: 0.2cm;">
     <span>p</span>
@@ -2976,8 +2973,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5a_e1 }}</td>
-<td>
+<td class="time">{{ form.s5a_e1 }}</td>
+<td style="width: 5cm;">
     <span class="time">≤</span>
     <span>میلی آمپر</span>
     <span class="time">50</span>
@@ -2987,7 +2984,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5a_e2 }}</td>
+<td class="time">{{ form.s5a_e2 }}</td>
 <td>
     <span class="time">≤</span>
     <span>میلی آمپر</span>
@@ -2998,7 +2995,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5a_e3 }}</td>
+<td class="time">{{ form.s5a_e3 }}</td>
 <td>
     <span class="time">≤</span>
     <span>میلی آمپر</span>
@@ -3029,8 +3026,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5b_e1 }}</td>
-<td>
+<td class="time">{{ form.s5b_e1 }}</td>
+<td style="width: 5cm;">
     <span class="time">≤</span>
     <span>میلی آمپر</span>
     <span class="time">50</span>
@@ -3040,7 +3037,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5b_e2 }}</td>
+<td class="time">{{ form.s5b_e2 }}</td>
 <td>
     <span class="time">≤</span>
     <span>میلی آمپر</span>
@@ -3051,7 +3048,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5b_e3 }}</td>
+<td class="time">{{ form.s5b_e3 }}</td>
 <td>
     <span class="time">≤</span>
     <span>میلی آمپر</span>
@@ -3063,13 +3060,12 @@
                 </table>
                         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 12 از 16</div>
 
-                <br><br><br><br><br>
             </div>
      </div>
 
     <div class="page-12 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-<div style="padding-top: 5cm;"></div>
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+
                    <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
                 <tbody>
 <tr style="font-weight: bold;">
@@ -3092,8 +3088,8 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5c_e1 }}</td>
-<td>
+<td class="time">{{ form.s5c_e1 }}</td>
+<td style="width: 5cm;">
     <span class="time">≤</span>
     <span>میلی آمپر</span>
     <span class="time">150</span>
@@ -3103,7 +3099,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5b_e2 }}</td>
+<td class="time">{{ form.s5b_e2 }}</td>
 <td>
     <span class="time">≤</span>
     <span>میلی آمپر</span>
@@ -3114,7 +3110,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>{{ form.s5b_e3 }}</td>
+<td class="time">{{ form.s5b_e3 }}</td>
 <td>
     <span class="time">≤</span>
     <span>میلی آمپر</span>
@@ -3138,7 +3134,7 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1">
       <tbody>
       <tr>
-            <td rowspan="2">توضیحات</td>
+            <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
             <td colspan="2">نتیجه</td>
             <td rowspan="2">حد مجاز (Ω)</td>
             <td rowspan="2">نوع کابل</td>
@@ -3172,7 +3168,7 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-2">
           <tbody>
           <tr>
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td rowspan="2">مقدار مجاز (µa)</td>
                 <td rowspan="2">مقدار قرائت شده (µa)</td>
@@ -3197,7 +3193,7 @@
               <td></td>
               <td></td>
               <td class="time">5000</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
@@ -3205,7 +3201,7 @@
               <td></td>
               <td></td>
               <td class="time">5000</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">-آماده به کار</td>
             </tr>
             <tr>
@@ -3213,7 +3209,7 @@
               <td></td>
               <td></td>
               <td class="time">5000</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
@@ -3221,7 +3217,7 @@
               <td></td>
               <td></td>
               <td class="time">10000</td>
-              <td>{{ form.s12_e2_lc }}</td>
+              <td class="time">{{ form.s12_e2_lc }}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
               <td>تک اشکالی</td>
             </tr>
@@ -3249,18 +3245,14 @@
 
 
 
-
-
-
-
     <div class="page-13 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 5cm;"></div>
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+   
                 <div style="font-weight: bold;">3. جریان نشتی محفظه:</div>
                 <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
                     <tbody>
           <tr style="font-weight: bold;">
-                <td rowspan="2">توضیحات</td>
+                <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td rowspan="2">مقدار مجاز (µa)</td>
                 <td rowspan="2">مقدار قرائت شده (µa)</td>
@@ -3276,7 +3268,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td>{{ form.s13_e1_lc }}</td>
+              <td class="time">{{ form.s13_e1_lc }}</td>
               <td style="text-align: right;">- روشن</td>
               <td rowspan="4">عادی</td>
             </tr>
@@ -3285,7 +3277,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- خاموش </td>
             </tr>
             <tr>
@@ -3293,7 +3285,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">-آماده به کار</td>
             </tr>
             <tr>
@@ -3301,7 +3293,7 @@
               <td></td>
               <td></td>
               <td class="time">100</td>
-              <td></td>
+              <td class="time"></td>
               <td style="text-align: right;">- پلاریته معکوس</td>
             </tr>
             <tr>
@@ -3309,7 +3301,7 @@
               <td></td>
               <td></td>
               <td class="time">500</td>
-              <td>{{ form.s13_e2_lc }}</td>
+              <td class="time">{{ form.s13_e2_lc }}</td>
               <td style="text-align: right;">- قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
               <td>تک اشکالی</td>
             </tr>
@@ -3328,7 +3320,7 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
 <tbody>
 <tr style="font-weight: bold;">
-<td rowspan="3"><span>توضیحات</span></td>
+<td rowspan="3" style="width: 5cm;"><span>توضیحات</span></td>
 <td colspan="2" rowspan="2"><span>نتيجه</span></td>
 <td colspan="4"><span>
    <span class="time">(&micro;A)</span>
@@ -3359,89 +3351,89 @@
 </tr>
 <tr>
 <td>{{ form.s14_e1_comment }}</td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>{{ form.s14_e1_lc4 }}</td>
-<td>{{ form.s14_e1_lc3 }}</td>
-<td>{{ form.s14_e1_lc2 }}</td>
-<td>{{ form.s14_e1_lc1 }}</td>
+<td class="time">{{ form.s14_e1_lc4 }}</td>
+<td class="time">{{ form.s14_e1_lc3 }}</td>
+<td class="time">{{ form.s14_e1_lc2 }}</td>
+<td class="time">{{ form.s14_e1_lc1 }}</td>
 <td><span>- روشن</span></td>
 <td rowspan="4"><span>عادی</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- خاموش</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- آماده به کار</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- پلاریته معکوس</span></td>
 </tr>
 <tr>
 <td>{{ form.s14_e2_comment }}</td>
 
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>500</span></td>
 <td class="time">50</td>
 <td class="time"><span>50</span></td>
 <td class="time"><span>50</span></td>
-<td>{{ form.s14_e2_lc4 }}</td>
-<td>{{ form.s14_e2_lc3 }}</td>
-<td>{{ form.s14_e2_lc2 }}</td>
-<td>{{ form.s14_e2_lc1 }}</td>
+<td class="time">{{ form.s14_e2_lc4 }}</td>
+<td class="time">{{ form.s14_e2_lc3 }}</td>
+<td class="time">{{ form.s14_e2_lc2 }}</td>
+<td class="time">{{ form.s14_e2_lc1 }}</td>
 <td><span>- قطع یکی از سیم های تغذیه</span></td>
 <td rowspan="2"><span>تک&shy;اشکالی</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>500</span></td>
 <td class="time">50</td>
 <td class="time"><span>50</span></td>
 <td class="time"><span>50</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- قطع زمین حفاظتی</span></td>
 </tr>
 </tbody>
@@ -3456,14 +3448,14 @@
             </div>
     </div>
 
-        <div class="page-14 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 5cm;font-weight: bold;">5. جریان کمکی بیمار:</div>
+    <div class="page-14 page1" style="font-family:'B Nazanin';">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-weight: bold;">5. جریان کمکی بیمار:</div>
 
        <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
 <tbody>
 <tr style="font-weight: bold;">
-<td rowspan="3"><span>توضیحات</span></td>
+<td rowspan="3" style="width: 5cm;"><span>توضیحات</span></td>
 <td colspan="2" rowspan="2"><span>نتيجه</span></td>
 <td colspan="4"><span>
    <span class="time">(&micro;A)</span>
@@ -3500,82 +3492,82 @@
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>{{ form.s15_e1_lc4 }}</td>
-<td>{{ form.s15_e1_lc3 }}</td>
-<td>{{ form.s15_e1_lc2 }}</td>
-<td>{{ form.s15_e1_lc1 }}</td>
+<td class="time">{{ form.s15_e1_lc4 }}</td>
+<td class="time">{{ form.s15_e1_lc3 }}</td>
+<td class="time">{{ form.s15_e1_lc2 }}</td>
+<td class="time">{{ form.s15_e1_lc1 }}</td>
 <td><span>- روشن</span></td>
 <td rowspan="4"><span>عادی</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- خاموش</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- آماده به کار</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>100</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
 <td class="time"><span>10</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- پلاریته معکوس</span></td>
 </tr>
 <tr>
 <td>{{ form.s15_e2_comment }}</td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>500</span></td>
 <td class="time">50</td>
 <td class="time"><span>50</span></td>
 <td class="time"><span>50</span></td>
-<td>{{ form.s15_e2_lc4 }}</td>
-<td>{{ form.s15_e2_lc3 }}</td>
-<td>{{ form.s15_e2_lc2 }}</td>
-<td>{{ form.s15_e2_lc1 }}</td>
+<td class="time">{{ form.s15_e2_lc4 }}</td>
+<td class="time">{{ form.s15_e2_lc3 }}</td>
+<td class="time">{{ form.s15_e2_lc2 }}</td>
+<td class="time">{{ form.s15_e2_lc1 }}</td>
 <td><span>- قطع یکی از سیم های تغذیه</span></td>
 <td rowspan="2"><span>تک&shy;اشکالی</span></td>
 </tr>
 <tr>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>500</span></td>
 <td class="time">50</td>
 <td class="time"><span>50</span></td>
 <td class="time"><span>50</span></td>
-<td>.</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td class="time"></td>
+<td class="time"></td>
+<td class="time"><span></span></td>
+<td class="time"><span></span></td>
 <td><span>- قطع زمین حفاظتی</span></td>
 </tr>
 </tbody>
@@ -3588,7 +3580,7 @@
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
                 <tbody>
 <tr>
-<td rowspan="2"><span>توضیحات</span></td>
+<td rowspan="2" style="min-width: 5cm;"><span>توضیحات</span></td>
 <td colspan="2"><span>نتيجه</span></td>
 <td colspan="2"><span>مقدار
     <br>
@@ -3616,14 +3608,14 @@
 </tr>
 <tr>
 <td>{{ form.s16_e1_comment }}</td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td><span></span></td>
+<td></td>
 <td class="time"><span>5000</span></td>
 <td class="time"><span>100</span></td>
-<td>{{ form.s16_e1_lc4 }}</td>
-<td>{{ form.s16_e1_lc3 }}</td>
-<td>{{ form.s16_e1_lc2 }}</td>
-<td>{{ form.s16_e1_lc1 }}</td>
+<td class="time">{{ form.s16_e1_lc4 }}</td>
+<td class="time">{{ form.s16_e1_lc3 }}</td>
+<td class="time">{{ form.s16_e1_lc2 }}</td>
+<td class="time">{{ form.s16_e1_lc1 }}</td>
 <td>اعمال ولتاژ 110% ولتاژ نامی بین قسمت کاربردی ایزوله و زمین</td>
 <td><span>تک اشکالی</span></td>
 </tr>
@@ -3635,16 +3627,15 @@
         <div style="margin-right: 1cm;">-اگر کلاس دستگاه، کلاس Internally Powered  را شامل می شود، تست های فوق باید با وجود باتری در دستگاه و با برقAC و بار دیگر با خارج نمودن باتری از دستگاه و با برق AC تکرار شود.</div>
 
                       <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 15 از 16</div>
-  <br><br><br><br><br><br>
             </div>
         </div>
 
 
 
-
-            <div class="page-15 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 6cm;font-weight: bold;">• اقدامات پیشگیرانه :</div>
+        <div class="page-15 page1" style="font-family:'B Nazanin';">
+                <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+          <br><br>
+                <div style="font-weight: bold;">• اقدامات پیشگیرانه :</div>
             <table style="margin: auto;width: 50%;text-align: center;" class="tb-4">
             <tbody>
                 <tr>
@@ -3662,7 +3653,6 @@
             </tbody>
             </table>
                 <br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br>
                       <div style="width:100%;direction: rtl; text-align: right;">
                 <div class="sign-2" style="margin-bottom: -5cm;"></div>
             </div>

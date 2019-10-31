@@ -51,69 +51,64 @@
         .time{
             font-family: "Times New Roman";
         }
-        {#.cover{#}
-        {#    font-family:'BLotus',Tahoma;#}
-        {#}#}
-        {#.page-1{#}
-        {#    font-family:'Nazanin',Tahoma;#}
-        {#}#}
+
     </style>
 
     <body style="text-align: right;font-size: 16pt;">
 
-    <div class="cover main" style="font-family:'B Lotus';">
-    <div style="margin-right: 2.5cm;margin-left: 4cm;">
+            <div class="cover main" style="font-family:'B Lotus';">
+                    <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
 
         <br>
-    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
-        گواهينامه کنترل کيفي دستگاه ساکشن
+        <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
+                گواهينامه کنترل کيفي دستگاه ساکشن
     </h1>
     <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
-        <tr>
-            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span>{{form.licence.number}}</span>شماره گواهينامه: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
-            <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
-
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
-            <td class="no-border"><span>{{form.device.name.creator.name}}</span>نام سازنده: </td>
-
-        </tr>
-        <tr>
-            <td class="no-border"><span> {{ form.request.number }}</span>شماره درخواست: </td>
-            <td class="no-border"><span>{{form.device.name.name}}</span>مدل: </td>
-        </tr>
-        <tr>
-            <td class="no-border" rowspan="2"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
-            <td class="no-border"><span>{{form.device.serial_Number}}</span>شماره سريال: </td >
-        </tr>
-        <tr>
-            <td class="no-border"><span>{{form.device.property_number}}</span>کداموال :</td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"><span> {{ form.humidity }}</span>رطوبت محيطي: </td>
-
-            <td class="no-border"><span>{{ form.temp }}</span>دماي محيطي: </td>
-        </tr>
-
-        <tr>
-            <td class="no-border"></td>
-            <td class="no-border"><span>{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
-        </tr>
-
-    </table>
-    <br>
+            <tr>
+                <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+                <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.date.year }}/{{ form.date.month }}/{{ form.date.day }} </span>تاريخ کنترل کيفي: </td>
+                <td class="no-border"><span>{{form.device.name.type.name}}</span>نام دستگاه: </td>
+    
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.name }}</span>نام درخواست کننده: </td>
+                <td class="no-border"><span class="time">{{form.device.name.creator.name}}</span>نام سازنده: </td>
+    
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.request.hospital.address }}</span>آدرس : </td>
+                <td class="no-border"><span class="time">{{form.device.name.name}}</span>مدل: </td>
+            </tr>
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.request.number }}</span>شماره درخواست: </td>
+                <td class="no-border"><span class="time">{{form.device.serial_number}}</span>شماره سريال: </td >
+            </tr>
+            <tr>
+                <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
+                <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time">{{ form.temp }}</span>دماي محيطي: </td>
+                <td class="no-border" rowspan="2"><span style="font-size:25pt;">{{ form.status.status }}</span>نتيجه کنترل کيفي: </td>
+        
+            </tr>
+    
+            <tr>
+                <td class="no-border"><span class="time"> {{ form.humidity }}</span>رطوبت محيطي: </td>
+    
+            </tr>
+        
+        </table>
+        <div style="height:5.85cm;">
+                  <span>{{ form.status.status }}</span>موارد عدم شمول: 
+    
+        </div>
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
     <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2">
         <tr>
@@ -185,19 +180,18 @@
     </table>
 
     </div>
-        <br><br><br><br>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="font-weight: bold;padding-top: 6cm;">
+            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-weight: bold;">
 تستهای کیفی:
                 </div>
 <table style="margin: auto; width: 100%; text-align: center;" class="tb-1 tb-4">
 <tbody>
 <tr>
-<td rowspan="2">توضیحات</td>
+<td rowspan="2" style="min-width: 7cm;">توضیحات</td>
 <td colspan="2" style="width: 4cm;">نتیجه</td>
 <td rowspan="2">عنوان بررسی</td>
 <td rowspan="2" style="width: 2cm;">ردیف</td>
@@ -378,13 +372,12 @@
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 2 از 3</div>
 
     </div>
-        <div style="height: 5cm;"></div>
 
 </div>
 
-    <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="padding-top: 6cm;font-family: 'B Titr',tahoma;">
+<div class="page-2 page1" style="font-family:'B Nazanin';">
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+                <div style="font-family: 'B Titr',tahoma;">
 1- صحت داده هاي عملکردي دستگاه              </div>
         <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
 <tbody>
