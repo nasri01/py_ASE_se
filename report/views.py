@@ -75,7 +75,7 @@ def xlsx(request):
             row.append(obj.deivce.section.name)
             row.append(obj.deivce.name.type.name)
             row.append(obj.deivce.name.creator.name)
-            row.append(obj.deivce.name.name
+            row.append(obj.deivce.name.name)
             row.append(obj.deivce.serial_number)
             row.append(obj.deivce.property_number)
             row.append(obj.status.status)
