@@ -26,4 +26,5 @@ urlpatterns = [
     # path('save_recal/<slug:formtype>/', views.save_recal_router, name='save_recal_router'),
     # path('save_recal_edit/<slug:formtype>/', views.save_recal_edit_router, name='save_recal_edit_router'),
     path('delete/', views.delete_report, name='delete_report'),
+    path('reload/', views.reload, name='reload'),
 ]
