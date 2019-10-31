@@ -17,7 +17,7 @@ except:
 fr1 = ad_excel_arg.objects.all().order_by('order')
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
               defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
-              ventilator_1, electrocauter_1, cant_test ]
+              ventilator_1, electrocauter_1, cant_test , report ]
 
 modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'aed', 'anesthesia_machine',
              'defibrilator','ecg', 'flowmeter', 'infusion_pump', 'monometer', 'spo2', 'suction', 'syringe_pump',
@@ -86,7 +86,7 @@ def req_list(request):
 def recal_list(request):
     data = []
     data1=[]
-    for model in model_list[:-1]:
+    for model in model_list:
         modelobj = model.objects.filter(is_done = False)
         data1.append(modelobj)
     for obj1 in data1:
@@ -117,7 +117,7 @@ def recal_list(request):
 def report_list(request):
     data = []
     data1=[]
-    for model in model_list[:-1]:
+    for model in model_list[]:
         modelobj = model.objects.all()
         data1.append(modelobj)
     for obj1 in data1:
@@ -150,7 +150,7 @@ def edit_report(request):
     if (request.method == 'GET'):
         auser = aUserProfile.objects.get(user=request.user)
         c = 0
-        for form in form_list:
+        for form in form_list[:-2]:
             modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num']))
             if (len(modelobj) == 1):
                 form_type = form
@@ -176,7 +176,7 @@ def recal_report(request):
     if (request.method == 'GET'):
         auser = aUserProfile.objects.get(user=request.user)
         c = 0
-        for form in form_list:
+        for form in form_list[:-2]:
             modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(
                 is_done__exact=False)
             if (len(modelobj) == 1):

@@ -407,7 +407,7 @@ def pdf(request):
         sss = 0
         data = []
         ddd = ' '#######
-        for model in model_list:
+        for model in model_list[:-2]:
             dd = model.objects.all()
             if len(dd) != 0:   
                 for obj in dd :    
