@@ -520,7 +520,7 @@ def pdf(request):
                     a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,
                                             request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                             record = rd.objects.create(number=int(rd.objects.last().number)+1),
-                                            license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
+                                            licence = lcc.objects.create(number=int(lcc.objects.last().number)+1),
                                              is_done = obj.is_done)
                     
                     for w in obj.totalcomment.all():
