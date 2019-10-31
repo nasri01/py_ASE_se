@@ -114,7 +114,7 @@ def xlsx(request):
                          str(fr1[11]),
                          str(fr1[12]),
                          str(fr1[13]),
-                         str(fr1[14]),
+                         str(fr1[14])############################
                          str(fr1[15])
                          )
             fr = wb.add_format({'font_size': 11, 'align': 'center', 'valign': 'vcenter', 'bottom': True, 'left': True})
