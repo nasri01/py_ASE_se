@@ -574,7 +574,7 @@ def pdf(request):
                         elif (model == ventilator_1):
                             a12.ventilator_totalcomment.add(w)
                     a12.save()
-                    #obj.delete()
+                    obj.delete()
             s+=1
         return HttpResponse(ddd)
     else: 
