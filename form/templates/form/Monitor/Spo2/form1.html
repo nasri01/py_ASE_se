@@ -49,7 +49,7 @@
           {% endif %}
      <h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
       گواهينامه کنترل کيفي دستگاه پالس اکسيمتر</h1>
-      <button class="btn btn-info" type="submit" onclick="this.form.action={% url 'reload' formtype='monitor_spo2' %};" formnovalidate>SUBMMIIIT</button>
+      <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_spo2' %}"  formnovalidate>SUBMMIIIT</button>
 <!--////////////////////////////////////////////////////////////-->
      <div class="row" style="margin-right: 40px;">
         <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
@@ -424,7 +424,7 @@
             <input type="text" name="op_type" value="save" hidden>
           {% endif %}
 
-          <button type="submit"  class="btn btn-primary" onclick="this.form.action={% url 'save_router' formtype='monitor_spo2' %};">
+          <button type="submit"  class="btn btn-primary" formaction="{% url 'save_router' formtype='monitor_spo2' %}" >
             ذخیره نهایی
           </button>
 
