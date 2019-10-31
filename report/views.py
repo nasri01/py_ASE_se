@@ -517,7 +517,7 @@ def pdf(request):
                     HTML(string=html).write_pdf('reza.pdf',font_config=font_config, stylesheets=[css1, css2])
                     # f'{obj.request.number}/{obj.licence.number}.pdf'
                     
-                    a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
+                    a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,
                                             request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                             record = rd.objects.create(number=int(rd.objects.last().number)+1),
                                             license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
