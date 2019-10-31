@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from acc.models import Request, ad_excel_arg, Parameters
 from form.forms import *
 from .forms import *
+from report.models import report
 from django.contrib.auth.models import User, Group
 import jdatetime 
 import pandas as pd
@@ -13,6 +14,7 @@ try:
     color_scheme = Parameters.objects.get(name__exact='color').value
 except:
     color_scheme = '17a2b8'
+fr1 = ad_excel_arg.objects.all().order_by('order')
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
               defibrilator_1,ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
               ventilator_1, electrocauter_1, cant_test ]
@@ -82,22 +84,63 @@ def req_list(request):
 
 # List of recalibration
 def recal_list(request):
-    fr1 = ad_excel_arg.objects.all().order_by('order')
-    listt = []
-    for model in model_list:
-        modelobj = model.objects.filter(is_done=False)
-        listt.extend(modelobj)
+    data = []
+    data1=[]
+    for model in model_list[:-1]:
+        modelobj = model.objects.filter(is_done = False)
+        data1.append(modelobj)
+    for obj1 in data1:
+        for obj in obj1:
+            row = []
+            row.append(obj.deivce.hospital.city.state_name.name)#0
+            row.append(obj.deivce.hospital.city.name)#1
+            row.append(obj.deivce.hospital.name)#2
+            row.append(obj.deivce.section.name)#3
+            row.append(obj.deivce.name.type.name)#4
+            row.append(obj.deivce.name.creator.name)#5
+            row.append(obj.deivce.name.name)#6
+            row.append(obj.deivce.serial_number)#7
+            row.append(obj.deivce.property_number)#8
+            row.append(obj.status.status)#9
+            row.append(obj.date.strftime("%Y-%m-%d"))#10
+            if obj.licence.number != -1 :
+                row.append(obj.licence.number)#11
+            else:
+                row.append('-')#11
+            row.append(obj.record.number)#12
+            data.append(row)    
 
-    return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': listt})
+    return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': data})
 
 
 # list of all records
 def report_list(request):
-    fr1 = ad_excel_arg.objects.all().order_by('order')
     data = []
-    for model in model_list:
+    data1=[]
+    for model in model_list[:-1]:
         modelobj = model.objects.all()
-        data.extend(modelobj)
+        data1.append(modelobj)
+    for obj1 in data1:
+        for obj in obj1:
+            row = []
+            row.append(obj.deivce.hospital.city.state_name.name)#0
+            row.append(obj.deivce.hospital.city.name)#1
+            row.append(obj.deivce.hospital.name)#2
+            row.append(obj.deivce.section.name)#3
+            row.append(obj.deivce.name.type.name)#4
+            row.append(obj.deivce.name.creator.name)#5
+            row.append(obj.deivce.name.name)#6
+            row.append(obj.deivce.serial_number)#7
+            row.append(obj.deivce.property_number)#8
+            row.append(obj.status.status)#9
+            row.append(obj.date.strftime("%Y-%m-%d"))#10
+            if obj.licence.number != -1 :
+                row.append(obj.licence.number)#11
+            else:
+                row.append('-')#11
+            row.append(obj.record.number)#12
+            data.append(row)    
+
 
     return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})
 
@@ -168,14 +211,6 @@ def change_email(request):
     else:
         return render(request, 'acc/employee/index.html', {'settings': 1, 'change_email': 1, 'form': 1})
 
-
-# def add_device(request):
-#     form1 = add_device_Form
-#     if(request.method=='POST'):
-#         pass
-#     else:
-#
-#         return render(request,'acc/employee/Add_Device.html',{'form':form1})
 
 def handler_400(request, Exception):
     response = render_to_response(

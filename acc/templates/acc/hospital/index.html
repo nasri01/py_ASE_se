@@ -182,6 +182,7 @@
                             bottom: .5em;
                             }
                         </style>
+                        {% if data %}
                         <table style="border-radius: 10px; width: 100%;" id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0">
                             <!--///////////////////////////////////-->
                                 <thead  class="thead-light">		
@@ -200,43 +201,37 @@
                                 <th class="th-sm">{{firstrow.13}}</th>
                                 <th class="th-sm">{{firstrow.14}}</th>
                                 <th class="th-sm">{{firstrow.15}}</th>
-                                {% if data %}
-                                	<th class="th-sm">PDF</th>
-                                {% endif %}
+                                <!-- <th class="th-sm">PDF</th> -->
+                                
                             </tr>
                             {% for i in data %}
 
                                 <tr class="t-row">
-                                     <td>{{i.device.hospital.city.state_name.name}}</td>
-                                    <td>{{i.device.hospital.city.name}}</td>
-                                    <td>{{i.device.hospital.name}}</td>
-                                    <td>{{i.device.section.name}}</td>
-                                    <td>{{i.device.name.type.name}}</td>
-                                    <td>{{i.device.name.creator.name}}</td>
-                                    <td>{{i.device.name.name}}</td>
-                                    <td>{{i.device.serial_number}}</td>
-                                    <td>{{i.device.property_number}}</td>
-                                    <td>{{i.status.status}}</td>
-                                    <td>{{i.date|date:'Y-m-d'}}</td>
+                                    <td>{{i.0}}</td>
+                                    <td>{{i.1}}</td>
+                                    <td>{{i.2}}</td>
+                                    <td>{{i.3}}</td>
+                                    <td>{{i.4}}</td>
+                                    <td>{{i.5}}</td>
+                                    <td>{{i.6}}</td>
+                                    <td>{{i.7}}</td>
+                                    <td>{{i.8}}</td>
+                                    <td>{{i.9}}</td>
+                                    <td>{{i.10}}</td>
                                     <td>{{firstrow.0}}</td>
-                                    
-                                    {% if i.licence.number != -1%}
-				                	<td>{{i.licence.number}}</td>
-                                    {% else%}
-                                    	<td>-</td>
-                                    {% endif %}
+                                    <td>{{i.11}}</td>
                                     
                                     <td>
-                                        {% for t in i.totalcomment.all %}
+                                        {% for t in i.12 %}
                                             {{t}}
                                         {% endfor %}
                                     </td>
-                                    
-                                    {% if i.status.id != 4 %}
+<!--                                     
+                                    {% if i.11 != -1 %}
                                         <form method="GET" action="{% url 'report-pdf1'%}">
-                                            <td> <button type="submit" value="{{i.licence.number}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
+                                            <td> <button type="submit" value="{{i.11}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
                                         </form>
-                                    {% endif %}
+                                    {% endif %} -->
                                 
                                 </tr>
                             {% empty %}
@@ -245,6 +240,7 @@
 
                           </tbody>
                         </table>
+                        {% endif %}
                      </div>
 			<!-- end of data-box -->
                      <div class="row">

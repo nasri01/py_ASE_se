@@ -98,7 +98,7 @@
                       {% if i.status.id == 3 %}
                       <form action="{% url 'req_summary' %}" method="GET">    
                         <input type="text" hidden name="req_number" value="{{i.number}}">
-                        <button class="btn btn-primary" type="submit" value="!">
+                        <button class="btn btn-success"name='request' type="submit" value="1">نمایش خلاصه</button>
                         </form>
                       {% endif %}
                     </td>

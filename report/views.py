@@ -70,23 +70,22 @@ def xlsx(request):
                 row = []
                 for tc in obj.totalcomment.all():
                     tcomment.append(tc)
-                row.append(obj.deivce.hospital.city.state_name.name)
-                row.append(obj.deivce.hospital.city.name)
-                row.append(obj.deivce.hospital.name)
-                row.append(obj.deivce.section.name)
-                row.append(obj.deivce.name.type.name)
-                row.append(obj.deivce.name.creator.name)
-                row.append(obj.deivce.name.name)
-                row.append(obj.deivce.serial_number)
-                row.append(obj.deivce.property_number)
-                row.append(obj.status.status)
-                row.append(obj.date.strftime("%Y-%m-%d"))
+                row.append(obj.deivce.hospital.city.state_name.name)#0
+                row.append(obj.deivce.hospital.city.name)#1
+                row.append(obj.deivce.hospital.name)#2
+                row.append(obj.deivce.section.name)#3
+                row.append(obj.deivce.name.type.name)#4
+                row.append(obj.deivce.name.creator.name)#5
+                row.append(obj.deivce.name.name)#6
+                row.append(obj.deivce.serial_number)#7
+                row.append(obj.deivce.property_number)#8
+                row.append(obj.status.status)#9
+                row.append(obj.date.strftime("%Y-%m-%d"))#10
                 if obj.licence.number != -1 :
-                    row.append(obj.licence.number)
+                    row.append(obj.licence.number)#11
                 else:
-                    row.append('-')
-                row.append(tcomment)
-                row.append(len(data1))
+                    row.append('-')#11
+                row.append(tcomment)#12*
                 data.append(row)    
 
 
@@ -351,7 +350,7 @@ def pdf1(request):
 
 def req_summary(request):
     if request.method == 'GET':
-        try:#get sections
+        if request.GET['request'] == '1':#get sections
             sections = []
             for model in model_list:
                 temp = model.objects.filter(request__number__exact=int(request.GET['req_number']))
@@ -361,14 +360,17 @@ def req_summary(request):
             sections = list(set(sections)) #get unique values 
             for sec in sections:
                 sec = sec.name
+        
             return render(request,'acc/employee/dlsum.html',{'data':sections,'req_num':request.GET['req_number']})
-        except:#get report
+        
+        elif request.GET['request'] == '0':#get report
             s = 0
             data = []
             sn = request.GET['sec_name']
             rn = int(request.GET['req_num'])
             types = device_type.objects.get(id__gte=13)
-            for model in model_list:
+            for model in model_list[:-2
+            ]:
                 temp = model.objects.filter(request__number__exact = rn).filter(#number of test of each device
                     device__section__name__exact = sn)
                 temp2 = cant_test.objects.filter(request__number__exact=rn).filter(#number of cant test of each device
@@ -408,10 +410,8 @@ def pdf(request):
         for model in model_list:
             dd = model.objects.all()
             if len(dd) != 0:   
-                ddd +='if'##########     
                 for obj in dd :    
                     if(model == monitor_spo2_1):
-                        ddd +='if2'##########     
                         template_name = 'report/Monitor/Spo2/licence1.html'            
                         data.append((int(obj.s2_e1_spo2) - 70)**2)
                         data.append((int(obj.s2_e2_spo2) - 75)**2)
@@ -526,22 +526,18 @@ def pdf(request):
                     elif (model == ventilator_1):
                         template_name = 'report/ventilator/licence1.html'
 
-                    
-
-                    
                     usr= aUserProfile.objects.get(user=obj.user)
                     t2 = jdatetime.datetime.today()
                     font_config = FontConfiguration()
-                    
                     html = render_to_string(template_name, {
-                        'form': obj, 'time': t2,'usr':usr,'data':data
-                    })
-
+                        'form': obj, 'time': t2,'usr':usr,'data':data })
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
+                   
                     if not os.path.exists(f'{obj.request.number}/'):
                         os.makedirs(f'{obj.request.number}/')
+                   
                     HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
@@ -552,9 +548,7 @@ def pdf(request):
                                              is_done = obj.is_done)
                     
                     for w in obj.totalcomment.all():
-                        ddd +='for1'##########     
                         if(model == monitor_spo2_1):
-                            ddd +='if3'##########     
                             a12.monitor_spo2_totalcomment.add(w)
                         
                         elif (model == monitor_nibp_1):
@@ -604,6 +598,6 @@ def pdf(request):
                     a12.save()
                     obj.delete()
             s+=1
-        return HttpResponse(ddd)
+        return HttpResponse('done :)')
     else: 
         raise Http404
