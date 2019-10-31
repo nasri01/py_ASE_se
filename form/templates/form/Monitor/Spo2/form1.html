@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 
 
-<form method="POST" class="post-form" %}>
+<form method="POST" class="post-form">
 
     {% csrf_token %}
 
@@ -31,7 +31,7 @@
 
 <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
-        <!--////////////////////////////////////////////////////////////-->
+        
         <div class="data container-fluid">
           {% if edit %}
           <div class="alert alert-warning">
@@ -49,9 +49,8 @@
           {% endif %}
      <h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
       گواهينامه کنترل کيفي دستگاه پالس اکسيمتر</h1>
-      <button class="btn btn-info" type="submit" onclick="this.form.action={% url 'reload' formtype='monitor_spo2' %};" formnovalidate>SUBMMIIIT</button>
-      
-
+      <button class="btn btn-info" type="submit" onclick="this.form.action="{% url 'reload' formtype='monitor_spo2' %}";" formnovalidate>SUBMMIIIT</button>
+<!--////////////////////////////////////////////////////////////-->
      <div class="row" style="margin-right: 40px;">
         <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
           <span style="margin-right: 30px;"> نام دستگاه : </span>
