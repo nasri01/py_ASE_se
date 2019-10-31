@@ -517,11 +517,11 @@ def pdf(request):
                     
                     # f'{obj.request.number}/{obj.licence.number}.pdf'
                     
-                    a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
-                                            request = obj.request, date = obj.date, user = obj.user, status = obj.status,
-                                            record = rd.objects.create(number=int(rd.objects.last().number)+1),
-                                            license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
-                                             is_done = obj.is_done)
+                    # a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
+                    #                         request = obj.request, date = obj.date, user = obj.user, status = obj.status,
+                    #                         record = rd.objects.create(number=int(rd.objects.last().number)+1),
+                    #                         license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
+                    #                          is_done = obj.is_done)
                     
                     for w in obj.totalcomment.all():
                         ddd +='for1'##########     
