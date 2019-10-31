@@ -522,7 +522,7 @@ def pdf(request):
                     #                         record = rd.objects.create(number=int(rd.objects.last().number)+1),
                     #                         license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
                     #                          is_done = obj.is_done)
-                    
+                    ddd += str(len(obj.totalcomment.all()))
                     for w in obj.totalcomment.all():
                         ddd +='for1'##########     
                         if(model == monitor_spo2_1):
