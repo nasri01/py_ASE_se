@@ -515,7 +515,7 @@ def pdf(request):
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
                     if not os.path.exists(f'{obj.request.number}/'):
-                        os.makedir(f'{obj.request.number}/')
+                        os.makedirs(f'{obj.request.number}/')
                     HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
