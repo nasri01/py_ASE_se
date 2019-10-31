@@ -500,7 +500,7 @@ def pdf(request):
                     elif (model == ventilator_1):
                         template_name = 'report/ventilator/licence1.html'
 
-                    break
+                    
 
                     
                     usr= aUserProfile.objects.get(user=obj.user)
@@ -514,15 +514,15 @@ def pdf(request):
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
-                    
+                    HTML(string=html).write_pdf('reza.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
                     # f'{obj.request.number}/{obj.licence.number}.pdf'
                     
-                    # a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
-                    #                         request = obj.request, date = obj.date, user = obj.user, status = obj.status,
-                    #                         record = rd.objects.create(number=int(rd.objects.last().number)+1),
-                    #                         license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
-                    #                          is_done = obj.is_done)
-                    ddd += str(len(obj.totalcomment.all()))
+                    a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
+                                            request = obj.request, date = obj.date, user = obj.user, status = obj.status,
+                                            record = rd.objects.create(number=int(rd.objects.last().number)+1),
+                                            license = lcc.objects.create(number=int(lcc.objects.last().number)+1),
+                                             is_done = obj.is_done)
+                    
                     for w in obj.totalcomment.all():
                         ddd +='for1'##########     
                         if(model == monitor_spo2_1):
@@ -575,7 +575,6 @@ def pdf(request):
                             a12.ventilator_totalcomment.add(w)
                     a12.save()
                     #obj.delete()
-                    HTML(string=html).write_pdf('reza.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
             s+=1
         return HttpResponse(ddd)
     else: 
