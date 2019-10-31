@@ -378,11 +378,14 @@ def pdf(request):
         ss = 0
         sss = 0
         data = []
+        ddd = ' '#######
         for model in model_list:
             dd = model.objects.all()
-            if len(dd) != 0:        
+            if len(dd) != 0:   
+                ddd +='if'##########     
                 for obj in dd :    
                     if(model == monitor_spo2_1):
+                        ddd +='if2'##########     
                         template_name = 'report/Monitor/Spo2/licence1.html'            
                         data.append((int(obj.s2_e1_spo2) - 70)**2)
                         data.append((int(obj.s2_e2_spo2) - 75)**2)
@@ -513,10 +516,7 @@ def pdf(request):
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
                     HTML(string=html).write_pdf('reza.pdf',Presentational_hints=True,font_config=font_config, stylesheets=[css1, css2])
                     # f'{obj.request.number}/{obj.licence.number}.pdf'
-                    try:
-                        comment.objects.get(name = obj)
-                    except:
-                        pass
+                    
                     a12 = report.objects.create(tt = ad_test_type0.objects.get(name=modellist[s]),device = obj.device,
                                             request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                             record = rd.objects.create(number=int(rd.objects.last().number)+1),
@@ -524,7 +524,9 @@ def pdf(request):
                                              is_done = obj.is_done)
                     
                     for w in obj.totalcomment.all():
+                        ddd +='for1'##########     
                         if(model == monitor_spo2_1):
+                            ddd +='if3'##########     
                             a12.monitor_spo2_totalcomment.add(w)
                         
                         elif (model == monitor_nibp_1):
@@ -574,6 +576,6 @@ def pdf(request):
                     a12.save()
                     #obj.delete()
             s+=1
-        return HttpResponse('done!')
+        return HttpResponse(ddd)
     else: 
         raise Http404
