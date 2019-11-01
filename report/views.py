@@ -238,83 +238,83 @@ def pdf1(request):
                     data1 = []
                     data2 = []
                     data3 = []
-                    if (abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp)) >= 3):#0
+                    if (abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp)) >= 3):#6
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e2_simp) - int(modelobj[0].s1_e2_nibpp)) >= 3):#1
+                    if (abs(int(modelobj[0].s1_e2_simp) - int(modelobj[0].s1_e2_nibpp)) >= 3):#7
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e3_simp) - int(modelobj[0].s1_e3_nibpp)) >= 3.6):#2
+                    if (abs(int(modelobj[0].s1_e3_simp) - int(modelobj[0].s1_e3_nibpp)) >= 3.6):#8
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e4_simp) - int(modelobj[0].s1_e4_nibpp)) >= 6):#3
+                    if (abs(int(modelobj[0].s1_e4_simp) - int(modelobj[0].s1_e4_nibpp)) >= 6):#9
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e5_simp) - int(modelobj[0].s1_e5_nibpp)) >= 3):#4
+                    if (abs(int(modelobj[0].s1_e5_simp) - int(modelobj[0].s1_e5_nibpp)) >= 3):#10
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e6_simp) - int(modelobj[0].s1_e6_nibpp)) >= 3):#5
+                    if (abs(int(modelobj[0].s1_e6_simp) - int(modelobj[0].s1_e6_nibpp)) >= 3):#11
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e7_simp) - int(modelobj[0].s1_e7_nibpp)) >= 3.6):#6
+                    if (abs(int(modelobj[0].s1_e7_simp) - int(modelobj[0].s1_e7_nibpp)) >= 3.6):#12
                         data3.append(0)
                     else:
                         data3.append(1)
-                    if (abs(int(modelobj[0].s1_e8_simp) - int(modelobj[0].s1_e8_nibpp)) >= 6):#7
+                    if (abs(int(modelobj[0].s1_e8_simp) - int(modelobj[0].s1_e8_nibpp)) >= 6):#13
                         data3.append(0)
                     else:
                         data3.append(1)
                     
-                    data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))##
-                    data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e2_pr1.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e2_pr2.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e2_pr3.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e3_pr1.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e3_pr2.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e3_pr3.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e4_pr1.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e4_pr2.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e4_pr3.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e5_pr1.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e5_pr2.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e5_pr3.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e6_pr1.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e6_pr2.split('/')[0]))
-                    data1.append(int(modelobj[0].s2_e6_pr3.split('/')[0]))
-                    data2.append(int(modelobj[0].s2_e1_pr1.split('/')[1]))##
-                    data2.append(int(modelobj[0].s2_e1_pr2.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e1_pr3.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e2_pr1.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e2_pr2.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e2_pr3.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e3_pr1.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e3_pr2.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e3_pr3.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e4_pr1.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e4_pr2.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e4_pr3.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e5_pr1.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e5_pr2.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e5_pr3.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))
-                    data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))
+                    data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))#14
+                    data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))#15
+                    data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))#16
+                    data1.append(int(modelobj[0].s2_e2_pr1.split('/')[0]))#17
+                    data1.append(int(modelobj[0].s2_e2_pr2.split('/')[0]))#18
+                    data1.append(int(modelobj[0].s2_e2_pr3.split('/')[0]))#19
+                    data1.append(int(modelobj[0].s2_e3_pr1.split('/')[0]))#20
+                    data1.append(int(modelobj[0].s2_e3_pr2.split('/')[0]))#21
+                    data1.append(int(modelobj[0].s2_e3_pr3.split('/')[0]))#22
+                    data1.append(int(modelobj[0].s2_e4_pr1.split('/')[0]))#23
+                    data1.append(int(modelobj[0].s2_e4_pr2.split('/')[0]))#24
+                    data1.append(int(modelobj[0].s2_e4_pr3.split('/')[0]))#25
+                    data1.append(int(modelobj[0].s2_e5_pr1.split('/')[0]))#26
+                    data1.append(int(modelobj[0].s2_e5_pr2.split('/')[0]))#27
+                    data1.append(int(modelobj[0].s2_e5_pr3.split('/')[0]))#28
+                    data1.append(int(modelobj[0].s2_e6_pr1.split('/')[0]))#29
+                    data1.append(int(modelobj[0].s2_e6_pr2.split('/')[0]))#30
+                    data1.append(int(modelobj[0].s2_e6_pr3.split('/')[0]))#31
+                    data2.append(int(modelobj[0].s2_e1_pr1.split('/')[1]))#32
+                    data2.append(int(modelobj[0].s2_e1_pr2.split('/')[1]))#33
+                    data2.append(int(modelobj[0].s2_e1_pr3.split('/')[1]))#34
+                    data2.append(int(modelobj[0].s2_e2_pr1.split('/')[1]))#35
+                    data2.append(int(modelobj[0].s2_e2_pr2.split('/')[1]))#36
+                    data2.append(int(modelobj[0].s2_e2_pr3.split('/')[1]))#37
+                    data2.append(int(modelobj[0].s2_e3_pr1.split('/')[1]))#38
+                    data2.append(int(modelobj[0].s2_e3_pr2.split('/')[1]))#39
+                    data2.append(int(modelobj[0].s2_e3_pr3.split('/')[1]))#40
+                    data2.append(int(modelobj[0].s2_e4_pr1.split('/')[1]))#41
+                    data2.append(int(modelobj[0].s2_e4_pr2.split('/')[1]))#42
+                    data2.append(int(modelobj[0].s2_e4_pr3.split('/')[1]))#43
+                    data2.append(int(modelobj[0].s2_e5_pr1.split('/')[1]))#44
+                    data2.append(int(modelobj[0].s2_e5_pr2.split('/')[1]))#45
+                    data2.append(int(modelobj[0].s2_e5_pr3.split('/')[1]))#46
+                    data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))#47
+                    data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))#48
+                    data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))#49
                     data.append(sum(data1))#0
                     data.append(sum(data2))#1
                     data.append(round(np.mean(data1),2))#2
                     data.append(round(np.mean(data2),2))#3
                     data.append(round(np.std(data1),2))#4
                     data.append(round(np.std(data2),2))#5
-                    data.append(data3)#6
-                    data.append(data1)#7
+                    data.extend(data3)#6
+                    data.extend(data1)#7
                     data.append(data2)#8
 
                 elif (model == monitor_ecg_1):
