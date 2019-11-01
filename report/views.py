@@ -204,6 +204,9 @@ def pdf1(request):
         ss = 0
         sss = 0
         data = []
+        data1 = []
+        data2 = []
+        data3 = []
         for model in model_list:
             modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
@@ -235,9 +238,7 @@ def pdf1(request):
                 
                 elif (model == monitor_nibp_1):
                     template_name = 'report/Monitor/NIBP/licence1.html'
-                    data1 = []
-                    data2 = []
-                    data3 = []
+                    
                     if (abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp)) >= 3):#6
                         data3.append(0)
                     else:
@@ -315,7 +316,7 @@ def pdf1(request):
                     data.append(round(np.std(data2),2))#5
                     data.extend(data3)#6
                     data.extend(data1)#7
-                    data.append(data2)#8
+                    data.extend(data2)#8
 
                 elif (model == monitor_ecg_1):
                     template_name = 'report/Monitor/ECG/licence1.html'
