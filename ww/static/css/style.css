@@ -280,3 +280,22 @@ hr{
 /*}*/
 
 
+.kaad{
+	position: fixed;
+	bottom:10px;
+	left:10px;
+	width: 22%;
+
+}
+@media only screen and (max-width: 768px) {
+
+.kaad{
+	position: absolute;
+	width: 97%;
+}
+.bar{
+	margin: auto;
+	width: 100%;
+	background-color: white !important;
+}
+}

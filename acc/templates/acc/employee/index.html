@@ -55,7 +55,10 @@
                                  <img src="{{auser.avatar.url}}" class="employee-img">
                                 </div>
                                 <div class="home-icon" style="display: block;">
+                                    <a href="">
                                 <img src="{% static 'img/vectorpaint(2).svg' %}" style="background-color:#5578bb;border-radius:40%;padding:5px 4px 5px 2px;width:30px;">
+
+                                    </a>
                                 </div>
 
                                 <div class="setting-icon" style="display: block;">
@@ -307,7 +310,7 @@
 
                                     <div class="row" style="margin-top: 0;">
                                         
-                                        <div class="col-12" style="padding: 0;margin: 0;">
+                                        <div class="col-6" style="padding: 0;margin: 0;">
                                             <form action="{% url 'router'  %}" method="get">
                                                 {% if form_type == 'anesthesia_machine' %}
                                                     <button name="type" value="anesthesia_machine" type="submit" class="btn btn-danger op-btn-2"> Anesthesia Machine</button>
@@ -317,6 +320,18 @@
                                             </form>
     
                                         </div>
+
+                                        <div class="col-6" style="padding: 0;margin: 0;">
+                                            <form action="{% url 'router'  %}" method="get">
+                                                {% if form_type == 'aed' %}
+                                                    <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2"> AED</button>
+                                                {% else %}
+                                                    <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2" > AED</button>
+                                                {% endif %}
+                                            </form>
+                                        </div>
+
+
                                     </div>
 
 
