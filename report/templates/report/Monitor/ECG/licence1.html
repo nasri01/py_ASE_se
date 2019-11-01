@@ -110,8 +110,13 @@
     
     </table>
     <div style="height:5.85cm;">
-              <span>{{ form.status.status }}</span>موارد عدم شمول: 
-
+ <span>
+              {% for cm in form.totacomment %}
+                {{ cm }} -
+              
+              
+              {% endfor %}
+              </span>موارد عدم شمول: 
     </div>
     
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
