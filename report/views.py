@@ -235,8 +235,42 @@ def pdf1(request):
                 
                 elif (model == monitor_nibp_1):
                     template_name = 'report/Monitor/NIBP/licence1.html'
-                    data1=[]
-                    data2=[]
+                    data1 = []
+                    data2 = []
+                    data3 = []
+                    if (abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp)) >= 3):#0
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e2_simp) - int(modelobj[0].s1_e2_nibpp)) >= 3):#1
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e3_simp) - int(modelobj[0].s1_e3_nibpp)) >= 3.6):#2
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e4_simp) - int(modelobj[0].s1_e4_nibpp)) >= 6):#3
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e5_simp) - int(modelobj[0].s1_e5_nibpp)) >= 3):#4
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e6_simp) - int(modelobj[0].s1_e6_nibpp)) >= 3):#5
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e7_simp) - int(modelobj[0].s1_e7_nibpp)) >= 3.6):#6
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    if (abs(int(modelobj[0].s1_e8_simp) - int(modelobj[0].s1_e8_nibpp)) >= 6):#7
+                        data3.append(0)
+                    else:
+                        data3.append(1)
+                    
                     data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))##
                     data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))
                     data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))
@@ -273,12 +307,15 @@ def pdf1(request):
                     data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))
                     data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))
                     data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))
-                    data.append(sum(data1))
-                    data.append(sum(data2))
-                    data.append(round(np.mean(data1),2))
-                    data.append(round(np.mean(data2),2))
-                    data.append(round(np.std(data1),2))
-                    data.append(round(np.std(data2),2))
+                    data.append(sum(data1))#0
+                    data.append(sum(data2))#1
+                    data.append(round(np.mean(data1),2))#2
+                    data.append(round(np.mean(data2),2))#3
+                    data.append(round(np.std(data1),2))#4
+                    data.append(round(np.std(data2),2))#5
+                    data.append(data3)#6
+                    data.append(data1)#7
+                    data.append(data2)#8
 
                 elif (model == monitor_ecg_1):
                     template_name = 'report/Monitor/ECG/licence1.html'
