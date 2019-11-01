@@ -201,14 +201,15 @@ def xlsx(request):
 
 def pdf1(request):
     if request.method == 'GET':
-        ss = 0
-        sss = 0
+        
         data = []
         for model in model_list:
             modelobj = model.objects.filter(licence__number=1003)
             if len(modelobj) == 1:
                 if(model == monitor_spo2_1):
                     template_name = 'report/Monitor/Spo2/licence1.html'            
+                    ss = 0
+                    sss = 0            
                     data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)
                     data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)
                     data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)
@@ -358,6 +359,8 @@ def pdf1(request):
                 
                 elif (model == syringe_pump_1):
                     template_name = 'report/syringe_pump/licence1.html'
+                    data.append(abs((int(modelobj[0].s6_e1_mf) - 50)*2))#0
+                    data.append(abs(int(modelobj[0].s6_e1_mf) - 100))#1
                 
                 elif (model == ventilator_1):
                     template_name = 'report/ventilator/licence1.html'
