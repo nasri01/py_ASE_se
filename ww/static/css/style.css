@@ -299,3 +299,18 @@ hr{
 	background-color: white !important;
 }
 }
+
+.copy-right{
+	font-family: 'light-iransans';
+	direction: rtl;
+	/*margin-top: 20px;*/
+	text-align: justify;
+	background-color: white;
+	font-size: 14px;
+	font-weight: bold;
+	border:1px solid #e5e5e5;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+	padding: 10px 2px 5px 2px;
+	/*color: #666;*/
+}
