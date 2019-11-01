@@ -86,7 +86,11 @@
         </tr>
         <tr>
             <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-            <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+            <td class="no-border"><span class="time">
+            {% if form.device.property_number != None %}
+            {{form.device.property_number}}
+            {% endif %}
+            </span>کداموال :</td>
         </tr>
 
         <tr>
@@ -1403,8 +1407,8 @@
                                                         <div class="sign-2" style="margin-bottom: -5cm;"></div>
                                                     </div>
                                                     <div style="margin-top: -4.5cm;font-family:'B Zar' ">
-                                                        <div style="display: inline-block;">سمت:کارشناس کنترل کیفی</div>
-                                                        <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: مهندس سعید نریمانی</div>
+                                                        <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
+                                                        <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ usr.user.first_name }}</div>
                                                     </div>
                                         
                                 
