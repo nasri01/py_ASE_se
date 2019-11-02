@@ -1,0 +1,417 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<form method="POST" class="post-form">
+
+    {% csrf_token %}
+
+    <table class="table-bordered">
+          <script>
+                    
+              $(document).ready(function () {
+                $('.search-a').selectize({
+                    sortField: 'text'
+                });
+            });
+                  </script>        
+
+<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+
+        
+        <div class="data container-fluid">
+
+     <h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
+      </h1>
+      <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_spo2' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>SUBMMIIIT</button>
+<!--////////////////////////////////////////////////////////////-->
+     <div class="row" style="margin-right: 40px;">
+        <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+          <span style="margin-right: 30px;"> نام دستگاه : </span>
+          <span>
+  
+            
+            {% render_field form.device style="display:inline;width:50%;"  class="search-a" searchable="Search here.." %}
+      
+            </span>
+            <br>
+  <!-- / -->
+  
+  <span style="margin-right: 17px;"> شماره درخواست  : </span>
+  <span class="ee">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+
+      {% render_field form.request  id="select-state" class="search-a" style="display:inline;width:50%;"%}
+    
+
+    
+     </span>
+  <br>
+  <span style="margin-right: 17px;"> رطوبت محیطی : </span>
+  <br>
+  <span class="ee">
+      {% render_field form.humidity style="display:block;max-width:500px;width:50%;"%}
+    
+  </span>
+  
+  <br>
+  <!-- / -->
+  <label style="margin-right: 17px;" > دمای محیطی : </label>
+  <br>
+  <span class="ee"> 
+      {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
+    
+  </span>
+  
+  
+  <!--
+  
+  
+    <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
+    
+  </div>
+  
+  <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+  
+      <h2 style="font-family: light-iransans">تجهیزات آزمون : </h2>
+  
+      <div class="container">
+        <label>نام تجهیز :</label><br>
+        <label>دستگاه شماره 1 :</label>
+          <span class="ee">
+            {{form.cal_dev1}}
+          </span><br>
+        <label>دستگاه شماره 2 :</label>
+          <span class="ee">
+            {{form.cal_dev2}}
+          </span><br>
+          <label>دستگاه شماره 3 :</label>
+          <span class="ee">
+            {{form.cal_dev3}}
+          </span><br>
+      
+      </div>
+      <br><br>
+      
+  
+  
+        </div>
+  
+        </div>
+  
+  
+	<!--</form>-->
+
+<br><br>
+
+
+<span style="font-weight: bold;">
+1.الزامات ایجاد وقفه در منبع تغذیه(بند201.11.8.101.1استانداردISO80601-2-61:2011)
+</span>
+<br>
+<br>
+
+<table style="direction: ltr;margin: auto;">
+  <thead>
+      <tr>
+        <th>SETTING</th>
+        <th>Alarm System Condition</th>
+        <th>RESULT</th>
+        <th style="width: 150px;">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Power Supply Failure</td>
+      <td>At least a Medium Priority Technical Alarm</td>
+      <td></td>
+      <td>
+        
+          {% render_field form.s1_e1_comment  style="display:block;max-width:500px;width:100%;"%}
+
+      </td>
+    </tr>
+    <tr>
+      <td>Switchover to an internal electrical power source  information signalor a Low priority technical alarm</td>
+      <td></td>
+      <td>{{form.s1_e2_comment}}</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+
+<br><br>
+<span style="font-weight: bold;">
+2.درستی SpO2(بند201.12.1.101.1استاندارد61:2011-2-ISO 80601)
+</span>
+
+
+<br><br>
+
+<table style="direction: ltr;margin: auto;">
+  <thead>
+      <tr>
+        <th rowspan="2">DESCRIPTION OF TEST</th>
+        <th colspan="2">SETTING</th>
+        <th colspan="2">READING</th>
+      </tr>
+
+      <tr>
+
+        <th>SpO<sub>2</sub>(%)</th>
+        <th>PR(BPM)</th>
+        <th>SpO<sub>2</sub>(%)</th>
+        <th>PR(BPM)</th>
+      </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="11">SpO<sub>2</sub>% ACCURACY</td>
+      <td>70</td>
+      <td>75</td>
+      <td>{{form.s2_e1_spo2}}</td>
+      <td>{{form.s2_e1_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>75</td>
+      <td>75</td>
+      <td>{{form.s2_e2_spo2}}</td>
+      <td>{{form.s2_e2_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>80</td>
+      <td>75</td>
+      <td>{{form.s2_e3_spo2}}</td>
+      <td>{{form.s2_e3_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>85</td>
+      <td>75</td>
+      <td>{{form.s2_e4_spo2}}</td>
+      <td>{{form.s2_e4_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>88</td>
+      <td>75</td>
+      <td>{{form.s2_e5_spo2}}</td>
+      <td>{{form.s2_e5_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;">SpO<sub>2</sub>% ACCURACY</td> -->
+      <td>90</td>
+      <td>75</td>
+      <td>{{form.s2_e6_spo2}}</td>
+      <td>{{form.s2_e6_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>92</td>
+      <td>75</td>
+      <td>{{form.s2_e7_spo2}}</td>
+      <td>{{form.s2_e7_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>94</td>
+      <td>75</td>
+      <td>{{form.s2_e8_spo2}}</td>
+      <td>{{form.s2_e8_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>96</td>
+      <td>75</td>
+      <td>{{form.s2_e9_spo2}}</td>
+      <td>{{form.s2_e9_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>98</td>
+      <td>75</td>
+      <td>{{form.s2_e10_spo2}}</td>
+      <td>{{form.s2_e10_pr}}</td>
+    </tr>
+
+    <tr>
+      <!-- <td style="border:none;"></td> -->
+      <td>100</td>
+      <td>75</td>
+      <td>{{form.s2_e11_spo2}}</td>
+      <td>{{form.s2_e11_pr}}</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<br><br>
+
+
+<span style="font-weight: bold;">
+3.درستی نرخ پالس/ ضربان(بند201.12.1.104استانداردISO 80601-2-61:2011)
+</span>
+<br><br>
+<table style="direction: ltr;margin: auto;overflow: scroll;">
+
+  <tr>
+    <th colspan="3">رنج تعیین شده نرخ پالس در دفترچه راهنمای دستگاه</th>
+    <th colspan="2">صحت نرخ پالس تعیین شده در دفترچه راهنمای دستگاه</th>
+  </tr>
+
+
+
+  <tr>
+    <td colspan="3">20-250 BPM</td>
+    <td colspan="2">At 20 bpm to 250 bpm : ± 3 bpm</td>
+  </tr>
+
+
+
+  <tr>
+    <th rowspan="2">DESCRIPTION OF TEST</th>
+    <th colspan="2">SETTING</th>
+    <th colspan="2">READING</th>
+  </tr>
+
+  <tr>
+    <th>SpO <sub>2</sub>(%)</th>
+    <th>PR(BMP)</th>
+    <th>SpO <sub>2</sub>(%)</th>
+    <th>PR(BMP)</th>
+
+  </tr>
+
+  <tr>
+    <td rowspan="5">Pulse rateACCURACY</td>
+    <td>96</td>
+    <td>35</td>
+    <td>{{form.s3_e1_spo2}}</td>
+    <td>{{form.s3_e1_pr}}</td>
+  </tr>
+
+  <tr>
+    <td>96</td>
+    <td>60</td>
+    <td>{{form.s3_e2_spo2}}</td>
+    <td>{{form.s3_e2_pr}}</td>
+  </tr>
+
+  <tr>
+    <td>96</td>
+    <td>100</td>
+    <td>{{form.s3_e3_spo2}}</td>
+    <td>{{form.s3_e3_pr}}</td>
+  </tr>
+
+  <tr>
+    <td>96</td>
+    <td>200</td>
+    <td>{{form.s3_e4_spo2}}</td>
+    <td>{{form.s3_e4_pr}}</td>
+  </tr>
+
+  <tr>
+    <td>96</td>
+    <td>240</td>
+    <td>{{form.s3_e5_spo2}}</td>
+    <td>{{form.s3_e5_pr}}</td>
+  </tr>
+
+</table>
+
+
+<br><br>
+
+
+<span style="font-weight: bold;">
+4.بررسی لوازم جانبی (بند3.1,2.2.15استاندارد EN 60601-1)
+</span>
+<br><br>
+<table style="direction: ltr;margin: auto;overflow: scroll;">
+
+  <tr>
+    <th>Row</th>
+    <th>Accessory</th>
+    <th>Model</th>
+    <th>Result</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Spo2</td>
+    <td>{{form.s4_e1_acc}}</td>
+    <td></td>
+    <td>{{form.s4_e1_comment}}</td>
+  </tr>
+
+</table>
+
+
+
+	<!--</div>-->
+{#/////////////////////////////////////////////#}
+    <br>
+
+
+
+            {% render_field form.status style="display:inline-block;width:45%;" %}
+            
+
+            
+            
+            
+            <br>
+            <br>
+            
+            {% render_field form.totalcomment style="display:inline-block;width:45%;height:45px;" %}
+          
+          {% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
+
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+
+          <button type="submit"  class="btn btn-primary" formaction="{% url 'save_router' formtype='monitor_spo2' %}" >
+            ذخیره نهایی
+          </button>
+
+
+
+
+        </div>
+
+
+        <!--//////////////////////////////////////////////////////////-->
+
+    </table>
+
+</form>
+
+
