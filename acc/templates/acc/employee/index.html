@@ -323,10 +323,10 @@
 
                                         <div class="col-6" style="padding: 0;margin: 0;">
                                             <form action="{% url 'router'  %}" method="get">
-                                                {% if form_type == 'aed' %}
-                                                    <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2"> AED</button>
+                                                {% if form_type == 'cant_test' %}
+                                                    <button name="type" value="cant_test" type="submit" class="btn btn-danger op-btn-2"> AED</button>
                                                 {% else %}
-                                                    <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2" > AED</button>
+                                                    <button name="type" value="cant_test" type="submit" class="btn btn-warning op-btn-2" > AED</button>
                                                 {% endif %}
                                             </form>
                                         </div>
