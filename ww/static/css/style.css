@@ -248,6 +248,9 @@ hr{
 
 
 }
+.bar{
+	text-align: center;
+}
 
 @media only screen and (min-width: 768px) {
 
@@ -281,36 +284,77 @@ hr{
 
 
 .kaad{
-	position: fixed;
-	bottom:10px;
-	left:10px;
-	width: 22%;
+	position:absolute;
+	bottom:2.5%;
+	left:2.5%;
+	width: 20%;
 
 }
 @media only screen and (max-width: 768px) {
 
+	.bar{
+		width: 100%;
+		background-color: white !important;
+	}
 .kaad{
-	position: absolute;
-	width: 97%;
-}
-.bar{
+	position: relative;
+	width: 60%;
+	
 	margin: auto;
-	width: 100%;
-	background-color: white !important;
+	margin-bottom: 40px;
 }
+
 }
 
 .copy-right{
 	font-family: 'light-iransans';
 	direction: rtl;
 	/*margin-top: 20px;*/
-	text-align: justify;
+	/* text-align: left; */
 	background-color: white;
 	font-size: 14px;
+	/* display: inline-block; */
 	font-weight: bold;
 	border:1px solid #e5e5e5;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 2px;
-	padding: 10px 2px 5px 2px;
+	padding: 5px 2px 5px 2px;
 	/*color: #666;*/
+	direction: ltr;
 }
+.c-text{
+	text-align: left;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+
+	.c-text{
+		text-align:center;
+	}
+/* 	
+	.kaad{
+		width:220px;
+	} */
+	
+ }
+
+ 
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+
+	.kaad{
+		width:220px;
+	}
+	
+ }
+ 
+@media only screen and (max-width: 576px) {
+
+	.c-text{
+		text-align:center;
+	}
+
+	.kaad{
+		width:200px;
+	}
+	
+ }
