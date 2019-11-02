@@ -528,180 +528,180 @@ def pdf(request):
                         sss+=data[i]
                     data.append(int(((sss/5)**0.5)*100)/100)#17
                 
-                elif (model == monitor_nibp_1):
-                    template_name = 'report/Monitor/NIBP/licence1.html'
-                    data1 = []
-                    data2 = []
-                    data3 = []
-                    data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))#14
-                    data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))#15
-                    data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))#16
-                    data1.append(int(modelobj[0].s2_e2_pr1.split('/')[0]))#17
-                    data1.append(int(modelobj[0].s2_e2_pr2.split('/')[0]))#18
-                    data1.append(int(modelobj[0].s2_e2_pr3.split('/')[0]))#19
-                    data1.append(int(modelobj[0].s2_e3_pr1.split('/')[0]))#20
-                    data1.append(int(modelobj[0].s2_e3_pr2.split('/')[0]))#21
-                    data1.append(int(modelobj[0].s2_e3_pr3.split('/')[0]))#22
-                    data1.append(int(modelobj[0].s2_e4_pr1.split('/')[0]))#23
-                    data1.append(int(modelobj[0].s2_e4_pr2.split('/')[0]))#24
-                    data1.append(int(modelobj[0].s2_e4_pr3.split('/')[0]))#25
-                    data1.append(int(modelobj[0].s2_e5_pr1.split('/')[0]))#26
-                    data1.append(int(modelobj[0].s2_e5_pr2.split('/')[0]))#27
-                    data1.append(int(modelobj[0].s2_e5_pr3.split('/')[0]))#28
-                    data1.append(int(modelobj[0].s2_e6_pr1.split('/')[0]))#29
-                    data1.append(int(modelobj[0].s2_e6_pr2.split('/')[0]))#30
-                    data1.append(int(modelobj[0].s2_e6_pr3.split('/')[0]))#31
-                    data2.append(int(modelobj[0].s2_e1_pr1.split('/')[1]))#32
-                    data2.append(int(modelobj[0].s2_e1_pr2.split('/')[1]))#33
-                    data2.append(int(modelobj[0].s2_e1_pr3.split('/')[1]))#34
-                    data2.append(int(modelobj[0].s2_e2_pr1.split('/')[1]))#35
-                    data2.append(int(modelobj[0].s2_e2_pr2.split('/')[1]))#36
-                    data2.append(int(modelobj[0].s2_e2_pr3.split('/')[1]))#37
-                    data2.append(int(modelobj[0].s2_e3_pr1.split('/')[1]))#38
-                    data2.append(int(modelobj[0].s2_e3_pr2.split('/')[1]))#39
-                    data2.append(int(modelobj[0].s2_e3_pr3.split('/')[1]))#40
-                    data2.append(int(modelobj[0].s2_e4_pr1.split('/')[1]))#41
-                    data2.append(int(modelobj[0].s2_e4_pr2.split('/')[1]))#42
-                    data2.append(int(modelobj[0].s2_e4_pr3.split('/')[1]))#43
-                    data2.append(int(modelobj[0].s2_e5_pr1.split('/')[1]))#44
-                    data2.append(int(modelobj[0].s2_e5_pr2.split('/')[1]))#45
-                    data2.append(int(modelobj[0].s2_e5_pr3.split('/')[1]))#46
-                    data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))#47
-                    data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))#48
-                    data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))#49
-                    if (abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp)) >= 3):#6
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e2_simp) - int(modelobj[0].s1_e2_nibpp)) >= 3):#7
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e3_simp) - int(modelobj[0].s1_e3_nibpp)) >= 3.6):#8
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e4_simp) - int(modelobj[0].s1_e4_nibpp)) >= 6):#9
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e5_simp) - int(modelobj[0].s1_e5_nibpp)) >= 3):#10
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e6_simp) - int(modelobj[0].s1_e6_nibpp)) >= 3):#11
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e7_simp) - int(modelobj[0].s1_e7_nibpp)) >= 3.6):#12
-                        data3.append(0)
-                    else:
-                        data3.append(1)
-                    if (abs(int(modelobj[0].s1_e8_simp) - int(modelobj[0].s1_e8_nibpp)) >= 6):#13
-                        data3.append(0)
-                    else:
-                        data3.append(1)
+                    elif (model == monitor_nibp_1):
+                        template_name = 'report/Monitor/NIBP/licence1.html'
+                        data1 = []
+                        data2 = []
+                        data3 = []
+                        data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))#14
+                        data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))#15
+                        data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))#16
+                        data1.append(int(modelobj[0].s2_e2_pr1.split('/')[0]))#17
+                        data1.append(int(modelobj[0].s2_e2_pr2.split('/')[0]))#18
+                        data1.append(int(modelobj[0].s2_e2_pr3.split('/')[0]))#19
+                        data1.append(int(modelobj[0].s2_e3_pr1.split('/')[0]))#20
+                        data1.append(int(modelobj[0].s2_e3_pr2.split('/')[0]))#21
+                        data1.append(int(modelobj[0].s2_e3_pr3.split('/')[0]))#22
+                        data1.append(int(modelobj[0].s2_e4_pr1.split('/')[0]))#23
+                        data1.append(int(modelobj[0].s2_e4_pr2.split('/')[0]))#24
+                        data1.append(int(modelobj[0].s2_e4_pr3.split('/')[0]))#25
+                        data1.append(int(modelobj[0].s2_e5_pr1.split('/')[0]))#26
+                        data1.append(int(modelobj[0].s2_e5_pr2.split('/')[0]))#27
+                        data1.append(int(modelobj[0].s2_e5_pr3.split('/')[0]))#28
+                        data1.append(int(modelobj[0].s2_e6_pr1.split('/')[0]))#29
+                        data1.append(int(modelobj[0].s2_e6_pr2.split('/')[0]))#30
+                        data1.append(int(modelobj[0].s2_e6_pr3.split('/')[0]))#31
+                        data2.append(int(modelobj[0].s2_e1_pr1.split('/')[1]))#32
+                        data2.append(int(modelobj[0].s2_e1_pr2.split('/')[1]))#33
+                        data2.append(int(modelobj[0].s2_e1_pr3.split('/')[1]))#34
+                        data2.append(int(modelobj[0].s2_e2_pr1.split('/')[1]))#35
+                        data2.append(int(modelobj[0].s2_e2_pr2.split('/')[1]))#36
+                        data2.append(int(modelobj[0].s2_e2_pr3.split('/')[1]))#37
+                        data2.append(int(modelobj[0].s2_e3_pr1.split('/')[1]))#38
+                        data2.append(int(modelobj[0].s2_e3_pr2.split('/')[1]))#39
+                        data2.append(int(modelobj[0].s2_e3_pr3.split('/')[1]))#40
+                        data2.append(int(modelobj[0].s2_e4_pr1.split('/')[1]))#41
+                        data2.append(int(modelobj[0].s2_e4_pr2.split('/')[1]))#42
+                        data2.append(int(modelobj[0].s2_e4_pr3.split('/')[1]))#43
+                        data2.append(int(modelobj[0].s2_e5_pr1.split('/')[1]))#44
+                        data2.append(int(modelobj[0].s2_e5_pr2.split('/')[1]))#45
+                        data2.append(int(modelobj[0].s2_e5_pr3.split('/')[1]))#46
+                        data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))#47
+                        data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))#48
+                        data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))#49
+                        if (abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp)) >= 3):#6
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e2_simp) - int(modelobj[0].s1_e2_nibpp)) >= 3):#7
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e3_simp) - int(modelobj[0].s1_e3_nibpp)) >= 3.6):#8
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e4_simp) - int(modelobj[0].s1_e4_nibpp)) >= 6):#9
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e5_simp) - int(modelobj[0].s1_e5_nibpp)) >= 3):#10
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e6_simp) - int(modelobj[0].s1_e6_nibpp)) >= 3):#11
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e7_simp) - int(modelobj[0].s1_e7_nibpp)) >= 3.6):#12
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        if (abs(int(modelobj[0].s1_e8_simp) - int(modelobj[0].s1_e8_nibpp)) >= 6):#13
+                            data3.append(0)
+                        else:
+                            data3.append(1)
+                        
+                        
+                        
+                        data.append(sum(data1))#0
+                        data.append(sum(data2))#1
+                        data.append(round(np.mean(data1),2))#2
+                        data.append(round(np.mean(data2),2))#3
+                        data.append(round(np.std(data1),2))#4
+                        data.append(round(np.std(data2),2))#5
+                        
+                        data.append(data3)#6
+                        data.append(data1)#7
+                        data.append(data2)#8
+
+                    elif (model == monitor_ecg_1):
+                        template_name = 'report/Monitor/ECG/licence1.html'
+
+                    elif (model == monitor_safety_1):
+                        template_name = 'report/Monitor/SAFETY/licence1.html'
+
+                    elif (model == aed_1):
+                        template_name = 'report/aed/licence1.html'
+
+                    elif (model == anesthesia_machine_1):
+                        template_name = 'report/anesthesiamachine/licence1.html'
+
+                    elif (model == defibrilator_1):
+                        template_name = 'report/defibrilator/licence1.html'
                     
+                    elif (model == ecg_1):
+                        template_name = 'report/ecg/licence1.html'
                     
+                    elif (model == electrocauter_1):
+                        template_name = 'report/electrocauter/licence1.html'
                     
-                    data.append(sum(data1))#0
-                    data.append(sum(data2))#1
-                    data.append(round(np.mean(data1),2))#2
-                    data.append(round(np.mean(data2),2))#3
-                    data.append(round(np.std(data1),2))#4
-                    data.append(round(np.std(data2),2))#5
+                    elif (model == flowmeter_1):
+                        template_name = 'report/flowmeter/licence1.html'
                     
-                    data.append(data3)#6
-                    data.append(data1)#7
-                    data.append(data2)#8
+                    elif (model == infusion_pump_1):
+                        template_name = 'report/infusion_pump/licence1.html'
+                    
+                    elif (model == monometer_1):
+                        template_name = 'report/monometer/licence1.html'
+                    
+                    elif (model == spo2_1):
+                        template_name = 'report/spo2/licence1.html'
+                        ss = 0
+                        sss = 0            
+                        data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
+                        data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)#1
+                        data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)#2
+                        data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)#3
+                        data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)#4
+                        data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)#5
+                        data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)#6
+                        data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)#7
+                        data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)#8
+                        data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)#9
+                        data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)#10
+                        for i in range(11):
+                            ss+=data[i]
+                        data.append(int(((ss/11)**0.5)*100)/100)#11
 
-                elif (model == monitor_ecg_1):
-                    template_name = 'report/Monitor/ECG/licence1.html'
-
-                elif (model == monitor_safety_1):
-                    template_name = 'report/Monitor/SAFETY/licence1.html'
-
-                elif (model == aed_1):
-                    template_name = 'report/aed/licence1.html'
-
-                elif (model == anesthesia_machine_1):
-                    template_name = 'report/anesthesiamachine/licence1.html'
-
-                elif (model == defibrilator_1):
-                    template_name = 'report/defibrilator/licence1.html'
-                
-                elif (model == ecg_1):
-                    template_name = 'report/ecg/licence1.html'
-                
-                elif (model == electrocauter_1):
-                    template_name = 'report/electrocauter/licence1.html'
-                
-                elif (model == flowmeter_1):
-                    template_name = 'report/flowmeter/licence1.html'
-                
-                elif (model == infusion_pump_1):
-                    template_name = 'report/infusion_pump/licence1.html'
-                
-                elif (model == monometer_1):
-                    template_name = 'report/monometer/licence1.html'
-                
-                elif (model == spo2_1):
-                    template_name = 'report/spo2/licence1.html'
-                    ss = 0
-                    sss = 0            
-                    data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
-                    data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)#1
-                    data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)#2
-                    data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)#3
-                    data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)#4
-                    data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)#5
-                    data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)#6
-                    data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)#7
-                    data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)#8
-                    data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)#9
-                    data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)#10
-                    for i in range(11):
-                        ss+=data[i]
-                    data.append(int(((ss/11)**0.5)*100)/100)#11
-
-                    data.append((int(modelobj[0].s3_e1_pr) - 35)**2)#12
-                    data.append((int(modelobj[0].s3_e2_pr) - 60)**2)#13
-                    data.append((int(modelobj[0].s3_e3_pr) - 100)**2)#14
-                    data.append((int(modelobj[0].s3_e4_pr) - 200)**2)#15
-                    data.append((int(modelobj[0].s3_e5_pr) - 240)**2)#16
-                    for i in range(12,17):
-                        sss+=data[i]
-                    data.append(int(((sss/5)**0.5)*100)/100)#17
-                
-                elif (model == suction_1):
-                    template_name = 'report/suction/licence1.html'
-                    data.append(abs(int(modelobj[0].s1_e1_rr)))#0
-                    data.append(abs(int(modelobj[0].s1_e2_rr)))#1
-                    data.append(abs(int(modelobj[0].s1_e3_rr) - 100))#2
-                    data.append(abs(int(modelobj[0].s1_e4_rr) - 0.1))#3
-                    data.append(abs(int(modelobj[0].s1_e5_rr) - 200))#4
-                    data.append(abs(int(modelobj[0].s1_e6_rr - 0.3)))#5
-                    data.append(abs(int(modelobj[0].s1_e7_rr) - 400))#6
-                    data.append(abs(int(modelobj[0].s1_e8_rr) - 0.5))#7
-                    data.append(abs(int(modelobj[0].s1_e9_rr) - 500))#8
-                    data.append(abs(int(modelobj[0].s1_e10_rr) - 0.7))#9
-                    data.append(abs(int(modelobj[0].s2_e1_rr)))#10/////
-                    data.append(abs(int(modelobj[0].s2_e2_rr)))#11
-                    data.append(abs(int(modelobj[0].s2_e2_rr) - 38))#12
-                    data.append(abs(int(modelobj[0].s2_e2_rr) - 50))#13
-                    data.append(abs(int(modelobj[0].s2_e2_rr) - 76))#14
-                    data.append(abs(int(modelobj[0].s2_e2_rr) - 100))#15
-                    data.append(abs(int(modelobj[0].s2_e2_rr) - 114))#16
-                    data.append(abs(int(modelobj[0].s2_e2_rr) - 150))#17
+                        data.append((int(modelobj[0].s3_e1_pr) - 35)**2)#12
+                        data.append((int(modelobj[0].s3_e2_pr) - 60)**2)#13
+                        data.append((int(modelobj[0].s3_e3_pr) - 100)**2)#14
+                        data.append((int(modelobj[0].s3_e4_pr) - 200)**2)#15
+                        data.append((int(modelobj[0].s3_e5_pr) - 240)**2)#16
+                        for i in range(12,17):
+                            sss+=data[i]
+                        data.append(int(((sss/5)**0.5)*100)/100)#17
+                    
+                    elif (model == suction_1):
+                        template_name = 'report/suction/licence1.html'
+                        data.append(abs(int(modelobj[0].s1_e1_rr)))#0
+                        data.append(abs(int(modelobj[0].s1_e2_rr)))#1
+                        data.append(abs(int(modelobj[0].s1_e3_rr) - 100))#2
+                        data.append(abs(int(modelobj[0].s1_e4_rr) - 0.1))#3
+                        data.append(abs(int(modelobj[0].s1_e5_rr) - 200))#4
+                        data.append(abs(int(modelobj[0].s1_e6_rr - 0.3)))#5
+                        data.append(abs(int(modelobj[0].s1_e7_rr) - 400))#6
+                        data.append(abs(int(modelobj[0].s1_e8_rr) - 0.5))#7
+                        data.append(abs(int(modelobj[0].s1_e9_rr) - 500))#8
+                        data.append(abs(int(modelobj[0].s1_e10_rr) - 0.7))#9
+                        data.append(abs(int(modelobj[0].s2_e1_rr)))#10/////
+                        data.append(abs(int(modelobj[0].s2_e2_rr)))#11
+                        data.append(abs(int(modelobj[0].s2_e2_rr) - 38))#12
+                        data.append(abs(int(modelobj[0].s2_e2_rr) - 50))#13
+                        data.append(abs(int(modelobj[0].s2_e2_rr) - 76))#14
+                        data.append(abs(int(modelobj[0].s2_e2_rr) - 100))#15
+                        data.append(abs(int(modelobj[0].s2_e2_rr) - 114))#16
+                        data.append(abs(int(modelobj[0].s2_e2_rr) - 150))#17
 
 
-                elif (model == syringe_pump_1):
-                    template_name = 'report/syringe_pump/licence1.html'
-                    data.append(abs((int(modelobj[0].s6_e1_mf) - 50)*2))#0
-                    data.append(abs(int(modelobj[0].s6_e1_mf) - 100))#1
-                
-                elif (model == ventilator_1):
-                    template_name = 'report/ventilator/licence1.html'
+                    elif (model == syringe_pump_1):
+                        template_name = 'report/syringe_pump/licence1.html'
+                        data.append(abs((int(modelobj[0].s6_e1_mf) - 50)*2))#0
+                        data.append(abs(int(modelobj[0].s6_e1_mf) - 100))#1
+                    
+                    elif (model == ventilator_1):
+                        template_name = 'report/ventilator/licence1.html'
 
 
                     usr= aUserProfile.objects.get(user=obj.user)
