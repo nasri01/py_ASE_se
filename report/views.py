@@ -561,7 +561,7 @@ def pdf(request):
                         data1.append(int(obj.s2_e6_pr1.split('/')[0]))
                         data1.append(int(obj.s2_e6_pr2.split('/')[0]))
                         data1.append(int(obj.s2_e6_pr3.split('/')[0]))
-                        data2.append(int(obj.s2_e1_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e1_pr1.split('/')[1]))#####
                         data2.append(int(obj.s2_e1_pr2.split('/')[1]))
                         data2.append(int(obj.s2_e1_pr3.split('/')[1]))
                         data2.append(int(obj.s2_e2_pr1.split('/')[1]))
@@ -591,22 +591,22 @@ def pdf(request):
                         
                         for id in range(3):
                             data1[id] = abs(data1[id] - 30)
-                            data2[id] = abs(data1[id] - 60)
+                            data2[id] = abs(data2[id] - 60)
                         for id in range(3,6):
                             data1[id] = abs(data1[id] - 50)
-                            data2[id] = abs(data1[id] - 80)
+                            data2[id] = abs(data2[id] - 80)
                         for id in range(6,9):
                             data1[id] = abs(data1[id] - 80)
-                            data2[id] = abs(data1[id] - 120)
+                            data2[id] = abs(data2[id] - 120)
                         for id in range(9,12):
                             data1[id] = abs(data1[id] - 150)
-                            data2[id] = abs(data1[id] - 200)
+                            data2[id] = abs(data2[id] - 200)
                         for id in range(12,15):
                             data1[id] = abs(data1[id] - 15)
-                            data2[id] = abs(data1[id] - 35)
+                            data2[id] = abs(data2[id] - 35)
                         for id in range(15,18):
                             data1[id] = abs(data1[id] - 70)
-                            data2[id] = abs(data1[id] - 100)
+                            data2[id] = abs(data2[id] - 100)
                         data.append(data1)#7
                         data.append(data2)#8
 
