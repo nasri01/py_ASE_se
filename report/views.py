@@ -504,26 +504,26 @@ def pdf(request):
                         template_name = 'report/Monitor/Spo2/licence1.html'            
                         ss = 0
                         sss = 0            
-                        data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
-                        data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)#1
-                        data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)#2
-                        data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)#3
-                        data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)#4
-                        data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)#5
-                        data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)#6
-                        data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)#7
-                        data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)#8
-                        data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)#9
-                        data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)#10
+                        data.append((int(obj.s2_e1_spo2) - 70)**2)#0
+                        data.append((int(obj.s2_e2_spo2) - 75)**2)#1
+                        data.append((int(obj.s2_e3_spo2) - 80)**2)#2
+                        data.append((int(obj.s2_e4_spo2) - 85)**2)#3
+                        data.append((int(obj.s2_e5_spo2) - 88)**2)#4
+                        data.append((int(obj.s2_e6_spo2) - 90)**2)#5
+                        data.append((int(obj.s2_e7_spo2) - 92)**2)#6
+                        data.append((int(obj.s2_e8_spo2) - 94)**2)#7
+                        data.append((int(obj.s2_e9_spo2) - 96)**2)#8
+                        data.append((int(obj.s2_e10_spo2) - 98)**2)#9
+                        data.append((int(obj.s2_e11_spo2) - 100)**2)#10
                         for i in range(11):
                             ss+=data[i]
                         data.append(int(((ss/11)**0.5)*100)/100)#11
 
-                        data.append((int(modelobj[0].s3_e1_pr) - 35)**2)#12
-                        data.append((int(modelobj[0].s3_e2_pr) - 60)**2)#13
-                        data.append((int(modelobj[0].s3_e3_pr) - 100)**2)#14
-                        data.append((int(modelobj[0].s3_e4_pr) - 200)**2)#15
-                        data.append((int(modelobj[0].s3_e5_pr) - 240)**2)#16
+                        data.append((int(obj.s3_e1_pr) - 35)**2)#12
+                        data.append((int(obj.s3_e2_pr) - 60)**2)#13
+                        data.append((int(obj.s3_e3_pr) - 100)**2)#14
+                        data.append((int(obj.s3_e4_pr) - 200)**2)#15
+                        data.append((int(obj.s3_e5_pr) - 240)**2)#16
                         for i in range(12,17):
                             sss+=data[i]
                         data.append(int(((sss/5)**0.5)*100)/100)#17
@@ -533,51 +533,51 @@ def pdf(request):
                         data1 = []
                         data2 = []
                         data3 = []
-                        data1.append(int(modelobj[0].s2_e1_pr1.split('/')[0]))#14
-                        data1.append(int(modelobj[0].s2_e1_pr2.split('/')[0]))#15
-                        data1.append(int(modelobj[0].s2_e1_pr3.split('/')[0]))#16
-                        data1.append(int(modelobj[0].s2_e2_pr1.split('/')[0]))#17
-                        data1.append(int(modelobj[0].s2_e2_pr2.split('/')[0]))#18
-                        data1.append(int(modelobj[0].s2_e2_pr3.split('/')[0]))#19
-                        data1.append(int(modelobj[0].s2_e3_pr1.split('/')[0]))#20
-                        data1.append(int(modelobj[0].s2_e3_pr2.split('/')[0]))#21
-                        data1.append(int(modelobj[0].s2_e3_pr3.split('/')[0]))#22
-                        data1.append(int(modelobj[0].s2_e4_pr1.split('/')[0]))#23
-                        data1.append(int(modelobj[0].s2_e4_pr2.split('/')[0]))#24
-                        data1.append(int(modelobj[0].s2_e4_pr3.split('/')[0]))#25
-                        data1.append(int(modelobj[0].s2_e5_pr1.split('/')[0]))#26
-                        data1.append(int(modelobj[0].s2_e5_pr2.split('/')[0]))#27
-                        data1.append(int(modelobj[0].s2_e5_pr3.split('/')[0]))#28
-                        data1.append(int(modelobj[0].s2_e6_pr1.split('/')[0]))#29
-                        data1.append(int(modelobj[0].s2_e6_pr2.split('/')[0]))#30
-                        data1.append(int(modelobj[0].s2_e6_pr3.split('/')[0]))#31
-                        data2.append(int(modelobj[0].s2_e1_pr1.split('/')[1]))#32
-                        data2.append(int(modelobj[0].s2_e1_pr2.split('/')[1]))#33
-                        data2.append(int(modelobj[0].s2_e1_pr3.split('/')[1]))#34
-                        data2.append(int(modelobj[0].s2_e2_pr1.split('/')[1]))#35
-                        data2.append(int(modelobj[0].s2_e2_pr2.split('/')[1]))#36
-                        data2.append(int(modelobj[0].s2_e2_pr3.split('/')[1]))#37
-                        data2.append(int(modelobj[0].s2_e3_pr1.split('/')[1]))#38
-                        data2.append(int(modelobj[0].s2_e3_pr2.split('/')[1]))#39
-                        data2.append(int(modelobj[0].s2_e3_pr3.split('/')[1]))#40
-                        data2.append(int(modelobj[0].s2_e4_pr1.split('/')[1]))#41
-                        data2.append(int(modelobj[0].s2_e4_pr2.split('/')[1]))#42
-                        data2.append(int(modelobj[0].s2_e4_pr3.split('/')[1]))#43
-                        data2.append(int(modelobj[0].s2_e5_pr1.split('/')[1]))#44
-                        data2.append(int(modelobj[0].s2_e5_pr2.split('/')[1]))#45
-                        data2.append(int(modelobj[0].s2_e5_pr3.split('/')[1]))#46
-                        data2.append(int(modelobj[0].s2_e6_pr1.split('/')[1]))#47
-                        data2.append(int(modelobj[0].s2_e6_pr2.split('/')[1]))#48
-                        data2.append(int(modelobj[0].s2_e6_pr3.split('/')[1]))#49
+                        data1.append(int(obj.s2_e1_pr1.split('/')[0]))#14
+                        data1.append(int(obj.s2_e1_pr2.split('/')[0]))#15
+                        data1.append(int(obj.s2_e1_pr3.split('/')[0]))#16
+                        data1.append(int(obj.s2_e2_pr1.split('/')[0]))#17
+                        data1.append(int(obj.s2_e2_pr2.split('/')[0]))#18
+                        data1.append(int(obj.s2_e2_pr3.split('/')[0]))#19
+                        data1.append(int(obj.s2_e3_pr1.split('/')[0]))#20
+                        data1.append(int(obj.s2_e3_pr2.split('/')[0]))#21
+                        data1.append(int(obj.s2_e3_pr3.split('/')[0]))#22
+                        data1.append(int(obj.s2_e4_pr1.split('/')[0]))#23
+                        data1.append(int(obj.s2_e4_pr2.split('/')[0]))#24
+                        data1.append(int(obj.s2_e4_pr3.split('/')[0]))#25
+                        data1.append(int(obj.s2_e5_pr1.split('/')[0]))#26
+                        data1.append(int(obj.s2_e5_pr2.split('/')[0]))#27
+                        data1.append(int(obj.s2_e5_pr3.split('/')[0]))#28
+                        data1.append(int(obj.s2_e6_pr1.split('/')[0]))#29
+                        data1.append(int(obj.s2_e6_pr2.split('/')[0]))#30
+                        data1.append(int(obj.s2_e6_pr3.split('/')[0]))#31
+                        data2.append(int(obj.s2_e1_pr1.split('/')[1]))#32
+                        data2.append(int(obj.s2_e1_pr2.split('/')[1]))#33
+                        data2.append(int(obj.s2_e1_pr3.split('/')[1]))#34
+                        data2.append(int(obj.s2_e2_pr1.split('/')[1]))#35
+                        data2.append(int(obj.s2_e2_pr2.split('/')[1]))#36
+                        data2.append(int(obj.s2_e2_pr3.split('/')[1]))#37
+                        data2.append(int(obj.s2_e3_pr1.split('/')[1]))#38
+                        data2.append(int(obj.s2_e3_pr2.split('/')[1]))#39
+                        data2.append(int(obj.s2_e3_pr3.split('/')[1]))#40
+                        data2.append(int(obj.s2_e4_pr1.split('/')[1]))#41
+                        data2.append(int(obj.s2_e4_pr2.split('/')[1]))#42
+                        data2.append(int(obj.s2_e4_pr3.split('/')[1]))#43
+                        data2.append(int(obj.s2_e5_pr1.split('/')[1]))#44
+                        data2.append(int(obj.s2_e5_pr2.split('/')[1]))#45
+                        data2.append(int(obj.s2_e5_pr3.split('/')[1]))#46
+                        data2.append(int(obj.s2_e6_pr1.split('/')[1]))#47
+                        data2.append(int(obj.s2_e6_pr2.split('/')[1]))#48
+                        data2.append(int(obj.s2_e6_pr3.split('/')[1]))#49
                         
-                        data3.append(abs(int(modelobj[0].s1_e1_simp) - int(modelobj[0].s1_e1_nibpp))) #6    
-                        data3.append(abs(int(modelobj[0].s1_e2_simp) - int(modelobj[0].s1_e2_nibpp))) #7                        
-                        data3.append(abs(int(modelobj[0].s1_e3_simp) - int(modelobj[0].s1_e3_nibpp))) #8                        
-                        data3.append(abs(int(modelobj[0].s1_e4_simp) - int(modelobj[0].s1_e4_nibpp))) #9                        
-                        data3.append(abs(int(modelobj[0].s1_e5_simp) - int(modelobj[0].s1_e5_nibpp))) #10                        
-                        data3.append(abs(int(modelobj[0].s1_e6_simp) - int(modelobj[0].s1_e6_nibpp))) #11                       
-                        data3.append(abs(int(modelobj[0].s1_e7_simp) - int(modelobj[0].s1_e7_nibpp))) #12                       
-                        data3.append(abs(int(modelobj[0].s1_e8_simp) - int(modelobj[0].s1_e8_nibpp))) #13                       
+                        data3.append(abs(int(obj.s1_e1_simp) - int(obj.s1_e1_nibpp))) #6    
+                        data3.append(abs(int(obj.s1_e2_simp) - int(obj.s1_e2_nibpp))) #7                        
+                        data3.append(abs(int(obj.s1_e3_simp) - int(obj.s1_e3_nibpp))) #8                        
+                        data3.append(abs(int(obj.s1_e4_simp) - int(obj.s1_e4_nibpp))) #9                        
+                        data3.append(abs(int(obj.s1_e5_simp) - int(obj.s1_e5_nibpp))) #10                        
+                        data3.append(abs(int(obj.s1_e6_simp) - int(obj.s1_e6_nibpp))) #11                       
+                        data3.append(abs(int(obj.s1_e7_simp) - int(obj.s1_e7_nibpp))) #12                       
+                        data3.append(abs(int(obj.s1_e8_simp) - int(obj.s1_e8_nibpp))) #13                       
                         
                         
                         data.append(sum(data1))#0
@@ -624,56 +624,56 @@ def pdf(request):
                         template_name = 'report/spo2/licence1.html'
                         ss = 0
                         sss = 0            
-                        data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
-                        data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)#1
-                        data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)#2
-                        data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)#3
-                        data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)#4
-                        data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)#5
-                        data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)#6
-                        data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)#7
-                        data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)#8
-                        data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)#9
-                        data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)#10
+                        data.append((int(obj.s2_e1_spo2) - 70)**2)#0
+                        data.append((int(obj.s2_e2_spo2) - 75)**2)#1
+                        data.append((int(obj.s2_e3_spo2) - 80)**2)#2
+                        data.append((int(obj.s2_e4_spo2) - 85)**2)#3
+                        data.append((int(obj.s2_e5_spo2) - 88)**2)#4
+                        data.append((int(obj.s2_e6_spo2) - 90)**2)#5
+                        data.append((int(obj.s2_e7_spo2) - 92)**2)#6
+                        data.append((int(obj.s2_e8_spo2) - 94)**2)#7
+                        data.append((int(obj.s2_e9_spo2) - 96)**2)#8
+                        data.append((int(obj.s2_e10_spo2) - 98)**2)#9
+                        data.append((int(obj.s2_e11_spo2) - 100)**2)#10
                         for i in range(11):
                             ss+=data[i]
                         data.append(int(((ss/11)**0.5)*100)/100)#11
 
-                        data.append((int(modelobj[0].s3_e1_pr) - 35)**2)#12
-                        data.append((int(modelobj[0].s3_e2_pr) - 60)**2)#13
-                        data.append((int(modelobj[0].s3_e3_pr) - 100)**2)#14
-                        data.append((int(modelobj[0].s3_e4_pr) - 200)**2)#15
-                        data.append((int(modelobj[0].s3_e5_pr) - 240)**2)#16
+                        data.append((int(obj.s3_e1_pr) - 35)**2)#12
+                        data.append((int(obj.s3_e2_pr) - 60)**2)#13
+                        data.append((int(obj.s3_e3_pr) - 100)**2)#14
+                        data.append((int(obj.s3_e4_pr) - 200)**2)#15
+                        data.append((int(obj.s3_e5_pr) - 240)**2)#16
                         for i in range(12,17):
                             sss+=data[i]
                         data.append(int(((sss/5)**0.5)*100)/100)#17
                     
                     elif (model == suction_1):
                         template_name = 'report/suction/licence1.html'
-                        data.append(abs(int(modelobj[0].s1_e1_rr)))#0
-                        data.append(abs(int(modelobj[0].s1_e2_rr)))#1
-                        data.append(abs(int(modelobj[0].s1_e3_rr) - 100))#2
-                        data.append(abs(int(modelobj[0].s1_e4_rr) - 0.1))#3
-                        data.append(abs(int(modelobj[0].s1_e5_rr) - 200))#4
-                        data.append(abs(int(modelobj[0].s1_e6_rr - 0.3)))#5
-                        data.append(abs(int(modelobj[0].s1_e7_rr) - 400))#6
-                        data.append(abs(int(modelobj[0].s1_e8_rr) - 0.5))#7
-                        data.append(abs(int(modelobj[0].s1_e9_rr) - 500))#8
-                        data.append(abs(int(modelobj[0].s1_e10_rr) - 0.7))#9
-                        data.append(abs(int(modelobj[0].s2_e1_rr)))#10/////
-                        data.append(abs(int(modelobj[0].s2_e2_rr)))#11
-                        data.append(abs(int(modelobj[0].s2_e2_rr) - 38))#12
-                        data.append(abs(int(modelobj[0].s2_e2_rr) - 50))#13
-                        data.append(abs(int(modelobj[0].s2_e2_rr) - 76))#14
-                        data.append(abs(int(modelobj[0].s2_e2_rr) - 100))#15
-                        data.append(abs(int(modelobj[0].s2_e2_rr) - 114))#16
-                        data.append(abs(int(modelobj[0].s2_e2_rr) - 150))#17
+                        data.append(abs(int(obj.s1_e1_rr)))#0
+                        data.append(abs(int(obj.s1_e2_rr)))#1
+                        data.append(abs(int(obj.s1_e3_rr) - 100))#2
+                        data.append(abs(int(obj.s1_e4_rr) - 0.1))#3
+                        data.append(abs(int(obj.s1_e5_rr) - 200))#4
+                        data.append(abs(int(obj.s1_e6_rr - 0.3)))#5
+                        data.append(abs(int(obj.s1_e7_rr) - 400))#6
+                        data.append(abs(int(obj.s1_e8_rr) - 0.5))#7
+                        data.append(abs(int(obj.s1_e9_rr) - 500))#8
+                        data.append(abs(int(obj.s1_e10_rr) - 0.7))#9
+                        data.append(abs(int(obj.s2_e1_rr)))#10/////
+                        data.append(abs(int(obj.s2_e2_rr)))#11
+                        data.append(abs(int(obj.s2_e2_rr) - 38))#12
+                        data.append(abs(int(obj.s2_e2_rr) - 50))#13
+                        data.append(abs(int(obj.s2_e2_rr) - 76))#14
+                        data.append(abs(int(obj.s2_e2_rr) - 100))#15
+                        data.append(abs(int(obj.s2_e2_rr) - 114))#16
+                        data.append(abs(int(obj.s2_e2_rr) - 150))#17
 
 
                     elif (model == syringe_pump_1):
                         template_name = 'report/syringe_pump/licence1.html'
-                        data.append(abs((int(modelobj[0].s6_e1_mf) - 50)*2))#0
-                        data.append(abs(int(modelobj[0].s6_e1_mf) - 100))#1
+                        data.append(abs((int(obj.s6_e1_mf) - 50)*2))#0
+                        data.append(abs(int(obj.s6_e1_mf) - 100))#1
                     
                     elif (model == ventilator_1):
                         template_name = 'report/ventilator/licence1.html'
