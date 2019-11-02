@@ -213,7 +213,7 @@
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e1_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e1_nibpp }}</td>
               <td rowspan="8" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">±3 mmHg or 3% of reading</td>
-              {% if data.6.0 == 0 %}
+              {% if data.6.0 >= 3 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -225,7 +225,7 @@
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e2_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e2_nibpp }}</td>
-              {% if data.6.1 == 0 %}
+              {% if data.6.1 >= 3 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -240,7 +240,7 @@
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e3_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e3_nibpp }}</td>
-              {% if data.6.2 == 0 %}
+              {% if data.6.2 >= 3.6 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -254,7 +254,7 @@
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e4_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e4_nibpp }}</td>
-               {% if data.6.3 == 0 %}
+               {% if data.6.3 >= 6 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -269,7 +269,7 @@
                  <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50</td>
                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_nibpp }}</td>
-               {% if data.6.4 == 0 %}
+               {% if data.6.4 >= 3 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -282,7 +282,7 @@
                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_nibpp }}</td>
-               {% if data.6.5 == 0 %}
+               {% if data.6.5 >= 3 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -295,7 +295,7 @@
                  <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_nibpp }}</td>
-               {% if data.6.6 == 0 %}
+               {% if data.6.6 >= 3.6 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -308,7 +308,7 @@
                  <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_nibpp }}</td>
-               {% if data.6.7 == 0 %}
+               {% if data.6.7 >= 6 %}
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
@@ -352,60 +352,60 @@
       </thead>
       <tbody>
         <tr>
-          <td rowspan="4">Adult  {{ data.7 }}</td>
+          <td rowspan="4">Adult</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">30/60</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e1_pr1 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.0 }}/{{ data.8.0 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e1_pr2 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.6 }}/{{ data.8.6 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.1 }}/{{ data.8.1 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e1_pr3 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.12 }}/{{ data.8.12 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.2 }}/{{ data.8.2 }}</td>
 
         </tr>
         <tr>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50/80</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e2_pr1 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.1 }}/{{ data.8.1 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.3 }}/{{ data.8.3 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e2_pr2 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.7 }}/{{ data.8.7 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.4 }}/{{ data.8.4 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e2_pr3 }}</td>
-            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.13 }}/{{ data.8.13 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.5 }}/{{ data.8.5 }}</td>
 
         </tr>
       <tr>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80/120</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e3_pr1 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.2 }}/{{ data.8.2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.6 }}/{{ data.8.6 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e3_pr2 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.8 }}/{{ data.8.8 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.7 }}/{{ data.8.7 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e3_pr3 }}</td>
-            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.14 }}/{{ data.8.14 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.8 }}/{{ data.8.8 }}</td>
         </tr>
       <tr>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">150/200</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr1 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.3 }}/{{ data.8.3 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr2 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.9 }}/{{ data.8.9 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr2 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.10 }}/{{ data.8.10 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e4_pr3 }}</td>
-            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.15 }}/{{ data.8.15 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.11 }}/{{ data.8.11 }}</td>
         </tr>
       <tr>
           <td rowspan="2">NEO/PED</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">15/35</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e5_pr1 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.4 }}/{{ data.8.4 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.12 }}/{{ data.8.12 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e5_pr2 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.10 }}/{{ data.8.10 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.13 }}/{{ data.8.13 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e5_pr3 }}</td>
-            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.16 }}/{{ data.8.16 }}</td>
+            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.14 }}/{{ data.8.14 }}</td>
         </tr>
       <tr>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">70/100</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e6_pr1 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.5 }}/{{ data.8.5 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.15 }}/{{ data.8.15 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e6_pr2 }}</td>
-           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.11 }}/{{ data.8.11 }}</td>
+           <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.16 }}/{{ data.8.16 }}</td>
            <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s2_e6_pr3 }}</td>
             <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ data.7.17 }}/{{ data.8.17 }}</td>
         </tr>
