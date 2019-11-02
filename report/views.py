@@ -75,15 +75,15 @@ def xlsx(request):
                     for ml in modellist:
                         if obj.tt == ml:
                             pass
-                row.append(obj.deivce.hospital.city.state_name.name)#0
-                row.append(obj.deivce.hospital.city.name)#1
-                row.append(obj.deivce.hospital.name)#2
-                row.append(obj.deivce.section.name)#3
-                row.append(obj.deivce.name.type.name)#4
-                row.append(obj.deivce.name.creator.name)#5
-                row.append(obj.deivce.name.name)#6
-                row.append(obj.deivce.serial_number)#7
-                row.append(obj.deivce.property_number)#8
+                row.append(obj.device.hospital.city.state_name.name)#0
+                row.append(obj.device.hospital.city.name)#1
+                row.append(obj.device.hospital.name)#2
+                row.append(obj.device.section.name)#3
+                row.append(obj.device.name.type.name)#4
+                row.append(obj.device.name.creator.name)#5
+                row.append(obj.device.name.name)#6
+                row.append(obj.device.serial_number)#7
+                row.append(obj.device.property_number)#8
                 row.append(obj.status.status)#9
                 row.append(obj.date.strftime("%Y-%m-%d"))#10
                 if obj.licence.number != -1 :
