@@ -533,51 +533,52 @@ def pdf(request):
                         data1 = []
                         data2 = []
                         data3 = []
-                        data1.append(int(obj.s2_e1_pr1.split('/')[0]))#14
-                        data1.append(int(obj.s2_e1_pr2.split('/')[0]))#15
-                        data1.append(int(obj.s2_e1_pr3.split('/')[0]))#16
-                        data1.append(int(obj.s2_e2_pr1.split('/')[0]))#17
-                        data1.append(int(obj.s2_e2_pr2.split('/')[0]))#18
-                        data1.append(int(obj.s2_e2_pr3.split('/')[0]))#19
-                        data1.append(int(obj.s2_e3_pr1.split('/')[0]))#20
-                        data1.append(int(obj.s2_e3_pr2.split('/')[0]))#21
-                        data1.append(int(obj.s2_e3_pr3.split('/')[0]))#22
-                        data1.append(int(obj.s2_e4_pr1.split('/')[0]))#23
-                        data1.append(int(obj.s2_e4_pr2.split('/')[0]))#24
-                        data1.append(int(obj.s2_e4_pr3.split('/')[0]))#25
-                        data1.append(int(obj.s2_e5_pr1.split('/')[0]))#26
-                        data1.append(int(obj.s2_e5_pr2.split('/')[0]))#27
-                        data1.append(int(obj.s2_e5_pr3.split('/')[0]))#28
-                        data1.append(int(obj.s2_e6_pr1.split('/')[0]))#29
-                        data1.append(int(obj.s2_e6_pr2.split('/')[0]))#30
-                        data1.append(int(obj.s2_e6_pr3.split('/')[0]))#31
-                        data2.append(int(obj.s2_e1_pr1.split('/')[1]))#32
-                        data2.append(int(obj.s2_e1_pr2.split('/')[1]))#33
-                        data2.append(int(obj.s2_e1_pr3.split('/')[1]))#34
-                        data2.append(int(obj.s2_e2_pr1.split('/')[1]))#35
-                        data2.append(int(obj.s2_e2_pr2.split('/')[1]))#36
-                        data2.append(int(obj.s2_e2_pr3.split('/')[1]))#37
-                        data2.append(int(obj.s2_e3_pr1.split('/')[1]))#38
-                        data2.append(int(obj.s2_e3_pr2.split('/')[1]))#39
-                        data2.append(int(obj.s2_e3_pr3.split('/')[1]))#40
-                        data2.append(int(obj.s2_e4_pr1.split('/')[1]))#41
-                        data2.append(int(obj.s2_e4_pr2.split('/')[1]))#42
-                        data2.append(int(obj.s2_e4_pr3.split('/')[1]))#43
-                        data2.append(int(obj.s2_e5_pr1.split('/')[1]))#44
-                        data2.append(int(obj.s2_e5_pr2.split('/')[1]))#45
-                        data2.append(int(obj.s2_e5_pr3.split('/')[1]))#46
-                        data2.append(int(obj.s2_e6_pr1.split('/')[1]))#47
-                        data2.append(int(obj.s2_e6_pr2.split('/')[1]))#48
-                        data2.append(int(obj.s2_e6_pr3.split('/')[1]))#49
                         
-                        data3.append(abs(int(obj.s1_e1_simp) - int(obj.s1_e1_nibpp))) #6    
-                        data3.append(abs(int(obj.s1_e2_simp) - int(obj.s1_e2_nibpp))) #7                        
-                        data3.append(abs(int(obj.s1_e3_simp) - int(obj.s1_e3_nibpp))) #8                        
-                        data3.append(abs(int(obj.s1_e4_simp) - int(obj.s1_e4_nibpp))) #9                        
-                        data3.append(abs(int(obj.s1_e5_simp) - int(obj.s1_e5_nibpp))) #10                        
-                        data3.append(abs(int(obj.s1_e6_simp) - int(obj.s1_e6_nibpp))) #11                       
-                        data3.append(abs(int(obj.s1_e7_simp) - int(obj.s1_e7_nibpp))) #12                       
-                        data3.append(abs(int(obj.s1_e8_simp) - int(obj.s1_e8_nibpp))) #13                       
+                        data3.append(abs(int(obj.s1_e1_simp) - int(obj.s1_e1_nibpp)))   
+                        data3.append(abs(int(obj.s1_e2_simp) - int(obj.s1_e2_nibpp)))                       
+                        data3.append(abs(int(obj.s1_e3_simp) - int(obj.s1_e3_nibpp)))                       
+                        data3.append(abs(int(obj.s1_e4_simp) - int(obj.s1_e4_nibpp)))                       
+                        data3.append(abs(int(obj.s1_e5_simp) - int(obj.s1_e5_nibpp)))                        
+                        data3.append(abs(int(obj.s1_e6_simp) - int(obj.s1_e6_nibpp)))                       
+                        data3.append(abs(int(obj.s1_e7_simp) - int(obj.s1_e7_nibpp)))                       
+                        data3.append(abs(int(obj.s1_e8_simp) - int(obj.s1_e8_nibpp)))                       
+                             
+                        data1.append(int(obj.s2_e1_pr1.split('/')[0]))
+                        data1.append(int(obj.s2_e1_pr2.split('/')[0]))
+                        data1.append(int(obj.s2_e1_pr3.split('/')[0]))
+                        data1.append(int(obj.s2_e2_pr1.split('/')[0]))
+                        data1.append(int(obj.s2_e2_pr2.split('/')[0]))
+                        data1.append(int(obj.s2_e2_pr3.split('/')[0]))
+                        data1.append(int(obj.s2_e3_pr1.split('/')[0]))
+                        data1.append(int(obj.s2_e3_pr2.split('/')[0]))
+                        data1.append(int(obj.s2_e3_pr3.split('/')[0]))
+                        data1.append(int(obj.s2_e4_pr1.split('/')[0]))
+                        data1.append(int(obj.s2_e4_pr2.split('/')[0]))
+                        data1.append(int(obj.s2_e4_pr3.split('/')[0]))
+                        data1.append(int(obj.s2_e5_pr1.split('/')[0]))
+                        data1.append(int(obj.s2_e5_pr2.split('/')[0]))
+                        data1.append(int(obj.s2_e5_pr3.split('/')[0]))
+                        data1.append(int(obj.s2_e6_pr1.split('/')[0]))
+                        data1.append(int(obj.s2_e6_pr2.split('/')[0]))
+                        data1.append(int(obj.s2_e6_pr3.split('/')[0]))
+                        data2.append(int(obj.s2_e1_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e1_pr2.split('/')[1]))
+                        data2.append(int(obj.s2_e1_pr3.split('/')[1]))
+                        data2.append(int(obj.s2_e2_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e2_pr2.split('/')[1]))
+                        data2.append(int(obj.s2_e2_pr3.split('/')[1]))
+                        data2.append(int(obj.s2_e3_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e3_pr2.split('/')[1]))
+                        data2.append(int(obj.s2_e3_pr3.split('/')[1]))
+                        data2.append(int(obj.s2_e4_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e4_pr2.split('/')[1]))
+                        data2.append(int(obj.s2_e4_pr3.split('/')[1]))
+                        data2.append(int(obj.s2_e5_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e5_pr2.split('/')[1]))
+                        data2.append(int(obj.s2_e5_pr3.split('/')[1]))
+                        data2.append(int(obj.s2_e6_pr1.split('/')[1]))
+                        data2.append(int(obj.s2_e6_pr2.split('/')[1]))
+                        data2.append(int(obj.s2_e6_pr3.split('/')[1]))
                         
                         
                         data.append(sum(data1))#0
@@ -587,6 +588,25 @@ def pdf(request):
                         data.append(round(np.std(data1),2))#4
                         data.append(round(np.std(data2),2))#5
                         data.append(data3)#6
+                        
+                        for id in range(3):
+                            data1[i] = abs(data1[i] - 30)
+                            data2[i] = abs(data1[i] - 60)
+                        for id in range(3,6):
+                            data1[i] = abs(data1[i] - 50)
+                            data2[i] = abs(data1[i] - 80)
+                        for id in range(6,9):
+                            data1[i] = abs(data1[i] - 80)
+                            data2[i] = abs(data1[i] - 120)
+                        for id in range(9,12):
+                            data1[i] = abs(data1[i] - 150)
+                            data2[i] = abs(data1[i] - 200)
+                        for id in range(12,15):
+                            data1[i] = abs(data1[i] - 15)
+                            data2[i] = abs(data1[i] - 35)
+                        for id in range(15,18):
+                            data1[i] = abs(data1[i] - 70)
+                            data2[i] = abs(data1[i] - 100)
                         data.append(data1)#7
                         data.append(data2)#8
 
