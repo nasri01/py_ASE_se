@@ -501,7 +501,7 @@ def pdf(request):
             if len(dd) != 0:   
                 for obj in dd :    
                     if(model == monitor_spo2_1):
-                       template_name = 'report/Monitor/Spo2/licence1.html'            
+                        template_name = 'report/Monitor/Spo2/licence1.html'            
                         ss = 0
                         sss = 0            
                         data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
