@@ -636,6 +636,8 @@ def pdf(request):
                     
                     elif (model == infusion_pump_1):
                         template_name = 'report/infusion_pump/licence1.html'
+                        data.append(abs((int(obj.s6_e1_mf) - 50)*2))#0
+                        data.append(abs(int(obj.s6_e1_mf) - 100))#1
                     
                     elif (model == monometer_1):
                         template_name = 'report/monometer/licence1.html'
