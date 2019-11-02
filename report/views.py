@@ -590,23 +590,23 @@ def pdf(request):
                         data.append(data3)#6
                         
                         for id in range(3):
-                            data1[i] = abs(data1[i] - 30)
-                            data2[i] = abs(data1[i] - 60)
+                            data1[id] = abs(data1[id] - 30)
+                            data2[id] = abs(data1[id] - 60)
                         for id in range(3,6):
-                            data1[i] = abs(data1[i] - 50)
-                            data2[i] = abs(data1[i] - 80)
+                            data1[id] = abs(data1[id] - 50)
+                            data2[id] = abs(data1[id] - 80)
                         for id in range(6,9):
-                            data1[i] = abs(data1[i] - 80)
-                            data2[i] = abs(data1[i] - 120)
+                            data1[id] = abs(data1[id] - 80)
+                            data2[id] = abs(data1[id] - 120)
                         for id in range(9,12):
-                            data1[i] = abs(data1[i] - 150)
-                            data2[i] = abs(data1[i] - 200)
+                            data1[id] = abs(data1[id] - 150)
+                            data2[id] = abs(data1[id] - 200)
                         for id in range(12,15):
-                            data1[i] = abs(data1[i] - 15)
-                            data2[i] = abs(data1[i] - 35)
+                            data1[id] = abs(data1[id] - 15)
+                            data2[id] = abs(data1[id] - 35)
                         for id in range(15,18):
-                            data1[i] = abs(data1[i] - 70)
-                            data2[i] = abs(data1[i] - 100)
+                            data1[id] = abs(data1[id] - 70)
+                            data2[id] = abs(data1[id] - 100)
                         data.append(data1)#7
                         data.append(data2)#8
 
