@@ -1970,55 +1970,55 @@ class monometer_1(models.Model):
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
-    s0_e1_status = models.BooleanField(default=False)
+    
     s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e1comment')
-    s0_e2_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e1comment', default = 1)
+    
     s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e2comment')
-    s0_e3_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e2comment', default = 1)
+    
     s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e3comment')
-    s0_e4_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e3comment', default = 1)
+    
     s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e4comment')
-    s0_e5_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e4comment', default = 1)
+    
     s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e5comment')
-    s0_e6_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e5comment', default = 1)
+    
     s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e6comment')
-    s0_e7_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e6comment', default = 1)
+    
     s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e7comment')
-    s0_e8_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e7comment', default = 1)
+    
     s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e8comment')
-    s0_e9_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e8comment', default = 1)
+    
     s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s0e9comment')
-    s0_e10_status = models.BooleanField(default=False)
+                                      related_name='mm1s0e9comment', default = 1)
+    
     s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                       related_name='mm1s0e10comment')
-    s0_e11_status = models.BooleanField(default=False)
+                                       related_name='mm1s0e10comment', default = 1)
+    
     s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                       related_name='mm1s0e11comment')
-    s0_e12_status = models.BooleanField(default=False)
+                                       related_name='mm1s0e11comment', default = 1)
+    
     s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                       related_name='mm1s0e12comment')
-    s0_e13_status = models.BooleanField(default=False)
+                                       related_name='mm1s0e12comment', default = 1)
+    
     s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                       related_name='mm1s0e13comment')
-    s0_e14_status = models.BooleanField(default=False)
+                                       related_name='mm1s0e13comment', default = 1)
+    
     s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                       related_name='mm1s0e14comment')
-    s0_e15_status = models.BooleanField(default=False)
+                                       related_name='mm1s0e14comment', default = 1)
+    
     s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                       related_name='mm1s0e15comment')
+                                       related_name='mm1s0e15comment', default = 1)
 
     s1_e1_r = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
-                                      related_name='mm1s1e1comment')
+                                      related_name='mm1s1e1comment', default = 1)
 
     s2_e1_sp = models.IntegerField()
     s2_e1_np = models.IntegerField()
@@ -2176,73 +2176,73 @@ class suction_1(models.Model):
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    s0_e1_status = models.BooleanField(default=False)
+    
     s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e1comment')
-    s0_e2_status = models.BooleanField(default=False)
+    
     s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e2comment')
-    s0_e3_status = models.BooleanField(default=False)
+    
     s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e3comment')
-    s0_e4_status = models.BooleanField(default=False)
+    
     s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e4comment')
-    s0_e5_status = models.BooleanField(default=False)
+    
     s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e5comment')
-    s0_e6_status = models.BooleanField(default=False)
+    
     s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e6comment')
-    s0_e7_status = models.BooleanField(default=False)
+    
     s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e7comment')
-    s0_e8_status = models.BooleanField(default=False)
+    
     s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e8comment')
-    s0_e9_status = models.BooleanField(default=False)
+    
     s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                       related_name='su1s0e9comment')
-    s0_e10_status = models.BooleanField(default=False)
+    
     s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e10comment')
-    s0_e11_status = models.BooleanField(default=False)
+    
     s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e11comment')
-    s0_e12_status = models.BooleanField(default=False, blank=True, null=True)
+    
     s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e12comment')
-    s0_e13_status = models.BooleanField(default=False, blank=True, null=True)
+    
     s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e13comment')
-    s0_e14_status = models.BooleanField(default=False)
+    
     s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e14comment')
-    s0_e15_status = models.BooleanField(default=False)
+    
     s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e15comment')
-    s0_e16_status = models.BooleanField(default=False)
+
     s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e16comment')
-    s0_e17_status = models.BooleanField(default=False)
+
     s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e17comment')
-    s0_e18_status = models.BooleanField(default=False)
+
     s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e18comment')
-    s0_e19_status = models.BooleanField(default=False)
+
     s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e19comment')
-    s0_e20_status = models.BooleanField(default=False)
+
     s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e20comment')
-    s0_e21_status = models.BooleanField(default=False)
+
     s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e21comment')
-    s0_e22_status = models.BooleanField(default=False)
+
     s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e22comment')
-    s0_e23_status = models.BooleanField(default=False)
+
     s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
                                        related_name='su1s0e23comment')
     # TODO permisible error

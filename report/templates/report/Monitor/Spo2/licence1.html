@@ -83,7 +83,11 @@
         </tr>
         <tr>
             <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-            <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+            <td class="no-border"><span class="time">
+            {% if form.device.property_number != None %}
+            {{form.device.property_number}}
+            {% endif %}
+            </span>کداموال :</td>
         </tr>
 
         <tr>
@@ -105,7 +109,7 @@
               
               
               {% endfor %}
-              </span>موارد عدم شمول: 
+              </span> موارد عدم شمول: 
 
     </div>
 

@@ -210,29 +210,29 @@ def pdf1(request):
                     template_name = 'report/Monitor/Spo2/licence1.html'            
                     ss = 0
                     sss = 0            
-                    data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)
-                    data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)
-                    data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)
-                    data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)
-                    data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)
-                    data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)
-                    data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)
-                    data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)
-                    data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)
-                    data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)
-                    data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)
+                    data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
+                    data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)#1
+                    data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)#2
+                    data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)#3
+                    data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)#4
+                    data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)#5
+                    data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)#6
+                    data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)#7
+                    data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)#8
+                    data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)#9
+                    data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)#10
                     for i in range(11):
                         ss+=data[i]
-                    data.append(int(((ss/11)**0.5)*100)/100)
+                    data.append(int(((ss/11)**0.5)*100)/100)#11
 
-                    data.append((int(modelobj[0].s3_e1_pr) - 35)**2)
-                    data.append((int(modelobj[0].s3_e2_pr) - 60)**2)
-                    data.append((int(modelobj[0].s3_e3_pr) - 100)**2)
-                    data.append((int(modelobj[0].s3_e4_pr) - 200)**2)
-                    data.append((int(modelobj[0].s3_e5_pr) - 240)**2)
+                    data.append((int(modelobj[0].s3_e1_pr) - 35)**2)#12
+                    data.append((int(modelobj[0].s3_e2_pr) - 60)**2)#13
+                    data.append((int(modelobj[0].s3_e3_pr) - 100)**2)#14
+                    data.append((int(modelobj[0].s3_e4_pr) - 200)**2)#15
+                    data.append((int(modelobj[0].s3_e5_pr) - 240)**2)#16
                     for i in range(12,17):
                         sss+=data[i]
-                    data.append(int(((sss/5)**0.5)*100)/100)
+                    data.append(int(((sss/5)**0.5)*100)/100)#17
                 
                 elif (model == monitor_nibp_1):
                     template_name = 'report/Monitor/NIBP/licence1.html'
@@ -353,10 +353,54 @@ def pdf1(request):
                 
                 elif (model == spo2_1):
                     template_name = 'report/spo2/licence1.html'
+                    ss = 0
+                    sss = 0            
+                    data.append((int(modelobj[0].s2_e1_spo2) - 70)**2)#0
+                    data.append((int(modelobj[0].s2_e2_spo2) - 75)**2)#1
+                    data.append((int(modelobj[0].s2_e3_spo2) - 80)**2)#2
+                    data.append((int(modelobj[0].s2_e4_spo2) - 85)**2)#3
+                    data.append((int(modelobj[0].s2_e5_spo2) - 88)**2)#4
+                    data.append((int(modelobj[0].s2_e6_spo2) - 90)**2)#5
+                    data.append((int(modelobj[0].s2_e7_spo2) - 92)**2)#6
+                    data.append((int(modelobj[0].s2_e8_spo2) - 94)**2)#7
+                    data.append((int(modelobj[0].s2_e9_spo2) - 96)**2)#8
+                    data.append((int(modelobj[0].s2_e10_spo2) - 98)**2)#9
+                    data.append((int(modelobj[0].s2_e11_spo2) - 100)**2)#10
+                    for i in range(11):
+                        ss+=data[i]
+                    data.append(int(((ss/11)**0.5)*100)/100)#11
+
+                    data.append((int(modelobj[0].s3_e1_pr) - 35)**2)#12
+                    data.append((int(modelobj[0].s3_e2_pr) - 60)**2)#13
+                    data.append((int(modelobj[0].s3_e3_pr) - 100)**2)#14
+                    data.append((int(modelobj[0].s3_e4_pr) - 200)**2)#15
+                    data.append((int(modelobj[0].s3_e5_pr) - 240)**2)#16
+                    for i in range(12,17):
+                        sss+=data[i]
+                    data.append(int(((sss/5)**0.5)*100)/100)#17
                 
                 elif (model == suction_1):
                     template_name = 'report/suction/licence1.html'
-                
+                    data.append(abs(int(modelobj[0].s1_e1_rr)))#0
+                    data.append(abs(int(modelobj[0].s1_e2_rr)))#1
+                    data.append(abs(int(modelobj[0].s1_e3_rr) - 100))#2
+                    data.append(abs(int(modelobj[0].s1_e4_rr) - 0.1))#3
+                    data.append(abs(int(modelobj[0].s1_e5_rr) - 200))#4
+                    data.append(abs(int(modelobj[0].s1_e6_rr - 0.3)))#5
+                    data.append(abs(int(modelobj[0].s1_e7_rr) - 400))#6
+                    data.append(abs(int(modelobj[0].s1_e8_rr) - 0.5))#7
+                    data.append(abs(int(modelobj[0].s1_e9_rr) - 500))#8
+                    data.append(abs(int(modelobj[0].s1_e10_rr) - 0.7))#9
+                    data.append(abs(int(modelobj[0].s2_e1_rr)))#10/////
+                    data.append(abs(int(modelobj[0].s2_e2_rr)))#11
+                    data.append(abs(int(modelobj[0].s2_e2_rr) - 38))#12
+                    data.append(abs(int(modelobj[0].s2_e2_rr) - 50))#13
+                    data.append(abs(int(modelobj[0].s2_e2_rr) - 76))#14
+                    data.append(abs(int(modelobj[0].s2_e2_rr) - 100))#15
+                    data.append(abs(int(modelobj[0].s2_e2_rr) - 114))#16
+                    data.append(abs(int(modelobj[0].s2_e2_rr) - 150))#17
+
+
                 elif (model == syringe_pump_1):
                     template_name = 'report/syringe_pump/licence1.html'
                     data.append(abs((int(modelobj[0].s6_e1_mf) - 50)*2))#0

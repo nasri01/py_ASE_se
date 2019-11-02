@@ -90,7 +90,11 @@
             </tr>
             <tr>
                 <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
-                <td class="no-border"><span class="time">{{form.device.property_number}}</span>کداموال :</td>
+                <td class="no-border"><span class="time">
+            {% if form.device.property_number != None %}
+            {{form.device.property_number}}
+            {% endif %}
+            </span>کداموال :</td>
             </tr>
     
             <tr>
@@ -201,72 +205,192 @@
 <td style="width: 2cm;">Ok</td>
 </tr>
 <tr>
-<td>{{ form.s0_e1_comment}}</td>
-<td>{{ form.s0_e1_status}}</td>
-<td>47</td>
+{% if form.s0_e1_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e1_comment }}</td>
+        {% endif %}
+        {% if form.s0_e1_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e1_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>شماره سريال</span></td>
 <td>1</td>
 </tr>
 <tr>
-<td>{{ form.s0_e2_comment}}</td>
-<td>{{ form.s0_e2_status}}</td>
-<td>48</td>
+{% if form.s0_e2_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e2_comment }}</td>
+        {% endif %}
+        {% if form.s0_e2_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e2_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>نصب صحيح اجزاء دستگاه</span></td>
 <td>2</td>
 </tr>
 <tr>
-<td>{{ form.s0_e3_comment}}</td>
-<td>{{ form.s0_e3_status}}</td>
-<td>49</td>
+{% if form.s0_e3_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e3_comment }}</td>
+        {% endif %}
+        {% if form.s0_e3_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e3_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">چرخ ها / ترمزها</td>
 <td>3</td>
 </tr>
 <tr>
-<td>{{ form.s0_e4_comment}}</td>
-<td>{{ form.s0_e4_status}}</td>
-<td>50</td>
+{% if form.s0_e4_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e4_comment }}</td>
+        {% endif %}
+        {% if form.s0_e4_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e4_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">دوشاخه برق</td>
 <td>4</td>
 </tr>
 <tr>
-<td>{{ form.s0_e5_comment}}</td>
-<td>{{ form.s0_e5_status}}</td>
-<td>51</td>
+{% if form.s0_e5_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e5_comment }}</td>
+        {% endif %}
+        {% if form.s0_e5_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e5_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>گلند و سیم برق</span></td>
 <td>5</td>
 </tr>
 <tr>
-<td>{{ form.s0_e6_comment}}</td>
-<td>{{ form.s0_e6_status}}</td>
-<td>52</td>
+{% if form.s0_e6_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e6_comment }}</td>
+        {% endif %}
+        {% if form.s0_e6_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e6_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">استند ونگهدارنده يونيت دستگاه</td>
 <td>6</td>
 </tr>
 <tr>
-<td>{{ form.s0_e7_comment}}</td>
-<td>{{ form.s0_e7_status}}</td>
-<td>53</td>
+{% if form.s0_e7_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e7_comment }}</td>
+        {% endif %}
+        {% if form.s0_e7_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e7_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">دسته و اتصالات</td>
 <td>7</td>
 </tr>
 <tr>
-<td>{{ form.s0_e8_comment}}</td>
-<td>{{ form.s0_e8_status}}</td>
-<td>54</td>
+{% if form.s0_e8_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e8_comment }}</td>
+        {% endif %}
+        {% if form.s0_e8_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e8_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">جافيوزي و فيوزها</td>
 <td>8</td>
 </tr>
 <tr>
-<td>{{ form.s0_e9_comment}}</td>
-<td>{{ form.s0_e9_status}}</td>
-<td>55</td>
+{% if form.s0_e9_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e9_comment }}</td>
+        {% endif %}
+        {% if form.s0_e9_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e9_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">برچسب ها وعلائم</td>
 <td>9</td>
 </tr>
 <tr>
-<td>{{ form.s0_e10_comment}}</td>
-<td>{{ form.s0_e10_status}}</td>
-<td>56</td>
+{% if form.s0_e10_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e10_comment }}</td>
+        {% endif %}
+        {% if form.s0_e10_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e10_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">
     <span class="time">on/off</span>
     کليد
@@ -274,9 +398,21 @@
 <td>10</td>
 </tr>
 <tr>
-<td>{{ form.s0_e11_comment}}</td>
-<td>{{ form.s0_e11_status}}</td>
-<td>57</td>
+{% if form.s0_e11_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e11_comment }}</td>
+        {% endif %}
+        {% if form.s0_e11_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e11_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">
     <span class="time">Standby</span>
     کليد
@@ -284,86 +420,230 @@
 <td>11</td>
 </tr>
 <tr>
-<td>{{ form.s0_e12_comment}}</td>
-<td>{{ form.s0_e12_status}}</td>
-<td>--</td>
+{% if form.s0_e12_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e12_comment }}</td>
+        {% endif %}
+        {% if form.s0_e12_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e12_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">باکتريا فيلتر</td>
 <td>12</td>
 </tr>
 <tr>
-<td>{{ form.s0_e13_comment}}</td>
-<td>{{ form.s0_e13_status}}</td>
-<td>--</td>
+{% if form.s0_e13_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e13_comment }}</td>
+        {% endif %}
+        {% if form.s0_e13_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e13_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">باطري</td>
 <td>13</td>
 </tr>
 <tr>
-<td>{{ form.s0_e14_comment}}</td>
-<td>{{ form.s0_e14_status}}</td>
-<td>58</td>
+{% if form.s0_e14_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e14_comment }}</td>
+        {% endif %}
+        {% if form.s0_e14_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e14_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">عملکرد پدال</td>
 <td>14</td>
 </tr>
 <tr>
-<td>{{ form.s0_e15_comment}}</td>
-<td>{{ form.s0_e15_status}}</td>
-<td>59</td>
+{% if form.s0_e15_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e15_comment }}</td>
+        {% endif %}
+        {% if form.s0_e15_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e15_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;">اتصالات (شيلنگها و آدابتور)</td>
 <td>15</td>
 </tr>
 <tr>
-<td>{{ form.s0_e16_comment}}</td>
-<td>{{ form.s0_e16_status}}</td>
-<td>60</td>
+{% if form.s0_e16_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e16_comment }}</td>
+        {% endif %}
+        {% if form.s0_e16_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e16_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>صداي الکتروپمپ</span></td>
 <td>16</td>
 </tr>
 <tr>
-<td>{{ form.s0_e17_comment}}</td>
-<td>{{ form.s0_e17_status}}</td>
-<td>61</td>
+{% if form.s0_e17_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e17_comment }}</td>
+        {% endif %}
+        {% if form.s0_e17_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e17_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>کيفيت ظاهري و عملکرد گيج</span></td>
 <td>17</td>
 </tr>
 <tr>
-<td>{{ form.s0_e18_comment}}</td>
-<td>{{ form.s0_e18_status}}</td>
-<td>62</td>
+{% if form.s0_e18_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e18_comment }}</td>
+        {% endif %}
+        {% if form.s0_e18_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e18_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>کيفيت ظاهري و عملکرد رگولاتور</span></td>
 <td>18</td>
 </tr>
 <tr>
-<td>{{ form.s0_e19_comment}}</td>
-<td>{{ form.s0_e19_status}}</td>
-<td>63</td>
+{% if form.s0_e19_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e19_comment }}</td>
+        {% endif %}
+        {% if form.s0_e19_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e19_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>ماکزيمم مکش</span></td>
 <td>19</td>
 </tr>
 <tr>
-<td>{{ form.s0_e20_comment}}</td>
-<td>{{ form.s0_e20_status}}</td>
-<td>64</td>
+{% if form.s0_e20_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e20_comment }}</td>
+        {% endif %}
+        {% if form.s0_e20_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e20_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>تست نشتي هوا</span></td>
 <td>20</td>
 </tr>
 <tr>
-<td>{{ form.s0_e21_comment}}</td>
-<td>{{ form.s0_e21_status}}</td>
-<td>65</td>
+{% if form.s0_e21_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e21_comment }}</td>
+        {% endif %}
+        {% if form.s0_e21_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e21_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>سالم بودن مانع سرريز</span></td>
 <td>21</td>
 </tr>
 <tr>
-<td>{{ form.s0_e22_comment}}</td>
-<td>{{ form.s0_e22_status}}</td>
-<td>66</td>
+{% if form.s0_e22_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e22_comment }}</td>
+        {% endif %}
+        {% if form.s0_e22_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e22_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>جارها و گپ جار</span></td>
 <td>22</td>
 </tr>
 <tr>
-<td>{{ form.s0_e23_comment}}</td>
-<td>{{ form.s0_e23_status}}</td>
-<td>67</td>
+{% if form.s0_e23_comment.id == 1%}
+        <td></td>
+        {% else %}
+        <td>{{ form.s0_e23_comment }}</td>
+        {% endif %}
+        {% if form.s0_e23_comment.id == 1 %}
+        <td></td>
+        <td>&#10004;</td>
+        {% elif form.s0_e23_comment.id == 2 %}
+        <td></td>
+        <td></td>
+        {% else %}
+        <td>&#10004;</td>
+        <td></td>
+        {% endif %}
 <td style="text-align: right;"><span>آلارمها</span></td>
 <td>23</td>
 </tr>
@@ -400,42 +680,42 @@
 </tr>
 {#<div style="font-family: 'Times New Roman'">#}
 <tr>
-<td>1</td>
+<td>{{ data.1 }}</td>
 <td>0</td>
 <td>{{ form.s1_e2_rr}}</td>
-<td>11</td>
+<td>{{ data.0 }}</td>
 <td>0</td>
 <td>{{ form.s1_e1_rr}}</td>
 </tr>
 <tr>
-<td>2</td>
+<td>{{ data.3 }}</td>
 <td>0.1</td>
 <td>{{ form.s1_e4_rr}}</td>
-<td>12</td>
+<td>{{ data.2 }}</td>
 <td>100</td>
 <td>{{ form.s1_e3_rr}}</td>
 </tr>
 <tr>
-<td>3</td>
+<td>{{ data.5 }}</td>
 <td>0.3</td>
 <td>{{ form.s1_e6_rr}}</td>
-<td>13</td>
+<td>{{ data.4 }}</td>
 <td>200</td>
 <td>{{ form.s1_e5_rr}}</td>
 </tr>
 <tr>
-<td>4</td>
+<td>{{ data.7 }}</td>
 <td>0.5</td>
 <td>{{ form.s1_e8_rr}}</td>
-<td>14</td>
+<td>{{ data.6 }}</td>
 <td>400</td>
 <td>{{ form.s1_e7_rr}}</td>
 </tr>
 <tr>
-<td>5</td>
+<td>{{ data.9 }}</td>
 <td>0.7</td>
 <td>{{ form.s1_e10_rr}}</td>
-<td>15</td>
+<td>{{ data.8 }}</td>
 <td>500</td>
 <td>{{ form.s1_e9_rr}}</td>
 </tr>
@@ -471,34 +751,34 @@
 </tr>
 {#<div style="font-family: 'Times New Roman'">#}
 <tr>
-<td>1</td>
+<td>{{ data.11 }}</td>
 <td>0</td>
 <td>{{ form.s2_e2_rr}}</td>
-<td>11</td>
+<td>{{ data.10 }}</td>
 <td>0</td>
 <td>{{ form.s2_e1_rr}}</td>
 </tr>
 <tr>
-<td>2</td>
+<td>{{ data.13 }}</td>
 <td>50</td>
 <td>{{ form.s2_e4_rr}}</td>
-<td>12</td>
+<td>{{ data.12 }}</td>
 <td>38</td>
 <td>{{ form.s2_e3_rr}}</td>
 </tr>
 <tr>
-<td>3</td>
+<td>{{ data.15 }}</td>
 <td>100</td>
 <td>{{ form.s2_e6_rr}}</td>
-<td>13</td>
+<td>{{ data.14 }}</td>
 <td>76</td>
 <td>{{ form.s2_e5_rr}}</td>
 </tr>
 <tr>
-<td>4</td>
+<td>{{ data.17 }}</td>
 <td>150</td>
 <td>{{ form.s2_e8_rr}}</td>
-<td>14</td>
+<td>{{ data.16 }}</td>
 <td>114</td>
 <td>{{ form.s2_e7_rr}}</td>
 </tr>
@@ -515,8 +795,8 @@
                 <div class="sign-2"></div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
-                <div style="display: inline-block;">سمت:کارشناس کنترل کیفی</div>
-                <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: مهندس سعید نریمانی</div>
+                <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
+                <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ usr.user.first_name }}</div>
             </div>
 
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 3</div>
