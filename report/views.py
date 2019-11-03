@@ -633,7 +633,19 @@ def pdf(request):
                     
                     elif (model == flowmeter_1):
                         template_name = 'report/flowmeter/licence1.html'
-                    
+                        data.append(abs(int(obj.s1_e1_rlpm) - 0.5))#0
+                        data.append(abs(int(obj.s1_e2_rlpm) - 2))#1
+                        data.append(abs(int(obj.s1_e3_rlpm) - 4))#2
+                        data.append(abs(int(obj.s1_e4_rlpm) - 7))#3
+                        data.append(abs(int(obj.s1_e5_rlpm) - 10))#4
+                        data.append(abs(int(obj.s1_e6_rlpm) - 15))#5
+                        data.append(data[0] * 200)#6
+                        data.append(data[1] * 50)#7
+                        data.append(data[2] * 25)#8
+                        data.append(round(data[3] * (100/7), 2))#9
+                        data.append(data[4] * 10)#10
+                        data.append(round(data[5] * (100/15), 2))#11
+
                     elif (model == infusion_pump_1):
                         template_name = 'report/infusion_pump/licence1.html'
                         data.append(abs((int(obj.s6_e1_mf) - 50)*2))#0

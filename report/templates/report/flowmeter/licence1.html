@@ -209,80 +209,80 @@
 </tr>
 <div class="time2">
 <tr>
-{% if form.s1_e1_rlpm < 0.55 or form.s1_e1_rlpm > 0.45 %}
+{% if data.6 <= 10 %}
     <td>-</td>
     <td>&#10004;</td>
 {% else %}
     <td>&#10004;</td>
     <td>-</td>
 {% endif %}
-<td>0.05</td>
-<td>{{form.s1_e1_rlpm }}</td>
+<td>{{data.6 }}</td>
+<td>{{data.0 }}</td>
 <td>{{form.s1_e1_rlpm}}</td>
 <td>0.5</td>
 </tr>
 <tr>
-{% if form.s1_e2_rlpm < 2.2 or form.s1_e2_rlpm > 1.8 %}
+{% if data.7 <= 10 %}
     <td>-</td>
     <td>&#10004;</td>
 {% else %}
     <td>&#10004;</td>
     <td>-</td>
 {% endif %}
-<td><span>0.2</span></td>
-<td>14</td>
+<td>{{data.7 }}</td>
+<td>{{data.1 }}</td>
 <td>{{form.s1_e2_rlpm}}</td>
 <td>2</td>
 </tr>
 <tr>
-{% if form.s1_e3_rlpm < 4.4 or form.s1_e3_rlpm > 3.6 %}
+{% if data.8 <= 10 %}
     <td>-</td>
     <td>&#10004;</td>
 {% else %}
     <td>&#10004;</td>
     <td>-</td>
 {% endif %}
-<td><span>0.4</span></td>
-<td>15</td>
+<td>{{data.8 }}</td>
+<td>{{data.2 }}</td>
 <td>{{form.s1_e3_rlpm}}</td>
 <td>4</td>
 </tr>
 <tr>
-{% if form.s1_e4_rlpm < 7.7 or form.s1_e4_rlpm > 6.3 %}
+{% if data.9 <= 10 %}
     <td>-</td>
     <td>&#10004;</td>
 {% else %}
     <td>&#10004;</td>
     <td>-</td>
 {% endif %}
-<td><span>0.7</span></td>
-<td>16</td>
+<td>{{data.9 }}</td>
+<td>{{data.3 }}</td>
 <td>{{form.s1_e4_rlpm}}</td>
 <td>7</td>
 </tr>
 <tr>
-{% if form.s1_e5_rlpm < 11 or form.s1_e1_rlpm > 9 %}
+{% if data.10 <= 10 %}
     <td>-</td>
     <td>&#10004;</td>
 {% else %}
     <td>&#10004;</td>
     <td>-</td>
 {% endif %}
-<td><span>1</span></td>
-<td>17</td>
+<td>{{data.10 }}</td>
+<td>{{data.4 }}</td>
 <td>{{form.s1_e5_rlpm}}</td>
 <td>10</td>
 </tr>
 <tr>
-{% if form.s1_e6_rlpm < 16.5 or form.s1_e6_rlpm > 13.5 %}
+{% if data.11 <= 10 %}
     <td>-</td>
     <td>&#10004;</td>
 {% else %}
     <td>&#10004;</td>
     <td>-</td>
 {% endif %}
-<td><span>1.5</span></td>
-<td>18</td>
+<td>{{data.11 }}</td>
+<td>{{data.5 }}</td>
 <td>{{form.s1_e6_rlpm}}</td>
 <td>15</td>
 </tr>
