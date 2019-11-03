@@ -4,7 +4,7 @@
 
 
 <form method="POST" class="post-form">
-
+  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_nibp' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
