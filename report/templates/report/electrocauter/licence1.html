@@ -641,7 +641,7 @@
 <td style="font-weight: bold;">مانیتورینگ پیوستگی کابل</td>
 </tr>
 <tr>
-{% if form.s2_e2 <= 150 and form.s2_e2 >= 5%}
+{% if form.s2_e2 <= 150 and form.s2_e2 >= 5 %}
                 <td></td>
                 <td>&#10004;</td>
                 {% elif form.s2_e2 == -1 %}
@@ -688,8 +688,15 @@
 <td class="time">OK</td>
 </tr>
 <tr>
-<td><span></span></td>
-<td></td>
+
+
+{% if data.0 > 5 or data.1 > 15 %}
+                <td>&#10004;</td>
+                <td></td>
+                {% else %}
+                <td></td>
+                <td>&#10004;</td>
+                {% endif %}
 <td>{{ form.s3a_e1_m }}</td>
 <td>{{ form.s3a_e1_s }}</td>
 <td style="font-family: 'B Nazanin';">
@@ -700,12 +707,16 @@
     <span class="time">15%</span>
     <br>
 </td>
-
 <td>{{ form.s3a_e1_1 }}</td>
 </tr>
 <tr>
-<td><span></span></td>
-<td></td>
+{% if data.2 > 5 or data.3 > 15 %}
+                <td>&#10004;</td>
+                <td></td>
+                {% else %}
+                <td></td>
+                <td>&#10004;</td>
+                {% endif %}>
 <td>{{ form.s3a_e2_m }}</td>
 <td>{{ form.s3a_e2_s }}</td>
 <td style="font-family: 'B Nazanin';">
@@ -720,8 +731,13 @@
 <td>{{ form.s3a_e2_1 }}</td>
 </tr>
 <tr>
-<td><span></span></td>
-<td></td>
+{% if data.4 > 5 or data.5 > 15 %}
+                <td>&#10004;</td>
+                <td></td>
+                {% else %}
+                <td></td>
+                <td>&#10004;</td>
+                {% endif %}>
 <td>{{ form.s3a_e3_m }}</td>
 <td>{{ form.s3a_e3_s }}</td>
 <td style="font-family: 'B Nazanin';">
@@ -736,10 +752,15 @@
 <td>{{ form.s3a_e3_1 }}</td>
 </tr>
 <tr>
-<td><span></span></td>
-<td></td>
-<td>{{ form.s3a_e4_m }}</td>
-<td>{{ form.s3a_e4_s }}</td>
+{% if data.6 > 5 or data.7 > 15 %}
+                <td>&#10004;</td>
+                <td></td>
+                {% else %}
+                <td></td>
+                <td>&#10004;</td>
+                {% endif %}>
+<!-- <td>{{ form.s3a_e4_m }}</td>
+<td>{{ form.s3a_e4_s }}</td> -->
 <td style="font-family: 'B Nazanin';">
         <span> وات </span>
         <span> </span>
@@ -749,13 +770,13 @@
     <br>
 </td>
 
-<td>{{ form.s3a_e4_1 }}</td>
+<!-- <td>{{ form.s3a_e4_1 }}</td> -->
 </tr>
 <tr>
 <td><span></span></td>
 <td></td>
-<td>{{ form.s3a_e5_m }}</td>
-<td>{{ form.s3a_e5_s }}</td>
+<!-- <td>{{ form.s3a_e5_m }}</td>
+<td>{{ form.s3a_e5_s }}</td> -->
 <td style="font-family: 'B Nazanin';">
         <span> وات </span>
         <span> </span>
@@ -765,13 +786,13 @@
     <br>
 </td>
 
-<td>{{ form.s3a_e5_1 }}</td>
+<!-- <td>{{ form.s3a_e5_1 }}</td> -->
 </tr>
 <tr>
 <td><span></span></td>
 <td></td>
-<td>{{ form.s3a_e6_m }}</td>
-<td>{{ form.s3a_e6_s }}</td>
+<!-- <td>{{ form.s3a_e6_m }}</td> -->
+<!-- <td>{{ form.s3a_e6_s }}</td> -->
 <td style="font-family: 'B Nazanin';">
         <span> وات </span>
         <span> </span>
@@ -781,13 +802,13 @@
     <br>
 </td>
 
-<td>{{ form.s3a_e6_1 }}</td>
+<!-- <td>{{ form.s3a_e6_1 }}</td> -->
 </tr>
 <tr>
 <td><span></span></td>
 <td></td>
-<td>{{ form.s3a_e7_m }}</td>
-<td>{{ form.s3a_e7_s }}</td>
+<!-- <td>{{ form.s3a_e7_m }}</td> -->
+<!-- <td>{{ form.s3a_e7_s }}</td> -->
 <td style="font-family: 'B Nazanin';width: 4.5cm;">
         <span> وات </span>
         <span> </span>
@@ -797,7 +818,7 @@
     <br>
 </td>
 
-<td>{{ form.s3a_e7_1 }}</td>
+<!-- <td>{{ form.s3a_e7_1 }}</td> -->
 </tr>
 </tbody>
 </table>
@@ -835,8 +856,8 @@
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e1_m }}</td>
-                            <td>{{ form.s3a_e1_s }}</td>
+                            <td>{{ form.s3b_e1_m }}</td>
+                            <td>{{ form.s3b_e1_s }}</td>
                             <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                     <span> </span>
@@ -846,13 +867,13 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e1_1 }}</td>
+                            <td>{{ form.s3b_e1_1 }}</td>
                             </tr>
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e2_m }}</td>
-                            <td>{{ form.s3a_e2_s }}</td>
+                            <td>{{ form.s3b_e2_m }}</td>
+                            <td>{{ form.s3b_e2_s }}</td>
                             <td style="font-family: 'B Nazanin';">
                                     <span> وات </span>
                                     <span> </span>
@@ -862,13 +883,13 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e2_1 }}</td>
+                            <td>{{ form.s3b_e2_1 }}</td>
                             </tr>
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e3_m }}</td>
-                            <td>{{ form.s3a_e3_s }}</td>
+                            <td>{{ form.s3b_e3_m }}</td>
+                            <td>{{ form.s3b_e3_s }}</td>
                             <td style="font-family: 'B Nazanin';">
                                     <span> وات </span>
                                     <span> </span>
@@ -878,13 +899,13 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e3_1 }}</td>
+                            <td>{{ form.s3b_e3_1 }}</td>
                             </tr>
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e4_m }}</td>
-                            <td>{{ form.s3a_e4_s }}</td>
+                            <td>{{ form.s3b_e4_m }}</td>
+                            <td>{{ form.s3b_e4_s }}</td>
                             <td style="font-family: 'B Nazanin';">
                                     <span> وات </span>
                                     <span> </span>
@@ -894,13 +915,13 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e4_1 }}</td>
+                            <td>{{ form.s3b_e4_1 }}</td>
                             </tr>
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e5_m }}</td>
-                            <td>{{ form.s3a_e5_s }}</td>
+                            <td>{{ form.s3b_e5_m }}</td>
+                            <td>{{ form.s3b_e5_s }}</td>
                             <td style="font-family: 'B Nazanin';">
                                     <span> وات </span>
                                     <span> </span>
@@ -910,13 +931,13 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e5_1 }}</td>
+                            <td>{{ form.s3b_e5_1 }}</td>
                             </tr>
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e6_m }}</td>
-                            <td>{{ form.s3a_e6_s }}</td>
+                            <td>{{ form.s3b_e6_m }}</td>
+                            <td>{{ form.s3b_e6_s }}</td>
                             <td style="font-family: 'B Nazanin';">
                                     <span> وات </span>
                                     <span> </span>
@@ -926,13 +947,13 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e6_1 }}</td>
+                            <td>{{ form.s3b_e6_1 }}</td>
                             </tr>
                             <tr>
                             <td><span></span></td>
                             <td></td>
-                            <td>{{ form.s3a_e7_m }}</td>
-                            <td>{{ form.s3a_e7_s }}</td>
+                            <td>{{ form.s3b_e7_m }}</td>
+                            <td>{{ form.s3b_e7_s }}</td>
                             <td style="font-family: 'B Nazanin';width: 4.5cm;">
                                     <span> وات </span>
                                     <span> </span>
@@ -942,7 +963,7 @@
                                 <br>
                             </td>
                             
-                            <td>{{ form.s3a_e7_1 }}</td>
+                            <td>{{ form.s3b_e7_1 }}</td>
                             </tr>
                             </tbody>
                             </table>
@@ -973,8 +994,8 @@
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e1_m }}</td>
-        <td>{{ form.s3a_e1_s }}</td>
+        <td>{{ form.s3c_e1_m }}</td>
+        <td>{{ form.s3c_e1_s }}</td>
         <td style="font-family: 'B Nazanin';">
             <span> وات </span>
                 <span> </span>
@@ -984,13 +1005,13 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e1_1 }}</td>
+        <td>{{ form.s3c_e1_1 }}</td>
         </tr>
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e2_m }}</td>
-        <td>{{ form.s3a_e2_s }}</td>
+        <td>{{ form.s3c_e2_m }}</td>
+        <td>{{ form.s3c_e2_s }}</td>
         <td style="font-family: 'B Nazanin';">
                 <span> وات </span>
                 <span> </span>
@@ -1000,13 +1021,13 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e2_1 }}</td>
+        <td>{{ form.s3c_e2_1 }}</td>
         </tr>
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e3_m }}</td>
-        <td>{{ form.s3a_e3_s }}</td>
+        <td>{{ form.s3c_e3_m }}</td>
+        <td>{{ form.s3c_e3_s }}</td>
         <td style="font-family: 'B Nazanin';">
                 <span> وات </span>
                 <span> </span>
@@ -1016,13 +1037,13 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e3_1 }}</td>
+        <td>{{ form.s3c_e3_1 }}</td>
         </tr>
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e4_m }}</td>
-        <td>{{ form.s3a_e4_s }}</td>
+        <td>{{ form.s3c_e4_m }}</td>
+        <td>{{ form.s3c_e4_s }}</td>
         <td style="font-family: 'B Nazanin';">
                 <span> وات </span>
                 <span> </span>
@@ -1032,13 +1053,13 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e4_1 }}</td>
+        <td>{{ form.s3c_e4_1 }}</td>
         </tr>
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e5_m }}</td>
-        <td>{{ form.s3a_e5_s }}</td>
+        <td>{{ form.s3c_e5_m }}</td>
+        <td>{{ form.s3c_e5_s }}</td>
         <td style="font-family: 'B Nazanin';">
                 <span> وات </span>
                 <span> </span>
@@ -1048,13 +1069,13 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e5_1 }}</td>
+        <td>{{ form.s3c_e5_1 }}</td>
         </tr>
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e6_m }}</td>
-        <td>{{ form.s3a_e6_s }}</td>
+        <td>{{ form.s3c_e6_m }}</td>
+        <td>{{ form.s3c_e6_s }}</td>
         <td style="font-family: 'B Nazanin';">
                 <span> وات </span>
                 <span> </span>
@@ -1064,13 +1085,13 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e6_1 }}</td>
+        <td>{{ form.s3c_e6_1 }}</td>
         </tr>
         <tr>
         <td><span></span></td>
         <td></td>
-        <td>{{ form.s3a_e7_m }}</td>
-        <td>{{ form.s3a_e7_s }}</td>
+        <td>{{ form.s3c_e7_m }}</td>
+        <td>{{ form.s3c_e7_s }}</td>
         <td style="font-family: 'B Nazanin';width: 4.5cm;">
                 <span> وات </span>
                 <span> </span>
@@ -1080,7 +1101,7 @@
             <br>
         </td>
         
-        <td>{{ form.s3a_e7_1 }}</td>
+        <td>{{ form.s3c_e7_1 }}</td>
         </tr>
         </tbody>
         </table>
@@ -1120,8 +1141,8 @@
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e1_m }}</td>
-                        <td>{{ form.s3a_e1_s }}</td>
+                        <td>{{ form.s3d_e1_m }}</td>
+                        <td>{{ form.s3d_e1_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                             <span> وات </span>
                                 <span> </span>
@@ -1131,13 +1152,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e1_1 }}</td>
+                        <td>{{ form.s3d_e1_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e2_m }}</td>
-                        <td>{{ form.s3a_e2_s }}</td>
+                        <td>{{ form.s3d_e2_m }}</td>
+                        <td>{{ form.s3d_e2_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1147,13 +1168,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e2_1 }}</td>
+                        <td>{{ form.s3d_e2_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e3_m }}</td>
-                        <td>{{ form.s3a_e3_s }}</td>
+                        <td>{{ form.s3d_e3_m }}</td>
+                        <td>{{ form.s3d_e3_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1163,13 +1184,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e3_1 }}</td>
+                        <td>{{ form.s3d_e3_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e4_m }}</td>
-                        <td>{{ form.s3a_e4_s }}</td>
+                        <td>{{ form.s3d_e4_m }}</td>
+                        <td>{{ form.s3d_e4_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1179,13 +1200,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e4_1 }}</td>
+                        <td>{{ form.s3d_e4_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e5_m }}</td>
-                        <td>{{ form.s3a_e5_s }}</td>
+                        <td>{{ form.s3d_e5_m }}</td>
+                        <td>{{ form.s3d_e5_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1195,13 +1216,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e5_1 }}</td>
+                        <td>{{ form.s3d_e5_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e6_m }}</td>
-                        <td>{{ form.s3a_e6_s }}</td>
+                        <td>{{ form.s3d_e6_m }}</td>
+                        <td>{{ form.s3d_e6_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1211,13 +1232,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e6_1 }}</td>
+                        <td>{{ form.s3d_e6_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e7_m }}</td>
-                        <td>{{ form.s3a_e7_s }}</td>
+                        <td>{{ form.s3d_e7_m }}</td>
+                        <td>{{ form.s3d_e7_s }}</td>
                         <td style="font-family: 'B Nazanin';width: 4.5cm;">
                                 <span> وات </span>
                                 <span> </span>
@@ -1227,7 +1248,7 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e7_1 }}</td>
+                        <td>{{ form.s3d_e7_1 }}</td>
                         </tr>
                         </tbody>
                         </table>
@@ -1259,8 +1280,8 @@
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e1_m }}</td>
-                        <td>{{ form.s3a_e1_s }}</td>
+                        <td>{{ form.s3e_e1_m }}</td>
+                        <td>{{ form.s3e_e1_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                             <span> وات </span>
                                 <span> </span>
@@ -1270,13 +1291,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e1_1 }}</td>
+                        <td>{{ form.s3e_e1_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e2_m }}</td>
-                        <td>{{ form.s3a_e2_s }}</td>
+                        <td>{{ form.s3e_e2_m }}</td>
+                        <td>{{ form.s3e_e2_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1286,13 +1307,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e2_1 }}</td>
+                        <td>{{ form.s3e_e2_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e3_m }}</td>
-                        <td>{{ form.s3a_e3_s }}</td>
+                        <td>{{ form.s3e_e3_m }}</td>
+                        <td>{{ form.s3e_e3_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1302,13 +1323,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e3_1 }}</td>
+                        <td>{{ form.s3e_e3_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e4_m }}</td>
-                        <td>{{ form.s3a_e4_s }}</td>
+                        <td>{{ form.s3e_e4_m }}</td>
+                        <td>{{ form.s3e_e4_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1318,13 +1339,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e4_1 }}</td>
+                        <td>{{ form.s3e_e4_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e5_m }}</td>
-                        <td>{{ form.s3a_e5_s }}</td>
+                        <td>{{ form.s3e_e5_m }}</td>
+                        <td>{{ form.s3e_e5_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1334,13 +1355,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e5_1 }}</td>
+                        <td>{{ form.s3e_e5_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e6_m }}</td>
-                        <td>{{ form.s3a_e6_s }}</td>
+                        <td>{{ form.s3e_e6_m }}</td>
+                        <td>{{ form.s3e_e6_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1350,13 +1371,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e6_1 }}</td>
+                        <td>{{ form.s3e_e6_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e7_m }}</td>
-                        <td>{{ form.s3a_e7_s }}</td>
+                        <td>{{ form.s3e_e7_m }}</td>
+                        <td>{{ form.s3e_e7_s }}</td>
                         <td style="font-family: 'B Nazanin';width: 4.5cm;">
                                 <span> وات </span>
                                 <span> </span>
@@ -1366,7 +1387,7 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e7_1 }}</td>
+                        <td>{{ form.s3e_e7_1 }}</td>
                         </tr>
                         </tbody>
                         </table>
@@ -1413,8 +1434,8 @@
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e1_m }}</td>
-                        <td>{{ form.s3a_e1_s }}</td>
+                        <td>{{ form.s3f_e1_m }}</td>
+                        <td>{{ form.s3f_e1_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                             <span> وات </span>
                                 <span> </span>
@@ -1424,13 +1445,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e1_1 }}</td>
+                        <td>{{ form.s3f_e1_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e2_m }}</td>
-                        <td>{{ form.s3a_e2_s }}</td>
+                        <td>{{ form.s3f_e2_m }}</td>
+                        <td>{{ form.s3f_e2_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1440,13 +1461,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e2_1 }}</td>
+                        <td>{{ form.s3f_e2_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e3_m }}</td>
-                        <td>{{ form.s3a_e3_s }}</td>
+                        <td>{{ form.s3f_e3_m }}</td>
+                        <td>{{ form.s3f_e3_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1456,13 +1477,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e3_1 }}</td>
+                        <td>{{ form.s3f_e3_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e4_m }}</td>
-                        <td>{{ form.s3a_e4_s }}</td>
+                        <td>{{ form.s3f_e4_m }}</td>
+                        <td>{{ form.s3f_e4_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1472,13 +1493,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e4_1 }}</td>
+                        <td>{{ form.s3f_e4_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e5_m }}</td>
-                        <td>{{ form.s3a_e5_s }}</td>
+                        <td>{{ form.s3f_e5_m }}</td>
+                        <td>{{ form.s3f_e5_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1488,13 +1509,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e5_1 }}</td>
+                        <td>{{ form.s3f_e5_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e6_m }}</td>
-                        <td>{{ form.s3a_e6_s }}</td>
+                        <td>{{ form.s3f_e6_m }}</td>
+                        <td>{{ form.s3f_e6_s }}</td>
                         <td style="font-family: 'B Nazanin';">
                                 <span> وات </span>
                                 <span> </span>
@@ -1504,13 +1525,13 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e6_1 }}</td>
+                        <td>{{ form.s3f_e6_1 }}</td>
                         </tr>
                         <tr>
                         <td><span></span></td>
                         <td></td>
-                        <td>{{ form.s3a_e7_m }}</td>
-                        <td>{{ form.s3a_e7_s }}</td>
+                        <td>{{ form.s3f_e7_m }}</td>
+                        <td>{{ form.s3f_e7_s }}</td>
                         <td style="font-family: 'B Nazanin';width: 4.5cm;">
                                 <span> وات </span>
                                 <span> </span>
@@ -1520,7 +1541,7 @@
                             <br>
                         </td>
                         
-                        <td>{{ form.s3a_e7_1 }}</td>
+                        <td>{{ form.s3f_e7_1 }}</td>
                         </tr>
                         </tbody>
                         </table>

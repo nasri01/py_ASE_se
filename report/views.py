@@ -630,6 +630,41 @@ def pdf(request):
                     
                     elif (model == electrocauter_1):
                         template_name = 'report/electrocauter/licence1.html'
+                        data.append(abs(obj.s3a_e1_m - obj.s3a_e1_s))#0
+                        data.append((abs(obj.s3a_e1_m - obj.s3a_e1_m) / obj.s3a_e1_s) * 100))#1
+                        data.append(abs(obj.s3a_e2_m - obj.s3a_e2_s))#2
+                        data.append((abs(obj.s3a_e2_m - obj.s3a_e2_s) / obj.s3a_e2_s) * 100))#3
+                        data.append(abs(obj.s3a_e3_m - obj.s3a_e3_s))#4
+                        data.append((abs(obj.s3a_e3_m - obj.s3a_e3_s) / obj.s3a_e3_s) * 100))#5
+                        data.append(abs(obj.s3b_e1_m - obj.s3b_e1_s))#6
+                        data.append((abs(obj.s3b_e1_m - obj.s3b_e1_s) / obj.s3b_e1_s) * 100))#7
+                        data.append(abs(obj.s3b_e2_m - obj.s3b_e2_s))#8
+                        data.append((abs(obj.s3b_e2_m - obj.s3b_e2_s) / obj.s3b_e2_s) * 100))#9
+                        data.append(abs(obj.s3b_e3_m - obj.s3b_e3_s))#10
+                        data.append((abs(obj.s3b_e3_m - obj.s3b_e3_s) / obj.s3b_e3_s) * 100))#11
+                        data.append(abs(obj.s3c_e1_m - obj.s3c_e1_s))#12
+                        data.append((abs(obj.s3c_e1_m - obj.s3c_e1_s) / obj.s3c_e1_s) * 100))#13
+                        data.append(abs(obj.s3c_e2_m - obj.s3c_e2_s))#14
+                        data.append((abs(obj.s3c_e2_m - obj.s3c_e2_s) / obj.s3c_e2_s) * 100))#15
+                        data.append(abs(obj.s3c_e3_m - obj.s3c_e3_s))#16
+                        data.append((abs(obj.s3c_e3_m - obj.s3c_e3_s) / obj.s3c_e3_s) * 100))#17
+                        data.append(abs(obj.s3d_e1_m - obj.s3d_e1_s))#18
+                        data.append((abs(obj.s3d_e1_m - obj.s3d_e1_s) / obj.s3d_e1_s) * 100))#19
+                        data.append(abs(obj.s3d_e2_m - obj.s3d_e2_s))#20
+                        data.append((abs(obj.s3d_e2_m - obj.s3d_e2_s) / obj.s3d_e2_s) * 100))#21
+                        data.append(abs(obj.s3d_e3_m - obj.s3d_e3_s))#22
+                        data.append((abs(obj.s3d_e3_m - obj.s3d_e3_s) / obj.s3d_e3_s) * 100))#23
+                        data.append(abs(obj.s3e_e1_m - obj.s3e_e1_s))#24
+                        data.append((abs(obj.s3e_e1_m - obj.s3e_e1_s) / obj.s3e_e1_s) * 100))#25
+                        data.append(abs(obj.s3e_e2_m - obj.s3e_e2_s))#26
+                        data.append((abs(obj.s3e_e2_m - obj.s3e_e2_s) / obj.s3e_e2_s) * 100))#27
+                        data.append(abs(obj.s3e_e3_m - obj.s3e_e3_s))#28
+                        data.append((abs(obj.s3e_e3_m - obj.s3e_e3_s) / obj.s3e_e3_s) * 100))#29
+
+
+
+
+
                     
                     elif (model == flowmeter_1):
                         template_name = 'report/flowmeter/licence1.html'
