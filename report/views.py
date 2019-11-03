@@ -495,11 +495,12 @@ def req_summary(request):
 def pdf(request):
     if request.method == 'GET':
         s = 0
-        data = []
+        
         for model in model_list[:-2]:
             dd = model.objects.all()
             if len(dd) != 0:   
-                for obj in dd :    
+                for obj in dd : 
+                    data = []   
                     if(model == monitor_spo2_1):
                         template_name = 'report/Monitor/Spo2/licence1.html'            
                         ss = 0
