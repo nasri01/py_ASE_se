@@ -45,13 +45,7 @@ admin.site.register(record)
 
 
 
-admin.site.register(quantitive_comment_monitor_nibp)
-admin.site.register(quantitive_comment_monitor_spo2)
-admin.site.register(quantitive_comment_monitor_ecg)
-admin.site.register(quantitive_comment_monitor_safety)
-admin.site.register(quantitive_comment_aed)
-admin.site.register(quantitive_comment_anesthesia_machine)
-admin.site.register(quantitive_comment_syringe_pump)
+admin.site.register(comment)
 admin.site.register(ad_test_type)
 admin.site.register(ad_test_type0)
 admin.site.register(ad_test_type2)

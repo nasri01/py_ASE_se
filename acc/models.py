@@ -186,71 +186,7 @@ class ad_excel_arg(models.Model):
 
 
 
-class quantitive_comment_monitor_spo2(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_monitor_ecg(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_monitor_nibp(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_monitor_safety(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_aed(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_anesthesia_machine(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_defibrilator(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_ecg(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_electrocouter(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_monometer(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_syringe_pump(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_spo2(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_infusion_pump(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_suction(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_ventilator(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_flowmeter(models.Model):
-    comment = models.CharField(max_length=50)
-    def __str__(self):
-       return  str(self.comment)
-class quantitive_comment_ancobator(models.Model):
+class comment(models.Model):
     comment = models.CharField(max_length=50)
     def __str__(self):
        return  str(self.comment)

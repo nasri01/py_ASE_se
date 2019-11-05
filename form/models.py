@@ -43,9 +43,9 @@ class monitor_spo2_1(models.Model):
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_spo2, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ms1s1e1comment', default=1)
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_spo2, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ms11s1e2comment', default=1)
 
     s2_e1_spo2 = models.IntegerField()
@@ -83,7 +83,7 @@ class monitor_spo2_1(models.Model):
     s3_e5_pr = models.IntegerField()
 
     s4_e1_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='ms1s4e1accessory',default=1)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_spo2, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ms1s4e1comment', default=2)
 
     def __str__(self):
@@ -119,154 +119,154 @@ class monitor_ecg_1(models.Model):
     cal_dev_3_xd = models.DateField()
 
     s1_e1_hr = models.IntegerField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e1comment', default=1)
     s1_e2_hr = models.IntegerField()
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e2comment', default=1)
     s1_e3_hr = models.IntegerField()
-    s1_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e3comment', default=1)
     s1_e4_hr = models.IntegerField()
-    s1_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e4comment', default=1)
     s1_e5_hr = models.IntegerField()
-    s1_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e5comment', default=1)
     s1_e6_hr = models.IntegerField()
-    s1_e6_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e6comment', default=1)
     s1_e7_hr = models.IntegerField()
-    s1_e7_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e7comment', default=1)
     s1_e8_hr = models.IntegerField()
-    s1_e8_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s1_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s1e8comment', default=1)
 
     s2_e1_hr = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e1comment', default=1)
     s2_e2_hr = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e2comment', default=1)
     s2_e3_hr = models.IntegerField()
-    s2_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e3comment', default=1)
     s2_e4_hr = models.IntegerField()
-    s2_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e4comment', default=1)
     s2_e5_hr = models.IntegerField()
-    s2_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e5comment', default=1)
     s2_e6_hr = models.IntegerField()
-    s2_e6_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e6comment', default=1)
     s2_e7_hr = models.IntegerField()
-    s2_e7_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e7comment', default=1)
     s2_e8_hr = models.IntegerField()
-    s2_e8_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e8comment', default=1)
     s2_e9_hr = models.IntegerField()
-    s2_e9_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s2e9comment', default=1)
     s2_e10_hr = models.IntegerField()
-    s2_e10_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s2_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='me1s2e10comment', default=1)
 
     s3_e1_hr = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e1comment', default=1)
     s3_e2_hr = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e2comment', default=1)
     s3_e3_hr = models.IntegerField()
-    s3_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e3comment', default=1)
     s3_e4_hr = models.IntegerField()
-    s3_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e4comment', default=1)
     s3_e5_hr = models.IntegerField()
-    s3_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e5comment', default=1)
     s3_e6_hr = models.IntegerField()
-    s3_e6_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e6comment', default=1)
     s3_e7_hr = models.IntegerField()
-    s3_e7_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e7comment', default=1)
     s3_e8_hr = models.IntegerField()
-    s3_e8_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e8comment', default=1)
     s3_e9_hr = models.IntegerField()
-    s3_e9_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s3e9comment', default=1)
     s3_e10_hr = models.IntegerField()
-    s3_e10_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='me1s3e10comment', default=1)
     s3_e11_hr = models.IntegerField()
-    s3_e11_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='me1s3e11comment', default=1)
     s3_e12_hr = models.IntegerField()
-    s3_e12_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s3_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='me1s3e12comment', default=1)
 
     s4_e1_hr = models.IntegerField()
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s4e1comment', default=1)
 
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s5e1comment', default=1)
     s5_e2_delay = models.FloatField()
-    s5_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s5_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s5e2comment', default=1)
     s5_e3_delay = models.FloatField()
-    s5_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s5_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s5e3comment', default=1)
     s5_e4_delay = models.FloatField()
-    s5_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s5_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s5e4comment', default=1)
 
     s6_e1_damp = models.FloatField()
     s6_e1_ramp = models.FloatField(null=True, blank=True)
-    s6_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s6_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s6e1comment', default=1)
     s6_e2_damp = models.FloatField()
     s6_e2_ramp = models.FloatField(null=True, blank=True)
-    s6_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s6_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s6e2comment', default=1)
     s6_e3_damp = models.FloatField()
     s6_e3_ramp = models.FloatField(null=True, blank=True)
-    s6_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s6_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s6e3comment', default=1)
 
     s7_e1_damp = models.FloatField()
     s7_e1_ramp = models.FloatField(null=True, blank=True)
-    s7_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s7_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s7e1comment', default=1)
     s7_e2_damp = models.FloatField()
     s7_e2_ramp = models.FloatField(null=True, blank=True)
-    s7_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s7_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s7e2comment', default=1)
     s7_e3_damp = models.FloatField()
     s7_e3_ramp = models.FloatField(null=True, blank=True)
-    s7_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s7_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s7e3comment', default=1)
     s7_e4_damp = models.FloatField()
     s7_e4_ramp = models.FloatField(null=True, blank=True)
-    s7_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s7_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s7e4comment', default=1)
     s7_e5_damp = models.FloatField()
     s7_e5_ramp = models.FloatField(null=True, blank=True)
-    s7_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s7_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s7e5comment', default=1)
 
     s8_e1_bdisp = models.FloatField()
     s8_e1_slope = models.FloatField()
-    s8_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s8_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s8e1comment', default=1)
 
-    s9_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_ecg, on_delete=models.PROTECT,
+    s9_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='me1s9e1comment', default=1)
 
     def __str__(self):
@@ -366,93 +366,93 @@ class aed_1(models.Model):
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
 
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e1comment', default=1)
 
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e2comment', default=1)
 
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e3comment', default=1)
 
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e4comment', default=1)
 
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e5comment', default=1)
 
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e6comment', default=1)
 
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e7comment', default=1)
 
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e8comment', default=1)
 
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s0e9comment', default=1)
 
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s0e10comment', default=1)
 
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s0e11comment', default=1)
 
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s0e12comment', default=1)
 
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s0e13comment', default=1)
 
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='aed1tt')
 
     s1_e1_res = models.IntegerField(default=-1)
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s1e1comment', default=2)
 
     s2_e1_lc = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e1comment', default=1)
     s2_e2_lc = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e2comment', default=1)
     s2_e3_lc = models.IntegerField()
-    s2_e3_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e3comment', default=1)
     s2_e4_lc = models.IntegerField()
-    s2_e4_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e4comment', default=1)
     s2_e5_lc = models.IntegerField()
-    s2_e5_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e5comment', default=1)
     s2_e6_lc = models.IntegerField()
-    s2_e6_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e6comment', default=1)
     s2_e7_lc = models.IntegerField()
-    s2_e7_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s2_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s2e7comment', default=1)
 
     s3_e1_lc = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e1comment', default=1)
     s3_e2_lc = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e2comment', default=1)
     s3_e3_lc = models.IntegerField()
-    s3_e3_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e3comment', default=1)
     s3_e4_lc = models.IntegerField()
-    s3_e4_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e4comment', default=1)
     s3_e5_lc = models.IntegerField()
-    s3_e5_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e5comment', default=1)
     s3_e6_lc = models.IntegerField()
-    s3_e6_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e6comment', default=1)
     s3_e7_lc = models.IntegerField()
-    s3_e7_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s3_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e7comment', default=1)
 
     s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s4_t')
@@ -461,61 +461,61 @@ class aed_1(models.Model):
     s4_e1_lc2 = models.IntegerField(null=True, blank=True)
     s4_e1_lc3 = models.IntegerField(null=True, blank=True)
     s4_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e1comment', default=1)
     s4_e2_lc1 = models.IntegerField(null=True, blank=True)
     s4_e2_lc2 = models.IntegerField(null=True, blank=True)
     s4_e2_lc3 = models.IntegerField(null=True, blank=True)
     s4_e2_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e2comment', default=1)
     s4_e3_lc1 = models.IntegerField(null=True, blank=True)
     s4_e3_lc2 = models.IntegerField(null=True, blank=True)
     s4_e3_lc3 = models.IntegerField(null=True, blank=True)
     s4_e3_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e3comment', default=1)
     s4_e4_lc1 = models.IntegerField(null=True, blank=True)
     s4_e4_lc2 = models.IntegerField(null=True, blank=True)
     s4_e4_lc3 = models.IntegerField(null=True, blank=True)
     s4_e4_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e4comment', default=1)
     s4_e5_lc1 = models.IntegerField(null=True, blank=True)
     s4_e5_lc2 = models.IntegerField(null=True, blank=True)
     s4_e5_lc3 = models.IntegerField(null=True, blank=True)
     s4_e5_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e5_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e5comment', default=1)
     s4_e6_lc1 = models.IntegerField(null=True, blank=True)
     s4_e6_lc2 = models.IntegerField(null=True, blank=True)
     s4_e6_lc3 = models.IntegerField(null=True, blank=True)
     s4_e6_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e6_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e6comment', default=1)
     s4_e7_lc1 = models.IntegerField(null=True, blank=True)
     s4_e7_lc2 = models.IntegerField(null=True, blank=True)
     s4_e7_lc3 = models.IntegerField(null=True, blank=True)
     s4_e7_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e7_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e7comment', default=1)
     s4_e8_lc1 = models.IntegerField(null=True, blank=True)
     s4_e8_lc2 = models.IntegerField(null=True, blank=True)
     s4_e8_lc3 = models.IntegerField(null=True, blank=True)
     s4_e8_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e8_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e8comment', default=1)
     s4_e9_lc1 = models.IntegerField(null=True, blank=True)
     s4_e9_lc2 = models.IntegerField(null=True, blank=True)
     s4_e9_lc3 = models.IntegerField(null=True, blank=True)
     s4_e9_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e9_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s4e9comment', default=1)
     s4_e10_lc1 = models.IntegerField(null=True, blank=True)
     s4_e10_lc2 = models.IntegerField(null=True, blank=True)
     s4_e10_lc3 = models.IntegerField(null=True, blank=True)
     s4_e10_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e10_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s4_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s4e10comment', default=1)
 
     s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s5_t')
@@ -524,61 +524,61 @@ class aed_1(models.Model):
     s5_e1_lc2 = models.IntegerField(null=True, blank=True)
     s5_e1_lc3 = models.IntegerField(null=True, blank=True)
     s5_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e1comment', default=1)
     s5_e2_lc1 = models.IntegerField(null=True, blank=True)
     s5_e2_lc2 = models.IntegerField(null=True, blank=True)
     s5_e2_lc3 = models.IntegerField(null=True, blank=True)
     s5_e2_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e2_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e2comment', default=1)
     s5_e3_lc1 = models.IntegerField(null=True, blank=True)
     s5_e3_lc2 = models.IntegerField(null=True, blank=True)
     s5_e3_lc3 = models.IntegerField(null=True, blank=True)
     s5_e3_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e3_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e3comment', default=1)
     s5_e4_lc1 = models.IntegerField(null=True, blank=True)
     s5_e4_lc2 = models.IntegerField(null=True, blank=True)
     s5_e4_lc3 = models.IntegerField(null=True, blank=True)
     s5_e4_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e4_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e4comment', default=1)
     s5_e5_lc1 = models.IntegerField(null=True, blank=True)
     s5_e5_lc2 = models.IntegerField(null=True, blank=True)
     s5_e5_lc3 = models.IntegerField(null=True, blank=True)
     s5_e5_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e5_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e5comment', default=1)
     s5_e6_lc1 = models.IntegerField(null=True, blank=True)
     s5_e6_lc2 = models.IntegerField(null=True, blank=True)
     s5_e6_lc3 = models.IntegerField(null=True, blank=True)
     s5_e6_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e6_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e6comment', default=1)
     s5_e7_lc1 = models.IntegerField(null=True, blank=True)
     s5_e7_lc2 = models.IntegerField(null=True, blank=True)
     s5_e7_lc3 = models.IntegerField(null=True, blank=True)
     s5_e7_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e7_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e7comment', default=1)
     s5_e8_lc1 = models.IntegerField(null=True, blank=True)
     s5_e8_lc2 = models.IntegerField(null=True, blank=True)
     s5_e8_lc3 = models.IntegerField(null=True, blank=True)
     s5_e8_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e8_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e8comment', default=1)
     s5_e9_lc1 = models.IntegerField(null=True, blank=True)
     s5_e9_lc2 = models.IntegerField(null=True, blank=True)
     s5_e9_lc3 = models.IntegerField(null=True, blank=True)
     s5_e9_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e9_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s5e9comment', default=1)
     s5_e10_lc1 = models.IntegerField(null=True, blank=True)
     s5_e10_lc2 = models.IntegerField(null=True, blank=True)
     s5_e10_lc3 = models.IntegerField(null=True, blank=True)
     s5_e10_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e10_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s5_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s5e10comment', default=1)
 
     s6_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s6_t')
@@ -587,7 +587,7 @@ class aed_1(models.Model):
     s6_e1_lc2 = models.IntegerField()
     s6_e1_lc3 = models.IntegerField()
     s6_e1_lc4 = models.IntegerField()
-    s6_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s6_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s6e1comment', default=1)
 
     s11_e1_t = models.IntegerField()
@@ -595,7 +595,7 @@ class aed_1(models.Model):
     s11_e3_t = models.IntegerField(null=True, blank=True, default=-1)
 
     s12_e1_t = models.IntegerField()
-    s12_e1_comment = models.ForeignKey(acc.models.quantitive_comment_aed, on_delete=models.PROTECT,
+    s12_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s12e1comment', default=1)
     s13_e1_e = models.IntegerField()
     s13_e2_e = models.IntegerField()
@@ -633,69 +633,69 @@ class monitor_safety_1(models.Model):
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e1comment', default=1)
 
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e2comment', default=1)
 
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e3comment', default=1)
 
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e4comment', default=1)
 
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e5comment', default=1)
 
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e6comment', default=1)
 
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e7comment', default=1)
 
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e8comment', default=1)
 
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='msa1s0e9comment', default=1)
 
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e10comment', default=1)
 
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e11comment', default=1)
 
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e12comment', default=1)
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e13comment', default=1)
 
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e14comment', default=1)
 
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e15comment', default=1)
 
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e16comment', default=1)
 
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e17comment', default=1)
 
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e18comment', default=1)
 
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e19comment', default=1)
 
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e20comment', default=1)
 
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e21comment', default=1)
 
-    s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='msa1s0e22comment', default=1)
 
     s1_e1_res = models.IntegerField()
@@ -814,166 +814,166 @@ class anesthesia_machine_1(models.Model):
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e1comment', default=1)
 
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e2comment', default=1)
 
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e3comment', default=1)
 
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e4comment', default=1)
 
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e5comment', default=1)
 
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e6comment', default=1)
 
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e7comment', default=1)
 
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e8comment', default=1)
 
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s0e9comment', default=1)
 
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e10comment', default=1)
 
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e11comment', default=1)
 
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e12comment', default=1)
 
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e13comment', default=1)
 
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e14comment', default=1)
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e15comment', default=1)
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e16comment', default=2)
 
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e17comment', default=2)
 
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e18comment', default=1)
 
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e19comment', default=1)
 
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e20comment', default=1)
 
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e21comment', default=1)
 
-    s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e22comment', default=1)
 
-    s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e23comment', default=1)
 
-    s0_e24_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e24_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e24comment', default=1)
 
-    s0_e25_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e25_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e25comment', default=1)
 
-    s0_e26_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e26_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e26comment', default=1)
 
-    s0_e27_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e27_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e27comment', default=1)
 
-    s0_e28_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e28_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e28comment', default=1)
 
-    s0_e29_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e29_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e29comment', default=1)
 
-    s0_e30_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e30_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e30comment', default=2)
 
-    s0_e31_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s0_e31_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e31comment', default=1)
 
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='am1tt')
 
     s1_res = models.IntegerField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s1e1comment', default=1)
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s1e2comment', default=1)
 
     s2_e1_lc = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s2e1comment', default=1)
     s2_e2_lc = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s2e2comment', default=1)
     s2_e3_lc = models.IntegerField()
-    s2_e3_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s2_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s2e3comment', default=1)
     s2_e4_lc = models.IntegerField()
-    s2_e4_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s2_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s2e4comment', default=1)
     s2_e5_lc = models.IntegerField()
-    s2_e5_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s2_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s2e5comment', default=1)
 
     s3_e1_lc = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s3e1comment', default=1)
     s3_e2_lc = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s3e2comment', default=1)
     s3_e3_lc = models.IntegerField()
-    s3_e3_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s3_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s3e3comment', default=1)
     s3_e4_lc = models.IntegerField()
-    s3_e4_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s3_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s3e4comment', default=1)
     s3_e5_lc = models.IntegerField()
-    s3_e5_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s3e5comment', default=1)
 
     s4_e1_dclc = models.IntegerField(null=True, blank=True, default=-1)
     s4_e1_aclc = models.IntegerField(null=True, blank=True, default=-1)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s4e1comment', default=2)
 
     s4_e2_dclc = models.IntegerField(null=True, blank=True, default=-1)
     s4_e2_aclc = models.IntegerField(null=True, blank=True, default=-1)
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s4e2comment', default=2)
     s4_e3_dclc = models.IntegerField(null=True, blank=True, default=-1)
     s4_e3_aclc = models.IntegerField(null=True, blank=True, default=-1)
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s4e3comment', default=2)
     s4_e4_dclc = models.IntegerField(null=True, blank=True, default=-1)
     s4_e4_aclc = models.IntegerField(null=True, blank=True, default=-1)
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s4e4comment', default=2)
     s4_e5_dclc = models.IntegerField(null=True, blank=True, default=-1)
     s4_e5_aclc = models.IntegerField(null=True, blank=True, default=-1)
-    s4_e5_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s4_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s4e5comment', default=2)
     s4_e6_dclc = models.IntegerField(null=True, blank=True, default=-1)
     s4_e6_aclc = models.IntegerField(null=True, blank=True, default=-1)
-    s4_e6_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s4_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s4e6comment', default=2)
 
     s5_e1_cflc = models.IntegerField(null=True, blank=True, default=-1)
     s5_e1_bflc = models.IntegerField(null=True, blank=True, default=-1)
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s5e1comment', default=2)
 
     s6_e1_rff = models.IntegerField()
@@ -1026,25 +1026,25 @@ class anesthesia_machine_1(models.Model):
     s17_e5 = models.FloatField()
     s17_e6 = models.IntegerField()
 
-    s18_e1_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e1comment', default=1)
-    s18_e2_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e2comment', default=1)
-    s18_e3_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e3comment', default=1)
-    s18_e4_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e4comment', default=1)
-    s18_e5_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e5comment', default=1)
-    s18_e6_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e6comment', default=1)
-    s18_e7_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e7comment', default=1)
-    s18_e8_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e8comment', default=1)
-    s18_e9_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s18e9comment', default=1)
-    s18_e10_comment = models.ForeignKey(acc.models.quantitive_comment_anesthesia_machine, on_delete=models.PROTECT,
+    s18_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                         related_name='am1s18e10comment', default=1)
 
     s19_g1_e1 = models.FloatField(null=True, blank=True)
@@ -1099,120 +1099,99 @@ class defibrilator_1(models.Model):
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e1comment', default=1)
-
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e2comment', default=1)
-
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e3comment', default=1)
-
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e4comment', default=1)
-
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e5comment', default=1)
-
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e6comment', default=1)
-
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e7comment', default=1)
-
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e8comment', default=1)
-
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s0e9comment', default=1)
-
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e10comment', default=1)
-
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e11comment', default=1)
-
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e12comment', default=1)
-
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e13comment', default=1)
-
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e14comment', default=1)
-
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e15comment', default=1)
-
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e16comment', default=2)
-
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e17comment', default=1)
-
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e18comment', default=1)
-
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e19comment', default=1)
-
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e20comment', default=1)
-
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e21comment', default=1)
-
-    s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e22comment', default=1)
 
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='df1tt')
 
     s1_res = models.IntegerField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s1e1comment', default=1)
 
     s2_e1_lc = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e1comment', default=1)
     s2_e2_lc = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e2comment', default=1)
     s2_e3_lc = models.IntegerField()
-    s2_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e3comment', default=1)
     s2_e4_lc = models.IntegerField()
-    s2_e4_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e4comment', default=1)
     s2_e5_lc = models.IntegerField()
-    s2_e5_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e5comment', default=1)
     s2_e6_lc = models.IntegerField()
-    s2_e6_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e6comment', default=1)
     s2_e7_lc = models.IntegerField()
-    s2_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s2_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s2e7comment', default=1)
 
     s3_e1_lc = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e1comment', default=1)
     s3_e2_lc = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e2comment', default=1)
     s3_e3_lc = models.IntegerField()
-    s3_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e3comment', default=1)
     s3_e4_lc = models.IntegerField()
-    s3_e4_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e4comment', default=1)
     s3_e5_lc = models.IntegerField()
-    s3_e5_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e5comment', default=1)
     s3_e6_lc = models.IntegerField()
-    s3_e6_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e6comment', default=1)
     s3_e7_lc = models.IntegerField()
-    s3_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s3_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e7comment', default=1)
 
     s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s4_t')
@@ -1221,61 +1200,61 @@ class defibrilator_1(models.Model):
     s4_e1_lc2 = models.IntegerField(null=True, blank=True)
     s4_e1_lc3 = models.IntegerField(null=True, blank=True)
     s4_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e1comment', default=1)
     s4_e2_lc1 = models.IntegerField(null=True, blank=True)
     s4_e2_lc2 = models.IntegerField(null=True, blank=True)
     s4_e2_lc3 = models.IntegerField(null=True, blank=True)
     s4_e2_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e2comment', default=1)
     s4_e3_lc1 = models.IntegerField(null=True, blank=True)
     s4_e3_lc2 = models.IntegerField(null=True, blank=True)
     s4_e3_lc3 = models.IntegerField(null=True, blank=True)
     s4_e3_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e3comment', default=1)
     s4_e4_lc1 = models.IntegerField(null=True, blank=True)
     s4_e4_lc2 = models.IntegerField(null=True, blank=True)
     s4_e4_lc3 = models.IntegerField(null=True, blank=True)
     s4_e4_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e4comment', default=1)
     s4_e5_lc1 = models.IntegerField(null=True, blank=True)
     s4_e5_lc2 = models.IntegerField(null=True, blank=True)
     s4_e5_lc3 = models.IntegerField(null=True, blank=True)
     s4_e5_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e5_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e5comment', default=1)
     s4_e6_lc1 = models.IntegerField(null=True, blank=True)
     s4_e6_lc2 = models.IntegerField(null=True, blank=True)
     s4_e6_lc3 = models.IntegerField(null=True, blank=True)
     s4_e6_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e6_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e6comment', default=1)
     s4_e7_lc1 = models.IntegerField(null=True, blank=True)
     s4_e7_lc2 = models.IntegerField(null=True, blank=True)
     s4_e7_lc3 = models.IntegerField(null=True, blank=True)
     s4_e7_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e7comment', default=1)
     s4_e8_lc1 = models.IntegerField(null=True, blank=True)
     s4_e8_lc2 = models.IntegerField(null=True, blank=True)
     s4_e8_lc3 = models.IntegerField(null=True, blank=True)
     s4_e8_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e8_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e8comment', default=1)
     s4_e9_lc1 = models.IntegerField(null=True, blank=True)
     s4_e9_lc2 = models.IntegerField(null=True, blank=True)
     s4_e9_lc3 = models.IntegerField(null=True, blank=True)
     s4_e9_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e9_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s4e9comment', default=1)
     s4_e10_lc1 = models.IntegerField(null=True, blank=True)
     s4_e10_lc2 = models.IntegerField(null=True, blank=True)
     s4_e10_lc3 = models.IntegerField(null=True, blank=True)
     s4_e10_lc4 = models.IntegerField(null=True, blank=True)
-    s4_e10_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s4_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s4e10comment', default=1)
 
     s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s5_t')
@@ -1284,61 +1263,61 @@ class defibrilator_1(models.Model):
     s5_e1_lc2 = models.IntegerField(null=True, blank=True)
     s5_e1_lc3 = models.IntegerField(null=True, blank=True)
     s5_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e1comment', default=1)
     s5_e2_lc1 = models.IntegerField(null=True, blank=True)
     s5_e2_lc2 = models.IntegerField(null=True, blank=True)
     s5_e2_lc3 = models.IntegerField(null=True, blank=True)
     s5_e2_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e2comment', default=1)
     s5_e3_lc1 = models.IntegerField(null=True, blank=True)
     s5_e3_lc2 = models.IntegerField(null=True, blank=True)
     s5_e3_lc3 = models.IntegerField(null=True, blank=True)
     s5_e3_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e3comment', default=1)
     s5_e4_lc1 = models.IntegerField(null=True, blank=True)
     s5_e4_lc2 = models.IntegerField(null=True, blank=True)
     s5_e4_lc3 = models.IntegerField(null=True, blank=True)
     s5_e4_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e4_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e4comment', default=1)
     s5_e5_lc1 = models.IntegerField(null=True, blank=True)
     s5_e5_lc2 = models.IntegerField(null=True, blank=True)
     s5_e5_lc3 = models.IntegerField(null=True, blank=True)
     s5_e5_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e5_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e5comment', default=1)
     s5_e6_lc1 = models.IntegerField(null=True, blank=True)
     s5_e6_lc2 = models.IntegerField(null=True, blank=True)
     s5_e6_lc3 = models.IntegerField(null=True, blank=True)
     s5_e6_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e6_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e6comment', default=1)
     s5_e7_lc1 = models.IntegerField(null=True, blank=True)
     s5_e7_lc2 = models.IntegerField(null=True, blank=True)
     s5_e7_lc3 = models.IntegerField(null=True, blank=True)
     s5_e7_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e7comment', default=1)
     s5_e8_lc1 = models.IntegerField(null=True, blank=True)
     s5_e8_lc2 = models.IntegerField(null=True, blank=True)
     s5_e8_lc3 = models.IntegerField(null=True, blank=True)
     s5_e8_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e8_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e8comment', default=1)
     s5_e9_lc1 = models.IntegerField(null=True, blank=True)
     s5_e9_lc2 = models.IntegerField(null=True, blank=True)
     s5_e9_lc3 = models.IntegerField(null=True, blank=True)
     s5_e9_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e9_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s5e9comment', default=1)
     s5_e10_lc1 = models.IntegerField(null=True, blank=True)
     s5_e10_lc2 = models.IntegerField(null=True, blank=True)
     s5_e10_lc3 = models.IntegerField(null=True, blank=True)
     s5_e10_lc4 = models.IntegerField(null=True, blank=True)
-    s5_e10_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s5_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s5e10comment', default=1)
 
     s6_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s6_t')
@@ -1347,7 +1326,7 @@ class defibrilator_1(models.Model):
     s6_e1_lc2 = models.IntegerField(null=True, blank=True)
     s6_e1_lc3 = models.IntegerField(null=True, blank=True)
     s6_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s6_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s6_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s6e1comment', default=1)
 
     s7a_e1_se = models.IntegerField(default=50)
@@ -1355,21 +1334,21 @@ class defibrilator_1(models.Model):
     s7a_e1_em = models.IntegerField()
     s7a_e1_ec = models.IntegerField(null=True, blank=True)
     s7a_e1_v = models.IntegerField()
-    s7a_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7a_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ae1comment', default=1)
     s7a_e2_se = models.IntegerField(default=100)
     s7a_e2_es = models.IntegerField(null=True, blank=True)
     s7a_e2_em = models.IntegerField()
     s7a_e2_ec = models.IntegerField(null=True, blank=True)
     s7a_e2_v = models.IntegerField()
-    s7a_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7a_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ae2comment', default=1)
     s7a_e3_se = models.IntegerField(default=200)
     s7a_e3_es = models.IntegerField(null=True, blank=True)
     s7a_e3_em = models.IntegerField()
     s7a_e3_ec = models.IntegerField(null=True, blank=True)
     s7a_e3_v = models.IntegerField()
-    s7a_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7a_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ae3comment', default=1)
 
     s7b_e1_se = models.IntegerField(default=-1)
@@ -1377,130 +1356,130 @@ class defibrilator_1(models.Model):
     s7b_e1_em = models.IntegerField(default=-1)
     s7b_e1_ec = models.IntegerField(default=-1, null=True, blank=True)
     s7b_e1_v = models.IntegerField(default=-1)
-    s7b_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7b_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7be1comment', default=2)
     s7b_e2_se = models.IntegerField(default=-1)
     s7b_e2_es = models.IntegerField(default=-1, null=True, blank=True)
     s7b_e2_em = models.IntegerField(default=-1)
     s7b_e2_ec = models.IntegerField(default=-1, null=True, blank=True)
     s7b_e2_v = models.IntegerField(default=-1)
-    s7b_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7b_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7be2comment', default=2)
     s7b_e3_se = models.IntegerField(default=-1)
     s7b_e3_es = models.IntegerField(default=-1, null=True, blank=True)
     s7b_e3_em = models.IntegerField(default=-1)
     s7b_e3_ec = models.IntegerField(default=-1, null=True, blank=True)
     s7b_e3_v = models.IntegerField(default=-1)
-    s7b_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7b_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7be3comment', default=2)
     s7c_e1_se = models.IntegerField(default=10)
     s7c_e1_es = models.IntegerField(null=True, blank=True)
     s7c_e1_em = models.IntegerField()
     s7c_e1_ec = models.IntegerField(null=True, blank=True)
     s7c_e1_v = models.IntegerField()
-    s7c_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7c_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ce1comment', default=1)
     s7c_e2_se = models.IntegerField(default=30)
     s7c_e2_es = models.IntegerField(null=True, blank=True)
     s7c_e2_em = models.IntegerField()
     s7c_e2_ec = models.IntegerField(null=True, blank=True)
     s7c_e2_v = models.IntegerField()
-    s7c_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7c_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ce2comment', default=1)
     s7c_e3_se = models.IntegerField(default=50)
     s7c_e3_es = models.IntegerField(null=True, blank=True)
     s7c_e3_em = models.IntegerField()
     s7c_e3_ec = models.IntegerField(null=True, blank=True)
     s7c_e3_v = models.IntegerField()
-    s7c_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7c_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ce3comment', default=1)
 
     s7d_e1_en = models.IntegerField()
     s7d_e1_es = models.IntegerField()
     s7d_e1_ec = models.IntegerField()
-    s7d_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s7d_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7de1comment', default=1)
 
     s8_e1_en = models.IntegerField()
     s8_e1_em1 = models.IntegerField()
     s8_e1_em2 = models.IntegerField()
     s8_e1_ec = models.IntegerField()
-    s8_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s8_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s8e1comment', default=1)
     s9_e1_en = models.IntegerField()
     s9_e1_t1 = models.IntegerField()
     s9_e1_tc = models.IntegerField(null=True, blank=True)
-    s9_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s9_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s9e1comment', default=1)
 
     s10_minenergy = models.IntegerField(default=200)
     s10_e1_ct = models.IntegerField()
     s10_e1_en = models.IntegerField()
     s10_e1_enl = models.IntegerField()
-    s10_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e1comment', default=1)
     s10_e2_ct = models.IntegerField()
     s10_e2_en = models.IntegerField()
     s10_e2_enl = models.IntegerField()
-    s10_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e2comment', default=1)
     s10_e3_ct = models.IntegerField()
     s10_e3_en = models.IntegerField()
     s10_e3_enl = models.IntegerField()
-    s10_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e3comment', default=1)
     s10_e4_ct = models.IntegerField()
     s10_e4_en = models.IntegerField()
     s10_e4_enl = models.IntegerField()
-    s10_e4_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e4comment', default=1)
     s10_e5_ct = models.IntegerField()
     s10_e5_en = models.IntegerField()
     s10_e5_enl = models.IntegerField()
-    s10_e5_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e5comment', default=1)
     s10_e6_ct = models.IntegerField()
     s10_e6_en = models.IntegerField()
     s10_e6_enl = models.IntegerField()
-    s10_e6_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e6comment', default=1)
     s10_e7_ct = models.IntegerField()
     s10_e7_en = models.IntegerField()
     s10_e7_enl = models.IntegerField()
-    s10_e7_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e7comment', default=1)
     s10_e8_ct = models.IntegerField()
     s10_e8_en = models.IntegerField()
     s10_e8_enl = models.IntegerField()
-    s10_e8_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e8comment', default=1)
     s10_e9_ct = models.IntegerField()
     s10_e9_en = models.IntegerField()
     s10_e9_enl = models.IntegerField()
-    s10_e9_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s10e9comment', default=1)
     s10_e10_ct = models.IntegerField()
     s10_e10_en = models.IntegerField()
     s10_e10_enl = models.IntegerField()
-    s10_e10_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s10_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                         related_name='df1s10e10comment', default=1)
 
     s11_e1_en = models.IntegerField(default=50)
     s11_e1_t = models.IntegerField()
-    s11_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s11_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s11e1comment', default=1)
 
     s12_e1_en = models.IntegerField()
     s12_e1_cc = models.IntegerField()
-    s12_e1_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s12_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s12e1comment', default=1)
     s12_e2_en = models.IntegerField()
     s12_e2_cc = models.IntegerField()
-    s12_e2_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s12_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s12e2comment', default=1)
     s12_e3_en = models.IntegerField()
     s12_e3_cc = models.IntegerField()
-    s12_e3_comment = models.ForeignKey(acc.models.quantitive_comment_defibrilator, on_delete=models.PROTECT,
+    s12_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s12e3comment', default=1)
 
     def __str__(self):
@@ -1542,15 +1521,15 @@ class ecg_1(models.Model):
     # TODO Ecg template
     s1_e1_damp = models.FloatField()
     s1_e1_ramp = models.FloatField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s1e1comment', default=1)
     s1_e2_damp = models.FloatField()
     s1_e2_ramp = models.FloatField()
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s1e2comment', default=1)
     s1_e3_damp = models.FloatField()
     s1_e3_ramp = models.FloatField()
-    s1_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s1_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s1e3comment')
 
     s2_e1_nspeak = models.IntegerField()
@@ -1561,26 +1540,26 @@ class ecg_1(models.Model):
     s2_e6_nspeak = models.IntegerField()
 
     s3_e1_mr = models.FloatField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s3e1comment')
 
     s4_e1_mr = models.IntegerField()
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s4e1comment')
     s4_e2_mr = models.IntegerField()
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s4e2comment')
     s4_e3_mr = models.IntegerField()
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s4e3comment')
     s4_e4_mr = models.IntegerField()
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s4e4comment')
     s4_e5_mr = models.IntegerField()
-    s4_e5_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s4_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s4e5comment')
     s4_e6_mr = models.IntegerField()
-    s4_e6_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s4_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s4e6comment')
 
     s5_e1_mr = models.IntegerField()
@@ -1597,79 +1576,79 @@ class ecg_1(models.Model):
     s5_e12_mr = models.IntegerField()
 
     s6_e1_ramp = models.FloatField()
-    s6_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s6_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s6e1comment')
     s6_e2_ramp = models.FloatField()
-    s6_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s6_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s6e2comment')
     s6_e3_ramp = models.FloatField()
-    s6_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s6_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s6e3comment')
 
-    s7_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e1comment')
 
-    s7_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e2comment')
 
-    s7_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e3comment')
 
-    s7_e4_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e4comment')
 
-    s7_e5_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e5comment')
 
-    s7_e6_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e6comment')
 
-    s7_e7_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e7comment')
 
-    s7_e8_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s7_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='e1s7e8comment')
 
     s11_e1_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='e1s11e1accessory',
                                    default=1)  # N/A
 
-    s11_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s11_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s11e1comment')
 
     s11_e2_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='e1s11e2accessory',
                                    default=1)  # N/A
 
-    s11_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s11_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s11e2comment')
 
     s11_e3_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='e1s11e3accessory',
                                    default=1)  # N/A
 
-    s11_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s11_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s11e3comment')
 
     s11_e4_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='e1s11e4accessory',
                                    default=1)  # N/A
 
-    s11_e4_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s11_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s11e4comment')
 
     s11_e5_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='e1s11e5accessory',
                                    default=1)  # N/A
 
-    s11_e5_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s11_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s11e5comment')
 
-    s12_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s12_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s12e1comment')
 
-    s12_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s12_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s12e2comment')
 
-    s12_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s12_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s12e3comment')
 
-    s12_e4_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s12_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s12e4comment')
 
     s13_e1_va = models.FloatField()
@@ -1680,25 +1659,25 @@ class ecg_1(models.Model):
     s14_e1_type = models.BooleanField()
     s14_e1_er = models.FloatField()
     s14_e1_pe = models.FloatField()
-    s14_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ecg, on_delete=models.PROTECT,
+    s14_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s14e1comment')
 
     s15_e1_aplc = models.IntegerField(null=True, blank=True)
     s15_e1_noaplc = models.IntegerField(null=True, blank=True)
-    s15_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s15_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s15e1comment')
     s15_e2_aplc = models.IntegerField(null=True, blank=True)
     s15_e2_noaplc = models.IntegerField(null=True, blank=True)
-    s15_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s15_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s15e2comment')
 
     s16_e1_aplc = models.IntegerField(null=True, blank=True)
     s16_e1_noaplc = models.IntegerField(null=True, blank=True)
-    s16_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s16_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s16e1comment')
     s16_e2_aplc = models.IntegerField(null=True, blank=True)
     s16_e2_noaplc = models.IntegerField(null=True, blank=True)
-    s16_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monitor_safety, on_delete=models.PROTECT,
+    s16_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s16e2comment')
 
     s17_e1_plc = models.IntegerField()
@@ -1788,122 +1767,122 @@ class infusion_pump_1(models.Model):
     cal_dev_4_xd = models.DateField()
 
     
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e1comment')
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e2comment')
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e3comment')
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e4comment')
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e5comment')
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e6comment')
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e7comment')
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e8comment')
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e9comment')
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e10comment')
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e11comment')
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e12comment')
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e13comment')
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e14comment')
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e15comment')
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e16comment')
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e17comment')
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e18comment')
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e19comment')
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e20comment')
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e21comment')
-    s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e22comment')
-    s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e23comment')
 
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ip1tt')
 
     s1_res = models.IntegerField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s1e1comment')
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s1e2comment')
 
     s2_e1_lc = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s2e1comment')
     s2_e2_lc = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s2e2comment')
     s2_e3_lc = models.IntegerField()
-    s2_e3_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s2_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s2e3comment')
     s2_e4_lc = models.IntegerField()
-    s2_e4_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s2_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s2e4comment')
     s2_e5_lc = models.IntegerField()
-    s2_e5_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s2_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s2e5comment')
 
     s3_e1_lc = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e1comment')
     s3_e2_lc = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e2comment')
     s3_e3_lc = models.IntegerField()
-    s3_e3_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s3_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e3comment')
     s3_e4_lc = models.IntegerField()
-    s3_e4_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s3_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e4comment')
     s3_e5_lc = models.IntegerField()
-    s3_e5_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e5comment')
 
     s4_e1_dclc = models.IntegerField(default=-1)
     s4_e1_aclc = models.IntegerField(default=-1)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s4e1comment')
 
     s4_e2_dclc = models.IntegerField(default=-1)
     s4_e2_aclc = models.IntegerField(default=-1)
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s4e2comment')
     s4_e3_dclc = models.IntegerField(default=-1)
     s4_e3_aclc = models.IntegerField(default=-1)
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s4e3comment')
     s4_e4_dclc = models.IntegerField(default=-1)
     s4_e4_aclc = models.IntegerField(default=-1)
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s4e4comment')
     s4_e5_dclc = models.IntegerField(default=-1)
     s4_e5_aclc = models.IntegerField(default=-1)
-    s4_e5_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s4_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s4e5comment')
     s4_e6_dclc = models.IntegerField(default=-1)
     s4_e6_aclc = models.IntegerField(default=-1)
-    s4_e6_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s4_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s4e6comment')
 
     s5_e1_cflc = models.IntegerField(null=True, blank=True)
     s5_e1_bflc = models.IntegerField(null=True, blank=True)
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_infusion_pump, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s5e1comment')
 
     s6_e1_mf = models.IntegerField()
@@ -1949,39 +1928,39 @@ class monometer_1(models.Model):
     cal_dev_3_xd = models.DateField()
 
     
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e1comment', default = 1)
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e2comment', default = 1)
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e3comment', default = 1)
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e4comment', default = 1)
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e5comment', default = 1)  
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e6comment', default = 1) 
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e7comment', default = 1)
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e8comment', default = 1)
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s0e9comment', default = 1)
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='mm1s0e10comment', default = 1) 
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='mm1s0e11comment', default = 1)
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='mm1s0e12comment', default = 1)
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='mm1s0e13comment', default = 1) 
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='mm1s0e14comment', default = 1)
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='mm1s0e15comment', default = 1)
 
     s1_e1_r = models.IntegerField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_monometer, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='mm1s1e1comment', default = 1)
 
     s2_e1_sp = models.IntegerField()
@@ -2067,16 +2046,16 @@ class spo2_1(models.Model):
     s2_e4_pr = models.IntegerField()
 
     s3_e1_accessory = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='sp1s3e1accessory')
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s3e1comment')
 
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s4e1comment')
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s4e2comment')
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s4e3comment')
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s4e4comment')
 
     s5_e1_va = models.FloatField()
@@ -2086,16 +2065,16 @@ class spo2_1(models.Model):
 
     s6_e1_type = models.BooleanField()
     s6_e1_er = models.FloatField()
-    s6_e1_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s6_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s6e1comment')
 
     s7_e1_aplc = models.IntegerField(null=True, blank=True)
     s7_e1_noaplc = models.IntegerField(null=True, blank=True)
-    s7_e1_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s7_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s7e1comment')
     s7_e2_aplc = models.IntegerField(null=True, blank=True)
     s7_e2_noaplc = models.IntegerField(null=True, blank=True)
-    s7_e2_comment = models.ForeignKey(acc.models.quantitive_comment_spo2, on_delete=models.PROTECT,
+    s7_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s7e2comment')
 
     # TODO S8 ap type
@@ -2136,51 +2115,51 @@ class suction_1(models.Model):
     cal_dev_4_xd = models.DateField()
 
     
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e1comment')
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e2comment') 
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e3comment') 
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e4comment') 
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e5comment')    
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e6comment')  
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e7comment')    
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e8comment')    
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='su1s0e9comment')    
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e10comment')   
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e11comment')
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e12comment')
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e13comment')
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e14comment')
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e15comment')
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e16comment')
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e17comment')
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e18comment')
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e19comment')
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e20comment')
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e21comment')
-    s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e22comment')
-    s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_suction, on_delete=models.PROTECT,
+    s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='su1s0e23comment')
     # TODO permisible error
     s1_e1_rr = models.IntegerField()
@@ -2239,122 +2218,122 @@ class syringe_pump_1(models.Model):
     cal_dev_4_xd = models.DateField()
 
     
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e1comment', default=1)
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e2comment', default=1)
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e3comment', default=1)
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e4comment', default=1)
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e5comment', default=1)
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e6comment', default=1)
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e7comment', default=1)
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e8comment', default=1)
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e9comment', default=1)
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e10comment', default=1)
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e11comment', default=1)
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e12comment', default=2)
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e13comment', default=2)
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e14comment', default=1)
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e15comment', default=1)
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e16comment', default=1)
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e17comment', default=1)
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e18comment', default=1)
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e19comment', default=1)
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e20comment', default=1)
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e21comment', default=2)
-    s0_e22_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e22comment', default=1)
-    s0_e23_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e23comment', default=1)
 
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='spmp1tt')
 
     s1_res = models.IntegerField()
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s1e1comment', default=2)
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s1e2comment', default=2)
 
     s2_e1_lc = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s2e1comment', default=1)
     s2_e2_lc = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s2e2comment', default=1)
     s2_e3_lc = models.IntegerField()
-    s2_e3_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s2_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s2e3comment', default=1)
     s2_e4_lc = models.IntegerField()
-    s2_e4_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s2_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s2e4comment', default=1)
     s2_e5_lc = models.IntegerField()
-    s2_e5_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s2_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s2e5comment', default=1)
 
     s3_e1_lc = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s3e1comment', default=1)
     s3_e2_lc = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s3e2comment', default=1)
     s3_e3_lc = models.IntegerField()
-    s3_e3_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s3_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s3e3comment', default=1)
     s3_e4_lc = models.IntegerField()
-    s3_e4_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s3_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s3e4comment', default=1)
     s3_e5_lc = models.IntegerField()
-    s3_e5_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s3e5comment', default=1)
 
     s4_e1_dclc = models.IntegerField(default=-1)
     s4_e1_aclc = models.IntegerField(default=-1)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s4e1comment', default=2)
 
     s4_e2_dclc = models.IntegerField(default=-1)
     s4_e2_aclc = models.IntegerField(default=-1)
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s4e2comment', default=2)
     s4_e3_dclc = models.IntegerField(default=-1)
     s4_e3_aclc = models.IntegerField(default=-1)
-    s4_e3_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s4_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s4e3comment', default=2)
     s4_e4_dclc = models.IntegerField(default=-1)
     s4_e4_aclc = models.IntegerField(default=-1)
-    s4_e4_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s4_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s4e4comment', default=2)
     s4_e5_dclc = models.IntegerField(default=-1)
     s4_e5_aclc = models.IntegerField(default=-1)
-    s4_e5_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s4_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s4e5comment', default=2)
     s4_e6_dclc = models.IntegerField(default=-1)
     s4_e6_aclc = models.IntegerField(default=-1)
-    s4_e6_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s4_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s4e6comment', default=2)
 
     s5_e1_cflc = models.IntegerField(null=True, blank=True)
     s5_e1_bflc = models.IntegerField(null=True, blank=True)
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_syringe_pump, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s5e1comment', default=1)
 
     s6_e1_mf = models.IntegerField()
@@ -2405,39 +2384,39 @@ class electrocauter_1(models.Model):
     cal_dev_5_cd = models.DateField()
     cal_dev_5_xd = models.DateField()
 
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e1comment')
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e2comment')
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e3comment')
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e4comment')
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e5comment')
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e6comment')
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e7comment')
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e8comment')
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ec1s0e9comment')
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e10comment')
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e11comment')
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e12comment')
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e13comment')
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e14comment')
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e15comment')
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e16comment')
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e17comment')
 
     s1_res = models.FloatField(default=-1)
@@ -2664,23 +2643,23 @@ class electrocauter_1(models.Model):
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ec1tt')
 
     s11_e1_res = models.IntegerField()
-    s11_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s11_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s11e1comment')
-    s11_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s11_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s11e2comment')
 
     s12_e1_lc = models.IntegerField()
-    s12_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s12_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s12e1comment')
     s12_e2_lc = models.IntegerField()
-    s12_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s12_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s12e2comment')
 
     s13_e1_lc = models.IntegerField()
-    s13_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s13_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s13e1comment')
     s13_e2_lc = models.IntegerField()
-    s13_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s13_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s13e2comment')
     s14_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s14_t')
 
@@ -2688,13 +2667,13 @@ class electrocauter_1(models.Model):
     s14_e1_lc2 = models.IntegerField(null=True, blank=True)
     s14_e1_lc3 = models.IntegerField(null=True, blank=True)
     s14_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s14_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s14_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s14e1comment')
     s14_e2_lc1 = models.IntegerField(null=True, blank=True)
     s14_e2_lc2 = models.IntegerField(null=True, blank=True)
     s14_e2_lc3 = models.IntegerField(null=True, blank=True)
     s14_e2_lc4 = models.IntegerField(null=True, blank=True)
-    s14_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s14_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s14e2comment')
 
     s15_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s15_t')
@@ -2703,13 +2682,13 @@ class electrocauter_1(models.Model):
     s15_e1_lc2 = models.IntegerField(null=True, blank=True)
     s15_e1_lc3 = models.IntegerField(null=True, blank=True)
     s15_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s15_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s15_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s15e1comment')
     s15_e2_lc1 = models.IntegerField(null=True, blank=True)
     s15_e2_lc2 = models.IntegerField(null=True, blank=True)
     s15_e2_lc3 = models.IntegerField(null=True, blank=True)
     s15_e2_lc4 = models.IntegerField(null=True, blank=True)
-    s15_e2_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s15_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s15e2comment')
 
     s16_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s16_t')
@@ -2718,7 +2697,7 @@ class electrocauter_1(models.Model):
     s16_e1_lc2 = models.IntegerField(null=True, blank=True)
     s16_e1_lc3 = models.IntegerField(null=True, blank=True)
     s16_e1_lc4 = models.IntegerField(null=True, blank=True)
-    s16_e1_comment = models.ForeignKey(acc.models.quantitive_comment_electrocouter, on_delete=models.PROTECT,
+    s16_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s16e1comment')
 
     se_e1_title = models.CharField(max_length=20, null=True, blank=True)
@@ -2761,86 +2740,86 @@ class ventilator_1(models.Model):
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    s0_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e1comment')
-    s0_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e2comment')
-    s0_e3_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e3comment')
-    s0_e4_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e4comment')
-    s0_e5_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e5comment')
-    s0_e6_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e6comment')
-    s0_e7_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e7comment')
-    s0_e8_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e8comment')
-    s0_e9_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s0e9comment')
-    s0_e10_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e10comment')
-    s0_e11_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e11comment')
-    s0_e12_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e12comment')
-    s0_e13_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e13comment')
-    s0_e14_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e14comment')
-    s0_e15_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e15comment')
-    s0_e16_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e16comment')
-    s0_e17_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e17comment')
-    s0_e18_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e18comment')
-    s0_e19_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e19comment')
-    s0_e20_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e20comment')
-    s0_e21_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e21comment')
 
     test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ven1tt')
 
     s1_res = models.IntegerField(default=-1)
-    s1_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s1e1comment')
-    s1_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s1e2comment')
 
     s2_e1_lc = models.IntegerField()
-    s2_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s2_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s2e1comment')
     s2_e2_lc = models.IntegerField()
-    s2_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s2_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s2e2comment')
 
     s3_e1_lc = models.IntegerField()
-    s3_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s3e1comment')
     s3_e2_lc = models.IntegerField()
-    s3_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s3_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s3e2comment')
     s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ven1s4_t')
 
     s4_e1_lcac = models.IntegerField(default=-1)
     s4_e1_lcdc = models.IntegerField(default=-1)
-    s4_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s4e1comment')
     s4_e2_lcac = models.IntegerField(default=-1)
     s4_e2_lcdc = models.IntegerField(default=-1)
-    s4_e2_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s4_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s4e2comment')
 
     s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ven1s5_t')
 
     s2_e1_lcbf = models.IntegerField(default=-1)
     s5_e1_lccf = models.IntegerField(default=-1)
-    s5_e1_comment = models.ForeignKey(acc.models.quantitive_comment_ventilator, on_delete=models.PROTECT,
+    s5_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ven1s5e1comment')
 
     s6_e1_rff = models.IntegerField(default=-1)

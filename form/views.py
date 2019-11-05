@@ -138,8 +138,6 @@ def save_router(request,formtype):
                                         sform.cal_dev_5_xd = Cal_device.objects.get(
                                             id=request.POST['cal_dev5']).calibration_Expire_date
                         sform.save()
-                        form1.save_m2m()
-
 
                     return render(request, 'acc/employee/index.html',
                                 {'green_status': green_status,'auser':auser})

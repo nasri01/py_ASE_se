@@ -760,7 +760,7 @@ def pdf(request):
                    
                     if not os.path.exists(f'{obj.request.number}/'):
                         os.makedirs(f'{obj.request.number}/')
-                   
+                        
                     HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
@@ -768,56 +768,7 @@ def pdf(request):
                                             request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                             record = rd.objects.create(number=int(rd.objects.last().number)+1),
                                             licence = lcc.objects.create(number=int(lcc.objects.last().number)+1),
-                                             is_done = obj.is_done)
-                    
-                    for w in obj.totalcomment.all():
-                        if(model == monitor_spo2_1):
-                            a12.monitor_spo2_totalcomment.add(w)
-                        
-                        elif (model == monitor_nibp_1):
-                            a12.monitor_nibp_totalcomment.add(w)
-
-                        elif (model == monitor_ecg_1):
-                            a12.monitor_ecg_totalcomment.add(w)
-
-                        elif (model == monitor_safety_1):
-                            a12.monitor_safety_totalcomment.add(w)
-
-                        elif (model == aed_1):
-                            a12.aed_totalcomment.add(w)
-
-                        elif (model == anesthesia_machine_1):
-                            a12.anesthesia_machine_totalcomment.add(w)
-
-                        elif (model == defibrilator_1):
-                            a12.defibrilator_totalcomment.add(w)
-                        
-                        elif (model == ecg_1):
-                            a12.ecg_totalcomment.add(w)
-                        
-                        elif (model == electrocauter_1):
-                            a12.electrocauter_totalcomment.add(w)
-                        
-                        elif (model == flowmeter_1):
-                            a12.flowmeter_totalcomment.add(w)
-                        
-                        elif (model == infusion_pump_1):
-                            a12.infusion_pump_totalcomment.add(w)
-                        
-                        elif (model == monometer_1):
-                            a12.monometer_totalcomment.add(w)
-                        
-                        elif (model == spo2_1):
-                            a12.spo2_totalcomment.add(w)
-                        
-                        elif (model == suction_1):
-                            a12.suction_totalcomment.add(w)
-                        
-                        elif (model == syringe_pump_1):
-                            a12.syringe_pump_totalcomment.add(w)
-                        
-                        elif (model == ventilator_1):
-                            a12.ventilator_totalcomment.add(w)
+                                             is_done = obj.is_done, totalcomment = obj.totalcomment)
                     a12.save()
                     # obj.delete()
             s+=1
