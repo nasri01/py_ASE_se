@@ -461,8 +461,7 @@ def req_summary(request):
             sn = request.GET['sec_name']
             rn = int(request.GET['req_num'])
             types = device_type.objects.get(id__gte=13)
-            for model in model_list[:-2
-            ]:
+            for model in model_list[:-2]:
                 temp = model.objects.filter(request__number__exact = rn).filter(#number of test of each device
                     device__section__name__exact = sn)
                 temp2 = cant_test.objects.filter(request__number__exact=rn).filter(#number of cant test of each device
@@ -754,14 +753,21 @@ def pdf(request):
                     font_config = FontConfiguration()
                     html = render_to_string(template_name, {
                         'form': obj, 'time': t2,'usr':usr,'data':data })
+
+                    www = render_to_string('pdf-style.css', {'usr':usr })
+                    
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
-                   
-                    if not os.path.exists(f'{obj.request.number}/'):
-                        os.makedirs(f'{obj.request.number}/')
+                    css3 = CSS(string = render_to_string('pdf-style.css', {'usr':usr }))
+                    print(www)
+                    if not os.path.exists('_reports/'):
+                        os.makedirs('_reports/')
+                    
+                    if not os.path.exists(f'_reports/{obj.request.number}/'):
+                        os.makedirs(f'_reports/{obj.request.number}/')
                         
-                    HTML(string=html).write_pdf(f'{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
+                    HTML(string=html).write_pdf(f'_reports/{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2, css3])
                     
                     
                     a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,

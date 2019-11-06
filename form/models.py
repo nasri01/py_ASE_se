@@ -1854,6 +1854,7 @@ class infusion_pump_1(models.Model):
     s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e5comment')
 
+    
     s4_e1_dclc = models.IntegerField(default=-1)
     s4_e1_aclc = models.IntegerField(default=-1)
     s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1889,9 +1890,9 @@ class infusion_pump_1(models.Model):
     s6_e2_mf = models.IntegerField()
 
     s7_e1_mmf = models.IntegerField()
-    s7_e1_af = models.IntegerField()
+    
     s7_e2_mmf = models.IntegerField()
-    s7_e2_af = models.IntegerField()
+    
 
     s8_e1_status = models.BooleanField(default=False)
 
@@ -2340,9 +2341,7 @@ class syringe_pump_1(models.Model):
     s6_e2_mf = models.IntegerField()
 
     s7_e1_mmf = models.IntegerField()
-    s7_e1_af = models.IntegerField()
     s7_e2_mmf = models.IntegerField()
-    s7_e2_af = models.IntegerField()
 
     s8_e1_status = models.BooleanField(default=False)
 

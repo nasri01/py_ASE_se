@@ -133,3 +133,9 @@ option{
 	min-width: 120px;
 	/* padding-right: 2rem; */
   }
+
+  .help-box{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		padding: 10px;
+		border-radius: 10px;
+  }

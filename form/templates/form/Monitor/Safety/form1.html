@@ -1334,416 +1334,322 @@ $( "#id_s1_e1_res" )
       $("#id_s1_e4_res").css("color", "black");
     }
     });
-
+/////////////////////////  table 2
     $( "#id_s2_e1_aplc" )
 
     .focusout(function() {
-    if($( "#id_s2_e1_noaplc").val().length !=0){
-        var n=$( "#id_s2_e1_noaplc").val() - $( "#id_s2_e1_aplc" ).val();
-        if(n<0){
-                n=-n;
-        }
-      if( ( n>5 )  && ($( "#id_s2_e1_aplc").val().length !=0)){
+    
+      if( ( $( "#id_s2_e1_aplc" ).val()>5 )  && ($( "#id_s2_e1_aplc").val().length !=0)){
         $("#id_s2_e1_aplc").css("background-color", "#f24858");
       $("#id_s2_e1_aplc").css("color", "white");
 
     }
-      else if(( n<=5 ) || ($( "#id_s2_e1_aplc").val().length ==0)) {
+      else if(( $( "#id_s2_e1_aplc" ).val()<=5 ) || ($( "#id_s2_e1_aplc").val().length ==0)) {
         $("#id_s2_e1_aplc").css("background-color", "white");
       $("#id_s2_e1_aplc").css("color", "black");
 
-      $("#id_s2_e1_noaplc").css("background-color", "white");
-      $("#id_s2_e1_noaplc").css("color", "black");
-      
     }
-    }
+    
     });
-
 
 
 
     $( "#id_s2_e1_noaplc" )
 
     .focusout(function() {
-    if($( "#id_s2_e1_aplc").val().length !=0){
-        var n=$( "#id_s2_e1_noaplc").val() - $( "#id_s2_e1_aplc" ).val();
-        if(n<0){
-                n=-n;
-        }
-      if( ( n>5 )  && ($( "#id_s2_e1_noaplc").val().length !=0)){
+    
+      if( ( $( "#id_s2_e1_noaplc" ).val()>5 )  && ($( "#id_s2_e1_noaplc").val().length !=0)){
         $("#id_s2_e1_noaplc").css("background-color", "#f24858");
       $("#id_s2_e1_noaplc").css("color", "white");
 
     }
-      else if(( n<=5 ) || ($( "#id_s2_e1_noaplc").val().length ==0)) {
-        $("#id_s2_e1_aplc").css("background-color", "white");
-      $("#id_s2_e1_aplc").css("color", "black");
-      
+      else if(( $( "#id_s2_e1_noaplc" ).val()<=5 ) || ($( "#id_s2_e1_noaplc").val().length ==0)) {
         $("#id_s2_e1_noaplc").css("background-color", "white");
       $("#id_s2_e1_noaplc").css("color", "black");
+
     }
+    
+    });
+
+/////////////////////////
+
+    $( "#id_s2_e2_aplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s2_e2_aplc" ).val()>10 )  && ($( "#id_s2_e2_aplc").val().length !=0)){
+        $("#id_s2_e2_aplc").css("background-color", "#f24858");
+      $("#id_s2_e2_aplc").css("color", "white");
+
     }
+      else if(( $( "#id_s2_e2_aplc" ).val()<=10 ) || ($( "#id_s2_e2_aplc").val().length ==0)) {
+        $("#id_s2_e2_aplc").css("background-color", "white");
+      $("#id_s2_e2_aplc").css("color", "black");
+
+    }
+    
+    });
+
+
+
+    $( "#id_s2_e2_noaplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s2_e2_noaplc" ).val()>10 )  && ($( "#id_s2_e2_noaplc").val().length !=0)){
+        $("#id_s2_e2_noaplc").css("background-color", "#f24858");
+      $("#id_s2_e2_noaplc").css("color", "white");
+
+    }
+      else if(( $( "#id_s2_e2_noaplc" ).val()<=10 ) || ($( "#id_s2_e2_noaplc").val().length ==0)) {
+        $("#id_s2_e2_noaplc").css("background-color", "white");
+      $("#id_s2_e2_noaplc").css("color", "black");
+
+    }
+    
     });
 
 
 
 
-    $( "#id_s2_e2_aplc" )
+//////////////// table 3
 
-.focusout(function() {
-if($( "#id_s2_e2_noaplc").val().length !=0){
-    var n=$( "#id_s2_e2_noaplc").val() - $( "#id_s2_e2_aplc" ).val();
-    if(n<0){
-            n=-n;
-    }
-  if( ( n>10 )  && ($( "#id_s2_e2_aplc").val().length !=0)){
-    $("#id_s2_e2_aplc").css("background-color", "#f24858");
-  $("#id_s2_e2_aplc").css("color", "white");
-
-}
-  else if(( n<=10 ) || ($( "#id_s2_e2_aplc").val().length ==0)) {
-    $("#id_s2_e2_aplc").css("background-color", "white");
-  $("#id_s2_e2_aplc").css("color", "black");
-
-  $("#id_s2_e2_noaplc").css("background-color", "white");
-  $("#id_s2_e2_noaplc").css("color", "black");
   
-}
-}
-});
-
-
-
-
-$( "#id_s2_e2_noaplc" )
-
-.focusout(function() {
-if($( "#id_s2_e2_aplc").val().length !=0){
-    var n=$( "#id_s2_e2_noaplc").val() - $( "#id_s2_e2_aplc" ).val();
-    if(n<0){
-            n=-n;
-    }
-  if( ( n>10 )  && ($( "#id_s2_e2_noaplc").val().length !=0)){
-    $("#id_s2_e2_noaplc").css("background-color", "#f24858");
-  $("#id_s2_e2_noaplc").css("color", "white");
-
-}
-  else if(( n<=10 ) || ($( "#id_s2_e2_noaplc").val().length ==0)) {
-    $("#id_s2_e2_aplc").css("background-color", "white");
-  $("#id_s2_e2_aplc").css("color", "black");
-  
-    $("#id_s2_e2_noaplc").css("background-color", "white");
-  $("#id_s2_e2_noaplc").css("color", "black");
-}
-}
-});
-
-
-// ///table 3
-
-
-$( "#id_s3_e1_aplc" )
+    $( "#id_s3_e1_aplc" )
 
     .focusout(function() {
-    if($( "#id_s3_e1_noaplc").val().length !=0){
-        var n=$( "#id_s3_e1_noaplc").val() - $( "#id_s3_e1_aplc" ).val();
-        if(n<0){
-                n=-n;
-        }
-      if( ( n>100 )  && ($( "#id_s3_e1_aplc").val().length !=0)){
+    
+      if( ( $( "#id_s3_e1_aplc" ).val()>100 )  && ($( "#id_s3_e1_aplc").val().length !=0)){
         $("#id_s3_e1_aplc").css("background-color", "#f24858");
       $("#id_s3_e1_aplc").css("color", "white");
 
     }
-      else if(( n<=100 ) || ($( "#id_s3_e1_aplc").val().length ==0)) {
+      else if(( $( "#id_s3_e1_aplc" ).val()<=100 ) || ($( "#id_s3_e1_aplc").val().length ==0)) {
         $("#id_s3_e1_aplc").css("background-color", "white");
       $("#id_s3_e1_aplc").css("color", "black");
 
-      $("#id_s3_e1_noaplc").css("background-color", "white");
-      $("#id_s3_e1_noaplc").css("color", "black");
-      
     }
-    }
+    
     });
-
 
 
 
     $( "#id_s3_e1_noaplc" )
 
     .focusout(function() {
-    if($( "#id_s3_e1_aplc").val().length !=0){
-        var n=$( "#id_s3_e1_noaplc").val() - $( "#id_s3_e1_aplc" ).val();
-        if(n<0){
-                n=-n;
-        }
-      if( ( n>100 )  && ($( "#id_s3_e1_noaplc").val().length !=0)){
+    
+      if( ( $( "#id_s3_e1_noaplc" ).val()>100 )  && ($( "#id_s3_e1_noaplc").val().length !=0)){
         $("#id_s3_e1_noaplc").css("background-color", "#f24858");
       $("#id_s3_e1_noaplc").css("color", "white");
 
     }
-      else if(( n<=100 ) || ($( "#id_s3_e1_noaplc").val().length ==0)) {
-        $("#id_s3_e1_aplc").css("background-color", "white");
-      $("#id_s3_e1_aplc").css("color", "black");
-      
+      else if(( $( "#id_s3_e1_noaplc" ).val()<=100 ) || ($( "#id_s3_e1_noaplc").val().length ==0)) {
         $("#id_s3_e1_noaplc").css("background-color", "white");
       $("#id_s3_e1_noaplc").css("color", "black");
+
     }
-    }
+    
     });
 
 
+
+
+  
     $( "#id_s3_e2_aplc" )
 
-.focusout(function() {
-if($( "#id_s3_e2_noaplc").val().length !=0){
-    var n=$( "#id_s3_e2_noaplc").val() - $( "#id_s3_e2_aplc" ).val();
-    if(n<0){
-            n=-n;
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e2_aplc" ).val()>100 )  && ($( "#id_s3_e2_aplc").val().length !=0)){
+        $("#id_s3_e2_aplc").css("background-color", "#f24858");
+      $("#id_s3_e2_aplc").css("color", "white");
+
     }
-  if( ( n>100 )  && ($( "#id_s3_e2_aplc").val().length !=0)){
-    $("#id_s3_e2_aplc").css("background-color", "#f24858");
-  $("#id_s3_e2_aplc").css("color", "white");
+      else if(( $( "#id_s3_e2_aplc" ).val()<=100 ) || ($( "#id_s3_e2_aplc").val().length ==0)) {
+        $("#id_s3_e2_aplc").css("background-color", "white");
+      $("#id_s3_e2_aplc").css("color", "black");
 
-}
-  else if(( n<=100 ) || ($( "#id_s3_e2_aplc").val().length ==0)) {
-    $("#id_s3_e2_aplc").css("background-color", "white");
-  $("#id_s3_e2_aplc").css("color", "black");
-
-  $("#id_s3_e2_noaplc").css("background-color", "white");
-  $("#id_s3_e2_noaplc").css("color", "black");
-  
-}
-}
-});
-
-
-
-
-$( "#id_s3_e2_noaplc" )
-
-.focusout(function() {
-if($( "#id_s3_e2_aplc").val().length !=0){
-    var n=$( "#id_s3_e2_noaplc").val() - $( "#id_s3_e2_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>100 )  && ($( "#id_s3_e2_noaplc").val().length !=0)){
-    $("#id_s3_e2_noaplc").css("background-color", "#f24858");
-  $("#id_s3_e2_noaplc").css("color", "white");
+    
+    });
 
-}
-  else if(( n<=100 ) || ($( "#id_s3_e2_noaplc").val().length ==0)) {
-    $("#id_s3_e2_aplc").css("background-color", "white");
-  $("#id_s3_e2_aplc").css("color", "black");
-  
-    $("#id_s3_e2_noaplc").css("background-color", "white");
-  $("#id_s3_e2_noaplc").css("color", "black");
-}
-}
-});
 
-// ////////
 
-$( "#id_s3_e3_aplc" )
+    $( "#id_s3_e2_noaplc" )
 
-.focusout(function() {
-if($( "#id_s3_e3_noaplc").val().length !=0){
-    var n=$( "#id_s3_e3_noaplc").val() - $( "#id_s3_e3_aplc" ).val();
-    if(n<0){
-            n=-n;
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e2_noaplc" ).val()>100 )  && ($( "#id_s3_e2_noaplc").val().length !=0)){
+        $("#id_s3_e2_noaplc").css("background-color", "#f24858");
+      $("#id_s3_e2_noaplc").css("color", "white");
+
     }
-  if( ( n>500 )  && ($( "#id_s3_e3_aplc").val().length !=0)){
-    $("#id_s3_e3_aplc").css("background-color", "#f24858");
-  $("#id_s3_e3_aplc").css("color", "white");
+      else if(( $( "#id_s3_e2_noaplc" ).val()<=100) || ($( "#id_s3_e2_noaplc").val().length ==0)) {
+        $("#id_s3_e2_noaplc").css("background-color", "white");
+      $("#id_s3_e2_noaplc").css("color", "black");
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e3_aplc").val().length ==0)) {
-    $("#id_s3_e3_aplc").css("background-color", "white");
-  $("#id_s3_e3_aplc").css("color", "black");
-
-  $("#id_s3_e3_noaplc").css("background-color", "white");
-  $("#id_s3_e3_noaplc").css("color", "black");
-  
-}
-}
-});
-
-
-
-
-$( "#id_s3_e3_noaplc" )
-
-.focusout(function() {
-if($( "#id_s3_e3_aplc").val().length !=0){
-    var n=$( "#id_s3_e3_noaplc").val() - $( "#id_s3_e3_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>500 )  && ($( "#id_s3_e3_noaplc").val().length !=0)){
-    $("#id_s3_e3_noaplc").css("background-color", "#f24858");
-  $("#id_s3_e3_noaplc").css("color", "white");
+    
+    });
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e3_noaplc").val().length ==0)) {
-    $("#id_s3_e3_aplc").css("background-color", "white");
-  $("#id_s3_e3_aplc").css("color", "black");
+
+
+
   
-    $("#id_s3_e3_noaplc").css("background-color", "white");
-  $("#id_s3_e3_noaplc").css("color", "black");
-}
-}
-});
+    $( "#id_s3_e3_aplc" )
 
-$( "#id_s3_e4_aplc" )
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e3_aplc" ).val()>500 )  && ($( "#id_s3_e3_aplc").val().length !=0)){
+        $("#id_s3_e3_aplc").css("background-color", "#f24858");
+      $("#id_s3_e3_aplc").css("color", "white");
 
-.focusout(function() {
-if($( "#id_s3_e4_noaplc").val().length !=0){
-    var n=$( "#id_s3_e4_noaplc").val() - $( "#id_s3_e4_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>500 )  && ($( "#id_s3_e4_aplc").val().length !=0)){
-    $("#id_s3_e4_aplc").css("background-color", "#f24858");
-  $("#id_s3_e4_aplc").css("color", "white");
+      else if(( $( "#id_s3_e3_aplc" ).val()<=500 ) || ($( "#id_s3_e3_aplc").val().length ==0)) {
+        $("#id_s3_e3_aplc").css("background-color", "white");
+      $("#id_s3_e3_aplc").css("color", "black");
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e4_aplc").val().length ==0)) {
-    $("#id_s3_e4_aplc").css("background-color", "white");
-  $("#id_s3_e4_aplc").css("color", "black");
-
-  $("#id_s3_e4_noaplc").css("background-color", "white");
-  $("#id_s3_e4_noaplc").css("color", "black");
-  
-}
-}
-});
-
-
-
-
-$( "#id_s3_e4_noaplc" )
-
-.focusout(function() {
-if($( "#id_s3_e4_aplc").val().length !=0){
-    var n=$( "#id_s3_e4_noaplc").val() - $( "#id_s3_e4_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>500 )  && ($( "#id_s3_e4_noaplc").val().length !=0)){
-    $("#id_s3_e4_noaplc").css("background-color", "#f24858");
-  $("#id_s3_e4_noaplc").css("color", "white");
+    
+    });
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e4_noaplc").val().length ==0)) {
-    $("#id_s3_e4_aplc").css("background-color", "white");
-  $("#id_s3_e4_aplc").css("color", "black");
-  
-    $("#id_s3_e4_noaplc").css("background-color", "white");
-  $("#id_s3_e4_noaplc").css("color", "black");
-}
-}
-});
 
-$( "#id_s3_e5_aplc" )
 
-.focusout(function() {
-if($( "#id_s3_e5_noaplc").val().length !=0){
-    var n=$( "#id_s3_e5_noaplc").val() - $( "#id_s3_e5_aplc" ).val();
-    if(n<0){
-            n=-n;
+    $( "#id_s3_e3_noaplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e3_noaplc" ).val()>500 )  && ($( "#id_s3_e3_noaplc").val().length !=0)){
+        $("#id_s3_e3_noaplc").css("background-color", "#f24858");
+      $("#id_s3_e3_noaplc").css("color", "white");
+
     }
-  if( ( n>500 )  && ($( "#id_s3_e5_aplc").val().length !=0)){
-    $("#id_s3_e5_aplc").css("background-color", "#f24858");
-  $("#id_s3_e5_aplc").css("color", "white");
+      else if(( $( "#id_s3_e3_noaplc" ).val()<=500 ) || ($( "#id_s3_e3_noaplc").val().length ==0)) {
+        $("#id_s3_e3_noaplc").css("background-color", "white");
+      $("#id_s3_e3_noaplc").css("color", "black");
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e5_aplc").val().length ==0)) {
-    $("#id_s3_e5_aplc").css("background-color", "white");
-  $("#id_s3_e5_aplc").css("color", "black");
-
-  $("#id_s3_e5_noaplc").css("background-color", "white");
-  $("#id_s3_e5_noaplc").css("color", "black");
-  
-}
-}
-});
-
-
-
-
-$( "#id_s3_e5_noaplc" )
-
-.focusout(function() {
-if($( "#id_s3_e5_aplc").val().length !=0){
-    var n=$( "#id_s3_e5_noaplc").val() - $( "#id_s3_e5_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>500 )  && ($( "#id_s3_e5_noaplc").val().length !=0)){
-    $("#id_s3_e5_noaplc").css("background-color", "#f24858");
-  $("#id_s3_e5_noaplc").css("color", "white");
+    
+    });
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e5_noaplc").val().length ==0)) {
-    $("#id_s3_e5_aplc").css("background-color", "white");
-  $("#id_s3_e5_aplc").css("color", "black");
+
+
   
-    $("#id_s3_e5_noaplc").css("background-color", "white");
-  $("#id_s3_e5_noaplc").css("color", "black");
-}
-}
-});
+    $( "#id_s3_e4_aplc" )
 
-$( "#id_s3_e6_aplc" )
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e4_aplc" ).val()>500 )  && ($( "#id_s3_e4_aplc").val().length !=0)){
+        $("#id_s3_e4_aplc").css("background-color", "#f24858");
+      $("#id_s3_e4_aplc").css("color", "white");
 
-.focusout(function() {
-if($( "#id_s3_e6_noaplc").val().length !=0){
-    var n=$( "#id_s3_e6_noaplc").val() - $( "#id_s3_e6_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>500 )  && ($( "#id_s3_e6_aplc").val().length !=0)){
-    $("#id_s3_e6_aplc").css("background-color", "#f24858");
-  $("#id_s3_e6_aplc").css("color", "white");
+      else if(( $( "#id_s3_e4_aplc" ).val()<=500 ) || ($( "#id_s3_e4_aplc").val().length ==0)) {
+        $("#id_s3_e4_aplc").css("background-color", "white");
+      $("#id_s3_e4_aplc").css("color", "black");
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e6_aplc").val().length ==0)) {
-    $("#id_s3_e6_aplc").css("background-color", "white");
-  $("#id_s3_e6_aplc").css("color", "black");
-
-  $("#id_s3_e6_noaplc").css("background-color", "white");
-  $("#id_s3_e6_noaplc").css("color", "black");
-  
-}
-}
-});
-
-
-
-
-$( "#id_s3_e6_noaplc" )
-
-.focusout(function() {
-if($( "#id_s3_e6_aplc").val().length !=0){
-    var n=$( "#id_s3_e6_noaplc").val() - $( "#id_s3_e6_aplc" ).val();
-    if(n<0){
-            n=-n;
     }
-  if( ( n>500 )  && ($( "#id_s3_e6_noaplc").val().length !=0)){
-    $("#id_s3_e6_noaplc").css("background-color", "#f24858");
-  $("#id_s3_e6_noaplc").css("color", "white");
+    
+    });
 
-}
-  else if(( n<=500 ) || ($( "#id_s3_e6_noaplc").val().length ==0)) {
-    $("#id_s3_e6_aplc").css("background-color", "white");
-  $("#id_s3_e6_aplc").css("color", "black");
+
+
+    $( "#id_s3_e4_noaplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e4_noaplc" ).val()>500 )  && ($( "#id_s3_e4_noaplc").val().length !=0)){
+        $("#id_s3_e4_noaplc").css("background-color", "#f24858");
+      $("#id_s3_e4_noaplc").css("color", "white");
+
+    }
+      else if(( $( "#id_s3_e4_noaplc" ).val()<=500 ) || ($( "#id_s3_e4_noaplc").val().length ==0)) {
+        $("#id_s3_e4_noaplc").css("background-color", "white");
+      $("#id_s3_e4_noaplc").css("color", "black");
+
+    }
+    
+    });
+
+
+
   
-    $("#id_s3_e6_noaplc").css("background-color", "white");
-  $("#id_s3_e6_noaplc").css("color", "black");
-}
-}
-});
+    $( "#id_s3_e5_aplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e5_aplc" ).val()>500 )  && ($( "#id_s3_e5_aplc").val().length !=0)){
+        $("#id_s3_e5_aplc").css("background-color", "#f24858");
+      $("#id_s3_e5_aplc").css("color", "white");
+
+    }
+      else if(( $( "#id_s3_e5_aplc" ).val()<=500 ) || ($( "#id_s3_e5_aplc").val().length ==0)) {
+        $("#id_s3_e5_aplc").css("background-color", "white");
+      $("#id_s3_e5_aplc").css("color", "black");
+
+    }
+    
+    });
+
+
+
+    $( "#id_s3_e5_noaplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e5_noaplc" ).val()>500 )  && ($( "#id_s3_e5_noaplc").val().length !=0)){
+        $("#id_s3_e5_noaplc").css("background-color", "#f24858");
+      $("#id_s3_e5_noaplc").css("color", "white");
+
+    }
+      else if(( $( "#id_s3_e5_noaplc" ).val()<=500 ) || ($( "#id_s3_e5_noaplc").val().length ==0)) {
+        $("#id_s3_e5_noaplc").css("background-color", "white");
+      $("#id_s3_e5_noaplc").css("color", "black");
+
+    }
+    
+    });
+
+
+
+  
+    $( "#id_s3_e6_aplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e6_aplc" ).val()>500 )  && ($( "#id_s3_e6_aplc").val().length !=0)){
+        $("#id_s3_e6_aplc").css("background-color", "#f24858");
+      $("#id_s3_e6_aplc").css("color", "white");
+
+    }
+      else if(( $( "#id_s3_e6_aplc" ).val()<=500 ) || ($( "#id_s3_e6_aplc").val().length ==0)) {
+        $("#id_s3_e6_aplc").css("background-color", "white");
+      $("#id_s3_e6_aplc").css("color", "black");
+
+    }
+    
+    });
+
+
+
+    $( "#id_s3_e6_noaplc" )
+
+    .focusout(function() {
+    
+      if( ( $( "#id_s3_e6_noaplc" ).val()>500 )  && ($( "#id_s3_e6_noaplc").val().length !=0)){
+        $("#id_s3_e6_noaplc").css("background-color", "#f24858");
+      $("#id_s3_e6_noaplc").css("color", "white");
+
+    }
+      else if(( $( "#id_s3_e6_noaplc" ).val()<=500 ) || ($( "#id_s3_e6_noaplc").val().length ==0)) {
+        $("#id_s3_e6_noaplc").css("background-color", "white");
+      $("#id_s3_e6_noaplc").css("color", "black");
+
+    }
+    
+    });
+
+
+
 
 
 // ////// table 5 =4 ///////////////////////////////////////////////////////////////

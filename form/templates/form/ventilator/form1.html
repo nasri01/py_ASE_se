@@ -2,7 +2,6 @@
 {% load widget_tweaks %}
 
 
-<link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
 
 <form method="POST" class="post-form">
@@ -10,6 +9,30 @@
     {% csrf_token %}
 
     <table class="table-bordered">
+
+              <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+              <script src="{% static 'js/selectize.min.js' %}"></script>
+              <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
+              <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
+              <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script>
+              <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+              <script>
+              $(document).ready(function() {
+                  $('select').niceSelect();
+                  $('.search-a').niceSelect('destroy');
+                  });
+            </script> -->
+            <script>
+                      
+                $(document).ready(function () {
+                  $('.search-a').selectize({
+                      sortField: 'text'
+                  });
+              });
+                    </script>        
+  
+  <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
+  
         <!--////////////////////////////////////////////////////////////-->
         <div class="data container-fluid">
           {% if edit %}
@@ -26,97 +49,89 @@
         </div>
 
           {% endif %}
-<h1 class="header-t" align="center" style="font-size: 20pt;font-weight: bold;">
-گواهينامه کنترل کيفي دستگاه ونتیلاتور
+          <h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
+              گواهينامه کنترل کيفي دستگاه ونتیلاتور
 </h1>
 
+<div class="row" style="margin-right: 40px;">
+    <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+      <span style="margin-right: 30px;"> نام دستگاه : </span>
+      <span>
 
-            <div class="row" style="margin-right: 40px;">
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-      	<span style="margin-right: 30px;"> نام دستگاه : </span>
-        <span class="ee">
-          {% render_field form.device class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here.." %}
+        
+        {% render_field form.device style="display:inline;width:50%;"  class="search-a" searchable="Search here.." %}
+  
         </span>
+        <br>
+<!-- / -->
+
+<span style="margin-right: 17px;"> شماره درخواست  : </span>
+<span class="ee">
+  {% render_field form.request  class="search-a" style="display:inline;width:50%;"%}
+
+ </span>
+<br>
+<span style="margin-right: 17px;"> رطوبت محیطی : </span>
+<br>
+<span class="ee">
+  {% render_field form.humidity style="display:block;max-width:500px;width:50%;"%}
+
+</span>
+
+<br>
+<!-- / -->
+<label style="margin-right: 17px;" > دمای محیطی : </label>
+<br>
+<span class="ee"> 
+  {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
+
+</span>
 
 
-        <!--
-      	<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="product-name" value="abcde" disabled> -->
-      </div>
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-          <span> شماره درخواست  : </span>
-        <span class="ee"> {{form.request}} </span>
-
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
-      </div>
-
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-      <span> رطوبت محیطی : </span>
-        <span class="ee">
-            {{form.humidity}}
-        </span>
-
-        <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
+<!--
 
 
-      <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
-
-      <label style="margin-right: 17px;" > دمای محیطی : </label>
-                  <span class="ee"> {{form.temp}} </span>
-
-      <!--
-        <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="Environmental-humidity" disabled> -->
-      </div>
-
-      </div>
-
-
-
-
-
-
-
-	<!--</form>-->
-
-<br><br>
-
-
-<h2>تجهیزات آزمون : </h2>
-
-<div class="container">
-  <label>نام تجهیز :</label><br>
-  <label>دستگاه شماره 1 :</label>
-    <span class="ee">
-      {{form.cal_dev1}}
-    </span><br>
-  <label>دستگاه شماره 2 :</label>
-    <span class="ee">
-      {{form.cal_dev2}}
-    </span><br>
-  <label>دستگاه شماره 3 :</label>
-    <span class="ee">
-      {{form.cal_dev3}}
-    </span><br>
-  <label>دستگاه شماره 4 :</label>
-    <span class="ee">
-      {{form.cal_dev4}}
-    </span><br>
-
-
-
+<input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
 
 </div>
-<br><br>
 
-<div style="font-weight: bold;">
+<div class="col-md-6 col-sm-12" style="margin-top: 10px;">
+
+  <h2 style="font-family: light-iransans">تجهیزات آزمون : </h2>
+
+  <div class="container">
+    <label>نام تجهیز :</label><br>
+    <label>دستگاه شماره 1 :</label>
+      <span class="ee">
+        {{form.cal_dev1}}
+      </span><br>
+    <label>دستگاه شماره 2 :</label>
+      <span class="ee">
+        {{form.cal_dev2}}
+      </span><br>
+      <label>دستگاه شماره 3 :</label>
+      <span class="ee">
+        {{form.cal_dev3}}
+      </span><br>
+      <label>دستگاه شماره 4 :</label>
+      <span class="ee">
+        {{form.cal_dev4}}
+      </span><br>  
+  </div>
+  <br><br>
+  
+
+
+    </div>
+
+    </div>
+
+
+<div style="font-weight: bold;font-size: 18px;">
 
 تستهای کیفی:
         </div>
-<br>
+
 <br>
 
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1">
@@ -128,8 +143,8 @@
 <td rowspan="2"><span>ردیف</span></td>
 </tr>
 <tr>
-<td class="time">Rej</td>
-<td class="time">Ok</td>
+<td >Rej</td>
+<td >Ok</td>
 </tr>
 <tr>
 <td>{{ form.s0_e1_comment}}</td>
@@ -287,8 +302,9 @@
 </span>
 <br>
             <span style="font-weight: bold;">کلاس دستگاه:</span>
+<div style="width: 35%;">
             {{ form.test_type }}
-
+          </div>
 
 <br><br>
 
@@ -302,7 +318,7 @@
 1. مقاومت زمین حفاظتی
 </span>
     <div>
-                مقدار اندازه گیری شده: {{form.s1_e1_res}}
+                مقدار اندازه گیری شده: {{form.s1_res}}
     </div>
 <br>
 
@@ -316,21 +332,21 @@
 
           </tr>
             <tr>
-                <td class="time">Rej</td>
-                <td class="time">Ok</td>
+                <td >Rej</td>
+                <td >Ok</td>
             </tr>
         <tr>
             <td>{{ form.s1_e1_comment}}</td>
             <td></td>
             <td></td>
-            <td class="time">0.1</td>
+            <td >0.1</td>
             <td>جدا شدنی</td>
         </tr>
         <tr>
           <td>{{ form.s1_e2_comment}}</td>
           <td></td>
           <td></td>
-          <td class="time">0.2</td>
+          <td >0.2</td>
             <td>جدا نشدنی</td>
         </tr>
 
@@ -357,55 +373,56 @@
                 <td rowspan="2">حالت تست</td>
               </tr>
                 <tr>
-                    <td class="time">Rej</td>
-                    <td class="time">Ok</td>
+                    <td >Rej</td>
+                    <td >Ok</td>
                 </tr>
             <tr>
               <td>{{ form.s2_e1_comment}}</td>
               <td></td>
               <td></td>
-              <td class="time">500</td>
+              <td >500</td>
                 <td>{{ form.s2_e1_lc}}</td>
-              <td style="text-align: right;">- روشن</td>
+              <td style="text-align: right;"> روشن-</td>
               <td rowspan="4">عادی</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td class="time">500</td>
+              <td >500</td>
               <td></td>
-              <td style="text-align: right;">- خاموش </td>
+              <td style="text-align: right;"> خاموش- </td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td class="time">500</td>
+              <td >500</td>
               <td></td>
-              <td style="text-align: right;" class="time"> Standby -</td>
+              <td style="text-align: right;" > Standby-</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td class="time">500</td>
+              <td >500</td>
               <td></td>
-              <td style="text-align: right;">- پلاریته معکوس</td>
+              <td style="text-align: right;">پلاریته معکوس-</td>
             </tr>
             <tr>
               <td>{{ form.s2_e2_comment}}</td>
               <td></td>
               <td></td>
-              <td class="time">1000</td>
+              <td >1000</td>
               <td>{{ form.s2_e2_lc}}</td>
-              <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
+              <td style="text-align: right;"> قطع یکی از سیمهای تغذیه-</td>
               <td>تک اشکالی</td>
             </tr>
 
           </tbody>
 
         </table>
+        <br>
 <div>
 نکات: 1- در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمتهای کاربردی نوع F  به زمین متصل و از آن جدا می باشند نیز تکرار شود.            </div>
 <br><br>
@@ -423,7 +440,7 @@
                 <td rowspan="2">شرایط کاری</td>
                 <td rowspan="2">حالت تست</td>
               </tr>
-                <tr class="time">
+                <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
@@ -431,42 +448,43 @@
             <td>{{ form.s3_e1_comment}}</td>
                 <td></td>
               <td></td>
-              <td class="time">100</td>
+              <td >100</td>
             <td>{{ form.s3_e1_lc}}</td>
-              <td style="text-align: right;">- روشن</td>
+              <td style="text-align: right;"> روشن-</td>
               <td rowspan="4">عادی</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td class="time">100</td>
+              <td >100</td>
               <td></td>
-              <td style="text-align: right;">- خاموش </td>
+              <td style="text-align: right;"> خاموش -</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td class="time">100</td>
+              <td >100</td>
               <td></td>
-              <td style="text-align: right;" class="time"> Standby -</td>
+              <td style="text-align: right;" >Standby-</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td class="time">100</td>
+              <td >100</td>
               <td></td>
-              <td style="text-align: right;">- پلاریته معکوس</td>
+              <td style="text-align: right;"> پلاریته معکوس-</td>
             </tr>
             <tr>
               <td>{{ form.s3_e2_comment}}</td>
               <td></td>
               <td></td>
-              <td class="time">500</td>
+              <td >500</td>
               <td>{{ form.s3_e2_lc}}</td>
-              <td style="text-align: right;">- قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
+              <td style="text-align: right;direction: rtl;"><span>-</span>
+                 قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
               <td>تک اشکالی</td>
             </tr>
 
@@ -483,31 +501,31 @@
     <span style="font-weight: bold;">
 4. جریان نشتی بیمار</span>
 <br><br>
-        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time tb-4">
+        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 tb-4">
 <tbody>
 <tr>
 <td colspan="3" style="border: none;"></td>
 <td colspan="4">
     AP
-    <span style="font-family: 'B Nazanin';">نوع</span>
+    <span >نوع</span>
     </td>
 <td colspan="2" rowspan="2">
-    <span style="font-family: 'B Nazanin';">مقدار قرائت شده</span>
+    <span >مقدار قرائت شده</span>
     (&micro;a)
 </td>
 <td rowspan="3">
-    <span style="font-family: 'B Nazanin';"> شرایط کاری</span>
+    <span > شرایط کاری</span>
 </td>
 <td rowspan="3">
-    <span style="font-family: 'B Nazanin';">حالت تست</span>
+    <span >حالت تست</span>
 </td>
 </tr>
 <tr>
 <td rowspan="2">
-        <span style="font-family: 'B Nazanin';">توضیحات</span>
+        <span >توضیحات</span>
 </td>
 <td colspan="2">
-        <span style="font-family: 'B Nazanin';">نتیجه</span>
+        <span >نتیجه</span>
 </td>
 <td colspan="2">BF type</td>
 <td colspan="2">CF type</td>
@@ -532,11 +550,11 @@
 <td>10</td>
 <td> {{ form.s4_e1_lcac }}</td>
 <td> {{ form.s4_e1_lcdc }}</td>
-<td  style="font-family: 'B Nazanin';text-align: right;">
-        <span>- روشن</span>
+<td  style="text-align: right;">
+        <span> روشن-</span>
 </td>
 <td rowspan="4">
-        <span style="font-family: 'B Nazanin';">عادی</span>
+        <span >عادی</span>
 </td>
 </tr>
 <tr>
@@ -549,9 +567,9 @@
 <td>10</td>
 <td>N.A</td>
 <td>N.A</td>
-<td  style="font-family: 'B Nazanin';text-align: right;">
+<td  style="text-align: right;">
 
-        <span>- خاموش</span>
+        <span> خاموش-</span>
 
 </td>
 </tr>
@@ -565,7 +583,7 @@
 <td>10</td>
 <td>N.A</td>
 <td>N.A</td>
-<td style="text-align: right;">Standby -</td>
+<td style="text-align: right;">Standby-</td>
 </tr>
 <tr>
 <td>-</td>
@@ -577,8 +595,8 @@
 <td>10</td>
 <td>N.A</td>
 <td>N.A</td>
-<td  style="font-family: 'B Nazanin';text-align: right;">
-        <span>- پلاریته معکوس</span>
+<td  style="text-align: right;">
+        <span> پلاریته معکوس-</span>
 </td>
 </tr>
 <tr>
@@ -591,13 +609,13 @@
 <td>50</td>
 <td> {{ form.s4_e2_lcac }}</td>
 <td> {{ form.s4_e2_lcdc }}</td>
-<td  style="font-family: 'B Nazanin';text-align: right;">
-        <span>- قطع یکی از سیمهای تغذیه</span>
+<td  style="text-align: right;">
+        <span>قطع یکی از سیمهای تغذیه-</span>
 
 </td>
 <td rowspan="2">
 
-            <span style="font-family: 'B Nazanin';"> تک اشکالی</span>
+            <span > تک اشکالی</span>
 </td>
 </tr>
 <tr>
@@ -610,30 +628,39 @@
 <td>50</td>
 <td>N.A</td>
 <td>N.A</td>
-<td style="font-family: 'B Nazanin';text-align: right;">
-                <span>- قطع زمین حفاظتی</span>
+<td style="text-align: right;">
+                <span> قطع زمین حفاظتی-</span>
 </td>
 </tr>
 </tbody>
 </table>
                 <br>
-        <div>
-*:قسمت کاربردی1: اکسترنال پدل،2: اینترنال پدل، 3: الکترودهای یکبار مصرف،4: لیدهای ECG        </div>
+        <!-- <div>
+*:قسمت کاربردی1: اکسترنال پدل،2: اینترنال پدل، 3: الکترودهای یکبار مصرف،4: لیدهای ECG        </div> -->
         <br>
+<!-- 
 
-
-    <div style="font-weight: bold;">
-                       <span class="time">:([2]</span>
+    <div style="font-weight: bold;direction: ltr;">
+                       <span >:([2]</span>
                        ازمرجع
+<<<<<<< HEAD
+                       <span >19</span>
+                       
+5 ) جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)(بند                    </div> -->
+=======
                        <span class="time">19</span>
 
 5) جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)(بند  
 
                </div>
+>>>>>>> 082c0ea008753187c1df5f5f45573f69a7566af4
 
+<div style="font-weight: bold;">
+    5) جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی):
+</div>
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 time tb-4">
           <tbody>
-                    <tr style="font-family: 'B Nazanin';">
+                    <tr >
                 <td rowspan="2">توضیحات</td>
                 <td colspan="2">نتیجه</td>
                 <td colspan="2">
@@ -643,7 +670,7 @@
                 <td colspan="2">
 
                     مقدار قرائت شده
-                   <span class="time">(µa)</span>
+                   <span >(µa)</span>
                 </td>
                 <td rowspan="2">شرایط کاری</td>
                 <td rowspan="2">حالت تست</td>
@@ -665,8 +692,8 @@
               <td>100</td>
               <td> {{ form.s5_e1_lcbf }}</td>
               <td> {{ form.s4_e2_lccf }}</td>
-              <td style="font-family: 'B Nazanin';">اعمال ولتاژ 110% ولتاژ نامی بین قسمت کاربردی ایزوله و زمین</td>
-              <td style="font-family: 'B Nazanin';">تک اشکالی</td>
+              <td >اعمال ولتاژ 110% ولتاژ نامی بین قسمت کاربردی ایزوله و زمین</td>
+              <td >تک اشکالی</td>
             </tr>
 
           </tbody>
@@ -681,35 +708,26 @@
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-1 tb-4">
           <tbody>
           <tr>
-                <td rowspan="2">فلوی تنظیمی
-                    <br>
-                    <span class="time">(lit/min)</span>
-                    اکسیژن
+                <td rowspan="2" style="direction: rtl;">
+                    فلوی تنظیمی اکسیژن (lit/min)
                     </td>
-                <td rowspan="2">گستره مجاز
-                    <br>
-                    فلوی فلاش
-                    <br>
-                    <span class="time">(lit/min)</span>
+                <td rowspan="2" style="direction: rtl;">
+                    گستره مجاز فلوی فلاش (lit/min)
                 </td>
-                <td rowspan="2">فلوی فلاش
-                    <br>
-                    خوانده شده
-                    <br>
-                    <span class="time">(lit/min)</span>
+                <td rowspan="2" style="direction: rtl;">
+                    فلوی فلاش خوانده شده (lit/min)
                 </td>
-                <td rowspan="2">کاهش فلو
-                    <br>
-                    <span class="time">(lit/min)</span>
-                    <br>
-                    (وقتی ولو فلاش اکسیژن بسته می شود)</td>
+                <td rowspan="2" style="direction: rtl;">
+                    کاهش فلو (lit/min)
+                    (وقتی ولو فلاش اکسیژن بسته می شود)                    
+                </td>
                 <td colspan="2">نتیجه</td>
               </tr>
-                <tr class="time">
+                <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
-            <tr class="time">
+            <tr >
               <td>2</td>
               <td>35-75</td>
               <td> {{ form.s6_e1_rff }}</td>
@@ -729,45 +747,30 @@
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
           <tr>
-                <td rowspan="2">تمام ولوهای
+                <td rowspan="2" style="direction: rtl;">
+                    تمام ولوهای کنترل فلو: بسته
                     <br>
-                    کنترل فلو: بسته
-                    <br>
-                    <span class="time">O<sub>2</sub></span>
-                    ولوهای سیلندر
-                    <br>
-                    : باز
-                    <span class="time">N<sub>2</sub>O</span>
-                    و
+                    ولوهای سیلندر O<sub>2</sub> و N<sub>2</sub>O : باز
                 </td>
-                <td rowspan="2">تمام ولوهای
+                <td rowspan="2" style="direction: rtl;">
+                    تمام ولوهای کنترل فلو: بسته
                     <br>
-                    کنترل فلو: بسته
-                    <br>
-                    <span class="time">O<sub>2</sub></span>
-                    ولوهای سیلندر
-                    <br>
-                    : باز
-                    <span class="time">N<sub>2</sub>O</span>
-                    و
+                    ولوهای سیلندر O<sub>2</sub> و N<sub>2</sub>O : باز
+                    
                 </td>
-              <td rowspan="2">ولوهای سیلندر
-                  <span class="time">: N<sub>2</sub>O</span>
-                  و
-                  <span class="time">O<sub>2</sub></span>
-                  بسته</td>
-                <td rowspan="2">ولو کنترل
-                    <span class="time">:N<sub>2</sub>O</span>
-                    فلوی
-                    <br>
-                    باز</td>
+              <td rowspan="2" style="direction: rtl;">
+                  ولوهای سیلندر O<sub>2</sub> و N<sub>2</sub>O : بسته
+              </td>
+                <td rowspan="2" style="direction: rtl;">
+                    ولو کنترل فلوی N<sub>2</sub>O : باز
+                </td>
                 <td colspan="2">نتیجه</td>
               </tr>
-                <tr class="time">
+                <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
-            <tr class="time">
+            <tr >
               <td>PO2: {{form.s7_e1_si1}}</td>
               <td>PN2O: {{form.s7_e1_si2}}</td>
               <td>PO2: {{form.s7_e1_si3}}</td>
@@ -789,7 +792,7 @@
           <tr>
                 <td colspan="2">نتیجه</td>
               </tr>
-                <tr class="time">
+                <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
@@ -803,8 +806,8 @@
         </table>
 
 
-
-                      <div style="font-weight: bold;padding-top: 5cm;">
+<br>
+                      <div style="font-weight: bold;">
 9) نشتی های فشار پایین(مرجع 3)
         </div>
 
@@ -818,22 +821,23 @@
                 <td rowspan="2">مقدار قرائت شده</td>
                 <td colspan="2">نتیجه</td>
               </tr>
-          <tr class="time">
+          <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
             <tr>
-              <td class="time">
+              <td >
                   25cmH2O≤Pout≤30cmH2O
                   <br>
                   (T: 30s)
               </td>
-              <td class="time">P<sub>out</sub>:{{form.s9_e1}}</td>
+              <td >P<sub>out</sub>:{{form.s9_e1}}</td>
               <td></td>
               <td></td>
             </tr>
           </tbody>
         </table>
+        <br>
         <div style="height: 0.25cm;"></div>
 <div style="font-weight: bold;">
 10) سیستم تنفس(مرجع 3)
@@ -841,26 +845,22 @@
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-2 tb-5">
           <tbody>
           <tr>
-                <td rowspan="3">
-                    : بسته
-                    <span class="time">APL</span>
-                    ولو
+                <td rowspan="3" style="direction: rtl;">
+                    ولوAPL: بسته
                     <br>
-                    اعمال مقدار فشار
-                    <br>
-                    در سیستم تنفس :
-                    <br>
-                    <span class="time">50cm H<sub>2</sub>O</span>
+                    اعمال مقدار فشار در سیستم تنفس :
+                    <br> 50cmH<sub>2</sub>O
+                    
                 </td>
                 <td rowspan="2">مقدار مجاز</td>
                 <td rowspan="2">مقدار قرائت شده</td>
                 <td colspan="2">نتیجه</td>
               </tr>
-                <tr class="time">
+                <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
-            <tr class="time">
+            <tr >
               <td>30cmH2O ≤ PBS (T: 30s)</td>
               <td>PBS: {{form.s10_e1}}</td>
               <td></td>
@@ -868,8 +868,8 @@
             </tr>
           </tbody>
         </table>
-        <div style="height: 0.25cm;"></div>
 
+        <br>
 
         <div style="font-weight: bold;">
 11) ولو APL (مرجع 3)
@@ -879,7 +879,7 @@
           <tr>
                 <td colspan="2">نتیجه</td>
               </tr>
-                <tr class="time">
+                <tr >
                     <td>Rej</td>
                     <td>Ok</td>
                 </tr>
@@ -891,6 +891,7 @@
           </tbody>
 
         </table>
+        <br>
         <div style="height: 0.25cm;"></div>
         <div style="font-weight: bold;">
 12) فلومترها(مرجع 3)
@@ -899,197 +900,150 @@
 <tbody>
 <tr>
 <td>
-    <span class="time">O<sub>2</sub></span>
+    <span >O<sub>2</sub></span>
     <span>فلوی</span>
 </td>
 <td>
-    <span class="time">N<sub>2</sub>O</span>
+    <span >N<sub>2</sub>O</span>
     و
-    <span class="time">O<sub>2</sub></span>
+    <span >O<sub>2</sub></span>
         <span>فلوی</span>
 
 </td>
 <td colspan="2"><span>نتیجه</span></td>
 </tr>
 <tr>
-<td><span>
-    مقدار
-    <span class="time"> &plusmn;10% </span>
+<td style="direction: rtl;">
     مقدار مجاز:
     <br>
-    تنظیمی
-</span></td>
-<td><span>
-    مقدار
-    <span class="time"> &plusmn;10% </span>
-    مقدار مجاز:
-    <br>
-    تنظیمی
-</span>
+    ±10%  مقدار تنظیمی
 </td>
-    <td class="time">Rej</td>
-<td class="time">Ok</td>
+<td style="direction: rtl;">
+    مقدار مجاز:
+    <br>
+    ±20%  مقدار تنظیمی
+</td>
+    <td >Rej</td>
+<td >Ok</td>
 </tr>
 <tr>
-<td><span>مقدار قرائت شده : {{form.s12_e1_o2}}</span></td>
-<td><span>مقدار قرائت شده : {{form.s12_e1_o2n2o}}</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده : {{form.s12_e1_o2}}</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده : {{form.s12_e1_o2n2o}}</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
 </tbody>
         </table>
+        <br>
         <div style="height: 0.25cm;"></div>
                 <div style="font-weight: bold;">
 13) مینیمم فلوی اکسیژن و درصد آن(مرجع 3)
         </div>
-<table style="margin: auto;width: 100%;text-align: center;" class="tb-2 tb-5">
+<table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-2 tb-5">
 <tbody>
 <tr>
 <td><span>دورترین ولو فلومتر اکسیژن : بسته</span></td>
-<td><span>تنظیم فلوی اکسیژن
+<td style="direction: rtl;">
+    تنظیم فلوی اکسیژن
     <br>
-    و افزایش تدریجی
-    <span class="time"> 200ml/min </span>
-    روی
-    <br>
-    <span class="time"> N<sub>2</sub>O </span>
-    فلوی
-</span></td>
+     روی200ml/min و افزایش تدریجی 
+     <br>
+     فلوی N<sub>2</sub>O
+</td>
 <td colspan="2"><span>نتیجه&nbsp;</span></td>
 </tr>
 <tr>
-<td><span>
-    <span class="time"> 100ml/min </span>
-    مقدار مجاز:
-    <br>
-    <span class="time"> 250ml/min </span>
-    تا
-    </span></td>
-<td><span>مقدار مجاز: مینیمم درصد اکسیژن تعریف
-    <br>
-    <span class="time"> 250ml/min </span>
-    تا
-    <span class="time"> 100ml/min </span>
-    شده توسط سازنده یا
-     </span></td>
-<td class="time">Rej</td>
-<td class="time">Ok</td>
+<td style="direction: rtl;">مقدار مجاز: 100ml/min تا 250ml/min</td>
+<td style="direction: rtl;">مقدار مجاز: مینیمم درصد اکسیژن تعریف 
+  <br>
+  شده توسط سازنده یا 100ml/min تا 250ml/min</td>
+<td >Rej</td>
+<td >Ok</td>
 </tr>
 <tr>
-<td><span>مقدار قرائت شده : {{form.s13_e1}}</span></td>
-<td><span>مقدار قرائت شده : {{form.s13_e2}}</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده : {{form.s13_e1}}</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده : {{form.s13_e2}}</span></td>
 <td>&nbsp;-</td>
 <td>&nbsp;-</td>
 </tr>
 </tbody>
         </table>
-        <div style="height: 0.25cm;"></div>
-                <div style="font-weight: bold;">
-            <span>(مرجع 3)</span>
-            <span class="time">PEEP</span>
-                    <span>14) ولو</span>
+        <br>
+        <div style="font-weight: bold;">
+            14) ولو PEEP(مرجع 3)
         </div>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-2 tb-5">
       <tbody>
 <tr>
-<td class="time">PEEP: 0cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
-<td class="time">PEEP: 5cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
-<td class="time">PEEP: 10cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
+<td >PEEP: 0cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
+<td >PEEP: 5cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
+<td >PEEP: 10cmH<sub>2</sub>O <br> APL Valve: 30cmH<sub>2</sub>O <br> Gas Flow: 4L/min</td>
 <td colspan="2"><span>نتیجه&nbsp;</span></td>
 </tr>
 <tr>
-<td><span>مقدار مجاز:
+    
+<td style="direction: rtl;">مقدار مجاز:
+  <br>
+  PEEP&lt; 1cmH2O</td>
+<td style="direction: rtl;">مقدار مجاز: 
+  <br>
+  ±1.5cmH2O از مقدار تنظیمی</td>
+<td style="direction: rtl;">
+    مقدار مجاز:
     <br>
-    <span class="time">PEEP&lt; 1cmH<sub>2</sub>O</span>
-    </span></td>
-<td><span>مقدار مجاز:
-    <br>
-    از
-    <span class="time">&plusmn;1.5cmH<sub>2</sub>O</span>
-    <br>
-    مقدار تنظیمی</span></td>
-<td><span>مقدار مجاز:
-    <br>
-    از
-    <span class="time">&plusmn;1.5cmH<sub>2</sub>O</span>
-    <br>
-    مقدار تنظیمی</span></td>
-<td class="time">Rej</td>
-<td class="time">Ok</td>
+    ±1.5cmH2O از مقدار تنظیمی
+</td>
+<td >Rej</td>
+<td >Ok</td>
 </tr>
 <tr>
-<td><span>مقدار قرائت شده:{{ form.s14_e1 }}&nbsp;</span></td>
-<td><span>مقدار قرائت شده:{{ form.s14_e2 }}&nbsp;</span></td>
-<td><span>مقدار قرائت شده:{{ form.s14_e3 }}&nbsp;</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده:{{ form.s14_e1 }}&nbsp;</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده:{{ form.s14_e2 }}&nbsp;</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده:{{ form.s14_e3 }}&nbsp;</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
 </tbody>
 
         </table>
-
-             <div style="font-weight: bold;padding-top: 5cm;">
-            <span>(مرجع 3)</span>
-            <span class="time">Exhaled Volume Monitor</span>
-            (15
+<br>
+             <div style="font-weight: bold;">
+                15) Exhaled Volume Monitor(مرجع 3)
         </div>
 
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5">
           <tbody>
 <tr>
 <td><span>
-    <span class="time">500ml</span>
-    تنظیم حجم جاری روی
-    </span></td>
-<td><span>
-    تنفس در
-    <span class="time"> 6 </span>
-    پس از اعمال
-
-    <br>
-    یک دقیقه</span></td>
+    <span  style="direction: rtl;">تنظیم حجم جاری روی 500ml</td>
+<td style="direction: rtl;">پس از اعمال 6 تنفس در یک دقیقه</td>
 <td colspan="2"><span>نتیجه</span></td>
 </tr>
 <tr>
-<td><span>
-    مقدار تنظیمی
-    <span class="time"> 15% </span>
-    مقدار مجاز:
-
-    </span></td>
-<td><span>
-    <span class="time">3Litr &plusmn; 15%</span>
-    مقدار مجاز:
-    <br>
-    مقدار تنظیمی
-
-
-</span></td>
-<td class="time">Rej</td>
-<td class="time">Ok</td>
+<td style="direction: rtl;">مقدار مجاز: 15% مقدار تنظیمی</td>
+<td style="direction: rtl;">مقدار مجاز: 3Litr ± 15% مقدار تنظیمی</td>
+<td >Rej</td>
+<td >Ok</td>
 </tr>
 <tr>
-<td><span>مقدار قرائت شده :{{ form.s15_e1 }}</span></td>
-<td><span>مقدار قرائت شده :{{ form.s15_e2 }}</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده :{{ form.s15_e1 }}</span></td>
+<td style="direction: rtl;"><span>مقدار قرائت شده :{{ form.s15_e2 }}</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
 </tbody>
         </table>
 
-                <div style="height: 0.3cm;"></div>
-
+<br>
 <div style="font-weight: bold;">
 16) تنظیمات و مودها(مرجع 1)
 </div>
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5">
 <tbody>
 <tr>
-<td colspan="2"><span>
-    <span class="time">&plusmn;10%</span>
-    صحت :
-    <br>
-    مقدار تنظیمی</span></td>
+<td colspan="2" style="direction: rtl;">
+    صحت : ±10% مقدار تنظیمی
+    </td>
 <td><span>حجم جاری</span></td>
 <td><span>ریت تنفس</span></td>
 <td><span>زمان دم</span></td>
@@ -1098,18 +1052,18 @@
 <td><span>فشار</span></td>
 <td><span>فلو</span></td>
 </tr>
-<tr class="time">
-<td colspan="2" style="font-family: 'B Nazanin';"><span>مقدار تنظیمی</span></td>
+<tr >
+<td colspan="2" ><span>مقدار تنظیمی</span></td>
 <td>500</td>
 <td>12</td>
 <td>{{ form.s16_1e1 }}</td>
 <td>{{ form.s16_1e2 }}</td>
-<td>1:02</td>
+<td>1:2</td>
 <td>20</td>
 <td>{{ form.s16_1e3 }}</td>
 </tr>
-<tr class="time">
-<td colspan="2" style="font-family: 'B Nazanin';"><span>مقدار قرائت شده</span></td>
+<tr >
+<td colspan="2" ><span>مقدار قرائت شده</span></td>
 <td>{{ form.s17_1e1 }}</td>
 <td>{{ form.s17_1e2 }}</td>
 <td>{{ form.s17_1e3 }}</td>
@@ -1118,9 +1072,9 @@
 <td>{{ form.s17_1e6 }}</td>
 <td>{{ form.s17_1e7 }}</td>
 </tr>
-<tr class="time">
+<tr >
 <td>Ok</td>
-<td rowspan="2" style="font-family: 'B Nazanin';"><span>نتیجه</span></td>
+<td rowspan="2" ><span>نتیجه</span></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1129,20 +1083,20 @@
 <td></td>
 <td></td>
 </tr>
-<tr class="time">
+<tr >
 <td>Rej</td>
-<td>.</td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
         </table>
-                <div style="height: 0.3cm;"></div>
 
+        <br>
 
         <div style="font-weight: bold;">
 17) مانیتورها و آلارم ها(مرجع)
@@ -1152,91 +1106,87 @@
 <tr>
 <td rowspan="2"><span>نوع آلارم</span></td>
 <td rowspan="2"><span>درستی عملکرد آلارم</span></td>
-<td rowspan="2">صحت آلارم های
+<td rowspan="2">
+    صحت آلارم های تنظیمی
     <br>
-    تنظیمی
-    <br>
-    مقدار
-    <span class="time">±10%</span>
-    )
-    <br>
-    تنظیمی)
+    ( ±10% مقدار تنظیمی)
+    
 </td>
 <td colspan="2"><span>نتیجه</span></td>
 </tr>
-<tr class="time">
+<tr >
 <td>Rej</td>
 <td>Ok</td>
 </tr>
 <tr>
 <td><span>آلارم قطع منبع تغذیه</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم فشار پایین</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم فشار بالا</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم کمبود درصد اکسیژن</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم افت فشار گاز</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم خرابی ونتیلاتور</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
+<td></td>
+<td></td>
+<td></td>
 <td><span>--</span></td>
 </tr>
 <tr>
 <td><span>آلارم کمبود شارژ باطری</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم باز بودن مسیر تنفس</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم فشار پیوسته</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><span>آلارم حجم بازدمی</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td><span>.</span></td>
-<td>&uuml;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1321,42 +1271,663 @@
 
 </form>
 
+<script>
 
-{##}
-{#<span id="e11">a</span>#}
+$( "#id_s0_e1_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e1_comment" ).val() >=3){
+      $("#id_s0_e1_comment").css("background-color", "#f24858");
+      $("#id_s0_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e1_comment").val() ==1)) {
+      $("#id_s0_e1_comment").css("background-color", "white");
+      $("#id_s0_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e1_comment").val() ==2)){
+      $("#id_s0_e1_comment").css("background-color", 'yellow');
+      $("#id_s0_e1_comment").css("color", "black");
+    }
+    });
+/////
+
+$( "#id_s0_e2_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e2_comment" ).val() >=3){
+      $("#id_s0_e2_comment").css("background-color", "#f24858");
+      $("#id_s0_e2_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e2_comment").val() ==1)) {
+      $("#id_s0_e2_comment").css("background-color", "white");
+      $("#id_s0_e2_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e2_comment").val() ==2)){
+      $("#id_s0_e2_comment").css("background-color", 'yellow');
+      $("#id_s0_e2_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e3_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e3_comment" ).val() >=3){
+      $("#id_s0_e3_comment").css("background-color", "#f24858");
+      $("#id_s0_e3_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e3_comment").val() ==1)) {
+      $("#id_s0_e3_comment").css("background-color", "white");
+      $("#id_s0_e3_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e3_comment").val() ==2)){
+      $("#id_s0_e3_comment").css("background-color", 'yellow');
+      $("#id_s0_e3_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e4_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e4_comment" ).val() >=3){
+      $("#id_s0_e4_comment").css("background-color", "#f24858");
+      $("#id_s0_e4_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e4_comment").val() ==1)) {
+      $("#id_s0_e4_comment").css("background-color", "white");
+      $("#id_s0_e4_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e4_comment").val() ==2)){
+      $("#id_s0_e4_comment").css("background-color", 'yellow');
+      $("#id_s0_e4_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e5_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e5_comment" ).val() >=3){
+      $("#id_s0_e5_comment").css("background-color", "#f24858");
+      $("#id_s0_e5_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e5_comment").val() ==1)) {
+      $("#id_s0_e5_comment").css("background-color", "white");
+      $("#id_s0_e5_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e5_comment").val() ==2)){
+      $("#id_s0_e5_comment").css("background-color", 'yellow');
+      $("#id_s0_e5_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e6_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e6_comment" ).val() >=3){
+      $("#id_s0_e6_comment").css("background-color", "#f24858");
+      $("#id_s0_e6_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e6_comment").val() ==1)) {
+      $("#id_s0_e6_comment").css("background-color", "white");
+      $("#id_s0_e6_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e6_comment").val() ==2)){
+      $("#id_s0_e6_comment").css("background-color", 'yellow');
+      $("#id_s0_e6_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e7_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e7_comment" ).val() >=3){
+      $("#id_s0_e7_comment").css("background-color", "#f24858");
+      $("#id_s0_e7_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e7_comment").val() ==1)) {
+      $("#id_s0_e7_comment").css("background-color", "white");
+      $("#id_s0_e7_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e7_comment").val() ==2)){
+      $("#id_s0_e7_comment").css("background-color", 'yellow');
+      $("#id_s0_e7_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e8_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e8_comment" ).val() >=3){
+      $("#id_s0_e8_comment").css("background-color", "#f24858");
+      $("#id_s0_e8_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e8_comment").val() ==1)) {
+      $("#id_s0_e8_comment").css("background-color", "white");
+      $("#id_s0_e8_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e8_comment").val() ==2)){
+      $("#id_s0_e8_comment").css("background-color", 'yellow');
+      $("#id_s0_e8_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e9_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e9_comment" ).val() >=3){
+      $("#id_s0_e9_comment").css("background-color", "#f24858");
+      $("#id_s0_e9_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e9_comment").val() ==1)) {
+      $("#id_s0_e9_comment").css("background-color", "white");
+      $("#id_s0_e9_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e9_comment").val() ==2)){
+      $("#id_s0_e9_comment").css("background-color", 'yellow');
+      $("#id_s0_e9_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e10_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e10_comment" ).val() >=3){
+      $("#id_s0_e10_comment").css("background-color", "#f24858");
+      $("#id_s0_e10_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e10_comment").val() ==1)) {
+      $("#id_s0_e10_comment").css("background-color", "white");
+      $("#id_s0_e10_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e10_comment").val() ==2)){
+      $("#id_s0_e10_comment").css("background-color", 'yellow');
+      $("#id_s0_e10_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e11_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e11_comment" ).val() >=3){
+      $("#id_s0_e11_comment").css("background-color", "#f24858");
+      $("#id_s0_e11_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e11_comment").val() ==1)) {
+      $("#id_s0_e11_comment").css("background-color", "white");
+      $("#id_s0_e11_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e11_comment").val() ==2)){
+      $("#id_s0_e11_comment").css("background-color", 'yellow');
+      $("#id_s0_e11_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e12_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e12_comment" ).val() >=3){
+      $("#id_s0_e12_comment").css("background-color", "#f24858");
+      $("#id_s0_e12_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e12_comment").val() ==1)) {
+      $("#id_s0_e12_comment").css("background-color", "white");
+      $("#id_s0_e12_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e12_comment").val() ==2)){
+      $("#id_s0_e12_comment").css("background-color", 'yellow');
+      $("#id_s0_e12_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e13_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e13_comment" ).val() >=3){
+      $("#id_s0_e13_comment").css("background-color", "#f24858");
+      $("#id_s0_e13_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e13_comment").val() ==1)) {
+      $("#id_s0_e13_comment").css("background-color", "white");
+      $("#id_s0_e13_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e13_comment").val() ==2)){
+      $("#id_s0_e13_comment").css("background-color", 'yellow');
+      $("#id_s0_e13_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e14_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e14_comment" ).val() >=3){
+      $("#id_s0_e14_comment").css("background-color", "#f24858");
+      $("#id_s0_e14_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e14_comment").val() ==1)) {
+      $("#id_s0_e14_comment").css("background-color", "white");
+      $("#id_s0_e14_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e14_comment").val() ==2)){
+      $("#id_s0_e14_comment").css("background-color", 'yellow');
+      $("#id_s0_e14_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e15_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e15_comment" ).val() >=3){
+      $("#id_s0_e15_comment").css("background-color", "#f24858");
+      $("#id_s0_e15_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e15_comment").val() ==1)) {
+      $("#id_s0_e15_comment").css("background-color", "white");
+      $("#id_s0_e15_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e15_comment").val() ==2)){
+      $("#id_s0_e15_comment").css("background-color", 'yellow');
+      $("#id_s0_e15_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e16_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e16_comment" ).val() >=3){
+      $("#id_s0_e16_comment").css("background-color", "#f24858");
+      $("#id_s0_e16_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e16_comment").val() ==1)) {
+      $("#id_s0_e16_comment").css("background-color", "white");
+      $("#id_s0_e16_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e16_comment").val() ==2)){
+      $("#id_s0_e16_comment").css("background-color", 'yellow');
+      $("#id_s0_e16_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e17_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e17_comment" ).val() >=3){
+      $("#id_s0_e17_comment").css("background-color", "#f24858");
+      $("#id_s0_e17_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e17_comment").val() ==1)) {
+      $("#id_s0_e17_comment").css("background-color", "white");
+      $("#id_s0_e17_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e17_comment").val() ==2)){
+      $("#id_s0_e17_comment").css("background-color", 'yellow');
+      $("#id_s0_e17_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e18_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e18_comment" ).val() >=3){
+      $("#id_s0_e18_comment").css("background-color", "#f24858");
+      $("#id_s0_e18_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e18_comment").val() ==1)) {
+      $("#id_s0_e18_comment").css("background-color", "white");
+      $("#id_s0_e18_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e18_comment").val() ==2)){
+      $("#id_s0_e18_comment").css("background-color", 'yellow');
+      $("#id_s0_e18_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e19_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e19_comment" ).val() >=3){
+      $("#id_s0_e19_comment").css("background-color", "#f24858");
+      $("#id_s0_e19_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e19_comment").val() ==1)) {
+      $("#id_s0_e19_comment").css("background-color", "white");
+      $("#id_s0_e19_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e19_comment").val() ==2)){
+      $("#id_s0_e19_comment").css("background-color", 'yellow');
+      $("#id_s0_e19_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e20_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e20_comment" ).val() >=3){
+      $("#id_s0_e20_comment").css("background-color", "#f24858");
+      $("#id_s0_e20_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e20_comment").val() ==1)) {
+      $("#id_s0_e20_comment").css("background-color", "white");
+      $("#id_s0_e20_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e20_comment").val() ==2)){
+      $("#id_s0_e20_comment").css("background-color", 'yellow');
+      $("#id_s0_e20_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e21_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e21_comment" ).val() >=3){
+      $("#id_s0_e21_comment").css("background-color", "#f24858");
+      $("#id_s0_e21_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e21_comment").val() ==1)) {
+      $("#id_s0_e21_comment").css("background-color", "white");
+      $("#id_s0_e21_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e21_comment").val() ==2)){
+      $("#id_s0_e21_comment").css("background-color", 'yellow');
+      $("#id_s0_e21_comment").css("color", "black");
+    }
+    });
+/////
 
 
-</script>
-          <script>
 
-     var t=document.getElementById("txt");
-           {#t.firstChild.nodeValue="humidity is normal.";#}
+/////////////////////table 1
+$( "#id_s1_res" )
+        .focusout(function() {
+          if($( "#id_s1_res" ).val() >0.1  && ($( "#id_s1_res").val().length !=0)){
+            $("#id_s1_res").css("background-color", "#f24858");
+          $("#id_s1_res").css("color", "white");
+            
+          $("#id_s1_e1_comment").css("background-color", "#f24858");
+          $("#id_s1_e1_comment").css("color", "white");
+          $("#id_s1_e1_comment").val("2");
+            
+        }
+          else if(($( "#id_s1_res").val() <=0.1)  || ($( "#id_s1_res").val().length ==0)) {
+            $("#id_s1_res").css("background-color", "white");
+          $("#id_s1_res").css("color", "black");
+        
+          $("#id_s1_e1_comment").css("background-color", "white");
+          $("#id_s1_e1_comment").css("color", "black");
+          $("#id_s1_e1_comment").val("1");
+            
+        }
+        
+        if($( "#id_s1_res" ).val() >0.2  && ($( "#id_s1_res").val().length !=0)){
+            $("#id_s1_res").css("background-color", "#f24858");
+          $("#id_s1_res").css("color", "white");
+            
+          $("#id_s1_e2_comment").css("background-color", "#f24858");
+          $("#id_s1_e2_comment").css("color", "white");
+          $("#id_s1_e2_comment").val("2");
+            
+        }
+          else if(($( "#id_s1_res").val() <=0.2)  || ($( "#id_s1_res").val().length ==0)) {
+            $("#id_s1_res").css("background-color", "white");
+          $("#id_s1_res").css("color", "black");
+        
+          $("#id_s1_e2_comment").css("background-color", "white");
+          $("#id_s1_e2_comment").css("color", "black");
+          $("#id_s1_e2_comment").val("1");
+            
+        }
+        });
 
-        {#document.write('ss');#}
-    document.getElementById("eee").addEventListener("click",function () {
-       var humidity=document.getElementById("id_humidity").value;
 
-       if( humidity> 20 && humidity < 40){
-           t.firstChild.nodeValue="humidity is normal.";
-           t.firstChild.nodeValue+=humidity;
+        // /////////////////////////////table 2
 
-           {#document.write("humidity is normal. ");#}
-           {#document.write(humidity);#}
-       }
-       else if (humidity >=40){
-           t.firstChild.nodeValue="humidity is high.";
-           t.firstChild.nodeValue+=humidity;
+$( "#id_s2_e1_lc" )
+    .focusout(function() {
+      if($( "#id_s2_e1_lc" ).val() >500  && ($( "#id_s2_e1_lc").val().length !=0)){
+        $("#id_s2_e1_lc").css("background-color", "#f24858");
+      $("#id_s2_e1_lc").css("color", "white");
+        
+      $("#id_s2_e1_comment").css("background-color", "#f24858");
+      $("#id_s2_e1_comment").css("color", "white");
+      $("#id_s2_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e1_lc").val() <=500)  || ($( "#id_s2_e1_lc").val().length ==0)) {
+        $("#id_s2_e1_lc").css("background-color", "white");
+      $("#id_s2_e1_lc").css("color", "black");
+    
+      $("#id_s2_e1_comment").css("background-color", "white");
+      $("#id_s2_e1_comment").css("color", "black");
+      $("#id_s2_e1_comment").val("1");
+        
+    }
+    });
 
-           {#document.write("humidity is high. ");#}
-           {#document.write(humidity);#}
 
-       }
-       else {
-           t.firstChild.nodeValue="humidity is low.";
-           t.firstChild.nodeValue+=humidity;
-           {#document.write("humidity is low. ");#}
-           {#document.write(humidity);#}
+    
+$( "#id_s2_e2_lc" )
+    .focusout(function() {
+      if($( "#id_s2_e2_lc" ).val() >1000  && ($( "#id_s2_e2_lc").val().length !=0)){
+        $("#id_s2_e2_lc").css("background-color", "#f24858");
+      $("#id_s2_e2_lc").css("color", "white");
+        
+      $("#id_s2_e2_comment").css("background-color", "#f24858");
+      $("#id_s2_e2_comment").css("color", "white");
+      $("#id_s2_e2_comment").val("2");
+        
+    }
+      else if(($( "#id_s2_e2_lc").val() <=1000)  || ($( "#id_s2_e2_lc").val().length ==0)) {
+        $("#id_s2_e2_lc").css("background-color", "white");
+      $("#id_s2_e2_lc").css("color", "black");
+    
+      $("#id_s2_e2_comment").css("background-color", "white");
+      $("#id_s2_e2_comment").css("color", "black");
+      $("#id_s2_e2_comment").val("1");
+        
+    }
+    });
 
-       }
-       })
+
+     // ////////////////////////////////////////table 3
+  
+$( "#id_s3_e1_lc" )
+    .focusout(function() {
+      if($( "#id_s3_e1_lc" ).val() >100  && ($( "#id_s3_e1_lc").val().length !=0)){
+        $("#id_s3_e1_lc").css("background-color", "#f24858");
+      $("#id_s3_e1_lc").css("color", "white");
+        
+      $("#id_s3_e1_comment").css("background-color", "#f24858");
+      $("#id_s3_e1_comment").css("color", "white");
+      $("#id_s3_e1_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e1_lc").val() <=100)  || ($( "#id_s3_e1_lc").val().length ==0)) {
+        $("#id_s3_e1_lc").css("background-color", "white");
+      $("#id_s3_e1_lc").css("color", "black");
+    
+      $("#id_s3_e1_comment").css("background-color", "white");
+      $("#id_s3_e1_comment").css("color", "black");
+      $("#id_s3_e1_comment").val("1");
+        
+    }
+    });
+
+
+    
+$( "#id_s3_e2_lc" )
+    .focusout(function() {
+      if($( "#id_s3_e2_lc" ).val() >500  && ($( "#id_s3_e2_lc").val().length !=0)){
+        $("#id_s3_e2_lc").css("background-color", "#f24858");
+      $("#id_s3_e2_lc").css("color", "white");
+        
+      $("#id_s3_e2_comment").css("background-color", "#f24858");
+      $("#id_s3_e2_comment").css("color", "white");
+      $("#id_s3_e2_comment").val("2");
+        
+    }
+      else if(($( "#id_s3_e2_lc").val() <=500)  || ($( "#id_s3_e2_lc").val().length ==0)) {
+        $("#id_s3_e2_lc").css("background-color", "white");
+      $("#id_s3_e2_lc").css("color", "black");
+    
+      $("#id_s3_e2_comment").css("background-color", "white");
+      $("#id_s3_e2_comment").css("color", "black");
+      $("#id_s3_e2_comment").val("1");
+        
+    }
+    });
+   
+
+
+
+
+// /////////////////////table 4
+
+var f= $("#id_s4_type").val();
+
+  if( f==3){
+    var a1=10;
+    var b1=100;
+    var c1=50;
+    var d1=500;
+  }
+  else{
+    
+    var a1=10;
+    var b1=10;
+    var c1=50;
+    var d1=50;
+  }
+  
+  
+    // var c_1_check;
+$( "#id_s4_e1_lcac" )
+    .focusout(function() {
+      if($( "#id_s4_e1_lcac" ).val() >b1 && ($( "#id_s4_e1_lcac").val().length !=0)){
+        $("#id_s4_e1_lcac").css("background-color", "#f24858");
+      $("#id_s4_e1_lcac").css("color", "white");
+        
+    }
+      else if(($( "#id_s4_e1_lcac").val() <=b1)  || ($( "#id_s4_e1_lcac").val().length ==0)) {
+        $("#id_s4_e1_lcac").css("background-color", "white");
+      $("#id_s4_e1_lcac").css("color", "black");  
+    }
+    });
+  
+    $( "#id_s4_e1_lcdc" )
+    .focusout(function() {
+      if($( "#id_s4_e1_lcdc" ).val() >a1 && ($( "#id_s4_e1_lcdc").val().length !=0)){
+        $("#id_s4_e1_lcdc").css("background-color", "#f24858");
+      $("#id_s4_e1_lcdc").css("color", "white");
+        
+    }
+      else if(($( "#id_s4_e1_lcdc").val() <=a1)  || ($( "#id_s4_e1_lcdc").val().length ==0)) {
+        $("#id_s4_e1_lcdc").css("background-color", "white");
+      $("#id_s4_e1_lcdc").css("color", "black");  
+    }
+    });
+  /////
+  $( "#id_s4_e2_lcac" )
+    .focusout(function() {
+      if($( "#id_s4_e2_lcac" ).val() >d1 && ($( "#id_s4_e2_lcac").val().length !=0)){
+        $("#id_s4_e2_lcac").css("background-color", "#f24858");
+      $("#id_s4_e2_lcac").css("color", "white");
+        
+    }
+      else if(($( "#id_s4_e2_lcac").val() <=d1)  || ($( "#id_s4_e2_lcac").val().length ==0)) {
+        $("#id_s4_e2_lcac").css("background-color", "white");
+      $("#id_s4_e2_lcac").css("color", "black");  
+    }
+    });
+  
+    $( "#id_s4_e2_lcdc" )
+    .focusout(function() {
+      if($( "#id_s4_e2_lcdc" ).val() >c1 && ($( "#id_s4_e2_lcdc").val().length !=0)){
+        $("#id_s4_e2_lcdc").css("background-color", "#f24858");
+      $("#id_s4_e2_lcdc").css("color", "white");
+        
+    }
+      else if(($( "#id_s4_e2_lcdc").val() <=c1)  || ($( "#id_s4_e2_lcdc").val().length ==0)) {
+        $("#id_s4_e2_lcdc").css("background-color", "white");
+      $("#id_s4_e2_lcdc").css("color", "black");  
+    }
+    });
+
+
+
+// ////////// table 9
+$( "#id_s9_e1" )
+    .focusout(function() {
+      if( ($( "#id_s9_e1" ).val() >30 || $( "#id_s9_e1" ).val() <25 ) && ($( "#id_s9_e1").val().length !=0)){
+        $("#id_s9_e1").css("background-color", "#f24858");
+      $("#id_s9_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s9_e1" ).val() <=30 && $( "#id_s9_e1" ).val() >=25)   || ($( "#id_s9_e1").val().length ==0)) {
+        $("#id_s9_e1").css("background-color", "white");
+      $("#id_s9_e1").css("color", "black");  
+    }
+    });
+    
+//////////// table 10
+    $( "#id_s10_e1" )
+    .focusout(function() {
+      if( ($( "#id_s10_e1" ).val() <30) && ($( "#id_s10_e1").val().length !=0)){
+        $("#id_s10_e1").css("background-color", "#f24858");
+      $("#id_s10_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s10_e1" ).val() >=30)   || ($( "#id_s10_e1").val().length ==0)) {
+        $("#id_s10_e1").css("background-color", "white");
+      $("#id_s10_e1").css("color", "black");  
+    }
+    });
+
+
+// /////table 13
+    
+
+    $( "#id_s13_e1" )
+    .focusout(function() {
+      if( ($( "#id_s13_e1" ).val() >250 || $( "#id_s13_e1" ).val() <100 ) && ($( "#id_s13_e1").val().length !=0)){
+        $("#id_s13_e1").css("background-color", "#f24858");
+      $("#id_s13_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s13_e1" ).val() <=250 && $( "#id_s13_e1" ).val() >=100)   || ($( "#id_s13_e1").val().length ==0)) {
+        $("#id_s13_e1").css("background-color", "white");
+      $("#id_s13_e1").css("color", "black");  
+    }
+    });
+
+    $( "#id_s13_e2" )
+    .focusout(function() {
+      if( ($( "#id_s13_e2" ).val() >250 || $( "#id_s13_e2" ).val() <100 ) && ($( "#id_s13_e2").val().length !=0)){
+        $("#id_s13_e2").css("background-color", "#f24858");
+      $("#id_s13_e2").css("color", "white");
+        
+    }
+      else if( ($( "#id_s13_e2" ).val() <=250 && $( "#id_s13_e2" ).val() >=100)   || ($( "#id_s13_e2").val().length ==0)) {
+        $("#id_s13_e2").css("background-color", "white");
+      $("#id_s13_e2").css("color", "black");  
+    }
+    });
 </script>

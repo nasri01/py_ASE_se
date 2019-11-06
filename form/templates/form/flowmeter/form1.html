@@ -246,39 +246,123 @@
 </form>
 
 
-{##}
-{#<span id="e11">a</span>#}
+<script>
 
-          <script>
+$( "#id_s1_e1_rlpm" )
+    .focusout(function() {
+      var val=($( "#id_s1_e1_rlpm" ).val()-0.5);
+      if(val<0){
+        val=-val;
+      }
+      val=val*100;
+      val=parseInt(val);
+      val=val/100;
+      if(  ( val > (0.5*0.1)  )  && ($( "#id_s1_e1_rlpm").val().length !=0)){
+        $("#id_s1_e1_rlpm").css("background-color", "#f24858");
+      $("#id_s1_e1_rlpm").css("color", "white");
+    }
+      else if(( val <= (0.5*0.1)  )  || ($( "#id_s1_e1_rlpm").val().length ==0)) {
+        $("#id_s1_e1_rlpm").css("background-color", "white");
+      $("#id_s1_e1_rlpm").css("color", "black");
+    }
+    });
 
-     var t=document.getElementById("txt");
-           {#t.firstChild.nodeValue="humidity is normal.";#}
+    $( "#id_s1_e2_rlpm" )
+    .focusout(function() {
 
-        {#document.write('ss');#}
-    document.getElementById("eee").addEventListener("click",function () {
-       var humidity=document.getElementById("id_humidity").value;
+      var val=($( "#id_s1_e2_rlpm" ).val()-2);
+      if(val<0){
+        val=-val;
+      }
+      val=val*100;
+      val=parseInt(val);
+      val=val/100;
 
-       if( humidity> 20 && humidity < 40){
-           t.firstChild.nodeValue="humidity is normal.";
-           t.firstChild.nodeValue+=humidity;
 
-           {#document.write("humidity is normal. ");#}
-           {#document.write(humidity);#}
-       }
-       else if (humidity >=40){
-           t.firstChild.nodeValue="humidity is high.";
-           t.firstChild.nodeValue+=humidity;
+      if(  ( val> (2*0.1)  )  && ($( "#id_s1_e2_rlpm").val().length !=0)){
+        $("#id_s1_e2_rlpm").css("background-color", "#f24858");
+      $("#id_s1_e2_rlpm").css("color", "white");
+    }
+      else if((val <= (2*0.1)  )  || ($( "#id_s1_e2_rlpm").val().length ==0)) {
+        $("#id_s1_e2_rlpm").css("background-color", "white");
+      $("#id_s1_e2_rlpm").css("color", "black");
+    }
+    });
+    $( "#id_s1_e3_rlpm" )
+    .focusout(function() {
 
-           {#document.write("humidity is high. ");#}
-           {#document.write(humidity);#}
+      var val=($( "#id_s1_e3_rlpm" ).val()-4);
+      if(val<0){
+        val=-val;
+      }
+      val=val*100;
+      val=parseInt(val);
+      val=val/100;
 
-       }
-       else {
-           t.firstChild.nodeValue="humidity is low.";
-           t.firstChild.nodeValue+=humidity;
-           {#document.write("humidity is low. ");#}
-           {#document.write(humidity);#}
+      if(  ( val> (4*0.1)  )  && ($( "#id_s1_e3_rlpm").val().length !=0)){
+        $("#id_s1_e3_rlpm").css("background-color", "#f24858");
+      $("#id_s1_e3_rlpm").css("color", "white");
+    }
+      else if(( val <= (4*0.1)  )  || ($( "#id_s1_e3_rlpm").val().length ==0)) {
+        $("#id_s1_e3_rlpm").css("background-color", "white");
+      $("#id_s1_e3_rlpm").css("color", "black");
+    }
+    });
+    $( "#id_s1_e4_rlpm" )
+    .focusout(function() {
+      var val=($( "#id_s1_e4_rlpm" ).val()-7);
+      if(val<0){
+        val=-val;
+      }
+      val=val*100;
+      val=parseInt(val);
+      val=val/100;
 
-       }
-       })
+      if(  ( val > (7*0.1)  )  && ($( "#id_s1_e4_rlpm").val().length !=0)){
+        $("#id_s1_e4_rlpm").css("background-color", "#f24858");
+      $("#id_s1_e4_rlpm").css("color", "white");
+    }
+      else if(( val <= (7*0.1)  )  || ($( "#id_s1_e4_rlpm").val().length ==0)) {
+        $("#id_s1_e4_rlpm").css("background-color", "white");
+      $("#id_s1_e4_rlpm").css("color", "black");
+    }
+    });
+    $( "#id_s1_e5_rlpm" )
+    .focusout(function() {
+      var val=($( "#id_s1_e5_rlpm" ).val()-10);
+      if(val<0){
+        val=-val;
+      }
+      val=val*100;
+      val=parseInt(val);
+      val=val/100;
+
+      if(  ( val > (10*0.1)  )  && ($( "#id_s1_e5_rlpm").val().length !=0)){
+        $("#id_s1_e5_rlpm").css("background-color", "#f24858");
+      $("#id_s1_e5_rlpm").css("color", "white");
+    }
+      else if((val <= (10*0.1)  )  || ($( "#id_s1_e5_rlpm").val().length ==0)) {
+        $("#id_s1_e5_rlpm").css("background-color", "white");
+      $("#id_s1_e5_rlpm").css("color", "black");
+    }
+    });
+    $( "#id_s1_e6_rlpm" )
+    .focusout(function() {
+      var val=($( "#id_s1_e6_rlpm" ).val()-15);
+      if(val<0){
+        val=-val;
+      }
+      val=val*100;
+      val=parseInt(val);
+      val=val/100;
+      if(  ( val> (15*0.1)  )  && ($( "#id_s1_e6_rlpm").val().length !=0)){
+        $("#id_s1_e6_rlpm").css("background-color", "#f24858");
+      $("#id_s1_e6_rlpm").css("color", "white");
+    }
+      else if(( val <= (15*0.1)  )  || ($( "#id_s1_e6_rlpm").val().length ==0)) {
+        $("#id_s1_e6_rlpm").css("background-color", "white");
+      $("#id_s1_e6_rlpm").css("color", "black");
+    }
+    });
+
 </script>

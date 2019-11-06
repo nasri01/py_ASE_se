@@ -398,17 +398,18 @@
     <br>
 
 
+  <br><br>
 
-            {% render_field form.status style="display:inline-block;width:45%;" %}
-            
+            <div class="row">
+              <div class="col-md-6">
+         
 
-            
-            
-            
+            {% render_field form.status style="display:inline-block;width:100%;" %} 
             <br>
             <br>
+
             
-            {% render_field form.totalcomment style="display:inline-block;width:45%;height:45px;" %}
+            {% render_field form.totalcomment style="display:inline-block;width:100%;height:200px;" %}
           
           {% if edit %}
             <input type="text" name="op_type" value="save_edit" hidden>
@@ -423,11 +424,40 @@
 
             <input type="text" name="op_type" value="save" hidden>
           {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='monitor_spo2' %}" >
+              ذخیره نهایی
+            </button>
+  
 
-          <button type="submit"  class="btn btn-primary" formaction="{% url 'save_router' formtype='monitor_spo2' %}" >
-            ذخیره نهایی
-          </button>
 
+
+        </div>
+        <div class="col-md-6">
+        
+                <div class="help-box" role="alert">
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+
+              
+              </div>
+        </div>
+        </div>
+
+
+
+
+        <br><br><br>
 
 
 

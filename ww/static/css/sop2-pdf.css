@@ -85,13 +85,7 @@ th{
     padding: 0.2cm 0.3cm;
     min-width: 1.5cm;
 }
-.sign-2{
 
-    width:10cm;
-    height:7.75cm;
-    background: url('../img/spo2/signature2.jpg') no-repeat;
-    /*background-size: cover;*/
-}
 .sign-2-small{
     width:7cm;
     height:5.5cm;

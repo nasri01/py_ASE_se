@@ -337,7 +337,7 @@
 1. مقاومت زمین حفاظتی
 </span>
     <div>
-                مقدار اندازه گیری شده: {{form.s1_e1_res}}
+                مقدار اندازه گیری شده: {{form.s1_res}}
     </div>
 <br>
 
@@ -544,7 +544,7 @@
         <br><br>
 
     <span style="font-weight: bold;">
-4. جریان نشتی بیمار</span>
+4. جریان نشتی بیمار </span>{% render_field form.s4_type style="width:20%;" %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
@@ -746,7 +746,7 @@
 
 
    <span style="font-weight: bold;">
-5. جریان کمکی بیمار</span>
+5. جریان کمکی بیمار </span>{% render_field form.s5_type style="width:20%;" %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
@@ -946,7 +946,7 @@
 *:قسمت کاربردی1: اکسترنال پدل،2: اینترنال پدل، 3: الکترودهای یکبار مصرف،4: لیدهای ECG        </div>
         <br>
             <span style="font-weight: bold;">
-            6. جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)</span>
+            6. جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی) </span>{% render_field form.s6_type style="width:20%;" %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
@@ -1619,20 +1619,422 @@
 </form>
 
 <script>
-$( "#id_s1_e1_res" )
+/////////////////table 0
+$( "#id_s0_e1_comment" )
     .focusout(function() {
-      if($( "#id_s1_e1_res" ).val() >0.2  && ($( "#id_s1_e1_res").val().length !=0)){
-        $("#id_s1_e1_res").css("background-color", "#f24858");
-      $("#id_s1_e1_res").css("color", "white");
+      if($( "#id_s0_e1_comment" ).val() >=3){
+      $("#id_s0_e1_comment").css("background-color", "#f24858");
+      $("#id_s0_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e1_comment").val() ==1)) {
+      $("#id_s0_e1_comment").css("background-color", "white");
+      $("#id_s0_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e1_comment").val() ==2)){
+      $("#id_s0_e1_comment").css("background-color", 'yellow');
+      $("#id_s0_e1_comment").css("color", "black");
+    }
+    });
+/////
+
+$( "#id_s0_e2_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e2_comment" ).val() >=3){
+      $("#id_s0_e2_comment").css("background-color", "#f24858");
+      $("#id_s0_e2_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e2_comment").val() ==1)) {
+      $("#id_s0_e2_comment").css("background-color", "white");
+      $("#id_s0_e2_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e2_comment").val() ==2)){
+      $("#id_s0_e2_comment").css("background-color", 'yellow');
+      $("#id_s0_e2_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e3_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e3_comment" ).val() >=3){
+      $("#id_s0_e3_comment").css("background-color", "#f24858");
+      $("#id_s0_e3_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e3_comment").val() ==1)) {
+      $("#id_s0_e3_comment").css("background-color", "white");
+      $("#id_s0_e3_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e3_comment").val() ==2)){
+      $("#id_s0_e3_comment").css("background-color", 'yellow');
+      $("#id_s0_e3_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e4_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e4_comment" ).val() >=3){
+      $("#id_s0_e4_comment").css("background-color", "#f24858");
+      $("#id_s0_e4_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e4_comment").val() ==1)) {
+      $("#id_s0_e4_comment").css("background-color", "white");
+      $("#id_s0_e4_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e4_comment").val() ==2)){
+      $("#id_s0_e4_comment").css("background-color", 'yellow');
+      $("#id_s0_e4_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e5_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e5_comment" ).val() >=3){
+      $("#id_s0_e5_comment").css("background-color", "#f24858");
+      $("#id_s0_e5_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e5_comment").val() ==1)) {
+      $("#id_s0_e5_comment").css("background-color", "white");
+      $("#id_s0_e5_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e5_comment").val() ==2)){
+      $("#id_s0_e5_comment").css("background-color", 'yellow');
+      $("#id_s0_e5_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e6_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e6_comment" ).val() >=3){
+      $("#id_s0_e6_comment").css("background-color", "#f24858");
+      $("#id_s0_e6_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e6_comment").val() ==1)) {
+      $("#id_s0_e6_comment").css("background-color", "white");
+      $("#id_s0_e6_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e6_comment").val() ==2)){
+      $("#id_s0_e6_comment").css("background-color", 'yellow');
+      $("#id_s0_e6_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e7_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e7_comment" ).val() >=3){
+      $("#id_s0_e7_comment").css("background-color", "#f24858");
+      $("#id_s0_e7_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e7_comment").val() ==1)) {
+      $("#id_s0_e7_comment").css("background-color", "white");
+      $("#id_s0_e7_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e7_comment").val() ==2)){
+      $("#id_s0_e7_comment").css("background-color", 'yellow');
+      $("#id_s0_e7_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e8_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e8_comment" ).val() >=3){
+      $("#id_s0_e8_comment").css("background-color", "#f24858");
+      $("#id_s0_e8_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e8_comment").val() ==1)) {
+      $("#id_s0_e8_comment").css("background-color", "white");
+      $("#id_s0_e8_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e8_comment").val() ==2)){
+      $("#id_s0_e8_comment").css("background-color", 'yellow');
+      $("#id_s0_e8_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e9_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e9_comment" ).val() >=3){
+      $("#id_s0_e9_comment").css("background-color", "#f24858");
+      $("#id_s0_e9_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e9_comment").val() ==1)) {
+      $("#id_s0_e9_comment").css("background-color", "white");
+      $("#id_s0_e9_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e9_comment").val() ==2)){
+      $("#id_s0_e9_comment").css("background-color", 'yellow');
+      $("#id_s0_e9_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e10_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e10_comment" ).val() >=3){
+      $("#id_s0_e10_comment").css("background-color", "#f24858");
+      $("#id_s0_e10_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e10_comment").val() ==1)) {
+      $("#id_s0_e10_comment").css("background-color", "white");
+      $("#id_s0_e10_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e10_comment").val() ==2)){
+      $("#id_s0_e10_comment").css("background-color", 'yellow');
+      $("#id_s0_e10_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e11_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e11_comment" ).val() >=3){
+      $("#id_s0_e11_comment").css("background-color", "#f24858");
+      $("#id_s0_e11_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e11_comment").val() ==1)) {
+      $("#id_s0_e11_comment").css("background-color", "white");
+      $("#id_s0_e11_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e11_comment").val() ==2)){
+      $("#id_s0_e11_comment").css("background-color", 'yellow');
+      $("#id_s0_e11_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e12_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e12_comment" ).val() >=3){
+      $("#id_s0_e12_comment").css("background-color", "#f24858");
+      $("#id_s0_e12_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e12_comment").val() ==1)) {
+      $("#id_s0_e12_comment").css("background-color", "white");
+      $("#id_s0_e12_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e12_comment").val() ==2)){
+      $("#id_s0_e12_comment").css("background-color", 'yellow');
+      $("#id_s0_e12_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e13_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e13_comment" ).val() >=3){
+      $("#id_s0_e13_comment").css("background-color", "#f24858");
+      $("#id_s0_e13_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e13_comment").val() ==1)) {
+      $("#id_s0_e13_comment").css("background-color", "white");
+      $("#id_s0_e13_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e13_comment").val() ==2)){
+      $("#id_s0_e13_comment").css("background-color", 'yellow');
+      $("#id_s0_e13_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e14_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e14_comment" ).val() >=3){
+      $("#id_s0_e14_comment").css("background-color", "#f24858");
+      $("#id_s0_e14_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e14_comment").val() ==1)) {
+      $("#id_s0_e14_comment").css("background-color", "white");
+      $("#id_s0_e14_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e14_comment").val() ==2)){
+      $("#id_s0_e14_comment").css("background-color", 'yellow');
+      $("#id_s0_e14_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e15_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e15_comment" ).val() >=3){
+      $("#id_s0_e15_comment").css("background-color", "#f24858");
+      $("#id_s0_e15_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e15_comment").val() ==1)) {
+      $("#id_s0_e15_comment").css("background-color", "white");
+      $("#id_s0_e15_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e15_comment").val() ==2)){
+      $("#id_s0_e15_comment").css("background-color", 'yellow');
+      $("#id_s0_e15_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e16_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e16_comment" ).val() >=3){
+      $("#id_s0_e16_comment").css("background-color", "#f24858");
+      $("#id_s0_e16_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e16_comment").val() ==1)) {
+      $("#id_s0_e16_comment").css("background-color", "white");
+      $("#id_s0_e16_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e16_comment").val() ==2)){
+      $("#id_s0_e16_comment").css("background-color", 'yellow');
+      $("#id_s0_e16_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e17_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e17_comment" ).val() >=3){
+      $("#id_s0_e17_comment").css("background-color", "#f24858");
+      $("#id_s0_e17_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e17_comment").val() ==1)) {
+      $("#id_s0_e17_comment").css("background-color", "white");
+      $("#id_s0_e17_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e17_comment").val() ==2)){
+      $("#id_s0_e17_comment").css("background-color", 'yellow');
+      $("#id_s0_e17_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e18_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e18_comment" ).val() >=3){
+      $("#id_s0_e18_comment").css("background-color", "#f24858");
+      $("#id_s0_e18_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e18_comment").val() ==1)) {
+      $("#id_s0_e18_comment").css("background-color", "white");
+      $("#id_s0_e18_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e18_comment").val() ==2)){
+      $("#id_s0_e18_comment").css("background-color", 'yellow');
+      $("#id_s0_e18_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e19_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e19_comment" ).val() >=3){
+      $("#id_s0_e19_comment").css("background-color", "#f24858");
+      $("#id_s0_e19_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e19_comment").val() ==1)) {
+      $("#id_s0_e19_comment").css("background-color", "white");
+      $("#id_s0_e19_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e19_comment").val() ==2)){
+      $("#id_s0_e19_comment").css("background-color", 'yellow');
+      $("#id_s0_e19_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e20_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e20_comment" ).val() >=3){
+      $("#id_s0_e20_comment").css("background-color", "#f24858");
+      $("#id_s0_e20_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e20_comment").val() ==1)) {
+      $("#id_s0_e20_comment").css("background-color", "white");
+      $("#id_s0_e20_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e20_comment").val() ==2)){
+      $("#id_s0_e20_comment").css("background-color", 'yellow');
+      $("#id_s0_e20_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e21_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e21_comment" ).val() >=3){
+      $("#id_s0_e21_comment").css("background-color", "#f24858");
+      $("#id_s0_e21_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e21_comment").val() ==1)) {
+      $("#id_s0_e21_comment").css("background-color", "white");
+      $("#id_s0_e21_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e21_comment").val() ==2)){
+      $("#id_s0_e21_comment").css("background-color", 'yellow');
+      $("#id_s0_e21_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e22_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e22_comment" ).val() >=3){
+      $("#id_s0_e22_comment").css("background-color", "#f24858");
+      $("#id_s0_e22_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e22_comment").val() ==1)) {
+      $("#id_s0_e22_comment").css("background-color", "white");
+      $("#id_s0_e22_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e22_comment").val() ==2)){
+      $("#id_s0_e22_comment").css("background-color", 'yellow');
+      $("#id_s0_e22_comment").css("color", "black");
+    }
+    });
+/////
+
+
+
+/////////////////////////////table 1
+$( "#id_s1_res" )
+    .focusout(function() {
+      if($( "#id_s1_res" ).val() >0.2  && ($( "#id_s1_res").val().length !=0)){
+        $("#id_s1_res").css("background-color", "#f24858");
+      $("#id_s1_res").css("color", "white");
         
       $("#id_s1_e1_comment").css("background-color", "#f24858");
       $("#id_s1_e1_comment").css("color", "white");
       $("#id_s1_e1_comment").val("2");
         
     }
-      else if(($( "#id_s1_e1_res").val() <=0.2)  || ($( "#id_s1_e1_res").val().length ==0)) {
-        $("#id_s1_e1_res").css("background-color", "white");
-      $("#id_s1_e1_res").css("color", "black");
+      else if(($( "#id_s1_res").val() <=0.2)  || ($( "#id_s1_res").val().length ==0)) {
+        $("#id_s1_res").css("background-color", "white");
+      $("#id_s1_res").css("color", "black");
     
       $("#id_s1_e1_comment").css("background-color", "white");
       $("#id_s1_e1_comment").css("color", "black");
@@ -3054,11 +3456,11 @@ $( "#id_s6_e1_lc1" )
   $( "#id_s7a_e1_em" ).focusout(function() {
 
 
-    var def= $( "#id_s7a_e1_em" ).val()-50;
+    var def= $( "#id_s7a_e1_em" ).val()-$( "#id_s7a_e1_es" ).val();
     if(def<0)
       def=-def;
       $( "#id_s7a_e1_ec" ).val(def);
-      if(  (def>4 && def>0.15*50) && ($( "#id_s7a_e1_ec").val().length !=0)){
+      if(  (def>4 && def>0.15*$( "#id_s7a_e1_es" ).val()) && ($( "#id_s7a_e1_ec").val().length !=0)){
         $("#id_s7a_e1_ec").css("background-color", "#f24858");
       $("#id_s7a_e1_ec").css("color", "white");
         
@@ -3067,7 +3469,7 @@ $( "#id_s6_e1_lc1" )
       $("#id_s7a_e1_comment").val("2");
         
     }
-      else if( (def<=4 || def<=0.15*50) || ($( "#id_s7a_e1_ec").val().length ==0)) {
+      else if( (def<=4 || def<=0.15*$( "#id_s7a_e1_es" ).val()) || ($( "#id_s7a_e1_ec").val().length ==0)) {
         $("#id_s7a_e1_ec").css("background-color", "white");
       $("#id_s7a_e1_ec").css("color", "black");
     
@@ -3084,11 +3486,11 @@ $( "#id_s6_e1_lc1" )
     $( "#id_s7a_e2_em" ).focusout(function() {
 
 
-var def= $( "#id_s7a_e2_em" ).val()-100;
+var def= $( "#id_s7a_e2_em" ).val()-$( "#id_s7a_e2_es" ).val();
 if(def<0)
   def=-def;
   $( "#id_s7a_e2_ec" ).val(def);
-  if(  (def>4 && def>0.15*100) && ($( "#id_s7a_e2_ec").val().length !=0)){
+  if(  (def>4 && def>0.15*$( "#id_s7a_e2_es" ).val()) && ($( "#id_s7a_e2_ec").val().length !=0)){
     $("#id_s7a_e2_ec").css("background-color", "#f24858");
   $("#id_s7a_e2_ec").css("color", "white");
     
@@ -3097,7 +3499,7 @@ if(def<0)
   $("#id_s7a_e2_comment").val("2");
     
 }
-  else if( (def<=4 || def<=0.15*100) || ($( "#id_s7a_e2_ec").val().length ==0)) {
+  else if( (def<=4 || def<=0.15*$( "#id_s7a_e2_es" ).val()) || ($( "#id_s7a_e2_ec").val().length ==0)) {
     $("#id_s7a_e2_ec").css("background-color", "white");
   $("#id_s7a_e2_ec").css("color", "black");
 
@@ -3114,11 +3516,11 @@ if(def<0)
 $( "#id_s7a_e3_em" ).focusout(function() {
 
 
-var def= $( "#id_s7a_e3_em" ).val()-200;
+var def= $( "#id_s7a_e3_em" ).val()-$( "#id_s7a_e3_es" ).val();
 if(def<0)
   def=-def;
   $( "#id_s7a_e3_ec" ).val(def);
-  if(  (def>4 && def>0.15*200) && ($( "#id_s7a_e3_ec").val().length !=0)){
+  if(  (def>4 && def>0.15*$( "#id_s7a_e3_es" ).val()) && ($( "#id_s7a_e3_ec").val().length !=0)){
     $("#id_s7a_e3_ec").css("background-color", "#f24858");
   $("#id_s7a_e3_ec").css("color", "white");
     
@@ -3127,7 +3529,7 @@ if(def<0)
   $("#id_s7a_e3_comment").val("2");
     
 }
-  else if( (def<=4 || def<=0.15*200) || ($( "#id_s7a_e3_ec").val().length ==0)) {
+  else if( (def<=4 || def<=0.15*$( "#id_s7a_e3_es" ).val()) || ($( "#id_s7a_e3_ec").val().length ==0)) {
     $("#id_s7a_e3_ec").css("background-color", "white");
   $("#id_s7a_e3_ec").css("color", "black");
 
@@ -3145,11 +3547,11 @@ if(def<0)
 $( "#id_s7c_e1_em" ).focusout(function() {
 
 
-var def= $( "#id_s7c_e1_em" ).val()-10;
+var def= $( "#id_s7c_e1_em" ).val()-$( "#id_s7c_e1_es" ).val();
 if(def<0)
   def=-def;
   $( "#id_s7c_e1_ec" ).val(def);
-  if(  (def>4 && def>0.15*10) && ($( "#id_s7c_e1_ec").val().length !=0)){
+  if(  (def>4 && def>0.15*$( "#id_s7c_e1_es" ).val()) && ($( "#id_s7c_e1_ec").val().length !=0)){
     $("#id_s7c_e1_ec").css("background-color", "#f24858");
   $("#id_s7c_e1_ec").css("color", "white");
     
@@ -3158,7 +3560,7 @@ if(def<0)
   $("#id_s7c_e1_comment").val("2");
     
 }
-  else if( (def<=4 || def<=0.15*10) || ($( "#id_s7c_e1_ec").val().length ==0)) {
+  else if( (def<=4 || def<=0.15*$( "#id_s7c_e1_es" ).val()) || ($( "#id_s7c_e1_ec").val().length ==0)) {
     $("#id_s7c_e1_ec").css("background-color", "white");
   $("#id_s7c_e1_ec").css("color", "black");
 
@@ -3175,11 +3577,11 @@ if(def<0)
 $( "#id_s7c_e2_em" ).focusout(function() {
 
 
-var def= $( "#id_s7c_e2_em" ).val()-30;
+var def= $( "#id_s7c_e2_em" ).val()-$( "#id_s7c_e2_es" ).val();
 if(def<0)
 def=-def;
 $( "#id_s7c_e2_ec" ).val(def);
-if(  (def>4 && def>0.15*30) && ($( "#id_s7c_e2_ec").val().length !=0)){
+if(  (def>4 && def>0.15*$( "#id_s7c_e2_es" ).val()) && ($( "#id_s7c_e2_ec").val().length !=0)){
 $("#id_s7c_e2_ec").css("background-color", "#f24858");
 $("#id_s7c_e2_ec").css("color", "white");
 
@@ -3188,7 +3590,7 @@ $("#id_s7c_e2_comment").css("color", "white");
 $("#id_s7c_e2_comment").val("2");
 
 }
-else if( (def<=4 || def<=0.15*30) || ($( "#id_s7c_e2_ec").val().length ==0)) {
+else if( (def<=4 || def<=0.15*$( "#id_s7c_e2_es" ).val()) || ($( "#id_s7c_e2_ec").val().length ==0)) {
 $("#id_s7c_e2_ec").css("background-color", "white");
 $("#id_s7c_e2_ec").css("color", "black");
 
@@ -3205,11 +3607,11 @@ $("#id_s7c_e2_comment").val("1");
 $( "#id_s7c_e3_em" ).focusout(function() {
 
 
-var def= $( "#id_s7c_e3_em" ).val()-50;
+var def= $( "#id_s7c_e3_em" ).val()-$( "#id_s7c_e3_es" ).val();
 if(def<0)
 def=-def;
 $( "#id_s7c_e3_ec" ).val(def);
-if(  (def>4 && def>0.15*50) && ($( "#id_s7c_e3_ec").val().length !=0)){
+if(  (def>4 && def>0.15*$( "#id_s7c_e3_es" ).val()) && ($( "#id_s7c_e3_ec").val().length !=0)){
 $("#id_s7c_e3_ec").css("background-color", "#f24858");
 $("#id_s7c_e3_ec").css("color", "white");
 
@@ -3218,7 +3620,7 @@ $("#id_s7c_e3_comment").css("color", "white");
 $("#id_s7c_e3_comment").val("2");
 
 }
-else if( (def<=4 || def<=0.15*50) || ($( "#id_s7c_e3_ec").val().length ==0)) {
+else if( (def<=4 || def<=0.15*$( "#id_s7c_e3_es" ).val()) || ($( "#id_s7c_e3_ec").val().length ==0)) {
 $("#id_s7c_e3_ec").css("background-color", "white");
 $("#id_s7c_e3_ec").css("color", "black");
 
@@ -3237,22 +3639,18 @@ $("#id_s7c_e3_comment").val("1");
 $( "#id_s8_e1_em2" ).focusout(function() {
 
 
-var def= $( "#id_s8_e1_em2" ).val()- $("#id_s8_e1_en").val();
-if(def<0)
-  def=-def;
-  $( "#id_s8_e1_ec" ).val(def);
-  if(  (def>4 && def>0.15*$("#id_s8_e1_en").val()) && ($( "#id_s8_e1_ec").val().length !=0)){
-    $("#id_s8_e1_ec").css("background-color", "#f24858");
-  $("#id_s8_e1_ec").css("color", "white");
+  if(  ($( "#id_s8_e1_em2" ).val()<0.85*$("#id_s8_e1_em1").val() ) && ($( "#id_s8_e1_ec").val().length !=0)){
+    $("#id_s8_e1_em2").css("background-color", "#f24858");
+  $("#id_s8_e1_em2").css("color", "white");
     
   $("#id_s8_e1_comment").css("background-color", "#f24858");
   $("#id_s8_e1_comment").css("color", "white");
   $("#id_s8_e1_comment").val("2");
     
 }
-  else if( (def<=4 || def<=0.15*$("#id_s8_e1_en").val()) || ($( "#id_s8_e1_ec").val().length ==0)) {
-    $("#id_s8_e1_ec").css("background-color", "white");
-  $("#id_s8_e1_ec").css("color", "black");
+  else if( ($( "#id_s8_e1_em2" ).val()>=0.85*$("#id_s8_e1_em1").val() ) || ($( "#id_s8_e1_ec").val().length ==0)) {
+    $("#id_s8_e1_em2").css("background-color", "white");
+  $("#id_s8_e1_em2").css("color", "black");
 
   $("#id_s8_e1_comment").css("background-color", "white");
   $("#id_s8_e1_comment").css("color", "black");
@@ -3260,6 +3658,30 @@ if(def<0)
     
 }
 });
+///table 9
+
+
+$( "#id_s9_e1_t1" )
+    .focusout(function() {
+      if( ($( "#id_s9_e1_t1" ).val() >120 ||$( "#id_s9_e1_t1" ).val() <30  ) && ($( "#id_s9_e1_t1").val().length !=0)){
+        $("#id_s9_e1_t1").css("background-color", "#f24858");
+      $("#id_s9_e1_t1").css("color", "white");
+        
+       $("#id_s9_e1_comment").css("background-color", "#f24858");
+       $("#id_s9_e1_comment").css("color", "white");
+       $("#id_s9_e1_comment").val("2");
+        
+    }
+      else if( ($( "#id_s9_e1_t1" ).val() <=120 && $( "#id_s9_e1_t1" ).val() >=30  )   || ($( "#id_s9_e1_t1").val().length ==0)) {
+        $("#id_s9_e1_t1").css("background-color", "white");
+      $("#id_s9_e1_t1").css("color", "black");
+    
+       $("#id_s9_e1_comment").css("background-color", "white");
+       $("#id_s9_e1_comment").css("color", "black");
+       $("#id_s9_e1_comment").val("1");
+        
+    }
+    });
 
 
 

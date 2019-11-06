@@ -330,7 +330,7 @@
 <td>0</td>
 <td>{{form.s2_e1_sp}}</td>
 <td>{{form.s2_e1_np}}</td>
-<td><span>&nbsp;&plusmn;1</span></td>
+<td><span>1</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -338,7 +338,7 @@
 <td>60</td>
 <td>{{form.s2_e2_sp}}</td>
 <td>{{form.s2_e2_np}}</td>
-<td><span>&nbsp;&plusmn;3</span></td>
+<td><span>3</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -346,7 +346,7 @@
 <td>120</td>
 <td>{{form.s2_e3_sp}}</td>
 <td>{{form.s2_e3_np}}</td>
-<td><span>&nbsp;&plusmn;3</span></td>
+<td><span>3</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -354,7 +354,7 @@
 <td>200</td>
 <td>{{form.s2_e4_sp}}</td>
 <td>{{form.s2_e4_np}}</td>
-<td><span>&nbsp;&plusmn;3</span></td>
+<td><span>3</span></td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -402,6 +402,282 @@
 </form>
 
 <script>
+
+$( "#id_s0_e1_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e1_comment" ).val() >=3){
+      $("#id_s0_e1_comment").css("background-color", "#f24858");
+      $("#id_s0_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e1_comment").val() ==1)) {
+      $("#id_s0_e1_comment").css("background-color", "white");
+      $("#id_s0_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e1_comment").val() ==2)){
+      $("#id_s0_e1_comment").css("background-color", 'yellow');
+      $("#id_s0_e1_comment").css("color", "black");
+    }
+    });
+/////
+
+$( "#id_s0_e2_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e2_comment" ).val() >=3){
+      $("#id_s0_e2_comment").css("background-color", "#f24858");
+      $("#id_s0_e2_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e2_comment").val() ==1)) {
+      $("#id_s0_e2_comment").css("background-color", "white");
+      $("#id_s0_e2_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e2_comment").val() ==2)){
+      $("#id_s0_e2_comment").css("background-color", 'yellow');
+      $("#id_s0_e2_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e3_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e3_comment" ).val() >=3){
+      $("#id_s0_e3_comment").css("background-color", "#f24858");
+      $("#id_s0_e3_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e3_comment").val() ==1)) {
+      $("#id_s0_e3_comment").css("background-color", "white");
+      $("#id_s0_e3_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e3_comment").val() ==2)){
+      $("#id_s0_e3_comment").css("background-color", 'yellow');
+      $("#id_s0_e3_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e4_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e4_comment" ).val() >=3){
+      $("#id_s0_e4_comment").css("background-color", "#f24858");
+      $("#id_s0_e4_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e4_comment").val() ==1)) {
+      $("#id_s0_e4_comment").css("background-color", "white");
+      $("#id_s0_e4_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e4_comment").val() ==2)){
+      $("#id_s0_e4_comment").css("background-color", 'yellow');
+      $("#id_s0_e4_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e5_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e5_comment" ).val() >=3){
+      $("#id_s0_e5_comment").css("background-color", "#f24858");
+      $("#id_s0_e5_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e5_comment").val() ==1)) {
+      $("#id_s0_e5_comment").css("background-color", "white");
+      $("#id_s0_e5_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e5_comment").val() ==2)){
+      $("#id_s0_e5_comment").css("background-color", 'yellow');
+      $("#id_s0_e5_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e6_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e6_comment" ).val() >=3){
+      $("#id_s0_e6_comment").css("background-color", "#f24858");
+      $("#id_s0_e6_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e6_comment").val() ==1)) {
+      $("#id_s0_e6_comment").css("background-color", "white");
+      $("#id_s0_e6_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e6_comment").val() ==2)){
+      $("#id_s0_e6_comment").css("background-color", 'yellow');
+      $("#id_s0_e6_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e7_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e7_comment" ).val() >=3){
+      $("#id_s0_e7_comment").css("background-color", "#f24858");
+      $("#id_s0_e7_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e7_comment").val() ==1)) {
+      $("#id_s0_e7_comment").css("background-color", "white");
+      $("#id_s0_e7_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e7_comment").val() ==2)){
+      $("#id_s0_e7_comment").css("background-color", 'yellow');
+      $("#id_s0_e7_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e8_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e8_comment" ).val() >=3){
+      $("#id_s0_e8_comment").css("background-color", "#f24858");
+      $("#id_s0_e8_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e8_comment").val() ==1)) {
+      $("#id_s0_e8_comment").css("background-color", "white");
+      $("#id_s0_e8_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e8_comment").val() ==2)){
+      $("#id_s0_e8_comment").css("background-color", 'yellow');
+      $("#id_s0_e8_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e9_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e9_comment" ).val() >=3){
+      $("#id_s0_e9_comment").css("background-color", "#f24858");
+      $("#id_s0_e9_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e9_comment").val() ==1)) {
+      $("#id_s0_e9_comment").css("background-color", "white");
+      $("#id_s0_e9_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e9_comment").val() ==2)){
+      $("#id_s0_e9_comment").css("background-color", 'yellow');
+      $("#id_s0_e9_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e10_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e10_comment" ).val() >=3){
+      $("#id_s0_e10_comment").css("background-color", "#f24858");
+      $("#id_s0_e10_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e10_comment").val() ==1)) {
+      $("#id_s0_e10_comment").css("background-color", "white");
+      $("#id_s0_e10_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e10_comment").val() ==2)){
+      $("#id_s0_e10_comment").css("background-color", 'yellow');
+      $("#id_s0_e10_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e11_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e11_comment" ).val() >=3){
+      $("#id_s0_e11_comment").css("background-color", "#f24858");
+      $("#id_s0_e11_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e11_comment").val() ==1)) {
+      $("#id_s0_e11_comment").css("background-color", "white");
+      $("#id_s0_e11_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e11_comment").val() ==2)){
+      $("#id_s0_e11_comment").css("background-color", 'yellow');
+      $("#id_s0_e11_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e12_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e12_comment" ).val() >=3){
+      $("#id_s0_e12_comment").css("background-color", "#f24858");
+      $("#id_s0_e12_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e12_comment").val() ==1)) {
+      $("#id_s0_e12_comment").css("background-color", "white");
+      $("#id_s0_e12_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e12_comment").val() ==2)){
+      $("#id_s0_e12_comment").css("background-color", 'yellow');
+      $("#id_s0_e12_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e13_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e13_comment" ).val() >=3){
+      $("#id_s0_e13_comment").css("background-color", "#f24858");
+      $("#id_s0_e13_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e13_comment").val() ==1)) {
+      $("#id_s0_e13_comment").css("background-color", "white");
+      $("#id_s0_e13_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e13_comment").val() ==2)){
+      $("#id_s0_e13_comment").css("background-color", 'yellow');
+      $("#id_s0_e13_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e14_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e14_comment" ).val() >=3){
+      $("#id_s0_e14_comment").css("background-color", "#f24858");
+      $("#id_s0_e14_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e14_comment").val() ==1)) {
+      $("#id_s0_e14_comment").css("background-color", "white");
+      $("#id_s0_e14_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e14_comment").val() ==2)){
+      $("#id_s0_e14_comment").css("background-color", 'yellow');
+      $("#id_s0_e14_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s0_e15_comment" )
+    .focusout(function() {
+      if($( "#id_s0_e15_comment" ).val() >=3){
+      $("#id_s0_e15_comment").css("background-color", "#f24858");
+      $("#id_s0_e15_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s0_e15_comment").val() ==1)) {
+      $("#id_s0_e15_comment").css("background-color", "white");
+      $("#id_s0_e15_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s0_e15_comment").val() ==2)){
+      $("#id_s0_e15_comment").css("background-color", 'yellow');
+      $("#id_s0_e15_comment").css("color", "black");
+    }
+    });
+/////
+
+
+
+////////////////////table 1
 $( "#id_s1_e1_r" )
     .focusout(function() {
       // alert($( "#id_s1_e1_comment" ).val());
@@ -425,4 +701,65 @@ $( "#id_s1_e1_r" )
     }
     });
 
+
+ $( "#id_s2_e1_np" )
+    .focusout(function() {
+      var val=($( "#id_s2_e1_np" ).val()- $( "#id_s2_e1_sp" ).val());
+      if(val<0){
+        val=-val;
+      }
+      if(  ( val> 1 )  && ($( "#id_s2_e1_np").val().length !=0)){
+        $("#id_s2_e1_np").css("background-color", "#f24858");
+      $("#id_s2_e1_np").css("color", "white");
+    }
+      else if(( val <= 1  )  || ($( "#id_s2_e1_np").val().length ==0)) {
+        $("#id_s2_e1_np").css("background-color", "white");
+      $("#id_s2_e1_np").css("color", "black");
+    }
+    });
+     $( "#id_s2_e2_np" )
+    .focusout(function() {
+      var val=($( "#id_s2_e2_np" ).val()- $( "#id_s2_e2_sp" ).val());
+      if(val<0){
+        val=-val;
+      }
+      if(  ( val> 3 )  && ($( "#id_s2_e2_np").val().length !=0)){
+        $("#id_s2_e2_np").css("background-color", "#f24858");
+      $("#id_s2_e2_np").css("color", "white");
+    }
+      else if(( val <= 3 )  || ($( "#id_s2_e2_np").val().length ==0)) {
+        $("#id_s2_e2_np").css("background-color", "white");
+      $("#id_s2_e2_np").css("color", "black");
+    }
+    });
+     $( "#id_s2_e3_np" )
+    .focusout(function() {
+      var val=($( "#id_s2_e3_np" ).val()- $( "#id_s2_e3_sp" ).val());
+      if(val<0){
+        val=-val;
+      }
+      if(  ( val> 3 )  && ($( "#id_s2_e3_np").val().length !=0)){
+        $("#id_s2_e3_np").css("background-color", "#f24858");
+      $("#id_s2_e3_np").css("color", "white");
+    }
+      else if(( val <= 3  )  || ($( "#id_s2_e3_np").val().length ==0)) {
+        $("#id_s2_e3_np").css("background-color", "white");
+      $("#id_s2_e3_np").css("color", "black");
+    }
+    });
+     $( "#id_s2_e4_np" )
+    .focusout(function() {
+      var val=($( "#id_s2_e4_np" ).val()- $( "#id_s2_e4_sp" ).val());
+      if(val<0){
+        val=-val;
+      }
+      if(  ( val> 3 )  && ($( "#id_s2_e4_np").val().length !=0)){
+        $("#id_s2_e4_np").css("background-color", "#f24858");
+      $("#id_s2_e4_np").css("color", "white");
+    }
+      else if(( val <= 3  )  || ($( "#id_s2_e4_np").val().length ==0)) {
+        $("#id_s2_e4_np").css("background-color", "white");
+      $("#id_s2_e4_np").css("color", "black");
+    }
+    });
 </script>

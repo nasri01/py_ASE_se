@@ -104,11 +104,7 @@
     </table>
     <div style="height:5.85cm;">
               <span>
-              {% for cm in form.totacomment %}
-                {{ cm }} -
-              
-              
-              {% endfor %}
+              {{ form.totalcomment }}
               </span> موارد عدم شمول: 
 
     </div>
@@ -504,7 +500,7 @@
           <tr>
             <td>1</td>
             <td>SpO<sub>2</sub></td>
-            <td>{{form.s4_e1_accessory}}</td>
+            <td>{{form.s4_e1_acc }}</td>
           {% if form.s4_e1_comment.id == 1 %}
                 <td>&#10004;</td>
                 <td></td>
@@ -527,7 +523,7 @@
         </table>
         <br><br>
                       <div style="width:100%;direction: rtl; text-align: right;">
-                <div style="margin-bottom: -5cm;" class="sign-2"><img src="" ></div>
+                <div style="margin-bottom: -5cm;" class="sign-2"></div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
