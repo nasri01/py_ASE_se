@@ -1,7 +1,0 @@
-.sign-2{
-
-    width:10cm;
-    height:7.75cm;
-    background: url('../..{{ usr.signature.url }}') no-repeat;
-    background-size: cover;
-}

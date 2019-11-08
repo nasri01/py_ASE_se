@@ -7,7 +7,6 @@ from .forms import *
 from report.models import report
 from django.contrib.auth.models import User, Group
 import jdatetime 
-import pandas as pd
 from django.template import RequestContext
 
 try:
