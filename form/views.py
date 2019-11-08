@@ -69,7 +69,9 @@ def save_router(request,formtype):
                     data = item[1].objects.all().get(record__number=request.POST['record_num'])
                     ref_data = item[1].objects.get(record=data.ref_record)
                     form1 = item[2](request.POST,instance=data)
-                   
+                else:
+                    form1 = item[2](request.POST)
+
                    
                    
                 if form1.is_valid():
@@ -115,6 +117,8 @@ def save_router(request,formtype):
                             ref_data.is_done = True
                             ref_data.save()
                             green_status = f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}'
+                    else:
+                        green_status = f'اطلاعات با موفقیت ذخیره شد!'
 
                     if (item[3] != 0):
                         sform.cal_dev_1_cd = Cal_device.objects.get(id=request.POST['cal_dev1']).calibration_date

@@ -5,31 +5,10 @@
 
 
 <form method="POST" class="post-form">
-
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='ecg' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
-
-                  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-                  <script src="{% static 'js/selectize.min.js' %}"></script>
-                  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-                  <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-                  <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
-                  <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
-                  <!-- <script>
-                  $(document).ready(function() {
-                      $('select').niceSelect();
-                      $('.search-a').niceSelect('destroy');
-                      });
-                </script>-->
-                <script> 
-                          
-                    $(document).ready(function () {
-                      $('.search-a').selectize({
-                          sortField: 'text'
-                      });
-                  });
-                        </script>        
               <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
       
         <!--////////////////////////////////////////////////////////////-->
@@ -157,38 +136,33 @@
         </tr>
         <tr>
           
-        <td rowspan="4">2Hz Square</td>
-        <td rowspan="4">1</td>
-        <td rowspan="4">10</td>
-        <td rowspan="2">5</td>
+        <td rowspan="3">2Hz Square</td>
+        <td rowspan="3">1</td>
+        <td rowspan="3">10</td>
+        <td>5</td>
         <td>{{ form.s1_e1_damp }}</td>
-        <td rowspan="2"></td>
-        <td rowspan="2">4.75~5.25</td>
-        <td rowspan="2"></td>
+        <td>{{ form.s1_e1_ramp }}</td>
+        <td>4.75~5.25</td>
+        <td ></td>
         <td></td>
-        <td rowspan="2"></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        </tr>
+        <td>{{ form.s1_e1_comment}}</td>
         <tr>
         <td>10</td>
-        <td></td>
-        <td></td>
+        <td>{{ form.s1_e2_damp }}</td>
+        <td>{{ form.s1_e2_ramp }}</td>
         <td>&nbsp;9.5~10.5</td>
         <td></td>
         <td></td>
-        <td></td>
+        <td>{{ form.s1_e2_comment}}</td>
         </tr>
         <tr>
         <td>20</td>
-        <td></td>
-        <td></td>
+        <td>{{ form.s1_e3_damp }}</td>
+        <td>{{ form.s1_e3_ramp }}</td>
         <td>19~21</td>
         <td></td>
         <td></td>
-        <td></td>
+        <td>{{ form.s1_e3_comment}}</td>
         </tr>
         </tbody>
 </table>
@@ -211,7 +185,7 @@
                 <td rowspan="2">Gain <br> [mm/mv]</td>
                 <td rowspan="2">Amp (mv)</td>
                 <td rowspan="2">Wave</td>
-                <td rowspan="2">Number of successive peaks</td>
+                <td rowspan="2">Distace within Peaks</td>
                 <td rowspan="2">Result</td>
                 <td rowspan="2">Permissible Range(mm)</td>
                 <td colspan="2">Result</td>
@@ -821,7 +795,7 @@
                                         <td rowspan="3">Test current 25A</td>
                                         <td rowspan="3">power supply cord
                                             <br>
-                                            Yes&#9633;
+                                            Yes{{ form.s14_e1_type }}
                                             <br>
                                             No&#9633;
                                         </td>
@@ -1159,25 +1133,23 @@
             {{form.totalcomment}}
 
 
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='ecg' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='ecg' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='ecg' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
+{% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
 
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='ecg' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
-
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='ecg' %}" >
+              ذخیره نهایی
+            </button>
 
         </div>
 

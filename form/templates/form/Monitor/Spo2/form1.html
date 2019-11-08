@@ -3,32 +3,14 @@
 
 
 <form method="POST" class="post-form">
+  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='aed' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
 
     {% csrf_token %}
 
     <table class="table-bordered">
 
-            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            {% comment %} <script src="{% static 'js/selectize.min.js' %}"></script> {% endcomment %}
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            {% comment %} <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " /> {% endcomment %}
-            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script>
-            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-            <script>
-            $(document).ready(function() {
-                $('select').niceSelect();
-                $('.search-a').niceSelect('destroy');
-                });
-          </script> -->
-          <script>
-                    
-              $(document).ready(function () {
-                $('.search-a').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>        
-
+            
+         
 <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
         
@@ -49,7 +31,7 @@
           {% endif %}
      <h1 class="header-t" style="font-size: 20pt;font-weight: bold;font-family:light-iransans;">
       گواهينامه کنترل کيفي دستگاه پالس اکسيمتر</h1>
-      <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_spo2' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
+      
 <!--////////////////////////////////////////////////////////////-->
      <div class="row" style="margin-right: 40px;">
         <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
@@ -65,9 +47,7 @@
   
   <span style="margin-right: 17px;"> شماره درخواست  : </span>
   <span class="ee">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
 
 
       {% render_field form.request  id="select-state" class="search-a" style="display:inline;width:50%;"%}

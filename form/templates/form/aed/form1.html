@@ -11,30 +11,6 @@
 
     <table class="table-bordered">
 
-
-
-            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            <script src="{% static 'js/selectize.min.js' %}"></script>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script>
-            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-            <script>
-            $(document).ready(function() {
-                $('select').niceSelect();
-                $('.search-a').niceSelect('destroy');
-                });
-          </script> -->
-          <script>
-                    
-              $(document).ready(function () {
-                $('.search-a').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>        
-
-
         <div class="data container-fluid">
           {% if edit %}
           <div class="alert alert-warning">
@@ -269,7 +245,8 @@
 1. مقاومت زمین حفاظتی
 </span>
     <div>
-                مقدار اندازه گیری شده: {{form.s1_e1_res}}
+                {% comment %} مقدار اندازه گیری شده: {{form.s1_e1_res}} {% endcomment %}
+                       مقدار اندازه گیری شده: N/A
     </div>
 <br>
 
@@ -286,7 +263,8 @@
                 <td class="time">Ok</td>
             </tr>
         <tr>
-          <td>{{form.s1_e1_comment}}</td>
+          {% comment %} <td>{{form.s1_e1_comment}}</td> {% endcomment %}
+          <td>N/A</td>
           <td></td>
           <td></td>
           <td>0.2</td>
@@ -473,7 +451,7 @@
         <br><br>
 
     <span style="font-weight: bold;">
-4. جریان نشتی بیمار</span>
+4. جریان نشتی بیمار</span>{% render_field form.s4_type style='width:30%;' %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
@@ -675,7 +653,7 @@
 
 
    <span style="font-weight: bold;">
-5. جریان کمکی بیمار</span>
+5. جریان کمکی بیمار</span>{% render_field form.s5_type style='width:30%;' %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
@@ -875,7 +853,7 @@
 *:قسمت کاربردی1: اکسترنال پدل،2: اینترنال پدل، 3: الکترودهای یکبار مصرف،4: لیدهای ECG        </div>
         <br>
             <span style="font-weight: bold;">
-            6. جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)</span>
+            6. جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی)</span>{% render_field form.s6_type style='width:30%;' %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
           <tbody>
@@ -950,7 +928,8 @@
               <td></td>
               <td></td>
               <td class="time">35</td>
-              <td>{{ form.s11_e2_t }}</td>
+              {% comment %} <td>{{ form.s11_e2_t }}</td> {% endcomment %}
+              <td>N/A</td>
               <td>باتری ای که 6 بار در بیشترین انرژی تخلیه شده</td>
 
             </tr>
@@ -958,7 +937,8 @@
               <td></td>
               <td></td>
               <td class="time">40</td>
-              <td>{{ form.s11_e3_t }}</td>
+              {% comment %} <td>{{ form.s11_e3_t }}</td> {% endcomment %}
+              <td>N/A</td>
               <td>باتری ای که 15 بار در بیشترین انرژی تخلیه شده</td>
 
             </tr>
@@ -1019,6 +999,7 @@
             <tr>
               <td></td>
               <td></td>
+              
               <td>{{ form.s13_e1_e }}</td>
               <td>Ventricular Tachycardia</td>
             </tr>
@@ -1031,7 +1012,7 @@
           <tr>
               <td></td>
               <td>{{ form.s13_e3_e }}</td>
-              <td>Non Shockable</td>
+              <td></td>
               <td>Normal Sinus Rhythm</td>
             </tr>
           </tbody>
@@ -1044,33 +1025,60 @@
 {#/////////////////////////////////////////////#}
     <br>
 
+<div class="row">
+              <div class="col-md-6">
+         
+
+            {% render_field form.status style="display:inline-block;width:100%;" %} 
+            <br>
+            <br>
+
+            
+            {% render_field form.totalcomment style="display:inline-block;width:100%;height:200px;" %}
+          
+          {% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
+
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='aed' %}" >
+              ذخیره نهایی
+            </button>
+  
 
 
-            {% render_field form.status class="1" %}
 
-            {{form.totalcomment}}
+        </div>
+        <div class="col-md-6">
+        
+                <div class="help-box" role="alert">
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                
 
-
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='aed' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='aed' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='aed' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
-
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='aed' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
-
-
+              
+              </div>
+        </div>
+        </div>
         </div>
 
 
@@ -1671,18 +1679,38 @@ $( "#id_s3_e7_lc" )
     });
 // /////////////////////table 4
 
+
+
+
+
+var a1;
+var b1;
+
 var f= $("#id_s4_type").val();
 
-  if( f==4){
-    var a1=100;
-    var b1=500;
+  if( f==4 || f==3){
+    a1=100;
+    b1=500;
   }
   else{
-    var a1=10;
-    var b1= 50;
+    a1=10;
+    b1= 50;
   }
-  
-  
+
+
+
+$( "#id_s4_type" )
+  .focusout(function() {  
+f= $("#id_s4_type").val();
+  if( f==4 || f==3){
+    a1=100;
+    b1=500;
+  }
+  else{
+    a1=10;
+    b1= 50;
+  }
+  });
     // var c_1_check;
 $( "#id_s4_e1_lc1" )
     .focusout(function() {
@@ -2175,18 +2203,35 @@ $( "#id_s4_e1_lc1" )
 
 
 
+
+var a2;
+var b2;
+
 var f2= $("#id_s5_type").val();
 
-  if( f2==4){
-    var a2=100;
-    var b2=500;
+  if( f2==4 || f2==3){
+    a2=100;
+    b2=500;
   }
   else{
-    var a2=10;
-    var b2= 50;
+    a2=10;
+    b2= 50;
   }
-  
-  
+
+
+
+$( "#id_s5_type" )
+  .focusout(function() {  
+f2= $("#id_s5_type").val();
+  if( f2==4 || f2==3){
+    a2=100;
+    b2=500;
+  }
+  else{
+    a2=10;
+    b2= 50;
+  }
+  });
     // var c_1_check;
 $( "#id_s5_e1_lc1" )
     .focusout(function() {
@@ -2532,7 +2577,7 @@ $( "#id_s5_e1_lc1" )
     $( "#id_s5_e8_lc1" )
     .focusout(function() {
       if($( "#id_s5_e8_lc1" ).val() >a2 && ($( "#id_s5_e8_lc1").val().length !=0)){
-        $("#id_s5_e8_lc1").css("background-color", "#f24858");
+        $("#id_s5_e108_lc1").css("background-color", "#f24858");
       $("#id_s5_e8_lc1").css("color", "white");
         
     }
@@ -2678,16 +2723,28 @@ $( "#id_s5_e1_lc1" )
     // ///////////////////////////// table 6
 
 
-    
-var f2= $("#id_s6_type").val();
+    var a3;
+var f3= $("#id_s6_type").val();
 
-if( f2==2){
-  var a3=5000;
-}
-else{
-  var a3=100;
-}
+  if( f3==4 || f3==3){
+    a3=5000;
+  }
+  else{
+    a3=100;
+  }
 
+
+
+$( "#id_s6_type" )
+  .focusout(function() {  
+f3= $("#id_s6_type").val();
+  if(f3==4 || f3==3){
+    a3=5000;
+  }
+  else{
+    a3=100;
+  }
+  });
 
   // var c_1_check;
 $( "#id_s6_e1_lc1" )
@@ -2797,6 +2854,32 @@ $( "#id_s6_e1_lc1" )
   });
 
 
+
+//// table 13
+  $( "#id_s13_e1_e" )
+  .focusout(function() {
+    if( ($( "#id_s13_e1_e" ).val() <=0 ) && ($( "#id_s13_e1_e").val().length !=0)){
+      $("#id_s13_e1_e").css("background-color", "#f24858");
+    $("#id_s13_e1_e").css("color", "white");
+      
+  }
+    else if(($( "#id_s13_e1_e" ).val() >0 )  || ($( "#id_s13_e1_e").val().length ==0)) {
+      $("#id_s13_e1_e").css("background-color", "white");
+    $("#id_s13_e1_e").css("color", "black");  
+  }
+  });
+  $( "#id_s13_e2_e" )
+  .focusout(function() {
+    if( ($( "#id_s13_e2_e" ).val() <=0) && ($( "#id_s13_e2_e").val().length !=0)){
+      $("#id_s13_e2_e").css("background-color", "#f24858");
+    $("#id_s13_e2_e").css("color", "white");
+      
+  }
+    else if(($( "#id_s13_e2_e" ).val() >0 )  || ($( "#id_s13_e2_e").val().length ==0)) {
+      $("#id_s13_e2_e").css("background-color", "white");
+    $("#id_s13_e2_e").css("color", "black");  
+  }
+  });
 
   </script>
 

@@ -21,9 +21,9 @@ model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, d
                 infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
                 suction_1, electrocauter_1, monometer_1, cant_test ,report ]
                 #TODO organize
-modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'defibrilator', 'aed', 'ecg',
-             'infusion_pump', 'syringe_pump', 'spo2', 'flowmeter', 'anesthesia_machine', 'ventilator', 
-              'suction', 'electrocauter', 'monometer','cant_test' ]
+modellist = ['monitor_spo2', 'monitor ECG', 'monitor NIBP', 'monitor Safety', 'Defibrilator', 'AED', 'ECG',
+             'Infusion Pump', 'Syringe Pump', 'Pulse Oximetry', 'Flow Meter', 'Anesthesia Machine', 'Ventilator', 
+              'Suction', 'ElectroCouter', 'Mano Meter','cant_test' ]
 
 def xlsx(request):
     if request.method == 'GET':
@@ -754,20 +754,17 @@ def pdf(request):
                     html = render_to_string(template_name, {
                         'form': obj, 'time': t2,'usr':usr,'data':data })
 
-                    www = render_to_string('pdf-style.css', {'usr':usr })
                     
                     css_root = static('/css')
                     css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
                     css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
-                    css3 = CSS(string = render_to_string('pdf-style.css', {'usr':usr }))
-                    print(www)
                     if not os.path.exists('_reports/'):
                         os.makedirs('_reports/')
                     
                     if not os.path.exists(f'_reports/{obj.request.number}/'):
                         os.makedirs(f'_reports/{obj.request.number}/')
                         
-                    HTML(string=html).write_pdf(f'_reports/{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2, css3])
+                    HTML(string=html).write_pdf(f'_reports/{obj.request.number}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
                     a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,

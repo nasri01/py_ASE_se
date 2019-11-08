@@ -3,32 +3,13 @@
 
 
 <form method="POST" class="post-form">
-
+  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='aed' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
       
       
-            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            <script src="{% static 'js/selectize.min.js' %}"></script>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
-            <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
-            <!-- <script>
-            $(document).ready(function() {
-                $('select').niceSelect();
-                $('.search-a').niceSelect('destroy');
-                });
-          </script>-->
-          <script> 
-                    
-              $(document).ready(function () {
-                $('.search-a').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>        
+         
         <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
         <!--////////////////////////////////////////////////////////////-->
@@ -553,7 +534,7 @@
                     <td>dc</td>
                 </tr>
             <tr class="time">
-              <td>{{ form.s4_e1_comment }}</td>
+              {% comment %} <td>{{ form.s4_e1_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -563,12 +544,23 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e1_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e1_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e1_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
                 <td style="text-align: right;direction: rtl;">- روشن</td>
               <td rowspan="4">عادی</td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e2_comment }}</td>
+              {% comment %} <td>{{ form.s4_e2_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -578,11 +570,22 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e2_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e2_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e2_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- خاموش </td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e3_comment }}</td>
+              {% comment %} <td>{{ form.s4_e3_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -592,11 +595,22 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e3_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e3_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e3_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;"> Standby -</td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e4_comment }}</td>
+              {% comment %} <td>{{ form.s4_e4_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -606,11 +620,22 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e4_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e4_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e4_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- پلاریته معکوس</td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e5_comment }}</td>
+              {% comment %} <td>{{ form.s4_e5_comment }}</td>
               <td></td>
               <td></td>
               <td>500</td>
@@ -620,13 +645,24 @@
               <td>50</td>
               <td>50</td>
               <td>{% render_field form.s4_e5_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e5_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e5_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>500</td>
+              <td>50</td>
+              <td>500</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- قطع یکی از سیمهای تغذیه</td>
                 <td rowspan="2">تک اشکالی</td>
             </tr>
 
             <tr class="time">
-              <td>{{ form.s4_e6_comment }}</td>
+              {% comment %} <td>{{ form.s4_e6_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -636,7 +672,18 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e6_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e6_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e6_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>500</td>
+              <td>50</td>
+              <td>500</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- قطع زمین حفاظتی</td>
             </tr>
 
@@ -789,27 +836,23 @@
 
             {{form.totalcomment}}
 
+{% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
 
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='infusion_pump' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='infusion_pump' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='infusion_pump' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
-
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='infusion_pump' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
-
-
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='syringe_pump' %}" >
+              ذخیره نهایی
+            </button>
         </div>
 
 
@@ -1776,6 +1819,36 @@ $( "#id_s5_e1_bflc" )
       $("#id_s6_e2_mf").css("color", "black");
     }
     });
+
+
+
+        // last table
+
+    $( "#id_s7_e1_mmf" )
+  .focusout(function() {
+    if($( "#id_s7_e1_mmf" ).val() >=20 && ($( "#id_s7_e1_mmf").val().length !=0)){
+      $("#id_s7_e1_mmf").css("background-color", "#f24858");
+    $("#id_s7_e1_mmf").css("color", "white");
+      
+  }
+    else if(($( "#id_s7_e1_mmf").val() <20)  || ($( "#id_s7_e1_mmf").val().length ==0)) {
+      $("#id_s7_e1_mmf").css("background-color", "white");
+    $("#id_s7_e1_mmf").css("color", "black");  
+  }
+  });
+
+      $( "#id_s7_e2_mmf" )
+  .focusout(function() {
+    if($( "#id_s7_e2_mmf" ).val() >=20 && ($( "#id_s7_e2_mmf").val().length !=0)){
+      $("#id_s7_e2_mmf").css("background-color", "#f24858");
+    $("#id_s7_e2_mmf").css("color", "white");
+      
+  }
+    else if(($( "#id_s7_e2_mmf").val() <20)  || ($( "#id_s7_e2_mmf").val().length ==0)) {
+      $("#id_s7_e2_mmf").css("background-color", "white");
+    $("#id_s7_e2_mmf").css("color", "black");  
+  }
+  });
 </script>
 
 

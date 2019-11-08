@@ -3,31 +3,11 @@
 
 
 <form method="POST" class="post-form">
-
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='flowmeter' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
 
-       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-       <script src="{% static 'js/selectize.min.js' %}"></script>
-       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-       <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-       <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
-       <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
-       <!-- <script>
-       $(document).ready(function() {
-           $('select').niceSelect();
-           $('.search-a').niceSelect('destroy');
-           });
-     </script>-->
-     <script> 
-               
-         $(document).ready(function () {
-           $('.search-a').selectize({
-               sortField: 'text'
-           });
-       });
-             </script>        
    <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
         <!--////////////////////////////////////////////////////////////-->
@@ -216,25 +196,23 @@
             {{form.totalcomment}}
 
 
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='flowmeter' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='flowmeter' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='flowmeter' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
+{% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
 
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='flowmeter' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
-
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='flowmeter' %}" >
+              ذخیره نهایی
+            </button>
 
         </div>
 

@@ -3,33 +3,12 @@
 
 
 <form method="POST" class="post-form">
-
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='anesthesia_machine' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
 
-            
-      
-            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            <script src="{% static 'js/selectize.min.js' %}"></script>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
-            <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
-            <!-- <script>
-            $(document).ready(function() {
-                $('select').niceSelect();
-                $('.search-a').niceSelect('destroy');
-                });
-          </script>-->
-          <script> 
-                    
-              $(document).ready(function () {
-                $('.search-a').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>        
+                 
         <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
         <!--////////////////////////////////////////////////////////////-->
@@ -580,8 +559,8 @@
 
 
 <span style="font-weight: bold;">
-4. جریان نشتی بیمار</span>
-<br><br>
+4. جریان نشتی بیمار</span>{% render_field form.s4_type style='width:30%;' %}
+<br><br> 
 
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5">
           <tbody>
@@ -613,7 +592,7 @@
                     <td>dc</td>
                 </tr>
             <tr class="time">
-              <td>{{ form.s4_e1_comment }}</td>
+              {% comment %} <td>{{ form.s4_e1_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -624,11 +603,22 @@
               <td>10</td>
               <td>{% render_field form.s4_e1_aclc style="width:50px;"%}</td>
               <td>{% render_field form.s4_e1_dclc style="width:50px;"%}</td>
-                <td style="text-align: right;direction: rtl;">- روشن</td>
+                <td style="text-align: right;direction: rtl;">- روشن</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td rowspan="4">عادی</td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e2_comment }}</td>
+              {% comment %} <td>{{ form.s4_e2_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -638,11 +628,22 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e2_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e2_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e2_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- خاموش </td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e3_comment }}</td>
+              {% comment %} <td>{{ form.s4_e3_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -652,11 +653,22 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e3_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e3_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e3_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;"> Standby -</td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e4_comment }}</td>
+              {% comment %} <td>{{ form.s4_e4_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -666,11 +678,22 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e4_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e4_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e4_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>100</td>
+              <td>10</td>
+              <td>100</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- پلاریته معکوس</td>
             </tr>
             <tr class="time">
-              <td>{{ form.s4_e5_comment }}</td>
+              {% comment %} <td>{{ form.s4_e5_comment }}</td>
               <td></td>
               <td></td>
               <td>500</td>
@@ -680,13 +703,24 @@
               <td>50</td>
               <td>50</td>
               <td>{% render_field form.s4_e5_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e5_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e5_dclc style="width:50px;"%}</td> {% endcomment %}\
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>500</td>
+              <td>50</td>
+              <td>500</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- قطع یکی از سیمهای تغذیه</td>
                 <td rowspan="2">تک اشکالی</td>
             </tr>
 
             <tr class="time">
-              <td>{{ form.s4_e6_comment }}</td>
+              {% comment %} <td>{{ form.s4_e6_comment }}</td>
               <td></td>
               <td></td>
               <td>100</td>
@@ -696,7 +730,18 @@
               <td>10</td>
               <td>10</td>
               <td>{% render_field form.s4_e6_aclc style="width:50px;"%}</td>
-              <td>{% render_field form.s4_e6_dclc style="width:50px;"%}</td>
+              <td>{% render_field form.s4_e6_dclc style="width:50px;"%}</td> {% endcomment %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>500</td>
+              <td>50</td>
+              <td>500</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>N/A</td>
+              <td>N/A</td>
               <td style="text-align: right;direction: rtl;">- قطع زمین حفاظتی</td>
             </tr>
 
@@ -709,7 +754,7 @@
 
 
 <span style="font-weight: bold;">
-5. جریان نشتی  بیمار </span>
+5. جریان نشتی  بیمار </span>{% render_field form.s5_type style='width:30%;' %}
 <br><br>
 <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-5">
           <tbody>
@@ -732,13 +777,20 @@
 
                 </tr>
             <tr class="time">
-              <td>{{ form.s5_e1_comment }}</td>
+              {% comment %} <td>{{ form.s5_e1_comment }}</td>
               <td></td>
               <td></td>
               <td>5000</td>
               <td>100</td>
                 <td>{% render_field form.s5_e1_bflc style="width:50px;"%}</td>
-                <td>{% render_field form.s5_e1_cflc style="width:50px;"%}</td>
+                <td>{% render_field form.s5_e1_cflc style="width:50px;"%}</td> {% endcomment %}
+                <td></td>
+              <td></td>
+              <td></td>
+              <td>5000</td>
+              <td>100</td>
+                <td>N/A</td>
+                <td>N/A</td>
               <td>اعمال ولتاژ 110% ولتاژ نامی بین قسمت کاربردی ایزوله و زمین</td>
               <td>تک اشکالی</td>
             </tr>
@@ -802,10 +854,14 @@
                     <td>Ok</td>
                 </tr>
             <tr class="time">
-                <td>PO2: {% render_field form.s7_e1_si1 style="width:50px;"%}</td>
+                {% comment %} <td>PO2: {% render_field form.s7_e1_si1 style="width:50px;"%}</td>
               <td>PN2O: {% render_field form.s7_e1_si2 style="width:50px;"%}</td>
               <td>PO2: {% render_field form.s7_e1_si3 style="width:50px;"%}</td>
-              <td>PN2O: {% render_field form.s7_e1_si4 style="width:50px;"%}</td>
+              <td>PN2O: {% render_field form.s7_e1_si4 style="width:50px;"%}</td> {% endcomment %}
+              <td>PO2: N/A</td>
+              <td>PN2O: N/A</td>
+              <td>PO2: N/A</td>
+              <td>PN2O: N/A</td>
               <td></td>
               <td></td>
             </tr>
@@ -1018,7 +1074,8 @@
             <tr>
                 <td class="time">1</td>
                 <td>{{ form.s13_e1_ro2f }}</td>
-                <td>{{ form.s13_e1_ro2n2of }}</td>
+                {% comment %} <td>{{ form.s13_e1_ro2n2of }}</td> {% endcomment %}
+                <td>N/A</td>
                 <td></td>
                 <td></td>
 
@@ -1026,7 +1083,8 @@
             <tr>
                 <td class="time">Max ({{ form.s13_me }})</td>
                 <td>{{ form.s13_e2_ro2f }}</td>
-                <td>{{ form.s13_e2_ro2n2of }}</td>
+                {% comment %} <td>{{ form.s13_e2_ro2n2of }}</td> {% endcomment %}
+                <td>N/A</td>
                 <td></td>
                 <td></td>
            </tr>
@@ -1320,7 +1378,7 @@
             <tr>
                 <td rowspan="2" style="background-color: lightgrey;"></td>
                 <td rowspan="2">O2 FLOW RATE</td>
-                <td colspan="12">ANESHESIA GAS</td>
+                <td colspan="12">ANESTHESIA GAS</td>
             </tr>
             <tr>
             <td colspan="3">HALOTHANE</td>
@@ -1371,39 +1429,52 @@
                 <td rowspan="2">READING</td>
                 <td>4 L/ min</td>
 
-                <td>{{ form.s19_g1_e1 }}</td>
-                <td>{{ form.s19_g1_e2 }}</td>
-                <td>{{ form.s19_g1_e3 }}</td>
-
+                {% comment %} <td>{{ form.s19_g1_e1 }}</td> {% endcomment %}
+                {% comment %} <td>{{ form.s19_g1_e2 }}</td> {% endcomment %}
+                {% comment %} <td>{{ form.s19_g1_e3 }}</td> {% endcomment %}
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>{{ form.s19_g2_e1 }}</td>
                 <td>{{ form.s19_g2_e2 }}</td>
                 <td>{{ form.s19_g2_e3 }}</td>
 
-                <td>{{ form.s19_g3_e1 }}</td>
-                <td>{{ form.s19_g3_e2 }}</td>
-                <td>{{ form.s19_g3_e3 }}</td>
+                {% comment %} <td>{{ form.s19_g3_e1 }}</td> {% endcomment %}
+                {% comment %} <td>{{ form.s19_g3_e2 }}</td> {% endcomment %}
+                {% comment %} <td>{{ form.s19_g3_e3 }}</td> {% endcomment %}
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
 
-                <td>{{ form.s19_g4_e1 }}</td>
+                {% comment %} <td>{{ form.s19_g4_e1 }}</td>
                 <td>{{ form.s19_g4_e2 }}</td>
-                <td>{{ form.s19_g4_e3 }}</td>
+                <td>{{ form.s19_g4_e3 }}</td> {% endcomment %}
             </tr>
             <tr>
                 <td>1 L/ min</td>
 
                 <td style="background-color: lightgrey;"></td>
-                <td>{{ form.s19_g1_e4 }}</td>
+                {% comment %} <td>{{ form.s19_g1_e4 }}</td> {% endcomment %}
+                <td>N/A</td>
                 <td style="background-color: lightgrey;"></td>
 
                 <td style="background-color: lightgrey;"></td>
-                <td>{{ form.s19_g2_e4 }}</td>
+                {% comment %} <td>{{ form.s19_g2_e4 }}</td> {% endcomment %}
+                <td>N/A</td>
                 <td style="background-color: lightgrey;"></td>
 
                 <td style="background-color: lightgrey;"></td>
-                <td>{{ form.s19_g3_e4 }}</td>
+                {% comment %} <td>{{ form.s19_g3_e4 }}</td> {% endcomment %}
+                <td>N/A</td>
                 <td style="background-color: lightgrey;"></td>
 
                 <td style="background-color: lightgrey;"></td>
-                <td>{{ form.s19_g4_e4 }}</td>
+                {% comment %} <td>{{ form.s19_g4_e4 }}</td> {% endcomment %}
+                <td>N/A</td>
                 <td style="background-color: lightgrey;"></td>
 
             </tr>
@@ -1483,32 +1554,60 @@
 
 
 
-            {% render_field form.status class="1" %}
+<div class="row">
+              <div class="col-md-6">
+         
 
-            {{form.totalcomment}}
+            {% render_field form.status style="display:inline-block;width:100%;" %} 
+            <br>
+            <br>
 
+            
+            {% render_field form.totalcomment style="display:inline-block;width:100%;height:200px;" %}
+          
+          {% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
 
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='anesthesia_machine' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='anesthesia_machine' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='anesthesia_machine' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='anesthesia_machine' %}" >
+              ذخیره نهایی
+            </button>
+  
 
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='anesthesia_machine' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
 
 
         </div>
+        <div class="col-md-6">
+        
+                <div class="help-box" role="alert">
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                A simple info alert—check it out! <br>
+                
+
+              
+              </div>
+        </div>
+        </div>        </div>
 
 
         <!--//////////////////////////////////////////////////////////-->
@@ -2365,23 +2464,58 @@ $( "#id_s0_e31_comment" )
         });
     // /////////////////////table 4
     
-    var f= $("#id_s4_type").val();
+
+      
+
+
+
+
+
+
+      
+var a1;
+var b1;
+var c1;
+var d1;
+
+var f= $("#id_s4_type").val();
+
+  if( f==3){
+     a1=10;
+        b1=100;
+        c1=50;
+        d1=500;
+  }
+  else{
     
-      if( f==3){
-        var a1=10;
-        var b1=100;
-        var c1=50;
-        var d1=500;
-      }
-      else{
-        
-        var a1=10;
-        var b1=10;
-        var c1=50;
-        var d1=50;
-      }
-      
-      
+     a1=10;
+  b1=10;
+  c1=50;
+       d1=50;
+  }
+
+
+
+$( "#id_s4_type" )
+  .focusout(function() {  
+f= $("#id_s4_type").val();
+  if( f==3){
+    a1=10;
+        b1=100;
+        c1=50;
+        d1=500;
+  }
+  else{
+    
+    a1=10;
+  b1=10;
+  c1=50;
+       d1=50;
+  }
+  });
+
+
+
         // var c_1_check;
     $( "#id_s4_e1_aclc" )
         .focusout(function() {
@@ -2677,5 +2811,529 @@ $( "#id_s14_e1" )
       $("#id_s14_e2").css("color", "black");  
     }
     });
+
+
+
+
+
+// table 13
+    $( "#id_s13_e1_ro2f" )
+    .focusout(function() {
+      if( ($( "#id_s13_e1_ro2f" ).val() >1.1 ||$( "#id_s13_e1_ro2f" ).val() <0.9 ) && ($( "#id_s13_e1_ro2f").val().length !=0)){
+        $("#id_s13_e1_ro2f").css("background-color", "#f24858");
+      $("#id_s13_e1_ro2f").css("color", "white");
+        
+    }
+      else if( ($( "#id_s13_e1_ro2f" ).val() <=1.1 && $( "#id_s13_e1_ro2f" ).val() >=0.9) || ($( "#id_s13_e1_ro2f").val().length ==0)) {
+        $("#id_s13_e1_ro2f").css("background-color", "white");
+      $("#id_s13_e1_ro2f").css("color", "black");  
+    }
+    });
+
+
+
+    $( "#id_s13_e2_ro2f" )
+    .focusout(function() {
+      
+      var val=($( "#id_s13_e2_ro2f" ).val() - $( "#id_s13_me" ).val());
+
+      if(val<0)
+        val=-val;
+      if( ( val>0.1*$( "#id_s13_me" ).val()) && ($( "#id_s13_e2_ro2f").val().length !=0)){
+        $("#id_s13_e2_ro2f").css("background-color", "#f24858");
+      $("#id_s13_e2_ro2f").css("color", "white");
+        
+    }
+      else if( ( val<=0.1*$( "#id_s13_me" ).val())  || ($( "#id_s13_e2_ro2f").val().length ==0)) {
+        $("#id_s13_e2_ro2f").css("background-color", "white");
+      $("#id_s13_e2_ro2f").css("color", "black");  
+    }
+    });
+
+
+
+//////table 15
+
+$( "#id_s15_e1" )
+    .focusout(function() {
+      if( ($( "#id_s15_e1" ).val() >=1 ) && ($( "#id_s15_e1").val().length !=0)){
+        $("#id_s15_e1").css("background-color", "#f24858");
+      $("#id_s15_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s15_e1" ).val()<1 )   || ($( "#id_s15_e1").val().length ==0)) {
+        $("#id_s15_e1").css("background-color", "white");
+      $("#id_s15_e1").css("color", "black");  
+    }
+    });
+   $( "#id_s15_e2" )
+    .focusout(function() {
+      if( ($( "#id_s15_e2" ).val() >6.5 ||$( "#id_s15_e2" ).val() <3.5 ) && ($( "#id_s15_e2").val().length !=0)){
+        $("#id_s15_e2").css("background-color", "#f24858");
+      $("#id_s15_e2").css("color", "white");
+        
+    }
+      else if( ($( "#id_s15_e2" ).val() <=6.5 && $( "#id_s15_e2" ).val() >=3.5 ) || ($( "#id_s15_e2").val().length ==0)) {
+        $("#id_s15_e2").css("background-color", "white");
+      $("#id_s15_e2").css("color", "black");  
+    }
+    });
+
+    
+
+   $( "#id_s15_e3" )
+    .focusout(function() {
+      if( ($( "#id_s15_e3" ).val() >11.5 ||$( "#id_s15_e3" ).val() <8.5 ) && ($( "#id_s15_e3").val().length !=0)){
+        $("#id_s15_e3").css("background-color", "#f24858");
+      $("#id_s15_e3").css("color", "white");
+        
+    }
+      else if( ($( "#id_s15_e3" ).val() <=11.5 && $( "#id_s15_e3" ).val() >=8.5 ) || ($( "#id_s15_e3").val().length ==0)) {
+        $("#id_s15_e3").css("background-color", "white");
+      $("#id_s15_e3").css("color", "black");  
+    }
+    });
+
+    
+
+    //////////table 16
+
+
+    
+    
+   $( "#id_s16_e1" )
+    .focusout(function() {
+      if( ($( "#id_s16_e1" ).val() >575 ||$( "#id_s16_e1" ).val() <425 ) && ($( "#id_s16_e1").val().length !=0)){
+        $("#id_s16_e1").css("background-color", "#f24858");
+      $("#id_s16_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s16_e1" ).val() <=575 && $( "#id_s16_e1" ).val() >=425) || ($( "#id_s16_e1").val().length ==0)) {
+        $("#id_s16_e1").css("background-color", "white");
+      $("#id_s16_e1").css("color", "black");  
+    }
+    });
+
+    
+
+$( "#id_s16_e2" )
+    .focusout(function() {
+      if( ($( "#id_s16_e2" ).val() >3450 ||$( "#id_s16_e2" ).val() <2550 ) && ($( "#id_s16_e2").val().length !=0)){
+        $("#id_s16_e2").css("background-color", "#f24858");
+      $("#id_s16_e2").css("color", "white");
+        
+    }
+      else if( ($( "#id_s16_e2" ).val() <=3450 && $( "#id_s16_e2" ).val() >=2550) || ($( "#id_s16_e2").val().length ==0)) {
+        $("#id_s16_e2").css("background-color", "white");
+      $("#id_s16_e2").css("color", "black");  
+    }
+    });
+
+
+
+
+
+//////////table 17
+
+$( "#id_s17_e1" )
+    .focusout(function() {
+      if( ($( "#id_s17_e1" ).val() >550 ||$( "#id_s17_e1" ).val() <450 ) && ($( "#id_s17_e1").val().length !=0)){
+        $("#id_s17_e1").css("background-color", "#f24858");
+      $("#id_s17_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s17_e1" ).val() <=550 && $( "#id_s17_e1" ).val() >=450) || ($( "#id_s17_e1").val().length ==0)) {
+        $("#id_s17_e1").css("background-color", "white");
+      $("#id_s17_e1").css("color", "black");  
+    }
+    });
+
+$( "#id_s17_e2" )
+    .focusout(function() {
+      if( ($( "#id_s17_e2" ).val() >13.2 ||$( "#id_s17_e2" ).val() <10.8 ) && ($( "#id_s17_e2").val().length !=0)){
+        $("#id_s17_e2").css("background-color", "#f24858");
+      $("#id_s17_e2").css("color", "white");
+        
+    }
+      else if( ($( "#id_s17_e2" ).val() <=13.2 && $( "#id_s17_e2" ).val() >=10.8) || ($( "#id_s17_e2").val().length ==0)) {
+        $("#id_s17_e2").css("background-color", "white");
+      $("#id_s17_e2").css("color", "black");  
+    }
+    });
+
+$( "#id_s17_e3" )
+    .focusout(function() {
+      
+      var val=($( "#id_s17_e3" ).val() - $( "#id_s17_1e1" ).val());
+
+      if(val<0)
+        val=-val;
+      if( ( val>0.1*$( "#id_s17_1e1" ).val()) && ($( "#id_s17_e3").val().length !=0)){
+        $("#id_s17_e3").css("background-color", "#f24858");
+      $("#id_s17_e3").css("color", "white");
+        
+    }
+      else if( ( val<=0.1*$( "#id_s17_1e1" ).val())  || ($( "#id_s17_e3").val().length ==0)) {
+        $("#id_s17_e3").css("background-color", "white");
+      $("#id_s17_e3").css("color", "black");  
+    }
+    });
+
+
+$( "#id_s17_e4" )
+    .focusout(function() {
+      
+      var val=($( "#id_s17_e4" ).val() - $( "#id_s17_1e2" ).val());
+
+      if(val<0)
+        val=-val;
+      if( ( val>0.1*$( "#id_s17_1e2" ).val()) && ($( "#id_s17_e4").val().length !=0)){
+        $("#id_s17_e4").css("background-color", "#f24858");
+      $("#id_s17_e4").css("color", "white");
+        
+    }
+      else if( ( val<=0.1*$( "#id_s17_1e2" ).val())  || ($( "#id_s17_e4").val().length ==0)) {
+        $("#id_s17_e4").css("background-color", "white");
+      $("#id_s17_e4").css("color", "black");  
+    }
+    });
+
+
+    
+
+    $( "#id_s17_e5" )
+    .focusout(function() {
+      if( ($( "#id_s17_e5" ).val() >0.55 ||$( "#id_s17_e5" ).val() <0.45 ) && ($( "#id_s17_e5").val().length !=0)){
+        $("#id_s17_e5").css("background-color", "#f24858");
+      $("#id_s17_e5").css("color", "white");
+        
+    }
+      else if( ($( "#id_s17_e5" ).val() <=0.55 && $( "#id_s17_e5" ).val() >=0.45) || ($( "#id_s17_e5").val().length ==0)) {
+        $("#id_s17_e5").css("background-color", "white");
+      $("#id_s17_e5").css("color", "black");  
+    }
+    });
+
+
+
+   $( "#id_s17_e6" )
+    .focusout(function() {
+      if( ($( "#id_s17_e6" ).val() >22 ||$( "#id_s17_e6" ).val() <18 ) && ($( "#id_s17_e6").val().length !=0)){
+        $("#id_s17_e6").css("background-color", "#f24858");
+      $("#id_s17_e6").css("color", "white");
+        
+    }
+      else if( ($( "#id_s17_e6" ).val() <=22 && $( "#id_s17_e6" ).val() >=18) || ($( "#id_s17_e6").val().length ==0)) {
+        $("#id_s17_e6").css("background-color", "white");
+      $("#id_s17_e6").css("color", "black");  
+    }
+    });
+
+
+
+    
+$( "#id_s17_e7" )
+    .focusout(function() {
+      
+      var val=($( "#id_s17_e7" ).val() - $( "#id_s17_1e3" ).val());
+
+      if(val<0)
+        val=-val;
+      if( ( val>0.1*$( "#id_s17_1e3" ).val()) && ($( "#id_s17_e7").val().length !=0)){
+        $("#id_s17_e7").css("background-color", "#f24858");
+      $("#id_s17_e7").css("color", "white");
+        
+    }
+      else if( ( val<=0.1*$( "#id_s17_1e3" ).val())  || ($( "#id_s17_e7").val().length ==0)) {
+        $("#id_s17_e7").css("background-color", "white");
+      $("#id_s17_e7").css("color", "black");  
+    }
+    });
+
+
+
+// table 18
+
+$( "#id_s18_e1_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e1_comment" ).val() >=3){
+      $("#id_s18_e1_comment").css("background-color", "#f24858");
+      $("#id_s18_e1_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e1_comment").val() ==1)) {
+      $("#id_s18_e1_comment").css("background-color", "white");
+      $("#id_s18_e1_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e1_comment").val() ==2)){
+      $("#id_s18_e1_comment").css("background-color", 'yellow');
+      $("#id_s18_e1_comment").css("color", "black");
+    }
+    });
+/////
+
+$( "#id_s18_e2_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e2_comment" ).val() >=3){
+      $("#id_s18_e2_comment").css("background-color", "#f24858");
+      $("#id_s18_e2_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e2_comment").val() ==1)) {
+      $("#id_s18_e2_comment").css("background-color", "white");
+      $("#id_s18_e2_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e2_comment").val() ==2)){
+      $("#id_s18_e2_comment").css("background-color", 'yellow');
+      $("#id_s18_e2_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e3_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e3_comment" ).val() >=3){
+      $("#id_s18_e3_comment").css("background-color", "#f24858");
+      $("#id_s18_e3_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e3_comment").val() ==1)) {
+      $("#id_s18_e3_comment").css("background-color", "white");
+      $("#id_s18_e3_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e3_comment").val() ==2)){
+      $("#id_s18_e3_comment").css("background-color", 'yellow');
+      $("#id_s18_e3_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e4_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e4_comment" ).val() >=3){
+      $("#id_s18_e4_comment").css("background-color", "#f24858");
+      $("#id_s18_e4_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e4_comment").val() ==1)) {
+      $("#id_s18_e4_comment").css("background-color", "white");
+      $("#id_s18_e4_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e4_comment").val() ==2)){
+      $("#id_s18_e4_comment").css("background-color", 'yellow');
+      $("#id_s18_e4_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e5_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e5_comment" ).val() >=3){
+      $("#id_s18_e5_comment").css("background-color", "#f24858");
+      $("#id_s18_e5_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e5_comment").val() ==1)) {
+      $("#id_s18_e5_comment").css("background-color", "white");
+      $("#id_s18_e5_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e5_comment").val() ==2)){
+      $("#id_s18_e5_comment").css("background-color", 'yellow');
+      $("#id_s18_e5_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e6_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e6_comment" ).val() >=3){
+      $("#id_s18_e6_comment").css("background-color", "#f24858");
+      $("#id_s18_e6_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e6_comment").val() ==1)) {
+      $("#id_s18_e6_comment").css("background-color", "white");
+      $("#id_s18_e6_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e6_comment").val() ==2)){
+      $("#id_s18_e6_comment").css("background-color", 'yellow');
+      $("#id_s18_e6_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e7_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e7_comment" ).val() >=3){
+      $("#id_s18_e7_comment").css("background-color", "#f24858");
+      $("#id_s18_e7_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e7_comment").val() ==1)) {
+      $("#id_s18_e7_comment").css("background-color", "white");
+      $("#id_s18_e7_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e7_comment").val() ==2)){
+      $("#id_s18_e7_comment").css("background-color", 'yellow');
+      $("#id_s18_e7_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e8_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e8_comment" ).val() >=3){
+      $("#id_s18_e8_comment").css("background-color", "#f24858");
+      $("#id_s18_e8_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e8_comment").val() ==1)) {
+      $("#id_s18_e8_comment").css("background-color", "white");
+      $("#id_s18_e8_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e8_comment").val() ==2)){
+      $("#id_s18_e8_comment").css("background-color", 'yellow');
+      $("#id_s18_e8_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e9_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e9_comment" ).val() >=3){
+      $("#id_s18_e9_comment").css("background-color", "#f24858");
+      $("#id_s18_e9_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e9_comment").val() ==1)) {
+      $("#id_s18_e9_comment").css("background-color", "white");
+      $("#id_s18_e9_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e9_comment").val() ==2)){
+      $("#id_s18_e9_comment").css("background-color", 'yellow');
+      $("#id_s18_e9_comment").css("color", "black");
+    }
+    });
+/////
+$( "#id_s18_e10_comment" )
+    .focusout(function() {
+      if($( "#id_s18_e10_comment" ).val() >=3){
+      $("#id_s18_e10_comment").css("background-color", "#f24858");
+      $("#id_s18_e10_comment").css("color", "white");
+        
+    }
+      else if(($( "#id_s18_e10_comment").val() ==1)) {
+      $("#id_s18_e10_comment").css("background-color", "white");
+      $("#id_s18_e10_comment").css("color", "black");
+        
+    }
+    else if(($( "#id_s18_e10_comment").val() ==2)){
+      $("#id_s18_e10_comment").css("background-color", 'yellow');
+      $("#id_s18_e10_comment").css("color", "black");
+    }
+    });
+
+
+
+/// table 19
+
+
+$( "#id_s19_g2_e1" )
+    .focusout(function() {
+      if( ($( "#id_s19_g2_e1" ).val() >0.88 ||$( "#id_s19_g2_e1" ).val() <0.72 ) && ($( "#id_s19_g2_e1").val().length !=0)){
+        $("#id_s19_g2_e1").css("background-color", "#f24858");
+      $("#id_s19_g2_e1").css("color", "white");
+        
+    }
+      else if( ($( "#id_s19_g2_e1" ).val() <=0.88 && $( "#id_s19_g2_e1" ).val() >=0.72) || ($( "#id_s19_g2_e1").val().length ==0)) {
+        $("#id_s19_g2_e1").css("background-color", "white");
+      $("#id_s19_g2_e1").css("color", "black");  
+    }
+    });
+
+
+    $( "#id_s19_g2_e2" )
+    .focusout(function() {
+      if( ($( "#id_s19_g2_e2" ).val() >1.65 ||$( "#id_s19_g2_e2" ).val() <1.35 ) && ($( "#id_s19_g2_e2").val().length !=0)){
+        $("#id_s19_g2_e2").css("background-color", "#f24858");
+      $("#id_s19_g2_e2").css("color", "white");
+        
+    }
+      else if( ($( "#id_s19_g2_e2" ).val() <=1.65 && $( "#id_s19_g2_e2" ).val() >=1.35) || ($( "#id_s19_g2_e2").val().length ==0)) {
+        $("#id_s19_g2_e2").css("background-color", "white");
+      $("#id_s19_g2_e2").css("color", "black");  
+    }
+    });
+
+
+
+
+    $( "#id_s19_g2_e3" )
+    .focusout(function() {
+      if( ($( "#id_s19_g2_e3" ).val() >4.95 ||$( "#id_s19_g2_e3" ).val() <4.05 ) && ($( "#id_s19_g2_e3").val().length !=0)){
+        $("#id_s19_g2_e3").css("background-color", "#f24858");
+      $("#id_s19_g2_e3").css("color", "white");
+        
+    }
+      else if( ($( "#id_s19_g2_e3" ).val() <=4.95 && $( "#id_s19_g2_e3" ).val() >=4.05) || ($( "#id_s19_g2_e3").val().length ==0)) {
+        $("#id_s19_g2_e3").css("background-color", "white");
+      $("#id_s19_g2_e3").css("color", "black");  
+    }
+    });
+
+
+
+
+
+    $( "#id_s6_e1_rff" )
+    .focusout(function() {
+      if( ($( "#id_s6_e1_rff" ).val() >75 ||$( "#id_s6_e1_rff" ).val() <35 ) && ($( "#id_s6_e1_rff").val().length !=0)){
+        $("#id_s6_e1_rff").css("background-color", "#f24858");
+      $("#id_s6_e1_rff").css("color", "white");
+        
+    }
+      else if( ($( "#id_s6_e1_rff" ).val() <=75 && $( "#id_s6_e1_rff" ).val() >=35) || ($( "#id_s6_e1_rff").val().length ==0)) {
+        $("#id_s6_e1_rff").css("background-color", "white");
+      $("#id_s6_e1_rff").css("color", "black");  
+    }
+    });
+
+
+    $( "#id_s6_e1_ffr" )
+    .focusout(function() {
+      if( ($( "#id_s6_e1_ffr" ).val() <2 ) && ($( "#id_s6_e1_ffr").val().length !=0)){
+        $("#id_s6_e1_ffr").css("background-color", "#f24858");
+      $("#id_s6_e1_ffr").css("color", "white");
+        
+    }
+      else if( ($( "#id_s6_e1_ffr" ).val() >=2 ) || ($( "#id_s6_e1_ffr").val().length ==0)) {
+        $("#id_s6_e1_ffr").css("background-color", "white");
+      $("#id_s6_e1_ffr").css("color", "black");  
+    }
+    });
+
+
+    $( "#id_s13_e3_ro2d" )
+    .focusout(function() {
+      var val=$( "#id_s13_e3_ro2d" ).val()-$( "#id_s13_e3_ro2c" ).val();
+      if(val<0)
+        val=-val;
+
+      if( ($( "#id_s13_e3_ro2c" ).val()*0.1 < val) && ($( "#id_s13_e3_ro2d").val().length !=0)){
+        $("#id_s13_e3_ro2d").css("background-color", "#f24858");
+      $("#id_s13_e3_ro2d").css("color", "white");
+        
+    }
+      else if( ($( "#id_s13_e3_ro2c" ).val()*0.1 >= val)|| ($( "#id_s13_e3_ro2d").val().length ==0)) {
+        $("#id_s13_e3_ro2d").css("background-color", "white");
+      $("#id_s13_e3_ro2d").css("color", "black");  
+    }
+    });
+
+
+
+
 
     </script>

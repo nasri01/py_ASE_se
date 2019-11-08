@@ -3,33 +3,14 @@
 
 
 <form method="POST" class="post-form">
-
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='defibrilator' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
       
 
       
-            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-            <script src="{% static 'js/selectize.min.js' %}"></script>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-            <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-            <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script> -->
-            <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
-            <!-- <script>
-            $(document).ready(function() {
-                $('select').niceSelect();
-                $('.search-a').niceSelect('destroy');
-                });
-          </script>-->
-          <script> 
-                    
-              $(document).ready(function () {
-                $('.search-a').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>        
+        
         <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
         <!--////////////////////////////////////////////////////////////-->
@@ -1087,35 +1068,35 @@
                 <td>Ok</td>
             </tr>
             <tr>
-                <td>{{ form.s7b_e1_comment }}</td>
                 <td></td>
                 <td></td>
-                <td>{% render_field form.s7b_e1_v style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e1_ec style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e1_em style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e1_es style="width:50px;"%}</td>
+                <td></td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
                 <td>N.A</td>
                 <td>حداقل</td>
             </tr>
              <tr>
-                <td>{{ form.s7b_e2_comment }}</td>
                 <td></td>
                 <td></td>
-                <td>{% render_field form.s7b_e2_v style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e2_ec style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e2_em style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e2_es style="width:50px;"%}</td>
-                 <td>N.A</td>
+                <td></td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
                 <td>حد وسط</td>
             </tr>
                    <tr>
-                <td>{{ form.s7b_e3_comment }}</td>
                 <td></td>
                 <td></td>
-                <td>{% render_field form.s7b_e3_v style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e3_ec style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e3_em style="width:50px;"%}</td>
-                <td>{% render_field form.s7b_e3_es style="width:50px;"%}</td>
+                <td></td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
+                <td>N.A</td>
                 <td>N.A</td>
                 <td>حداکثر</td>
             </tr>
@@ -1588,25 +1569,23 @@
 
             {{form.totalcomment}}
 
+{% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
 
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='defibrilator' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='defibrilator' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='defibrilator' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
-
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='defibrilator' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='defibrilator' %}" >
+              ذخیره نهایی
+            </button>
 
 
         </div>
@@ -2371,17 +2350,35 @@ $( "#id_s3_e7_lc" )
 
 // /////////////////////table 4
 
+  
+var a1;
+var b1;
+
 var f= $("#id_s4_type").val();
 
-  if( f==4){
-    var a1=100;
-    var b1=500;
+  if( f==4 || f==3){
+    a1=100;
+    b1=500;
   }
   else{
-    var a1=10;
-    var b1= 50;
+    a1=10;
+    b1= 50;
   }
-  
+
+
+
+$( "#id_s4_type" )
+  .focusout(function() {  
+f= $("#id_s4_type").val();
+  if( f==4 || f==3){
+    a1=100;
+    b1=500;
+  }
+  else{
+    a1=10;
+    b1= 50;
+  }
+  });
   
     // var c_1_check;
 $( "#id_s4_e1_lc1" )
@@ -2874,19 +2871,34 @@ $( "#id_s4_e1_lc1" )
 ////////////////////////////////////// table 5
 
 
+var a2;
+var b2;
 
 var f2= $("#id_s5_type").val();
 
-  if( f2==4){
-    var a2=100;
-    var b2=500;
+  if( f2==4 || f==3){
+    a2=100;
+    b2=500;
   }
   else{
-    var a2=10;
-    var b2= 50;
+    a2=10;
+    b2= 50;
   }
-  
-  
+
+
+
+$( "#id_s5_type" )
+  .focusout(function() {  
+f2= $("#id_s5_type").val();
+  if( f2==4 || f2==3){
+    a2=100;
+    b2=500;
+  }
+  else{
+    a2=10;
+    b2= 50;
+  }
+  });
     // var c_1_check;
 $( "#id_s5_e1_lc1" )
     .focusout(function() {
@@ -3377,16 +3389,31 @@ $( "#id_s5_e1_lc1" )
     // ///////////////////////////// table 6
 
 
-    
-    var f2= $("#id_s6_type").val();
 
-if( f2==2){
-  var a3=5000;
-}
-else{
-  var a3=100;
-}
+    var a3;
+var f3= $("#id_s6_type").val();
 
+  if( f3==4 || f3==3){
+    a3=5000;
+  }
+  else{
+    a3=100;
+  }
+
+
+
+$( "#id_s6_type" )
+  .focusout(function() {  
+f3= $("#id_s6_type").val();
+  if(f3==4 || f3==3){
+    a3=5000;
+  }
+  else{
+    a3=100;
+  }
+  });
+
+  
 
   // var c_1_check;
 $( "#id_s6_e1_lc1" )

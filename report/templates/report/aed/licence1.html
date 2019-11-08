@@ -159,14 +159,33 @@
         </tr>
 
     </table>
-
+<div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">F51042</div>
     </div>
     </div>
 
 
     
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+    <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
+                <span>شماره گزارش: 
+                  <span class="time">#@!</span>
+              </span><br>
+                <span>تاريخ صدور: 
+                    <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                 </span><br>
+                <span>شماره مدرک: 
+                    <span class="time">F51042</span>
+                 </span>
+              </span> 
+                
+        <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
+                      <span class="time">AED</span>
+            گزارش آزمون کنترل کیفی دستگاه  
+        </span> 
+        
+        </div>
+        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
           
         <div style="font-weight: bold;font-size: 18pt;">
 تستهای کیفی:
@@ -1783,16 +1802,16 @@
               <td></td>
               <td>{{ form.s13_e3_e }}</td>
               <td>Non Shockable</td>
-              <td>Normal Sinus Rhythm</td>
+              <td>Normal Sinus Rhythm </td>
             </tr>
           </tbody>
 
         </table>
 
 
-
+    
     <div style="width:100%;direction: rtl; text-align: right;">
-                <div class="sign-2" style="margin-bottom: -5cm;"></div>
+                <div class="sign-2" style="margin-bottom: -5cm;"><img src="{{ usr.signature.url }}"></div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>

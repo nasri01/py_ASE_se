@@ -14,22 +14,19 @@
                     </div> -->
                         <div class="data-box-2">
 
-                                <!-- <select class="mdb-select md-form" searchable="Search here..">
-                                        <option value="" disabled selected>Choose your country</option>
-                                        <option value="1">USA</option>
-                                        <option value="2">Germany</option>
-                                        <option value="3">France</option>
-                                        <option value="3">Poland</option>
-                                        <option value="3">Japan</option>
-                                      </select>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+ 
+            <script>                           
+              $(document).ready(function () {
+                $('.search-a').selectize({
+                    sortField: 'text'
+                });
+            });
+                  </script>        
 
-                                      <script>
-                                            // Material Select Initialization
-                                            $(document).ready(function() {
-                                            $('.mdb-select').materialSelect();
-                                            });
-                                            </script> -->
-
+                            <div style="position: fixed;top: 20;left: 2%;;z-index: 4;">
                             {% if red_status%}
                             <div class="alert alert-danger">
                                 {{red_status}}
@@ -41,6 +38,7 @@
                                 {{green_status}}
                             </div>
                             {% endif%}
+                        </div>
 
                             <div class="employee">
 

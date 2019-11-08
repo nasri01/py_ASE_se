@@ -114,13 +114,8 @@
     
     </table>
     <div style="height:5.85cm;">
- <span>
-              {% for cm in form.totacomment %}
-                {{ cm }} -
-              
-              
-              {% endfor %}
-              </span>موارد عدم شمول: 
+        موارد عدم شمول:  
+              {{ form.totalcomment }}
     </div>
     
     <span style="font-weight: bold;">تجهيزات آزمون:</span>
@@ -173,7 +168,7 @@
 
         </tr>
         <tr>
-            <img src="{% static 'img/spo2/stamp.jpg' %}" style="height: 4cm;width: 4cm;background-color: #00be8a;" alt="">
+            
 
             <td  style="height: 3.5cm;">
                 <div class="stamp"></div>
@@ -185,13 +180,39 @@
         </tr>
 
     </table>
-
+<div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">F51004</div>
     </div>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">#@!</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51023</span>
+                شماره مدرک: 
+                
+                 </span>
+              </span> 
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون کنترل کیفی 
+                  <br>
+              <span class="time">ECG</span>
+                  دستگاه مانيتورينگ 
+              </span>         
+        </div>
+    
+        <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
         <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
 1.حذف پالس پیس میکر(استاندارد
@@ -418,7 +439,7 @@
           <td rowspan="5">Adult</td>
           <td rowspan="5">1</td>
           <td>30</td>
-          <td>±5 bpm</td>
+          <td>5 bpm</td>
           <td>{{ form.s2_e1_hr }}</td>
           {% if  form.s2_e1_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -439,7 +460,7 @@
         </tr>
         <tr>
           <td>80</td>
-          <td>±8 bpm</td>
+          <td>8 bpm</td>
           <td>{{ form.s2_e2_hr }}</td>
           {% if  form.s2_e2_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -459,7 +480,7 @@
         </tr>
       <tr>
           <td>120</td>
-          <td>±12 bpm</td>
+          <td>12 bpm</td>
           <td>{{ form.s2_e3_hr }}</td>
           {% if  form.s2_e3_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -479,7 +500,7 @@
         </tr>
       <tr>
           <td>200</td>
-          <td>±20 bpm</td>
+          <td>20 bpm</td>
           <td>{{ form.s2_e4_hr }}</td>
           {% if  form.s2_e4_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -528,7 +549,7 @@
           <td rowspan="5">Neonate</td>
           <td rowspan="5">1</td>
           <td>30</td>
-          <td>±5 bpm</td>
+          <td>5 bpm</td>
           <td>{{ form.s2_e6_hr }}</td>
           {% if  form.s2_e6_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -548,7 +569,7 @@
         </tr>
         <tr>
           <td>80</td>
-          <td>±8 bpm</td>
+          <td>8 bpm</td>
           <td>{{ form.s2_e7_hr }}</td>
           {% if  form.s2_e7_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -568,7 +589,7 @@
         </tr>
       <tr>
           <td>120</td>
-          <td>±12 bpm</td>
+          <td>12 bpm</td>
           <td>{{ form.s2_e8_hr }}</td>
           {% if  form.s2_e8_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -588,7 +609,7 @@
         </tr>
       <tr>
           <td>200</td>
-          <td>±20 bpm</td>
+          <td>20 bpm</td>
           <td>{{ form.s2_e9_hr }}</td>
           {% if  form.s2_e9_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -643,7 +664,32 @@
 </div>
 
 <div class="page-2 page1" style="font-family:'B Nazanin';">
-    <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+            <span>
+            <span class="time">#@!</span>
+            شماره گزارش: 
+          </span><br>
+            <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور: 
+                
+             </span><br>
+            <span>
+                <span class="time">F51023</span>
+            شماره مدرک: 
+            
+             </span>
+          </span> 
+
+          <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+              گزارش آزمون کنترل کیفی 
+              <br>
+          <span class="time">ECG</span>
+              دستگاه مانيتورينگ 
+          </span>         
+    </div>
+    <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
       
         <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
@@ -677,7 +723,7 @@
           <td rowspan="4">30</td>
           <td>0.5 mv</td>
           <td>70 ms</td>
-          <td>±5 bpm</td>
+          <td>5 bpm</td>
           <td>{{ form.s3_e1_hr }}</td>
           {% if  form.s3_e1_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -760,7 +806,7 @@
           <td>80</td>
           <td>2 ms</td>
           <td>100 ms</td>
-          <td>±8 bpm</td>
+          <td>8 bpm</td>
           <td>{{ form.s3_e5_hr }}</td>
           {% if  form.s3_e5_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -782,7 +828,7 @@
           <td rowspan="4">200</td>
           <td>5 ms</td>
           <td>120 ms</td>
-          <td>±20 bpm</td>
+          <td>20 bpm</td>
           <td>{{ form.s3_e6_hr }}</td>
             {% if  form.s3_e6_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -865,7 +911,7 @@
           <td>30</td>
           <td>0.5 mv</td>
           <td>40 ms</td>
-          <td>±5 bpm</td>
+          <td>5 bpm</td>
           <td>{{ form.s3_e10_hr }}</td>
           {% if  form.s3_e10_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -887,7 +933,7 @@
           <td>100</td>
           <td>2 mv</td>
           <td>80 ms</td>
-          <td>±10 bpm</td>
+          <td>10 bpm</td>
           <td>{{ form.s3_e11_hr }}</td>
           {% if  form.s3_e11_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -909,7 +955,7 @@
           <td>250</td>
           <td>5 mv</td>
           <td>120 ms</td>
-          <td>±25 bpm</td>
+          <td>25 bpm</td>
           <td>{{ form.s3_e12_hr }}</td>
           {% if  form.s3_e12_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -965,7 +1011,7 @@
           <td>0.5 mv</td>
           <td>0.25</td>
           <td>50 Hz</td>
-          <td>±8 bpm</td>
+          <td>8 bpm</td>
           <td>{{ form.s4_e1_hr }}</td>
           {% if  form.s4_e1_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -994,7 +1040,32 @@
     </div>
 
     <div class="page-3 page1" style="font-family:'B Nazanin';">
-        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">#@!</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51023</span>
+                شماره مدرک: 
+                
+                 </span>
+              </span> 
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون کنترل کیفی 
+                  <br>
+              <span class="time">ECG</span>
+                  دستگاه مانيتورينگ 
+              </span>         
+        </div>
+        <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
           
         <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
@@ -1164,7 +1235,7 @@
           <td>5</td>
           <td>{{ form.s6_e1_damp }}</td>
           <td>{{ form.s6_e1_ramp }}</td>
-          <td>±0.5 mm</td>
+          <td>0.5 mm</td>
           {% if form.s6_e1_comment.id == 1 %}
                 <td>&#10004;</td>
                 <td></td>
@@ -1188,7 +1259,7 @@
           <td>10</td>
           <td>{{ form.s6_e2_damp }}</td>
           <td>{{ form.s6_e2_ramp }}</td>
-          <td>±1 mm</td>
+          <td>1 mm</td>
           {% if form.s6_e2_comment.id == 1 %}
                 <td>&#10004;</td>
                 <td></td>
@@ -1213,7 +1284,7 @@
           <td>20</td>
           <td>{{ form.s6_e3_damp }}</td>
           <td>{{ form.s6_e3_ramp }}</td>
-          <td>±2 mm</td>
+          <td>2 mm</td>
       
             {% if form.s6_e3_comment.id == 1 %}
                 <td>&#10004;</td>
@@ -1257,7 +1328,32 @@
 
     
     <div class="page-4 page1" style="font-family:'B Nazanin';">
-        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">#@!</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51023</span>
+                شماره مدرک: 
+                
+                 </span>
+              </span> 
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون کنترل کیفی 
+                  <br>
+              <span class="time">ECG</span>
+                  دستگاه مانيتورينگ 
+              </span>         
+        </div>
+        <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
           
         <div style="font-weight: bold;">
             <span class="time">:(IEC 60601-2-27:2011</span>
@@ -1532,13 +1628,15 @@
 
     </table>
             <br>
-                            <div style="width:100%;direction: rtl; text-align: right;">
-                <div class="sign-2" style="margin-bottom: -5cm;"></div>
+            <div style="width:100%;direction: rtl; text-align: right;">
+                <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://localhost:8000{{ usr.signature.url }}" alt="" style="height: 6cm;">
+                </div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
                 <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ usr.user.first_name }}</div>
             </div>
+
 
 
         <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 5 از 5</div>

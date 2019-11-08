@@ -5,31 +5,12 @@
 
 
 <form method="POST" class="post-form">
-
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='electrocauter' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
 
-       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-       <script src="{% static 'js/selectize.min.js' %}"></script>
-       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-       <link rel="stylesheet" href="{% static 'css/selectize.bootstrap3.min.css' %} " />
-       <!-- <script src="{% static 'js/jquery.nice-select.js'  %}"></script>
-       <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-       <script>
-       $(document).ready(function() {
-           $('select').niceSelect();
-           $('.search-a').niceSelect('destroy');
-           });
-     </script> -->
-     <script>
-               
-         $(document).ready(function () {
-           $('.search-a').selectize({
-               sortField: 'text'
-           });
-       });
-             </script>        
+      
 
 <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
@@ -155,119 +136,119 @@
 </tr>
 <tr>
 <td>{{form.s0_e1_comment}}</td>
-<td>{{form.s0_e1_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">بدنه و شاسی</td>
 <td><span>1</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e2_comment}}</td>
-<td>{{form.s0_e2_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">نصب و اتصالات</td>
 <td><span>2</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e3_comment}}</td>
-<td>{{form.s0_e3_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">چرخ ها و ترمزها</td>
 <td><span>3</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e4_comment}}</td>
-<td>{{form.s0_e4_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">دو شاخه ی برق اصلی</td>
 <td><span>4</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e5_comment}}</td>
-<td>{{form.s0_e5_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">کابل برق</td>
 <td><span>5</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e6_comment}}</td>
-<td>{{form.s0_e6_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">گلند ها</td>
 <td><span>6</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e7_comment}}</td>
-<td>{{form.s0_e7_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">کابل ها</td>
 <td><span>7</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e8_comment}}</td>
-<td>{{form.s0_e8_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">اتصالات و کانکتور ها</td>
 <td><span>8</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e9_comment}}</td>
-<td>{{form.s0_e9_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">الکترود های خنثی</td>
 <td><span>9</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e10_comment}}</td>
-<td>{{form.s0_e10_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">فیلتر ها</td>
 <td><span>10</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e11_comment}}</td>
-<td>{{form.s0_e11_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;"><span>کنترل&shy;ها و سوئیچ&shy;ها</span></td>
 <td><span>11</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e12_comment}}</td>
-<td>{{form.s0_e12_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;"><span>نشانگرها و نمایشگرها</span></td>
 <td><span>12</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e13_comment}}</td>
-<td>{{form.s0_e13_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;"><span>مانیتورینگ پیوستگی کابل خنثی</span></td>
 <td><span>13</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e14_comment}}</td>
-<td>{{form.s0_e14_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;"><span>سیگنال های صوتی</span></td>
 <td><span>14</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e15_comment}}</td>
-<td>{{form.s0_e15_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">برچسب گذاری</td>
 <td><span>15</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e16_comment}}</td>
-<td>{{form.s0_e16_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;"><span>کنترل پایی</span></td>
 <td><span>16</span></td>
 </tr>
 <tr>
 <td>{{form.s0_e17_comment}}</td>
-<td>{{form.s0_e17_status}}</td>
+<td></td>
 <td><span>-</span></td>
 <td style="text-align: right;">لوازم جانبی</td>
 <td><span>17</span></td>
@@ -298,7 +279,7 @@
 <tr>
 <td><span></span></td>
 <td></td>
-<td>{{ form.s1_res }}</td>
+<td>N/A</td>
 <td style="direction: rtl;">
         20
          مگا اهم 
@@ -1292,14 +1273,7 @@
 <td>{{ form.s4g_e1 }}</td>
 
   <td class="time" style="line-height: 0.25cm;">
-       <div style="padding-top: 0.2cm;">
-    <span>p</span>
-    <br>
-    <span style="font-weight: 100;font-size: 30pt;">√</span>
-    <span style="margin-left: 1.6cm;">&ge;</span>
-    <br>
-    <span style="border-top: 1pt solid black;">20000</span>
-    </div>
+    {{ form.s4g_e1_p2000 }}&ge;
 </td>
 <td style="font-weight: bold;">برش</td>
 </tr>
@@ -1308,15 +1282,7 @@
 <td></td>
 <td>{{ form.s4g_e2 }}</td>
     <td class="time" style="line-height: 0.25cm;">
-
-       <div style="padding-top: 0.2cm;">
-    <span>p</span>
-    <br>
-    <span style="font-weight: 100;font-size: 30pt;">√</span>
-    <span style="margin-left: 1.6cm;">&ge;</span>
-    <br>
-    <span style="border-top: 1pt solid black;">20000</span>
-    </div>
+{{ form.s4g_e2_p2000 }}&ge;
 </td>
 <td style="font-weight: bold;">انعقاد</td>
 </tr>
@@ -2464,7 +2430,7 @@
 <li>اگر کلاس دستگاه، کلاس Internally Powered  را شامل می شود، تست های فوق باید با وجود باتری در دستگاه و با برق AC و بار دیگر با خارج نمودن باتری از دستگاه و با برقAC   و حالت سوم تنها با باتری و بدون برق AC تکرار شود.</li>
 </ul>
 
-<div style="font-weight: bold;">4. جریان نشتی بیمار:</div>
+<div style="font-weight: bold;">4. جریان نشتی بیمار:   {{ form.s14_type}}</div>
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
 <tbody>
 <tr style="font-weight: bold;">
@@ -2594,7 +2560,7 @@
 <br><br>
 
 
-<div style="font-weight: bold;">5. جریان کمکی بیمار:</div>
+<div style="font-weight: bold;">5. جریان کمکی بیمار:   {{ form.s15_type}}</div>
        <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
 <tbody>
 <tr style="font-weight: bold;">
@@ -2720,7 +2686,7 @@
 <div style="margin-right: 1cm;">نکته</div>
 <div  style="margin-right: 2cm;">-اگر کلاس دستگاه، کلاس Internally Powered  را شامل می¬شود، تست های فوق باید با وجود باتری در دستگاه و با برق AC و بار دیگر با خارج نمودن باتری از دستگاه و با برقAC   و حالت سوم تنها با باتری و بدون برق AC (جریان بین قسمت کاربردی و بدنه) تکرار شود.</div>
 <br>
-<div style="font-weight: bold;">6.جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی):</div>
+<div style="font-weight: bold;">6.جریان نشتی  بیمار (قسمت کاربردی ایزوله و اعمال ولتاژ خارجی):  {{ form.s16_type}}</div>
 
         <table style="margin: auto;width: 100%;text-align: center;direction: ltr;" class="tb-4">
                 <tbody>
@@ -2801,25 +2767,23 @@
             {{form.totalcomment}}
 
 
-        {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='electrocauter' %}";'>
-        ذخیره نهایی اصلاح
-        </button>
-        {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='electrocauter' %}";'>
-        ذخیره نهایی ریکالیبراسیون
-        </button>
-        {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='electrocauter' %}";'>
-        ذخیره نهایی ویرایش ریکالیبراسیون
-        </button>
+      {% if edit %}
+            <input type="text" name="op_type" value="save_edit" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% elif recal %}
+            <input type="text" name="op_type" value="save_recal" hidden>
+            <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
+          {% elif edit_recal %}
+            <input type="text" name="op_type" value="save_edit_recal" hidden>
+            <input type="text" name="record_num" value="{{record_num}}" hidden>
+          {% else %}
 
-        {% else %}{# normal save #}
-        <button type="submit"  class="btn btn-primary" onclick='this.form.action="{% url 'save_router' formtype='electrocauter' %}";' >
-         ذخیره نهایی فرم
-        </button>
-        {% endif %}
-
+            <input type="text" name="op_type" value="save" hidden>
+          {% endif %}
+                <br><br>
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='electrocauter' %}" >
+              ذخیره نهایی
+            </button>
 
         </div>
 
@@ -4936,4 +4900,37 @@ $( "#id_s16_e1_lc1" )
   }
   });
 
+
+
+
+
+  $( "#id_s4g_e1" )
+  .focusout(function() {
+    if($( "#id_s4g_e1" ).val() >$( "#id_s4g_e1_p2000" ).val() && ($( "#id_s4g_e1").val().length !=0)){
+      $("#id_s4g_e1").css("background-col./or", "#f24858");
+    $("#id_s4g_e1").css("color", "white");
+      
+  }
+    else if(($( "#id_s4g_e1").val() <=$( "#id_s4g_e1_p2000" ).val())  || ($( "#id_s4g_e1").val().length ==0)) {
+      $("#id_s4g_e1").css("background-color", "white");
+    $("#id_s4g_e1").css("color", "black");  
+  }
+  });
+
+
+
+
+
+  $( "#id_s4g_e2" )
+  .focusout(function() {
+    if($( "#id_s4g_e2" ).val() >$( "#id_s4g_e2_p2000" ).val() && ($( "#id_s4g_e2").val().length !=0)){
+      $("#id_s4g_e2").css("background-color", "#f24858");
+    $("#id_s4g_e2").css("color", "white");
+      
+  }
+    else if(($( "#id_s4g_e2").val() <=$( "#id_s4g_e2_p2000" ).val())  || ($( "#id_s4g_e2").val().length ==0)) {
+      $("#id_s4g_e2").css("background-color", "white");
+    $("#id_s4g_e2").css("color", "black");  
+  }
+  });
 </script>

@@ -170,13 +170,50 @@
         </tr>
 
     </table>
+    <div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">F51023</div>
 
     </div>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+        <div style="text-align: center;width: 100%;height: 5cm;">
+        
+          
+
+          
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">#@!</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51023</span>
+                شماره مدرک: 
+                
+                 </span>
+              </span> 
+
+
+        <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+            گزارش آزمون کنترل کیفی 
+            <br>
+            دستگاه پالس اکسيمتر
+        </span> 
+
+        
+        
+        </div>
+        <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+
+                
+
+
         <div style="font-weight: bold;">
             <span class="time">:(ISO80601-2-61:2011</span>
             استاندارد
@@ -393,7 +430,41 @@
 </div>
 
 <div class="page-2 page1" style="font-family:'B Nazanin';">
-    <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 40cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        
+          
+
+          
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+            <span>
+            <span class="time">#@!</span>
+            شماره گزارش: 
+          </span><br>
+            <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور: 
+                
+             </span><br>
+            <span>
+                <span class="time">F51023</span>
+            شماره مدرک: 
+            
+             </span>
+          </span> 
+
+          <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+              گزارش آزمون کنترل کیفی 
+              <br>
+              دستگاه پالس اکسيمتر
+          </span> 
+  
+
+    
+    
+    </div>
+
+
+    <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
         <div style="font-weight: bold;">
             <span class="time">:(ISO 80601-2-61:2011</span>
             استاندارد
@@ -523,7 +594,8 @@
         </table>
         <br><br>
                       <div style="width:100%;direction: rtl; text-align: right;">
-                <div style="margin-bottom: -5cm;" class="sign-2"></div>
+                <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://localhost:8000{{ usr.signature.url }}" alt="" style="height: 6cm;">
+                </div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
