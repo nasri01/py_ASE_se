@@ -581,14 +581,6 @@ def pdf(request):
                         data2.append(int(obj.s2_e6_pr3.split('/')[1]))
                         
                         
-                        data.append(sum(data1))#0
-                        data.append(sum(data2))#1
-                        data.append(round(np.mean(data1),2))#2
-                        data.append(round(np.mean(data2),2))#3
-                        data.append(round(np.std(data1),2))#4
-                        data.append(round(np.std(data2),2))#5
-                        data.append(data3)#6
-                        
                         for id in range(3):
                             data1[id] = abs(data1[id] - 30)
                             data2[id] = abs(data2[id] - 60)
@@ -607,6 +599,18 @@ def pdf(request):
                         for id in range(15,18):
                             data1[id] = abs(data1[id] - 70)
                             data2[id] = abs(data2[id] - 100)
+
+                        print(data1)
+                        print(data2)
+                        data.append(sum(data1))#0
+                        data.append(sum(data2))#1
+                        data.append(round(np.mean(data1),2))#2
+                        data.append(round(np.mean(data2),2))#3
+                        data.append(round(np.std(data1),2))#4
+                        data.append(round(np.std(data2),2))#5
+                        data.append(data3)#6
+                        
+                        
                         data.append(data1)#7
                         data.append(data2)#8
 

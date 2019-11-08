@@ -168,31 +168,37 @@
         </tr>
 
     </table>
-    <div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">!@#</div>
+    <div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">F51004</div>
 </div>
     </div>
 
 
     <div class="page-1 page1" style="font-family:'B Nazanin';">
-    <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-            <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                <span>شماره گزارش: 
-                  <span class="time">#@!</span>
+    <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">F51004</span>
+                شماره گزارش: 
               </span><br>
-                <span>تاريخ صدور: 
-                    <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
                  </span><br>
-                <span>شماره مدرک: 
-                    <span class="time">!@#</span>
+                <span>
+                    <span class="time">F51012</span>
+                شماره مدرک: 
+                
                  </span>
               </span> 
-                
-        <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-            گزارش آزمون الزامات ایمنی در دستگاه های الكتريكي پزشكي 
-        </span> 
-        
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون الزامات ایمنی 
+                  <br>
+                  در دستگاه های الكتريكي پزشكي 
+              </span>         
         </div>
-            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+            <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
                 <div style="font-weight: bold;text-align: center;font-family: 'B Titr';font-size:18pt; ">
 آزمون های کیفی
                 </div>
@@ -647,25 +653,31 @@
 
 
     <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                    <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                        <span>شماره گزارش: 
-                          <span class="time">#@!</span>
-                      </span><br>
-                        <span>تاريخ صدور: 
-                            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                         </span><br>
-                        <span>شماره مدرک: 
-                            <span class="time">!@#</span>
-                         </span>
-                      </span> 
-                        
-                <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                    گزارش آزمون الزامات ایمنی در دستگاه های الكتريكي پزشكي 
-                </span> 
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">F51004</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51012</span>
+                شماره مدرک: 
                 
-                </div>
-            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+                 </span>
+              </span> 
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون الزامات ایمنی 
+                  <br>
+                  در دستگاه های الكتريكي پزشكي 
+              </span>         
+        </div>
+            <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
                 <div style="font-weight: bold;text-align: center;font-family: 'B Titr';font-size:18pt; ">
                         آزمون های کمی
                 </div>
@@ -793,8 +805,13 @@
                                     <td>{{ form.s2_e1_aplc }}</td>
                                         <td>{{ form.s2_e1_noaplc }}</td>
                                     <td>5</td>
+                                    {% if form.s2_e1_aplc > 5 or form.s2_e1_noaplc > 5 %}
                                     <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
                                     <td></td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                         <td>SINGLE FAULT CONDITION</td>
@@ -807,8 +824,13 @@
                                         <td>{{ form.s2_e2_aplc }}</td>
                                         <td>{{ form.s2_e2_noaplc }}</td>
                                         <td>10</td>
-                                        <td></td>
-                                        <td></td>
+                                        {% if form.s2_e2_aplc > 10 or form.s2_e2_noaplc > 10 %}
+                                    <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
+                                    <td></td>
+                                    {% endif %}
                                     </tr>
                             </tbody>
                     </table>{# todo condition #}
@@ -855,16 +877,26 @@
                                         <td>{{ form.s3_e1_aplc }}</td>
                             <td>{{ form.s3_e1_noaplc }}</td>
                                         <td rowspan="2">100</td>
-                                        <td></td>
-                                        <td></td>
+                                        {% if form.s3_e1_aplc > 100 or form.s3_e1_noaplc > 100 %}
+                                    <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
+                                    <td></td>
+                                    {% endif %}
                                     </tr>
 
                                 <tr>
                                     <td>Device off</td>
                                     <td>{{ form.s3_e2_aplc }}</td>
                             <td>{{ form.s3_e2_noaplc }}</td>
+                                    {% if form.s3_e2_aplc > 100 or form.s3_e2_noaplc > 100 %}
                                     <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
                                     <td></td>
+                                    {% endif %}
                                 </tr>
 
                                 <tr>
@@ -877,16 +909,26 @@
                                         <td>{{ form.s3_e3_aplc }}</td>
                             <td>{{ form.s3_e3_noaplc }}</td>
                                         <td rowspan="4">500</td>
-                                        <td></td>
-                                        <td></td>
+                                        {% if form.s3_e3_aplc > 500 or form.s3_e3_noaplc > 500 %}
+                                    <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
+                                    <td></td>
+                                    {% endif %}
                                     </tr>
 
                                     <tr>
                                             <td>Device off</td>
                                             <td>{{ form.s3_e4_aplc }}</td>
                             <td>{{ form.s3_e4_noaplc }}</td>
-                                            <td></td>
-                                            <td></td>
+                                            {% if form.s3_e4_aplc > 500 or form.s3_e4_noaplc > 500 %}
+                                    <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
+                                    <td></td>
+                                    {% endif %}
                                         </tr>
                                         <tr>
                                                 <td>Device on</td>
@@ -896,15 +938,25 @@
                                                         </td>
                                               <td>{{ form.s3_e5_aplc }}</td>
                             <td>{{ form.s3_e5_noaplc }}</td>
-                                                <td></td>
-                                                <td></td>
+                                               {% if form.s3_e5_aplc > 500 or form.s3_e5_noaplc > 500 %}
+                                    <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
+                                    <td></td>
+                                    {% endif %}
                                             </tr>
                                             <tr>
                                                     <td>Device off</td>
                                               <td>{{ form.s3_e6_aplc }}</td>
                             <td>{{ form.s3_e6_noaplc }}</td>
-                                                    <td></td>
-                                                    <td></td>
+                                               {% if form.s3_e6_aplc > 500 or form.s3_e6_noaplc > 500 %}
+                                    <td></td>
+                                    <td>&#10004;</td>
+                                    {% else %}
+                                    <td>&#10004;</td>
+                                    <td></td>
+                                    {% endif %}
                                                 </tr>
 
                             </tbody>
@@ -921,25 +973,31 @@
 
 
     <div class="page-3 page1" style="font-family:'B Nazanin';">
-            <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                    <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                        <span>شماره گزارش: 
-                          <span class="time">#@!</span>
-                      </span><br>
-                        <span>تاريخ صدور: 
-                            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                         </span><br>
-                        <span>شماره مدرک: 
-                            <span class="time">!@#</span>
-                         </span>
-                      </span> 
-                        
-                <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                    گزارش آزمون الزامات ایمنی در دستگاه های الكتريكي پزشكي 
-                </span> 
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">F51004</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51012</span>
+                شماره مدرک: 
                 
-                </div>
-            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">   
+                 </span>
+              </span> 
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون الزامات ایمنی 
+                  <br>
+                  در دستگاه های الكتريكي پزشكي 
+              </span>         
+        </div>
+            <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">   
 
                             <div style="font-weight: bold;">
                                     <span class="time">:(IEC 60601-1:2012</span>
@@ -1224,7 +1282,7 @@
                                     </tbody>
                                     </table>
                     <div>
-                            <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 4</div>
+                            <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 5</div>
                     
                         </div>
                     
@@ -1234,25 +1292,31 @@
 
                
     <div class="page-4 page1" style="font-family:'B Nazanin';">
-            <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                    <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                        <span>شماره گزارش: 
-                          <span class="time">#@!</span>
-                      </span><br>
-                        <span>تاريخ صدور: 
-                            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                         </span><br>
-                        <span>شماره مدرک: 
-                            <span class="time">!@#</span>
-                         </span>
-                      </span> 
-                        
-                <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                    گزارش آزمون الزامات ایمنی در دستگاه های الكتريكي پزشكي 
-                </span> 
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                <span class="time">F51004</span>
+                شماره گزارش: 
+              </span><br>
+                <span>
+                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                تاريخ صدور: 
+                    
+                 </span><br>
+                <span>
+                    <span class="time">F51012</span>
+                شماره مدرک: 
                 
-                </div>
-            <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+                 </span>
+              </span> 
+    
+              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                  گزارش آزمون الزامات ایمنی 
+                  <br>
+                  در دستگاه های الكتريكي پزشكي 
+              </span>         
+        </div>
+            <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
             
                                         <div style="font-weight: bold;">
                                                 <span class="time">:(IEC 60601-1:2012 </span>
@@ -1469,21 +1533,20 @@
                                                 </tr>
                                                 </tbody>
                                                 </table>
-                                                    <br><br>
-                                
                                                 <div style="width:100%;direction: rtl; text-align: right;">
-                                                        <div class="sign-2" style="margin-bottom: -5cm;"></div>
+                                                    <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://localhost:8000{{ usr.signature.url }}" alt="" style="height: 6cm;">
                                                     </div>
-                                                    <div style="margin-top: -4.5cm;font-family:'B Zar' ">
-                                                        <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
-                                                        <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ usr.user.first_name }}</div>
-                                                    </div>
+                                                </div>
+                                                <div style="margin-top: -4.5cm;font-family:'B Zar' ">
+                                                    <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
+                                                    <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ usr.user.first_name }}</div>
+                                                </div>
                                         
                                 
                                 
                                 
                                                 <div>
-                                        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 4</div>
+                                        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 5 از 5</div>
                                 
                                     </div>
                                 

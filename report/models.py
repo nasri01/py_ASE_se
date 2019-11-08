@@ -22,6 +22,6 @@ class report(models.Model):
     record = models.ForeignKey(record, on_delete=models.CASCADE, related_name='rr')
     licence = models.ForeignKey(licence, on_delete=models.CASCADE, related_name='me1licence')
     status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    totalcomment = models.TextField()
+    totalcomment = models.TextField(null=True, blank= True)
     is_done = models.BooleanField(default=False)
 
