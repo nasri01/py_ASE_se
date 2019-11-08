@@ -60,7 +60,7 @@
     <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
         <tr>
             <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-            <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+            <td class="no-border"><span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>شماره گواهينامه: </td>
 
         </tr>
         <tr>
@@ -181,7 +181,7 @@
     <div style="text-align: center;width: 100%;height: 5cm;">
             <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
                 <span>
-                <span class="time">{{ form.date.year }}-{{form.licence.number}}</span>
+                <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
                 شماره گزارش: 
               </span><br>
                 <span>
