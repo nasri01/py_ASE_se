@@ -100,8 +100,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
-        'NAME': 'kaadcoir_azma_final',
-        'PASSWORD': 'L@!Go&H^?f@a',
+        'NAME': 'kaadcoir_azma',
+        'PASSWORD': 'sP,{!nC[nUh&',
         'PORT': '5432',
         'USER': 'kaadcoir_admin',
     }
