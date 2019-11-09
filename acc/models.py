@@ -106,7 +106,7 @@ class Hospital(models.Model):
     p_name = models.TextField()
     p_phone = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-class Meta:
+    class Meta:
         verbose_name_plural = "بیمارستان ها"
     def __str__(self):
         return str(self.name) + ' ' + str(self.city.name)
