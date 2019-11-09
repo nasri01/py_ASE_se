@@ -1,6 +1,6 @@
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
 PassengerAppRoot "/home/kaadcoir/public_html/qc"
 PassengerBaseURI "/"
-PassengerPython "/home/kaadcoir/virtualenv/public_html/qc/3.7/bin/python3.7"
+PassengerPython "/home/kaadcoir/virtualenv/public_html/qc/3.7/bin/python"
 PassengerAppLogFile "/home/kaadcoir/logs/log.txt"
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
