@@ -5,7 +5,8 @@
 
 
 <form method="POST" class="post-form">
-  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_ecg' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
+ <a class="btn btn-info" href="/admin/acc/comment/add"  style="position: fixed;left:40px;bottom:100px;"  >افزودن کامنت</a>
+ <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_ecg' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
