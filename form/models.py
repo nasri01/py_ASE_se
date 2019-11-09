@@ -13,6 +13,8 @@ class cant_test(models.Model):
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ctr')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
+    def __str__(self):
+        return 'cant_test : ' + str(self.tt) + str(self.device.device.name)
 
     
 class monitor_spo2_1(models.Model):
@@ -87,7 +89,7 @@ class monitor_spo2_1(models.Model):
                                       related_name='ms1s4e1comment', default=2)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'monitor_spo2 : ' + str(self.licence)
 
 
 class monitor_ecg_1(models.Model):
@@ -270,7 +272,7 @@ class monitor_ecg_1(models.Model):
                                       related_name='me1s9e1comment', default=1)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'monitor_ecg : ' + str(self.licence)
 
 
 class monitor_nibp_1(models.Model):
@@ -338,7 +340,7 @@ class monitor_nibp_1(models.Model):
     s2_e6_pr3 = models.CharField(max_length=8)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'monitor_nibp : ' + str(self.licence)
 
 
 class aed_1(models.Model):
@@ -602,7 +604,7 @@ class aed_1(models.Model):
     s13_e3_e = models.BooleanField()
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'aed : ' + str(self.licence)
 
 
 class monitor_safety_1(models.Model):
@@ -780,7 +782,7 @@ class monitor_safety_1(models.Model):
     s5_e15_lc = models.FloatField()
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'monitor_safety : ' + str(self.licence)
 
 
 class anesthesia_machine_1(models.Model):
@@ -1065,7 +1067,7 @@ class anesthesia_machine_1(models.Model):
     # s19_g4_e4 = models.FloatField(default= -1 )
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'anesthesia_machine : ' + str(self.licence)
 
 
 class defibrilator_1(models.Model):
@@ -1483,7 +1485,7 @@ class defibrilator_1(models.Model):
                                        related_name='df1s12e3comment', default=1)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'defibrilator : ' + str(self.licence)
 
 
 class ecg_1(models.Model):
@@ -1692,7 +1694,7 @@ class ecg_1(models.Model):
     s18_e4_pac = models.IntegerField()
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'ecg : ' + str(self.licence)
 
 
 class flowmeter_1(models.Model):
@@ -1725,7 +1727,7 @@ class flowmeter_1(models.Model):
     s1_e6_rlpm = models.FloatField()
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'flowmeter : ' + str(self.licence)
 
 
 class infusion_pump_1(models.Model):
@@ -1890,7 +1892,7 @@ class infusion_pump_1(models.Model):
     s8_e1_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'infusion_pump : ' + str(self.licence)
 
 
 class monometer_1(models.Model):
@@ -1967,7 +1969,7 @@ class monometer_1(models.Model):
     s2_e4_np = models.IntegerField()
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'manometer : ' + str(self.licence)
 
 
 class spo2_1(models.Model):
@@ -2074,7 +2076,7 @@ class spo2_1(models.Model):
     # TODO S8 ap type
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'spo2 : ' + str(self.licence)
 
 
 class suction_1(models.Model):
@@ -2177,7 +2179,7 @@ class suction_1(models.Model):
     s2_e8_rr = models.IntegerField()
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'suction : ' + str(self.licence)
 
 
 class syringe_pump_1(models.Model):
@@ -2339,7 +2341,7 @@ class syringe_pump_1(models.Model):
     # s8_e1_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'syringe_pump : ' + str(self.licence)
 
 
 class electrocauter_1(models.Model):
@@ -2702,7 +2704,7 @@ class electrocauter_1(models.Model):
     se_e2_comment = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'electrocouter : ' + str(self.licence)
 
 
 class ventilator_1(models.Model):
@@ -2880,4 +2882,4 @@ class ventilator_1(models.Model):
                                     related_name='ven1s17e10comment',default = 1)
 
     def __str__(self):
-        return 'Licence: ' + str(self.licence) + ' - ' + str(self.device.name)
+        return 'ventilator : ' + str(self.licence)
