@@ -22,7 +22,7 @@ SECRET_KEY = 'qhh(ydahm&a&(z45^jpsk2v@r7q2h_-@furoe@&md=s#f5)-c&'
 DEBUG = False
 
 # ALLOWED_HOSTS = ['192.168.1.5','0.0.0.0','10.42.0.1','127.0.0.1','192.168.1.104']
-ALLOWED_HOSTS = ['qc.kaadco.ir','www.qc.kaadco.ir']
+ALLOWED_HOSTS = ['qc.kaadco.ir','www.qc.kaadco.ir', 'localhost']
 
 
 # Application definition
