@@ -8,8 +8,6 @@
 
     <table class="table-bordered">
       
-
-      
         
         <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
 
@@ -1003,7 +1001,7 @@
                 <td>{% render_field form.s7a_e1_ec style="width:50px;"%}</td>
                 <td>{% render_field form.s7a_e1_em style="width:50px;"%}</td>
                 <td>{% render_field form.s7a_e1_es style="width:50px;"%}</td>
-                <td class="time">50</td>
+                <td class="time">{{ form.s7a_e1_se }}</td>
                 <td>حداقل</td>
             </tr>
              <tr>
@@ -1014,7 +1012,7 @@
                 <td>{% render_field form.s7a_e2_ec style="width:50px;"%}</td>
                 <td>{% render_field form.s7a_e2_em style="width:50px;"%}</td>
                 <td>{% render_field form.s7a_e2_es style="width:50px;"%}</td>
-                <td class="time">100</td>
+                <td class="time">{{ form.s7a_e2_se }}</td>
                 <td>حد وسط</td>
             </tr>
                    <tr>
@@ -1025,7 +1023,7 @@
                 <td>{% render_field form.s7a_e3_ec style="width:50px;"%}</td>
                 <td>{% render_field form.s7a_e3_em style="width:50px;"%}</td>
                 <td>{% render_field form.s7a_e3_es style="width:50px;"%}</td>
-                <td class="time">200</td>
+                <td class="time">{{ form.s7a_e3_se }}</td>
                 <td>حداکثر</td>
             </tr>
         </table>
@@ -1146,7 +1144,7 @@
                 <td>{% render_field form.s7c_e1_ec style="width:50px;"%}</td>
                 <td>{% render_field form.s7c_e1_em style="width:50px;"%}</td>
                 <td>{% render_field form.s7c_e1_es style="width:50px;"%}</td>
-                <td class="time">10</td>
+                <td class="time">{{ form.s7c_e1_se }}</td>
                 <td>حداقل</td>
             </tr>
              <tr>
@@ -1157,7 +1155,7 @@
                 <td>{% render_field form.s7c_e2_ec style="width:50px;"%}</td>
                 <td>{% render_field form.s7c_e2_em style="width:50px;"%}</td>
                 <td>{% render_field form.s7c_e2_es style="width:50px;"%}</td>
-                <td class="time">30</td>
+                <td class="time">{{ form.s7c_e2_se }}</td>
                 <td>حد وسط</td>
             </tr>
                    <tr>
@@ -1168,7 +1166,7 @@
                 <td>{% render_field form.s7c_e3_ec style="width:50px;"%}</td>
                 <td>{% render_field form.s7c_e3_em style="width:50px;"%}</td>
                 <td>{% render_field form.s7c_e3_es style="width:50px;"%}</td>
-                <td class="time">50</td>
+                <td class="time">{{ form.s7c_e3_se }}</td>
                 <td>حداکثر</td>
             </tr>
         </table>
@@ -1176,7 +1174,7 @@
 
         <br>
         <div>
-            <sppan>  انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی</sppan>
+            <span>  انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی</sppan>
             <span class="time">(E<sub>S</sub>)</span>
 
             <br>

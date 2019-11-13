@@ -17,6 +17,8 @@ from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 import weasyprint
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
                 infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1, 
                 suction_1, electrocauter_1, monometer_1, cant_test ,report ]
@@ -760,8 +762,9 @@ def pdf(request):
 
                     
                     css_root = static('/css')
-                    css1 = CSS(filename=f'ww/{css_root}/sop2-pdf.css')
-                    css2 = CSS(filename=f'ww/{css_root}/bootstrap-v4.min.css')
+                    
+                    css1 = CSS(filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
+                    css2 = CSS(filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
                     if not os.path.exists('_reports/'):
                         os.makedirs('_reports/')
                     
@@ -774,13 +777,13 @@ def pdf(request):
                     HTML(string=html).write_pdf(f'_reports/{obj.request.number}/{modellist[s]}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
-                    a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,
-                                            request = obj.request, date = obj.date, user = obj.user, status = obj.status,
-                                            record = rd.objects.create(number=obj.record.number),
-                                            licence = lcc.objects.create(number=obj.licence.number),
-                                             is_done = obj.is_done, totalcomment = obj.totalcomment)
-                    a12.save()
-                    obj.delete()
+                    # a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,
+                    #                         request = obj.request, date = obj.date, user = obj.user, status = obj.status,
+                    #                         record = rd.objects.create(number=obj.record.number),
+                    #                         licence = lcc.objects.create(number=obj.licence.number),
+                    #                          is_done = obj.is_done, totalcomment = obj.totalcomment)
+                    # a12.save()
+                    # obj.delete()
             s+=1
         return HttpResponse('done :)')
     else: 

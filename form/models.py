@@ -1396,11 +1396,11 @@ class defibrilator_1(models.Model):
     s7c_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ce3comment', default=1)
 
-    s7d_e1_en = models.IntegerField()
-    s7d_e1_es = models.IntegerField()
-    s7d_e1_ec = models.IntegerField()
-    s7d_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='df1s7de1comment', default=1)
+    # s7d_e1_en = models.IntegerField()
+    # s7d_e1_es = models.IntegerField()
+    # s7d_e1_ec = models.IntegerField()
+    # s7d_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
+    #                                    related_name='df1s7de1comment', default=1)
 
     s8_e1_en = models.IntegerField()
     s8_e1_em1 = models.IntegerField()
