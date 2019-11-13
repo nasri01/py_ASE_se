@@ -33,10 +33,9 @@ admin.site.register(All_Device,All_DeviceAdmin)
 admin.site.register(Request)
 admin.site.register(licence)
 
-class excel_argAdmin(admin.ModelAdmin):
-    list_display = ("arg", "order")
 
-admin.site.register(ad_excel_arg, excel_argAdmin)
+
+admin.site.register(ad_excel_arg)
 
 
 admin.site.register(accessory)

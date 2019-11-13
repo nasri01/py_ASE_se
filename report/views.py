@@ -96,7 +96,7 @@ def xlsx(request):
                 data.append(row)    
 
 
-        fr1 = ad_excel_arg.objects.all().order_by('order')
+        fr1 = ad_excel_arg.objects.all().order_by('id')
         if request.GET['action'] == 'download':
 
             output = io.BytesIO()

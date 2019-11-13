@@ -206,7 +206,6 @@ class accessory(models.Model):
 
 class ad_excel_arg(models.Model):
     arg = models.TextField()
-    order = models.IntegerField()
     class Meta:
         verbose_name_plural = "آرگومان اکسل"
     def __str__(self):
