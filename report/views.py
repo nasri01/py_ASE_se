@@ -49,7 +49,6 @@ def xlsx(request):
             # 'month': mm
 
         ##Create Excel
-        tcomment = []
         row = []
         data = []
         data1 = []
@@ -68,15 +67,7 @@ def xlsx(request):
 
         for obj1 in data1:
             for obj in obj1:
-                tcomment = []
                 row = []
-                try:
-                    for tc in obj.totalcomment.all():
-                        tcomment.append(tc)
-                except:
-                    for ml in modellist:
-                        if obj.tt == ml:
-                            pass
                 row.append(obj.device.hospital.city.state_name.name)#0
                 row.append(obj.device.hospital.city.name)#1
                 row.append(obj.device.hospital.name)#2
@@ -92,7 +83,8 @@ def xlsx(request):
                     row.append(obj.licence.number)#11
                 else:
                     row.append('-')#11
-                row.append(tcomment)#12*
+                row.append(obj.totalcomment)#12*
+                row.append(obj.status.id)#13
                 data.append(row)    
 
 
@@ -144,18 +136,15 @@ def xlsx(request):
             for idata in data:
                 # if (modelobj[i].device.hospital.user == request.user):
                 # Assign Status
-                if idata.status.id == 1:  # accept
+                if idata[13] == 1:  # accept
                     fstate = gg
-                elif idata.status.id == 2:  # conditional
+                elif idata[13] == 2:  # conditional
                     fstate = yy
-                elif idata.status.id == 3:  # conditional
+                elif idata[13] == 3:  # conditional
                     fstate = rr
                 else:
                     fstate = fr
-                total_com = ''
-                for t in idata[12]:
-                    total_com += f'{t}-'
-
+                
                 data = (cursor,
                         idata[0],
                         idata[1],
@@ -170,7 +159,7 @@ def xlsx(request):
                         idata[10],
                         str(fr1[0]),
                         idata[11],
-                        total_com,
+                        idata[12],
                         )
 
                 ws.write_row(row=cursor, col=0, data=data, cell_format=fstate)
