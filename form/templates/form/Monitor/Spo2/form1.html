@@ -3,7 +3,7 @@
 
 
 <form method="POST" class="post-form">
-   <a class="btn btn-info" href="/admin/acc/comment/add"  style="position: fixed;left:40px;bottom:100px;"  >افزودن کامنت</a>
+   <a class="btn btn-warning" href="/admin/acc/comment/add"  target="_blank" style="position: fixed;left:40px;bottom:100px;"  >افزودن کامنت</a>
 <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_spo2' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
 
     {% csrf_token %}
