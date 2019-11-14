@@ -5,7 +5,7 @@
 
 
 <form method="POST" class="post-form">
- <a class="btn btn-info" href="/admin/acc/comment/add"  style="position: fixed;left:40px;bottom:100px;"  >افزودن کامنت</a>
+<a class="btn btn-warning" href="/admin/acc/comment/add"  target="_blank" style="position: fixed;left:40px;bottom:100px;"  >افزودن کامنت</a>
  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_ecg' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
@@ -136,7 +136,7 @@
               <td rowspan="8" style="width: 200px;">Lead II ASync No Overshoot HR=80bpm</td>
               <td rowspan="4">0.1ms</td>
               <td>-700 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e1_hr }}</td>
               <td></td>
               <td></td>
@@ -145,7 +145,7 @@
             </tr>
             <tr>
               <td>-2 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e2_hr }}</td>
               <td></td>
               <td></td>
@@ -155,7 +155,7 @@
 
             <tr>
               <td>+2 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e3_hr }}</td>
               <td></td>
               <td></td>
@@ -165,7 +165,7 @@
 
             <tr>
               <td>+700 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e4_hr }}</td>
               <td></td>
               <td></td>
@@ -175,7 +175,7 @@
             <tr>
                 <td rowspan="4">2 ms</td>
               <td>-700 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e5_hr }}</td>
               <td></td>
               <td></td>
@@ -184,7 +184,7 @@
 
             <tr>
               <td>-2 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e6_hr }}</td>
               <td></td>
               <td></td>
@@ -193,7 +193,7 @@
 
             <tr>
               <td>+2 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e7_hr }}</td>
               <td></td>
               <td></td>
@@ -202,7 +202,7 @@
 
             <tr>
               <td>+700 mv</td>
-              <td>tick</td>
+              <td>&#10004;</td>
               <td>{{ form.s1_e8_hr }}</td>
               <td></td>
               <td></td>
