@@ -56,7 +56,6 @@ def save_router(request,formtype):
                 
                 if request.POST['op_type'] == 'save':    
                     form1 = item[2](request.POST)
-                    return HttpResponse('hello')
                 
                 elif request.POST['op_type'] == 'save_recal':
                     ref_data = item[1].objects.get(record__number=request.POST['ref_record_num'])
