@@ -777,13 +777,13 @@ def pdf(request):
                     HTML(string=html).write_pdf(f'_reports/{obj.request.number}/{modellist[s]}/{obj.licence.number}.pdf',font_config=font_config, stylesheets=[css1, css2])
                     
                     
-                    # a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,
-                    #                         request = obj.request, date = obj.date, user = obj.user, status = obj.status,
-                    #                         record = rd.objects.create(number=obj.record.number),
-                    #                         licence = lcc.objects.create(number=obj.licence.number),
-                    #                          is_done = obj.is_done, totalcomment = obj.totalcomment)
-                    # a12.save()
-                    # obj.delete()
+                    a12 = report.objects.create(tt = ad_test_type0.objects.get(type=modellist[s]),device = obj.device,
+                                            request = obj.request, date = obj.date, user = obj.user, status = obj.status,
+                                            record = rd.objects.create(number=obj.record.number),
+                                            licence = lcc.objects.create(number=obj.licence.number),
+                                             is_done = obj.is_done, totalcomment = obj.totalcomment)
+                    a12.save()
+                    obj.delete()
             s+=1
         return HttpResponse('done :)')
     else: 
