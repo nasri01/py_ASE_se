@@ -6,7 +6,7 @@ class cant_test_Form(forms.ModelForm):
     class Meta:
         model = cant_test
         #fields = '__all__'
-        exclude = ['record','user','date',]
+        exclude = ['record','user','date','is_done']
 class monitor_spO2_1_Form(forms.ModelForm):
     class Meta:
         model = monitor_spo2_1
