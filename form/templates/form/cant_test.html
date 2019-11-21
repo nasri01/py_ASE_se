@@ -4,7 +4,7 @@
 
 
 <form method="POST" class="post-form">
-  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_nibp' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
+  <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='cant_test' %}" style="position: fixed;left:40px;bottom:40px;"  formnovalidate>بارگزاری مجدد فرم</button>
     {% csrf_token %}
 
     <table class="table-bordered">
@@ -66,21 +66,10 @@
     
     {% render_field form.totalcomment style="display:inline-block;width:100%;height:200px;" %}
   
-  {% if edit %}
-    <input type="text" name="op_type" value="save_edit" hidden>
-    <input type="text" name="record_num" value="{{record_num}}" hidden>
-  {% elif recal %}
-    <input type="text" name="op_type" value="save_recal" hidden>
-    <input type="text" name="ref_record_num" value="{{ref_record_num}}" hidden>
-  {% elif edit_recal %}
-    <input type="text" name="op_type" value="save_edit_recal" hidden>
-    <input type="text" name="record_num" value="{{record_num}}" hidden>
-  {% else %}
-
+  
     <input type="text" name="op_type" value="save" hidden>
-  {% endif %}
         <br><br>
-  <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='monitor_spo2' %}" >
+  <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='cant_test' %}" >
       ذخیره نهایی
     </button>
 

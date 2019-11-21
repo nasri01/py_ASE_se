@@ -13,6 +13,7 @@ class cant_test(models.Model):
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ctr')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
+    
     def __str__(self):
         return 'cant_test : ' + str(self.tt) + str(self.device.device.name)
 

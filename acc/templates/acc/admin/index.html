@@ -1,203 +1,282 @@
-{% extends 'base2.html' %}
+{% extends 'base3.html' %}
 {% load static %}
 
 {% block content %}
+<title>پنل کاربری مدیریت</title>
 
-<!--{% if status %}-->
-<!--<div class="container-fluid alert alert-success">-->
-<!--{{ status }} {{request.user.first_name}}-->
-<!--</div>-->
-<!--{% endif %}-->
 
-<div class="container-fluid">
-    <div class="row" style="margin-top: 10px;">
-        <div class="col-2">
+<link rel="stylesheet" type="text/css" media="all" href="{% static 'JalaliJSCalendar/skins/calendar-blue.css' %}" title="Aqua" />
+<script src="{% static 'JalaliJSCalendar/jalali.js' %}"></script>
+<script src="{% static 'JalaliJSCalendar/calendar.js' %}"></script>
+<script src="{% static 'JalaliJSCalendar/calendar-setup.js'%}"></script>
+<script src="{% static 'JalaliJSCalendar/lang/calendar-fa.js' %}"></script>
 
-        </div>
+  <div class="container-fluid">
 
-        <div class="col-5">
-
-            <div style="margin: 10px;">
-            <button type="button" style="width: 150px;" class="btn btn-success">گزارشات ثبت شده</button>
-              <button type="button" style="width: 150px;" class="btn btn-danger">اصلاح</button>
-                <br>
-              <button type="button" style="margin-top: 5px;width: 305px;" class="btn btn-secondary">افزودن دستگاه</button>
-            </div>
-                <!---->
-            <!--<div class="btn-group" style="direction: ltr;margin: 20px 10px 10px; " role="group" aria-label="Basic example">-->
-              <!---->
-            <!--</div>-->
-        </div>
-
-        {% if status %}
-            <div class="col-5">
-                    <div style="margin:5px 10px 0px 0px;font-family: 'Yekan';" class="alert alert-success" role="alert">
-                      <p>
-                           {{ status}}
-                      </p>
+        <div class="row">
+            <div class="col-lg-4 col-md-12" style="direction: rtl;">
+                <div>
+                    <div style="width: 100%;text-align: center;">
+                    <img src="{% static 'img/sairan.svg' %}" class="logo" alt="">
                     </div>
-            </div>
-        {% endif %}
+                        <div class="data-box-2">
 
+                            {% if date_error %}
+                            <div class="warning-box">
+                                {{date_error}}
+                            </div>
+                            {% endif %}
+                            <div class="hospital">
+                                <div style="font-size: 12px;">
+                                بیمارستان آموزشی درمانی فوق تخصصی الزهرا (س)
+                                آدرس: استان اصفهان، اصفهان، بلوار صفه
+                                    ساعات بازدید: شبانه‌روزی باز است
+                                </div>
+                                <img src="{{ auser.avatar.url }}" class="hospital-img">
+                                <div class="setting-icon">
+                                    <a href="{% url  'report-pdf1'%}" >
+                                        <img style="display: block" src="{% static 'img/setting2.ico' %}"  alt="">
+                                    </a>
+                                </div>
+                                <div class="exit-btn">
+                                    <a href="{% url 'logout1'%}" style="display: block;color:white;"> خروج <img src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;" alt=""></a>
+                                </div>
+                            </div>
+                            <br>
+                            <!--<button type="button" class="btn btn-outline-primary" style="border-radius: 20px;">PDF</button>-->
+                            <!--<button type="button" class="btn btn-outline-success" style="border-radius: 20px;">Exel</button>-->
+                            
+                            <!-- &#10004; ///////////////////// tick  -->
+
+                                                                                    
+                            <div class="excel-report">
+                                <div class="excel-btn">گزارش Excel</div>
+                                <!-- <br> -->
+                                <!-- <br> -->
+                                <div style="height: 250px;"></div>
+                                <!-- <div class="card card-body" style="border:none;"> -->
+                                    <form action="{% url 'report-xlsx' %}" method="GET">
+                                        <div class="fm">
+                                            <div>
+                                                <div class="form-group">
+
+
+
+                                                        <select name="hospitals" id="hospitals" multiple>
+                                                            {% for hospital in hosplist %}        
+                                                                <option value="{{ hospital.id }}">{{ hospital.name}} - {{ hospital.city.name}}</option>
+                                                            {% endfor%}
+
+                                                        </select>
+                                                    
+                                                    
+                                                    <label>از: </label>
+                                                
+                                                        <input type="text" required name="start_date" id="date_input" class="form-control inp" >
+                                                        <img  src="{% static 'img/calender.svg' %}"  id="date_btn" height="25px">
+                                                        
+
+                                                        <script>
+                                                                Calendar.setup({
+                                                                  inputField: 'date_input',
+                                                                  button: 'date_btn',
+                                                                  ifFormat: '%Y/%m/%d',
+                                                                  dateType: 'jalali'
+                                                                });
+                                                                </script>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>تا: </label>
+                                                    <input type="text" required name="end_date" id="date_input_2" class="form-control inp" >
+                                                    <img  src="{% static 'img/calender.svg' %}"  id="date_btn_2" height="25px" >
+                                                    <script>
+                                                            Calendar.setup({
+                                                              inputField: 'date_input_2',
+                                                              button: 'date_btn_2',
+                                                              ifFormat: '%Y/%m/%d',
+                                                              dateType: 'jalali'
+                                                            });
+                                                            </script>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="is_recal" class="custom-control-input" id="defaultUnchecked">
+                                                        <label class="custom-control-label" for="defaultUnchecked">فقط گزارشات ریکالیبراسیون</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+
+                                    <div class="flex-btn">
+                                        <button type="submit" class="btn btn-primary" name="action" value="show" style="border-radius: 20px;width: 125px;padding: 10px 0;background-color: #114476;border-color:#114476;">نمایش</button>
+                                        <button type="submit" class="btn btn-success" name="action" value="download" style="border-radius: 20px;width: 125px;padding: 10px 0;">دانلود</button>
+                                    </div>
+                                 </form>
+                                <!-- </div> -->
+
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="report-list" style="position: relative;">
+                            <div class="report-list-btn">
+                                لیست درخواست
+                            </div>
+                            <div style="margin-top: 140px;"></div>
+                            <div class="report-table">
+                                <table style="width: 100%;text-align: center;height: 100px;">
+                                    <thead>
+                                    
+                                            <tr class="th-head">
+                                                    <th style="background-color:#74c4b6;border-top-right-radius: 10px;">ردیف</th>
+                                                    <th style="background-color:#74c4b6;">تاریخ</th>
+                                                    <th style="background-color:#74c4b6;">وضعیت</th>
+                                                </tr>
+                                    </thead>
+                                    <tbody style="height: 100px;">
+
+
+
+
+                                        {% for req in request %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ req.date }}</td>
+                                            <td>
+                                                {% if req.status.id == 1%}
+                                                    <div style="background-color:#0000ff;width: 15px;height: 15px;border-radius: 100%;display: inline-block;margin-bottom: -3px;">
+                                                {% elif req.status.id == 2 %}
+                                                    <div style="background-color:#FEFA01;width: 15px;height: 15px;border-radius: 100%;display: inline-block;margin-bottom: -3px;" class="blink"></div>
+                                                {% elif req.status.id == 3 %}
+                                                    <div style="background-color:#00ff00;width: 15px;height: 15px;border-radius: 100%;display: inline-block;margin-bottom: -3px;">
+                                                {% elif req.status.id == 4 %}
+                                                    <div style="background-color:#ff0000;width: 15px;height: 15px;border-radius: 100%;display: inline-block;margin-bottom: -3px;">    
+                                                {% endif %}
+                                            
+                                            </div>
+                                            {% if req.status.id == 2 %}    
+                                                <span class="blink">{{ req.status }}</span>
+                                            {% else %}
+                                                {{ req.status }}
+                                            {% endif %}
+                                            </td>
+                                        </tr>
+
+                                        {% endfor %}
+
+
+                            
+                                  
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-lg-8 col-md-12" style="direction: rtl;">
+                    <div class="data-box">
+                       
+                        <style>
+                        
+                            table.dataTable thead .sorting:after,
+                            table.dataTable thead .sorting:before,
+                            table.dataTable thead .sorting_asc:after,
+                            table.dataTable thead .sorting_asc:before,
+                            table.dataTable thead .sorting_asc_disabled:after,
+                            table.dataTable thead .sorting_asc_disabled:before,
+                            table.dataTable thead .sorting_desc:after,
+                            table.dataTable thead .sorting_desc:before,
+                            table.dataTable thead .sorting_desc_disabled:after,
+                            table.dataTable thead .sorting_desc_disabled:before {
+                            bottom: .5em;
+                            }
+                        </style>
+                        {% if data %}
+                        <table style="border-radius: 10px; width: 100%;" id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0">
+                            <!--///////////////////////////////////-->
+                                <thead  class="thead-light">		
+				                <tr class="t-row">
+                                    {% comment %} <th class="th-sm">{{firstrow.2}}</th>
+                                    <th class="th-sm">{{firstrow.3}}</th>
+                                    <th class="th-sm">{{firstrow.4}}</th> {% endcomment %}
+                                    <th class="th-sm">{{firstrow.5}}</th>
+                                    <th class="th-sm">{{firstrow.6}}</th>
+                                    <th class="th-sm">{{firstrow.7}}</th>
+                                    <th class="th-sm">{{firstrow.8}}</th>
+                                    <th class="th-sm">{{firstrow.9}}</th>
+                                    <th class="th-sm">{{firstrow.10}}</th>
+                                    <th class="th-sm">{{firstrow.11}}</th>
+                                    <th class="th-sm">{{firstrow.12}}</th>
+                                    <th class="th-sm">{{firstrow.13}}</th>
+                                    <th class="th-sm">{{firstrow.14}}</th>
+                                    <th class="th-sm">{{firstrow.15}}</th>
+                                <!-- <th class="th-sm">PDF</th> -->
+                                
+                            </tr></thead>
+                            {% for i in data %}
+
+                                <tr class="t-row">
+                                    {% comment %} <td>{{i.0}}</td>
+                                    <td>{{i.1}}</td>
+                                    <td>{{i.2}}</td> {% endcomment %}
+                                    <td>{{i.3}}</td>
+                                    <td>{{i.4}}</td>
+                                    <td>{{i.5}}</td>
+                                    <td>{{i.6}}</td>
+                                    <td>{{i.7}}</td>
+                                    <td>{{i.8}}</td>
+                                    <td>{{i.9}}</td>
+                                    <td>{{i.10}}</td>
+                                    <td>{{firstrow.0}}</td>
+                                    <td>{{i.11}}</td>
+                                    
+                                    <td>
+                                        {{i.12}}
+                                    </td>
+<!--                                     
+                                    {% if i.11 != -1 %}
+                                        <form method="GET" action="{% url 'report-pdf1'%}">
+                                            <td> <button type="submit" value="{{i.11}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
+                                        </form>
+                                    {% endif %} -->
+                                
+                                </tr>
+                                
+                            {% endfor %}
+
+                          </tbody>
+                        </table>
+                        {% else %}
+                        <div style="text-align:center;font-size: 25px;margin-top: 240px;font-weight: bold;">داده ای جهت نمایش وجود ندارد.</div>
+                        {% endif %}
+                     </div>
+			<!-- end of data-box -->
+                     <div class="row">
+                   
+                            <div class="col-md-12 col-lg-5">
+                                <div class="data-box-em">
+
+                                </div>
+                                </div>
+            
+                   
+                        <div class="col-md-12 col-lg-7">
+                        <div class="chart-box">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+                </div><!---row end -->
+
+
+
+                </div>
+            
+        </div>
+            <!--  -->
+        </div>
     </div>
 
-
-
-    <div class="row" >
-
-        <div class="col-2 ">
-
-
-        <div class="box" style="margin-right: 0px;">
-            <form action="{% url 'router' formtype='monitor_spo2_1' %}" method="POST">
-                {% csrf_token %}
-                <input name="flag" value="1" hidden>
-                {% if monitor_spo2_1 %}
-                    <button type="submit" class="btn btn-danger box-item"> SPO <sub>2</sub></button>
-                {% else %}
-                    <button type="submit" class="btn btn-warning box-item"> SPO <sub>2</sub></button>
-                {% endif %}
-            </form>
-
-            <form action="{% url 'router' formtype='monitor_ecg_1' %}" method="POST">
-                {% csrf_token %}
-                <input name="flag" value="1" hidden>
-                {% if monitor_ecg_1 %}
-                    <button type="button" class="btn btn-danger box-item">ECG</button>
-                {% else %}
-                    <button type="button" class="btn btn-warning box-item">ECG</button>
-                {% endif %}
-            </form>
-
-            <form action="{% url 'router' formtype='monitor_nibp_1' %}" method="POST">
-                {% csrf_token %}
-                <input name="flag" value="1" hidden>
-                {% if monitor_nibp_1 %}
-                    <button type="button" class="btn btn-danger box-item">NIBP</button>
-                {% else %}
-                    <button type="button" class="btn btn-warning box-item">NIBP</button>
-                {% endif %}
-            </form>
-
-            <form action="{% url 'router' formtype='monitor_safety_1' %}" method="POST">
-                {% csrf_token %}
-                <input name="flag" value="1" hidden>
-                {% if monitor_safety_1 %}
-                    <button type="button" class="btn btn-danger box-item">SAFETY</button>
-                {% else %}
-                    <button type="button" class="btn btn-warning box-item">SAFETY</button>
-                {% endif %}
-            </form>
-
-
-
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">...</button>
-            <button type="button" class="btn btn-primary box-item">AED</button>
-
-        <!--<div class="box-item">-->
-
-            <!--<a href=""> SPO <sub>2</sub></a>-->
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">ECO <sub>3</sub></a>-->
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">NIBP</a>-->
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">SAFETY</a>-->
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">...</a>-->
-
-        <!--</div>-->
-
-        <!--<div class="box-item">-->
-            <!--<a href="">AED</a>-->
-        <!--</div>-->
-
-    <!--</div>-->
-            <!---->
-
-
-
-
-
-        </div>
-
-        </div>
-        <div class="col-10">
-            <div class="form-box container-fluid">
-                {% if monitor_spo2_1 %}
-
-                {% include 'form/Monitor/Spo2/form1.html' %}
-
-                {% elif monitor_ecg_1 %}
-                    fuck you
-
-                {% elif monitor_nibp_1 %}
-                    bitch
-
-                {% elif aed_1 %}
-                    mother
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 {% endblock %}

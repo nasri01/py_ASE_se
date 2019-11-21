@@ -9,6 +9,7 @@ from .models import licence as lcc
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.contrib.auth.models import User, Group
 from django.shortcuts import render ,Http404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
@@ -54,17 +55,26 @@ def xlsx(request):
         data1 = []
         try:
             if request.GET['is_recal'] == 'on':
+                if request.user.groups.all()[0] != Group.objects.get(name='admin'):
+                    for model in model_list:
+                        modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
+                            request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
+                        data1.append(modelobj)       
+                else:
+                    for model in model_list:
+                        modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(is_recal=True)
+                        data1.append(modelobj)       
+        except:
+            if request.user.groups.all()[0] != Group.objects.get(name='admin'):    
                 for model in model_list:
                     modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
-                        request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
-                    data1.append(modelobj)       
-                    
-        except:
-            for model in model_list:
-                modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
-                    request__hospital__user__id__exact=request.user.id)
-                data1.append(modelobj)
-
+                        request__hospital__user__id__exact=request.user.id)
+                    data1.append(modelobj)
+            else:
+                for model in model_list:
+                    modelobj = model.objects.filter(date__gte=start).filter(date__lte=end)
+                    data1.append(modelobj)
+        
         for obj1 in data1:
             for obj in obj1:
                 row = []
