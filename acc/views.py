@@ -1,8 +1,7 @@
-import jdatetime
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User
-from django.shortcuts import redirect, render, render_to_response
+from django.shortcuts import redirect, render
 from django.template import RequestContext
 
 
@@ -190,7 +189,7 @@ def recal_report(request):
                 form_type = form
                 break
             c += 1
-        
+
         form1 = form_type(instance=modelobj[0])
 
         rdata = {'recal': 1,

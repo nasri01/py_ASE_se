@@ -2,8 +2,21 @@
 {% load static %}
 
 {% block content %}
-    <title>کنترل پنل کارمندان</title>
+    {% if form_type %}    
+        {% if edit %}    
+            <title>اصلاح گزارش {{ licence_num }}</title>
+        {% elif edit_recal%}
+            <title>اصلاح گزارش ریکالیبراسیون {{ licence_num }}</title>
+        {% elif recal %}
+            <title>ثبت گزارش ریکالیبراسیون {{ ref_licence_num }}</title>
+        {% else %}
+            <title>ثبت گزارش  {{ form_type }}</title>
+        {% endif %}
 
+    
+    {% else %}
+    <title>کنترل پنل کارمندان</title>
+    {% endif %}
 <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5 col-xl-4 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">

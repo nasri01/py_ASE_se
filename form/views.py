@@ -1,10 +1,9 @@
-from django.shortcuts import render, Http404, redirect, HttpResponse
-from django.utils import timezone
+from django.shortcuts import render, Http404, redirect
 from django.contrib.auth.decorators import login_required
 import jdatetime
 import pytz
+from acc.models import licence, Cal_device, record, aUserProfile
 from .forms import *
-from acc.models import licence, Cal_device, Section, All_Device, record, aUserProfile
 from django.contrib.auth.models import Group
 
 
@@ -18,7 +17,7 @@ diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form, 3],
            ['defibrilator', defibrilator_1, defibrilator_1_Form, 4],
            ['ecg', ecg_1, ecg_1_Form, 4],
            ['flowmeter', flowmeter_1, flowmeter_1_Form, 1],
-           ['infusion_pump', infusion_pump_1,  infusion_pump_1_Form, 4],
+           ['infusion_pump', infusion_pump_1, infusion_pump_1_Form, 4],
            ['monometer', monometer_1, monometer_1_Form, 3],
            ['spo2', spo2_1, spo2_1_Form, 4],
            ['suction', suction_1, suction_1_Form, 4],
@@ -38,7 +37,7 @@ def router(request):
             if request.GET['type'] == item[0]:
                 form1 = item[2]
                 # pop up a confirmation
-                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 'auser': auser})
+                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 'auser': auser, })
 
     else:
         raise Http404
