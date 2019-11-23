@@ -269,4 +269,30 @@
         </div>
     </div>
 
+
+
+
+<script>
+
+
+
+
+    var ctxD = document.getElementById("doughnutChart").getContext('2d');
+    var myLineChart = new Chart(ctxD, {
+    type: 'doughnut',
+    data: {
+    labels: [ "قابل قبول", "مشروط", "مردود", "عدم تست"],
+    datasets: [{
+    data: [ {{ chart.0 }}, {{ chart.1 }}, {{ chart.2 }}, {{ chart.3 }} ],
+    backgroundColor: [ "#00d619", "#eaff00", "#ff0000", "#87877f"],
+    hoverBackgroundColor: [ "#A8B3C5", "#616774"]
+    }]
+    },
+    options: {
+    responsive: true
+    }
+    });
+
+
+</script>
 {% endblock %}

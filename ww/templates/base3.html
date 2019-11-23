@@ -62,7 +62,6 @@ setInterval(blink_text, 1000);
 
 
 
-    {% block content %}{% endblock %}
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
@@ -79,6 +78,9 @@ setInterval(blink_text, 1000);
  <!-- DataTables Select  -->
  <script type="text/javascript" src="{% static 'mdbootstrap/js/addons/datatables-select.min.js' %}"></script>
 
+
+    {% block content %}{% endblock %}
+
 <script>
         $(document).ready(function () {
         $('#dtBasicExample').DataTable();
@@ -86,28 +88,6 @@ setInterval(blink_text, 1000);
         });
         </script>
 
-<script>
-
-
-
-var ctxD = document.getElementById("doughnutChart").getContext('2d');
-var myLineChart = new Chart(ctxD, {
-type: 'doughnut',
-data: {
-labels: [ "Yellow", "Grey", "Dark Grey"],
-datasets: [{
-data: [ 40, 120],
-backgroundColor: [ "#949FB1", "#4D5360"],
-hoverBackgroundColor: [ "#A8B3C5", "#616774"]
-}]
-},
-options: {
-responsive: true
-}
-});
-
-
-</script>
 </body></html>
 
 

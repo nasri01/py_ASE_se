@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, Http404
 from django.template import RequestContext
 
 
@@ -57,21 +57,40 @@ def submit(request):
     if request.user.groups.all()[0] == Group.objects.get(name='admin'):
         hospital_list = Hospital.objects.all()
         req = Request.objects.all().order_by('date')
+        chart = [0, 0, 0, 0]
+        for model in model_list:
+            if model == cant_test:
+                continue
+            chart[0] += len(model.objects.filter(status__id=1))
+            chart[1] += len(model.objects.filter(status__id=2))
+            chart[2] += len(model.objects.filter(status__id=3))
+        chart[3] = len(cant_test.objects.all())
         for t in req:
             t.date = t.date.today()
+
         return render(request, 'acc/admin/index.html', {
             'status': 'Welcome Back', 'flag': '1', 'auser': auser, 'hosplist': hospital_list, 'request': req,
-        })
+            'chart': chart})
 
     elif request.user.groups.all()[0] == Group.objects.get(name='hospital'):
 
         req = Request.objects.filter(
             hospital__user=request.user).order_by('date')
+        chart = [0, 0, 0, 0]
+        for model in model_list:
+            if model == cant_test:
+                continue
+            query = model.objects.filter(device__hospital__user=request.user)
 
+            chart[0] += len(query.filter(status__id=1))
+            chart[1] += len(query.filter(status__id=2))
+            chart[2] += len(query.filter(status__id=3))
+        chart[3] = len(cant_test.objects.filter(
+            device__hospital__user=request.user))
         for t in req:
             t.date = t.date.today()
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'flag': 1,  'request': req, 'auser': auser})
+                      {'status': 'خوش آمدید', 'flag': 1,  'request': req, 'auser': auser, 'chart': chart})
         #    'date': jdatetime.date.today(), 'month': mm,
 
     elif request.user.groups.all()[0] == Group.objects.get(name='employee'):
@@ -123,7 +142,7 @@ def recal_list(request):
 def report_list(request):
     data = []
     data1 = []
-    for model in model_list:
+    for model in model_list[:-1]:
         modelobj = model.objects.all()
         data1.append(modelobj)
     for obj1 in data1:
@@ -146,7 +165,6 @@ def report_list(request):
                 row.append('-')  # 11
             row.append(obj.record.number)  # 12
             data.append(row)
-
     return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})
 
 
@@ -155,13 +173,17 @@ def edit_report(request):
     if (request.method == 'GET'):
         auser = aUserProfile.objects.get(user=request.user)
         c = 0
-        for form in form_list[:-2]:
+        for form in form_list:
             modelobj = form.Meta.model.objects.filter(
                 record__number=int(request.GET['record_num']))
             if (len(modelobj) == 1):
                 form_type = form
                 break
             c += 1
+        try:
+            form_type
+        except:
+            raise Http404
         form1 = form_type(instance=modelobj[0])
         edata = {'form': form1,
                  'form_type': modellist[c],
