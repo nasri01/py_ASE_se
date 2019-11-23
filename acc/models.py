@@ -93,7 +93,7 @@ class aUserProfile(models.Model):
     signature = models.ImageField(upload_to='signature/',null=True,blank=True)
     status = models.ForeignKey(ad_acc_Status,on_delete=models.PROTECT)
     class Meta:
-        verbose_name_plural = "مشخصات کاربران"
+        verbose_name_plural = "1_مشخصات کاربران"
     def __str__(self):
         return self.user.first_name
     
@@ -107,7 +107,7 @@ class Hospital(models.Model):
     p_phone = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     class Meta:
-        verbose_name_plural = "بیمارستان ها"
+        verbose_name_plural = "2_بیمارستان ها"
     def __str__(self):
         return str(self.name) + ' ' + str(self.city.name)
 
@@ -151,7 +151,7 @@ class Cal_device(models.Model):
     calibration_date = models.DateField()
     calibration_Expire_date = models.DateField()
     class Meta:
-        verbose_name_plural = "دستگاه های کنترل کیفی"
+        verbose_name_plural = "4_دستگاه های کنترل کیفی"
     def __str__(self):
         return self.name
 
@@ -163,7 +163,7 @@ class All_Device(models.Model):
     serial_number = models.TextField(null=True,blank=True)
     property_number = models.IntegerField(null=True,blank=True)
     class Meta:
-        verbose_name_plural = "دستگاه های ثبت شده"
+        verbose_name_plural = "3_دستگاه های ثبت شده"
     def __str__(self):
         return str(self.name) + ' - ' + str(self.hospital.name) + ' - ' + str(self.serial_number)
 
@@ -174,7 +174,7 @@ class Request(models.Model):
     number = models.IntegerField()
     status = models.ForeignKey(ad_req_Status,on_delete=models.CASCADE,default=1)
     class Meta:
-        verbose_name_plural = "لیست درخواست ها"
+        verbose_name_plural = "5_لیست درخواست ها"
     def __str__(self):
         return str(self.number)
 
