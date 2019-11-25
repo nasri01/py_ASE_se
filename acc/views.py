@@ -16,18 +16,39 @@ try:
 except:
     color_scheme = '17a2b8'
 fr1 = ad_excel_arg.objects.all().order_by('id')
-model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
-              defibrilator_1, ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
-              ventilator_1, electrocauter_1, cant_test, report]
+# model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
+#               defibrilator_1, ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
+#               ventilator_1, electrocauter_1, cant_test, report]
 
-modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'aed', 'anesthesia_machine',
-             'defibrilator', 'ecg', 'flowmeter', 'infusion_pump', 'monometer', 'spo2', 'suction', 'syringe_pump',
-             'ventilator', 'electrocauter', 'cant_test']
+# modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'aed', 'anesthesia_machine',
+#              'defibrilator', 'ecg', 'flowmeter', 'infusion_pump', 'monometer', 'spo2', 'suction', 'syringe_pump',
+#              'ventilator', 'electrocauter', 'cant_test']
 
-form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, monitor_safety_1_Form, aed_1_Form,
-             anesthesia_machine_1_Form, defibrilator_1_Form, ecg_1_Form, flowmeter_1_Form, infusion_pump_1_Form,
-             monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
-             cant_test_Form]
+# form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, monitor_safety_1_Form, aed_1_Form,
+#              anesthesia_machine_1_Form, defibrilator_1_Form, ecg_1_Form, flowmeter_1_Form, infusion_pump_1_Form,
+#              monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
+#              cant_test_Form]
+
+diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form],
+           ['monitor_ecg', monitor_ecg_1, monitor_ecg_1_Form],
+           ['monitor_nibp', monitor_nibp_1, monitor_nibp_1_Form],
+           ['monitor_safety', monitor_safety_1, monitor_safety_1_Form],
+           ['aed', aed_1, aed_1_Form],
+           ['anesthesia_machine', anesthesia_machine_1,
+               anesthesia_machine_1_Form],
+           ['defibrilator', defibrilator_1, defibrilator_1_Form],
+           ['ecg', ecg_1, ecg_1_Form],
+           ['flowmeter', flowmeter_1, flowmeter_1_Form],
+           ['infusion_pump', infusion_pump_1, infusion_pump_1_Form],
+           ['monometer', monometer_1, monometer_1_Form],
+           ['spo2', spo2_1, spo2_1_Form],
+           ['suction', suction_1, suction_1_Form],
+           ['syringe_pump', syringe_pump_1, syringe_pump_1_Form],
+           ['ventilator', ventilator_1, ventilator_1_Form],
+           ['electrocauter', electrocauter_1, electrocauter_1_Form],
+           ['cant_test', cant_test, cant_test_Form],
+           ['report', report],
+           ]
 
 
 def login(request):
@@ -77,10 +98,11 @@ def submit(request):
         req = Request.objects.filter(
             hospital__user=request.user).order_by('date')
         chart = [0, 0, 0, 0]
-        for model in model_list:
-            if model == cant_test:
+        for model in diclist:
+            if model[1] == cant_test:
                 continue
-            query = model.objects.filter(device__hospital__user=request.user)
+            query = model[1].objects.filter(
+                device__hospital__user=request.user)
 
             chart[0] += len(query.filter(status__id=1))
             chart[1] += len(query.filter(status__id=2))
@@ -111,8 +133,8 @@ def req_list(request):
 def recal_list(request):
     data = []
     data1 = []
-    for model in model_list:
-        modelobj = model.objects.filter(is_done=False)
+    for model in diclist:
+        modelobj = model[1].objects.filter(is_done=False)
         data1.append(modelobj)
     for obj1 in data1:
         for obj in obj1:
@@ -143,8 +165,8 @@ def recal_list(request):
 def report_list(request):
     data = []
     data1 = []
-    for model in model_list[:-1]:
-        modelobj = model.objects.all()
+    for model in diclist[:-1]:
+        modelobj = model[1].objects.all()
         data1.append(modelobj)
     for obj1 in data1:
         for obj in obj1:
@@ -174,21 +196,21 @@ def report_list(request):
 def edit_report(request):
     if (request.method == 'GET'):
         auser = aUserProfile.objects.get(user=request.user)
-        c = 0
-        for form in form_list:
-            modelobj = form.Meta.model.objects.filter(
+        for model in diclist:
+            modelobj = model[2].Meta.model.objects.filter(
                 record__number=int(request.GET['record_num']))
             if (len(modelobj) == 1):
-                form_type = form
+                form_type = model[2]
+                form_type_str = model[0]
                 break
-            c += 1
+
         try:
             form_type
         except:
             raise Http404
         form1 = form_type(instance=modelobj[0])
         edata = {'form': form1,
-                 'form_type': modellist[c],
+                 'form_type': form_type_str,
                  'record_num': modelobj[0].record.number,
                  'licence_num': modelobj[0].licence.number,
                  'auser': auser
@@ -205,20 +227,19 @@ def edit_report(request):
 def recal_report(request):
     if (request.method == 'GET'):
         auser = aUserProfile.objects.get(user=request.user)
-        c = 0
-        for form in form_list[:-2]:
-            modelobj = form.Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(
+        for model in diclist:
+            modelobj = model[2].Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(
                 is_done__exact=False)
             if (len(modelobj) == 1):
-                form_type = form
+                form_type = model[2]
+                form_type_str = model[0]
                 break
-            c += 1
 
         form1 = form_type(instance=modelobj[0])
 
         rdata = {'recal': 1,
                  'form': form1,
-                 'form_type': modellist[c],
+                 'form_type': form_type_str,
                  'ref_record_num': modelobj[0].record.number,
                  'ref_licence_num': modelobj[0].licence.number,
                  'auser': auser

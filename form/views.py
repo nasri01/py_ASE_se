@@ -169,4 +169,4 @@ def reload(request, formtype):
             if formtype == item[0]:
                 form1 = item[2](request.POST)
                 return render(request, 'acc/employee/index.html',
-                              {'form': form1, 'form_type': item[0], 'auser': auser, 'reload':1})
+                              {'form': form1, 'form_type': item[0], 'auser': auser, 'reload': 1})
