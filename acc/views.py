@@ -128,7 +128,8 @@ def recal_list(request):
             row.append(obj.device.property_number)  # 8
             row.append(obj.status.status)  # 9
             row.append(obj.date.strftime("%Y-%m-%d"))  # 10
-            if obj.licence.number != -1:
+            if obj.status.id != 4:
+                print(obj.status.id)
                 row.append(obj.licence.number)  # 11
             else:
                 row.append('-')  # 11
@@ -159,10 +160,11 @@ def report_list(request):
             row.append(obj.device.property_number)  # 8
             row.append(obj.status.status)  # 9
             row.append(obj.date.strftime("%Y-%m-%d"))  # 10
-            if obj.licence.number != -1:
-                row.append(obj.licence.number)  # 11
-            else:
-                row.append('-')  # 11
+            if obj.status.id != 4:
+                if obj.licence.number != -1:
+                    row.append(obj.licence.number)  # 11
+                else:
+                    row.append('-')  # 11
             row.append(obj.record.number)  # 12
             data.append(row)
     return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})

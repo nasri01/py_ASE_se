@@ -79,7 +79,7 @@ body{
 .employee-img{
     /*float: right;*/
     height: 70px;
-    width: 70px;
+    /* width: 70px; */
     margin-right: 10px;
 }
 .op-btn{

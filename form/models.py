@@ -4,31 +4,43 @@ import acc.models
 from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
+
 class cant_test(models.Model):
+    class Meta:
+        verbose_name_plural = "1_Can,t Test"
     tt = models.ForeignKey(acc.models.ad_test_type0, on_delete=models.PROTECT)
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
-    user = models.ForeignKey(User, on_delete=models.PROTECT) 
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ctr')
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='ctr')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
-    
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT, default=4)
+
     def __str__(self):
         return 'cant_test : ' + str(self.tt) + str(self.device.device.name)
 
-    
+
 class monitor_spo2_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Monitor SPO2"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ms1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='ms1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ms1licence')
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ms1r')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='ms1licence')
+    record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='ms1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -36,13 +48,16 @@ class monitor_spo2_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ms1caldev1', default=1)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ms1caldev1', default=1)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ms1caldev2', default=2)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ms1caldev2', default=2)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ms1caldev3', default=3)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ms1caldev3', default=3)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
@@ -85,7 +100,8 @@ class monitor_spo2_1(models.Model):
     s3_e5_spo2 = models.IntegerField()
     s3_e5_pr = models.IntegerField()
 
-    s4_e1_acc = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='ms1s4e1accessory',default=1)
+    s4_e1_acc = models.ForeignKey(
+        acc.models.accessory, on_delete=models.PROTECT, related_name='ms1s4e1accessory', default=1)
     s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ms1s4e1comment', default=2)
 
@@ -94,16 +110,22 @@ class monitor_spo2_1(models.Model):
 
 
 class monitor_ecg_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Monitor ECG"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='me1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='me1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='me1licence')
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='me1r')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='me1licence')
+    record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='me1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -111,13 +133,16 @@ class monitor_ecg_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='me1caldev1',default=5)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='me1caldev1', default=5)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='me1caldev2', default=2)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='me1caldev2', default=2)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='me1caldev3', default=3)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='me1caldev3', default=3)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
@@ -277,16 +302,22 @@ class monitor_ecg_1(models.Model):
 
 
 class monitor_nibp_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Monitor NIBP"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='mn1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='mn1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='mn1licence')
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='mn1r')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='mn1licence')
+    record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='mn1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -294,13 +325,16 @@ class monitor_nibp_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='mn1caldev1',default=4)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='mn1caldev1', default=4)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='mn1caldev2', default=2)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='mn1caldev2', default=2)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='mn1caldev3', default=3)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='mn1caldev3', default=3)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
@@ -345,16 +379,22 @@ class monitor_nibp_1(models.Model):
 
 
 class aed_1(models.Model):
+    class Meta:
+        verbose_name_plural = "AED"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='aed1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='aed1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='aed1licence')
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='aed1r')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='aed1licence')
+    record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='aed1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -362,10 +402,12 @@ class aed_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='aed1caldev1',default=7)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='aed1caldev1', default=7)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='aed1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='aed1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
 
@@ -408,7 +450,8 @@ class aed_1(models.Model):
     s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s0e13comment', default=1)
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='aed1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='aed1tt')
 
     # s1_e1_res = models.FloatField(default=-1)
     # s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -458,7 +501,8 @@ class aed_1(models.Model):
     s3_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='aed1s3e7comment', default=1)
 
-    s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s4_t')
+    s4_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s4_t')
 
     s4_e1_lc1 = models.IntegerField(null=True, blank=True)
     s4_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -521,7 +565,8 @@ class aed_1(models.Model):
     s4_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s4e10comment', default=1)
 
-    s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s5_t')
+    s5_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s5_t')
 
     s5_e1_lc1 = models.IntegerField(null=True, blank=True)
     s5_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -584,7 +629,8 @@ class aed_1(models.Model):
     s5_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='aed1s5e10comment', default=1)
 
-    s6_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s6_t')
+    s6_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='aed1s6_t')
 
     s6_e1_lc1 = models.IntegerField()
     s6_e1_lc2 = models.IntegerField()
@@ -609,16 +655,22 @@ class aed_1(models.Model):
 
 
 class monitor_safety_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Monitor Safety"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='msa1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='msa1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='msa1licence')
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='msa1r')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='msa1licence')
+    record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='msa1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -626,13 +678,16 @@ class monitor_safety_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='msa1caldev1',default=6)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='msa1caldev1', default=6)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='msa1caldev2',default=2)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='msa1caldev2', default=2)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='msa1caldev3',default=3)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='msa1caldev3', default=3)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
@@ -787,15 +842,20 @@ class monitor_safety_1(models.Model):
 
 
 class anesthesia_machine_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Anesthesia Machine"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='am1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='am1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='am1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='am1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -804,16 +864,20 @@ class anesthesia_machine_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev1',default=8)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev1', default=8)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='am1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
@@ -908,7 +972,8 @@ class anesthesia_machine_1(models.Model):
     s0_e31_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='am1s0e31comment', default=1)
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='am1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='am1tt')
 
     s1_res = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1018,14 +1083,14 @@ class anesthesia_machine_1(models.Model):
     s16_e1 = models.IntegerField()
     s16_e2 = models.IntegerField()
 
-    s17_e03 = models.IntegerField(default= -1)
-    s17_e04 = models.IntegerField(default= -1)
-    s17_e01 = models.IntegerField(default= -1 )
-    s17_e02 = models.IntegerField(default= -1 )
+    s17_e03 = models.IntegerField(default=-1)
+    s17_e04 = models.IntegerField(default=-1)
+    s17_e01 = models.IntegerField(default=-1)
+    s17_e02 = models.IntegerField(default=-1)
     s17_e1 = models.IntegerField()
     s17_e2 = models.IntegerField()
-    s17_e3 = models.IntegerField(default= -1 )
-    s17_e4 = models.IntegerField(default= -1 )
+    s17_e3 = models.IntegerField(default=-1)
+    s17_e4 = models.IntegerField(default=-1)
     s17_e5 = models.FloatField()
     s17_e6 = models.IntegerField()
 
@@ -1072,15 +1137,20 @@ class anesthesia_machine_1(models.Model):
 
 
 class defibrilator_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Defibrilator"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='df1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='df1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='df1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='df1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -1089,16 +1159,20 @@ class defibrilator_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev1',default=7)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev1', default=7)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='df1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
@@ -1147,7 +1221,8 @@ class defibrilator_1(models.Model):
     s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s0e22comment', default=1)
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='df1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='df1tt')
 
     s1_res = models.IntegerField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1197,7 +1272,8 @@ class defibrilator_1(models.Model):
     s3_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s3e7comment', default=1)
 
-    s4_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s4_t')
+    s4_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s4_t')
 
     s4_e1_lc1 = models.IntegerField(null=True, blank=True)
     s4_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -1260,7 +1336,8 @@ class defibrilator_1(models.Model):
     s4_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s4e10comment', default=1)
 
-    s5_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s5_t')
+    s5_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s5_t')
 
     s5_e1_lc1 = models.IntegerField(null=True, blank=True)
     s5_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -1323,7 +1400,8 @@ class defibrilator_1(models.Model):
     s5_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s5e10comment', default=1)
 
-    s6_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s6_t')
+    s6_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='df1s6_t')
 
     s6_e1_lc1 = models.IntegerField(null=True, blank=True)
     s6_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -1490,15 +1568,20 @@ class defibrilator_1(models.Model):
 
 
 class ecg_1(models.Model):
+    class Meta:
+        verbose_name_plural = "ElectroCardioGraph"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='e1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='e1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='e1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='e1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -1508,16 +1591,20 @@ class ecg_1(models.Model):
     # TODO Ecg template
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev1',default=5)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev1', default=5)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='e1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
@@ -1637,7 +1724,6 @@ class ecg_1(models.Model):
     s11_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s11e5comment', default=2)
 
-
     s12_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='e1s12e1comment', default=1)
     s12_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1699,15 +1785,20 @@ class ecg_1(models.Model):
 
 
 class flowmeter_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Flow Meter"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='fm1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='fm1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='fm1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='fm1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -1716,7 +1807,8 @@ class flowmeter_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='fm1caldev1',default=8)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='fm1caldev1', default=8)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
 
@@ -1732,15 +1824,20 @@ class flowmeter_1(models.Model):
 
 
 class infusion_pump_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Infusion Pump"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ip1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='ip1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ip1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='ip1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -1749,20 +1846,23 @@ class infusion_pump_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev1',default=11)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev1', default=11)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ip1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    
     s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s0e1comment')
     s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1810,7 +1910,8 @@ class infusion_pump_1(models.Model):
     s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ip1s0e23comment')
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ip1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ip1tt')
 
     s1_res = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1850,7 +1951,6 @@ class infusion_pump_1(models.Model):
     s3_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='ip1s3e5comment')
 
-    
     # s4_e1_dclc = models.IntegerField(default=-1)
     # s4_e1_aclc = models.IntegerField(default=-1)
     # s4_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1886,9 +1986,8 @@ class infusion_pump_1(models.Model):
     s6_e2_mf = models.IntegerField()
 
     s7_e1_mmf = models.IntegerField()
-    
+
     s7_e2_mmf = models.IntegerField()
-    
 
     s8_e1_status = models.BooleanField(default=False)
 
@@ -1897,15 +1996,20 @@ class infusion_pump_1(models.Model):
 
 
 class monometer_1(models.Model):
+    class Meta:
+        verbose_name_plural = "ManoMeter"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='mm1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='mm1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='mm1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='mm1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -1914,51 +2018,53 @@ class monometer_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='mm1caldev1',default=4)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='mm1caldev1', default=4)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='mm1caldev2',default=2)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='mm1caldev2', default=2)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='mm1caldev3',default=3)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='mm1caldev3', default=3)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
 
-    
     s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e1comment', default = 1)
+                                      related_name='mm1s0e1comment', default=1)
     s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e2comment', default = 1)
+                                      related_name='mm1s0e2comment', default=1)
     s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e3comment', default = 1)
+                                      related_name='mm1s0e3comment', default=1)
     s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e4comment', default = 1)
+                                      related_name='mm1s0e4comment', default=1)
     s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e5comment', default = 1)  
+                                      related_name='mm1s0e5comment', default=1)
     s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e6comment', default = 1) 
+                                      related_name='mm1s0e6comment', default=1)
     s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e7comment', default = 1)
+                                      related_name='mm1s0e7comment', default=1)
     s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e8comment', default = 1)
+                                      related_name='mm1s0e8comment', default=1)
     s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s0e9comment', default = 1)
+                                      related_name='mm1s0e9comment', default=1)
     s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='mm1s0e10comment', default = 1) 
+                                       related_name='mm1s0e10comment', default=1)
     s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='mm1s0e11comment', default = 1)
+                                       related_name='mm1s0e11comment', default=1)
     s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='mm1s0e12comment', default = 1)
+                                       related_name='mm1s0e12comment', default=1)
     s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='mm1s0e13comment', default = 1) 
+                                       related_name='mm1s0e13comment', default=1)
     s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='mm1s0e14comment', default = 1)
+                                       related_name='mm1s0e14comment', default=1)
     s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='mm1s0e15comment', default = 1)
+                                       related_name='mm1s0e15comment', default=1)
 
     s1_e1_r = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='mm1s1e1comment', default = 1)
+                                      related_name='mm1s1e1comment', default=1)
 
     s2_e1_sp = models.IntegerField(default=0)
     s2_e1_np = models.IntegerField()
@@ -1974,15 +2080,20 @@ class monometer_1(models.Model):
 
 
 class spo2_1(models.Model):
+    class Meta:
+        verbose_name_plural = "PulseOxyMeter"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='sp1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='sp1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='sp1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='sp1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -1991,16 +2102,20 @@ class spo2_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev1', default=1)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev1', default=1)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev2', default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev3', default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev4', default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='sp1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
@@ -2042,7 +2157,8 @@ class spo2_1(models.Model):
     s2_e4_spo2 = models.IntegerField()
     s2_e4_pr = models.IntegerField()
 
-    s3_e1_accessory = models.ForeignKey(acc.models.accessory, on_delete=models.PROTECT, related_name='sp1s3e1accessory')
+    s3_e1_accessory = models.ForeignKey(
+        acc.models.accessory, on_delete=models.PROTECT, related_name='sp1s3e1accessory')
     s3_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s3e1comment')
 
@@ -2081,15 +2197,20 @@ class spo2_1(models.Model):
 
 
 class suction_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Suction"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='su1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='su1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='su1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='su1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -2098,66 +2219,69 @@ class suction_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev1',default=8)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev1', default=8)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='su1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    
     s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e1comment')
+                                      related_name='su1s0e1comment', default=1)
     s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e2comment') 
+                                      related_name='su1s0e2comment', default=1)
     s0_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e3comment') 
+                                      related_name='su1s0e3comment', default=1)
     s0_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e4comment') 
+                                      related_name='su1s0e4comment', default=1)
     s0_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e5comment')    
+                                      related_name='su1s0e5comment', default=1)
     s0_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e6comment')  
+                                      related_name='su1s0e6comment', default=1)
     s0_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e7comment')    
+                                      related_name='su1s0e7comment', default=1)
     s0_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e8comment')    
+                                      related_name='su1s0e8comment', default=1)
     s0_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                      related_name='su1s0e9comment')    
+                                      related_name='su1s0e9comment', default=1)
     s0_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e10comment')   
+                                       related_name='su1s0e10comment', default=1)
     s0_e11_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e11comment')
+                                       related_name='su1s0e11comment', default=1)
     s0_e12_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e12comment')
+                                       related_name='su1s0e12comment', default=1)
     s0_e13_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e13comment')
+                                       related_name='su1s0e13comment', default=1)
     s0_e14_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e14comment')
+                                       related_name='su1s0e14comment', default=1)
     s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e15comment')
+                                       related_name='su1s0e15comment', default=1)
     s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e16comment')
+                                       related_name='su1s0e16comment', default=1)
     s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e17comment')
+                                       related_name='su1s0e17comment', default=1)
     s0_e18_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e18comment')
+                                       related_name='su1s0e18comment', default=1)
     s0_e19_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e19comment')
+                                       related_name='su1s0e19comment', default=1)
     s0_e20_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e20comment')
+                                       related_name='su1s0e20comment', default=1)
     s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e21comment')
+                                       related_name='su1s0e21comment', default=1)
     s0_e22_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e22comment')
+                                       related_name='su1s0e22comment', default=1)
     s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='su1s0e23comment')
+                                       related_name='su1s0e23comment', default=1)
     # TODO permisible error
     s1_e1_rr = models.IntegerField()
     s1_e2_rr = models.IntegerField()
@@ -2184,15 +2308,20 @@ class suction_1(models.Model):
 
 
 class syringe_pump_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Syringe Pump"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='spmp1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='spmp1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='spmp1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='spmp1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -2201,20 +2330,23 @@ class syringe_pump_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev1',default=11)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev1', default=11)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='spmp1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    
     s0_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='spmp1s0e1comment', default=1)
     s0_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -2262,7 +2394,8 @@ class syringe_pump_1(models.Model):
     s0_e23_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='spmp1s0e23comment', default=1)
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='spmp1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='spmp1tt')
 
     s1_res = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -2346,15 +2479,20 @@ class syringe_pump_1(models.Model):
 
 
 class electrocauter_1(models.Model):
+    class Meta:
+        verbose_name_plural = "ElectroCauter"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ec1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='ec1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ec1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='ec1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -2363,19 +2501,24 @@ class electrocauter_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev1',default=9)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev1', default=9)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev2',default=10)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev2', default=10)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev3',default=6)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev3', default=6)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev4',default=2)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev4', default=2)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
-    cal_dev5 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev5',default=3)
+    cal_dev5 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ec1caldev5', default=3)
     cal_dev_5_cd = models.DateField()
     cal_dev_5_xd = models.DateField()
 
@@ -2579,7 +2722,7 @@ class electrocauter_1(models.Model):
     s4g_e1_p2000 = models.FloatField()
     s4g_e2 = models.FloatField()
     s4g_e2_p2000 = models.FloatField()
-    
+
     # s4g_e3 = models.FloatField(default=-1)
 
     # s4h_e1 = models.FloatField(default=-1)
@@ -2638,7 +2781,8 @@ class electrocauter_1(models.Model):
     # s5c_e2 = models.FloatField(default=-1)
     # s5c_e3 = models.FloatField(default=-1)
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ec1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ec1tt')
 
     s11_e1_res = models.FloatField()
     s11_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -2659,8 +2803,9 @@ class electrocauter_1(models.Model):
     s13_e2_lc = models.IntegerField()
     s13_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s13e2comment')
-   
-    s14_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s14_t')
+
+    s14_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s14_t')
 
     s14_e1_lc1 = models.IntegerField(null=True, blank=True)
     s14_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -2675,7 +2820,8 @@ class electrocauter_1(models.Model):
     s14_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s14e2comment')
 
-    s15_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s15_t')
+    s15_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s15_t')
 
     s15_e1_lc1 = models.IntegerField(null=True, blank=True)
     s15_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -2690,7 +2836,8 @@ class electrocauter_1(models.Model):
     s15_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s15e2comment')
 
-    s16_type = models.ForeignKey(acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s16_t')
+    s16_type = models.ForeignKey(
+        acc.models.ad_test_type2, on_delete=models.CASCADE, related_name='ec1s16_t')
 
     s16_e1_lc1 = models.IntegerField(null=True, blank=True)
     s16_e1_lc2 = models.IntegerField(null=True, blank=True)
@@ -2709,15 +2856,20 @@ class electrocauter_1(models.Model):
 
 
 class ventilator_1(models.Model):
+    class Meta:
+        verbose_name_plural = "Ventilator"
     is_recal = models.BooleanField(default=False)
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='ven1rr')
+    ref_record = models.ForeignKey(
+        acc.models.record, on_delete=models.CASCADE, related_name='ven1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='ven1licence')
+    status = models.ForeignKey(
+        acc.models.ad_az_Status, on_delete=models.PROTECT)
+    licence = models.ForeignKey(
+        acc.models.licence, on_delete=models.CASCADE, related_name='ven1licence')
     record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -2726,16 +2878,20 @@ class ventilator_1(models.Model):
     temp = models.IntegerField(default=25)
 
     # cd = calibration date xd = expire date
-    cal_dev1 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev1',default=8)
+    cal_dev1 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev1', default=8)
     cal_dev_1_cd = models.DateField()
     cal_dev_1_xd = models.DateField()
-    cal_dev2 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev2',default=6)
+    cal_dev2 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev2', default=6)
     cal_dev_2_cd = models.DateField()
     cal_dev_2_xd = models.DateField()
-    cal_dev3 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev3',default=2)
+    cal_dev3 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev3', default=2)
     cal_dev_3_cd = models.DateField()
     cal_dev_3_xd = models.DateField()
-    cal_dev4 = models.ForeignKey(acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev4',default=3)
+    cal_dev4 = models.ForeignKey(
+        acc.models.Cal_device, on_delete=models.PROTECT, related_name='ven1caldev4', default=3)
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
@@ -2782,7 +2938,8 @@ class ventilator_1(models.Model):
     s0_e21_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ven1s0e21comment')
 
-    test_type = models.ForeignKey(acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ven1tt')
+    test_type = models.ForeignKey(
+        acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ven1tt')
 
     # s1_res = models.IntegerField(default=-1)
     # s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -2862,25 +3019,25 @@ class ventilator_1(models.Model):
     s16_e7 = models.IntegerField(default=-1)
 
     s17_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e1comment',default = 1)
+                                       related_name='ven1s17e1comment', default=1)
     s17_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e2comment',default = 1)
+                                       related_name='ven1s17e2comment', default=1)
     s17_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e3comment',default = 1)
+                                       related_name='ven1s17e3comment', default=1)
     s17_e4_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e4comment',default = 1)
+                                       related_name='ven1s17e4comment', default=1)
     s17_e5_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e5comment',default = 1)
+                                       related_name='ven1s17e5comment', default=1)
     s17_e6_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e6comment',default = 1)
+                                       related_name='ven1s17e6comment', default=1)
     s17_e7_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e7comment',default = 1)
+                                       related_name='ven1s17e7comment', default=1)
     s17_e8_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e8comment',default = 1)
+                                       related_name='ven1s17e8comment', default=1)
     s17_e9_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e9comment',default = 1)
+                                       related_name='ven1s17e9comment', default=1)
     s17_e10_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                    related_name='ven1s17e10comment',default = 1)
+                                        related_name='ven1s17e10comment', default=1)
 
     def __str__(self):
         return 'ventilator : ' + str(self.licence)

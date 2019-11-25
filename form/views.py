@@ -94,7 +94,7 @@ def save_router(request, formtype):
                             sform.is_done = True
                         else:
                             sform.is_done = False
-                        green_status = f'اطلاعات با موفقیت ذخیره شد! شماره گواهی:{ln}'
+                        green_status = f'اطلاعات {item[0]} با موفقیت ذخیره شد! شماره گواهی:{ln}'
 
                     elif request.POST['op_type'] == 'save_edit':
                         ln = data.licence.number
@@ -151,7 +151,7 @@ def save_router(request, formtype):
                                             id=request.POST['cal_dev5']).calibration_date
                                         sform.cal_dev_5_xd = Cal_device.objects.get(
                                             id=request.POST['cal_dev5']).calibration_Expire_date
-                        sform.save()
+                    sform.save()
 
                     return render(request, 'acc/employee/index.html',
                                   {'green_status': green_status, 'auser': auser})
@@ -169,4 +169,4 @@ def reload(request, formtype):
             if formtype == item[0]:
                 form1 = item[2](request.POST)
                 return render(request, 'acc/employee/index.html',
-                              {'form': form1, 'form_type': item[0], 'auser': auser})
+                              {'form': form1, 'form_type': item[0], 'auser': auser, 'reload':1})

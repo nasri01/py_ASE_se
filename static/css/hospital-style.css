@@ -25,6 +25,12 @@ body{
     font-family: 'light-iransans';
     margin-top: 20px;
 }
+.employee-img{
+    /*float: right;*/
+    height: 70px;
+    /* width: 70px; */
+    margin-right: 10px;
+}
 .logo{
     text-align: center;
     height: 60px;
