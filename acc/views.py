@@ -79,12 +79,12 @@ def submit(request):
         hospital_list = Hospital.objects.all()
         req = Request.objects.all().order_by('date')
         chart = [0, 0, 0, 0]
-        for model in model_list:
-            if model == cant_test:
+        for model in diclist:
+            if model[1] == cant_test:
                 continue
-            chart[0] += len(model.objects.filter(status__id=1))
-            chart[1] += len(model.objects.filter(status__id=2))
-            chart[2] += len(model.objects.filter(status__id=3))
+            chart[0] += len(model[1].objects.filter(status__id=1))
+            chart[1] += len(model[1].objects.filter(status__id=2))
+            chart[2] += len(model[1].objects.filter(status__id=3))
         chart[3] = len(cant_test.objects.all())
         for t in req:
             t.date = t.date.today()
@@ -151,11 +151,11 @@ def recal_list(request):
             row.append(obj.status.status)  # 9
             row.append(obj.date.strftime("%Y-%m-%d"))  # 10
             if obj.status.id != 4:
-                print(obj.status.id)
                 row.append(obj.licence.number)  # 11
             else:
                 row.append('-')  # 11
             row.append(obj.record.number)  # 12
+            row.append(obj.status.id)  # 13
             data.append(row)
 
     return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': data})
@@ -183,10 +183,9 @@ def report_list(request):
             row.append(obj.status.status)  # 9
             row.append(obj.date.strftime("%Y-%m-%d"))  # 10
             if obj.status.id != 4:
-                if obj.licence.number != -1:
-                    row.append(obj.licence.number)  # 11
-                else:
-                    row.append('-')  # 11
+                row.append(obj.licence.number)  # 11
+            else:
+                row.append('-')  # 11
             row.append(obj.record.number)  # 12
             data.append(row)
     return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})
@@ -228,24 +227,44 @@ def recal_report(request):
     if (request.method == 'GET'):
         auser = aUserProfile.objects.get(user=request.user)
         for model in diclist:
-            modelobj = model[2].Meta.model.objects.filter(record__number=int(request.GET['record_num'])).filter(
+            modelobj = model[1].objects.filter(record__number=int(request.GET['record_num'])).filter(
                 is_done__exact=False)
+            
             if (len(modelobj) == 1):
-                form_type = model[2]
-                form_type_str = model[0]
+                if model[0] in ['cant_test', 'report']:
+                    form_type = diclist[int(modelobj[0].tt.id)-1][2]
+                    form_type_str = diclist[int(modelobj[0].tt.id)-1][0]    
+                else:
+                    form_type = model[2]
+                    form_type_str = model[0]
                 break
-
-        form1 = form_type(instance=modelobj[0])
-
+        
+        form1 = form_type({'device': [modelobj[0].device.id]})
         rdata = {'recal': 1,
                  'form': form1,
                  'form_type': form_type_str,
                  'ref_record_num': modelobj[0].record.number,
-                 'ref_licence_num': modelobj[0].licence.number,
+                 
                  'auser': auser
                  }
-
+        try:
+            rdata['ref_licence_num'] = modelobj[0].licence.number,
+        except:
+            pass
         return render(request, 'acc/employee/index.html', rdata)
+
+
+def make_done(request):
+    if (request.method == 'GET'):
+        query = cant_test.objects.filter(
+            record__number=int(request.GET['record_num']))
+        print(len(query))
+        query[0].is_done = True
+        query[0].save()
+
+        return redirect('recal_list')
+    else:
+        raise Http404
 
 
 def change_email(request):

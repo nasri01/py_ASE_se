@@ -44,8 +44,11 @@ def router(request):
 
 
 def delete_report(request):
-    model = record.objects.get(number=int(request.GET['record_num']))
-    model.delete()
+    for model in diclist:
+        modelobj = model[1].objects.get(record__number=int(request.GET['record_num']))
+        if len(modelobj) == 1:
+            modelobj[0].delete()
+            break
 
     return redirect('report_list')
 
@@ -58,11 +61,12 @@ def save_router(request, formtype):
 
                 if request.POST['op_type'] == 'save':
                     form1 = item[2](request.POST)
-
+                    
                 elif request.POST['op_type'] == 'save_recal':
                     ref_data = item[1].objects.get(
                         record__number=request.POST['ref_record_num'])
                     form1 = item[2](request.POST)
+                    
 
                 elif request.POST['op_type'] == 'save_edit':
                     data = item[1].objects.all().get(
@@ -87,9 +91,13 @@ def save_router(request, formtype):
                     if request.POST['op_type'] == 'save':
                         sform.is_recal = False
                         sform.ref_record = record.objects.get(number=-1)
-                        ln = int(licence.objects.order_by('number')[
-                                 len(licence.objects.all())-1].number) + 1
-                        sform.licence = licence.objects.create(number=ln)
+                        if item[0] != 'cant_test':
+                            ln = int(licence.objects.order_by('number')[
+                                    len(licence.objects.all())-1].number) + 1
+                            sform.licence = licence.objects.create(number=ln)
+                        else:
+                            ln = -1
+                        
                         if (request.POST['status'] == '1'):
                             sform.is_done = True
                         else:

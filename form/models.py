@@ -21,7 +21,7 @@ class cant_test(models.Model):
         acc.models.ad_az_Status, on_delete=models.PROTECT, default=4)
 
     def __str__(self):
-        return 'cant_test : ' + str(self.tt) + str(self.device.device.name)
+        return 'cant_test : ' + str(self.tt) + str(self.device.name.name)
 
 
 class monitor_spo2_1(models.Model):
