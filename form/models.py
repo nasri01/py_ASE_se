@@ -17,6 +17,7 @@ class cant_test(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='ctr')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
+    is_recal = models.BooleanField(default=False)
     status = models.ForeignKey(
         acc.models.ad_az_Status, on_delete=models.PROTECT, default=4)
 

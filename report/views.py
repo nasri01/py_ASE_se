@@ -60,17 +60,22 @@ def xlsx(request):
         data1 = []
         try:
             if request.GET['is_recal'] == 'on':
-                if request.user.groups.all()[0] != Group.objects.get(name='admin'):
-                    for model in model_list:
-                        modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
-                            request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
-                        data1.append(modelobj)
-                else:
-                    for model in model_list:
-                        modelobj = model.objects.filter(date__gte=start).filter(
-                            date__lte=end).filter(is_recal=True)
-                        data1.append(modelobj)
+                recal = True
         except:
+            recal = False
+
+        if recal:
+            if request.user.groups.all()[0] == Group.objects.get(name='admin'):  # admin
+                for model in model_list:
+                    modelobj = model.objects.filter(date__gte=start).filter(
+                        date__lte=end).filter(is_recal=True)
+                    data1.append(modelobj)
+            else:  # hospital
+                for model in model_list:
+                    modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
+                        request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
+                    data1.append(modelobj)
+        else:
             if request.user.groups.all()[0] != Group.objects.get(name='admin'):
                 for model in model_list:
                     modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
@@ -106,7 +111,7 @@ def xlsx(request):
                 row.append(obj.totalcomment)  # 12*
                 row.append(obj.status.id)  # 13
                 data.append(row)
-
+        print(data)
         fr1 = ad_excel_arg.objects.all().order_by('id')
         if request.GET['action'] == 'download':
 
@@ -847,7 +852,6 @@ def pdf(request):
                     css2 = CSS(
                         filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
 
-
                     if not os.path.exists('_reports/'):
                         os.makedirs('_reports/')
 
@@ -858,13 +862,12 @@ def pdf(request):
                         os.makedirs(
                             f'_reports/{obj.request.number}/{modellist[s]}')
 
-
                     HTML(string=html).write_pdf(
                         f'_reports/{obj.request.number}/{modellist[s]}/{obj.licence.number}.pdf', font_config=font_config, stylesheets=[css1, css2])
 
                     a12 = report.objects.create(tt=ad_test_type0.objects.get(type=modellist[s]), device=obj.device,
                                                 request=obj.request, date=obj.date, user=obj.user, status=obj.status,
-                                                record=obj.record,licence=obj.licence,
+                                                record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
                                                 is_done=obj.is_done, totalcomment=obj.totalcomment)
                     a12.save()
                     # obj.delete()

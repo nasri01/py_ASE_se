@@ -45,7 +45,8 @@ def router(request):
 
 def delete_report(request):
     for model in diclist:
-        modelobj = model[1].objects.get(record__number=int(request.GET['record_num']))
+        modelobj = model[1].objects.filter(
+            record__number=int(request.GET['record_num']))
         if len(modelobj) == 1:
             modelobj[0].delete()
             break
@@ -61,12 +62,11 @@ def save_router(request, formtype):
 
                 if request.POST['op_type'] == 'save':
                     form1 = item[2](request.POST)
-                    
+
                 elif request.POST['op_type'] == 'save_recal':
                     ref_data = item[1].objects.get(
                         record__number=request.POST['ref_record_num'])
                     form1 = item[2](request.POST)
-                    
 
                 elif request.POST['op_type'] == 'save_edit':
                     data = item[1].objects.all().get(
@@ -93,11 +93,11 @@ def save_router(request, formtype):
                         sform.ref_record = record.objects.get(number=-1)
                         if item[0] != 'cant_test':
                             ln = int(licence.objects.order_by('number')[
-                                    len(licence.objects.all())-1].number) + 1
+                                len(licence.objects.all())-1].number) + 1
                             sform.licence = licence.objects.create(number=ln)
                         else:
                             ln = -1
-                        
+
                         if (request.POST['status'] == '1'):
                             sform.is_done = True
                         else:
@@ -129,8 +129,10 @@ def save_router(request, formtype):
                         ln = data.licence.number
                         if (request.POST['status'] == '1'):
                             ref_data.is_done = True
-                            ref_data.save()
-                            green_status = f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}'
+                        elif request.POST['status'] != '1':
+                            ref_data.is_done = False
+                        ref_data.save()
+                        green_status = f'اطلاعات با موفقیت ویرایش شد! شماره گواهی ریکالیبراسیون:{ln}'
                     else:
                         green_status = f'اطلاعات با موفقیت ذخیره شد!'
 

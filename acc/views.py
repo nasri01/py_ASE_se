@@ -229,26 +229,25 @@ def recal_report(request):
         for model in diclist:
             modelobj = model[1].objects.filter(record__number=int(request.GET['record_num'])).filter(
                 is_done__exact=False)
-            
+
             if (len(modelobj) == 1):
                 if model[0] in ['cant_test', 'report']:
                     form_type = diclist[int(modelobj[0].tt.id)-1][2]
-                    form_type_str = diclist[int(modelobj[0].tt.id)-1][0]    
+                    form_type_str = diclist[int(modelobj[0].tt.id)-1][0]
                 else:
                     form_type = model[2]
                     form_type_str = model[0]
                 break
-        
+
         form1 = form_type({'device': [modelobj[0].device.id]})
         rdata = {'recal': 1,
                  'form': form1,
                  'form_type': form_type_str,
                  'ref_record_num': modelobj[0].record.number,
-                 
                  'auser': auser
                  }
         try:
-            rdata['ref_licence_num'] = modelobj[0].licence.number,
+            rdata['ref_licence_num'] = modelobj[0].licence.number
         except:
             pass
         return render(request, 'acc/employee/index.html', rdata)
