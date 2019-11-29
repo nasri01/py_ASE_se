@@ -38,11 +38,25 @@
                         <div style="width:50%;text-align:center;">
                             <img src="{{auser.avatar.url}}" class="employee-img">
                         </div>
-                        <div class="setting-icon">
-                            <a href="{% url  'report-pdf1'%}">
-                                <img style="display: block" src="{% static 'img/setting2.ico' %}" alt="">
+                        <div class="password-icon" style="display: block;">
+
+
+                            <a href="{% url  'password_change'%}">
+                                <img style="display:block;height: 19px;" src="{% static 'img/key.svg' %}" alt="">
                             </a>
+
                         </div>
+
+                        <div class="email-icon" style="display: block;">
+
+
+                            <a href="{% url  'change_email'%}">
+                                <img style="display:block;height: 19px;" src="{% static 'img/atsign.svg' %}" alt="">
+                            </a>
+
+                        </div>
+
+
                         <div class="exit-btn">
                             <a href="{% url 'logout1'%}" style="display: block;color:white;"> خروج <img
                                     src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;"
@@ -70,7 +84,7 @@
                                         <label>از: </label>
 
                                         <input type="text" required name="start_date" id="date_input"
-                                            class="form-control inp" >
+                                            class="form-control inp">
                                         <img src="{% static 'img/calender.svg' %}" id="date_btn" height="25px">
 
 
@@ -87,7 +101,7 @@
                                     <div class="form-group">
                                         <label>تا: </label>
                                         <input type="text" required name="end_date" id="date_input_2"
-                                            class="form-control inp" >
+                                            class="form-control inp">
                                         <img src="{% static 'img/calender.svg' %}" id="date_btn_2" height="25px">
                                         <script>
                                             Calendar.setup({

@@ -265,17 +265,16 @@ def make_done(request):
     else:
         raise Http404
 
-
+@login_required
 def change_email(request):
     if (request.method == 'POST'):
         if (request.POST['email1'] == request.POST['email2']):
             d = User.objects.get(id=request.user.id)
             d.email = request.POST['email1']
             d.save()
-            return render(request, 'acc/employee/index.html',
-                          {'settings': 1, 'change_email': 1, 'change_email_done': 1, })
+            return render(request, 'registration/email_change_done.html')
         else:
-            return render(request, 'acc/employee/index.html',
-                          {'settings': 1, 'change_email': 1, 'red_status': 'ایمیل ها مطابقت ندارند!', 'form': 1})
+            return render(request, 'registration/email_change_form.html',
+                          {'red_status': 'ایمیل ها مطابقت ندارند!'})
     else:
-        return render(request, 'acc/employee/index.html', {'settings': 1, 'change_email': 1, 'form': 1})
+        return render(request, 'registration/email_change_form.html')

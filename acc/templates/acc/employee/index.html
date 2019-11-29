@@ -2,423 +2,479 @@
 {% load static %}
 
 {% block content %}
-    {% if form_type %}    
-        {% if edit %}    
-            <title>اصلاح گزارش {{ licence_num }}</title>
-        {% elif edit_recal%}
-            <title>اصلاح گزارش ریکالیبراسیون {{ licence_num }}</title>
-        {% elif recal %}
-            <title>ثبت گزارش ریکالیبراسیون {{ ref_licence_num }}</title>
-        {% else %}
-            <title>ثبت گزارش  {{ form_type }}</title>
-        {% endif %}
+{% if form_type %}
+{% if edit %}
+<title>اصلاح گزارش {{ licence_num }}</title>
+{% elif edit_recal%}
+<title>اصلاح گزارش ریکالیبراسیون {{ licence_num }}</title>
+{% elif recal %}
+<title>ثبت گزارش ریکالیبراسیون {{ ref_licence_num }}</title>
+{% else %}
+<title>ثبت گزارش {{ form_type }}</title>
+{% endif %}
 
-    
-    {% else %}
-    <title>کنترل پنل کارمندان</title>
-    {% endif %}
+
+{% else %}
+<title>کنترل پنل کارمندان</title>
+{% endif %}
 <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-5 col-xl-4 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">
-                    <!-- <div style="width: 100%;text-align: center;">
+    <div class="row">
+        <div class="col-lg-5 col-xl-4 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">
+            <!-- <div style="width: 100%;text-align: center;">
                     <a href="{% url 'dashboard' %}">
                         <img src="{% static 'img/logo2.jpg' %}" class="logo" alt="">
                     </a>
                     </div> -->
-                        <div class="data-box-2">
+            <div class="data-box-2">
 
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
- 
-            <script>                           
-              $(document).ready(function () {
-                $('.search-a').selectize({
-                    sortField: 'text'
-                });
-            });
-                  </script>        
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+                    integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+                    integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
-                            <div style="position: fixed;top: 20;left: 2%;;z-index: 4;">
-                            {% if red_status%}
-                            <div class="alert alert-danger">
-                                {{red_status}}
-                            </div>
-                            {% endif%}
+                <script>
+                    $(document).ready(function () {
+                        $('.search-a').selectize({
+                            sortField: 'text'
+                        });
+                    });
+                </script>
 
-                            {% if green_status%}
-                            <div class="alert alert-success">
-                                {{green_status}}
-                            </div>
-                            {% endif%}
-                        </div>
+                <div style="position: fixed;top: 20;left: 2%;;z-index: 4;">
+                    {% if red_status%}
+                    <div class="alert alert-danger">
+                        {{red_status}}
+                    </div>
+                    {% endif%}
 
-                            <div class="employee">
+                    {% if green_status%}
+                    <div class="alert alert-success">
+                        {{green_status}}
+                    </div>
+                    {% endif%}
+                </div>
 
-
-                                <div style="font-size: 15px;width:50%;text-align:center;">
-                                {{auser.user.first_name }}
-                                    <br>
-                                سمت: {{ auser.status.status }}
-
-                                </div>
-                                <div style="width:50%;text-align:center;">
-                                 <img src="{{auser.avatar.url}}" class="employee-img">
-                                </div>
-                                <div class="home-icon" style="display: block;">
-                                    <a href="">
-                                <img src="{% static 'img/vectorpaint(2).svg' %}" style="background-color:#5578bb;border-radius:40%;padding:5px 4px 5px 2px;width:30px;">
-
-                                    </a>
-                                </div>
-
-                                <div class="setting-icon" style="display: block;">
+                <div class="employee">
 
 
-                                    <a href="{% url  'change_email'%}" >
-                                        <img style="display: block;" src="{% static 'img/setting2.ico' %}"  alt="">
-                                    </a>
-                                </div>
-
-                                <div class="exit-btn">
-
-                                    <a href="{% url 'logout1'%}" style="display: block;color: white;"> خروج <img src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;" alt=""></a>
-                                </div>
-                            </div>
-                            <br>
-                            {% if settings %}
-                                {% if change_password %}
-                                    {% if change_password_done %}
-                                        Finally you did t password
-                                    {% elif form %}
-                                        <form action="{% url  'change_password' %}" method="post">
-                                            {% csrf_token %}
-                                            <input type="password" name="password1">
-                                            <input type="password" name="password2">
-                                            <input type="submit" value="submit!">
-                                        </form>
-                                    {% endif %}
-
-                                {% elif change_email %}
-                                    {% if change_email_done %}
-                                        Finally you did t!email
-                                    {% elif form %}
-                                        <form action="{% url  'change_email' %}" method="post">
-                                            {% csrf_token %}
-                                            <input type="email" name="email1">
-                                            <input type="email" name="email2">
-                                            <input type="submit" value="submit!">
-                                        </form>
-                                    {% endif %}
-
-                                {% endif %}
-                            {% endif %}
-
-                            <div class="container-fluid">
-
-                                <div class="row" style="margin-top: 10px;padding: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <a href="{% url 'req_list' %}" target="_blank">
-                                            <button style="margin-right: -4px;" type="button"  class="btn btn-secondary op-btn">لیست درخواست ها</button>
-                                        </a>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                    <a href="{% url 'recal_list' %}" target="_blank">
-                                        <button style="margin-left: -4px;" type="button" class="btn btn-secondary op-btn">لیست ریکالیبراسیون </button>
-                                    </a>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 10px;padding: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <a href="/admin/acc/all_device/add/" target="_blank">
-                                            <button style="margin-right: -4px;" type="button" class="btn btn-success op-btn">افزودن دستگاه</button>
-                                        </a>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                    <a href="{% url 'report_list' %}" target="_blank">
-                                        <button style="margin-right: -4px;" type="button" class="btn btn-primary op-btn">گزارشات ثبت شده</button>
-                                    </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <br>
-                            <hr>
-                            <br>
-
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'monitor_spo2' %}
-                                                <button name="type" value="monitor_spo2" type="submit" class="btn btn-danger op-btn-2"> SPO <sub>2</sub></button>
-                                            {% else %}
-                                                <button name="type" value="monitor_spo2" type="submit" class="btn btn-primary op-btn-2" > SPO <sub>2</sub></button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-
-                                        <form action="{% url 'router' %}" method="GET">
-
-                                            <input name="flag" value="1" hidden>
-                                            {% if form_type == 'monitor_ecg' %}
-                                                <button name="type" value="monitor_ecg" type="submit" class="btn btn-danger op-btn-2">ECG</button>
-                                            {% else %}
-                                                <button name="type" value="monitor_ecg" type="submit" class="btn btn-primary op-btn-2">ECG</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'monitor_nibp' %}
-                                                <button name="type" value="monitor_nibp" type="submit" class="btn btn-danger op-btn-2"> NIBP</button>
-                                            {% else %}
-                                                <button name="type" value="monitor_nibp" type="submit" class="btn btn-primary op-btn-2" > NIBP</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                           {% if form_type == 'monitor_safety' %}
-
-                                                <button name="type" value="monitor_safety" type="submit" class="btn btn-danger op-btn-2"> SAFETY</button>
-                                            {% else %}
-                                                <button name="type" value="monitor_safety" type="submit" class="btn btn-primary op-btn-2" > SAFETY</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
-                                
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'defibrilator' %}
-                                                <button name="type" value="defibrilator" type="submit" class="btn btn-danger op-btn-2"> Defibrilator</button>
-                                            {% else %}
-                                                <button name="type" value="defibrilator" type="submit" class="btn btn-info op-btn-2" > Defibrilator</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'ecg' %}
-                                                <button name="type" value="ecg" type="submit" class="btn btn-danger op-btn-2"> ECG</button>
-                                            {% else %}
-                                                <button name="type" value="ecg" type="submit" class="btn btn-info op-btn-2" > ECG</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'flowmeter' %}
-                                                <button name="type" value="flowmeter" type="submit" class="btn btn-danger op-btn-2"> Flow Meter</button>
-                                            {% else %}
-                                                <button name="type" value="flowmeter" type="submit" class="btn btn-info op-btn-2" > Flow Meter</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'incubator' %}
-                                                <button name="type" value="incubator" type="submit" class="btn btn-danger op-btn-2"> Incubator</button>
-                                            {% else %}
-                                                <button name="type" value="incubator" type="submit" class="btn btn-info op-btn-2" > Incubator</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'infusion_pump' %}
-                                                <button name="type" value="infusion_pump" type="submit" class="btn btn-danger op-btn-2"> Infusion Pump</button>
-                                            {% else %}
-                                                <button name="type" value="infusion_pump" type="submit" class="btn btn-info op-btn-2" > Infusion Pump</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'monometer' %}
-                                                <button name="type" value="monometer" type="submit" class="btn btn-danger op-btn-2"> Mono Meter</button>
-                                            {% else %}
-                                                <button name="type" value="monometer" type="submit" class="btn btn-info op-btn-2" > Mono Meter</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'spo2' %}
-                                                <button name="type" value="spo2" type="submit" class="btn btn-danger op-btn-2"> Pulse Oximetery</button>
-                                            {% else %}
-                                                <button name="type" value="spo2" type="submit" class="btn btn-info op-btn-2" > Pulse Oximetery</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'suction' %}
-                                                <button name="type" value="suction" type="submit" class="btn btn-danger op-btn-2"> Suction</button>
-                                            {% else %}
-                                                <button name="type" value="suction" type="submit" class="btn btn-info op-btn-2" > Suction</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'syringe_pump' %}
-                                                <button name="type" value="syringe_pump" type="submit" class="btn btn-danger op-btn-2"> Syringe Pump</button>
-                                            {% else %}
-                                                <button name="type" value="syringe_pump" type="submit" class="btn btn-info op-btn-2" > Syringe Pump</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'ventilator' %}
-                                                <button name="type" value="ventilator" type="submit" class="btn btn-danger op-btn-2"> Ventilator</button>
-                                            {% else %}
-                                                <button name="type" value="ventilator" type="submit" class="btn btn-info op-btn-2" > Ventilator</button>
-                                            {% endif %}
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 0;">
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'electrocauter' %}
-                                                <button name="type" value="electrocauter" type="submit" class="btn btn-danger op-btn-2"> ElectroCauter</button>
-                                            {% else %}
-                                                <button name="type" value="electrocauter" type="submit" class="btn btn-info op-btn-2" > ElectroCauter</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                    <div class="col-6" style="padding: 0;margin: 0;">
-                                        <form action="{% url 'router'  %}" method="get">
-                                            {% if form_type == 'aed' %}
-                                                <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2"> AED</button>
-                                            {% else %}
-                                                <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2" > AED</button>
-                                            {% endif %}
-                                        </form>
-                                    </div>
-                                </div>
-
-                                    <div class="row" style="margin-top: 0;">
-                                        
-                                        <div class="col-6" style="padding: 0;margin: 0;">
-                                            <form action="{% url 'router'  %}" method="get">
-                                                {% if form_type == 'anesthesia_machine' %}
-                                                    <button name="type" value="anesthesia_machine" type="submit" class="btn btn-danger op-btn-2"> Anesthesia Machine</button>
-                                                {% else %}
-                                                    <button name="type" value="anesthesia_machine" type="submit" class="btn btn-info op-btn-2"> Anesthesia Machine</button>
-                                                {% endif %}
-                                            </form>
-    
-                                        </div>
-
-                                        <div class="col-6" style="padding: 0;margin: 0;">
-                                            <form action="{% url 'router'  %}" method="get">
-                                                {% if form_type == 'cant_test' %}
-                                                    <button name="type" value="cant_test" type="submit" class="btn btn-danger op-btn-2"> Can't Test</button>
-                                                {% else %}
-                                                    <button name="type" value="cant_test" type="submit" class="btn btn-warning op-btn-2" >Can't Test</button>
-                                                {% endif %}
-                                            </form>
-                                        </div>
-
-
-                                    </div>
-
-
-
-                                </div>
-
-
-
-
-
-
-
-{#                            /////////////////////////////////////#}
+                    <div style="font-size: 15px;width:50%;text-align:center;">
+                        {{auser.user.first_name }}
+                        <br>
+                        سمت: {{ auser.status.status }}
 
                     </div>
-                
+                    <div style="width:50%;text-align:center;">
+                        <img src="{{auser.avatar.url}}" class="employee-img">
+                    </div>
+                    <div class="home-icon" style="display: block;">
+                        <a href="">
+                            <img src="{% static 'img/vectorpaint(2).svg' %}"
+                                style="background-color:#5578bb;border-radius:40%;padding:5px 4px 5px 2px;width:30px;">
+
+                        </a>
+                    </div>
+
+                    <div class="password-icon" style="display: block;">
+
+
+                        <a href="{% url  'password_change'%}">
+                            <img style="display:block;height: 19px;" src="{% static 'img/key.svg' %}" alt="">
+                        </a>
+
+                    </div>
+
+                    <div class="email-icon" style="display: block;">
+
+
+                        <a href="{% url  'change_email'%}">
+                            <img style="display:block;height: 19px;" src="{% static 'img/atsign.svg' %}" alt="">
+                        </a>
+
+                    </div>
+
+
+                    <div class="exit-btn">
+
+                        <a href="{% url 'logout1'%}" style="display: block;color: white;"> خروج <img
+                                src="{% static 'img/icons8-shutdown-24(1).png' %}" style="margin-top: 3px;" alt=""></a>
+                    </div>
+                </div>
+                <br>
+                <!-- {% if settings %}
+                {% if change_password %}
+                {% if change_password_done %}
+                Finally you did t password
+                {% elif form %}
+                <form action="{% url  'change_password' %}" method="post">
+                    {% csrf_token %}
+                    <input type="password" name="password1">
+                    <input type="password" name="password2">
+                    <input type="submit" value="submit!">
+                </form>
+                {% endif %}
+
+                {% elif change_email %}
+                {% if change_email_done %}
+                Finally you did t!email
+                {% elif form %}
+                <form action="{% url  'change_email' %}" method="post">
+                    {% csrf_token %}
+                    <input type="email" name="email1">
+                    <input type="email" name="email2">
+                    <input type="submit" value="submit!">
+                </form>
+                {% endif %}
+
+                {% endif %}
+                {% endif %} -->
+
+                <div class="container-fluid">
+
+                    <div class="row" style="margin-top: 10px;padding: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <a href="{% url 'req_list' %}" target="_blank">
+                                <button style="margin-right: -4px;" type="button" class="btn btn-secondary op-btn">لیست
+                                    درخواست ها</button>
+                            </a>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <a href="{% url 'recal_list' %}" target="_blank">
+                                <button style="margin-left: -4px;" type="button" class="btn btn-secondary op-btn">لیست
+                                    ریکالیبراسیون </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;padding: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <a href="{% url 'admin:acc_all_device_add'%}" target="_blank">
+                                <button style="margin-right: -4px;" type="button" class="btn btn-success op-btn">افزودن
+                                    دستگاه</button>
+                            </a>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <a href="{% url 'report_list' %}" target="_blank">
+                                <button style="margin-right: -4px;" type="button" class="btn btn-primary op-btn">گزارشات
+                                    ثبت شده</button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <hr>
+                <br>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'monitor_spo2' %}
+                                <button name="type" value="monitor_spo2" type="submit" class="btn btn-danger op-btn-2">
+                                    SPO <sub>2</sub></button>
+                                {% else %}
+                                <button name="type" value="monitor_spo2" type="submit" class="btn btn-primary op-btn-2">
+                                    SPO <sub>2</sub></button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+
+                            <form action="{% url 'router' %}" method="GET">
+
+                                <input name="flag" value="1" hidden>
+                                {% if form_type == 'monitor_ecg' %}
+                                <button name="type" value="monitor_ecg" type="submit"
+                                    class="btn btn-danger op-btn-2">ECG</button>
+                                {% else %}
+                                <button name="type" value="monitor_ecg" type="submit"
+                                    class="btn btn-primary op-btn-2">ECG</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'monitor_nibp' %}
+                                <button name="type" value="monitor_nibp" type="submit" class="btn btn-danger op-btn-2">
+                                    NIBP</button>
+                                {% else %}
+                                <button name="type" value="monitor_nibp" type="submit" class="btn btn-primary op-btn-2">
+                                    NIBP</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'monitor_safety' %}
+
+                                <button name="type" value="monitor_safety" type="submit"
+                                    class="btn btn-danger op-btn-2"> SAFETY</button>
+                                {% else %}
+                                <button name="type" value="monitor_safety" type="submit"
+                                    class="btn btn-primary op-btn-2"> SAFETY</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'defibrilator' %}
+                                <button name="type" value="defibrilator" type="submit" class="btn btn-danger op-btn-2">
+                                    Defibrilator</button>
+                                {% else %}
+                                <button name="type" value="defibrilator" type="submit" class="btn btn-info op-btn-2">
+                                    Defibrilator</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'ecg' %}
+                                <button name="type" value="ecg" type="submit" class="btn btn-danger op-btn-2">
+                                    ECG</button>
+                                {% else %}
+                                <button name="type" value="ecg" type="submit" class="btn btn-info op-btn-2">
+                                    ECG</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'flowmeter' %}
+                                <button name="type" value="flowmeter" type="submit" class="btn btn-danger op-btn-2">
+                                    Flow Meter</button>
+                                {% else %}
+                                <button name="type" value="flowmeter" type="submit" class="btn btn-info op-btn-2"> Flow
+                                    Meter</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'incubator' %}
+                                <button name="type" value="incubator" type="submit" class="btn btn-danger op-btn-2">
+                                    Incubator</button>
+                                {% else %}
+                                <button name="type" value="incubator" type="submit" class="btn btn-info op-btn-2">
+                                    Incubator</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'infusion_pump' %}
+                                <button name="type" value="infusion_pump" type="submit" class="btn btn-danger op-btn-2">
+                                    Infusion Pump</button>
+                                {% else %}
+                                <button name="type" value="infusion_pump" type="submit" class="btn btn-info op-btn-2">
+                                    Infusion Pump</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'monometer' %}
+                                <button name="type" value="monometer" type="submit" class="btn btn-danger op-btn-2">
+                                    Mono Meter</button>
+                                {% else %}
+                                <button name="type" value="monometer" type="submit" class="btn btn-info op-btn-2"> Mono
+                                    Meter</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'spo2' %}
+                                <button name="type" value="spo2" type="submit" class="btn btn-danger op-btn-2"> Pulse
+                                    Oximetery</button>
+                                {% else %}
+                                <button name="type" value="spo2" type="submit" class="btn btn-info op-btn-2"> Pulse
+                                    Oximetery</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'suction' %}
+                                <button name="type" value="suction" type="submit" class="btn btn-danger op-btn-2">
+                                    Suction</button>
+                                {% else %}
+                                <button name="type" value="suction" type="submit" class="btn btn-info op-btn-2">
+                                    Suction</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'syringe_pump' %}
+                                <button name="type" value="syringe_pump" type="submit" class="btn btn-danger op-btn-2">
+                                    Syringe Pump</button>
+                                {% else %}
+                                <button name="type" value="syringe_pump" type="submit" class="btn btn-info op-btn-2">
+                                    Syringe Pump</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'ventilator' %}
+                                <button name="type" value="ventilator" type="submit" class="btn btn-danger op-btn-2">
+                                    Ventilator</button>
+                                {% else %}
+                                <button name="type" value="ventilator" type="submit" class="btn btn-info op-btn-2">
+                                    Ventilator</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 0;">
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'electrocauter' %}
+                                <button name="type" value="electrocauter" type="submit" class="btn btn-danger op-btn-2">
+                                    ElectroCauter</button>
+                                {% else %}
+                                <button name="type" value="electrocauter" type="submit" class="btn btn-info op-btn-2">
+                                    ElectroCauter</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'aed' %}
+                                <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2">
+                                    AED</button>
+                                {% else %}
+                                <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2">
+                                    AED</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 0;">
+
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'anesthesia_machine' %}
+                                <button name="type" value="anesthesia_machine" type="submit"
+                                    class="btn btn-danger op-btn-2"> Anesthesia Machine</button>
+                                {% else %}
+                                <button name="type" value="anesthesia_machine" type="submit"
+                                    class="btn btn-info op-btn-2"> Anesthesia Machine</button>
+                                {% endif %}
+                            </form>
+
+                        </div>
+
+                        <div class="col-6" style="padding: 0;margin: 0;">
+                            <form action="{% url 'router'  %}" method="get">
+                                {% if form_type == 'cant_test' %}
+                                <button name="type" value="cant_test" type="submit" class="btn btn-danger op-btn-2">
+                                    Can't Test</button>
+                                {% else %}
+                                <button name="type" value="cant_test" type="submit"
+                                    class="btn btn-warning op-btn-2">Can't Test</button>
+                                {% endif %}
+                            </form>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+                {#                            /////////////////////////////////////#}
+
             </div>
-            {% if form_type %}
-            <div class="col-lg-7 col-xl-8 col-md-12" style="direction: rtl;height: 800px;overflow:hidden;">
-                <div class="form-box">
+
+        </div>
+        {% if form_type %}
+        <div class="col-lg-7 col-xl-8 col-md-12" style="direction: rtl;height: 800px;overflow:hidden;">
+            <div class="form-box">
                 {% if form_type == 'monitor_spo2' %}
-                    {% include 'form/Monitor/Spo2/form1.html' %}
+                {% include 'form/Monitor/Spo2/form1.html' %}
 
                 {% elif form_type == 'monitor_ecg' %}
-                    {% include 'form/Monitor/ECG/form1.html' %}
+                {% include 'form/Monitor/ECG/form1.html' %}
 
                 {% elif form_type == 'monitor_nibp' %}
-                    {% include 'form/Monitor/NIBP/form1.html' %}
+                {% include 'form/Monitor/NIBP/form1.html' %}
 
                 {% elif form_type == 'monitor_safety' %}
-                    {% include 'form/Monitor/Safety/form1.html' %}
+                {% include 'form/Monitor/Safety/form1.html' %}
 
                 {% elif form_type == 'aed' %}
-                    {% include 'form/aed/form1.html' %}
+                {% include 'form/aed/form1.html' %}
 
                 {% elif form_type == 'anesthesia_machine' %}
-                    {% include 'form/anesthesia_machine/form1.html' %}
+                {% include 'form/anesthesia_machine/form1.html' %}
 
                 {% elif form_type == 'defibrilator' %}
-                    {% include 'form/defibrilator/form1.html' %}
+                {% include 'form/defibrilator/form1.html' %}
 
                 {% elif form_type == 'ecg' %}
-                    {% include 'form/ecg/form1.html' %}
+                {% include 'form/ecg/form1.html' %}
 
                 {% elif form_type == 'flowmeter' %}
-                    {% include 'form/flowmeter/form1.html' %}
+                {% include 'form/flowmeter/form1.html' %}
 
                 {% elif form_type == 'incubator' %}
-                    {% include 'form/incubator/form1.html' %}
+                {% include 'form/incubator/form1.html' %}
 
                 {% elif form_type == 'infusion_pump' %}
-                    {% include 'form/infusion_Pump/form1.html' %}
+                {% include 'form/infusion_Pump/form1.html' %}
 
                 {% elif form_type == 'monometer' %}
-                    {% include 'form/monometer/form1.html' %}
+                {% include 'form/monometer/form1.html' %}
 
                 {% elif form_type == 'spo2' %}
-                    {% include 'form/spo2/form1.html' %}
+                {% include 'form/spo2/form1.html' %}
 
                 {% elif form_type == 'suction' %}
-                    {% include 'form/suction/form1.html' %}
+                {% include 'form/suction/form1.html' %}
 
                 {% elif form_type == 'syringe_pump' %}
-                    {% include 'form/syringe_pump/form1.html' %}
+                {% include 'form/syringe_pump/form1.html' %}
 
                 {% elif form_type == 'ventilator' %}
-                    {% include 'form/ventilator/form1.html' %}
+                {% include 'form/ventilator/form1.html' %}
 
                 {% elif form_type == 'electrocauter' %}
-                    {% include 'form/electrocauter/form1.html' %}
-                
+                {% include 'form/electrocauter/form1.html' %}
+
                 {% elif form_type == 'cant_test' %}
-                    {% include 'form/cant_test.html' %}
-                
+                {% include 'form/cant_test.html' %}
+
                 {% elif form_type == 'electrocauter' %}
-                    {% include 'form/electrocauter/form1.html' %}
+                {% include 'form/electrocauter/form1.html' %}
 
                 {% endif %}
 
@@ -426,11 +482,11 @@
 
 
 
-                </div>
-            {% endif %}
             </div>
+            {% endif %}
         </div>
     </div>
+</div>
 
 
 {% endblock %}
