@@ -48,7 +48,7 @@ diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form],
            ['electrocauter', electrocauter_1, electrocauter_1_Form],
            ['cant_test', cant_test, cant_test_Form],
            ['report', report],
-           ]
+           ] # Order the same by ad_test_type0
 
 
 def login(request):
