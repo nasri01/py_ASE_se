@@ -16,7 +16,7 @@ admin.site.register(City,CityAdmin)
 admin.site.register(device_type)
 
 class DeviceAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "type")
+    list_display = ("name", "type")
 admin.site.register(Device,DeviceAdmin)
 admin.site.register(Country)
 
