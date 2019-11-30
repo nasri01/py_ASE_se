@@ -68,7 +68,19 @@
 
                     <!-- &#10004; ///////////////////// tick  -->
 
+                    <div class="excel-report">
+                      <div class="flex-btn">
+                                <form action="{% url 'dashboard' %}">
+                                <button name="employee" value="1" type="submit" class="btn btn-light" ">ورود به پنل کارمندی</button>
+                            </form>
 
+                            <form action="{% url 'admin:index' %}">
+                                    <button name="admin" value="1" type="submit" class="btn btn-light" ">ورود به پنل مدیریت</button>
+                                </form>
+
+                            </div>
+                    
+                    </div>
                     <div class="excel-report">
                         <div class="excel-btn">گزارش Excel</div>
                         <!-- <br> -->

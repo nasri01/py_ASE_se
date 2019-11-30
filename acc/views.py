@@ -48,7 +48,7 @@ diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form],
            ['electrocauter', electrocauter_1, electrocauter_1_Form],
            ['cant_test', cant_test, cant_test_Form],
            ['report', report],
-           ] # Order the same by ad_test_type0
+           ]  # Order the same by ad_test_type0
 
 
 def login(request):
@@ -75,25 +75,29 @@ def logout(request):
 @login_required
 def submit(request):
     auser = aUserProfile.objects.get(user=request.user)
-    if request.user.groups.all()[0] == Group.objects.get(name='admin'):
-        hospital_list = Hospital.objects.all()
-        req = Request.objects.all().order_by('date')
-        chart = [0, 0, 0, 0]
-        for model in diclist:
-            if model[1] == cant_test:
-                continue
-            chart[0] += len(model[1].objects.filter(status__id=1))
-            chart[1] += len(model[1].objects.filter(status__id=2))
-            chart[2] += len(model[1].objects.filter(status__id=3))
-        chart[3] = len(cant_test.objects.all())
-        for t in req:
-            t.date = t.date.today()
+    if Group.objects.get(name='admin') in request.user.groups.all():
+        try:
+            request.GET['employee']
+            return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'auser': auser})
+        except:
+            hospital_list = Hospital.objects.all()
+            req = Request.objects.all().order_by('date')
+            chart = [0, 0, 0, 0]
+            for model in diclist:
+                if model[1] == cant_test:
+                    continue
+                chart[0] += len(model[1].objects.filter(status__id=1))
+                chart[1] += len(model[1].objects.filter(status__id=2))
+                chart[2] += len(model[1].objects.filter(status__id=3))
+            chart[3] = len(cant_test.objects.all())
+            for t in req:
+                t.date = t.date.today()
 
-        return render(request, 'acc/admin/index.html', {
-            'status': 'Welcome Back', 'flag': '1', 'auser': auser, 'hosplist': hospital_list, 'request': req,
-            'chart': chart})
+            return render(request, 'acc/admin/index.html', {
+                'status': 'Welcome Back', 'flag': '1', 'auser': auser, 'hosplist': hospital_list, 'request': req,
+                'chart': chart})
 
-    elif request.user.groups.all()[0] == Group.objects.get(name='hospital'):
+    elif Group.objects.get(name='hospital') in request.user.groups.all():
 
         req = Request.objects.filter(
             hospital__user=request.user).order_by('date')
@@ -115,143 +119,153 @@ def submit(request):
                       {'status': 'خوش آمدید', 'flag': 1,  'request': req, 'auser': auser, 'chart': chart})
         #    'date': jdatetime.date.today(), 'month': mm,
 
-    elif request.user.groups.all()[0] == Group.objects.get(name='employee'):
+    elif Group.objects.get(name='employee') in request.user.groups.all():
         return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'auser': auser})
 
 
 # list of requests
 def req_list(request):
-    req = Request.objects.all()
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
+        req = Request.objects.all()
 
-    for t in req:
-        t.date = t.date.today()
+        for t in req:
+            t.date = t.date.today()
 
-    return render(request, 'acc/employee/request_list.html', {'req': req})
-
+        return render(request, 'acc/employee/request_list.html', {'req': req})
+    else:
+        raise Http404
 
 # List of recalibration
 def recal_list(request):
-    data = []
-    data1 = []
-    for model in diclist:
-        modelobj = model[1].objects.filter(is_done=False)
-        data1.append(modelobj)
-    for obj1 in data1:
-        for obj in obj1:
-            row = []
-            row.append(obj.device.hospital.city.state_name.name)  # 0
-            row.append(obj.device.hospital.city.name)  # 1
-            row.append(obj.device.hospital.name)  # 2
-            row.append(obj.device.section.name)  # 3
-            row.append(obj.device.name.type.name)  # 4
-            row.append(obj.device.name.creator.name)  # 5
-            row.append(obj.device.name.name)  # 6
-            row.append(obj.device.serial_number)  # 7
-            row.append(obj.device.property_number)  # 8
-            row.append(obj.status.status)  # 9
-            row.append(obj.date.strftime("%Y-%m-%d"))  # 10
-            if obj.status.id != 4:
-                row.append(obj.licence.number)  # 11
-            else:
-                row.append('-')  # 11
-            row.append(obj.record.number)  # 12
-            row.append(obj.status.id)  # 13
-            data.append(row)
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
+        data = []
+        data1 = []
+        for model in diclist:
+            modelobj = model[1].objects.filter(is_done=False)
+            data1.append(modelobj)
+        for obj1 in data1:
+            for obj in obj1:
+                row = []
+                row.append(obj.device.hospital.city.state_name.name)  # 0
+                row.append(obj.device.hospital.city.name)  # 1
+                row.append(obj.device.hospital.name)  # 2
+                row.append(obj.device.section.name)  # 3
+                row.append(obj.device.name.type.name)  # 4
+                row.append(obj.device.name.creator.name)  # 5
+                row.append(obj.device.name.name)  # 6
+                row.append(obj.device.serial_number)  # 7
+                row.append(obj.device.property_number)  # 8
+                row.append(obj.status.status)  # 9
+                row.append(obj.date.strftime("%Y-%m-%d"))  # 10
+                if obj.status.id != 4:
+                    row.append(obj.licence.number)  # 11
+                else:
+                    row.append('-')  # 11
+                row.append(obj.record.number)  # 12
+                row.append(obj.status.id)  # 13
+                data.append(row)
 
-    return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': data})
-
+        return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': data})
+    else:
+        raise Http404
 
 # list of all records
 def report_list(request):
-    data = []
-    data1 = []
-    for model in diclist[:-1]:
-        modelobj = model[1].objects.all()
-        data1.append(modelobj)
-    for obj1 in data1:
-        for obj in obj1:
-            row = []
-            row.append(obj.device.hospital.city.state_name.name)  # 0
-            row.append(obj.device.hospital.city.name)  # 1
-            row.append(obj.device.hospital.name)  # 2
-            row.append(obj.device.section.name)  # 3
-            row.append(obj.device.name.type.name)  # 4
-            row.append(obj.device.name.creator.name)  # 5
-            row.append(obj.device.name.name)  # 6
-            row.append(obj.device.serial_number)  # 7
-            row.append(obj.device.property_number)  # 8
-            row.append(obj.status.status)  # 9
-            row.append(obj.date.strftime("%Y-%m-%d"))  # 10
-            if obj.status.id != 4:
-                row.append(obj.licence.number)  # 11
-            else:
-                row.append('-')  # 11
-            row.append(obj.record.number)  # 12
-            data.append(row)
-    return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})
-
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():    
+        data = []
+        data1 = []
+        for model in diclist[:-1]:
+            modelobj = model[1].objects.all()
+            data1.append(modelobj)
+        for obj1 in data1:
+            for obj in obj1:
+                row = []
+                row.append(obj.device.hospital.city.state_name.name)  # 0
+                row.append(obj.device.hospital.city.name)  # 1
+                row.append(obj.device.hospital.name)  # 2
+                row.append(obj.device.section.name)  # 3
+                row.append(obj.device.name.type.name)  # 4
+                row.append(obj.device.name.creator.name)  # 5
+                row.append(obj.device.name.name)  # 6
+                row.append(obj.device.serial_number)  # 7
+                row.append(obj.device.property_number)  # 8
+                row.append(obj.status.status)  # 9
+                row.append(obj.date.strftime("%Y-%m-%d"))  # 10
+                if obj.status.id != 4:
+                    row.append(obj.licence.number)  # 11
+                else:
+                    row.append('-')  # 11
+                row.append(obj.record.number)  # 12
+                data.append(row)
+        return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})
+    else:
+        raise Http404
 
 # Perepare the appropiate Edit form for Frame
 def edit_report(request):
-    if (request.method == 'GET'):
-        auser = aUserProfile.objects.get(user=request.user)
-        for model in diclist:
-            modelobj = model[2].Meta.model.objects.filter(
-                record__number=int(request.GET['record_num']))
-            if (len(modelobj) == 1):
-                form_type = model[2]
-                form_type_str = model[0]
-                break
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():    
+        if (request.method == 'GET'):
+            auser = aUserProfile.objects.get(user=request.user)
+            for model in diclist:
+                modelobj = model[2].Meta.model.objects.filter(
+                    record__number=int(request.GET['record_num']))
+                if (len(modelobj) == 1):
+                    form_type = model[2]
+                    form_type_str = model[0]
+                    break
 
-        try:
-            form_type
-        except:
-            raise Http404
-        form1 = form_type(instance=modelobj[0])
-        edata = {'form': form1,
-                 'form_type': form_type_str,
-                 'record_num': modelobj[0].record.number,
-                 'licence_num': modelobj[0].licence.number,
-                 'auser': auser
-                 }
+            try:
+                form_type
+            except:
+                raise Http404
+            form1 = form_type(instance=modelobj[0])
+            edata = {'form': form1,
+                    'form_type': form_type_str,
+                    'record_num': modelobj[0].record.number,
+                    'licence_num': modelobj[0].licence.number,
+                    'auser': auser
+                    }
 
-        if (modelobj[0].is_recal == False):  # its calibration
-            edata['edit'] = 1
-        else:
-            edata['edit_recal'] = 1
-        return render(request, 'acc/employee/index.html', edata)
-
+            if (modelobj[0].is_recal == False):  # its calibration
+                edata['edit'] = 1
+            else:
+                edata['edit_recal'] = 1
+            return render(request, 'acc/employee/index.html', edata)
+    else:
+        raise Http404
 
 # Perepare the appropiate Recalibration form for Frame
 def recal_report(request):
-    if (request.method == 'GET'):
-        auser = aUserProfile.objects.get(user=request.user)
-        for model in diclist:
-            modelobj = model[1].objects.filter(record__number=int(request.GET['record_num'])).filter(
-                is_done__exact=False)
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():    
+        if (request.method == 'GET'):
+            auser = aUserProfile.objects.get(user=request.user)
+            for model in diclist:
+                modelobj = model[1].objects.filter(record__number=int(request.GET['record_num'])).filter(
+                    is_done__exact=False)
 
-            if (len(modelobj) == 1):
-                if model[0] in ['cant_test', 'report']:
-                    form_type = diclist[int(modelobj[0].tt.id)-1][2]
-                    form_type_str = diclist[int(modelobj[0].tt.id)-1][0]
-                else:
-                    form_type = model[2]
-                    form_type_str = model[0]
-                break
+                if (len(modelobj) == 1):
+                    if model[0] in ['cant_test', 'report']:
+                        form_type = diclist[int(modelobj[0].tt.id)-1][2]
+                        form_type_str = diclist[int(modelobj[0].tt.id)-1][0]
+                    else:
+                        form_type = model[2]
+                        form_type_str = model[0]
+                    break
 
-        form1 = form_type({'device': [modelobj[0].device.id]})
-        rdata = {'recal': 1,
-                 'form': form1,
-                 'form_type': form_type_str,
-                 'ref_record_num': modelobj[0].record.number,
-                 'auser': auser
-                 }
-        try:
-            rdata['ref_licence_num'] = modelobj[0].licence.number
-        except:
-            pass
-        return render(request, 'acc/employee/index.html', rdata)
-
+            form1 = form_type({'device': [modelobj[0].device.id]})
+            rdata = {'recal': 1,
+                    'form': form1,
+                    'form_type': form_type_str,
+                    'ref_record_num': modelobj[0].record.number,
+                    'auser': auser
+                    }
+            try:
+                rdata['ref_licence_num'] = modelobj[0].licence.number
+            except:
+                pass
+            return render(request, 'acc/employee/index.html', rdata)
+    else:
+        raise Http404
 
 def make_done(request):
     if (request.method == 'GET'):
@@ -264,6 +278,7 @@ def make_done(request):
         return redirect('recal_list')
     else:
         raise Http404
+
 
 @login_required
 def change_email(request):

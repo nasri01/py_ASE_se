@@ -31,31 +31,32 @@ diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form, 3],
 @login_required
 def router(request):
 
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if request.GET['type'] == item[0]:
                 form1 = item[2]
                 # pop up a confirmation
                 return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 'auser': auser, })
-
     else:
         raise Http404
 
 
 def delete_report(request):
-    for model in diclist:
-        modelobj = model[1].objects.filter(
-            record__number=int(request.GET['record_num']))
-        if len(modelobj) == 1:
-            modelobj[0].delete()
-            break
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
+        for model in diclist:
+            modelobj = model[1].objects.filter(
+                record__number=int(request.GET['record_num']))
+            if len(modelobj) == 1:
+                modelobj[0].delete()
+                break
 
-    return redirect('report_list')
-
+        return redirect('report_list')
+    else:
+        raise Http404
 
 def save_router(request, formtype):
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
@@ -173,7 +174,7 @@ def save_router(request, formtype):
 
 
 def reload(request, formtype):
-    if request.user.groups.all()[0] == Group.objects.get(name='employee'):
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         auser = aUserProfile.objects.get(user=request.user)
         for item in diclist:
             if formtype == item[0]:
