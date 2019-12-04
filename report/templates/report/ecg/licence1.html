@@ -61,12 +61,12 @@ margin-right: 0.1cm;
 <div style="margin-right: 2cm;margin-left: 4cm;height: 42cm;">
 <br>
 <h1 class="header-t" style="font-size: 23pt;font-weight: bold;font-family:'B Titr';">
-گواهينامه کنترل کيفي ايمني دستگاه الكتريكي پزشكي
+گواهينامه کنترل کيفي دستگاه الكتروکاردیوگراف
 </h1>
 <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
 <tr>
 <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
-<td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+<td class="no-border"><span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>شماره گواهينامه: </td>
 
 </tr>
 <tr>
@@ -109,8 +109,11 @@ margin-right: 0.1cm;
 </tr>
 
 </table>
-<div style="height:5.85cm;">
-<span>{{ form.status.status }}</span>موارد عدم شمول: 
+<div style="height:4.85cm;">
+<div>موارد عدم شمول:</div>
+        <span>
+          {{ form.totalcomment }}
+        </span> 
 
 </div>
 
@@ -190,7 +193,7 @@ margin-right: 0.1cm;
 </tr>
 
 </table>
-<div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">إ51042</div>
+<div style="position: absolute;left: 1cm;color:white;bottom: 0.5cm;" class="time">F51042</div>
 
 
 
@@ -199,25 +202,30 @@ margin-right: 0.1cm;
 </div>
 
 <div class="page-1 page1" style="font-family:'B Lotus';">
-<div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-            <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                <span>شماره گزارش: 
-                  <span class="time">#@!</span>
-              </span><br>
-                <span>تاريخ صدور: 
-                    <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                 </span><br>
-                <span>شماره مدرک: 
-                    <span class="time">F51042</span>
-                 </span>
-              </span> 
-                
-        <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-            گزارش آزمون کنترل کیفی دستگاه الكتروکاردیوگراف 
-        </span> 
-        
-        </div>
-<div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+          <span>
+            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+            شماره گزارش:
+          </span><br>
+          <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور:
+  
+          </span><br>
+          <span>
+            <span class="time">F51042</span>
+            شماره مدرک:
+  
+          </span>
+        </span>
+        <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+          گزارش آزمون کنترل کیفی
+          <br>
+          دستگاه الكتروکاردیوگراف
+        </span>
+      </div>
+<div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
 <div style="font-weight: bold;">
 <span class="time"> :(EC11 </span>
 <span> استاندارد </span>
@@ -309,7 +317,7 @@ margin-right: 0.1cm;
 {% endif %}
 </tr>
 </tbody>
-
+</table>
 <br>
 
 
@@ -501,25 +509,30 @@ margin-right: 0.1cm;
 
 
 <div class="page-2 page1" style="font-family:'B Lotus';">
-                <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                                <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                                    <span>شماره گزارش: 
-                                      <span class="time">#@!</span>
-                                  </span><br>
-                                    <span>تاريخ صدور: 
-                                        <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                                     </span><br>
-                                    <span>شماره مدرک: 
-                                        <span class="time">F51042</span>
-                                     </span>
-                                  </span> 
-                                    
-                            <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                                گزارش آزمون کنترل کیفی دستگاه الكتروکاردیوگراف 
-                            </span> 
-                            
-                            </div>
-<div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+          <span>
+            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+            شماره گزارش:
+          </span><br>
+          <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور:
+  
+          </span><br>
+          <span>
+            <span class="time">F51042</span>
+            شماره مدرک:
+  
+          </span>
+        </span>
+        <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+          گزارش آزمون کنترل کیفی
+          <br>
+          دستگاه الكتروکاردیوگراف
+        </span>
+      </div>
+<div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
 <div style="font-weight: bold;">
 <span class="time"> :(EC11 </span>
 <span> استاندارد </span>
@@ -947,25 +960,30 @@ margin-right: 0.1cm;
 
 
 <div class="page-3 page1" style="font-family:'B Lotus';">
-                <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                                <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                                    <span>شماره گزارش: 
-                                      <span class="time">#@!</span>
-                                  </span><br>
-                                    <span>تاريخ صدور: 
-                                        <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                                     </span><br>
-                                    <span>شماره مدرک: 
-                                        <span class="time">F51042</span>
-                                     </span>
-                                  </span> 
-                                    
-                            <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                                گزارش آزمون کنترل کیفی دستگاه الكتروکاردیوگراف 
-                            </span> 
-                            
-                            </div>
-<div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+          <span>
+            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+            شماره گزارش:
+          </span><br>
+          <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور:
+  
+          </span><br>
+          <span>
+            <span class="time">F51042</span>
+            شماره مدرک:
+  
+          </span>
+        </span>
+        <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+          گزارش آزمون کنترل کیفی
+          <br>
+          دستگاه الكتروکاردیوگراف
+        </span>
+      </div>
+<div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
 
 <div style="font-weight: bold;">
 <span class="time"> :(EC11 </span>
@@ -1425,25 +1443,30 @@ margin-right: 0.1cm;
 
 
 <div class="page-4 page1" style="font-family:'B Lotus';">
-                <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                                <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                                    <span>شماره گزارش: 
-                                      <span class="time">#@!</span>
-                                  </span><br>
-                                    <span>تاريخ صدور: 
-                                        <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                                     </span><br>
-                                    <span>شماره مدرک: 
-                                        <span class="time">F51042</span>
-                                     </span>
-                                  </span> 
-                                    
-                            <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                                گزارش آزمون کنترل کیفی دستگاه الكتروکاردیوگراف 
-                            </span> 
-                            
-                            </div>
-<div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+          <span>
+            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+            شماره گزارش:
+          </span><br>
+          <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور:
+  
+          </span><br>
+          <span>
+            <span class="time">F51042</span>
+            شماره مدرک:
+  
+          </span>
+        </span>
+        <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+          گزارش آزمون کنترل کیفی
+          <br>
+          دستگاه الكتروکاردیوگراف
+        </span>
+      </div>
+<div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
 
 <div style="font-weight: bold;">
 <span class="time"> :(EN 60601-1 </span>
@@ -1698,25 +1721,30 @@ margin-right: 0.1cm;
 
 
 <div class="page-5 page1" style="font-family:'B Lotus';">
-                <div style="text-align: center;width: 100%;font-weight: bold;font-size: 35pt;height: 5cm;">
-                                <span style="display: inline-block;font-size: 14pt;margin-right: 1.5cm;">
-                                    <span>شماره گزارش: 
-                                      <span class="time">#@!</span>
-                                  </span><br>
-                                    <span>تاريخ صدور: 
-                                        <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                                     </span><br>
-                                    <span>شماره مدرک: 
-                                        <span class="time">F51042</span>
-                                     </span>
-                                  </span> 
-                                    
-                            <span style="padding-top: 2cm;display:inline-block;padding-right:1cm; ">
-                                گزارش آزمون کنترل کیفی دستگاه الكتروکاردیوگراف 
-                            </span> 
-                            
-                            </div>
-<div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+    <div style="text-align: center;width: 100%;height: 5cm;">
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+          <span>
+            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+            شماره گزارش:
+          </span><br>
+          <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور:
+  
+          </span><br>
+          <span>
+            <span class="time">F51042</span>
+            شماره مدرک:
+  
+          </span>
+        </span>
+        <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+          گزارش آزمون کنترل کیفی
+          <br>
+          دستگاه الكتروکاردیوگراف
+        </span>
+      </div>
+<div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
 
 
     <div style="font-weight: bold;">
