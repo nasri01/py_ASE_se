@@ -100,10 +100,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
-        'NAME': 'kaadcoir_azma',
-        'PASSWORD': '1',
+        'NAME': 'kaadir_ASE',
+        'PASSWORD': 'uJHP_bpK9bN+',
         'PORT': '5432',
-        'USER': 'kaadcoir_admin',
+        'USER': 'kaadir_ASE_admin',
     }
 }
 LOGIN_URL = '/'
@@ -156,11 +156,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
-
-try:
-    from local_settings import *
-except ImportError:
-    pass
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
