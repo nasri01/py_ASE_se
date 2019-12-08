@@ -1589,7 +1589,7 @@ class ecg_1(models.Model):
 
     humidity = models.IntegerField(default=45)
     temp = models.IntegerField(default=25)
-    # TODO Ecg template
+    
 
     # cd = calibration date xd = expire date
     cal_dev1 = models.ForeignKey(
@@ -1609,7 +1609,7 @@ class ecg_1(models.Model):
     cal_dev_4_cd = models.DateField()
     cal_dev_4_xd = models.DateField()
 
-    # TODO Ecg template
+    
     s1_e1_damp = models.FloatField()
     s1_e1_ramp = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -2190,7 +2190,7 @@ class spo2_1(models.Model):
     s7_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='sp1s7e2comment')
 
-    # TODO S8 ap type
+    
 
     def __str__(self):
         return 'spo2 : ' + str(self.licence)

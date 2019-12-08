@@ -19,10 +19,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qhh(ydahm&a&(z45^jpsk2v@r7q2h_-@furoe@&md=s#f5)-c&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['192.168.1.5','0.0.0.0','10.42.0.1','127.0.0.1','192.168.1.104']
-ALLOWED_HOSTS = ['qc.kaadco.ir','www.qc.kaadco.ir', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
 
 ]
 
@@ -102,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
         'NAME': 'kaadcoir_azma',
-        'PASSWORD': 'sP,{!nC[nUh&',
+        'PASSWORD': '1',
         'PORT': '5432',
         'USER': 'kaadcoir_admin',
     }
@@ -148,11 +147,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'ww/static')
 # STATIC_ROOT = '/home/kaadcoir/public_html/qc/static'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ww/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
