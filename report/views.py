@@ -3,7 +3,9 @@ import pytz
 import xlsxwriter
 import jdatetime
 import os
-from statistics import mean , stdev
+import hashlib
+from statistics import mean, stdev
+from ftplib import FTP
 from jdatetime import timedelta
 from form.models import *
 from .models import report
@@ -21,8 +23,7 @@ from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 import weasyprint
 
-
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
@@ -234,7 +235,6 @@ def xlsx(request):
     # return FileResponse(wb,as_attachment=True,filename=f'report {datetime.date.today()}.xlsx')
 
 
-
 def req_summary(request):
 
     if request.method == 'GET':
@@ -288,10 +288,24 @@ def req_summary(request):
 
             return response
 
+
+def srart_ftp():
+    ftp = FTP(
+        host="ftp.dl.qc.kaadco.ir",
+        user="reports@dl.qc.kaadco.ir",
+        passwd="uJHP_bpK9bN+"
+    ).set_debuglevel(2)
+    return ftp
+
+
+def send_file_ftp(ftp, file, filename):
+    ftp.storbinary('STOR %s' % os.path.basename(filename), file, 1024)
+
+
 def pdf(request):
     if request.method == 'GET':
         s = 0
-
+        ftp = srart_ftp()
         for model in model_list[:-2]:
             dd = model.objects.all()
             if len(dd) != 0:
@@ -580,18 +594,26 @@ def pdf(request):
                     css2 = CSS(
                         filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
 
-                    if not os.path.exists('_reports/'):
-                        os.makedirs('_reports/')
+                    # if not os.path.exists('_reports/'):
+                    #     os.makedirs('_reports/')
 
-                    if not os.path.exists(f'_reports/{obj.request.number}/'):
-                        os.makedirs(f'_reports/{obj.request.number}/')
+                    # if not os.path.exists(f'_reports/{obj.request.number}/'):
+                    #     os.makedirs(f'_reports/{obj.request.number}/')
 
-                    if not os.path.exists(f'_reports/{obj.request.number}/{modellist[s]}'):
-                        os.makedirs(
-                            f'_reports/{obj.request.number}/{modellist[s]}')
+                    # if not os.path.exists(f'_reports/{obj.request.number}/{modellist[s]}'):
+                    #     os.makedirs(
+                    #         f'_reports/{obj.request.number}/{modellist[s]}')
+                    file = io.StringIO()
+                    # HTML(string=html).write_pdf(
+                    #     f'_reports/{obj.request.number}/{modellist[s]}/{obj.licence.number}.pdf', font_config=font_config, stylesheets=[css1, css2])
 
                     HTML(string=html).write_pdf(
-                        f'_reports/{obj.request.number}/{modellist[s]}/{obj.licence.number}.pdf', font_config=font_config, stylesheets=[css1, css2])
+                        file, font_config=font_config, stylesheets=[css1, css2])
+
+                    filename = '12' + obj.licence.number
+                    filename = hashlib.md5(filename.encode()).hexdigest()
+
+                    send_file_ftp(ftp, file, filename)
 
                     a12 = report.objects.create(tt=ad_test_type0.objects.get(type=modellist[s]), device=obj.device,
                                                 request=obj.request, date=obj.date, user=obj.user, status=obj.status,
@@ -600,6 +622,7 @@ def pdf(request):
                     a12.save()
                     # obj.delete()
             s += 1
+        ftp.close()
         return HttpResponse('done :)')
     else:
         raise Http404
