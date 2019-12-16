@@ -234,7 +234,7 @@
                             <th class="th-sm">{{firstrow.13}}</th>
                             <th class="th-sm">{{firstrow.14}}</th>
                             <th class="th-sm">{{firstrow.15}}</th>
-                            <!-- <th class="th-sm">PDF</th> -->
+                            <th class="th-sm">PDF</th>
 
                         </tr>
                     </thead>
@@ -258,12 +258,12 @@
                         <td>
                             {{i.12}}
                         </td>
-                        <!--                                     
-                                    {% if i.11 != -1 %}
-                                        <form method="GET" action="{% url 'report-pdf1'%}">
-                                            <td> <button type="submit" value="{{i.11}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
-                                        </form>
-                                    {% endif %} -->
+                                                            
+                        {% if i.11 != -1 %}
+                            <form method="GET" action="{% url 'view_report'%}">
+                                <td> <button type="submit" value="{{i.11}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
+                            </form>
+                        {% endif %}
 
                     </tr>
 

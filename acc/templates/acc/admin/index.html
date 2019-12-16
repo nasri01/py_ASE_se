@@ -266,7 +266,6 @@
                             <th class="th-sm">{{firstrow.2}}</th>
                             <th class="th-sm">{{firstrow.3}}</th>
                             <th class="th-sm">{{firstrow.4}}</th>
-
                             <th class="th-sm">{{firstrow.5}}</th>
                             <th class="th-sm">{{firstrow.6}}</th>
                             <th class="th-sm">{{firstrow.7}}</th>
@@ -278,7 +277,7 @@
                             <th class="th-sm">{{firstrow.13}}</th>
                             <th class="th-sm">{{firstrow.14}}</th>
                             <th class="th-sm">{{firstrow.15}}</th>
-
+                            <th class="th-sm">PDF</th>
 
                         </tr>
                     </thead>
@@ -304,7 +303,11 @@
                             {{i.12}}
                         </td>
                     </tr>
-
+                        {% if i.11 != -1 %}
+                            <form method="GET" action="{% url 'view_report'%}">
+                                <td> <button type="submit" value="{{i.11}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
+                            </form>
+                        {% endif %}
                     {% endfor %}
 
                     </tbody>
