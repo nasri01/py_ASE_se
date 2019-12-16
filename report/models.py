@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
 # Create your models here.
+class encode (models.Model):
+    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='el')
+    name = models.CharField(max_length=32)
 
 class report(models.Model):
     tt = models.ForeignKey(acc.models.ad_test_type0, on_delete=models.PROTECT)
