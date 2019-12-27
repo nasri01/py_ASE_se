@@ -1,0 +1,717 @@
+{% extends 'base-spo2.html' %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+
+       @font-face {
+    font-family: "B Zar";
+    src: url("http://db.onlinewebfonts.com/t/132c8ef0b48852826caf09a7f53cc9ac.eot") format("eot"),
+        url("http://db.onlinewebfonts.com/t/132c8ef0b48852826caf09a7f53cc9ac.woff") format("woff"),
+        url("http://db.onlinewebfonts.com/t/132c8ef0b48852826caf09a7f53cc9ac.ttf") format("truetype");
+}
+
+       @font-face {
+        font-family: "B Titr";
+        src: url("http://db.onlinewebfonts.com/t/a0ea7e7833cd4f7694a4913fccb9aacf.eot") format("eot"),
+            url("http://db.onlinewebfonts.com/t/a0ea7e7833cd4f7694a4913fccb9aacf.woff") format("woff"),
+            url("http://db.onlinewebfonts.com/t/a0ea7e7833cd4f7694a4913fccb9aacf.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: "B Lotus";
+        src: url("http://db.onlinewebfonts.com/t/1605a655ba0a3246ce5eca3eaff6c5c2.eot") format("eot"),
+            url("http://db.onlinewebfonts.com/t/1605a655ba0a3246ce5eca3eaff6c5c2.woff") format("woff"),
+            url("http://db.onlinewebfonts.com/t/1605a655ba0a3246ce5eca3eaff6c5c2.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: "B Nazanin";
+        src: url("http://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot") format("eot"),
+            url("http://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff") format("woff"),
+            url("http://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.ttf") format("truetype");
+    }
+        .time{
+            font-family: "Times New Roman";
+        }
+    .tb-4 td{
+        padding: 0.05cm 0.1cm;
+
+    }
+    .no-border{
+        padding-top: 0.1cm;
+        padding-bottom: 0.1cm;
+       }
+
+    </style>
+
+    <body style="text-align: right;font-size: 16pt;">
+
+    <div class="cover main" style="font-family:'B Lotus';">
+    <div style="margin-right: 2.5cm;margin-left: 4cm;">
+
+        <br>
+    <h1 class="header-t" style="font-size: 20pt;font-weight: bold;">
+        گواهينامه کنترل کيفي ايمني دستگاه الكتريكي پزشكي
+    </h1>
+    <table style="text-align: right;margin: auto;width: 100%;font-weight:bold;" class="tb-2">
+        <tr>
+            <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور: </td>
+            <td class="no-border"><span>{{ecg.licence.number}}</span>شماره گواهينامه: </td>
+
+        </tr>
+        <tr>
+            <td class="no-border"><span> {{ ecg.request.hospital.name }}</span>نام درخواست کننده: </td>
+            <td class="no-border"><span>{{ecg.device.name.type.name}}</span>نام دستگاه: </td>
+
+        </tr>
+
+        <tr>
+            <td class="no-border"><span> {{ ecg.request.hospital.address }}</span>آدرس : </td>
+            <td class="no-border"><span>{{ecg.device.name.creator.name}}</span>نام سازنده: </td>
+
+        </tr>
+        <tr>
+            <td class="no-border"><span> {{ ecg.request.number }}</span>شماره درخواست: </td>
+            <td class="no-border"><span>{{ecg.device.name.name}}</span>مدل: </td>
+        </tr>
+        <tr>
+            <td class="no-border" rowspan="2"><span> {{ ecg.date.year }}/{{ ecg.date.month }}/{{ ecg.date.day }} </span>تاريخ کنترل کيفي: </td>
+            <td class="no-border"><span>{{ecg.device.serial_Number}}</span>شماره سريال: </td >
+        </tr>
+        <tr>
+            <td class="no-border"><span>{{ecg.device.property_number}}</span>کداموال :</td>
+        </tr>
+
+        <tr>
+            <td class="no-border"><span> {{ ecg.device.section.name }}</span>محل انجام: </td>
+        </tr>
+
+        <tr>
+            <td class="no-border"><span> {{ ecg.humidity }}</span>رطوبت محيطي: </td>
+
+            <td class="no-border"><span>{{ ecg.temp }}</span>دماي محيطي: </td>
+        </tr>
+
+        <tr>
+            <td class="no-border"></td>
+            <td class="no-border"><span>{{ ecg.status.status }}</span>نتيجه کنترل کيفي: </td>
+        </tr>
+
+    </table>
+    
+    <span style="font-weight: bold;">تجهيزات آزمون:</span>
+    <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+        <tr>
+            <td>تاريخ انقضاء</td>
+            <td>تاريخ کاليبراسيون</td>
+            <td>شماره سریال</td>
+            <td>مدل</td>
+           <td>نام تجهيز</td>
+        </tr>
+        <tr class="time">
+            <td></td>
+            <td>{{ ecg.cal_dev_1_cd.year }}/{{ ecg.cal_dev_1_cd.month }}/{{ ecg.cal_dev_1_cd.day }}</td>
+            <td>{{ ecg.cal_dev1.serial }}</td>
+            <td>{{ ecg.cal_dev1.name }}</td>
+            <td>{{ ecg.cal_dev1.type.name }}</td>
+        </tr>
+        <tr class="time">
+            <td></td>
+            <td>{{ ecg.cal_dev_2_cd.year }}/{{ ecg.cal_dev_2_cd.month }}/{{ ecg.cal_dev_2_cd.day }}</td>
+            <td>{{ ecg.cal_dev2.serial }}</td>
+            <td>{{ ecg.cal_dev2.name }}</td>
+            <td>{{ ecg.cal_dev2.type.name }}</td>
+        </tr>
+        <tr class="time">
+            <td></td>
+            <td>{{ ecg.cal_dev_3_cd.year }}/{{ ecg.cal_dev_3_cd.month }}/{{ ecg.cal_dev_3_cd.day }}</td>
+            <td>{{ ecg.cal_dev3.serial }}</td>
+            <td>{{ ecg.cal_dev3.name }}</td>
+            <td>{{ ecg.cal_dev3.type.name }}</td>
+        </tr>
+
+    </table>
+    <br>
+        <span style="font-weight: bold;">IEC 60601-1:2012 , IEC 62353:2014 </span>
+        <span style="font-weight: bold;">مراجع:استاندارد </span>
+    <div>حق چاپ و نشر اين گواهينامه در انحصار شرکت صادرکننده است و نبايد بدون اجازه کتبي شرکت تكثير شود مگر به طور کامل و از تمامي مندرجات آن کاليبراسيون تجهيزات مورد استفاده در اين آزمون به آزمايشگاههاي استاندارد ملي يا بين المللي قابل رديابي است.</div>
+    <div>نتايج بدست آمده تنها مربوط به پارامترها و قسمتهاي آزمون شده مي باشد.</div>
+    <div style="text-align: center;font-weight: bold;">اين گواهينامه بدون مهر آزمايشگاه صادرکننده فاقد اعتبار است.</div>
+    <table style="margin: auto;text-align: center;font-weight: bold;">
+        <tr >
+            <td style="width: 9cm;">مهر آزمايشگاه</td>
+            <td style="width: 8cm;">مدير فني آزمايشگاه</td>
+
+        </tr>
+        <tr>
+            <img src="{% static 'img/spo2/stamp.jpg' %}" style="height: 4cm;width: 4cm;background-color: #00be8a;" alt="">
+
+            <td  style="height: 3cm;">
+                <div class="stamp"></div>
+            </td>
+            <td style="height: 3cm;position: relative;">
+                <span style="position: absolute;top: 2cm;right: 3cm;">حمیدرضا رضایتمند</span>
+                            <div class="sign"></div>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+
+
+</div>
+<br><br><br> <br><br><br><br><br>
+    </div>
+
+
+    <div class="page-1 page1" style="font-family:'B Nazanin';">
+            <div style="margin-right: 2cm;margin-left: 4cm;">
+                <div style="padding-top: 5cm;font-weight: bold;text-align: center;font-family: 'B Titr';font-size:18pt; ">
+آزمون های کیفی
+                </div>
+
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4">
+            <thead>
+                <tr>
+                    <td rowspan="2">توضیحات</td>
+                    <td colspan="2">نتیجه</td>
+                    <td colspan="2" rowspan="2">عنوان آزمون</td>
+                    <td rowspan="2">ردیف</td>
+                    </tr>
+                    <tr>
+                    <td>مردود</td>
+                    <td>تائید</td>
+                    </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td style="text-align: right;"><span>استحکام و عدم ترک</span></td>
+                <td rowspan="2" style="text-align: right;"><span>شاسی/ بدنه</span></td>
+                <td rowspan="2">1</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td style="text-align: right;"><span>تمیزی و عاری از محلول ها</span></td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td style="text-align: right;"><span>استحکام و امنیت</span></td>
+                <td style="text-align: right;"><span>نصب</span></td>
+                <td>2</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td style="text-align: right;"><span>روانی چرخ ها</span></td>
+                <td rowspan="2" style="text-align: right;"><span>چرخ ها / ترمزها</span></td>
+                <td rowspan="2">3</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td style="text-align: right;"><span>عملکرد ترمز ها</span></td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>دوشاخه برق / پریز</span></td>
+                <td>4</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>هادی یا کابل برق اصلی جداشدنی</span></td>
+                <td>5</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>شلنگ / لوله ها</span></td>
+                <td>6</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>کابل ها</span></td>
+                <td>7</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>بست ها / اتصالات</span></td>
+                <td>8</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>الکترودها / مبدل ها</span></td>
+                <td>9</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>فیلترها</span></td>
+                <td>10</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>کلیدها / کنترل ها</span></td>
+                <td>11</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>موتور / پمپ / فن&nbsp;</span></td>
+                <td>12</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>باتری / شارژر</span></td>
+                <td>13</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>نشانگرها / نمایشگرها</span></td>
+                <td>14</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span class="time">(Self-Test)</span> <span>خودآزمون </span></td>
+                <td>15</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>تنظیمات زمان / تاریخ</span></td>
+                <td>16</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>رابط شبکه / وایرلس</span></td>
+                <td>17</td>
+                </tr>
+                <tr>
+                <td>.</td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"> <span class="time">(Interlocks)</span><span>آلارم ها / هم وابستگی</span></td>
+                <td>18</td>
+                </tr>
+                <tr>
+                <td><span>.</span></td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>برچسب گذاری</span></td>
+                <td>19</td>
+                </tr>
+                <tr>
+                <td><span>.</span></td>
+                <td>.</td>
+                <td>.</td>
+                <td colspan="2" style="text-align: right;"><span>لوازم جانبی</span></td>
+                <td>20</td>
+                </tr>
+                </tbody>
+        </table>
+
+                <br>
+
+                <div>
+        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 2 از 4</div>
+
+    </div>
+</div>
+    </div>
+
+
+
+        <div class="page-2 page1" style="font-family:'B Nazanin';">
+            <div style="margin-right: 2cm;margin-left: 4cm;">
+
+                <div style="padding-top: 5cm;font-weight: bold;text-align: center;font-family: 'B Titr';font-size:18pt; ">
+                    آزمون های کمی
+                </div>
+                <div style="font-weight: bold;">
+                    <span class="time">:(IEC 62353:2014</span>
+                    <span> استاندارد </span>
+                    <span class="time">5.3.2</span>
+                    <span>و بند </span>
+                    <span class="time"> IEC 60601-1:2012</span>
+                    <span> استاندارد  </span>
+                    <span>8.6.4</span>
+                    <span>اندازه گیری مقاومت زمین (بند</span>
+                    <span>.1</span>
+                </div>
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+            <tbody>
+                <tr>
+                <td rowspan="3">Setting</td>
+                <td rowspan="3">Type of</td>
+                <td colspan="4">READING</td>
+                </tr>
+                <tr>
+                <td rowspan="2">Earth Resistance</td>
+                <td rowspan="2">Permissible Error</td>
+                <td colspan="2">Result</td>
+                </tr>
+                <tr>
+                <td>Ok</td>
+                <td>Rej</td>
+                </tr>
+                <tr>
+                <td rowspan="4">Protective Earth Resistance:</td>
+                <td>PERMANENTLY INSTALLED</td>
+                <td>100 mΩ</td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                </tr>
+                <tr>
+                <td>with an APPLIANCE INLET</td>
+                <td>100 mΩ</td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                </tr>
+                <tr>
+                <td>with a non-DETACHABLE POWER SUPPLY CORD</td>
+                <td>200 mΩ</td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                </tr>
+                <tr>
+                <td>with a DETACHABLE POWER SUPPLY CORD</td>
+                <td>200 mΩ</td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                <td><span>.</span></td>
+                </tr>
+                </tbody>
+        </table>
+                <br>
+
+                  <div style="font-weight: bold;">
+                <span class="time">:(EN 60601-1</span>
+                    استاندارد
+                    <span class="time">56.10 , 56.8 , 6.7 , 6.3 , 3.1</span>
+4- بررسی ظاهری دستگاه (بند
+                  </div>
+
+
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+<tbody>
+<tr>
+<td rowspan="2">Function</td>
+<td rowspan="2">Comment</td>
+<td colspan="2">Result</td>
+</tr>
+<tr>
+<td>Ok</td>
+<td>Rej</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td><span>-</span></td>
+<td>&uuml;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Keys and Controllers</td>
+<td><span>-</span></td>
+<td>&uuml;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Indicators and display</td>
+<td><span>-</span></td>
+<td>&uuml;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Battery</td>
+<td><span>-</span></td>
+<td>&uuml;</td>
+<td>-</td>
+</tr>
+</tbody>
+        </table>
+                <br>
+                              <div style="font-weight: bold;">
+                <span class="time">:(EN 60601-1</span>
+                    استاندارد
+                    <span class="time">7.1</span>
+5-بررسی توان دستگاه(بند
+                              </div>
+
+                       <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4 time">
+<tbody>
+<tr>
+    <td colspan="2">Nominal Power</td>
+    <td colspan="2">Measured Power</td>
+    <td colspan="2">Result</td>
+</tr>
+<tr>
+    <td>V.A</td>
+        <td>Watt</td>
+    <td>Voltage<br>(V)</td>
+    <td>Current <br> (A)</td>
+    <td>Ok</td>
+    <td>REJ</td>
+
+</tr>
+<tr>
+    <td>-</td>
+        <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+</tr>
+
+</tbody>
+        </table>
+                <br>
+                       <div style="font-weight: bold;">
+                <span class="time">:(EN 60601-1</span>
+                    استاندارد
+                    <span class="time">18.f</span>
+6- زمين حفاظتی (بند
+                       </div>
+
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+<tbody>
+<tr style="font-weight: bold;">
+<td colspan="2">Setting</td>
+<td>Type</td>
+<td colspan="5">READING</td>
+</tr>
+<tr>
+<td rowspan="5">Protective Earth Resistance</td>
+<td rowspan="5">Test current 25A</td>
+<td rowspan="5">
+    <span style="font-weight: bold;">power supply cord</span>
+    <br><br>
+     Yes
+    <br>
+    No
+</td>
+<td rowspan="4">Earth Resistance</td>
+<td rowspan="4">Permissible Error</td>
+<td colspan="2" rowspan="3">Result</td>
+<td rowspan="4">Comment</td>
+</tr>
+<tr></tr>
+<tr></tr>
+<tr>
+<td>Rej</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+                <br>
+                <br><br>
+                <br><br>
+
+                        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 3 از 4</div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+            <div class="page-3 page1" style="font-family:'B Nazanin';">
+            <div style="margin-right: 2cm;margin-left: 4cm;">
+
+
+                   <div style="padding-top: 5cm;font-weight: bold;">
+
+                    <span style="font-weight: bold;">
+                    :(
+                    <span class="time">EN 60601-1</span>
+                        استاندارد
+                        <span class="time">19.f</span>
+                    (بند
+                    </span>
+7- اندازه گيری جريان نشتی زمين
+                   </div>
+
+
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 time">
+<tbody>
+<tr>
+<td colspan="2">Setting</td>
+<td colspan="2">Reading [&mu;A]</td>
+<td rowspan="2">Permissible Error [&mu;A]</td>
+<td colspan="2">Result</td>
+<td rowspan="2">Comment</td>
+</tr>
+<tr>
+<td>Device</td>
+<td>Safety Analyzer</td>
+<td>AP-Earth</td>
+<td>No AP-Earth</td>
+<td>Ok</td>
+<td>Rej</td>
+</tr>
+<tr>
+<td>Device on</td>
+<td>Earth Leakage: Norm Pol,No Earth ,L2</td>
+<td>-</td>
+<td>-</td>
+<td>500</td>
+<td>&uuml;</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Device off</td>
+<td>Earth Leakage: Norm Pol,No Earth ,L2</td>
+<td>-</td>
+<td>-</td>
+<td>500</td>
+<td>&uuml;</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+                <br>
+
+
+                  <div style="font-weight: bold;">
+                <span class="time">:(EN 60601-1</span>
+                    استاندارد
+                    <span class="time">19.f</span>
+8- اندازه گيری جريان کمکی بيمار(بند
+                  </div>
+
+        <table style="margin: auto;width: 100%;text-align: center;" class="tb-1 tb-4 time">
+<tbody>
+<tr>
+<td colspan="4">Setting</td>
+<td rowspan="2">Patient Auxiliary Current</td>
+<td rowspan="2">Permissible Error</td>
+<td colspan="2">Result</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>AP Type&nbsp;</td>
+<td>DUT Status</td>
+<td>Analyzer Status</td>
+<td>Rej</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>RA</td>
+<td>-</td>
+<td>Device ON</td>
+<td>Norm Pol,No Earth, L2</td>
+<td>-</td>
+<td><span>N.A</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LA</td>
+<td>-</td>
+<td>Device ON</td>
+<td>Norm Pol,No Earth, L2</td>
+<td>-</td>
+<td><span>N.A</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LL</td>
+<td>-</td>
+<td>Device ON</td>
+<td>Norm Pol,No Earth, L2</td>
+<td>-</td>
+<td><span>N.A</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+
+                           <br><br><br><br><br><br><br>
+            <div style="width:100%;direction: rtl; text-align: right;">
+                <div class="sign-2"></div>
+            </div>
+            <div style="margin-top: -4.5cm;font-family:'B Zar' ">
+                <div style="display: inline-block;">سمت:کارشناس کنترل کیفی</div>
+                <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: مهندس سعید نریمانی</div>
+            </div>
+
+
+                        <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 4 از 4</div>
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+{% endblock %}

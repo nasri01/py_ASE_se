@@ -157,7 +157,7 @@
                     <td>ردیف</td>
                 </tr>
                 <tr class="time">
-                    <td></td>
+                    <td>{{ form.cal_dev_1_xd.year }}/{{ form.cal_dev_1_xd.month }}/{{ form.cal_dev_1_xd.day }}</td>
                     <td>{{ form.cal_dev_1_cd.year }}/{{ form.cal_dev_1_cd.month }}/{{ form.cal_dev_1_cd.day }}</td>
                     <td>{{ form.cal_dev1.serial }}</td>
                     <td>{{ form.cal_dev1.name }}</td>
@@ -165,7 +165,7 @@
                     <td>1</td>
                 </tr>
                 <tr class="time">
-                    <td></td>
+                    <td>{{ form.cal_dev_2_xd.year }}/{{ form.cal_dev_2_xd.month }}/{{ form.cal_dev_2_xd.day }}</td>
                     <td>{{ form.cal_dev_2_cd.year }}/{{ form.cal_dev_2_cd.month }}/{{ form.cal_dev_2_cd.day }}</td>
                     <td>{{ form.cal_dev2.serial }}</td>
                     <td>{{ form.cal_dev2.name }}</td>
@@ -173,7 +173,7 @@
                     <td>2</td>
                 </tr>
                 <tr class="time">
-                    <td></td>
+                    <td>{{ form.cal_dev_3_xd.year }}/{{ form.cal_dev_3_xd.month }}/{{ form.cal_dev_3_xd.day }}</td>
                     <td>{{ form.cal_dev_3_cd.year }}/{{ form.cal_dev_3_cd.month }}/{{ form.cal_dev_3_cd.day }}</td>
                     <td>{{ form.cal_dev3.serial }}</td>
                     <td>{{ form.cal_dev3.name }}</td>
@@ -181,7 +181,7 @@
                     <td>3</td>
                 </tr>
                 <tr class="time">
-                    <td></td>
+                    <td>{{ form.cal_dev_4_xd.year }}/{{ form.cal_dev_4_xd.month }}/{{ form.cal_dev_4_xd.day }}</td>
                     <td>{{ form.cal_dev_4_cd.year }}/{{ form.cal_dev_4_cd.month }}/{{ form.cal_dev_4_cd.day }}</td>
                     <td>{{ form.cal_dev4.serial }}</td>
                     <td>{{ form.cal_dev4.name }}</td>
@@ -1120,7 +1120,7 @@
 
 
 
-            <table style="margin: auto;width: 100%;text-align: center;" class="time tb-5">
+           <table style="margin: auto;width: 100%;text-align: center;" class="time tb-5">
                 <tbody>
                     <tr>
                         <td colspan="3" style="border: none;"></td>
@@ -1160,7 +1160,13 @@
                         <td>dc</td>
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e1_comment}}</td>
+                        <!-- <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e1_comment}} -->
+                        <!-- </td> 
+                        {% if form.s4_e1_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s4_e1_comment }}</td>
+                        {% endif %}
                         {% if form.s4_e1_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1170,13 +1176,18 @@
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td>100</td>
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>{{form.s4_e1_aclc}}</td>
-                        <td>{{form.s4_e1_dclc}}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <!-- <td>{{form.s4_e1_aclc}}</td>
+                        <td>{{form.s4_e1_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
                             <span>- روشن</span>
                         </td>
@@ -1185,7 +1196,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e2_comment}}</td>
+                        <!-- {% if form.s4_e2_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s4_e2_comment }}</td>
+                        {% endif %}
                         {% if form.s4_e2_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1195,13 +1210,18 @@
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td>100</td>
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>{{form.s4_e2_aclc}}</td>
-                        <td>{{form.s4_e2_dclc}}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <!-- <td>{{form.s4_e2_aclc}}</td>
+                        <td>{{form.s4_e2_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
 
                             <span>- خاموش</span>
@@ -1209,7 +1229,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e3_comment}}</td>
+                        <!-- {% if form.s4_e3_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s4_e3_comment }}</td>
+                        {% endif %}
                         {% if form.s4_e3_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1219,17 +1243,26 @@
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td>100</td>
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>{{form.s4_e3_aclc}}</td>
-                        <td>{{form.s4_e3_dclc}}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <!-- <td>{{form.s4_e3_aclc}}</td>
+                        <td>{{form.s4_e3_dclc}}</td> -->
                         <td style="text-align: right;">Standby -</td>
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e4_comment}}</td>
+                        <!-- {% if form.s4_e4_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s4_e4_comment }}</td>
+                        {% endif %}
                         {% if form.s4_e4_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1239,19 +1272,28 @@
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td>100</td>
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>{{form.s4_e4_aclc}}</td>
-                        <td>{{form.s4_e4_dclc}}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <!-- <td>{{form.s4_e4_aclc}}</td>
+                        <td>{{form.s4_e4_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
                             <span>- پلاریته معکوس</span>
                         </td>
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e5_comment}}</td>
+                        <!-- {% if form.s4_e5_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s4_e5_comment }}</td>
+                        {% endif %}
                         {% if form.s4_e5_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1261,13 +1303,18 @@
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td>500</td>
                         <td>50</td>
                         <td>50</td>
                         <td>50</td>
-                        <td>{{form.s4_e5_aclc}}</td>
-                        <td>{{form.s4_e5_dclc}}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <!-- <td>{{form.s4_e5_aclc}}</td>
+                        <td>{{form.s4_e5_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
                             <span>- قطع یکی از سیمهای تغذیه</span>
 
@@ -1278,7 +1325,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s4_e6_comment}}</td>
+                        <!-- {% if form.s4_e6_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s4_e6_comment }}</td>
+                        {% endif %}
                         {% if form.s4_e6_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1288,20 +1339,24 @@
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td>500</td>
                         <td>50</td>
                         <td>50</td>
                         <td>50</td>
-                        <td>{{form.s4_e6_aclc}}</td>
-                        <td>{{form.s4_e6_dclc}}</td>
+                        <!-- <td>{{form.s4_e6_aclc}}</td>
+                        <td>{{form.s4_e6_dclc}}</td> -->
+                        <td>N/A</td>
+                        <td>N/A</td>
                         <td style="font-family: 'B Nazanin';text-align: right;">
                             <span>- قطع زمین حفاظتی</span>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
             <div>
 
                 <div style="font-weight: bold;">
@@ -1380,6 +1435,7 @@
                     <tr>
                         <td>Rej</td>
                         <td>Ok</td>
+
                     </tr>
                     <tr>
                         <td>50mL/hr </td>
@@ -1405,16 +1461,16 @@
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
-
                     </tr>
                 </tbody>
             </table>
-
+<br>
             <div style="font-weight: bold;">
                 7) فشار ماکزیمم
             </div>
 
             <table style="margin: auto;width: 100%;text-align: center;" class="tb-5 time">
+                        
                 <tbody>
                     <tr style="font-family: 'B Nazanin';">
                         <td rowspan="2">فلوی تنظیمی
@@ -1423,9 +1479,7 @@
                         </td>
                         <td rowspan="2">فشار ماکزیمم اندازه گیری شده</td>
                         <td rowspan="2">
-                            مقدار مجاز:
-                            <br>
-                            <span class="time">P&lt;20psi</span>
+                            مقدار مجاز
                         </td>
                         <td colspan="2">نتیجه</td>
                     </tr>
@@ -1436,17 +1490,26 @@
                     <tr>
                         <td>10mL/hr</td>
                         <td>{{form.s7_e1_mmf}}</td>
-                        <td>{{form.s7_e1_af}}</td>
+                        <td><span class="time">P&lt;20psi</span></td>
+                        {% if form.s7_e1_mmf <= 20 %}
                         <td></td>
+                        <td>&#10004;</td>
+                        {% else %}
+                        <td>&#10004;</td>
                         <td></td>
-
+                        {% endif %}
                     </tr>
                     <tr>
                         <td>100mL/hr</td>
                         <td>{{form.s7_e2_mmf}}</td>
-                        <td>{{form.s7_e2_af}}</td>
+                        <td><span class="time">P&lt;20psi</span></td>
+                        {% if form.s7_e2_mmf <= 20 %}
                         <td></td>
+                        <td>&#10004;</td>
+                        {% else %}
+                        <td>&#10004;</td>
                         <td></td>
+                        {% endif %}
                     </tr>
                 </tbody>
             </table>
@@ -1463,7 +1526,9 @@
             </div>
 
             <div style="width:100%;direction: rtl; text-align: right;">
-                <div class="sign-2" style="margin-bottom: -5cm;"></div>
+                <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://qc.kaadco.ir{{ usr.signature.url }}" alt=""
+            style="height: 6cm;">
+        </div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>

@@ -1195,6 +1195,54 @@
         </div>
 
             <br>
+
+            <div>
+        د) تست انرژی خروجی با بار داخلی دفیبریلاتور
+
+      </div>
+      <table style="direction: ltr; margin: auto;width: 95%;text-align: center;" class="tb-2">
+        <tr>
+          <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
+          <td colspan="2">نتیجه</td>
+          <td class="time" rowspan="2">**E<sub>C</sub>(J)</td>
+          <td class="time" rowspan="2">*E<sub>S</sub>(J)</td>
+          <td rowspan="2">مقدار انرژی تنظیمی(J)</td>
+        </tr>
+        <tr class="time">
+          <td>Rej</td>
+          <td>Ok</td>
+        </tr>
+        <tr>
+          <td>{{form.s7d_e1_comment}}</td>
+                <td></td>
+                <td></td>
+          <td class="time">{{form.s7d_e1_ec}}</td>
+          <td class="time">{{form.s7d_e1_es}}</td>
+          <td class="time">{{form.s7d_e1_en}}</td>
+        </tr>
+      </table>
+
+
+      <br>
+
+
+      <div style="direction: ltr;">
+        <span class="time">(E<sub>S</sub>)</span>
+        <span>
+          *: انرژی اندازه گیری شده توسط دفیبریلاتور و نمایش داده شده روی دفیبریلاتور بعد از دشارژ انرژی
+        </span>
+        <br>
+        <span class="time">(E<sub>C</sub>)</span>
+        <span>
+          از انرژی تنظیمی (هر کدام که بزرگتر است) می باشد
+          <span class="time">±15%</span>
+          یا
+          <span class="time">±4J </span>
+          **:حد مجاز انرژی
+        </span>
+      </div>
+
+
 <div style="font-weight: bold;">
 8. دقت انرژی قبل از disarm (طبق بند 4.3.8 از مرجع [4]) :
 

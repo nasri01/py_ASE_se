@@ -1476,11 +1476,11 @@ class defibrilator_1(models.Model):
     s7c_e3_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='df1s7ce3comment', default=1)
 
-    # s7d_e1_en = models.IntegerField()
-    # s7d_e1_es = models.IntegerField()
-    # s7d_e1_ec = models.IntegerField()
-    # s7d_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-    #                                    related_name='df1s7de1comment', default=1)
+    s7d_e1_en = models.IntegerField()
+    s7d_e1_es = models.IntegerField()
+    s7d_e1_ec = models.IntegerField()
+    s7d_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
+                                       related_name='df1s7de1comment', default=1)
 
     s8_e1_en = models.IntegerField()
     s8_e1_em1 = models.IntegerField()
@@ -2553,7 +2553,7 @@ class electrocauter_1(models.Model):
     s0_e15_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e15comment', default = 1)
     s0_e16_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
-                                       related_name='ec1s0e16comment', default = 1)
+                                       related_name='ec1s0e16comment', default = 2)
     s0_e17_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                        related_name='ec1s0e17comment', default = 1)
 
@@ -3013,7 +3013,7 @@ class ventilator_1(models.Model):
     s16_e2 = models.IntegerField()
     s16_e3 = models.IntegerField()
     s16_e4 = models.IntegerField()
-    s16_e5 = models.IntegerField()
+    s16_e5 = models.FloatField()
     s16_e6 = models.IntegerField()
     s16_1e3 = models.IntegerField(default=-1)
     s16_e7 = models.IntegerField(default=-1)

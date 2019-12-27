@@ -198,7 +198,7 @@
 
                 </span><br>
                 <span>
-                    <span class="time">F51073</span>
+                    <span class="time">F51042</span>
                     شماره مدرک:
 
                 </span>
@@ -210,7 +210,7 @@
             </span>
         </div>
 
-        <div style="padding-top: 5cm;margin-right: 2cm;margin-left: 4cm;height: 35cm;">
+        <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
             <div style="font-weight: bold;font-size: 18pt; text-align: center;;font-family:'B Lotus'">
                 گزارش آزمون فلومتر اکسیژن
             </div>
@@ -246,11 +246,11 @@
                     <div class="time2">
                         <tr>
                             {% if data.6 <= 10 %}
-                            <td>-</td>
+                            <td></td>
                             <td>&#10004;</td>
                             {% else %}
                             <td>&#10004;</td>
-                            <td>-</td>
+                            <td></td>
                             {% endif %}
                             <td>{{data.6 }}</td>
                             <td>{{data.0 }}</td>
@@ -259,11 +259,11 @@
                         </tr>
                         <tr>
                             {% if data.7 <= 10 %}
-                            <td>-</td>
+                            <td></td>
                             <td>&#10004;</td>
                             {% else %}
                             <td>&#10004;</td>
-                            <td>-</td>
+                            <td></td>
                             {% endif %}
                             <td>{{data.7 }}</td>
                             <td>{{data.1 }}</td>
@@ -272,11 +272,11 @@
                         </tr>
                         <tr>
                             {% if data.8 <= 10 %}
-                            <td>-</td>
+                            <td></td>
                             <td>&#10004;</td>
                             {% else %}
                             <td>&#10004;</td>
-                            <td>-</td>
+                            <td></td>
                             {% endif %}
                             <td>{{data.8 }}</td>
                             <td>{{data.2 }}</td>
@@ -285,11 +285,11 @@
                         </tr>
                         <tr>
                             {% if data.9 <= 10 %}
-                            <td>-</td>
+                            <td></td>
                             <td>&#10004;</td>
                             {% else %}
                             <td>&#10004;</td>
-                            <td>-</td>
+                            <td></td>
                             {% endif %}
                             <td>{{data.9 }}</td>
                             <td>{{data.3 }}</td>
@@ -298,11 +298,11 @@
                         </tr>
                         <tr>
                             {% if data.10 <= 10 %}
-                            <td>-</td>
+                            <td></td>
                             <td>&#10004;</td>
                             {% else %}
                             <td>&#10004;</td>
-                            <td>-</td>
+                            <td></td>
                             {% endif %}
                             <td>{{data.10 }}</td>
                             <td>{{data.4 }}</td>
@@ -311,11 +311,11 @@
                         </tr>
                         <tr>
                             {% if data.11 <= 10 %}
-                            <td>-</td>
+                            <td></td>
                             <td>&#10004;</td>
                             {% else %}
                             <td>&#10004;</td>
-                            <td>-</td>
+                            <td></td>
                             {% endif %}
                             <td>{{data.11 }}</td>
                             <td>{{data.5 }}</td>
@@ -328,7 +328,9 @@
             <br><br><br><br>
 
             <div style="width:100%;direction: rtl; text-align: right;">
-                <div class="sign-2"></div>
+                <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://qc.kaadco.ir{{ usr.signature.url }}" alt=""
+            style="height: 6cm;">
+        </div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ usr.status.status }}</div>
