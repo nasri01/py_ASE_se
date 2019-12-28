@@ -80,7 +80,6 @@ def xlsx(request):
                     data1.append(modelobj)
         else:
             if Group.objects.get(name='admin') in request.user.groups.all():
-                print('AAAA')
                 for model in model_list:
                     modelobj = model.objects.filter(date__gte=start).filter(date__lte=end)
                     data1.append(modelobj)
