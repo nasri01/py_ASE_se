@@ -23,7 +23,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('acc.urls')),
-    path('admin/', admin.site.urls),
+    path('mo/', admin.site.urls),
     path('dashboard/', acc.views.submit,name='dashboard'),
     path('report/', include('report.urls')),
     path('form/', include('form.urls'))

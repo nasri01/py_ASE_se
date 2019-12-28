@@ -32,7 +32,7 @@ model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, d
               suction_1, electrocauter_1, monometer_1, cant_test, report]
 modellist = ['monitor Spo2', 'monitor ECG', 'monitor NIBP', 'monitor Safety', 'Defibrilator', 'AED', 'ECG',
              'Infusion Pump', 'Syringe Pump', 'Pulse Oximetry', 'Flow Meter', 'Anesthesia Machine', 'Ventilator',
-             'Suction', 'ElectroCahttps://www.google.com/search?client=ubuntu&channel=fs&q=ftp+ubuntu+files&ie=utf-8&oe=utf-8https://www.google.com/search?client=ubuntu&channel=fs&q=ftp+ubuntu+files&ie=utf-8&oe=utf-8uter', 'Mano Meter', 'cant_test']
+             'Suction', 'ElectroCauter', 'Mano Meter', 'cant_test']
 
 
 def xlsx(request):
@@ -650,9 +650,6 @@ def pdf(request):
                             enc.save()
                         else:
                             filename = lst[0].name
-                        file.write(
-                            f'{obj.licence.number} :: Name has beed Encrypted!\n')
-                        file.write(f'{obj.licence.number} :: {filename}\n')
 
                         files = ftp.nlst()
                         if not filename in files:
