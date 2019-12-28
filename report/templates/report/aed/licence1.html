@@ -471,9 +471,36 @@
       </div>
       <br>
       <div>
-        <span class="time">
-          1Class I & Internally Powered 2Class I 3Class II 4Internally Powered</span>
-        کلاس دستگاه
+          کلاس دستگاه:
+        <div class="time" style="text-align: left;">
+          {% if form.test_type.id == 4 %}
+          Class I &Internally Powered &#9635;
+          {% else %}
+          Class I &Internally Powered &#9633;
+          {% endif %}
+          
+          {% if form.test_type.id == 1 %}
+          Internally Powered &#9635;
+          {% else %}
+          Internally Powered &#9633;
+          {% endif %}
+
+          {% if form.test_type.id == 2 %}
+          Class I &#9635;
+          {% else %}
+          Class I &#9633;
+          {% endif %}
+          {% if form.test_type.id == 3 %}
+          Class II &#9635;
+          {% else %}
+          Class II &#9633;
+          {% endif %}
+          
+          
+          </div>
+
+          
+        
       </div>
       <br>
 

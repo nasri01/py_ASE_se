@@ -3639,10 +3639,38 @@
 
             <br>
             <div style="font-weight: bold;">• تست های ایمـنی الکتـریکی :</div>
-            <div style="font-weight: bold;">
-                کلاس دستگاه :
-            </div>
-            <div class="time">□Class I & Internally Powered □Internally Powered □Class II □Class I</div>
+            <div>
+                    کلاس دستگاه:
+                  <div class="time" style="text-align: left;">
+                    {% if form.test_type.id == 4 %}
+                    Class I &Internally Powered &#9635;
+                    {% else %}
+                    Class I &Internally Powered &#9633;
+                    {% endif %}
+                    
+                    {% if form.test_type.id == 1 %}
+                    Internally Powered &#9635;
+                    {% else %}
+                    Internally Powered &#9633;
+                    {% endif %}
+          
+                    {% if form.test_type.id == 2 %}
+                    Class I &#9635;
+                    {% else %}
+                    Class I &#9633;
+                    {% endif %}
+                    {% if form.test_type.id == 3 %}
+                    Class II &#9635;
+                    {% else %}
+                    Class II &#9633;
+                    {% endif %}
+                    
+                    
+                    </div>
+          
+                    
+                  
+                </div>
             <div style="font-weight: bold;">1. مقاومت زمین حفاظتی :</div>
             <div>مقدار اندازه گیری شده: {{ form.s11_e1_res }} اهم</div>
 

@@ -8,7 +8,8 @@ from statistics import mean, stdev
 from ftplib import FTP
 from jdatetime import timedelta
 from form.models import *
-from .models import report
+from acc.models import licence as acc_licence
+from .models import report, encode
 
 
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
@@ -31,7 +32,7 @@ model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, d
               suction_1, electrocauter_1, monometer_1, cant_test, report]
 modellist = ['monitor Spo2', 'monitor ECG', 'monitor NIBP', 'monitor Safety', 'Defibrilator', 'AED', 'ECG',
              'Infusion Pump', 'Syringe Pump', 'Pulse Oximetry', 'Flow Meter', 'Anesthesia Machine', 'Ventilator',
-             'Suction', 'ElectroCouter', 'Mano Meter', 'cant_test']
+             'Suction', 'ElectroCahttps://www.google.com/search?client=ubuntu&channel=fs&q=ftp+ubuntu+files&ie=utf-8&oe=utf-8https://www.google.com/search?client=ubuntu&channel=fs&q=ftp+ubuntu+files&ie=utf-8&oe=utf-8uter', 'Mano Meter', 'cant_test']
 
 
 def xlsx(request):
@@ -289,7 +290,6 @@ def req_summary(request):
             return response
 
 
-
 def send_file_ftp(ftp, filename):
     fp = open('report.pdf', 'rb')
     ftp.storbinary('STOR %s' % os.path.basename(filename), fp, 1024)
@@ -297,11 +297,12 @@ def send_file_ftp(ftp, filename):
 
 def pdf(request):
     if request.method == 'GET':
+        file = open('pdf_report.txt', 'at+')
         with FTP(
             host="ftp.dl.qc.kaadco.ir",
             user="reports@dl.qc.kaadco.ir",
             passwd="uJHP_bpK9bN+"
-            ) as ftp:
+        ) as ftp:
             ftp.set_debuglevel(2)
             s = 0
             for model in model_list[:-2]:
@@ -421,10 +422,10 @@ def pdf(request):
                             print(data2)
                             data.append(sum(data1))  # 0
                             data.append(sum(data2))  # 1
-                            data.append(round(mean(data1), 2))  # 2
-                            data.append(round(mean(data2), 2))  # 3
-                            data.append(round(stdev(data1), 2))  # 4
-                            data.append(round(stdev(data2), 2))  # 5
+                            data.append(round(np.mean(data1), 2))  # 2
+                            data.append(round(np.mean(data2), 2))  # 3
+                            data.append(round(np.std(data1), 2))  # 4
+                            data.append(round(np.std(data2), 2))  # 5
                             data.append(data3)  # 6
 
                             data.append(data1)  # 7
@@ -518,11 +519,14 @@ def pdf(request):
                         elif (model == infusion_pump_1):
                             template_name = 'report/infusion_pump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
-                            data.append(abs(int(obj.s6_e1_mf) - 100))  # 1
+                            data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
                         elif (model == monometer_1):
                             template_name = 'report/monometer/licence1.html'
-
+                            data.append(abs(obj.s2_e1_sp - obj.s2_e1_np))  # 0
+                            data.append(abs(obj.s2_e2_sp - obj.s2_e2_np))  # 1
+                            data.append(abs(obj.s2_e3_sp - obj.s2_e3_np))  # 2
+                            data.append(abs(obj.s2_e4_sp - obj.s2_e4_np))  # 3
                         elif (model == spo2_1):
                             template_name = 'report/spo2/licence1.html'
                             ss = 0
@@ -575,11 +579,47 @@ def pdf(request):
                         elif (model == syringe_pump_1):
                             template_name = 'report/syringe_pump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
-                            data.append(abs(int(obj.s6_e1_mf) - 100))  # 1
+                            data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
                         elif (model == ventilator_1):
                             template_name = 'report/ventilator/licence1.html'
-
+                            if obj.s16_e1 <= 550 and obj.s16_e1 >= 450:  # 0
+                                data.append(1)
+                            else:
+                                data.append(0)
+                            if obj.s16_e2 <= 13.2 and obj.s16_e2 >= 10.8:  # 1
+                                data.append(1)
+                            else:
+                                data.append(0)
+                            if obj.s16_1e1 != -1:  # 2
+                                if obj.s16_e3 <= (obj.s16_1e1 * 1.1) and obj.s16_e3 >= (obj.s16_1e1 * 0.9):
+                                    data.append(1)
+                                else:
+                                    data.append(0)
+                            else:
+                                data.append(2)
+                            if obj.s16_1e2 != -1:  # 3
+                                if obj.s16_e4 <= (obj.s16_1e2 * 1.1) and obj.s16_e4 >= (obj.s16_1e2 * 0.9):
+                                    data.append(1)
+                                else:
+                                    data.append(0)
+                            else:
+                                data.append(2)
+                            if obj.s16_e5 <= 0.55 and obj.s16_e5 >= 0.45:  # 4
+                                data.append(1)
+                            else:
+                                data.append(0)
+                            if obj.s16_e6 <= 22 and obj.s16_e6 >= 18:  # 5
+                                data.append(1)
+                            else:
+                                data.append(0)
+                            if obj.s16_1e3 != -1:  # 6
+                                if obj.s16_e7 <= (obj.s16_1e3 * 1.1) and obj.s16_e7 >= (obj.s16_1e3 * 0.9):
+                                    data.append(1)
+                                else:
+                                    data.append(0)
+                            else:
+                                data.append(2)
                         usr = aUserProfile.objects.get(user=obj.user)
                         t2 = jdatetime.datetime.today()
                         font_config = FontConfiguration()
@@ -587,41 +627,67 @@ def pdf(request):
                             'form': obj, 'time': t2, 'usr': usr, 'data': data})
 
                         css_root = static('/css')
-
-                        css1 = CSS(filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
+                        css1 = CSS(
+                            filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
                         css2 = CSS(
                             filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
 
-                        # if not os.path.exists('_reports/'):
-                        #     os.makedirs('_reports/')
-
-                        # if not os.path.exists(f'_reports/{obj.request.number}/'):
-                        #     os.makedirs(f'_reports/{obj.request.number}/')
-
-                        # if not os.path.exists(f'_reports/{obj.request.number}/{modellist[s]}'):
-                        #     os.makedirs(
-                        #         f'_reports/{obj.request.number}/{modellist[s]}')
-                        file = io.StringIO()
-                        # HTML(string=html).write_pdf(
-                        #     f'_reports/{obj.request.number}/{modellist[s]}/{obj.licence.number}.pdf', font_config=font_config, stylesheets=[css1, css2])
+                        # file = io.StringIO()
 
                         HTML(string=html).write_pdf(
-                            'report.pdf',font_config=font_config, stylesheets=[css1, css2])
+                            'report.pdf', font_config=font_config, stylesheets=[css1, css2])
+                        file.write(
+                            f'{obj.licence.number} :: PDF fileCreated!\n')
 
-                        filename = '12' + str(obj.licence.number)
-                        filename = hashlib.md5(filename.encode()).hexdigest()
-                        filename += '.pdf'
-                        send_file_ftp(ftp, filename)
+                        lst = encode.objects.filter(
+                            hospital=obj.device.hospital)
+                        if len(lst) == 0:
+                            filename = '12' + str(obj.device.hospital.user.id)
+                            filename = hashlib.md5(
+                                filename.encode()).hexdigest()
+                            enc = encode.objects.create(
+                                hospital=obj.device.hospital, name=filename)
+                            enc.save()
+                        else:
+                            filename = lst[0].name
+                        file.write(
+                            f'{obj.licence.number} :: Name has beed Encrypted!\n')
+                        file.write(f'{obj.licence.number} :: {filename}\n')
 
+                        files = ftp.nlst()
+                        if not filename in files:
+                            ftp.mkd(filename)
+                        ftp.cwd(filename)
+                        files = ftp.nlst()
+                        if not str(obj.request.number) in files:
+                            ftp.mkd(str(obj.request.number))
+                        ftp.cwd(str(obj.request.number))
+                        files = ftp.nlst()
+                        if not str(modellist[s]) in files:
+                            ftp.mkd(str(modellist[s]))
+                        ftp.cwd(str(modellist[s]))
+                        try:
+                            send_file_ftp(ftp, f'{obj.licence.number}.pdf')
+                            file.write(
+                                f'{obj.licence.number} :: File Successfully Uploaded!\n')
+                        except:
+                            file.write(
+                                f'{obj.licence.number} :: An eeror occured while uploading to Host!\n')
+                        ftp.cwd('../../..')
                         a12 = report.objects.create(tt=ad_test_type0.objects.get(type=modellist[s]), device=obj.device,
                                                     request=obj.request, date=obj.date, user=obj.user, status=obj.status,
                                                     record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
                                                     is_done=obj.is_done, totalcomment=obj.totalcomment)
                         a12.save()
+                        file.write(
+                            f'{obj.licence.number} :: Report has been generated!\n')
                         obj.delete()
-                        return ()
+                        file.write(
+                            f'{obj.licence.number} :: Raw data has beed deleted!\n\n')
+
                 s += 1
             ftp.close()
+            file.close()
             return HttpResponse('done :)')
     else:
         raise Http404
@@ -630,9 +696,8 @@ def pdf(request):
 def reportview(request, record):
     for model in model_list:
         data = model.objects.filter(record__number=record)
-        if len(data) != 0 :
+        if len(data) != 0:
             filename = '12' + str(data[0].licence.number)
             filename = hashlib.md5(filename.encode()).hexdigest()
             filename += '.pdf'
             return redirect(f'https://dl.qc.kaadco.ir/{filename}')
-            

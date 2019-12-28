@@ -760,10 +760,38 @@
             <div>
                 <span style="font-weight: bold;font-size: 18pt;">تستهای کمی:</span>
                 <br>
-                <span>کلاس دستگاه:</span>
-                <br>
-                <span class="time">
-                    1Class I &Internally Powered2 Internally Powered 3 Class I 4Class II </span>
+                <div>
+          کلاس دستگاه:
+        <div class="time" style="text-align: left;">
+          {% if form.test_type.id == 4 %}
+          Class I &Internally Powered &#9635;
+          {% else %}
+          Class I &Internally Powered &#9633;
+          {% endif %}
+          
+          {% if form.test_type.id == 1 %}
+          Internally Powered &#9635;
+          {% else %}
+          Internally Powered &#9633;
+          {% endif %}
+
+          {% if form.test_type.id == 2 %}
+          Class I &#9635;
+          {% else %}
+          Class I &#9633;
+          {% endif %}
+          {% if form.test_type.id == 3 %}
+          Class II &#9635;
+          {% else %}
+          Class II &#9633;
+          {% endif %}
+          
+          
+          </div>
+
+          
+        
+      </div>
                 <div style="font-weight: bold;">
                     <span class="time">:([2]</span>
                     ازمرجع
