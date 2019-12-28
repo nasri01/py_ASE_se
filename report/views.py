@@ -68,7 +68,7 @@ def xlsx(request):
             recal = False
 
         if recal:
-            if request.user.groups.all()[0] == Group.objects.get(name='admin'):  # admin
+            if Group.objects.get(name='admin') in request.user.groups.all():  # admin
                 for model in model_list:
                     modelobj = model.objects.filter(date__gte=start).filter(
                         date__lte=end).filter(is_recal=True)
@@ -79,15 +79,16 @@ def xlsx(request):
                         request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
                     data1.append(modelobj)
         else:
-            if request.user.groups.all()[0] != Group.objects.get(name='admin'):
+            if Group.objects.get(name='admin') in request.user.groups.all():
+                print('AAAA')
                 for model in model_list:
-                    modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
-                        request__hospital__user__id__exact=request.user.id)
+                    modelobj = model.objects.filter(date__gte=start).filter(date__lte=end)
                     data1.append(modelobj)
-            else:
+            else: # Hospital
                 for model in model_list:
                     modelobj = model.objects.filter(
-                        date__gte=start).filter(date__lte=end)
+                        date__gte=start).filter(date__lte=end).filter(
+                        request__hospital__user__id__exact=request.user.id)
                     data1.append(modelobj)
 
         for obj1 in data1:
@@ -140,7 +141,8 @@ def xlsx(request):
                          str(fr1[12]),
                          str(fr1[13]),
                          str(fr1[14]),
-                         str(fr1[15])
+                         str(fr1[15]),
+                         'PDF'
                          )
             fr = wb.add_format({'font_size': 11, 'align': 'center',
                                 'valign': 'vcenter', 'bottom': True, 'left': True})
@@ -174,23 +176,27 @@ def xlsx(request):
                     fstate = fr
 
                 data = (cursor,
-                        idata[0],
-                        idata[1],
-                        idata[2],
-                        idata[3],
-                        idata[4],
-                        idata[5],
-                        idata[6],
-                        idata[7],
-                        idata[8],
-                        idata[9],
-                        idata[10],
-                        str(fr1[0]),
-                        idata[11],
-                        idata[12],
+                        idata[0], #ostan
+                        idata[1], #shahr
+                        idata[2], #name moshtari
+                        idata[3], #mahale esteqrar
+                        idata[4], #mahsul
+                        idata[5], #tolid konande
+                        idata[6], #model
+                        idata[7], #shoamre serial
+                        idata[8], #kode amval
+                        idata[9], #vaziate azmoon
+                        idata[10], #tarikh calibration
+                        str(fr1[0]), #etebare calibration
+                        idata[11], #shomare govahi
+                        idata[12], #tozihat
                         )
 
                 ws.write_row(row=cursor, col=0, data=data, cell_format=fstate)
+                data1 = report.objects.filter(licence__number=idata[11])
+                name = encode.objects.get(hospital=data1[0].device.hospital)
+                ul = 'https://dl.qc.kaadco.ir/{}/{}/{}/{}.pdf'.format(name.name  , data1[0].request.number, data1[0].tt, data1[0].licence.number)
+                ws.write_url(row=cursor, col=len(data), url=ul, cell_format=fstate, string='show', tip='Downlaod PDF')
                 cursor += 1
             wb.close()
 
@@ -690,11 +696,17 @@ def pdf(request):
         raise Http404
 
 
-def reportview(request, record):
-    for model in model_list:
-        data = model.objects.filter(record__number=record)
+def reportview(request):
+    if request.method == 'GET':    
+        if Group.objects.get(name='hospital') in request.user.groups.all():
+            data = report.objects.filter(licence__number=request.GET['licence_num']).filter(
+                request__hospital__user__id__exact=request.user.id)
+        else:
+            data = report.objects.filter(licence__number=request.GET['licence_num'])
         if len(data) != 0:
-            filename = '12' + str(data[0].licence.number)
-            filename = hashlib.md5(filename.encode()).hexdigest()
-            filename += '.pdf'
-            return redirect(f'https://dl.qc.kaadco.ir/{filename}')
+            name = encode.objects.get(hospital=data[0].device.hospital)
+            return redirect('https://dl.qc.kaadco.ir/{}/{}/{}/{}.pdf'.format(name.name  , data[0].request.number, data[0].tt, data[0].licence.number))
+    
+        raise Http404
+    else:
+        raise Http404
