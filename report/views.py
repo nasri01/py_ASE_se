@@ -698,7 +698,7 @@ def pdf(request):
         raise Http404
 
 
-def reportview(request):++++++++
+def reportview(request):
     if request.method == 'GET':
         if Group.objects.get(name='hospital') in request.user.groups.all():
             data = report.objects.filter(licence__number=request.GET['licence_num']).filter(

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User
 from django.shortcuts import redirect, render, Http404
 from django.template import RequestContext
-from jdatetime import date
+from jdatetime import date as dd
 
 from acc.models import Hospital, Parameters, Request, ad_excel_arg
 from form.forms import *
@@ -129,7 +129,7 @@ def req_list(request):
         req = Request.objects.all()
 
         for t in req:
-            t.date = date.fromgregorian(t.date)
+            t.date = dd.fromgregorian(t.date)
 
         return render(request, 'acc/employee/request_list.html', {'req': req})
     else:
