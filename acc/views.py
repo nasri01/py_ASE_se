@@ -129,7 +129,7 @@ def req_list(request):
         req = Request.objects.all()
 
         for t in req:
-            t.date = dd.fromgregorian(t.date)
+            t.date = dd.fromgregorian(date=t.date)
 
         return render(request, 'acc/employee/request_list.html', {'req': req})
     else:
