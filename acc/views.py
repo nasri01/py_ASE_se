@@ -1,9 +1,9 @@
+import jdatetime
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User
-from django.shortcuts import redirect, render, Http404
+from django.shortcuts import Http404, redirect, render
 from django.template import RequestContext
-from jdatetime import date as dd
 
 from acc.models import Hospital, Parameters, Request, ad_excel_arg
 from form.forms import *
@@ -127,15 +127,15 @@ def submit(request):
 def req_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         req = Request.objects.all()
-
-        for t in req:
-            t.date = dd.fromgregorian(date=t.date)
-
+        for r in req:
+            r.date = jdatetime.date.fromgregorian(date=r.date)
         return render(request, 'acc/employee/request_list.html', {'req': req})
     else:
         raise Http404
 
 # List of recalibration
+
+
 def recal_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         data = []
@@ -170,8 +170,10 @@ def recal_list(request):
         raise Http404
 
 # list of all records
+
+
 def report_list(request):
-    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():    
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         data = []
         data1 = []
         for model in diclist[:-1]:
@@ -202,8 +204,10 @@ def report_list(request):
         raise Http404
 
 # Perepare the appropiate Edit form for Frame
+
+
 def edit_report(request):
-    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():    
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
             auser = aUserProfile.objects.get(user=request.user)
             for model in diclist:
@@ -220,11 +224,11 @@ def edit_report(request):
                 raise Http404
             form1 = form_type(instance=modelobj[0])
             edata = {'form': form1,
-                    'form_type': form_type_str,
-                    'record_num': modelobj[0].record.number,
-                    'licence_num': modelobj[0].licence.number,
-                    'auser': auser
-                    }
+                     'form_type': form_type_str,
+                     'record_num': modelobj[0].record.number,
+                     'licence_num': modelobj[0].licence.number,
+                     'auser': auser
+                     }
 
             if (modelobj[0].is_recal == False):  # its calibration
                 edata['edit'] = 1
@@ -235,8 +239,10 @@ def edit_report(request):
         raise Http404
 
 # Perepare the appropiate Recalibration form for Frame
+
+
 def recal_report(request):
-    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():    
+    if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
             auser = aUserProfile.objects.get(user=request.user)
             for model in diclist:
@@ -254,11 +260,11 @@ def recal_report(request):
 
             form1 = form_type({'device': [modelobj[0].device.id]})
             rdata = {'recal': 1,
-                    'form': form1,
-                    'form_type': form_type_str,
-                    'ref_record_num': modelobj[0].record.number,
-                    'auser': auser
-                    }
+                     'form': form1,
+                     'form_type': form_type_str,
+                     'ref_record_num': modelobj[0].record.number,
+                     'auser': auser
+                     }
             try:
                 rdata['ref_licence_num'] = modelobj[0].licence.number
             except:
@@ -266,6 +272,7 @@ def recal_report(request):
             return render(request, 'acc/employee/index.html', rdata)
     else:
         raise Http404
+
 
 def make_done(request):
     if (request.method == 'GET'):
