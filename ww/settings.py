@@ -22,7 +22,7 @@ SECRET_KEY = 'qhh(ydahm&a&(z45^jpsk2v@r7q2h_-@furoe@&md=s#f5)-c&'
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['qc.kaadco.ir']
+ALLOWED_HOSTS = ['qc.sairanmed.ir', 'localhost']
 
 
 # Application definition
@@ -53,10 +53,10 @@ DEFAULT_FROM_EMAIL= "bdgjmwtp13@gmail.com"
 """
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'qc.kaadco.ir'
+EMAIL_HOST = 'qc.sairanmed.ir'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@qc.kaadco.ir'
+EMAIL_HOST_USER = 'noreply@qc.sairanmed.ir'
 EMAIL_HOST_PASSWORD = '^=TYWtYv$&D0'
 
 
