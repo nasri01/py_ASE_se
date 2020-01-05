@@ -154,8 +154,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'ww/static/'),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
-# MEDIA_URL = '/sta/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'emdia/')
+MEDIA_URL = '/static/media'
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
