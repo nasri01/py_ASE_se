@@ -62,7 +62,7 @@ EMAIL_HOST_PASSWORD = '^=TYWtYv$&D0'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+#    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -148,14 +148,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
-# STATIC_ROOT = '/home/kaadcoir/public_html/qc/static'
+#STATIC_ROOT = '/home/kaadcoir/public_html/qc/static'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ww/static/'),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ww/static/'),]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'emdia/')
-MEDIA_URL = '/static/media'
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/media/')
+MEDIA_URL = '/static/media/'
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
