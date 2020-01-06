@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qhh(ydahm&a&(z45^jpsk2v@r7q2h_-@furoe@&md=s#f5)-c&'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -42,22 +42,8 @@ INSTALLED_APPS = [
 
 
 
-"""
-EMAIL_BACKEND= "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST= "smtp.gmail.com"
-EMAIL_HOST_USER= "bdgjmwtp13@gmail.com"
-EMAIL_HOST_PASSWORD= "Pass123654"
-EMAIL_PORT= 587
-EMAIL_USE_TLS= True
-DEFAULT_FROM_EMAIL= "bdgjmwtp13@gmail.com"
-"""
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'qc.sairanmed.ir'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@qc.sairanmed.ir'
-EMAIL_HOST_PASSWORD = '^=TYWtYv$&D0'
+
 
 
 MIDDLEWARE = [
@@ -96,16 +82,6 @@ WSGI_APPLICATION = 'ww.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
-        'NAME': 'kaadir_ASE',
-        'PASSWORD': 'uJHP_bpK9bN+',
-        'PORT': '5432',
-        'USER': 'kaadir_ASE_admin',
-    }
-}
 LOGIN_URL = '/'
 
 # Password validation
@@ -158,3 +134,8 @@ MEDIA_URL = '/static/media/'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
