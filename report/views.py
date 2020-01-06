@@ -10,6 +10,7 @@ from jdatetime import timedelta
 from form.models import *
 from acc.models import licence as acc_licence
 from .models import report, encode
+from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user
 
 
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
@@ -307,9 +308,9 @@ def pdf(request):
     if request.method == 'GET':
         file = open('pdf_report.txt', 'at+')
         with FTP(
-            host="ftp.dl.qc.kaadco.ir",
-            user="reports@dl.qc.kaadco.ir",
-            passwd="uJHP_bpK9bN+"
+            host=dl_ftp_host,
+            user=dl_ftp_user,
+            passwd=dl_ftp_passwd
         ) as ftp:
             ftp.set_debuglevel(2)
             s = 0
