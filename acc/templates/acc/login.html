@@ -82,16 +82,17 @@
                     <div class="header-img">
                         <img src="{% static 'img/logo2.jpg' %}" alt="logo2" class="logo2">
                         <img src="{% static 'img/logo.png' %}" alt="logo" class="logo">
-
+                       
                     </div>
+                        <br>
+                    <div class="alert alert-info" style="margin-bottom: 0;text-align: center;" role="alert"1>
+                        شرکت آزما صبای اسپادانا نماینده رسمی کنترل کیفی تجهیزات پزشکی شرکت صاایران
+                          </div>
 
-
-
-                    <div class="login-box" style="font-family: light-iransans;">
+                    <div class="login-box"  style="font-family: light-iransans;margin-top: 15px;padding-top: 0;">
                         <form method="post" action="{% url 'login1'%}">
                             {% csrf_token %}
 
-                            <br><br>
                             <div style="position: relative;">
                                 <input id="in-username" name="username" type="text">
                                 <label class="aa" id="lb-username">نام کاربری
@@ -190,7 +191,8 @@
                             <div style="height: 15px;"></div>
 
                             <div class="sr-btn">
-                                <button class="demo-btn">دموی سایت</button>
+                                <a href="https://www.sairanmed.ir" class="demo-btn" style="color: black;text-align: center;padding-top: 9px;"><img style="width: 15px;margin-left: 5px;" src="{% static 'img/home-icon.svg'%}">بازگشت به سایت اصلی</a>
+                                
                                 <input type="submit" value="ورود به سیستم" class="submit-btn"
                                     style="background-color:#{{color}};">
 
