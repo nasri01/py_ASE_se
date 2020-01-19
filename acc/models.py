@@ -97,6 +97,7 @@ class City(models.Model):
 
 class Section(models.Model):
     name = models.TextField()
+    eng_name = models.TextField()
 
     class Meta:
         verbose_name_plural = "بخش های بیمارستان"
@@ -132,6 +133,7 @@ class aUserProfile(models.Model):
 
 class Hospital(models.Model):
     name = models.TextField()
+    eng_name = models.TextField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     address = models.TextField()
     p_name = models.TextField()

@@ -10,7 +10,7 @@ from jdatetime import timedelta
 from form.models import *
 from acc.models import licence as acc_licence
 from .models import report, encode
-from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user
+from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain_name
 
 
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
@@ -307,6 +307,7 @@ def send_file_ftp(ftp, filename):
 def pdf(request):
     if request.method == 'GET':
         file = open('pdf_report.txt', 'at+')
+        encode_file = open('encode.txt', 'at+')
         with FTP(
             host=dl_ftp_host,
             user=dl_ftp_user,
@@ -318,8 +319,8 @@ def pdf(request):
                 dd = model.objects.all()
                 if len(dd) != 0:
                     for obj in dd:
+    #===================================Begin-File Backing=================================================
                         data = []
-
                         if(model == monitor_spo2_1):
                             template_name = 'report/Monitor/Spo2/licence1.html'
                             ss = 0
@@ -634,20 +635,18 @@ def pdf(request):
                         font_config = FontConfiguration()
                         html = render_to_string(template_name, {
                             'form': obj, 'time': t2, 'usr': usr, 'data': data})
-
                         css_root = static('/css')
                         css1 = CSS(
                             filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
                         css2 = CSS(
                             filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
-
-                        # file = io.StringIO()
-
                         HTML(string=html).write_pdf(
                             'report.pdf', font_config=font_config, stylesheets=[css1, css2])
                         file.write(
                             f'{obj.licence.number} :: PDF fileCreated!\n')
+    #===================================End-File Backing=================================================
 
+    #===================================Begin-File Processing=================================================
                         lst = encode.objects.filter(
                             hospital=obj.device.hospital)
                         if len(lst) == 0:
@@ -657,29 +656,40 @@ def pdf(request):
                             enc = encode.objects.create(
                                 hospital=obj.device.hospital, name=filename)
                             enc.save()
+                            encode_file.write('{}\n{}\n'.format(obj.device.hospital.name, filename))
                         else:
                             filename = lst[0].name
 
-                        files = ftp.nlst()
-                        if not filename in files:
+                
+    #===================================Begin-FTP Stuf=================================================
+                        ftp.cwd('pdf')
+                        if not obj.device.hospital.city.state_name.name in ftp.nlst():
+                            ftp.mkd(obj.device.hospital.city.state_name.name)
+                        ftp.cwd(obj.device.hospital.city.state_name.name)
+                        if not obj.device.hospital.city.name in ftp.nlst():
+                            ftp.mkd(obj.device.hospital.city.name)
+                        ftp.cwd(obj.device.hospital.city.name)
+                        if not filename in ftp.nlst():
                             ftp.mkd(filename)
                         ftp.cwd(filename)
-                        files = ftp.nlst()
-                        if not str(obj.request.number) in files:
+                        if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
                         ftp.cwd(str(obj.request.number))
-                        files = ftp.nlst()
-                        if not str(modellist[s]) in files:
-                            ftp.mkd(str(modellist[s]))
-                        ftp.cwd(str(modellist[s]))
+                        if not str(obj.device.section.name) in ftp.nlst():
+                            ftp.mkd(str(obj.device.section.name))
+                        ftp.cwd(str(obj.device.section.name))
+                        if not modellist[s] in ftp.nlst():
+                            ftp.mkd(modellist[s])
+                        ftp.cwd(modellist[s])
                         try:
                             send_file_ftp(ftp, f'{obj.licence.number}.pdf')
                             file.write(
                                 f'{obj.licence.number} :: File Successfully Uploaded!\n')
                         except:
                             file.write(
-                                f'{obj.licence.number} :: An eeror occured while uploading to Host!\n')
+                                f'{obj.licence.number} :: An eeror occured while uploading to Host!\n')                        
                         ftp.cwd('../../..')
+    #===================================End-FTP Stuf=================================================
                         a12 = report.objects.create(tt=ad_test_type0.objects.get(type=modellist[s]), device=obj.device,
                                                     request=obj.request, date=obj.date, user=obj.user, status=obj.status,
                                                     record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
@@ -694,7 +704,8 @@ def pdf(request):
                 s += 1
             ftp.close()
             file.close()
-            return HttpResponse('done :)')
+            encode_file.close()
+            return HttpResponse('done :) ')
     else:
         raise Http404
 
@@ -709,7 +720,16 @@ def reportview(request):
                 licence__number=request.GET['licence_num'])
         if len(data) != 0:
             name = encode.objects.get(hospital=data[0].device.hospital)
-            return redirect('https://dl.qc.kaadco.ir/{}/{}/{}/{}.pdf'.format(name.name, data[0].request.number, data[0].tt, data[0].licence.number))
+            return redirect('https://{}/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(
+                dl_domain_name, 
+                data[0].request.hospital.city.state_name.name, 
+                data[0].request.hospital.city.name,
+                name.name,
+                data[0].request.number,
+                data[0].device.section.name,
+                data[0].tt,
+                data[0].licence.number
+                ))
 
         raise Http404
     else:
