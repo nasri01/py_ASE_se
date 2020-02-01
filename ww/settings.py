@@ -119,12 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'home2/kaadir/public_html/static'
+STATIC_ROOT = '/home2/kaadir/panel.azmasaba.ir/static'
 #STATIC_ROOT = '/home/kaadcoir/public_html/qc/static'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ww/static/'),]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ww/static/'),]
 
-MEDIA_ROOT = 'home2/kaadir/public_html/media'
+MEDIA_ROOT = '/home2/kaadir/panel.azmasaba.ir/media'
 MEDIA_URL = '/media/'
 
 
