@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['qc.sairanmed.ir', 'localhost']
+ALLOWED_HOSTS = ['panel.azmasaba.ir', 'www.panel.azmasaba.ir' 'localhost']
 
 
 # Application definition
