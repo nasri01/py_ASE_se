@@ -119,7 +119,7 @@ class Parameters(models.Model):
 
 class aUserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatar/')
+    avatar = models.ImageField(upload_to='avatar/', default='avatar/male-profile-avatar-with-brown-hair-vector-12055105.jpg')
     signature = models.ImageField(
         upload_to='signature/', null=True, blank=True)
     status = models.ForeignKey(ad_acc_Status, on_delete=models.PROTECT)
