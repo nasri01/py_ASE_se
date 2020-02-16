@@ -976,7 +976,7 @@ class anesthesia_machine_1(models.Model):
     test_type = models.ForeignKey(
         acc.models.ad_test_type, on_delete=models.CASCADE, related_name='am1tt')
 
-    s1_res = models.IntegerField()
+    s1_res = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='am1s1e1comment', default=1)
     s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
@@ -1225,7 +1225,7 @@ class defibrilator_1(models.Model):
     test_type = models.ForeignKey(
         acc.models.ad_test_type, on_delete=models.CASCADE, related_name='df1tt')
 
-    s1_res = models.IntegerField()
+    s1_res = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
                                       related_name='df1s1e1comment', default=1)
 
@@ -2937,7 +2937,7 @@ class ventilator_1(models.Model):
     test_type = models.ForeignKey(
         acc.models.ad_test_type, on_delete=models.CASCADE, related_name='ven1tt')
 
-    # s1_res = models.IntegerField(default=-1)
+    # s1_res = models.FloatField(default=-1)
     # s1_e1_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
     #                                   related_name='ven1s1e1comment')
     # s1_e2_comment = models.ForeignKey(acc.models.comment, on_delete=models.PROTECT,
