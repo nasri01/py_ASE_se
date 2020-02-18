@@ -4,14 +4,15 @@
 
 
 <form method="POST" class="post-form">
-    <div style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 50px;z-index: 100;">
-  <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}" target="_blank"
-    style="width: 100%;">افزودن کامنت</a>
+  <div
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 50px;z-index: 100;">
+    <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}" target="_blank" style="width: 100%;">افزودن
+      کامنت</a>
     <div style="height: 10px;"></div>
     <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_nibp' %}"
-     formnovalidate>بارگزاری مجدد فرم</button>
+      formnovalidate>بارگزاری مجدد فرم</button>
   </div>
-    {% csrf_token %}
+  {% csrf_token %}
 
   <table class="table-bordered">
     <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
@@ -392,18 +393,18 @@
           <div class="help-box" role="alert">
             <ul>
               <li>
-                  زیادی میزان نشتی فشارسنج و قابل قبولی فشار هاي ديناميكي، به گزارش آزمون مراجعه شود.
+                زیادی میزان نشتی فشارسنج و قابل قبولی فشار هاي ديناميكي، به گزارش آزمون مراجعه شود.
               </li>
               <li>
-                  عدم انجام آزمون نشتي هوا و فشار حداکثر ايمني، به دلیل عدم وجود مد مانومتر برروی دستگاه
+                عدم انجام آزمون نشتي هوا و فشار حداکثر ايمني، به دلیل عدم وجود مد مانومتر برروی دستگاه
               </li>
               <li>
-                  میزان نشتی NIBP بيش از حد استاندارد، به گزارش آزمون مراجعه شود.
+                میزان نشتی NIBP بيش از حد استاندارد، به گزارش آزمون مراجعه شود.
               </li>
               <li>
-                  میزان نشتی فشار استاتیک بيش از حد استاندارد
+                میزان نشتی فشار استاتیک بيش از حد استاندارد
               </li>
-              
+
             </ul>
           </div>
         </div>
@@ -1020,8 +1021,8 @@
     .focusout(function () {
       // alert($( "#id_s2_e1_comment" ).val());
       var k = $("#id_s2_e1_pr1").val().split('/');
-      var a = k[0] - 30;
-      var b = k[1] - 60;
+      var a = k[0] - 60;
+      var b = k[1] - 30;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1052,8 +1053,8 @@
   $("#id_s2_e1_pr2")
     .focusout(function () {
       var k = $("#id_s2_e1_pr2").val().split('/');
-      var a = k[0] - 30;
-      var b = k[1] - 60;
+      var a = k[0] - 60;
+      var b = k[1] - 30;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1064,8 +1065,8 @@
   $("#id_s2_e1_pr3")
     .focusout(function () {
       var k = $("#id_s2_e1_pr3").val().split('/');
-      var a = k[0] - 30;
-      var b = k[1] - 60;
+      var a = k[0] - 60;
+      var b = k[1] - 30;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1077,8 +1078,8 @@
   $("#id_s2_e2_pr1")
     .focusout(function () {
       var k = $("#id_s2_e2_pr1").val().split('/');
-      var a = k[0] - 50;
-      var b = k[1] - 80;
+      var a = k[0] - 80;
+      var b = k[1] - 50;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1089,8 +1090,8 @@
   $("#id_s2_e2_pr2")
     .focusout(function () {
       var k = $("#id_s2_e2_pr2").val().split('/');
-      var a = k[0] - 50;
-      var b = k[1] - 80;
+      var a = k[0] - 80;
+      var b = k[1] - 50;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1101,8 +1102,8 @@
   $("#id_s2_e2_pr3")
     .focusout(function () {
       var k = $("#id_s2_e2_pr3").val().split('/');
-      var a = k[0] - 50;
-      var b = k[1] - 80;
+      var a = k[0] - 80;
+      var b = k[1] - 50;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1114,8 +1115,8 @@
   $("#id_s2_e3_pr1")
     .focusout(function () {
       var k = $("#id_s2_e3_pr1").val().split('/');
-      var a = k[0] - 80;
-      var b = k[1] - 120;
+      var a = k[0] - 120;
+      var b = k[1] - 80;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1126,8 +1127,8 @@
   $("#id_s2_e3_pr2")
     .focusout(function () {
       var k = $("#id_s2_e3_pr2").val().split('/');
-      var a = k[0] - 80;
-      var b = k[1] - 120;
+      var a = k[0] - 120;
+      var b = k[1] - 80;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1138,8 +1139,8 @@
   $("#id_s2_e3_pr3")
     .focusout(function () {
       var k = $("#id_s2_e3_pr3").val().split('/');
-      var a = k[0] - 80;
-      var b = k[1] - 120;
+      var a = k[0] - 120;
+      var b = k[1] - 80;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1152,8 +1153,8 @@
   $("#id_s2_e4_pr1")
     .focusout(function () {
       var k = $("#id_s2_e4_pr1").val().split('/');
-      var a = k[0] - 150;
-      var b = k[1] - 200;
+      var a = k[0] - 200;
+      var b = k[1] - 150;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1164,8 +1165,8 @@
   $("#id_s2_e4_pr2")
     .focusout(function () {
       var k = $("#id_s2_e4_pr2").val().split('/');
-      var a = k[0] - 150;
-      var b = k[1] - 200;
+      var a = k[0] - 200;
+      var b = k[1] - 150;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1176,8 +1177,8 @@
   $("#id_s2_e4_pr3")
     .focusout(function () {
       var k = $("#id_s2_e4_pr3").val().split('/');
-      var a = k[0] - 150;
-      var b = k[1] - 200;
+      var a = k[0] - 200;
+      var b = k[1] - 150;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1190,8 +1191,8 @@
   $("#id_s2_e5_pr1")
     .focusout(function () {
       var k = $("#id_s2_e5_pr1").val().split('/');
-      var a = k[0] - 15;
-      var b = k[1] - 35;
+      var a = k[0] - 35;
+      var b = k[1] - 15;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1202,8 +1203,8 @@
   $("#id_s2_e5_pr2")
     .focusout(function () {
       var k = $("#id_s2_e5_pr2").val().split('/');
-      var a = k[0] - 15;
-      var b = k[1] - 35;
+      var a = k[0] - 35;
+      var b = k[1] - 15;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1214,8 +1215,8 @@
   $("#id_s2_e5_pr3")
     .focusout(function () {
       var k = $("#id_s2_e5_pr3").val().split('/');
-      var a = k[0] - 15;
-      var b = k[1] - 35;
+      var a = k[0] - 35;
+      var b = k[1] - 15;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1228,8 +1229,8 @@
   $("#id_s2_e6_pr1")
     .focusout(function () {
       var k = $("#id_s2_e6_pr1").val().split('/');
-      var a = k[0] - 70;
-      var b = k[1] - 100;
+      var a = k[0] - 100;
+      var b = k[1] - 70;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1240,8 +1241,8 @@
   $("#id_s2_e6_pr2")
     .focusout(function () {
       var k = $("#id_s2_e6_pr2").val().split('/');
-      var a = k[0] - 70;
-      var b = k[1] - 100;
+      var a = k[0] - 100;
+      var b = k[1] - 70;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1252,8 +1253,8 @@
   $("#id_s2_e6_pr3")
     .focusout(function () {
       var k = $("#id_s2_e6_pr3").val().split('/');
-      var a = k[0] - 70;
-      var b = k[1] - 100;
+      var a = k[0] - 100;
+      var b = k[1] - 70;
       if (a < 0)
         a = -a;
       if (b < 0)
@@ -1267,8 +1268,8 @@
     var diasystolic_error = 0;
 
     var k = $("#id_s2_e1_pr1").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1277,8 +1278,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e1_pr2").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1287,8 +1288,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e1_pr3").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1300,8 +1301,8 @@
 
 
     var k = $("#id_s2_e2_pr1").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1310,8 +1311,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e2_pr2").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1320,8 +1321,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e2_pr3").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1332,8 +1333,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e3_pr1").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1342,8 +1343,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e3_pr2").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1352,8 +1353,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e3_pr3").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1364,8 +1365,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e4_pr1").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1374,8 +1375,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e4_pr2").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1384,8 +1385,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e4_pr3").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1396,8 +1397,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e5_pr1").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1406,8 +1407,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e5_pr2").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1416,8 +1417,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e5_pr3").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1428,8 +1429,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e6_pr1").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1438,8 +1439,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e6_pr2").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1448,8 +1449,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e6_pr3").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1494,8 +1495,8 @@
 
 
     var k = $("#id_s2_e1_pr1").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1505,8 +1506,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e1_pr2").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1515,8 +1516,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e1_pr3").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1526,8 +1527,8 @@
     ///////////////////
 
     var k = $("#id_s2_e2_pr1").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1536,8 +1537,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e2_pr2").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1546,8 +1547,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e2_pr3").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1556,8 +1557,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     /////////
     var k = $("#id_s2_e3_pr1").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1565,8 +1566,8 @@
     SD1 += (a - avg_systolic_error) * (a - avg_systolic_error);
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     var k = $("#id_s2_e3_pr2").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1575,8 +1576,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e3_pr3").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1585,8 +1586,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     ///////////////////
     var k = $("#id_s2_e4_pr1").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1595,8 +1596,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e4_pr2").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1605,8 +1606,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e4_pr3").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1615,8 +1616,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     ///////////////////
     var k = $("#id_s2_e5_pr1").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1625,8 +1626,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e5_pr2").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1634,8 +1635,8 @@
     SD1 += (a - avg_systolic_error) * (a - avg_systolic_error);
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     var k = $("#id_s2_e5_pr3").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1644,8 +1645,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     ///////////
     var k = $("#id_s2_e6_pr1").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1654,8 +1655,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e6_pr2").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1664,8 +1665,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e6_pr3").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -1740,7 +1741,7 @@
 
 
 
-{% if reload and edit and edit_recal %}
+{% if reload or edit or edit_recal %}
 <script>
   /////////////////table0
   $("#id_s0_e1_comment")
@@ -2338,8 +2339,8 @@
 
   // alert($( "#id_s2_e1_comment" ).val());
   var k = $("#id_s2_e1_pr1").val().split('/');
-  var a = k[0] - 30;
-  var b = k[1] - 60;
+  var a = k[0] - 60;
+  var b = k[1] - 30;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2370,8 +2371,8 @@
   $("#id_s2_e1_pr2")
 
   var k = $("#id_s2_e1_pr2").val().split('/');
-  var a = k[0] - 30;
-  var b = k[1] - 60;
+  var a = k[0] - 60;
+  var b = k[1] - 30;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2382,8 +2383,8 @@
   $("#id_s2_e1_pr3")
 
   var k = $("#id_s2_e1_pr3").val().split('/');
-  var a = k[0] - 30;
-  var b = k[1] - 60;
+  var a = k[0] - 60;
+  var b = k[1] - 30;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2395,8 +2396,8 @@
   $("#id_s2_e2_pr1")
 
   var k = $("#id_s2_e2_pr1").val().split('/');
-  var a = k[0] - 50;
-  var b = k[1] - 80;
+  var a = k[0] - 80;
+  var b = k[1] - 50;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2407,8 +2408,8 @@
   $("#id_s2_e2_pr2")
 
   var k = $("#id_s2_e2_pr2").val().split('/');
-  var a = k[0] - 50;
-  var b = k[1] - 80;
+  var a = k[0] - 80;
+  var b = k[1] - 50;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2419,8 +2420,8 @@
   $("#id_s2_e2_pr3")
 
   var k = $("#id_s2_e2_pr3").val().split('/');
-  var a = k[0] - 50;
-  var b = k[1] - 80;
+  var a = k[0] - 80;
+  var b = k[1] - 50;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2432,8 +2433,8 @@
   $("#id_s2_e3_pr1")
 
   var k = $("#id_s2_e3_pr1").val().split('/');
-  var a = k[0] - 80;
-  var b = k[1] - 120;
+  var a = k[0] - 120;
+  var b = k[1] - 80;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2444,8 +2445,8 @@
   $("#id_s2_e3_pr2")
 
   var k = $("#id_s2_e3_pr2").val().split('/');
-  var a = k[0] - 80;
-  var b = k[1] - 120;
+  var a = k[0] - 120;
+  var b = k[1] - 80;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2456,8 +2457,8 @@
   $("#id_s2_e3_pr3")
 
   var k = $("#id_s2_e3_pr3").val().split('/');
-  var a = k[0] - 80;
-  var b = k[1] - 120;
+  var a = k[0] - 120;
+  var b = k[1] - 80;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2470,8 +2471,8 @@
   $("#id_s2_e4_pr1")
 
   var k = $("#id_s2_e4_pr1").val().split('/');
-  var a = k[0] - 150;
-  var b = k[1] - 200;
+  var a = k[0] - 200;
+  var b = k[1] - 150;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2482,8 +2483,8 @@
   $("#id_s2_e4_pr2")
 
   var k = $("#id_s2_e4_pr2").val().split('/');
-  var a = k[0] - 150;
-  var b = k[1] - 200;
+  var a = k[0] - 200;
+  var b = k[1] - 150;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2494,8 +2495,8 @@
   $("#id_s2_e4_pr3")
 
   var k = $("#id_s2_e4_pr3").val().split('/');
-  var a = k[0] - 150;
-  var b = k[1] - 200;
+  var a = k[0] - 200;
+  var b = k[1] - 150;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2508,8 +2509,8 @@
   $("#id_s2_e5_pr1")
 
   var k = $("#id_s2_e5_pr1").val().split('/');
-  var a = k[0] - 15;
-  var b = k[1] - 35;
+  var a = k[0] - 35;
+  var b = k[1] - 15;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2520,8 +2521,8 @@
   $("#id_s2_e5_pr2")
 
   var k = $("#id_s2_e5_pr2").val().split('/');
-  var a = k[0] - 15;
-  var b = k[1] - 35;
+  var a = k[0] - 35;
+  var b = k[1] - 15;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2532,8 +2533,8 @@
   $("#id_s2_e5_pr3")
 
   var k = $("#id_s2_e5_pr3").val().split('/');
-  var a = k[0] - 15;
-  var b = k[1] - 35;
+  var a = k[0] - 35;
+  var b = k[1] - 15;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2546,8 +2547,8 @@
   $("#id_s2_e6_pr1")
 
   var k = $("#id_s2_e6_pr1").val().split('/');
-  var a = k[0] - 70;
-  var b = k[1] - 100;
+  var a = k[0] - 100;
+  var b = k[1] - 70;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2558,8 +2559,8 @@
   $("#id_s2_e6_pr2")
 
   var k = $("#id_s2_e6_pr2").val().split('/');
-  var a = k[0] - 70;
-  var b = k[1] - 100;
+  var a = k[0] - 100;
+  var b = k[1] - 70;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2570,8 +2571,8 @@
   $("#id_s2_e6_pr3")
 
   var k = $("#id_s2_e6_pr3").val().split('/');
-  var a = k[0] - 70;
-  var b = k[1] - 100;
+  var a = k[0] - 100;
+  var b = k[1] - 70;
   if (a < 0)
     a = -a;
   if (b < 0)
@@ -2585,8 +2586,8 @@
     var diasystolic_error = 0;
 
     var k = $("#id_s2_e1_pr1").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2595,8 +2596,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e1_pr2").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2605,8 +2606,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e1_pr3").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2618,8 +2619,8 @@
 
 
     var k = $("#id_s2_e2_pr1").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2628,8 +2629,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e2_pr2").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2638,8 +2639,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e2_pr3").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2650,8 +2651,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e3_pr1").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2660,8 +2661,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e3_pr2").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2670,8 +2671,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e3_pr3").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2682,8 +2683,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e4_pr1").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2692,8 +2693,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e4_pr2").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2702,8 +2703,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e4_pr3").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2714,8 +2715,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e5_pr1").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2724,8 +2725,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e5_pr2").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2734,8 +2735,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e5_pr3").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2746,8 +2747,8 @@
     /////////////////////////////////////////////
 
     var k = $("#id_s2_e6_pr1").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2756,8 +2757,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e6_pr2").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2766,8 +2767,8 @@
     diasystolic_error += b;
 
     var k = $("#id_s2_e6_pr3").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2812,8 +2813,8 @@
 
 
     var k = $("#id_s2_e1_pr1").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2823,8 +2824,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e1_pr2").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2833,8 +2834,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e1_pr3").val().split('/');
-    var a = k[0] - 30;
-    var b = k[1] - 60;
+    var a = k[0] - 60;
+    var b = k[1] - 30;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2844,8 +2845,8 @@
     ///////////////////
 
     var k = $("#id_s2_e2_pr1").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2854,8 +2855,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e2_pr2").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2864,8 +2865,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e2_pr3").val().split('/');
-    var a = k[0] - 50;
-    var b = k[1] - 80;
+    var a = k[0] - 80;
+    var b = k[1] - 50;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2874,8 +2875,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     /////////
     var k = $("#id_s2_e3_pr1").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2883,8 +2884,8 @@
     SD1 += (a - avg_systolic_error) * (a - avg_systolic_error);
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     var k = $("#id_s2_e3_pr2").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2893,8 +2894,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e3_pr3").val().split('/');
-    var a = k[0] - 80;
-    var b = k[1] - 120;
+    var a = k[0] - 120;
+    var b = k[1] - 80;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2903,8 +2904,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     ///////////////////
     var k = $("#id_s2_e4_pr1").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2913,8 +2914,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e4_pr2").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2923,8 +2924,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e4_pr3").val().split('/');
-    var a = k[0] - 150;
-    var b = k[1] - 200;
+    var a = k[0] - 200;
+    var b = k[1] - 150;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2933,8 +2934,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     ///////////////////
     var k = $("#id_s2_e5_pr1").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2943,8 +2944,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e5_pr2").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2952,8 +2953,8 @@
     SD1 += (a - avg_systolic_error) * (a - avg_systolic_error);
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     var k = $("#id_s2_e5_pr3").val().split('/');
-    var a = k[0] - 15;
-    var b = k[1] - 35;
+    var a = k[0] - 35;
+    var b = k[1] - 15;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2962,8 +2963,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
     ///////////
     var k = $("#id_s2_e6_pr1").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2972,8 +2973,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e6_pr2").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
@@ -2982,8 +2983,8 @@
     SD2 += (b - avg_diasystolic_error) * (b - avg_diasystolic_error);
 
     var k = $("#id_s2_e6_pr3").val().split('/');
-    var a = k[0] - 70;
-    var b = k[1] - 100;
+    var a = k[0] - 100;
+    var b = k[1] - 70;
     if (a < 0)
       a = -a;
     if (b < 0)
