@@ -114,13 +114,13 @@ def xlsx(request):
                 else:
                     row.append('-')  # 11
                 if iii == 0:
-                    row.append('-SPO2' + obj.totalcomment)  # 12*
+                    row.append('-SPO2-' + obj.totalcomment)  # 12*
                 elif iii == 1:
-                    row.append('-ECG' + obj.totalcomment)  # 12*
+                    row.append('-ECG-' + obj.totalcomment)  # 12*
                 elif iii == 2:
-                    row.append('-NIBP' + obj.totalcomment)  # 12*
+                    row.append('-NIBP-' + obj.totalcomment)  # 12*
                 elif iii == 3:
-                    row.append('-Safety' + obj.totalcomment)  # 12*
+                    row.append('-Safety-' + obj.totalcomment)  # 12*
                 else:
                     row.append(obj.totalcomment)  # 12*
                 row.append(obj.status.id)  # 13
