@@ -647,6 +647,7 @@ def pdf(request):
                         font_config = FontConfiguration()
                         html = render_to_string(template_name, {
                             'form': obj, 'time': t2, 'usr': usr, 'data': data, 'domain_name':domain_name})
+                        print('\n\n\n\n\n\n\nhttp://{}{}'.format(domain_name, usr.signature.url))
                         css_root = static('/css')
                         css1 = CSS(
                             filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
