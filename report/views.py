@@ -700,7 +700,9 @@ def pdf(request):
                         except:
                             file.write(
                                 f'{obj.licence.number} :: An eeror occured while uploading to Host!\n')                        
-                        ftp.cwd('../../..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
     #===================================End-FTP Stuf=================================================
                         a12 = report.objects.create(tt=ad_test_type0.objects.get(type=modellist[s]), device=obj.device,
                                                     request=obj.request, date=obj.date, user=obj.user, status=obj.status,
