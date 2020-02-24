@@ -675,21 +675,21 @@ def pdf(request):
                 
     #===================================Begin-FTP Stuf=================================================
                         ftp.cwd('pdf')
-                        if not obj.device.hospital.city.state_name.name in ftp.nlst():
-                            ftp.mkd(obj.device.hospital.city.state_name.name)
-                        ftp.cwd(obj.device.hospital.city.state_name.name)
-                        if not obj.device.hospital.city.name in ftp.nlst():
-                            ftp.mkd(obj.device.hospital.city.name)
-                        ftp.cwd(obj.device.hospital.city.name)
+                        if not obj.device.hospital.city.state_name.eng_name in ftp.nlst():
+                            ftp.mkd(obj.device.hospital.city.state_name.eng_name)
+                        ftp.cwd(obj.device.hospital.city.state_name.eng_name)
+                        if not obj.device.hospital.city.eng_name in ftp.nlst():
+                            ftp.mkd(obj.device.hospital.city.eng_name)
+                        ftp.cwd(obj.device.hospital.city.eng_name)
                         if not filename in ftp.nlst():
                             ftp.mkd(filename)
                         ftp.cwd(filename)
                         if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
                         ftp.cwd(str(obj.request.number))
-                        if not str(obj.device.section.name) in ftp.nlst():
-                            ftp.mkd(str(obj.device.section.name))
-                        ftp.cwd(str(obj.device.section.name))
+                        if not str(obj.device.section.eng_name) in ftp.nlst():
+                            ftp.mkd(str(obj.device.section.eng_name))
+                        ftp.cwd(str(obj.device.section.eng_name))
                         if not modellist[s] in ftp.nlst():
                             ftp.mkd(modellist[s])
                         ftp.cwd(modellist[s])

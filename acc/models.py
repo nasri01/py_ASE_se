@@ -76,6 +76,7 @@ class Country(models.Model):
 class State(models.Model):
     name = models.TextField()
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    eng_name = models.TextField()
 
     class Meta:
         verbose_name_plural = "استان ها"
@@ -87,6 +88,7 @@ class State(models.Model):
 class City(models.Model):
     state_name = models.ForeignKey(State, on_delete=models.CASCADE)
     name = models.TextField()
+    eng_name = models.TextField()
 
     class Meta:
         verbose_name_plural = "شهر ها"
