@@ -195,11 +195,14 @@ def xlsx(request):
 
                 ws.write_row(row=cursor, col=0, data=data, cell_format=fstate)
                 data1 = report.objects.filter(licence__number=idata[11])
-                name = encode.objects.get(hospital=data1[0].device.hospital)
-                ul = 'https://dl.qc.kaadco.ir/{}/{}/{}/{}.pdf'.format(
-                    name.name, data1[0].request.number, data1[0].tt, data1[0].licence.number)
-                ws.write_url(row=cursor, col=len(data), url=ul,
+                try:
+                    name = encode.objects.get(hospital=data1[0].device.hospital)
+                    ul = 'https://dl.qc.kaadco.ir/{}/{}/{}/{}.pdf'.format(
+                        name.name, data1[0].request.number, data1[0].tt, data1[0].licence.number)
+                    ws.write_url(row=cursor, col=len(data), url=ul,
                              cell_format=fstate, string='show', tip='Downlaod PDF')
+                except:
+                    pass
                 cursor += 1
             wb.close()
 
