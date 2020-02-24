@@ -709,7 +709,7 @@ def pdf(request):
                         a12.save()
                         file.write(
                             f'{obj.licence.number} :: Report has been generated!\n')
-                        obj.delete()
+                        # obj.delete()
                         file.write(
                             f'{obj.licence.number} :: Raw data has beed deleted!\n\n')
 
