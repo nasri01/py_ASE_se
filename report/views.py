@@ -92,7 +92,7 @@ def xlsx(request):
                         request__hospital__user__id__exact=request.user.id)
                     data1.append(modelobj)
 
-        for obj1 in data1:
+        for iii, obj1 in enumerate(data1):
             for obj in obj1:
                 row = []
                 row.append(obj.device.hospital.city.state_name.name)  # 0
@@ -113,7 +113,16 @@ def xlsx(request):
                     row.append(obj.licence.number)  # 11
                 else:
                     row.append('-')  # 11
-                row.append(obj.totalcomment)  # 12*
+                if iii == 0:
+                    row.append('-SPO2' + obj.totalcomment)  # 12*
+                elif iii == 1:
+                    row.append('-ECG' + obj.totalcomment)  # 12*
+                elif iii == 2:
+                    row.append('-NIBP' + obj.totalcomment)  # 12*
+                elif iii == 3:
+                    row.append('-Safety' + obj.totalcomment)  # 12*
+                else:
+                    row.append(obj.totalcomment)  # 12*
                 row.append(obj.status.id)  # 13
                 data.append(row)
         print(data)
