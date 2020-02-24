@@ -10,7 +10,7 @@ from jdatetime import timedelta
 from form.models import *
 from acc.models import licence as acc_licence
 from .models import report, encode
-from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain_name
+from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain_name, domain_name
 
 
 from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
@@ -206,8 +206,8 @@ def xlsx(request):
                 data1 = report.objects.filter(licence__number=idata[11])
                 try:
                     name = encode.objects.get(hospital=data1[0].device.hospital)
-                    ul = 'https://dl.qc.kaadco.ir/{}/{}/{}/{}.pdf'.format(
-                        name.name, data1[0].request.number, data1[0].tt, data1[0].licence.number)
+                    ul = 'https://{}/{}/{}/{}/{}.pdf'.format(
+                        dl_domain_name ,name.name, data1[0].request.number, data1[0].tt, data1[0].licence.number)
                     ws.write_url(row=cursor, col=len(data), url=ul,
                              cell_format=fstate, string='show', tip='Downlaod PDF')
                 except:
@@ -646,7 +646,7 @@ def pdf(request):
                         t2 = jdatetime.datetime.today()
                         font_config = FontConfiguration()
                         html = render_to_string(template_name, {
-                            'form': obj, 'time': t2, 'usr': usr, 'data': data})
+                            'form': obj, 'time': t2, 'usr': usr, 'data': data, 'domain_name':domain_name})
                         css_root = static('/css')
                         css1 = CSS(
                             filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
