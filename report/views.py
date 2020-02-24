@@ -444,10 +444,10 @@ def pdf(request):
                             print(data2)
                             data.append(sum(data1))  # 0
                             data.append(sum(data2))  # 1
-                            data.append(round(np.mean(data1), 2))  # 2
-                            data.append(round(np.mean(data2), 2))  # 3
-                            data.append(round(np.std(data1), 2))  # 4
-                            data.append(round(np.std(data2), 2))  # 5
+                            data.append(round(mean(data1), 2))  # 2
+                            data.append(round(mean(data2), 2))  # 3
+                            data.append(round(stdev(data1), 2))  # 4
+                            data.append(round(stdev(data2), 2))  # 5
                             data.append(data3)  # 6
 
                             data.append(data1)  # 7
