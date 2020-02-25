@@ -8,7 +8,7 @@
 <div style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 50px;z-index: 100;">
   <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}"  target="_blank" style="width: 100%;" >افزودن کامنت</a>
   <div style="height: 10px;"></div>
-<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='ecg' %}"   formnovalidate>بارگزاری مجدد فرم</button>
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='ECG' %}"   formnovalidate>بارگزاری مجدد فرم</button>
 </div>
     {% csrf_token %}
 
@@ -1150,7 +1150,7 @@
             <input type="text" name="op_type" value="save" hidden>
           {% endif %}
                 <br><br>
-          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='ecg' %}" >
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='ECG' %}" >
               ذخیره نهایی
             </button>
 

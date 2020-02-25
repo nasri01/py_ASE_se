@@ -28,12 +28,12 @@ import weasyprint
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, defibrilator_1, aed_1, ecg_1,
-              infusion_pump_1, syringe_pump_1, spo2_1, flowmeter_1, anesthesia_machine_1, ventilator_1,
-              suction_1, electrocauter_1, monometer_1, cant_test, report]
+model_list = [MonitorSpo2_1, MonitorECG_1, MonitorNIBP_1, MonitorSafety_1, Defibrilator_1, AED_1, ECG_1,
+              InfusionPump_1, SyringePump_1, Spo2_1, FlowMeter_1, AnesthesiaMachine_1, Ventilator_1,
+              Suction_1, ElectroCauter_1, ManoMeter_1, CantTest, report]
 modellist = ['monitor Spo2', 'monitor ECG', 'monitor NIBP', 'monitor Safety', 'Defibrilator', 'AED', 'ECG',
              'Infusion Pump', 'Syringe Pump', 'Pulse Oximetry', 'Flow Meter', 'Anesthesia Machine', 'Ventilator',
-             'Suction', 'ElectroCauter', 'Mano Meter', 'cant_test']
+             'Suction', 'ElectroCauter', 'Mano Meter', 'CantTest']
 
 
 def xlsx(request):
@@ -283,7 +283,7 @@ def req_summary(request):
             for model in model_list[:-2]:
                 temp = model.objects.filter(request__number__exact=rn).filter(  # number of test of each device
                     device__section__name__exact=sn)
-                temp2 = cant_test.objects.filter(request__number__exact=rn).filter(  # number of cant test of each device
+                temp2 = CantTest.objects.filter(request__number__exact=rn).filter(  # number of cant test of each device
                     device__section__name__exact=sn).filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
                 data[s] = len(temp)
                 data[s+1] = len(temp2)
@@ -333,7 +333,7 @@ def pdf(request):
                     for obj in dd:
     #===================================Begin-File Backing=================================================
                         data = []
-                        if(model == monitor_spo2_1):
+                        if(model == MonitorSpo2_1):
                             template_name = 'report/Monitor/Spo2/licence1.html'
                             ss = 0
                             sss = 0
@@ -361,7 +361,7 @@ def pdf(request):
                                 sss += data[i]
                             data.append(int(((sss/5)**0.5)*100)/100)  # 17
 
-                        elif (model == monitor_nibp_1):
+                        elif (model == MonitorNIBP_1):
                             template_name = 'report/Monitor/NIBP/licence1.html'
                             data1 = []
                             data2 = []
@@ -453,26 +453,26 @@ def pdf(request):
                             data.append(data1)  # 7
                             data.append(data2)  # 8
 
-                        elif (model == monitor_ecg_1):
+                        elif (model == MonitorECG_1):
                             template_name = 'report/Monitor/ECG/licence1.html'
 
-                        elif (model == monitor_safety_1):
+                        elif (model == MonitorSafety_1):
                             template_name = 'report/Monitor/SAFETY/licence1.html'
 
-                        elif (model == aed_1):
-                            template_name = 'report/aed/licence1.html'
+                        elif (model == AED_1):
+                            template_name = 'report/AED/licence1.html'
 
-                        elif (model == anesthesia_machine_1):
+                        elif (model == AnesthesiaMachine_1):
                             template_name = 'report/anesthesiamachine/licence1.html'
 
-                        elif (model == defibrilator_1):
-                            template_name = 'report/defibrilator/licence1.html'
+                        elif (model == Defibrilator_1):
+                            template_name = 'report/Defibrilator/licence1.html'
 
-                        elif (model == ecg_1):
-                            template_name = 'report/ecg/licence1.html'
+                        elif (model == ECG_1):
+                            template_name = 'report/ECG/licence1.html'
 
-                        elif (model == electrocauter_1):
-                            template_name = 'report/electrocauter/licence1.html'
+                        elif (model == ElectroCauter_1):
+                            template_name = 'report/ElectroCauter/licence1.html'
                             data.append(abs(obj.s3a_e1_m - obj.s3a_e1_s))  # 0
                             data.append(
                                 (abs(obj.s3a_e1_m - obj.s3a_e1_m) / obj.s3a_e1_s) * 100)  # 1
@@ -523,8 +523,8 @@ def pdf(request):
                             data.append(
                                 (abs(obj.s3e_e3_m - obj.s3e_e3_s) / obj.s3e_e3_s) * 100)  # 29
 
-                        elif (model == flowmeter_1):
-                            template_name = 'report/flowmeter/licence1.html'
+                        elif (model == FlowMeter_1):
+                            template_name = 'report/FlowMeter/licence1.html'
                             data.append(abs(int(obj.s1_e1_rlpm) - 0.5))  # 0
                             data.append(abs(int(obj.s1_e2_rlpm) - 2))  # 1
                             data.append(abs(int(obj.s1_e3_rlpm) - 4))  # 2
@@ -538,18 +538,18 @@ def pdf(request):
                             data.append(data[4] * 10)  # 10
                             data.append(round(data[5] * (100/15), 2))  # 11
 
-                        elif (model == infusion_pump_1):
-                            template_name = 'report/infusion_pump/licence1.html'
+                        elif (model == InfusionPump_1):
+                            template_name = 'report/InfusionPump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
                             data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
-                        elif (model == monometer_1):
-                            template_name = 'report/monometer/licence1.html'
+                        elif (model == ManoMeter_1):
+                            template_name = 'report/ManoMeter/licence1.html'
                             data.append(abs(obj.s2_e1_sp - obj.s2_e1_np))  # 0
                             data.append(abs(obj.s2_e2_sp - obj.s2_e2_np))  # 1
                             data.append(abs(obj.s2_e3_sp - obj.s2_e3_np))  # 2
                             data.append(abs(obj.s2_e4_sp - obj.s2_e4_np))  # 3
-                        elif (model == spo2_1):
+                        elif (model == Spo2_1):
                             template_name = 'report/spo2/licence1.html'
                             ss = 0
                             sss = 0
@@ -577,8 +577,8 @@ def pdf(request):
                                 sss += data[i]
                             data.append(int(((sss/5)**0.5)*100)/100)  # 17
 
-                        elif (model == suction_1):
-                            template_name = 'report/suction/licence1.html'
+                        elif (model == Suction_1):
+                            template_name = 'report/Suction/licence1.html'
                             data.append(abs(int(obj.s1_e1_rr)))  # 0
                             data.append(abs(int(obj.s1_e2_rr)))  # 1
                             data.append(abs(int(obj.s1_e3_rr) - 100))  # 2
@@ -598,13 +598,13 @@ def pdf(request):
                             data.append(abs(int(obj.s2_e2_rr) - 114))  # 16
                             data.append(abs(int(obj.s2_e2_rr) - 150))  # 17
 
-                        elif (model == syringe_pump_1):
-                            template_name = 'report/syringe_pump/licence1.html'
+                        elif (model == SyringePump_1):
+                            template_name = 'report/SyringePump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
                             data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
-                        elif (model == ventilator_1):
-                            template_name = 'report/ventilator/licence1.html'
+                        elif (model == Ventilator_1):
+                            template_name = 'report/Ventilator/licence1.html'
                             if obj.s16_e1 <= 550 and obj.s16_e1 >= 450:  # 0
                                 data.append(1)
                             else:

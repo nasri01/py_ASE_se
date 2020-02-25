@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
 
-class cant_test(models.Model):
+class CantTest(models.Model):
     class Meta:
         verbose_name_plural = "1_Can,t Test"
     tt = models.ForeignKey(acc.models.ad_test_type0, on_delete=models.PROTECT)
@@ -22,10 +22,10 @@ class cant_test(models.Model):
         acc.models.ad_az_Status, on_delete=models.PROTECT, default=4)
 
     def __str__(self):
-        return 'cant_test : ' + str(self.tt) + str(self.device.name.name)
+        return 'CantTest : ' + str(self.tt) + str(self.device.name.name)
 
 
-class monitor_spo2_1(models.Model):
+class MonitorSpo2_1(models.Model):
     class Meta:
         verbose_name_plural = "Monitor SPO2"
     is_recal = models.BooleanField(default=False)
@@ -33,6 +33,7 @@ class monitor_spo2_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='ms1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -107,10 +108,10 @@ class monitor_spo2_1(models.Model):
                                       related_name='ms1s4e1comment', default=2)
 
     def __str__(self):
-        return 'monitor_spo2 : ' + str(self.licence)
+        return 'MonitorSpo2 : ' + str(self.licence)
 
 
-class monitor_ecg_1(models.Model):
+class MonitorECG_1(models.Model):
     class Meta:
         verbose_name_plural = "Monitor ECG"
     is_recal = models.BooleanField(default=False)
@@ -118,6 +119,7 @@ class monitor_ecg_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='me1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -299,10 +301,10 @@ class monitor_ecg_1(models.Model):
                                       related_name='me1s9e1comment', default=1)
 
     def __str__(self):
-        return 'monitor_ecg : ' + str(self.licence)
+        return 'MonitorECG : ' + str(self.licence)
 
 
-class monitor_nibp_1(models.Model):
+class MonitorNIBP_1(models.Model):
     class Meta:
         verbose_name_plural = "Monitor NIBP"
     is_recal = models.BooleanField(default=False)
@@ -310,6 +312,7 @@ class monitor_nibp_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='mn1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -376,10 +379,10 @@ class monitor_nibp_1(models.Model):
     s2_e6_pr3 = models.CharField(max_length=8)
 
     def __str__(self):
-        return 'monitor_nibp : ' + str(self.licence)
+        return 'MonitorNIBP : ' + str(self.licence)
 
 
-class aed_1(models.Model):
+class AED_1(models.Model):
     class Meta:
         verbose_name_plural = "AED"
     is_recal = models.BooleanField(default=False)
@@ -387,6 +390,7 @@ class aed_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='aed1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -652,10 +656,10 @@ class aed_1(models.Model):
     s13_e3_e = models.BooleanField()
 
     def __str__(self):
-        return 'aed : ' + str(self.licence)
+        return 'AED : ' + str(self.licence)
 
 
-class monitor_safety_1(models.Model):
+class MonitorSafety_1(models.Model):
     class Meta:
         verbose_name_plural = "Monitor Safety"
     is_recal = models.BooleanField(default=False)
@@ -663,6 +667,7 @@ class monitor_safety_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='msa1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -839,10 +844,10 @@ class monitor_safety_1(models.Model):
     s5_e15_lc = models.FloatField()
 
     def __str__(self):
-        return 'monitor_safety : ' + str(self.licence)
+        return 'MonitorSafety : ' + str(self.licence)
 
 
-class anesthesia_machine_1(models.Model):
+class AnesthesiaMachine_1(models.Model):
     class Meta:
         verbose_name_plural = "Anesthesia Machine"
     is_recal = models.BooleanField(default=False)
@@ -850,6 +855,7 @@ class anesthesia_machine_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='am1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -1134,10 +1140,10 @@ class anesthesia_machine_1(models.Model):
     # s19_g4_e4 = models.FloatField(default= -1 )
 
     def __str__(self):
-        return 'anesthesia_machine : ' + str(self.licence)
+        return 'AnesthesiaMachine : ' + str(self.licence)
 
 
-class defibrilator_1(models.Model):
+class Defibrilator_1(models.Model):
     class Meta:
         verbose_name_plural = "Defibrilator"
     is_recal = models.BooleanField(default=False)
@@ -1145,6 +1151,7 @@ class defibrilator_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='df1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -1565,10 +1572,10 @@ class defibrilator_1(models.Model):
                                        related_name='df1s12e3comment', default=1)
 
     def __str__(self):
-        return 'defibrilator : ' + str(self.licence)
+        return 'Defibrilator : ' + str(self.licence)
 
 
-class ecg_1(models.Model):
+class ECG_1(models.Model):
     class Meta:
         verbose_name_plural = "ElectroCardioGraph"
     is_recal = models.BooleanField(default=False)
@@ -1576,6 +1583,7 @@ class ecg_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='e1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -1781,10 +1789,10 @@ class ecg_1(models.Model):
     s18_e4_pac = models.IntegerField()
 
     def __str__(self):
-        return 'ecg : ' + str(self.licence)
+        return 'ECG : ' + str(self.licence)
 
 
-class flowmeter_1(models.Model):
+class FlowMeter_1(models.Model):
     class Meta:
         verbose_name_plural = "Flow Meter"
     is_recal = models.BooleanField(default=False)
@@ -1792,6 +1800,7 @@ class flowmeter_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='fm1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -1820,10 +1829,10 @@ class flowmeter_1(models.Model):
     s1_e6_rlpm = models.FloatField()
 
     def __str__(self):
-        return 'flowmeter : ' + str(self.licence)
+        return 'FlowMeter : ' + str(self.licence)
 
 
-class infusion_pump_1(models.Model):
+class InfusionPump_1(models.Model):
     class Meta:
         verbose_name_plural = "Infusion Pump"
     is_recal = models.BooleanField(default=False)
@@ -1831,6 +1840,7 @@ class infusion_pump_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='ip1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -1992,10 +2002,10 @@ class infusion_pump_1(models.Model):
     s8_e1_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'infusion_pump : ' + str(self.licence)
+        return 'InfusionPump : ' + str(self.licence)
 
 
-class monometer_1(models.Model):
+class ManoMeter_1(models.Model):
     class Meta:
         verbose_name_plural = "ManoMeter"
     is_recal = models.BooleanField(default=False)
@@ -2003,6 +2013,7 @@ class monometer_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='mm1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -2079,7 +2090,7 @@ class monometer_1(models.Model):
         return 'manometer : ' + str(self.licence)
 
 
-class spo2_1(models.Model):
+class Spo2_1(models.Model):
     class Meta:
         verbose_name_plural = "PulseOxyMeter"
     is_recal = models.BooleanField(default=False)
@@ -2087,6 +2098,7 @@ class spo2_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='sp1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -2192,7 +2204,7 @@ class spo2_1(models.Model):
         return 'spo2 : ' + str(self.licence)
 
 
-class suction_1(models.Model):
+class Suction_1(models.Model):
     class Meta:
         verbose_name_plural = "Suction"
     is_recal = models.BooleanField(default=False)
@@ -2200,6 +2212,7 @@ class suction_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='su1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -2300,10 +2313,10 @@ class suction_1(models.Model):
     s2_e8_rr = models.IntegerField()
 
     def __str__(self):
-        return 'suction : ' + str(self.licence)
+        return 'Suction : ' + str(self.licence)
 
 
-class syringe_pump_1(models.Model):
+class SyringePump_1(models.Model):
     class Meta:
         verbose_name_plural = "Syringe Pump"
     is_recal = models.BooleanField(default=False)
@@ -2311,6 +2324,7 @@ class syringe_pump_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='spmp1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -2471,10 +2485,10 @@ class syringe_pump_1(models.Model):
     # s8_e1_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'syringe_pump : ' + str(self.licence)
+        return 'SyringePump : ' + str(self.licence)
 
 
-class electrocauter_1(models.Model):
+class ElectroCauter_1(models.Model):
     class Meta:
         verbose_name_plural = "ElectroCauter"
     is_recal = models.BooleanField(default=False)
@@ -2482,6 +2496,7 @@ class electrocauter_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='ec1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -2851,7 +2866,7 @@ class electrocauter_1(models.Model):
         return 'electrocouter : ' + str(self.licence)
 
 
-class ventilator_1(models.Model):
+class Ventilator_1(models.Model):
     class Meta:
         verbose_name_plural = "Ventilator"
     is_recal = models.BooleanField(default=False)
@@ -2859,6 +2874,7 @@ class ventilator_1(models.Model):
         acc.models.record, on_delete=models.CASCADE, related_name='ven1rr')
 
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -3036,4 +3052,4 @@ class ventilator_1(models.Model):
                                         related_name='ven1s17e10comment', default=1)
 
     def __str__(self):
-        return 'ventilator : ' + str(self.licence)
+        return 'Ventilator : ' + str(self.licence)

@@ -7,7 +7,7 @@
   <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}" target="_blank"
     style="width: 100%;">افزودن کامنت</a>
     <div style="height: 10px;"></div>
-    <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_safety' %}"
+    <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='MonitorSafety' %}"
      formnovalidate>بارگزاری مجدد فرم</button>
   </div>
     {% csrf_token %}
@@ -864,7 +864,7 @@
           {% endif %}
           <br><br>
           <button type="submit" class="btn btn-primary" style="float: left;"
-            formaction="{% url 'save_router' formtype='monitor_safety' %}">
+            formaction="{% url 'save_router' formtype='MonitorSafety' %}">
             ذخیره نهایی
           </button>
 

@@ -11,6 +11,7 @@ class encode (models.Model):
 class report(models.Model):
     tt = models.ForeignKey(acc.models.ad_test_type0, on_delete=models.PROTECT)
     device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+    Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT) 

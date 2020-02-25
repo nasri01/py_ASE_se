@@ -7,24 +7,24 @@ from .forms import *
 from django.contrib.auth.models import Group
 
 
-diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form, 3],
-           ['monitor_ecg', monitor_ecg_1, monitor_ecg_1_Form, 3],
-           ['monitor_nibp', monitor_nibp_1, monitor_nibp_1_Form, 3],
-           ['monitor_safety', monitor_safety_1, monitor_safety_1_Form, 3],
-           ['aed', aed_1, aed_1_Form, 2],
-           ['anesthesia_machine', anesthesia_machine_1,
-               anesthesia_machine_1_Form, 4],
-           ['defibrilator', defibrilator_1, defibrilator_1_Form, 4],
-           ['ecg', ecg_1, ecg_1_Form, 4],
-           ['flowmeter', flowmeter_1, flowmeter_1_Form, 1],
-           ['infusion_pump', infusion_pump_1, infusion_pump_1_Form, 4],
-           ['monometer', monometer_1, monometer_1_Form, 3],
-           ['spo2', spo2_1, spo2_1_Form, 4],
-           ['suction', suction_1, suction_1_Form, 4],
-           ['syringe_pump', syringe_pump_1, syringe_pump_1_Form, 4],
-           ['ventilator', ventilator_1, ventilator_1_Form, 4],
-           ['electrocauter', electrocauter_1, electrocauter_1_Form, 5],
-           ['cant_test', cant_test, cant_test_Form, 0],
+diclist = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form, 3],
+           ['MonitorECG', MonitorECG_1, MonitorECG_1_Form, 3],
+           ['MonitorNIBP', MonitorNIBP_1, MonitorNIBP_1_Form, 3],
+           ['MonitorSafety', MonitorSafety_1, MonitorSafety_1_Form, 3],
+           ['AED', AED_1, AED_1_Form, 2],
+           ['AnesthesiaMachine', AnesthesiaMachine_1,
+               AnesthesiaMachine_1_Form, 4],
+           ['Defibrilator', Defibrilator_1, Defibrilator_1_Form, 4],
+           ['ECG', ECG_1, ECG_1_Form, 4],
+           ['FlowMeter', FlowMeter_1, FlowMeter_1_Form, 1],
+           ['InfusionPump', InfusionPump_1, InfusionPump_1_Form, 4],
+           ['ManoMeter', ManoMeter_1, ManoMeter_1_Form, 3],
+           ['spo2', Spo2_1, spo2_1_Form, 4],
+           ['Suction', Suction_1, suction_1_Form, 4],
+           ['SyringePump', SyringePump_1, syringe_pump_1_Form, 4],
+           ['Ventilator', Ventilator_1, ventilator_1_Form, 4],
+           ['ElectroCauter', ElectroCauter_1, electrocauter_1_Form, 5],
+           ['CantTest', CantTest, CantTest_Form, 0],
            ]
 
 
@@ -92,7 +92,7 @@ def save_router(request, formtype):
                     if request.POST['op_type'] == 'save':
                         sform.is_recal = False
                         sform.ref_record = record.objects.get(number=-1)
-                        if item[0] != 'cant_test':
+                        if item[0] != 'CantTest':
                             ln = int(licence.objects.order_by('number')[
                                 len(licence.objects.all())-1].number) + 1
                             sform.licence = licence.objects.create(number=ln)

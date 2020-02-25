@@ -15,7 +15,7 @@
 
   
   <div style="height: 10px;"></div>
-<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='monitor_spo2' %}"   formnovalidate>بارگزاری مجدد فرم</button>
+<button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='MonitorSpo2' %}"   formnovalidate>بارگزاری مجدد فرم</button>
 
 </div>
     {% csrf_token %}
@@ -418,7 +418,7 @@
             <input type="text" name="op_type" value="save" hidden>
           {% endif %}
                 <br><br>
-          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='monitor_spo2' %}" >
+          <button type="submit"  class="btn btn-primary" style="float: left;" formaction="{% url 'save_router' formtype='MonitorSpo2' %}" >
               ذخیره نهایی
             </button>
   

@@ -16,37 +16,37 @@ try:
 except:
     color_scheme = '17a2b8'
 fr1 = ad_excel_arg.objects.all().order_by('id')
-# model_list = [monitor_spo2_1, monitor_ecg_1, monitor_nibp_1, monitor_safety_1, aed_1, anesthesia_machine_1,
-#               defibrilator_1, ecg_1, flowmeter_1, infusion_pump_1, monometer_1, spo2_1, suction_1, syringe_pump_1,
-#               ventilator_1, electrocauter_1, cant_test, report]
+# model_list = [MonitorSpo2_1, MonitorECG_1, MonitorNIBP_1, MonitorSafety_1, AED_1, AnesthesiaMachine_1,
+#               Defibrilator_1, ECG_1, FlowMeter_1, InfusionPump_1, ManoMeter_1, Spo2_1, Suction_1, SyringePump_1,
+#               Ventilator_1, ElectroCauter_1, CantTest, report]
 
-# modellist = ['monitor_spo2', 'monitor_ecg', 'monitor_nibp', 'monitor_safety', 'aed', 'anesthesia_machine',
-#              'defibrilator', 'ecg', 'flowmeter', 'infusion_pump', 'monometer', 'spo2', 'suction', 'syringe_pump',
-#              'ventilator', 'electrocauter', 'cant_test']
+# modellist = ['MonitorSpo2', 'MonitorECG', 'MonitorNIBP', 'MonitorSafety', 'AED', 'AnesthesiaMachine',
+#              'Defibrilator', 'ECG', 'FlowMeter', 'InfusionPump', 'ManoMeter', 'spo2', 'Suction', 'SyringePump',
+#              'Ventilator', 'ElectroCauter', 'CantTest']
 
-# form_list = [monitor_spO2_1_Form, monitor_ecg_1_Form, monitor_nibp_1_Form, monitor_safety_1_Form, aed_1_Form,
-#              anesthesia_machine_1_Form, defibrilator_1_Form, ecg_1_Form, flowmeter_1_Form, infusion_pump_1_Form,
-#              monometer_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
-#              cant_test_Form]
+# form_list = [MonitorSpo2_1_Form, MonitorECG_1_Form, MonitorNIBP_1_Form, MonitorSafety_1_Form, AED_1_Form,
+#              AnesthesiaMachine_1_Form, Defibrilator_1_Form, ECG_1_Form, FlowMeter_1_Form, InfusionPump_1_Form,
+#              ManoMeter_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
+#              CantTest_Form]
 
-diclist = [['monitor_spo2', monitor_spo2_1, monitor_spO2_1_Form],
-           ['monitor_ecg', monitor_ecg_1, monitor_ecg_1_Form],
-           ['monitor_nibp', monitor_nibp_1, monitor_nibp_1_Form],
-           ['monitor_safety', monitor_safety_1, monitor_safety_1_Form],
-           ['aed', aed_1, aed_1_Form],
-           ['anesthesia_machine', anesthesia_machine_1,
-               anesthesia_machine_1_Form],
-           ['defibrilator', defibrilator_1, defibrilator_1_Form],
-           ['ecg', ecg_1, ecg_1_Form],
-           ['flowmeter', flowmeter_1, flowmeter_1_Form],
-           ['infusion_pump', infusion_pump_1, infusion_pump_1_Form],
-           ['monometer', monometer_1, monometer_1_Form],
-           ['spo2', spo2_1, spo2_1_Form],
-           ['suction', suction_1, suction_1_Form],
-           ['syringe_pump', syringe_pump_1, syringe_pump_1_Form],
-           ['ventilator', ventilator_1, ventilator_1_Form],
-           ['electrocauter', electrocauter_1, electrocauter_1_Form],
-           ['cant_test', cant_test, cant_test_Form],
+diclist = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form],
+           ['MonitorECG', MonitorECG_1, MonitorECG_1_Form],
+           ['MonitorNIBP', MonitorNIBP_1, MonitorNIBP_1_Form],
+           ['MonitorSafety', MonitorSafety_1, MonitorSafety_1_Form],
+           ['AED', AED_1, AED_1_Form],
+           ['AnesthesiaMachine', AnesthesiaMachine_1,
+               AnesthesiaMachine_1_Form],
+           ['Defibrilator', Defibrilator_1, Defibrilator_1_Form],
+           ['ECG', ECG_1, ECG_1_Form],
+           ['FlowMeter', FlowMeter_1, FlowMeter_1_Form],
+           ['InfusionPump', InfusionPump_1, InfusionPump_1_Form],
+           ['ManoMeter', ManoMeter_1, ManoMeter_1_Form],
+           ['spo2', Spo2_1, spo2_1_Form],
+           ['Suction', Suction_1, suction_1_Form],
+           ['SyringePump', SyringePump_1, syringe_pump_1_Form],
+           ['Ventilator', Ventilator_1, ventilator_1_Form],
+           ['ElectroCauter', ElectroCauter_1, electrocauter_1_Form],
+           ['CantTest', CantTest, CantTest_Form],
            ['report', report],
            ]  # Order the same by ad_test_type0
 
@@ -84,12 +84,12 @@ def submit(request):
             req = Request.objects.all().order_by('date')
             chart = [0, 0, 0, 0]
             for model in diclist:
-                if model[1] == cant_test:
+                if model[1] == CantTest:
                     continue
                 chart[0] += len(model[1].objects.filter(status__id=1))
                 chart[1] += len(model[1].objects.filter(status__id=2))
                 chart[2] += len(model[1].objects.filter(status__id=3))
-            chart[3] = len(cant_test.objects.all())
+            chart[3] = len(CantTest.objects.all())
             for t in req:
                 t.date = t.date.today()
 
@@ -103,7 +103,7 @@ def submit(request):
             hospital__user=request.user).order_by('date')
         chart = [0, 0, 0, 0]
         for model in diclist:
-            if model[1] == cant_test:
+            if model[1] == CantTest:
                 continue
             query = model[1].objects.filter(
                 device__hospital__user=request.user)
@@ -111,7 +111,7 @@ def submit(request):
             chart[0] += len(query.filter(status__id=1))
             chart[1] += len(query.filter(status__id=2))
             chart[2] += len(query.filter(status__id=3))
-        chart[3] = len(cant_test.objects.filter(
+        chart[3] = len(CantTest.objects.filter(
             device__hospital__user=request.user))
         for t in req:
             t.date = t.date.today()
@@ -250,7 +250,7 @@ def recal_report(request):
                     is_done__exact=False)
 
                 if (len(modelobj) == 1):
-                    if model[0] in ['cant_test', 'report']:
+                    if model[0] in ['CantTest', 'report']:
                         form_type = diclist[int(modelobj[0].tt.id)-1][2]
                         form_type_str = diclist[int(modelobj[0].tt.id)-1][0]
                     else:
@@ -276,7 +276,7 @@ def recal_report(request):
 
 def make_done(request):
     if (request.method == 'GET'):
-        query = cant_test.objects.filter(
+        query = CantTest.objects.filter(
             record__number=int(request.GET['record_num']))
         print(len(query))
         query[0].is_done = True

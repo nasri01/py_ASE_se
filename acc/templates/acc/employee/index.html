@@ -170,11 +170,11 @@
                     <div class="row">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'monitor_spo2' %}
-                                <button name="type" value="monitor_spo2" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'MonitorSpo2' %}
+                                <button name="type" value="MonitorSpo2" type="submit" class="btn btn-danger op-btn-2">
                                     SPO <sub>2</sub></button>
                                 {% else %}
-                                <button name="type" value="monitor_spo2" type="submit" class="btn btn-primary op-btn-2">
+                                <button name="type" value="MonitorSpo2" type="submit" class="btn btn-primary op-btn-2">
                                     SPO <sub>2</sub></button>
                                 {% endif %}
                             </form>
@@ -184,11 +184,11 @@
                             <form action="{% url 'router' %}" method="GET">
 
                                 <input name="flag" value="1" hidden>
-                                {% if form_type == 'monitor_ecg' %}
-                                <button name="type" value="monitor_ecg" type="submit"
+                                {% if form_type == 'MonitorECG' %}
+                                <button name="type" value="MonitorECG" type="submit"
                                     class="btn btn-danger op-btn-2">ECG</button>
                                 {% else %}
-                                <button name="type" value="monitor_ecg" type="submit"
+                                <button name="type" value="MonitorECG" type="submit"
                                     class="btn btn-primary op-btn-2">ECG</button>
                                 {% endif %}
                             </form>
@@ -197,23 +197,23 @@
                     <div class="row" style="margin-top: 0;">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'monitor_nibp' %}
-                                <button name="type" value="monitor_nibp" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'MonitorNIBP' %}
+                                <button name="type" value="MonitorNIBP" type="submit" class="btn btn-danger op-btn-2">
                                     NIBP</button>
                                 {% else %}
-                                <button name="type" value="monitor_nibp" type="submit" class="btn btn-primary op-btn-2">
+                                <button name="type" value="MonitorNIBP" type="submit" class="btn btn-primary op-btn-2">
                                     NIBP</button>
                                 {% endif %}
                             </form>
                         </div>
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'monitor_safety' %}
+                                {% if form_type == 'MonitorSafety' %}
 
-                                <button name="type" value="monitor_safety" type="submit"
+                                <button name="type" value="MonitorSafety" type="submit"
                                     class="btn btn-danger op-btn-2"> SAFETY</button>
                                 {% else %}
-                                <button name="type" value="monitor_safety" type="submit"
+                                <button name="type" value="MonitorSafety" type="submit"
                                     class="btn btn-primary op-btn-2"> SAFETY</button>
                                 {% endif %}
                             </form>
@@ -224,22 +224,22 @@
                     <div class="row" style="margin-top: 0;">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'defibrilator' %}
-                                <button name="type" value="defibrilator" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'Defibrilator' %}
+                                <button name="type" value="Defibrilator" type="submit" class="btn btn-danger op-btn-2">
                                     Defibrilator</button>
                                 {% else %}
-                                <button name="type" value="defibrilator" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="Defibrilator" type="submit" class="btn btn-info op-btn-2">
                                     Defibrilator</button>
                                 {% endif %}
                             </form>
                         </div>
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'ecg' %}
-                                <button name="type" value="ecg" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'ECG' %}
+                                <button name="type" value="ECG" type="submit" class="btn btn-danger op-btn-2">
                                     ECG</button>
                                 {% else %}
-                                <button name="type" value="ecg" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="ECG" type="submit" class="btn btn-info op-btn-2">
                                     ECG</button>
                                 {% endif %}
                             </form>
@@ -249,11 +249,11 @@
                     <div class="row" style="margin-top: 0;">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'flowmeter' %}
-                                <button name="type" value="flowmeter" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'FlowMeter' %}
+                                <button name="type" value="FlowMeter" type="submit" class="btn btn-danger op-btn-2">
                                     Flow Meter</button>
                                 {% else %}
-                                <button name="type" value="flowmeter" type="submit" class="btn btn-info op-btn-2"> Flow
+                                <button name="type" value="FlowMeter" type="submit" class="btn btn-info op-btn-2"> Flow
                                     Meter</button>
                                 {% endif %}
                             </form>
@@ -274,22 +274,22 @@
                     <div class="row" style="margin-top: 0;">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'infusion_pump' %}
-                                <button name="type" value="infusion_pump" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'InfusionPump' %}
+                                <button name="type" value="InfusionPump" type="submit" class="btn btn-danger op-btn-2">
                                     Infusion Pump</button>
                                 {% else %}
-                                <button name="type" value="infusion_pump" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="InfusionPump" type="submit" class="btn btn-info op-btn-2">
                                     Infusion Pump</button>
                                 {% endif %}
                             </form>
                         </div>
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'monometer' %}
-                                <button name="type" value="monometer" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'ManoMeter' %}
+                                <button name="type" value="ManoMeter" type="submit" class="btn btn-danger op-btn-2">
                                     Mono Meter</button>
                                 {% else %}
-                                <button name="type" value="monometer" type="submit" class="btn btn-info op-btn-2"> Mono
+                                <button name="type" value="ManoMeter" type="submit" class="btn btn-info op-btn-2"> Mono
                                     Meter</button>
                                 {% endif %}
                             </form>
@@ -310,11 +310,11 @@
                         </div>
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'suction' %}
-                                <button name="type" value="suction" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'Suction' %}
+                                <button name="type" value="Suction" type="submit" class="btn btn-danger op-btn-2">
                                     Suction</button>
                                 {% else %}
-                                <button name="type" value="suction" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="Suction" type="submit" class="btn btn-info op-btn-2">
                                     Suction</button>
                                 {% endif %}
                             </form>
@@ -324,22 +324,22 @@
                     <div class="row" style="margin-top: 0;">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'syringe_pump' %}
-                                <button name="type" value="syringe_pump" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'SyringePump' %}
+                                <button name="type" value="SyringePump" type="submit" class="btn btn-danger op-btn-2">
                                     Syringe Pump</button>
                                 {% else %}
-                                <button name="type" value="syringe_pump" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="SyringePump" type="submit" class="btn btn-info op-btn-2">
                                     Syringe Pump</button>
                                 {% endif %}
                             </form>
                         </div>
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'ventilator' %}
-                                <button name="type" value="ventilator" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'Ventilator' %}
+                                <button name="type" value="Ventilator" type="submit" class="btn btn-danger op-btn-2">
                                     Ventilator</button>
                                 {% else %}
-                                <button name="type" value="ventilator" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="Ventilator" type="submit" class="btn btn-info op-btn-2">
                                     Ventilator</button>
                                 {% endif %}
                             </form>
@@ -349,22 +349,22 @@
                     <div class="row" style="margin-top: 0;">
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'electrocauter' %}
-                                <button name="type" value="electrocauter" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'ElectroCauter' %}
+                                <button name="type" value="ElectroCauter" type="submit" class="btn btn-danger op-btn-2">
                                     ElectroCauter</button>
                                 {% else %}
-                                <button name="type" value="electrocauter" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="ElectroCauter" type="submit" class="btn btn-info op-btn-2">
                                     ElectroCauter</button>
                                 {% endif %}
                             </form>
                         </div>
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'aed' %}
-                                <button name="type" value="aed" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'AED' %}
+                                <button name="type" value="AED" type="submit" class="btn btn-danger op-btn-2">
                                     AED</button>
                                 {% else %}
-                                <button name="type" value="aed" type="submit" class="btn btn-info op-btn-2">
+                                <button name="type" value="AED" type="submit" class="btn btn-info op-btn-2">
                                     AED</button>
                                 {% endif %}
                             </form>
@@ -375,11 +375,11 @@
 
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'anesthesia_machine' %}
-                                <button name="type" value="anesthesia_machine" type="submit"
+                                {% if form_type == 'AnesthesiaMachine' %}
+                                <button name="type" value="AnesthesiaMachine" type="submit"
                                     class="btn btn-danger op-btn-2"> Anesthesia Machine</button>
                                 {% else %}
-                                <button name="type" value="anesthesia_machine" type="submit"
+                                <button name="type" value="AnesthesiaMachine" type="submit"
                                     class="btn btn-info op-btn-2"> Anesthesia Machine</button>
                                 {% endif %}
                             </form>
@@ -388,11 +388,11 @@
 
                         <div class="col-6" style="padding: 0;margin: 0;">
                             <form action="{% url 'router'  %}" method="get">
-                                {% if form_type == 'cant_test' %}
-                                <button name="type" value="cant_test" type="submit" class="btn btn-danger op-btn-2">
+                                {% if form_type == 'CantTest' %}
+                                <button name="type" value="CantTest" type="submit" class="btn btn-danger op-btn-2">
                                     Can't Test</button>
                                 {% else %}
-                                <button name="type" value="cant_test" type="submit"
+                                <button name="type" value="CantTest" type="submit"
                                     class="btn btn-warning op-btn-2">Can't Test</button>
                                 {% endif %}
                             </form>
@@ -419,62 +419,59 @@
         {% if form_type %}
         <div class="col-lg-7 col-xl-8 col-md-12" style="direction: rtl;height: 800px;overflow:hidden;">
             <div class="form-box">
-                {% if form_type == 'monitor_spo2' %}
+                {% if form_type == 'MonitorSpo2' %}
                 {% include 'form/Monitor/Spo2/form1.html' %}
 
-                {% elif form_type == 'monitor_ecg' %}
+                {% elif form_type == 'MonitorECG' %}
                 {% include 'form/Monitor/ECG/form1.html' %}
 
-                {% elif form_type == 'monitor_nibp' %}
+                {% elif form_type == 'MonitorNIBP' %}
                 {% include 'form/Monitor/NIBP/form1.html' %}
 
-                {% elif form_type == 'monitor_safety' %}
+                {% elif form_type == 'MonitorSafety' %}
                 {% include 'form/Monitor/Safety/form1.html' %}
 
-                {% elif form_type == 'aed' %}
-                {% include 'form/aed/form1.html' %}
+                {% elif form_type == 'AED' %}
+                {% include 'form/AED/form1.html' %}
 
-                {% elif form_type == 'anesthesia_machine' %}
-                {% include 'form/anesthesia_machine/form1.html' %}
+                {% elif form_type == 'AnesthesiaMachine' %}
+                {% include 'form/AnesthesiaMachine/form1.html' %}
 
-                {% elif form_type == 'defibrilator' %}
-                {% include 'form/defibrilator/form1.html' %}
+                {% elif form_type == 'Defibrilator' %}
+                {% include 'form/Defibrilator/form1.html' %}
 
-                {% elif form_type == 'ecg' %}
-                {% include 'form/ecg/form1.html' %}
+                {% elif form_type == 'ECG' %}
+                {% include 'form/ECG/form1.html' %}
 
-                {% elif form_type == 'flowmeter' %}
-                {% include 'form/flowmeter/form1.html' %}
+                {% elif form_type == 'FlowMeter' %}
+                {% include 'form/FlowMeter/form1.html' %}
 
-                {% elif form_type == 'incubator' %}
-                {% include 'form/incubator/form1.html' %}
+                {% elif form_type == 'Incubator' %}
+                {% include 'form/Incubator/form1.html' %}
 
-                {% elif form_type == 'infusion_pump' %}
-                {% include 'form/infusion_Pump/form1.html' %}
+                {% elif form_type == 'InfusionPump' %}
+                {% include 'form/InfusionPump/form1.html' %}
 
-                {% elif form_type == 'monometer' %}
-                {% include 'form/monometer/form1.html' %}
+                {% elif form_type == 'ManoMeter' %}
+                {% include 'form/ManoMeter/form1.html' %}
 
                 {% elif form_type == 'spo2' %}
                 {% include 'form/spo2/form1.html' %}
 
-                {% elif form_type == 'suction' %}
-                {% include 'form/suction/form1.html' %}
+                {% elif form_type == 'Suction' %}
+                {% include 'form/Suction/form1.html' %}
 
-                {% elif form_type == 'syringe_pump' %}
-                {% include 'form/syringe_pump/form1.html' %}
+                {% elif form_type == 'SyringePump' %}
+                {% include 'form/SyringePump/form1.html' %}
 
-                {% elif form_type == 'ventilator' %}
-                {% include 'form/ventilator/form1.html' %}
+                {% elif form_type == 'Ventilator' %}
+                {% include 'form/Ventilator/form1.html' %}
 
-                {% elif form_type == 'electrocauter' %}
-                {% include 'form/electrocauter/form1.html' %}
+                {% elif form_type == 'ElectroCauter' %}
+                {% include 'form/ElectroCauter/form1.html' %}
 
-                {% elif form_type == 'cant_test' %}
-                {% include 'form/cant_test.html' %}
-
-                {% elif form_type == 'electrocauter' %}
-                {% include 'form/electrocauter/form1.html' %}
+                {% elif form_type == 'CantTest' %}
+                {% include 'form/CantTest.html' %}
 
                 {% endif %}
 
