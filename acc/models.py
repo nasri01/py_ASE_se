@@ -276,4 +276,4 @@ class Comment(models.Model):
         verbose_name_plural = "توضیحات"
 
     def __str__(self):
-        return str(self.Comment)
+        return str(self.comment)
