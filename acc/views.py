@@ -141,22 +141,22 @@ def show_request_list(request):
 def show_recalibration_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         table_header_list = AdExcelArg.objects.all().order_by('id')
-        table_header =  (str(table_header_list[1]),
-                         str(table_header_list[2]),
-                         str(table_header_list[3]),
-                         str(table_header_list[4]),
-                         str(table_header_list[5]),
-                         str(table_header_list[6]),
-                         str(table_header_list[7]),
-                         str(table_header_list[8]),
-                         str(table_header_list[9]),
-                         str(table_header_list[10]),
-                         str(table_header_list[11]),
-                         str(table_header_list[12]),
-                         str(table_header_list[13]),
-                         str(table_header_list[14]),
-                         str(table_header_list[15]),
-                         )
+        table_header = (str(table_header_list[1]),
+                        str(table_header_list[2]),
+                        str(table_header_list[3]),
+                        str(table_header_list[4]),
+                        str(table_header_list[5]),
+                        str(table_header_list[6]),
+                        str(table_header_list[7]),
+                        str(table_header_list[8]),
+                        str(table_header_list[9]),
+                        str(table_header_list[10]),
+                        str(table_header_list[11]),
+                        str(table_header_list[12]),
+                        str(table_header_list[13]),
+                        str(table_header_list[14]),
+                        str(table_header_list[15]),
+                        )
         table_rows = []
         # model_query_list = []
         for model in model_list:
@@ -166,7 +166,7 @@ def show_recalibration_list(request):
             for obj in model_query:
                 # obj = report_instance
                 row = []
-                row.append(obj.device.hospital.city.state_name.name)  # 0
+                row.append(obj.device.hospital.city.state.name)  # 0
                 row.append(obj.device.hospital.city.name)  # 1
                 row.append(obj.device.hospital.name)  # 2
                 row.append(obj.device.section.name)  # 3
@@ -195,22 +195,22 @@ def show_recalibration_list(request):
 def show_report_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         table_header_list = AdExcelArg.objects.all().order_by('id')
-        table_header =  (str(table_header_list[1]),
-                         str(table_header_list[2]),
-                         str(table_header_list[3]),
-                         str(table_header_list[4]),
-                         str(table_header_list[5]),
-                         str(table_header_list[6]),
-                         str(table_header_list[7]),
-                         str(table_header_list[8]),
-                         str(table_header_list[9]),
-                         str(table_header_list[10]),
-                         str(table_header_list[11]),
-                         str(table_header_list[12]),
-                         str(table_header_list[13]),
-                         str(table_header_list[14]),
-                         str(table_header_list[15]),
-                         )
+        table_header = (str(table_header_list[1]),
+                        str(table_header_list[2]),
+                        str(table_header_list[3]),
+                        str(table_header_list[4]),
+                        str(table_header_list[5]),
+                        str(table_header_list[6]),
+                        str(table_header_list[7]),
+                        str(table_header_list[8]),
+                        str(table_header_list[9]),
+                        str(table_header_list[10]),
+                        str(table_header_list[11]),
+                        str(table_header_list[12]),
+                        str(table_header_list[13]),
+                        str(table_header_list[14]),
+                        str(table_header_list[15]),
+                        )
         table_rows = []
         # data1 = []
         for model in model_list[:-1]:
@@ -219,7 +219,7 @@ def show_report_list(request):
         # for obj1 in data1:
             for obj in model_query:
                 row = []
-                row.append(obj.device.hospital.city.state_name.name)  # 0
+                row.append(obj.device.hospital.city.state.name)  # 0
                 row.append(obj.device.hospital.city.name)  # 1
                 row.append(obj.device.hospital.name)  # 2
                 row.append(obj.device.section.name)  # 3
@@ -263,11 +263,11 @@ def edit_report(request):
             #     raise Http404
             form_body = form_type(instance=model_query[0])
             pass_data = {'form': form_body,
-                     'form_type': model_name,
-                     'record_number': model_query[0].Record.number,
-                     'licence_number': model_query[0].Licence.number,
-                     'user_profile': user_profile
-                     }
+                         'form_type': model_name,
+                         'record_number': model_query[0].Record.number,
+                         'licence_number': model_query[0].Licence.number,
+                         'user_profile': user_profile
+                         }
 
             if (model_query[0].is_recal == False):  # its calibration
                 pass_data['edit'] = 1
@@ -280,6 +280,8 @@ def edit_report(request):
         raise Http404
 
 # Perepare the appropiate Recalibration form for Frame
+
+
 def recal_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
@@ -301,11 +303,11 @@ def recal_report(request):
 
             form_body = form_type({'device': [model_query[0].device.id]})
             pass_data = {'recal': 1,
-                     'form': form_body,
-                     'form_type': model_name,
-                     'ref_record_number': model_query[0].Record.number,
-                     'user_profile': user_profile
-                     }
+                         'form': form_body,
+                         'form_type': model_name,
+                         'ref_record_number': model_query[0].Record.number,
+                         'user_profile': user_profile
+                         }
             try:
                 # if exist
                 pass_data['ref_licence_num'] = model_query[0].Licence.number

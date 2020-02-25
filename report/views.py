@@ -31,37 +31,41 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 model_list = [MonitorSpo2_1, MonitorECG_1, MonitorNIBP_1, MonitorSafety_1, Defibrilator_1, AED_1, ECG_1,
               InfusionPump_1, SyringePump_1, Spo2_1, FlowMeter_1, AnesthesiaMachine_1, Ventilator_1,
               Suction_1, ElectroCauter_1, ManoMeter_1, CantTest, Report]
-modellist = ['monitor Spo2', 'monitor ECG', 'monitor NIBP', 'monitor Safety', 'Defibrilator', 'AED', 'ECG',
-             'Infusion Pump', 'Syringe Pump', 'Pulse Oximetry', 'Flow Meter', 'Anesthesia Machine', 'Ventilator',
-             'Suction', 'ElectroCauter', 'Mano Meter', 'CantTest']
+modellist = ['MonitorSpo2', 'MonitorECG', 'MonitorNIBP', 'MonitorSafety', 'Defibrilator', 'AED', 'ECG',
+             'InfusionPump', 'SyringePump', 'PulseOximetry', 'FlowMeter', 'AnesthesiaMachine', 'Ventilator',
+             'Suction', 'ElectroCauter', 'ManoMeter', 'CantTest']
 
 
 def xlsx(request):
     if request.method == 'GET':
+        query_end_year, query_end_month, query_end_day = request.GET['end_date'].split(
+            '/')
+        query_start_year, query_start_month, sd = request.GET['start_date'].split(
+            '/')
 
-        ey, em, ed = request.GET['end_date'].split('/')
-        sy, sm, sd = request.GET['start_date'].split('/')
-        ey = int(ey)
-        em = int(em)
-        ed = int(ed)
-        sy = int(sy)
-        sm = int(sm)
-        sd = int(sd)
-        new_start_date = jdatetime.date(sy, sm, sd) - timedelta(days=1)
+        query_end_year = int(query_end_year)
+        query_end_month = int(query_end_month)
+        query_end_day = int(query_end_day)
+        query_start_year = int(query_start_year)
+        query_start_month = int(query_start_month)
+        query_start_day = int(query_start_day)
+
+        query_start_date = jdatetime.date(
+            query_start_year, query_start_month, query_start_day) - timedelta(days=1)
         # because quering from data base we should consider filter data via utc time
-        start = jdatetime.datetime(new_start_date.year, new_start_date.month, new_start_date.day, 19, 30).astimezone(
-            pytz.timezone('UTC'))
-        end = jdatetime.datetime(
-            ey, em, ed, 19, 30).astimezone(pytz.timezone('UTC'))
-        if end < start:
+        QUERY_START_DATE = jdatetime.datetime(
+            query_start_date.year, query_start_date.month, query_start_date.day, 19, 30
+            ).astimezone(pytz.timezone('UTC'))
+        QUERY_END_DATE = jdatetime.datetime(
+            query_end_year, query_end_month, query_end_day, 19, 30).astimezone(pytz.timezone('UTC'))
+        if QUERY_END_DATE < QUERY_START_DATE:
             return render(request, 'acc/hospital/index.html', {'date_error': 'بازه زمانی وارد شده نا معتبر است',
-                                                               'flag': 1})  # , 'date': jdatetime.date.today(),
-            # 'month': mm
+                        'flag': 1})  # , 'date': jdatetime.date.today(),
 
         # Create Excel
         row = []
-        data = []
-        data1 = []
+        table_rows = []
+        query_list = []
         try:
             if request.GET['is_recal'] == 'on':
                 recal = True
@@ -71,62 +75,62 @@ def xlsx(request):
         if recal:
             if Group.objects.get(name='admin') in request.user.groups.all():  # admin
                 for model in model_list:
-                    modelobj = model.objects.filter(date__gte=start).filter(
+                    model_query = model.objects.filter(date__gte=start).filter(
                         date__lte=end).filter(is_recal=True)
-                    data1.append(modelobj)
+                    query_list.append(model_query)
             else:  # hospital
                 for model in model_list:
-                    modelobj = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
+                    model_query = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
                         request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
-                    data1.append(modelobj)
+                    query_list.append(model_query)
         else:
             if Group.objects.get(name='admin') in request.user.groups.all():
                 for model in model_list:
-                    modelobj = model.objects.filter(
+                    model_query = model.objects.filter(
                         date__gte=start).filter(date__lte=end)
-                    data1.append(modelobj)
+                    query_list.append(model_query)
             else:  # Hospital
                 for model in model_list:
-                    modelobj = model.objects.filter(
+                    model_query = model.objects.filter(
                         date__gte=start).filter(date__lte=end).filter(
                         request__hospital__user__id__exact=request.user.id)
-                    data1.append(modelobj)
+                    query_list.append(model_query)
 
-        for iii, obj1 in enumerate(data1):
-            for obj in obj1:
+        for index, query in enumerate(query_list):
+            for instance in query:
                 row = []
-                row.append(obj.device.hospital.city.state_name.name)  # 0
-                row.append(obj.device.hospital.city.name)  # 1
-                row.append(obj.device.hospital.name)  # 2
-                row.append(obj.device.section.name)  # 3
-                row.append(obj.device.name.type.name)  # 4
-                row.append(obj.device.name.creator.name)  # 5
-                row.append(obj.device.name.name)  # 6
-                row.append(obj.device.serial_number)  # 7
-                if str(obj.device.property_number) != 'None':
-                    row.append(obj.device.property_number)  # 8
+                row.append(instance.device.hospital.city.state.name)  # 0
+                row.append(instance.device.hospital.city.name)  # 1
+                row.append(instance.device.hospital.name)  # 2
+                row.append(instance.device.section.name)  # 3
+                row.append(instance.device.name.type.name)  # 4
+                row.append(instance.device.name.creator.name)  # 5
+                row.append(instance.device.name.name)  # 6
+                row.append(instance.device.serial_number)  # 7
+                if str(instance.device.property_number) != 'None':
+                    row.append(instance.device.property_number)  # 8
                 else:
                     row.append('-')
-                row.append(obj.status.status)  # 9
-                row.append(obj.date.strftime("%Y-%m-%d"))  # 10
-                if obj.status.id != 4:
-                    row.append(obj.Licence.number)  # 11
+                row.append(instance.status.status)  # 9
+                row.append(instance.date.strftime("%Y-%m-%d"))  # 10
+                if instance.status.id != 4:
+                    row.append(instance.Licence.number)  # 11
                 else:
                     row.append('-')  # 11
-                if iii == 0:
-                    row.append('-SPO2-' + obj.totalcomment)  # 12*
-                elif iii == 1:
-                    row.append('-ECG-' + obj.totalcomment)  # 12*
-                elif iii == 2:
-                    row.append('-NIBP-' + obj.totalcomment)  # 12*
-                elif iii == 3:
-                    row.append('-Safety-' + obj.totalcomment)  # 12*
+                if index == 0:
+                    row.append('-SPO2-' + instance.totalcomment)  # 12*
+                elif index == 1:
+                    row.append('-ECG-' + instance.totalcomment)  # 12*
+                elif index == 2:
+                    row.append('-NIBP-' + instance.totalcomment)  # 12*
+                elif index == 3:
+                    row.append('-Safety-' + instance.totalcomment)  # 12*
                 else:
-                    row.append(obj.totalcomment)  # 12*
-                row.append(obj.status.id)  # 13
-                data.append(row)
-        print(data)
-        fr1 = AdExcelArg.objects.all().order_by('id')
+                    row.append(instance.totalcomment)  # 12*
+                row.append(instance.status.id)  # 13
+                table_rows.append(row)
+
+        table_header_list = AdExcelArg.objects.all().order_by('id')
         if request.GET['action'] == 'download':
 
             output = io.BytesIO()
@@ -137,124 +141,130 @@ def xlsx(request):
             ws.set_column(0, 15, 17)
 
             # first row
-            first_row = (str(fr1[1]),
-                         str(fr1[2]),
-                         str(fr1[3]),
-                         str(fr1[4]),
-                         str(fr1[5]),
-                         str(fr1[6]),
-                         str(fr1[7]),
-                         str(fr1[8]),
-                         str(fr1[9]),
-                         str(fr1[10]),
-                         str(fr1[11]),
-                         str(fr1[12]),
-                         str(fr1[13]),
-                         str(fr1[14]),
-                         str(fr1[15]),
+            table_header = (str(table_header_list[1]),
+                         str(table_header_list[2]),
+                         str(table_header_list[3]),
+                         str(table_header_list[4]),
+                         str(table_header_list[5]),
+                         str(table_header_list[6]),
+                         str(table_header_list[7]),
+                         str(table_header_list[8]),
+                         str(table_header_list[9]),
+                         str(table_header_list[10]),
+                         str(table_header_list[11]),
+                         str(table_header_list[12]),
+                         str(table_header_list[13]),
+                         str(table_header_list[14]),
+                         str(table_header_list[15]),
                          'PDF'
                          )
-            fr = wb.add_format({'font_size': 11, 'align': 'center',
+            table_header_format = wb.add_format({'font_size': 11, 'align': 'center',
                                 'valign': 'vcenter', 'bottom': True, 'left': True})
 
-            ws.write_row(row=0, col=0, data=first_row, cell_format=fr)
+            ws.write_row(row=0, col=0, data=table_header,
+                         cell_format=table_header_format)
             # Patterns
-            gg = wb.add_format(  # accept
+            green_row_format = wb.add_format(  # accept
                 {'font_size': 11, 'align': 'center', 'valign': 'vcenter', 'pattern': 1, 'bg_color': 'green',
                  'bottom': True,
                  'left': True})
-            yy = wb.add_format(  # conditional
+            yellow_row_format = wb.add_format(  # conditional
                 {'font_size': 11, 'align': 'center', 'valign': 'vcenter', 'pattern': 1, 'bg_color': 'yellow',
                  'bottom': True,
                  'left': True})
-            rr = wb.add_format(  # reject
+            red_row_format = wb.add_format(  # reject
                 {'font_size': 11, 'align': 'center', 'valign': 'vcenter', 'pattern': 1, 'bg_color': 'red',
                  'bottom': True,
                  'left': True})
             cursor = 1
 
-            for idata in data:
+            for row in table_rows:
                 # if (modelobj[i].device.hospital.user == request.user):
                 # Assign Status
-                if idata[13] == 1:  # accept
-                    fstate = gg
-                elif idata[13] == 2:  # conditional
-                    fstate = yy
-                elif idata[13] == 3:  # conditional
-                    fstate = rr
+                if row[13] == 1:  # accept
+                    row_format = green_row_format
+                elif row[13] == 2:  # conditional
+                    row_format = yellow_row_format
+                elif row[13] == 3:  # conditional
+                    row_format = red_row_format
                 else:
-                    fstate = fr
+                    row_format = table_header_format
 
-                data = (cursor,
-                        idata[0],  # ostan
-                        idata[1],  # shahr
-                        idata[2],  # name moshtari
-                        idata[3],  # mahale esteqrar
-                        idata[4],  # mahsul
-                        idata[5],  # tolid konande
-                        idata[6],  # model
-                        idata[7],  # shoamre serial
-                        idata[8],  # kode amval
-                        idata[9],  # vaziate azmoon
-                        idata[10],  # tarikh calibration
-                        str(fr1[0]),  # etebare calibration
-                        idata[11],  # shomare govahi
-                        idata[12],  # tozihat
+                row_data = (cursor,
+                        row[0],  # ostan
+                        row[1],  # shahr
+                        row[2],  # name moshtari
+                        row[3],  # mahale esteqrar
+                        row[4],  # mahsul
+                        row[5],  # tolid konande
+                        row[6],  # model
+                        row[7],  # shoamre serial
+                        row[8],  # kode amval
+                        row[9],  # vaziate azmoon
+                        row[10],  # tarikh calibration
+                        str(table_header_list[0]),  # etebare calibration
+                        row[11],  # shomare govahi
+                        row[12],  # tozihat
                         )
 
-                ws.write_row(row=cursor, col=0, data=data, cell_format=fstate)
-                data1 = Report.objects.filter(licence__number=idata[11])
-                try:
-                    name = Encode.objects.get(hospital=data1[0].device.hospital)
-                    ul = 'https://{}/{}/{}/{}/{}.pdf'.format(
-                        dl_domain_name ,name.name, data1[0].request.number, data1[0].tt, data1[0].Licence.number)
-                    ws.write_url(row=cursor, col=len(data), url=ul,
-                             cell_format=fstate, string='show', tip='Downlaod PDF')
-                except:
-                    pass
+                ws.write_row(row=cursor, col=0, data=row_data,
+                             cell_format=row_format)
+                report_instance = Report.objects.filter(
+                    licence__number=row[11])
+                if len(report_instance):
+                    encode_instance = Encode.objects.get(
+                        hospital=instance.device.hospital)
+                    # Esfahan/Esfahan/a01610228fe998f515a72dd730294d87/100/AMBULANCE/AED
+                    url = 'https://{}/reports/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(
+                        dl_domain_name,
+                        instance.device.hospital.city.state.eng_name,
+                        instance.device.hospital.city.eng_name,
+                        encode_instance.name,
+                        report_instance.request.number,
+                        report_instance.tt,
+                        report_instance.Licence.number
+                        )
+                    ws.write_url(row=cursor, col=len(data), url=url,
+                             cell_format=row_format, string='show', tip='Downlaod PDF')
+
                 cursor += 1
             wb.close()
-
             output.seek(0)
             filename = f'Azma_Saba.ExcelReport.{str(jdatetime.date.today()).split()[0]}.xlsx'
             response = HttpResponse(output,
                                     content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
             response['Content-Disposition'] = 'attachment; filename=%s' % filename
-
             return response
 
         else:  # display table
-            auser = UserProfile.objects.get(user=request.user)
+            user_profile = UserProfile.objects.get(user=request.user)
 
             chart = [0, 0, 0, 0]
-            if request.user.groups.all()[0] == Group.objects.get(name='hospital'):
-                req = Request.objects.filter(
+            if Group.objects.get(name='hospital') in request.user.groups.all():
+                request_list = Request.objects.filter(
                     hospital__user=request.user).order_by('date')
                 template_name = 'acc/hospital/index.html'
             else:
                 req = Request.objects.all().order_by('date')
                 template_name = 'acc/admin/index.html'
-            for obj1 in data1:
-                chart[0] += len(obj1.filter(status__id=1))
-                chart[1] += len(obj1.filter(status__id=2))
-                chart[2] += len(obj1.filter(status__id=3))
-                chart[3] += len(obj1.filter(status__id=4))
 
-            for t in req:
-                t.date = t.date.today()
+            for obj in query:
+                chart[0] += len(obj.filter(status__id=1))
+                chart[1] += len(obj.filter(status__id=2))
+                chart[2] += len(obj.filter(status__id=3))
+                chart[3] += len(obj.filter(status__id=4))
 
-            sent_data = {'firstrow': fr1, 'data': data,
-                         'request': req, 'auser': auser, 'chart': chart}
+            for req in request_list:
+                req.date = req.date.today()
 
-            if request.user.groups.all()[0] == Group.objects.get(name='admin'):
-                sent_data['admin'] = 1
+            pass_data = {'table_header': table_header, 'table_rows': table_rows,
+                         'request': request_list, 'user_profile': user_profile, 'chart': chart}
+
+            if Group.objects.get(name='admin') in request.user.groups.all():
+                pass_data['admin'] = 1
 
             return render(request, template_name,
-                          sent_data)
-            # 'date':jdatetime.date.today(),'month': mm
-
-    # return render(request, 'acc/hospital/index.html', { 'status': 'Successfully Created!','hflag':1})
-    # return FileResponse(wb,as_attachment=True,filename=f'report {datetime.date.today()}.xlsx')
+                          pass_data)
 
 
 def show_request_summary(request):
@@ -318,8 +328,7 @@ def send_file_ftp(ftp, filename):
 
 def pdf(request):
     if request.method == 'GET':
-        file = open('pdf_report.txt', 'at+')
-        encode_file = open('Encode.txt', 'at+')
+        # file = open('pdf_report.txt', 'at+')
         with FTP(
             host=dl_ftp_host,
             user=dl_ftp_user,
@@ -328,10 +337,10 @@ def pdf(request):
             ftp.set_debuglevel(2)
             s = 0
             for model in model_list[:-2]:
-                dd = model.objects.all()
-                if len(dd) != 0:
-                    for obj in dd:
-    #===================================Begin-File Backing=================================================
+                model_query = model.objects.all()
+                if len(model_query) != 0:
+                    for obj in model_query:
+    # ===================================Begin-File Backing=================================================
                         data = []
                         if(model == MonitorSpo2_1):
                             template_name = 'report/Monitor/Spo2/licence1.html'
@@ -549,6 +558,7 @@ def pdf(request):
                             data.append(abs(obj.s2_e2_sp - obj.s2_e2_np))  # 1
                             data.append(abs(obj.s2_e3_sp - obj.s2_e3_np))  # 2
                             data.append(abs(obj.s2_e4_sp - obj.s2_e4_np))  # 3
+
                         elif (model == Spo2_1):
                             template_name = 'report/spo2/licence1.html'
                             ss = 0
@@ -642,12 +652,13 @@ def pdf(request):
                                     data.append(0)
                             else:
                                 data.append(2)
-                        usr = UserProfile.objects.get(user=obj.user)
-                        t2 = jdatetime.datetime.today()
+
+                        user_profile = UserProfile.objects.get(user=obj.user)
+                        today_datetime = jdatetime.datetime.today()
                         font_config = FontConfiguration()
                         html = render_to_string(template_name, {
-                            'form': obj, 'time': t2, 'usr': usr, 'data': data, 'domain_name':domain_name})
-                        print('\n\n\n\n\n\n\nhttp://{}{}'.format(domain_name, usr.signature.url))
+                            'form': obj, 'time': today_datetime, 'user_profile': user_profile, 'data': data, 'domain_name': domain_name})
+
                         css_root = static('/css')
                         css1 = CSS(
                             filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
@@ -655,30 +666,29 @@ def pdf(request):
                             filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
                         HTML(string=html).write_pdf(
                             'report.pdf', font_config=font_config, stylesheets=[css1, css2])
-                        file.write(
-                            f'{obj.Licence.number} :: PDF fileCreated!\n')
-    #===================================End-File Backing=================================================
+                        # file.write(
+                        #     f'{obj.Licence.number} :: PDF fileCreated!\n')
+    # ===================================End-File Backing=================================================
 
-    #===================================Begin-File Processing=================================================
-                        lst = Encode.objects.filter(
+    # ===================================Begin-File Processing=================================================
+                        encode_query = Encode.objects.filter(
                             hospital=obj.device.hospital)
-                        if len(lst) == 0:
+                        if len(encode_query) == 0:
                             filename = '12' + str(obj.device.hospital.user.id)
                             filename = hashlib.md5(
                                 filename.encode().hexdigest()
-                            enc = Encode.objects.create(
+                            encode_instance = Encode.objects.create(
                                 hospital=obj.device.hospital, name=filename)
-                            enc.save()
-                            encode_file.write('{}\n{}\n'.format(obj.device.hospital.name, filename))
+                            encode_instance.save()
                         else:
-                            filename = lst[0].name
+                            filename=encode_query[0].name
 
-                
-    #===================================Begin-FTP Stuf=================================================
+
+    # ===================================Begin-FTP Stuf=================================================
                         ftp.cwd('pdf')
-                        if not obj.device.hospital.city.state_name.eng_name in ftp.nlst():
-                            ftp.mkd(obj.device.hospital.city.state_name.eng_name)
-                        ftp.cwd(obj.device.hospital.city.state_name.eng_name)
+                        if not obj.device.hospital.city.state.eng_name in ftp.nlst():
+                            ftp.mkd(obj.device.hospital.city.state.eng_name)
+                        ftp.cwd(obj.device.hospital.city.state.eng_name)
                         if not obj.device.hospital.city.eng_name in ftp.nlst():
                             ftp.mkd(obj.device.hospital.city.eng_name)
                         ftp.cwd(obj.device.hospital.city.eng_name)
@@ -696,34 +706,32 @@ def pdf(request):
                         ftp.cwd(modellist[s])
                         try:
                             send_file_ftp(ftp, f'{obj.Licence.number}.pdf')
-                            file.write(
-                                f'{obj.Licence.number} :: File Successfully Uploaded!\n')
-                        except:
-                            file.write(
-                                f'{obj.Licence.number} :: An eeror occured while uploading to Host!\n')                        
-                        ftp.cwd('..')
-                        ftp.cwd('..')
-                        ftp.cwd('..')
-                        ftp.cwd('..')
-                        ftp.cwd('..')
-                        ftp.cwd('..')
-                        ftp.cwd('..')
-    #===================================End-FTP Stuf=================================================
-                        a12 = report.objects.create(tt=AdTestType0.objects.get(type=modellist[s]), device=obj.device,
+                            obj.has_pdf = True
+                            obj.save()
+                            report_instance = report.objects.create(tt=AdTestType0.objects.get(type=modellist[s]), device=obj.device,
                                                     request=obj.request, date=obj.date, user=obj.user, status=obj.status,
-                                                    Record=obj.Record, Licence=obj.Licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
+                                                    record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
                                                     is_done=obj.is_done, totalcomment=obj.totalcomment)
-                        a12.save()
-                        file.write(
-                            f'{obj.Licence.number} :: Report has been generated!\n')
+                            report_instance.save()
+                        except:
+                            return HttpResponse('Error while sending to host!!!!')                
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+                        ftp.cwd('..')
+    # ===================================End-FTP Stuf=================================================
+                        # file.write(
+                        #     f'{obj.Licence.number} :: Report has been generated!\n')
                         # obj.delete()
-                        file.write(
-                            f'{obj.Licence.number} :: Raw data has beed deleted!\n\n')
+                        # file.write(
+                        #     f'{obj.Licence.number} :: Raw data has beed deleted!\n\n')
 
                 s += 1
             ftp.close()
-            file.close()
-            encode_file.close()
+            # file.close()
             return HttpResponse('done :) ')
     else:
         raise Http404
@@ -732,16 +740,16 @@ def pdf(request):
 def reportview(request):
     if request.method == 'GET':
         if Group.objects.get(name='hospital') in request.user.groups.all():
-            data = report.objects.filter(licence__number=request.GET['licence_num']).filter(
+            data=report.objects.filter(licence__number=request.GET['licence_num']).filter(
                 request__hospital__user__id__exact=request.user.id)
         else:
-            data = report.objects.filter(
+            data=report.objects.filter(
                 licence__number=request.GET['licence_num'])
         if len(data) != 0:
-            name = Encode.objects.get(hospital=data[0].device.hospital)
+            name=Encode.objects.get(hospital=data[0].device.hospital)
             return redirect('https://{}/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(
-                dl_domain_name, 
-                data[0].request.hospital.city.state_name.name, 
+                dl_domain_name,
+                data[0].request.hospital.city.state.name,
                 data[0].request.hospital.city.name,
                 name.name,
                 data[0].request.number,

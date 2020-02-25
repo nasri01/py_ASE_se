@@ -86,7 +86,7 @@ class State(models.Model):
 
 
 class City(models.Model):
-    state_name = models.ForeignKey(State, on_delete=models.CASCADE)
+    state = models.ForeignKey(State, on_delete=models.CASCADE)
     name = models.TextField()
     eng_name = models.TextField()
 

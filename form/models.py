@@ -13,7 +13,7 @@ class CantTest(models.Model):
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    Record = models.ForeignKey(
+    record = models.ForeignKey(
         acc.models.Record, on_delete=models.CASCADE, related_name='ctr')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -33,15 +33,15 @@ class MonitorSpo2_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='ms1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='ms1licence')
-    Record = models.ForeignKey(
+    record = models.ForeignKey(
         acc.models.Record, on_delete=models.CASCADE, related_name='ms1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -119,15 +119,15 @@ class MonitorECG_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='me1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='me1licence')
-    Record = models.ForeignKey(
+    record = models.ForeignKey(
         acc.models.Record, on_delete=models.CASCADE, related_name='me1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -312,15 +312,15 @@ class MonitorNIBP_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='mn1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='mn1licence')
-    Record = models.ForeignKey(
+    record = models.ForeignKey(
         acc.models.Record, on_delete=models.CASCADE, related_name='mn1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -390,15 +390,15 @@ class AED_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='aed1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='aed1licence')
-    Record = models.ForeignKey(
+    record = models.ForeignKey(
         acc.models.Record, on_delete=models.CASCADE, related_name='aed1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -667,15 +667,15 @@ class MonitorSafety_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='msa1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='msa1licence')
-    Record = models.ForeignKey(
+    record = models.ForeignKey(
         acc.models.Record, on_delete=models.CASCADE, related_name='msa1r')
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
@@ -855,15 +855,15 @@ class AnesthesiaMachine_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='am1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='am1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -1151,15 +1151,15 @@ class Defibrilator_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='df1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='df1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -1583,15 +1583,15 @@ class ECG_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='e1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='e1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -1800,15 +1800,15 @@ class FlowMeter_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='fm1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='fm1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -1840,15 +1840,15 @@ class InfusionPump_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='ip1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='ip1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -2013,15 +2013,15 @@ class ManoMeter_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='mm1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='mm1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -2098,15 +2098,15 @@ class Spo2_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='sp1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='sp1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -2212,15 +2212,15 @@ class Suction_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='su1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='su1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -2324,15 +2324,15 @@ class SyringePump_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='spmp1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='spmp1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -2496,15 +2496,15 @@ class ElectroCauter_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='ec1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='ec1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
@@ -2874,15 +2874,15 @@ class Ventilator_1(models.Model):
         acc.models.Record, on_delete=models.CASCADE, related_name='ven1rr')
 
     device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
-    Has_pdf = models.BooleanField(default=False)
+    has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     status = models.ForeignKey(
         acc.models.AdAzStatus, on_delete=models.PROTECT)
-    Licence = models.ForeignKey(
+    licence = models.ForeignKey(
         acc.models.Licence, on_delete=models.CASCADE, related_name='ven1licence')
-    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
+    record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE)
     totalcomment = models.TextField(null=True, blank=True)
     is_done = models.BooleanField(default=False)
 
