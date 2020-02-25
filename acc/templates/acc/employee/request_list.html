@@ -68,7 +68,7 @@
 
 
 
-<title>لیست ریکالیبراسیون</title>
+<title>لیست درخواست ها</title>
 
 <div class="container-fluid mb-5" style="direction: rtl;">
   <section>
@@ -89,15 +89,15 @@
               </thead>                                
               <tbody>
 
-                {% for i in req%}
+                {% for request in request_list%}
                   <tr>
-                    <td>{{i.date|date:'Y-m-d'}}</td>
-                    <td>{{i.hospital.name}}</td>
-                    <td>{{i.number}}</td>
+                    <td>{{request.date|date:'Y-m-d'}}</td>
+                    <td>{{request.hospital.name}}</td>
+                    <td>{{request.number}}</td>
                     <td>
-                      {% if i.status.id == 3 %}
+                      {% if request.status.id == 3 %}
                       <form action="{% url 'req_summary' %}" method="GET">    
-                        <input type="text" hidden name="req_number" value="{{i.number}}">
+                        <input type="text" hidden name="request_number" value="{{request.number}}">
                         <button class="btn btn-success"name='request' type="submit" value="1">نمایش خلاصه</button>
                         </form>
                       {% endif %}

@@ -8,12 +8,12 @@ from statistics import mean, stdev
 from ftplib import FTP
 from jdatetime import timedelta
 from form.models import *
-from acc.models import licence as acc_licence
-from .models import report, encode
+from acc.models import Licence as acc_licence
+from .models import Report, Encode
 from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain_name, domain_name
 
 
-from acc.models import ad_excel_arg, aUserProfile, Request, device_type, ad_test_type0
+from acc.models import AdExcelArg, UserProfile, Request, DeviceType, AdTestType0
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.contrib.auth.models import User, Group
@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 model_list = [MonitorSpo2_1, MonitorECG_1, MonitorNIBP_1, MonitorSafety_1, Defibrilator_1, AED_1, ECG_1,
               InfusionPump_1, SyringePump_1, Spo2_1, FlowMeter_1, AnesthesiaMachine_1, Ventilator_1,
-              Suction_1, ElectroCauter_1, ManoMeter_1, CantTest, report]
+              Suction_1, ElectroCauter_1, ManoMeter_1, CantTest, Report]
 modellist = ['monitor Spo2', 'monitor ECG', 'monitor NIBP', 'monitor Safety', 'Defibrilator', 'AED', 'ECG',
              'Infusion Pump', 'Syringe Pump', 'Pulse Oximetry', 'Flow Meter', 'Anesthesia Machine', 'Ventilator',
              'Suction', 'ElectroCauter', 'Mano Meter', 'CantTest']
@@ -110,7 +110,7 @@ def xlsx(request):
                 row.append(obj.status.status)  # 9
                 row.append(obj.date.strftime("%Y-%m-%d"))  # 10
                 if obj.status.id != 4:
-                    row.append(obj.licence.number)  # 11
+                    row.append(obj.Licence.number)  # 11
                 else:
                     row.append('-')  # 11
                 if iii == 0:
@@ -126,7 +126,7 @@ def xlsx(request):
                 row.append(obj.status.id)  # 13
                 data.append(row)
         print(data)
-        fr1 = ad_excel_arg.objects.all().order_by('id')
+        fr1 = AdExcelArg.objects.all().order_by('id')
         if request.GET['action'] == 'download':
 
             output = io.BytesIO()
@@ -203,11 +203,11 @@ def xlsx(request):
                         )
 
                 ws.write_row(row=cursor, col=0, data=data, cell_format=fstate)
-                data1 = report.objects.filter(licence__number=idata[11])
+                data1 = Report.objects.filter(licence__number=idata[11])
                 try:
-                    name = encode.objects.get(hospital=data1[0].device.hospital)
+                    name = Encode.objects.get(hospital=data1[0].device.hospital)
                     ul = 'https://{}/{}/{}/{}/{}.pdf'.format(
-                        dl_domain_name ,name.name, data1[0].request.number, data1[0].tt, data1[0].licence.number)
+                        dl_domain_name ,name.name, data1[0].request.number, data1[0].tt, data1[0].Licence.number)
                     ws.write_url(row=cursor, col=len(data), url=ul,
                              cell_format=fstate, string='show', tip='Downlaod PDF')
                 except:
@@ -224,7 +224,7 @@ def xlsx(request):
             return response
 
         else:  # display table
-            auser = aUserProfile.objects.get(user=request.user)
+            auser = UserProfile.objects.get(user=request.user)
 
             chart = [0, 0, 0, 0]
             if request.user.groups.all()[0] == Group.objects.get(name='hospital'):
@@ -257,7 +257,7 @@ def xlsx(request):
     # return FileResponse(wb,as_attachment=True,filename=f'report {datetime.date.today()}.xlsx')
 
 
-def req_summary(request):
+def show_request_summary(request):
 
     if request.method == 'GET':
         if request.GET['request'] == '1':  # get sections
@@ -279,12 +279,12 @@ def req_summary(request):
             data = []
             sn = request.GET['sec_name']
             rn = int(request.GET['req_num'])
-            types = device_type.objects.get(id__gte=13)
+            types = DeviceType.objects.get(id__gte=13)
             for model in model_list[:-2]:
                 temp = model.objects.filter(request__number__exact=rn).filter(  # number of test of each device
                     device__section__name__exact=sn)
                 temp2 = CantTest.objects.filter(request__number__exact=rn).filter(  # number of cant test of each device
-                    device__section__name__exact=sn).filter(tt__type__exact=ad_test_type0.objects.all().order_by('id')[s/2])
+                    device__section__name__exact=sn).filter(tt__type__exact=AdTestType0.objects.all().order_by('id')[s/2])
                 data[s] = len(temp)
                 data[s+1] = len(temp2)
                 s += 2
@@ -319,7 +319,7 @@ def send_file_ftp(ftp, filename):
 def pdf(request):
     if request.method == 'GET':
         file = open('pdf_report.txt', 'at+')
-        encode_file = open('encode.txt', 'at+')
+        encode_file = open('Encode.txt', 'at+')
         with FTP(
             host=dl_ftp_host,
             user=dl_ftp_user,
@@ -642,7 +642,7 @@ def pdf(request):
                                     data.append(0)
                             else:
                                 data.append(2)
-                        usr = aUserProfile.objects.get(user=obj.user)
+                        usr = UserProfile.objects.get(user=obj.user)
                         t2 = jdatetime.datetime.today()
                         font_config = FontConfiguration()
                         html = render_to_string(template_name, {
@@ -656,17 +656,17 @@ def pdf(request):
                         HTML(string=html).write_pdf(
                             'report.pdf', font_config=font_config, stylesheets=[css1, css2])
                         file.write(
-                            f'{obj.licence.number} :: PDF fileCreated!\n')
+                            f'{obj.Licence.number} :: PDF fileCreated!\n')
     #===================================End-File Backing=================================================
 
     #===================================Begin-File Processing=================================================
-                        lst = encode.objects.filter(
+                        lst = Encode.objects.filter(
                             hospital=obj.device.hospital)
                         if len(lst) == 0:
                             filename = '12' + str(obj.device.hospital.user.id)
                             filename = hashlib.md5(
-                                filename.encode()).hexdigest()
-                            enc = encode.objects.create(
+                                filename.encode().hexdigest()
+                            enc = Encode.objects.create(
                                 hospital=obj.device.hospital, name=filename)
                             enc.save()
                             encode_file.write('{}\n{}\n'.format(obj.device.hospital.name, filename))
@@ -695,12 +695,12 @@ def pdf(request):
                             ftp.mkd(modellist[s])
                         ftp.cwd(modellist[s])
                         try:
-                            send_file_ftp(ftp, f'{obj.licence.number}.pdf')
+                            send_file_ftp(ftp, f'{obj.Licence.number}.pdf')
                             file.write(
-                                f'{obj.licence.number} :: File Successfully Uploaded!\n')
+                                f'{obj.Licence.number} :: File Successfully Uploaded!\n')
                         except:
                             file.write(
-                                f'{obj.licence.number} :: An eeror occured while uploading to Host!\n')                        
+                                f'{obj.Licence.number} :: An eeror occured while uploading to Host!\n')                        
                         ftp.cwd('..')
                         ftp.cwd('..')
                         ftp.cwd('..')
@@ -709,16 +709,16 @@ def pdf(request):
                         ftp.cwd('..')
                         ftp.cwd('..')
     #===================================End-FTP Stuf=================================================
-                        a12 = report.objects.create(tt=ad_test_type0.objects.get(type=modellist[s]), device=obj.device,
+                        a12 = report.objects.create(tt=AdTestType0.objects.get(type=modellist[s]), device=obj.device,
                                                     request=obj.request, date=obj.date, user=obj.user, status=obj.status,
-                                                    record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
+                                                    Record=obj.Record, Licence=obj.Licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
                                                     is_done=obj.is_done, totalcomment=obj.totalcomment)
                         a12.save()
                         file.write(
-                            f'{obj.licence.number} :: Report has been generated!\n')
+                            f'{obj.Licence.number} :: Report has been generated!\n')
                         # obj.delete()
                         file.write(
-                            f'{obj.licence.number} :: Raw data has beed deleted!\n\n')
+                            f'{obj.Licence.number} :: Raw data has beed deleted!\n\n')
 
                 s += 1
             ftp.close()
@@ -738,7 +738,7 @@ def reportview(request):
             data = report.objects.filter(
                 licence__number=request.GET['licence_num'])
         if len(data) != 0:
-            name = encode.objects.get(hospital=data[0].device.hospital)
+            name = Encode.objects.get(hospital=data[0].device.hospital)
             return redirect('https://{}/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(
                 dl_domain_name, 
                 data[0].request.hospital.city.state_name.name, 
@@ -747,7 +747,7 @@ def reportview(request):
                 data[0].request.number,
                 data[0].device.section.name,
                 data[0].tt,
-                data[0].licence.number
+                data[0].Licence.number
                 ))
 
         raise Http404

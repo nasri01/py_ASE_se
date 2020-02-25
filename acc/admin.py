@@ -13,7 +13,7 @@ admin.site.register(State,StateAdmin)
 class CityAdmin(admin.ModelAdmin):
     list_display = ("name", "state_name")
 admin.site.register(City,CityAdmin)
-admin.site.register(device_type)
+admin.site.register(DeviceType)
 
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ("name", "type")
@@ -24,36 +24,36 @@ class CompanyAdmin(admin.ModelAdmin):
     list_display = ("name", "country")
 admin.site.register(Company,CompanyAdmin)
 admin.site.register(Section)
-admin.site.register(Cal_device,DeviceAdmin)
+admin.site.register(CalDevice,DeviceAdmin)
 
 class All_DeviceAdmin(admin.ModelAdmin):
     list_display = ("name", "hospital","section")
-admin.site.register(All_Device,All_DeviceAdmin)
+admin.site.register(AllDevice,All_DeviceAdmin)
 
 admin.site.register(Request)
-admin.site.register(licence)
+admin.site.register(Licence)
 
 
 
-admin.site.register(ad_excel_arg)
+admin.site.register(AdExcelArg)
 
 
-admin.site.register(accessory)
-admin.site.register(aUserProfile)
-admin.site.register(record)
+admin.site.register(Accessory)
+admin.site.register(UserProfile)
+admin.site.register(Record)
 
 
 
-admin.site.register(comment)
-admin.site.register(ad_test_type)
-admin.site.register(ad_test_type0)
-admin.site.register(ad_test_type2)
+admin.site.register(Comment)
+admin.site.register(AdTestType)
+admin.site.register(AdTestType0)
+admin.site.register(AdTestType1)
 class status(admin.ModelAdmin):
     list_display = ("id", "status")
-admin.site.register(ad_req_Status,status)
-admin.site.register(ad_az_Status,status)
+admin.site.register(AdReqStatus,status)
+admin.site.register(AdAzStatus,status)
 
-admin.site.register(ad_acc_Status)
+admin.site.register(AdAccStatus)
 admin.site.register(Parameters)
 
 

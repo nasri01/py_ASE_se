@@ -4,25 +4,25 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
 # Create your models here.
-class encode (models.Model):
+class Encode (models.Model):
     hospital = models.ForeignKey(acc.models.Hospital, on_delete=models.CASCADE, related_name='el')
     name = models.CharField(max_length=32)
 
-class report(models.Model):
-    tt = models.ForeignKey(acc.models.ad_test_type0, on_delete=models.PROTECT)
-    device = models.ForeignKey(acc.models.All_Device, on_delete=models.PROTECT)
+class Report(models.Model):
+    tt = models.ForeignKey(acc.models.AdTestType0, on_delete=models.PROTECT)
+    device = models.ForeignKey(acc.models.AllDevice, on_delete=models.PROTECT)
     Has_pdf = models.BooleanField(default=False)
     request = models.ForeignKey(acc.models.Request, on_delete=models.PROTECT)
     date = jmodels.jDateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT) 
-    record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='rr')
-    ref_record = models.ForeignKey(acc.models.record, on_delete=models.CASCADE, related_name='rrr')
-    licence = models.ForeignKey(acc.models.licence, on_delete=models.CASCADE, related_name='rl')
-    status = models.ForeignKey(acc.models.ad_az_Status, on_delete=models.PROTECT)
+    Record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE, related_name='rr')
+    ref_record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE, related_name='rrr')
+    Licence = models.ForeignKey(acc.models.Licence, on_delete=models.CASCADE, related_name='rl')
+    status = models.ForeignKey(acc.models.AdAzStatus, on_delete=models.PROTECT)
     totalcomment = models.TextField(null=True, blank= True)
     is_done = models.BooleanField(default=False)
     is_recal = models.BooleanField(default=False)
     class Meta:
         verbose_name_plural = "سابقه گزارشات"
     def __str__(self):
-        return  'report_summary' + str(self.licence)
+        return  'report_summary' + str(self.Licence)

@@ -4,7 +4,7 @@ from .models import *
 
 
 class formAdmin(admin.ModelAdmin):
-    list_display = ("__str__", "licence", "is_recal", "is_done",
+    list_display = ("__str__", "Licence", "is_recal", "is_done",
                     "status", "date", "request", "device", "user", )
 
 

@@ -5,9 +5,9 @@ from django.contrib.auth.models import Group, User
 from django.shortcuts import Http404, redirect, render
 from django.template import RequestContext
 
-from acc.models import Hospital, Parameters, Request, ad_excel_arg
+from acc.models import Hospital, Parameters, Request, AdExcelArg
 from form.forms import *
-from report.models import report
+from report.models import Report
 
 from .forms import *
 
@@ -15,7 +15,7 @@ try:
     color_scheme = Parameters.objects.get(name__exact='color').value
 except:
     color_scheme = '17a2b8'
-fr1 = ad_excel_arg.objects.all().order_by('id')
+fr1 = AdExcelArg.objects.all().order_by('id')
 # model_list = [MonitorSpo2_1, MonitorECG_1, MonitorNIBP_1, MonitorSafety_1, AED_1, AnesthesiaMachine_1,
 #               Defibrilator_1, ECG_1, FlowMeter_1, InfusionPump_1, ManoMeter_1, Spo2_1, Suction_1, SyringePump_1,
 #               Ventilator_1, ElectroCauter_1, CantTest, report]
@@ -29,32 +29,32 @@ fr1 = ad_excel_arg.objects.all().order_by('id')
 #              ManoMeter_1_Form, spo2_1_Form, suction_1_Form, syringe_pump_1_Form, ventilator_1_Form, electrocauter_1_Form,
 #              CantTest_Form]
 
-diclist = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form],
-           ['MonitorECG', MonitorECG_1, MonitorECG_1_Form],
-           ['MonitorNIBP', MonitorNIBP_1, MonitorNIBP_1_Form],
-           ['MonitorSafety', MonitorSafety_1, MonitorSafety_1_Form],
-           ['AED', AED_1, AED_1_Form],
-           ['AnesthesiaMachine', AnesthesiaMachine_1,
+model_list = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form],
+              ['MonitorECG', MonitorECG_1, MonitorECG_1_Form],
+              ['MonitorNIBP', MonitorNIBP_1, MonitorNIBP_1_Form],
+              ['MonitorSafety', MonitorSafety_1, MonitorSafety_1_Form],
+              ['AED', AED_1, AED_1_Form],
+              ['AnesthesiaMachine', AnesthesiaMachine_1,
                AnesthesiaMachine_1_Form],
-           ['Defibrilator', Defibrilator_1, Defibrilator_1_Form],
-           ['ECG', ECG_1, ECG_1_Form],
-           ['FlowMeter', FlowMeter_1, FlowMeter_1_Form],
-           ['InfusionPump', InfusionPump_1, InfusionPump_1_Form],
-           ['ManoMeter', ManoMeter_1, ManoMeter_1_Form],
-           ['spo2', Spo2_1, spo2_1_Form],
-           ['Suction', Suction_1, suction_1_Form],
-           ['SyringePump', SyringePump_1, syringe_pump_1_Form],
-           ['Ventilator', Ventilator_1, ventilator_1_Form],
-           ['ElectroCauter', ElectroCauter_1, electrocauter_1_Form],
-           ['CantTest', CantTest, CantTest_Form],
-           ['report', report],
-           ]  # Order the same by ad_test_type0
+              ['Defibrilator', Defibrilator_1, Defibrilator_1_Form],
+              ['ECG', ECG_1, ECG_1_Form],
+              ['FlowMeter', FlowMeter_1, FlowMeter_1_Form],
+              ['InfusionPump', InfusionPump_1, InfusionPump_1_Form],
+              ['ManoMeter', ManoMeter_1, ManoMeter_1_Form],
+              ['spo2', Spo2_1, spo2_1_Form],
+              ['Suction', Suction_1, suction_1_Form],
+              ['SyringePump', SyringePump_1, syringe_pump_1_Form],
+              ['Ventilator', Ventilator_1, ventilator_1_Form],
+              ['ElectroCauter', ElectroCauter_1, electrocauter_1_Form],
+              ['CantTest', CantTest, CantTest_Form],
+              ['Report', Report],
+              ]  # Order the same by AdTestType0
 
 
 def login(request):
     if request.method == 'POST':
         user = auth.authenticate(
-            username=request.POST['username'].lower(), password=request.POST['password'])
+            username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request, user)
             return redirect('dashboard')
@@ -73,36 +73,38 @@ def logout(request):
 
 
 @login_required
-def submit(request):
-    auser = aUserProfile.objects.get(user=request.user)
+def route_to_dashboard(request):
+    user_profile = UserProfile.objects.get(user=request.user)
     if Group.objects.get(name='admin') in request.user.groups.all():
         try:
-            request.GET['employee']
-            return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'auser': auser})
+            request.GET['employee']  # if the admin asked for user_dashboard
+            return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'user_profile': user_profile})
         except:
-            hospital_list = Hospital.objects.all()
-            req = Request.objects.all().order_by('date')
+            # hospital_list = Hospital.objects.all()
+            request_list = Request.objects.all().order_by('date')
             chart = [0, 0, 0, 0]
-            for model in diclist:
+            # [accept, conditional, reject, cant test]
+            for model in model_list:
                 if model[1] == CantTest:
                     continue
                 chart[0] += len(model[1].objects.filter(status__id=1))
                 chart[1] += len(model[1].objects.filter(status__id=2))
                 chart[2] += len(model[1].objects.filter(status__id=3))
             chart[3] = len(CantTest.objects.all())
-            for t in req:
-                t.date = t.date.today()
+            for req in request_list:
+                req.date = req.date.today()
 
             return render(request, 'acc/admin/index.html', {
-                'status': 'Welcome Back', 'flag': '1', 'auser': auser, 'hosplist': hospital_list, 'request': req,
+                'status': 'Welcome Back', 'user_profile': user_profile, 'request_list': request_list,
                 'chart': chart})
 
     elif Group.objects.get(name='hospital') in request.user.groups.all():
 
-        req = Request.objects.filter(
+        request_list = Request.objects.filter(
             hospital__user=request.user).order_by('date')
         chart = [0, 0, 0, 0]
-        for model in diclist:
+        # [accept, conditional, reject, cant test]
+        for model in model_list:
             if model[1] == CantTest:
                 continue
             query = model[1].objects.filter(
@@ -113,38 +115,56 @@ def submit(request):
             chart[2] += len(query.filter(status__id=3))
         chart[3] = len(CantTest.objects.filter(
             device__hospital__user=request.user))
-        for t in req:
-            t.date = t.date.today()
+        for req in request_list:
+            req.date = req.date.today()
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'flag': 1,  'request': req, 'auser': auser, 'chart': chart})
+                      {'status': 'خوش آمدید', 'request_list': request_list, 'user_profile': user_profile, 'chart': chart})
         #    'date': jdatetime.date.today(), 'month': mm,
 
     elif Group.objects.get(name='employee') in request.user.groups.all():
-        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'auser': auser})
+        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'user_profile': user_profile})
 
 
 # list of requests
-def req_list(request):
+def show_request_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        req = Request.objects.all()
-        for r in req:
-            r.date = jdatetime.date.fromgregorian(date=r.date)
-        return render(request, 'acc/employee/request_list.html', {'req': req})
+        request_list = Request.objects.all()
+        for req in request_list:
+            req.date = jdatetime.date.fromgregorian(date=req.date)
+        return render(request, 'acc/employee/request_list.html', {'request_list': request_list})
     else:
         raise Http404
 
 # List of recalibration
 
 
-def recal_list(request):
+def show_recalibration_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        data = []
-        data1 = []
-        for model in diclist:
-            modelobj = model[1].objects.filter(is_done=False)
-            data1.append(modelobj)
-        for obj1 in data1:
-            for obj in obj1:
+        table_header_list = AdExcelArg.objects.all().order_by('id')
+        table_header =  (str(table_header_list[1]),
+                         str(table_header_list[2]),
+                         str(table_header_list[3]),
+                         str(table_header_list[4]),
+                         str(table_header_list[5]),
+                         str(table_header_list[6]),
+                         str(table_header_list[7]),
+                         str(table_header_list[8]),
+                         str(table_header_list[9]),
+                         str(table_header_list[10]),
+                         str(table_header_list[11]),
+                         str(table_header_list[12]),
+                         str(table_header_list[13]),
+                         str(table_header_list[14]),
+                         str(table_header_list[15]),
+                         )
+        table_rows = []
+        # model_query_list = []
+        for model in model_list:
+            model_query = model[1].objects.filter(is_done=False)
+        #     model_query_list.append(model_query)
+        # for model_ in model_query_list:
+            for obj in model_query:
+                # obj = report_instance
                 row = []
                 row.append(obj.device.hospital.city.state_name.name)  # 0
                 row.append(obj.device.hospital.city.name)  # 1
@@ -158,29 +178,46 @@ def recal_list(request):
                 row.append(obj.status.status)  # 9
                 row.append(obj.date.strftime("%Y-%m-%d"))  # 10
                 if obj.status.id != 4:
-                    row.append(obj.licence.number)  # 11
+                    row.append(obj.Licence.number)  # 11
                 else:
                     row.append('-')  # 11
-                row.append(obj.record.number)  # 12
+                row.append(obj.Record.number)  # 12
                 row.append(obj.status.id)  # 13
-                data.append(row)
+                table_rows.append(row)
 
-        return render(request, 'acc/employee/recalibration_list.html', {'firstrow': fr1, 'data': data})
+        return render(request, 'acc/employee/recalibration_list.html', {'table_header': table_header, 'data': table_rows})
     else:
         raise Http404
 
 # list of all records
 
 
-def report_list(request):
+def show_report_list(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        data = []
-        data1 = []
-        for model in diclist[:-1]:
-            modelobj = model[1].objects.all()
-            data1.append(modelobj)
-        for obj1 in data1:
-            for obj in obj1:
+        table_header_list = AdExcelArg.objects.all().order_by('id')
+        table_header =  (str(table_header_list[1]),
+                         str(table_header_list[2]),
+                         str(table_header_list[3]),
+                         str(table_header_list[4]),
+                         str(table_header_list[5]),
+                         str(table_header_list[6]),
+                         str(table_header_list[7]),
+                         str(table_header_list[8]),
+                         str(table_header_list[9]),
+                         str(table_header_list[10]),
+                         str(table_header_list[11]),
+                         str(table_header_list[12]),
+                         str(table_header_list[13]),
+                         str(table_header_list[14]),
+                         str(table_header_list[15]),
+                         )
+        table_rows = []
+        # data1 = []
+        for model in model_list[:-1]:
+            model_query = model[1].objects.all()
+        #     data1.append(modelobj)
+        # for obj1 in data1:
+            for obj in model_query:
                 row = []
                 row.append(obj.device.hospital.city.state_name.name)  # 0
                 row.append(obj.device.hospital.city.name)  # 1
@@ -194,12 +231,12 @@ def report_list(request):
                 row.append(obj.status.status)  # 9
                 row.append(obj.date.strftime("%Y-%m-%d"))  # 10
                 if obj.status.id != 4:
-                    row.append(obj.licence.number)  # 11
+                    row.append(obj.Licence.number)  # 11
                 else:
                     row.append('-')  # 11
-                row.append(obj.record.number)  # 12
-                data.append(row)
-        return render(request, 'acc/employee/report_list.html', {'firstrow': fr1, 'data': data})
+                row.append(obj.Record.number)  # 12
+                table_rows.append(row)
+        return render(request, 'acc/employee/report_list.html', {'table_header': table_header, 'table_rows': table_rows})
     else:
         raise Http404
 
@@ -209,67 +246,72 @@ def report_list(request):
 def edit_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
-            auser = aUserProfile.objects.get(user=request.user)
-            for model in diclist:
-                modelobj = model[2].Meta.model.objects.filter(
-                    record__number=int(request.GET['record_num']))
-                if (len(modelobj) == 1):
-                    form_type = model[2]
-                    form_type_str = model[0]
-                    break
-
+            user_profile = UserProfile.objects.get(user=request.user)
             try:
-                form_type
+                for model in model_list:
+                    model_query = model[1].objects.filter(
+                        record__number=int(request.GET['record_number']))
+                    if (len(model_query) == 1):
+                        form_type = model[2]
+                        model_name = model[0]
+                        break
             except:
-                raise Http404
-            form1 = form_type(instance=modelobj[0])
-            edata = {'form': form1,
-                     'form_type': form_type_str,
-                     'record_num': modelobj[0].record.number,
-                     'licence_num': modelobj[0].licence.number,
-                     'auser': auser
+                return('dashboard')
+            # try:
+            #     form_type
+            # except:
+            #     raise Http404
+            form_body = form_type(instance=model_query[0])
+            pass_data = {'form': form_body,
+                     'form_type': model_name,
+                     'record_number': model_query[0].Record.number,
+                     'licence_number': model_query[0].Licence.number,
+                     'user_profile': user_profile
                      }
 
-            if (modelobj[0].is_recal == False):  # its calibration
-                edata['edit'] = 1
+            if (model_query[0].is_recal == False):  # its calibration
+                pass_data['edit'] = 1
             else:
-                edata['edit_recal'] = 1
-            return render(request, 'acc/employee/index.html', edata)
+                pass_data['edit_recal'] = 1
+            return render(request, 'acc/employee/index.html', pass_data)
+        else:
+            return('report_list')
     else:
         raise Http404
 
 # Perepare the appropiate Recalibration form for Frame
-
-
 def recal_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
-            auser = aUserProfile.objects.get(user=request.user)
-            for model in diclist:
-                modelobj = model[1].objects.filter(record__number=int(request.GET['record_num'])).filter(
+            user_profile = UserProfile.objects.get(user=request.user)
+            for model in model_list:
+                model_query = model[1].objects.filter(record__number=int(request.GET['record_number'])).filter(
                     is_done__exact=False)
 
-                if (len(modelobj) == 1):
+                if (len(model_query) == 1):
                     if model[0] in ['CantTest', 'report']:
-                        form_type = diclist[int(modelobj[0].tt.id)-1][2]
-                        form_type_str = diclist[int(modelobj[0].tt.id)-1][0]
+                        form_type = model_list[int(model_query[0].tt.id)-1][2]
+                        model_name = model_list[int(model_query[0].tt.id)-1][0]
                     else:
                         form_type = model[2]
-                        form_type_str = model[0]
+                        model_name = model[0]
                     break
+                else:
+                    return('recal_list')
 
-            form1 = form_type({'device': [modelobj[0].device.id]})
-            rdata = {'recal': 1,
-                     'form': form1,
-                     'form_type': form_type_str,
-                     'ref_record_num': modelobj[0].record.number,
-                     'auser': auser
+            form_body = form_type({'device': [model_query[0].device.id]})
+            pass_data = {'recal': 1,
+                     'form': form_body,
+                     'form_type': model_name,
+                     'ref_record_number': model_query[0].Record.number,
+                     'user_profile': user_profile
                      }
             try:
-                rdata['ref_licence_num'] = modelobj[0].licence.number
+                # if exist
+                pass_data['ref_licence_num'] = model_query[0].Licence.number
             except:
                 pass
-            return render(request, 'acc/employee/index.html', rdata)
+            return render(request, 'acc/employee/index.html', pass_data)
     else:
         raise Http404
 
@@ -277,8 +319,7 @@ def recal_report(request):
 def make_done(request):
     if (request.method == 'GET'):
         query = CantTest.objects.filter(
-            record__number=int(request.GET['record_num']))
-        print(len(query))
+            record__number=int(request.GET['record_number']))
         query[0].is_done = True
         query[0].save()
 

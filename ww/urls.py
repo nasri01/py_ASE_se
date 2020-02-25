@@ -24,7 +24,7 @@ from django.conf import settings
 urlpatterns = [
     path('', include('acc.urls')),
     path('mo/', admin.site.urls),
-    path('dashboard/', acc.views.submit,name='dashboard'),
+    path('dashboard/', acc.views.route_to_dashboard,name='dashboard'),
     path('report/', include('report.urls')),
     path('form/', include('form.urls'))
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + 

@@ -5,6 +5,6 @@ from .models import *
 
 class add_device_Form(forms.ModelForm):
     class Meta:
-        model = All_Device
+        model = AllDevice
         fields = '__all__'
 

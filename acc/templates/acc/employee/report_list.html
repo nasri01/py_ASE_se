@@ -81,30 +81,18 @@
           cellspacing="0">
           <thead>
             <tr>
-              <th class="th-sm">{{firstrow.1}}
-              </th>
-              <th class="th-sm">{{firstrow.2}}
-              </th>
-              <th class="th-sm">{{firstrow.3}}
-              </th>
-              <th class="th-sm">{{firstrow.4}}
-              </th>
-              <th class="th-sm">{{firstrow.5}}
-              </th>
-              <th class="th-sm">{{firstrow.6}}
-              </th>
-              <th class="th-sm">{{firstrow.8}}
-              </th>
-              <th class="th-sm">{{firstrow.9}}
-              </th>
-              <th class="th-sm">{{firstrow.10}}
-              </th>
-              <th class="th-sm">{{firstrow.11}}
-              </th>
-              <th class="th-sm">{{firstrow.12}}
-              </th>
-              <th class="th-sm">{{firstrow.14}}
-              </th>
+              <th class="th-sm">{{table_header.1}}</th>
+              <th class="th-sm">{{table_header.2}}</th>
+              <th class="th-sm">{{table_header.3}}</th>
+              <th class="th-sm">{{table_header.4}}</th>
+              <th class="th-sm">{{table_header.5}}</th>
+              <th class="th-sm">{{table_header.6}}</th>
+              <th class="th-sm">{{table_header.8}}</th>
+              <th class="th-sm">{{table_header.9}}</th>
+              <th class="th-sm">{{table_header.10}} </th>
+              <th class="th-sm">{{table_header.11}} </th>
+              <th class="th-sm">{{table_header.12}} </th>
+              <th class="th-sm">{{table_header.14}} </th>
 
               <th class="th-sm">Edit
               </th>
@@ -114,26 +102,26 @@
             </tr>
           </thead>
           <tbody>
-            {% for i in data %}
+            {% for row in table_rows %}
 
             <tr>
               <th>{{forloop.counter}}</th>
-              <td>{{i.0}}</td>
-              <td>{{i.1}}</td>
-              <td>{{i.2}}</td>
-              <td>{{i.3}}</td>
-              <td>{{i.4}}</td>
-              <td>{{i.6}}</td>
-              <td>{{i.7}}</td>
-              <td>{{i.8}}</td>
-              <td>{{i.9}}</td>
-              <td>{{i.10}}</td>
-              <td>{{i.11}}</td>
-              {% if i.9 == 'عدم تست' %}
+              <td>{{row.0}}</td>
+              <td>{{row.1}}</td>
+              <td>{{row.2}}</td>
+              <td>{{row.3}}</td>
+              <td>{{row.4}}</td>
+              <td>{{row.6}}</td>
+              <td>{{row.7}}</td>
+              <td>{{row.8}}</td>
+              <td>{{row.9}}</td>
+              <td>{{row.10}}</td>
+              <td>{{row.11}}</td>
+              {% if row.9 == 'عدم تست' %}
               <td>
                 {% else %}
                 <form method="GET" action="{% url 'edit_report' %}">
-              <td> <button type="submit" value="{{i.12}}" name="record_num" class="btn"><img
+              <td> <button type="submit" value="{{row.12}}" name="record_number" class="btn"><img
                     src="{% static 'img/icon-edit.jpg' %}" height="30" class="download-icon" alt="download-icon">
                 </button>
               </td>
@@ -141,7 +129,7 @@
               {% endif %}
 
               <form method="GET" action="{% url 'delete_report' %}">
-                <td> <button type="submit" value="{{i.12}}" name="record_num" class="btn"><img
+                <td> <button type="submit" value="{{row.12}}" name="record_number" class="btn"><img
                       src="{% static 'img/icon-edit.jpg' %}" height="30" class="download-icon" alt="download-icon">
                   </button>
                 </td>

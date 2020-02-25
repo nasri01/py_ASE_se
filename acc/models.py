@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
 
-class ad_az_Status(models.Model):
+class AdAzStatus(models.Model):
     status = models.CharField(max_length=30)
 
     class Meta:
@@ -13,7 +13,7 @@ class ad_az_Status(models.Model):
         return str(self.status)
 
 
-class ad_req_Status(models.Model):
+class AdReqStatus(models.Model):
     status = models.CharField(max_length=30)
 
     class Meta:
@@ -23,7 +23,7 @@ class ad_req_Status(models.Model):
         return str(self.status)
 
 
-class ad_acc_Status(models.Model):
+class AdAccStatus(models.Model):
     status = models.CharField(max_length=30)
 
     class Meta:
@@ -33,7 +33,7 @@ class ad_acc_Status(models.Model):
         return str(self.status)
 
 
-class ad_test_type0(models.Model):  # class
+class AdTestType0(models.Model):  # class
     type = models.CharField(max_length=30)
 
     class Meta:
@@ -43,7 +43,7 @@ class ad_test_type0(models.Model):  # class
         return str(self.type)
 
 
-class ad_test_type(models.Model):  # class
+class AdTestType(models.Model):  # class
     type = models.CharField(max_length=30)
 
     class Meta:
@@ -53,7 +53,7 @@ class ad_test_type(models.Model):  # class
         return str(self.type)
 
 
-class ad_test_type2(models.Model):  # bf/cf ac/dc
+class AdTestType1(models.Model):  # bf/cf ac/dc
     type = models.CharField(max_length=30)
 
     class Meta:
@@ -119,12 +119,13 @@ class Parameters(models.Model):
         return self.name
 
 
-class aUserProfile(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatar/', default='avatar/male-profile-avatar-with-brown-hair-vector-12055105.jpg')
+    avatar = models.ImageField(
+        upload_to='avatar/', default='avatar/male-profile-avatar-with-brown-hair-vector-12055105.jpg')
     signature = models.ImageField(
         upload_to='signature/', null=True, blank=True)
-    status = models.ForeignKey(ad_acc_Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(AdAccStatus, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name_plural = "1_مشخصات کاربران"
@@ -161,7 +162,7 @@ class Company(models.Model):
         return self.name
 
 
-class device_type(models.Model):
+class DeviceType(models.Model):
     name = models.TextField()
 
     class Meta:
@@ -173,7 +174,7 @@ class device_type(models.Model):
 
 class Device(models.Model):
     name = models.TextField()
-    type = models.ForeignKey(device_type, on_delete=models.CASCADE)
+    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
     creator = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     class Meta:
@@ -183,9 +184,9 @@ class Device(models.Model):
         return self.name
 
 
-class Cal_device(models.Model):
+class CalDevice(models.Model):
     name = models.TextField()
-    type = models.ForeignKey(device_type, on_delete=models.CASCADE)
+    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
     creator = models.ForeignKey(Company, on_delete=models.CASCADE)
     serial = models.CharField(max_length=30)
     calibration_date = models.DateField()
@@ -198,7 +199,7 @@ class Cal_device(models.Model):
         return self.name
 
 
-class All_Device(models.Model):
+class AllDevice(models.Model):
     name = models.ForeignKey(Device, on_delete=models.CASCADE)
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, on_delete=models.CASCADE)
@@ -217,7 +218,7 @@ class Request(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     number = models.IntegerField()
     status = models.ForeignKey(
-        ad_req_Status, on_delete=models.CASCADE, default=1)
+        AdReqStatus, on_delete=models.CASCADE, default=1)
 
     class Meta:
         verbose_name_plural = "5_لیست درخواست ها"
@@ -226,7 +227,7 @@ class Request(models.Model):
         return str(self.number)
 
 
-class record(models.Model):
+class Record(models.Model):
     number = models.IntegerField(primary_key=True)
 
     class Meta:
@@ -236,7 +237,7 @@ class record(models.Model):
         return str(self.number)
 
 
-class licence(models.Model):
+class Licence(models.Model):
     number = models.IntegerField()
 
     class Meta:
@@ -246,9 +247,9 @@ class licence(models.Model):
         return str(self.number)
 
 
-class accessory(models.Model):
+class Accessory(models.Model):
     name = models.CharField(max_length=50)
-    type = models.ForeignKey(device_type, on_delete=models.PROTECT)
+    type = models.ForeignKey(DeviceType, on_delete=models.PROTECT)
     company = models.ForeignKey(Company, on_delete=models.PROTECT)
 
     class Meta:
@@ -258,7 +259,7 @@ class accessory(models.Model):
         return str(self.name)
 
 
-class ad_excel_arg(models.Model):
+class AdExcelArg(models.Model):
     arg = models.TextField()
 
     class Meta:
@@ -268,11 +269,11 @@ class ad_excel_arg(models.Model):
         return self.arg
 
 
-class comment(models.Model):
+class Comment(models.Model):
     comment = models.CharField(max_length=50)
 
     class Meta:
         verbose_name_plural = "توضیحات"
 
     def __str__(self):
-        return str(self.comment)
+        return str(self.Comment)
