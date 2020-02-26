@@ -108,7 +108,7 @@ class MonitorSpo2_1(models.Model):
                                       related_name='ms1s4e1comment', default=2)
 
     def __str__(self):
-        return 'MonitorSpo2 : ' + str(self.Licence)
+        return 'MonitorSpo2 : ' + str(self.licence)
 
 
 class MonitorECG_1(models.Model):
@@ -301,7 +301,7 @@ class MonitorECG_1(models.Model):
                                       related_name='me1s9e1comment', default=1)
 
     def __str__(self):
-        return 'MonitorECG : ' + str(self.Licence)
+        return 'MonitorECG : ' + str(self.licence)
 
 
 class MonitorNIBP_1(models.Model):
@@ -379,7 +379,7 @@ class MonitorNIBP_1(models.Model):
     s2_e6_pr3 = models.CharField(max_length=8)
 
     def __str__(self):
-        return 'MonitorNIBP : ' + str(self.Licence)
+        return 'MonitorNIBP : ' + str(self.licence)
 
 
 class AED_1(models.Model):
@@ -656,7 +656,7 @@ class AED_1(models.Model):
     s13_e3_e = models.BooleanField()
 
     def __str__(self):
-        return 'AED : ' + str(self.Licence)
+        return 'AED : ' + str(self.licence)
 
 
 class MonitorSafety_1(models.Model):
@@ -844,7 +844,7 @@ class MonitorSafety_1(models.Model):
     s5_e15_lc = models.FloatField()
 
     def __str__(self):
-        return 'MonitorSafety : ' + str(self.Licence)
+        return 'MonitorSafety : ' + str(self.licence)
 
 
 class AnesthesiaMachine_1(models.Model):
@@ -1140,7 +1140,7 @@ class AnesthesiaMachine_1(models.Model):
     # s19_g4_e4 = models.FloatField(default= -1 )
 
     def __str__(self):
-        return 'AnesthesiaMachine : ' + str(self.Licence)
+        return 'AnesthesiaMachine : ' + str(self.licence)
 
 
 class Defibrilator_1(models.Model):
@@ -1572,7 +1572,7 @@ class Defibrilator_1(models.Model):
                                        related_name='df1s12e3comment', default=1)
 
     def __str__(self):
-        return 'Defibrilator : ' + str(self.Licence)
+        return 'Defibrilator : ' + str(self.licence)
 
 
 class ECG_1(models.Model):
@@ -1789,7 +1789,7 @@ class ECG_1(models.Model):
     s18_e4_pac = models.IntegerField()
 
     def __str__(self):
-        return 'ECG : ' + str(self.Licence)
+        return 'ECG : ' + str(self.licence)
 
 
 class FlowMeter_1(models.Model):
@@ -1829,7 +1829,7 @@ class FlowMeter_1(models.Model):
     s1_e6_rlpm = models.FloatField()
 
     def __str__(self):
-        return 'FlowMeter : ' + str(self.Licence)
+        return 'FlowMeter : ' + str(self.licence)
 
 
 class InfusionPump_1(models.Model):
@@ -2002,7 +2002,7 @@ class InfusionPump_1(models.Model):
     s8_e1_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'InfusionPump : ' + str(self.Licence)
+        return 'InfusionPump : ' + str(self.licence)
 
 
 class ManoMeter_1(models.Model):
@@ -2087,7 +2087,7 @@ class ManoMeter_1(models.Model):
     s2_e4_np = models.IntegerField()
 
     def __str__(self):
-        return 'manometer : ' + str(self.Licence)
+        return 'manometer : ' + str(self.licence)
 
 
 class Spo2_1(models.Model):
@@ -2201,7 +2201,7 @@ class Spo2_1(models.Model):
     
 
     def __str__(self):
-        return 'spo2 : ' + str(self.Licence)
+        return 'spo2 : ' + str(self.licence)
 
 
 class Suction_1(models.Model):
@@ -2313,7 +2313,7 @@ class Suction_1(models.Model):
     s2_e8_rr = models.IntegerField()
 
     def __str__(self):
-        return 'Suction : ' + str(self.Licence)
+        return 'Suction : ' + str(self.licence)
 
 
 class SyringePump_1(models.Model):
@@ -2485,7 +2485,7 @@ class SyringePump_1(models.Model):
     # s8_e1_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'SyringePump : ' + str(self.Licence)
+        return 'SyringePump : ' + str(self.licence)
 
 
 class ElectroCauter_1(models.Model):
@@ -2863,7 +2863,7 @@ class ElectroCauter_1(models.Model):
     se_e2_comment = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return 'electrocouter : ' + str(self.Licence)
+        return 'electrocouter : ' + str(self.licence)
 
 
 class Ventilator_1(models.Model):
@@ -3052,4 +3052,4 @@ class Ventilator_1(models.Model):
                                         related_name='ven1s17e10comment', default=1)
 
     def __str__(self):
-        return 'Ventilator : ' + str(self.Licence)
+        return 'Ventilator : ' + str(self.licence)
