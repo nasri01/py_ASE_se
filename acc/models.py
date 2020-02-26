@@ -136,7 +136,6 @@ class UserProfile(models.Model):
 
 class Hospital(models.Model):
     name = models.TextField()
-    eng_name = models.TextField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     address = models.TextField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
