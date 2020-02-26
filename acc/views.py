@@ -74,7 +74,7 @@ def logout(request):
 
 @login_required
 def route_to_dashboard(request):
-    user_profile = UserProfile.objects.get(user=request.user)
+    avatar_url = UserProfile.objects.get(id=1).avatar.url #admin user_profile
     if Group.objects.get(name='admin') in request.user.groups.all():
         try:
             request.GET['employee']  # if the admin asked for user_dashboard
@@ -95,8 +95,8 @@ def route_to_dashboard(request):
                 req.date = req.date.today()
 
             return render(request, 'acc/admin/index.html', {
-                'status': 'Welcome Back', 'user_profile': user_profile, 'request_list': request_list,
-                'chart': chart})
+                'status': 'Welcome Back', 'user_name': request.user.first_name, 'request_list': request_list,
+                'chart': chart, 'avatar_url': avatar_url})
 
     elif Group.objects.get(name='hospital') in request.user.groups.all():
 
@@ -118,11 +118,13 @@ def route_to_dashboard(request):
         for req in request_list:
             req.date = req.date.today()
         return render(request, 'acc/hospital/index.html',
-                      {'status': 'خوش آمدید', 'request_list': request_list, 'user_profile': user_profile, 'chart': chart})
+                      {'status': 'خوش آمدید', 'request_list': request_list, 'avatar_url': avatar_url,
+                      'user_name': request.user.first_name, 'chart': chart})
         #    'date': jdatetime.date.today(), 'month': mm,
 
     elif Group.objects.get(name='employee') in request.user.groups.all():
-        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'user_profile': user_profile})
+        return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید',
+         'avatar_url': avatar_url, 'user_name': request.user.first_name})
 
 
 # list of requests
