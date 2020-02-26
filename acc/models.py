@@ -122,7 +122,7 @@ class Parameters(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(
-        upload_to='avatar/', default='avatar/male-profile-avatar-with-brown-hair-vector-12055105.jpg')
+        upload_to='avatar/')
     signature = models.ImageField(
         upload_to='signature/', null=True, blank=True)
     status = models.ForeignKey(AdAccStatus, on_delete=models.PROTECT)
@@ -139,8 +139,6 @@ class Hospital(models.Model):
     eng_name = models.TextField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     address = models.TextField()
-    p_name = models.TextField()
-    p_phone = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
