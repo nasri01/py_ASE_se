@@ -38,7 +38,7 @@ def router(request):
             if request.GET['type'] == item[0]:
                 form1 = item[2]
                 # pop up a confirmation
-                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 'user_profile': auser, })
+                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 'auser': user_profile, })
     else:
         raise Http404
 
