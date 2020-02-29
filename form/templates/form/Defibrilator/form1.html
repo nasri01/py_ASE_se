@@ -4,12 +4,23 @@
 
 <form method="POST" class="post-form">
   <div
-    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 50px;z-index: 100;">
-    <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}" target="_blank" style="width: 100%;">افزودن
-      کامنت</a>
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+
+    <div style="display:block;width:100%;">
+      <button class="btn btn-danger" type="submit" formaction="{% url 'admin:acc_accessory_add'%}"
+        style="display:block;width:100%;" formnovalidate> افزودن لوازم جانبی </button>
+    </div>
+    <div style="height: 10px;">
+    </div>
+    <!--<a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}"  target="_blank" style="width: 100%;" >افزودن کامنت</a>-->
+    <button class="btn btn-secondary" type="submit" formaction="{% url 'admin:acc_comment_add'%}"
+      style="display:block;width:100%;" formnovalidate> افزودن کامنت </button>
+
+
     <div style="height: 10px;"></div>
     <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='Defibrilator' %}"
       formnovalidate>بارگزاری مجدد فرم</button>
+
   </div>
   {% csrf_token %}
 

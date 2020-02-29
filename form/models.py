@@ -68,39 +68,39 @@ class MonitorSpo2_1(models.Model):
     s1_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='ms11s1e2comment', default=1)
 
-    s2_e1_spo2 = models.IntegerField()
-    s2_e1_pr = models.IntegerField()
-    s2_e2_spo2 = models.IntegerField()
-    s2_e2_pr = models.IntegerField()
-    s2_e3_spo2 = models.IntegerField()
-    s2_e3_pr = models.IntegerField()
-    s2_e4_spo2 = models.IntegerField()
-    s2_e4_pr = models.IntegerField()
-    s2_e5_spo2 = models.IntegerField()
-    s2_e5_pr = models.IntegerField()
-    s2_e6_spo2 = models.IntegerField()
-    s2_e6_pr = models.IntegerField()
-    s2_e7_spo2 = models.IntegerField()
-    s2_e7_pr = models.IntegerField()
-    s2_e8_spo2 = models.IntegerField()
-    s2_e8_pr = models.IntegerField()
-    s2_e9_spo2 = models.IntegerField()
-    s2_e9_pr = models.IntegerField()
-    s2_e10_spo2 = models.IntegerField()
-    s2_e10_pr = models.IntegerField()
-    s2_e11_spo2 = models.IntegerField()
-    s2_e11_pr = models.IntegerField()
+    s2_e1_spo2 = models.IntegerField(default=70)
+    s2_e1_pr = models.IntegerField(default=75)
+    s2_e2_spo2 = models.IntegerField(default=75)
+    s2_e2_pr = models.IntegerField(default=75)
+    s2_e3_spo2 = models.IntegerField(default=80)
+    s2_e3_pr = models.IntegerField(default=75)
+    s2_e4_spo2 = models.IntegerField(default=85)
+    s2_e4_pr = models.IntegerField(default=75)
+    s2_e5_spo2 = models.IntegerField(default=88)
+    s2_e5_pr = models.IntegerField(default=75)
+    s2_e6_spo2 = models.IntegerField(default=90)
+    s2_e6_pr = models.IntegerField(default=75)
+    s2_e7_spo2 = models.IntegerField(default=92)
+    s2_e7_pr = models.IntegerField(default=75)
+    s2_e8_spo2 = models.IntegerField(default=94)
+    s2_e8_pr = models.IntegerField(default=75)
+    s2_e9_spo2 = models.IntegerField(default=96)
+    s2_e9_pr = models.IntegerField(default=75)
+    s2_e10_spo2 = models.IntegerField(default=98)
+    s2_e10_pr = models.IntegerField(default=75)
+    s2_e11_spo2 = models.IntegerField(default=100)
+    s2_e11_pr = models.IntegerField(default=75)
 
-    s3_e1_spo2 = models.IntegerField()
-    s3_e1_pr = models.IntegerField()
-    s3_e2_spo2 = models.IntegerField()
-    s3_e2_pr = models.IntegerField()
-    s3_e3_spo2 = models.IntegerField()
-    s3_e3_pr = models.IntegerField()
-    s3_e4_spo2 = models.IntegerField()
-    s3_e4_pr = models.IntegerField()
-    s3_e5_spo2 = models.IntegerField()
-    s3_e5_pr = models.IntegerField()
+    s3_e1_spo2 = models.IntegerField(default=96)
+    s3_e1_pr = models.IntegerField(default=35)
+    s3_e2_spo2 = models.IntegerField(default=96)
+    s3_e2_pr = models.IntegerField(default=60)
+    s3_e3_spo2 = models.IntegerField(default=96)
+    s3_e3_pr = models.IntegerField(default=100)
+    s3_e4_spo2 = models.IntegerField(default=96)
+    s3_e4_pr = models.IntegerField(default=200)
+    s3_e5_spo2 = models.IntegerField(default=96)
+    s3_e5_pr = models.IntegerField(default=240)
 
     s4_e1_acc = models.ForeignKey(
         acc.models.Accessory, on_delete=models.PROTECT, related_name='ms1s4e1accessory', default=1)
@@ -174,75 +174,75 @@ class MonitorECG_1(models.Model):
     s1_e8_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s1e8comment', default=1)
 
-    s2_e1_hr = models.IntegerField()
+    s2_e1_hr = models.IntegerField(default=30)
     s2_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e1comment', default=1)
-    s2_e2_hr = models.IntegerField()
+    s2_e2_hr = models.IntegerField(default=80)
     s2_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e2comment', default=1)
-    s2_e3_hr = models.IntegerField()
+    s2_e3_hr = models.IntegerField(default=120)
     s2_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e3comment', default=1)
-    s2_e4_hr = models.IntegerField()
+    s2_e4_hr = models.IntegerField(default=200)
     s2_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e4comment', default=1)
-    s2_e5_hr = models.IntegerField()
+    s2_e5_hr = models.IntegerField(default=300)
     s2_e5_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e5comment', default=1)
-    s2_e6_hr = models.IntegerField()
+    s2_e6_hr = models.IntegerField(default=30)
     s2_e6_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e6comment', default=1)
-    s2_e7_hr = models.IntegerField()
+    s2_e7_hr = models.IntegerField(default=80)
     s2_e7_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e7comment', default=1)
-    s2_e8_hr = models.IntegerField()
+    s2_e8_hr = models.IntegerField(default=120)
     s2_e8_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e8comment', default=1)
-    s2_e9_hr = models.IntegerField()
+    s2_e9_hr = models.IntegerField(default=200)
     s2_e9_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s2e9comment', default=1)
-    s2_e10_hr = models.IntegerField()
+    s2_e10_hr = models.IntegerField(default=300)
     s2_e10_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='me1s2e10comment', default=1)
 
-    s3_e1_hr = models.IntegerField()
+    s3_e1_hr = models.IntegerField(30)
     s3_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e1comment', default=1)
-    s3_e2_hr = models.IntegerField()
+    s3_e2_hr = models.IntegerField(default=30)
     s3_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e2comment', default=1)
-    s3_e3_hr = models.IntegerField()
+    s3_e3_hr = models.IntegerField(default=30)
     s3_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e3comment', default=1)
-    s3_e4_hr = models.IntegerField()
+    s3_e4_hr = models.IntegerField(default=30)
     s3_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e4comment', default=1)
-    s3_e5_hr = models.IntegerField()
+    s3_e5_hr = models.IntegerField(default=80)
     s3_e5_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e5comment', default=1)
-    s3_e6_hr = models.IntegerField()
+    s3_e6_hr = models.IntegerField(default=200)
     s3_e6_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e6comment', default=1)
-    s3_e7_hr = models.IntegerField()
+    s3_e7_hr = models.IntegerField(default=200)
     s3_e7_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e7comment', default=1)
-    s3_e8_hr = models.IntegerField()
+    s3_e8_hr = models.IntegerField(default=200)
     s3_e8_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e8comment', default=1)
-    s3_e9_hr = models.IntegerField()
+    s3_e9_hr = models.IntegerField(default=200)
     s3_e9_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e9comment', default=1)
-    s3_e10_hr = models.IntegerField()
+    s3_e10_hr = models.IntegerField(default=30)
     s3_e10_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='me1s3e10comment', default=1)
-    s3_e11_hr = models.IntegerField()
+    s3_e11_hr = models.IntegerField(default=100)
     s3_e11_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='me1s3e11comment', default=1)
-    s3_e12_hr = models.IntegerField()
+    s3_e12_hr = models.IntegerField(default=250)
     s3_e12_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='me1s3e12comment', default=1)
 
-    s4_e1_hr = models.IntegerField()
+    s4_e1_hr = models.IntegerField(default=80)
     s4_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s4e1comment', default=1)
 
@@ -258,36 +258,36 @@ class MonitorECG_1(models.Model):
     s5_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s5e4comment', default=1)
 
-    s6_e1_damp = models.FloatField()
+    s6_e1_damp = models.FloatField(default=5)
     s6_e1_ramp = models.FloatField(null=True, blank=True)
     s6_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s6e1comment', default=1)
-    s6_e2_damp = models.FloatField()
+    s6_e2_damp = models.FloatField(default=10)
     s6_e2_ramp = models.FloatField(null=True, blank=True)
     s6_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s6e2comment', default=1)
-    s6_e3_damp = models.FloatField()
+    s6_e3_damp = models.FloatField(default=20)
     s6_e3_ramp = models.FloatField(null=True, blank=True)
     s6_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s6e3comment', default=1)
 
-    s7_e1_damp = models.FloatField()
+    s7_e1_damp = models.FloatField(default=1)
     s7_e1_ramp = models.FloatField(null=True, blank=True)
     s7_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e1comment', default=1)
-    s7_e2_damp = models.FloatField()
+    s7_e2_damp = models.FloatField(default=1)
     s7_e2_ramp = models.FloatField(null=True, blank=True)
     s7_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e2comment', default=1)
-    s7_e3_damp = models.FloatField()
+    s7_e3_damp = models.FloatField(default=1)
     s7_e3_ramp = models.FloatField(null=True, blank=True)
     s7_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e3comment', default=1)
-    s7_e4_damp = models.FloatField()
+    s7_e4_damp = models.FloatField(default=2)
     s7_e4_ramp = models.FloatField(null=True, blank=True)
     s7_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e4comment', default=1)
-    s7_e5_damp = models.FloatField()
+    s7_e5_damp = models.FloatField(default=2)
     s7_e5_ramp = models.FloatField(null=True, blank=True)
     s7_e5_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e5comment', default=1)

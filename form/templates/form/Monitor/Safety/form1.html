@@ -3,14 +3,26 @@
 
 
 <form method="POST" class="post-form">
-    <div style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 50px;z-index: 100;">
-  <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}" target="_blank"
-    style="width: 100%;">افزودن کامنت</a>
+  <div
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+
+    <div style="display:block;width:100%;">
+      <button class="btn btn-danger" type="submit" formaction="{% url 'admin:acc_accessory_add'%}"
+        style="display:block;width:100%;" formnovalidate> افزودن لوازم جانبی </button>
+    </div>
+    <div style="height: 10px;">
+    </div>
+    <!--<a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}"  target="_blank" style="width: 100%;" >افزودن کامنت</a>-->
+    <button class="btn btn-secondary" type="submit" formaction="{% url 'admin:acc_comment_add'%}"
+      style="display:block;width:100%;" formnovalidate> افزودن کامنت </button>
+
+
     <div style="height: 10px;"></div>
     <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='MonitorSafety' %}"
-     formnovalidate>بارگزاری مجدد فرم</button>
+      formnovalidate>بارگزاری مجدد فرم</button>
+
   </div>
-    {% csrf_token %}
+  {% csrf_token %}
 
   <table class="table-bordered">
 
@@ -907,31 +919,31 @@
                 عدم امکان انجام تستهای ایمنی الکتریکی بدلیل نداشتن ارت در محل تست
               </li>
               <li>
-                  عدم امکان بعضی از تست های ECG بدلیل اشکال در کلیدهای دستگاه
+                عدم امکان بعضی از تست های ECG بدلیل اشکال در کلیدهای دستگاه
               </li>
               <li>
-                  عدم امکان تست های ECG بدلیل اشکال در لید2
+                عدم امکان تست های ECG بدلیل اشکال در لید2
               </li>
               <li>
-                  فریز شدن دستگاه پس ازمدتی زمان
+                فریز شدن دستگاه پس ازمدتی زمان
               </li>
               <li>
-                  Freeze بدلیل اشکال فنی دردستگاه
+                Freeze بدلیل اشکال فنی دردستگاه
               </li>
               <li>
-                  مقاومت زمین بیش از حد استاندارد
+                مقاومت زمین بیش از حد استاندارد
               </li>
               <li>
-                  جریان نشتی زمین بیش از حد استاندارد
+                جریان نشتی زمین بیش از حد استاندارد
               </li>
               <li>
-                  جریان نشتی تماسی (بدنه) بیش از حد استاندارد
+                جریان نشتی تماسی (بدنه) بیش از حد استاندارد
               </li>
               <li>
-                  جریان نشتی بیمار بیش از حد استاندارد
+                جریان نشتی بیمار بیش از حد استاندارد
               </li>
               <li>
-                  جریان کمکی بیمار بیش از حد استاندارد
+                جریان کمکی بیمار بیش از حد استاندارد
               </li>
 
 

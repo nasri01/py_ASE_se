@@ -5,12 +5,23 @@
 
 <form method="POST" class="post-form">
   <div
-    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 50px;z-index: 100;">
-    <a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}" target="_blank" style="width: 100%;">افزودن
-      کامنت</a>
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+
+    <div style="display:block;width:100%;">
+      <button class="btn btn-danger" type="submit" formaction="{% url 'admin:acc_accessory_add'%}"
+        style="display:block;width:100%;" formnovalidate> افزودن لوازم جانبی </button>
+    </div>
+    <div style="height: 10px;">
+    </div>
+    <!--<a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}"  target="_blank" style="width: 100%;" >افزودن کامنت</a>-->
+    <button class="btn btn-secondary" type="submit" formaction="{% url 'admin:acc_comment_add'%}"
+      style="display:block;width:100%;" formnovalidate> افزودن کامنت </button>
+
+
     <div style="height: 10px;"></div>
-    <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='spo2' %}" formnovalidate>بارگزاری
-      مجدد فرم</button>
+    <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='spo2' %}"
+      formnovalidate>بارگزاری مجدد فرم</button>
+
   </div>
   {% csrf_token %}
 
@@ -122,28 +133,28 @@
 
         <br><br>
         <span style="font-weight: bold;">
-        1.درستی SpO2(بند201.12.1.101.1استاندارد61:2011-2-ISO 80601)
+          1.درستی SpO2(بند201.12.1.101.1استاندارد61:2011-2-ISO 80601)
         </span>
-        
-        
+
+
         <br><br>
-        
+
         <table style="direction: ltr;margin: auto;">
           <thead>
-              <tr>
-                <th rowspan="2">DESCRIPTION OF TEST</th>
-                <th colspan="2">SETTING</th>
-                <th colspan="2">READING</th>
-              </tr>
-        
-              <tr>
-        
-                <th>SpO<sub>2</sub>(%)</th>
-                <th>PR(BPM)</th>
-                <th>SpO<sub>2</sub>(%)</th>
-                <th>PR(BPM)</th>
-              </tr>
-        
+            <tr>
+              <th rowspan="2">DESCRIPTION OF TEST</th>
+              <th colspan="2">SETTING</th>
+              <th colspan="2">READING</th>
+            </tr>
+
+            <tr>
+
+              <th>SpO<sub>2</sub>(%)</th>
+              <th>PR(BPM)</th>
+              <th>SpO<sub>2</sub>(%)</th>
+              <th>PR(BPM)</th>
+            </tr>
+
           </thead>
           <tbody>
             <tr>
@@ -153,7 +164,7 @@
               <td>{{form.s2_e1_spo2}}</td>
               <td>{{form.s2_e1_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>75</td>
@@ -161,7 +172,7 @@
               <td>{{form.s2_e2_spo2}}</td>
               <td>{{form.s2_e2_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>80</td>
@@ -169,7 +180,7 @@
               <td>{{form.s2_e3_spo2}}</td>
               <td>{{form.s2_e3_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>85</td>
@@ -177,7 +188,7 @@
               <td>{{form.s2_e4_spo2}}</td>
               <td>{{form.s2_e4_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>88</td>
@@ -185,7 +196,7 @@
               <td>{{form.s2_e5_spo2}}</td>
               <td>{{form.s2_e5_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;">SpO<sub>2</sub>% ACCURACY</td> -->
               <td>90</td>
@@ -193,7 +204,7 @@
               <td>{{form.s2_e6_spo2}}</td>
               <td>{{form.s2_e6_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>92</td>
@@ -201,7 +212,7 @@
               <td>{{form.s2_e7_spo2}}</td>
               <td>{{form.s2_e7_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>94</td>
@@ -209,7 +220,7 @@
               <td>{{form.s2_e8_spo2}}</td>
               <td>{{form.s2_e8_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>96</td>
@@ -217,7 +228,7 @@
               <td>{{form.s2_e9_spo2}}</td>
               <td>{{form.s2_e9_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>98</td>
@@ -225,7 +236,7 @@
               <td>{{form.s2_e10_spo2}}</td>
               <td>{{form.s2_e10_pr}}</td>
             </tr>
-        
+
             <tr>
               <!-- <td style="border:none;"></td> -->
               <td>100</td>
@@ -234,47 +245,47 @@
               <td>{{form.s2_e11_pr}}</td>
             </tr>
           </tbody>
-        
+
         </table>
-        
-        
+
+
         <br><br>
-        
-        
+
+
         <span style="font-weight: bold;">
-        2.درستی نرخ پالس/ ضربان(بند201.12.1.104استانداردISO 80601-2-61:2011)
+          2.درستی نرخ پالس/ ضربان(بند201.12.1.104استانداردISO 80601-2-61:2011)
         </span>
         <br><br>
         <table style="direction: ltr;margin: auto;overflow: scroll;">
-        
+
           <tr>
             <th colspan="3">رنج تعیین شده نرخ پالس در دفترچه راهنمای دستگاه</th>
             <th colspan="2">صحت نرخ پالس تعیین شده در دفترچه راهنمای دستگاه</th>
           </tr>
-        
-        
-        
+
+
+
           <tr>
             <td colspan="3">20-250 BPM</td>
             <td colspan="2">At 20 bpm to 250 bpm : ± 3 bpm</td>
           </tr>
-        
-        
-        
+
+
+
           <tr>
             <th rowspan="2">DESCRIPTION OF TEST</th>
             <th colspan="2">SETTING</th>
             <th colspan="2">READING</th>
           </tr>
-        
+
           <tr>
             <th>SpO <sub>2</sub>(%)</th>
             <th>PR(BMP)</th>
             <th>SpO <sub>2</sub>(%)</th>
             <th>PR(BMP)</th>
-        
+
           </tr>
-        
+
           <tr>
             <td rowspan="5">Pulse rateACCURACY</td>
             <td>96</td>
@@ -282,37 +293,37 @@
             <td>{{form.s3_e1_spo2}}</td>
             <td>{{form.s3_e1_pr}}</td>
           </tr>
-        
+
           <tr>
             <td>96</td>
             <td>60</td>
             <td>{{form.s3_e2_spo2}}</td>
             <td>{{form.s3_e2_pr}}</td>
           </tr>
-        
+
           <tr>
             <td>96</td>
             <td>100</td>
             <td>{{form.s3_e3_spo2}}</td>
             <td>{{form.s3_e3_pr}}</td>
           </tr>
-        
+
           <tr>
             <td>96</td>
             <td>200</td>
             <td>{{form.s3_e4_spo2}}</td>
             <td>{{form.s3_e4_pr}}</td>
           </tr>
-        
+
           <tr>
             <td>96</td>
             <td>240</td>
             <td>{{form.s3_e5_spo2}}</td>
             <td>{{form.s3_e5_pr}}</td>
           </tr>
-        
+
         </table>
-        
+
         <span style="font-weight: bold;">
           3- بررسی لوازم جانبی
 
