@@ -33,12 +33,13 @@ model_list = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form, 3],
 def router(request):
 
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        user_profile = UserProfile.objects.get(id=1)
+        avatar_url = UserProfile.objects.get(id=1).avatar.url #admin user_profile
         for item in model_list:
             if request.GET['type'] == item[0]:
                 form1 = item[2]
                 # pop up a confirmation
-                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 'user_profile': user_profile, })
+                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 
+                'user_name': request.user.first_name, 'avatar_url': avatar_url })
     else:
         raise Http404
 
