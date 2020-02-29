@@ -237,6 +237,7 @@ def show_report_list(request):
                 else:
                     row.append('-')  # 11
                 row.append(obj.record.number)  # 12
+                row.append(obj.totalcomment)  # 13
                 table_rows.append(row)
         return render(request, 'acc/employee/report_list.html', {'table_header': table_header, 'table_rows': table_rows})
     else:
