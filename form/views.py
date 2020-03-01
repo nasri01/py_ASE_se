@@ -92,18 +92,18 @@ def save_router(request, formtype):
                     sform = form1.save(commit=False)
                     sform.user = request.user
                     sform.date = jdatetime.datetime.now().astimezone(pytz.timezone('Asia/Tehran'))
-                    record = Record.objects.create(
-                        number=int(Record.objects.last().number)+1)
-                    sform.Record = record
                     sform.has_pdf = False
 
                     if request.POST['op_type'] == 'save':
                         sform.is_recal = False
                         sform.ref_record = Record.objects.get(number=-1)
+                        record = Record.objects.create(
+                            number=int(Record.objects.last().number)+1)
+                        sform.record = record
                         if item[0] != 'CantTest':
                             ln = int(Licence.objects.order_by('number')[
                                 len(Licence.objects.all())-1].number) + 1
-                            sform.Licence = Licence.objects.create(number=ln)
+                            sform.licence = Licence.objects.create(number=ln)
                         else:
                             ln = -1
 
@@ -114,7 +114,8 @@ def save_router(request, formtype):
                         green_status = f'اطلاعات {item[0]} با موفقیت ذخیره شد! شماره گواهی:{ln}'
 
                     elif request.POST['op_type'] == 'save_edit':
-                        ln = data.Licence.number
+                        record = data.record.number
+                        ln = data.licence.number
                         if (request.POST['status'] == '1'):
                             sform.is_done = True
                         else:
@@ -124,18 +125,21 @@ def save_router(request, formtype):
                     elif request.POST['op_type'] == 'save_recal':
                         sform.is_recal = True
                         sform.is_done = True  # always True
+                        record = Record.objects.create(
+                            number=int(Record.objects.last().number)+1)
+                        sform.record = record
                         sform.ref_record = Record.objects.get(
                             number=request.POST['ref_record_num'])
                         ln = int(Licence.objects.order_by('number')[
                                  len(Licence.objects.all()) - 1].number) + 1
-                        sform.Licence = Licence.objects.create(number=ln)
+                        sform.licence = Licence.objects.create(number=ln)
                         if (request.POST['status'] == '1'):
                             ref_data.is_done = True
                             ref_data.save()
                         green_status = f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}'
 
                     elif request.POST['op_type'] == 'save_edit_recal':
-                        ln = data.Licence.number
+                        ln = data.licence.number
                         if (request.POST['status'] == '1'):
                             ref_data.is_done = True
                         elif request.POST['status'] != '1':
@@ -505,6 +509,7 @@ def save_router(request, formtype):
                         css2 = CSS(
                             filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
                         report_name = 'report_{}.pdf'.format(record.number)
+                        
                         HTML(string=html).write_pdf(
                             report_name, font_config=font_config, stylesheets=[css1, css2])
                         # ===================================End-File Backing=================================================
@@ -543,10 +548,11 @@ def save_router(request, formtype):
                             ftp.mkd(item[0])
                         ftp.cwd(item[0])
                         try:
-                            send_file_ftp(ftp, f'{obj.Licence.number}.pdf', report_name)
+                            send_file_ftp(ftp, f'{obj.licence.number}.pdf', report_name)
                             os.remove(report_name)
                             obj.has_pdf = True
                             obj.save()
+                            green_status += '<br> PDF ذخیره شد!!!'
                             report_instance = report.objects.create(tt=AdTestType0.objects.get(type=item[0]), device=obj.device,
                                                                     request=obj.request, date=obj.date, user=obj.user, status=obj.status,
                                                                     record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,

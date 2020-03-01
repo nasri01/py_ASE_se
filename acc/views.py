@@ -74,11 +74,11 @@ def logout(request):
 
 @login_required
 def route_to_dashboard(request):
-    avatar_url = UserProfile.objects.get(id=1).avatar.url #admin user_profile
+    avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
     if Group.objects.get(name='admin') in request.user.groups.all():
         try:
             request.GET['employee']  # if the admin asked for user_dashboard
-            return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'user_profile': user_profile})
+            return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید', 'user_name': request.user.first_name, 'avatar_url': avatar_url})
         except:
             # hospital_list = Hospital.objects.all()
             request_list = Request.objects.all().order_by('date')
@@ -119,12 +119,12 @@ def route_to_dashboard(request):
             req.date = req.date.today()
         return render(request, 'acc/hospital/index.html',
                       {'status': 'خوش آمدید', 'request_list': request_list, 'avatar_url': avatar_url,
-                      'user_name': request.user.first_name, 'chart': chart})
+                       'user_name': request.user.first_name, 'chart': chart})
         #    'date': jdatetime.date.today(), 'month': mm,
 
     elif Group.objects.get(name='employee') in request.user.groups.all():
         return render(request, 'acc/employee/index.html', {'status1': 'خوش آمدید',
-         'avatar_url': avatar_url, 'user_name': request.user.first_name})
+                                                           'avatar_url': avatar_url, 'user_name': request.user.first_name})
 
 
 # list of requests
@@ -249,7 +249,7 @@ def show_report_list(request):
 def edit_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
-            user_profile = UserProfile.objects.get(user=request.user)
+            avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
             try:
                 for model in model_list:
                     model_query = model[1].objects.filter(
@@ -269,7 +269,7 @@ def edit_report(request):
                          'form_type': model_name,
                          'record_number': model_query[0].Record.number,
                          'licence_number': model_query[0].Licence.number,
-                         'user_profile': user_profile
+                         'user_name': request.user.first_name, 'avatar_url': avatar_url
                          }
 
             if (model_query[0].is_recal == False):  # its calibration
@@ -288,7 +288,7 @@ def edit_report(request):
 def recal_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
-            user_profile = UserProfile.objects.get(user=request.user)
+            avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
             for model in model_list:
                 model_query = model[1].objects.filter(record__number=int(request.GET['record_number'])).filter(
                     is_done__exact=False)
@@ -309,7 +309,7 @@ def recal_report(request):
                          'form': form_body,
                          'form_type': model_name,
                          'ref_record_number': model_query[0].Record.number,
-                         'user_profile': user_profile
+                         'user_name': request.user.first_name, 'avatar_url': avatar_url
                          }
             try:
                 # if exist
