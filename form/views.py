@@ -175,7 +175,6 @@ def save_router(request, formtype):
                                         sform.cal_dev_5_xd = CalDevice.objects.get(
                                             id=request.POST['cal_dev5']).calibration_Expire_date
                     sform.save()
-                    return HttpResponse('fuck You!')
                     # =====================================
                     # =====================================begin-Create PDF=========================
                     with FTP(
