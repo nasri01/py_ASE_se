@@ -1,15 +1,20 @@
+import hashlib
 import os
 from ftplib import FTP
+from statistics import mean, stdev
 
 import jdatetime
 import pytz
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import Http404, HttpResponse, redirect, render
+from django.template.loader import render_to_string
 from weasyprint import CSS, HTML
 from weasyprint.fonts import FontConfiguration
 
 from acc.models import CalDevice, Licence, Record, UserProfile
+from report.models import Encode, Report
 from ww.local_settings import (dl_ftp_host, dl_ftp_passwd, dl_ftp_user,
                                domain_name)
 

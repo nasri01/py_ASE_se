@@ -8,7 +8,6 @@ from statistics import mean, stdev
 from ftplib import FTP
 from jdatetime import timedelta
 from form.models import *
-from acc.models import Licence as acc_licence
 from .models import Report, Encode
 from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain_name, domain_name
 
@@ -16,7 +15,7 @@ from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain
 from acc.models import AdExcelArg, UserProfile, Request, DeviceType, AdTestType0
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
 from django.shortcuts import render, Http404, redirect
 from django.http import HttpResponse
 from django.template.loader import render_to_string
@@ -114,7 +113,7 @@ def xlsx(request):
                 row.append(instance.status.status)  # 9
                 row.append(instance.date.strftime("%Y-%m-%d"))  # 10
                 if instance.status.id != 4:
-                    row.append(instance.Licence.number)  # 11
+                    row.append(instance.licence.number)  # 11
                 else:
                     row.append('-')  # 11
                 if index == 0:
@@ -222,7 +221,7 @@ def xlsx(request):
                         encode_instance.name,
                         report_instance.request.number,
                         report_instance.tt,
-                        report_instance.Licence.number
+                        report_instance.licence.number
                         )
                     ws.write_url(row=cursor, col=len(data), url=url,
                              cell_format=row_format, string='show', tip='Downlaod PDF')
@@ -705,7 +704,7 @@ def pdf(request):
                             ftp.mkd(modellist[s])
                         ftp.cwd(modellist[s])
                         try:
-                            send_file_ftp(ftp, f'{obj.Licence.number}.pdf')
+                            send_file_ftp(ftp, f'{obj.licence.number}.pdf')
                             obj.has_pdf = True
                             obj.save()
                             report_instance = report.objects.create(tt=AdTestType0.objects.get(type=modellist[s]), device=obj.device,
@@ -755,7 +754,7 @@ def reportview(request):
                 data[0].request.number,
                 data[0].device.section.name,
                 data[0].tt,
-                data[0].Licence.number
+                data[0].licence.number
                 ))
 
         raise Http404
