@@ -538,7 +538,7 @@ def save_router(request, formtype):
                         if len(encode_query) == 0:
                             filename = '12' + str(obj.device.hospital.user.id)
                             filename = hashlib.md5(
-                                filename.encode().hexdigest())
+                                filename.encode()).hexdigest()
                             encode_instance = Encode.objects.create(
                                 hospital=obj.device.hospital, name=filename)
                             encode_instance.save()
