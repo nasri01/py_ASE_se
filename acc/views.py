@@ -183,7 +183,7 @@ def show_recalibration_list(request):
                     row.append(obj.Licence.number)  # 11
                 else:
                     row.append('-')  # 11
-                row.append(obj.Record.number)  # 12
+                row.append(obj.record.number)  # 12
                 row.append(obj.status.id)  # 13
                 table_rows.append(row)
 
@@ -267,8 +267,8 @@ def edit_report(request):
             form_body = form_type(instance=model_query[0])
             pass_data = {'form': form_body,
                          'form_type': model_name,
-                         'record_number': model_query[0].Record.number,
-                         'licence_number': model_query[0].Licence.number,
+                         'record_number': model_query[0].record.number,
+                         'licence_number': model_query[0].licence.number,
                          'user_name': request.user.first_name, 'avatar_url': avatar_url
                          }
 
@@ -308,12 +308,12 @@ def recal_report(request):
             pass_data = {'recal': 1,
                          'form': form_body,
                          'form_type': model_name,
-                         'ref_record_number': model_query[0].Record.number,
+                         'ref_record_number': model_query[0].record.number,
                          'user_name': request.user.first_name, 'avatar_url': avatar_url
                          }
             try:
                 # if exist
-                pass_data['ref_licence_num'] = model_query[0].Licence.number
+                pass_data['ref_licence_num'] = model_query[0].licence.number
             except:
                 pass
             return render(request, 'acc/employee/index.html', pass_data)
