@@ -565,20 +565,20 @@ def save_router(request, formtype):
                         if not item[0] in ftp.nlst():
                             ftp.mkd(item[0])
                         ftp.cwd(item[0])
-                        try:
-                            send_file_ftp(
-                                ftp, f'{obj.licence.number}.pdf', report_name)
-                            os.remove(report_name)
-                            obj.has_pdf = True
-                            obj.save()
-                            green_status += '<br> PDF ذخیره شد!!!'
-                            report_instance = report.objects.create(tt=AdTestType0.objects.get(type=item[0]), device=obj.device,
-                                                                    request=obj.request, date=obj.date, user=obj.user, status=obj.status,
-                                                                    record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
-                                                                    is_done=obj.is_done, totalcomment=obj.totalcomment)
-                            report_instance.save()
-                        except:
-                            return HttpResponse('Error while sending to host!!!!')
+                        # try:
+                        send_file_ftp(
+                            ftp, f'{obj.licence.number}.pdf', report_name)
+                        os.remove(report_name)
+                        obj.has_pdf = True
+                        obj.save()
+                        green_status += '<br> PDF ذخیره شد!!!'
+                        report_instance = report.objects.create(tt=AdTestType0.objects.get(type=item[0]), device=obj.device,
+                                                                request=obj.request, date=obj.date, user=obj.user, status=obj.status,
+                                                                record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
+                                                                is_done=obj.is_done, totalcomment=obj.totalcomment)
+                        report_instance.save()
+                        # except:
+                        #     return HttpResponse('Error while sending to host!!!!')
                         # ===================================End-FTP Stuf=================================================
                         ftp.close()
 
