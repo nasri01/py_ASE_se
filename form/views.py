@@ -20,6 +20,8 @@ from ww.local_settings import (dl_ftp_host, dl_ftp_passwd, dl_ftp_user,
 
 from .forms import *
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 model_list = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form, 3],
               ['MonitorECG', MonitorECG_1, MonitorECG_1_Form, 3],
               ['MonitorNIBP', MonitorNIBP_1, MonitorNIBP_1_Form, 3],
