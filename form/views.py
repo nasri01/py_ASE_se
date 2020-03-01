@@ -63,7 +63,7 @@ def send_file_ftp(ftp, filename,report_name):
 
 def save_router(request, formtype):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        auser = UserProfile.objects.get(user=request.user)
+        avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
         for item in model_list:
             if formtype == item[0]:
 
@@ -564,7 +564,7 @@ def save_router(request, formtype):
                         ftp.close()
 
                     return render(request, 'acc/employee/index.html',
-                                  {'green_status': green_status, 'user_profile': user_profile})
+                                  {'green_status': green_status, 'user_name': request.user.first_name, 'avatar_url': avatar_url,})
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
                                   {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0], 'auser': auser})
@@ -574,9 +574,9 @@ def save_router(request, formtype):
 
 def reload(request, formtype):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        auser = UserProfile.objects.get(user=request.user)
+        avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
         for item in model_list:
             if formtype == item[0]:
                 form1 = item[2](request.POST)
                 return render(request, 'acc/employee/index.html',
-                              {'form': form1, 'form_type': item[0], 'auser': auser, 'reload': 1})
+                              {'form': form1, 'form_type': item[0], 'user_name': request.user.first_name, 'avatar_url': avatar_url, 'reload': 1})
