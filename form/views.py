@@ -568,7 +568,7 @@ def save_router(request, formtype):
                                   {'green_status': green_status, 'user_name': request.user.first_name, 'avatar_url': avatar_url,})
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0], 'auser': auser})
+                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0], 'user_name': request.user.first_name, 'avatar_url': avatar_url,})
     else:
         raise Http404
 
