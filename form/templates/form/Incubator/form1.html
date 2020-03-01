@@ -951,15 +951,15 @@
 
 
         {% if edit %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='AED' %}";'>
+        <button type="submit" name="record_number" value="{{record_number}}" class="btn btn-primary" onclick='this.form.action="{% url 'save_edit_router' formtype='AED' %}";'>
         ذخیره نهایی اصلاح
         </button>
         {% elif recal %}
-        <button type="submit" name="ref_record_num" value="{{ref_record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='AED' %}";'>
+        <button type="submit" name="ref_record_number" value="{{ref_record_number}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_router' formtype='AED' %}";'>
         ذخیره نهایی ریکالیبراسیون
         </button>
         {% elif edit_recal %}
-        <button type="submit" name="record_num" value="{{record_num}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='AED' %}";'>
+        <button type="submit" name="record_number" value="{{record_number}}" class="btn btn-primary"  onclick='this.form.action="{% url 'save_recal_edit_router' formtype='AED' %}";'>
         ذخیره نهایی ویرایش ریکالیبراسیون
         </button>
 
