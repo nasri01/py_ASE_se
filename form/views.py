@@ -63,7 +63,7 @@ def delete_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         for model in model_list:
             modelobj = model[1].objects.filter(
-                record__number=int(request.GET['record_num']))
+                record__number=int(request.GET['record_number']))
             if len(modelobj) == 1:
                 modelobj[0].delete()
                 break
@@ -90,17 +90,17 @@ def save_router(request, formtype):
 
                 elif request.POST['op_type'] == 'save_recal':
                     ref_data = item[1].objects.get(
-                        record__number=request.POST['ref_record_num'])
+                        record__number=request.POST['ref_record_number'])
                     form1 = item[2](request.POST)
 
                 elif request.POST['op_type'] == 'save_edit':
                     data = item[1].objects.all().get(
-                        record__number=request.POST['record_num'])
+                        record__number=request.POST['record_number'])
                     form1 = item[2](request.POST, instance=data)
 
                 elif request.POST['op_type'] == 'save_edit_recal':
                     data = item[1].objects.all().get(
-                        record__number=request.POST['record_num'])
+                        record__number=request.POST['record_number'])
                     ref_data = item[1].objects.get(Record=data.ref_record)
                     form1 = item[2](request.POST, instance=data)
                 else:
@@ -147,7 +147,7 @@ def save_router(request, formtype):
                             number=int(Record.objects.last().number)+1)
                         sform.record = record
                         sform.ref_record = Record.objects.get(
-                            number=request.POST['ref_record_num'])
+                            number=request.POST['ref_record_number'])
                         ln = int(Licence.objects.order_by('number')[
                                  len(Licence.objects.all()) - 1].number) + 1
                         sform.licence = Licence.objects.create(number=ln)
