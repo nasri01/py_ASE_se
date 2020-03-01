@@ -1,6 +1,7 @@
 from django.shortcuts import render, Http404, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from ftplib import FTP
+from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, domain_name
 import jdatetime
 import pytz
 import os
