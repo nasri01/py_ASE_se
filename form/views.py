@@ -1,14 +1,19 @@
-from django.shortcuts import render, Http404, redirect, HttpResponse
-from django.contrib.auth.decorators import login_required
+import os
 from ftplib import FTP
-from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, domain_name
+
 import jdatetime
 import pytz
-import os
-from acc.models import Licence, CalDevice, Record, UserProfile
-from .forms import *
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
+from django.shortcuts import Http404, HttpResponse, redirect, render
+from weasyprint import CSS, HTML
+from weasyprint.fonts import FontConfiguration
 
+from acc.models import CalDevice, Licence, Record, UserProfile
+from ww.local_settings import (dl_ftp_host, dl_ftp_passwd, dl_ftp_user,
+                               domain_name)
+
+from .forms import *
 
 model_list = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form, 3],
               ['MonitorECG', MonitorECG_1, MonitorECG_1_Form, 3],
@@ -35,13 +40,14 @@ model_list = [['MonitorSpo2', MonitorSpo2_1, MonitorSpo2_1_Form, 3],
 def router(request):
 
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        avatar_url = UserProfile.objects.get(id=1).avatar.url #admin user_profile
+        avatar_url = UserProfile.objects.get(
+            id=1).avatar.url  # admin user_profile
         for item in model_list:
             if request.GET['type'] == item[0]:
                 form1 = item[2]
                 # pop up a confirmation
-                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0], 
-                'user_name': request.user.first_name, 'avatar_url': avatar_url })
+                return render(request, 'acc/employee/index.html', {'form': form1, 'form_type': item[0],
+                                                                   'user_name': request.user.first_name, 'avatar_url': avatar_url})
     else:
         raise Http404
 
@@ -59,13 +65,16 @@ def delete_report(request):
     else:
         raise Http404
 
-def send_file_ftp(ftp, filename,report_name):
+
+def send_file_ftp(ftp, filename, report_name):
     fp = open('{}.pdf'.format(report_name), 'rb')
     ftp.storbinary('STOR %s' % os.path.basename(filename), fp, 1024)
 
+
 def save_router(request, formtype):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
+        avatar_url = UserProfile.objects.get(
+            id=1).avatar.url  # admin user_profile
         for item in model_list:
             if formtype == item[0]:
 
@@ -183,7 +192,7 @@ def save_router(request, formtype):
                         host=dl_ftp_host,
                         user=dl_ftp_user,
                         passwd=dl_ftp_passwd
-                        ) as ftp:
+                    ) as ftp:
                         ftp.set_debuglevel(2)
                         obj = item[1].objects.get(record=record)
                         # ===================================Begin-File Backing=================================================
@@ -511,7 +520,7 @@ def save_router(request, formtype):
                         css2 = CSS(
                             filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
                         report_name = 'report_{}.pdf'.format(record.number)
-                        
+
                         HTML(string=html).write_pdf(
                             report_name, font_config=font_config, stylesheets=[css1, css2])
                         # ===================================End-File Backing=================================================
@@ -550,7 +559,8 @@ def save_router(request, formtype):
                             ftp.mkd(item[0])
                         ftp.cwd(item[0])
                         try:
-                            send_file_ftp(ftp, f'{obj.licence.number}.pdf', report_name)
+                            send_file_ftp(
+                                ftp, f'{obj.licence.number}.pdf', report_name)
                             os.remove(report_name)
                             obj.has_pdf = True
                             obj.save()
@@ -566,17 +576,18 @@ def save_router(request, formtype):
                         ftp.close()
 
                     return render(request, 'acc/employee/index.html',
-                                  {'green_status': green_status, 'user_name': request.user.first_name, 'avatar_url': avatar_url,})
+                                  {'green_status': green_status, 'user_name': request.user.first_name, 'avatar_url': avatar_url, })
                 else:  # form imcomplete
                     return render(request, 'acc/employee/index.html',
-                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0], 'user_name': request.user.first_name, 'avatar_url': avatar_url,})
+                                  {'form': form1, 'red_status': 'اطلاعات ناقص است!', 'form_type': item[0], 'user_name': request.user.first_name, 'avatar_url': avatar_url, })
     else:
         raise Http404
 
 
 def reload(request, formtype):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
+        avatar_url = UserProfile.objects.get(
+            id=1).avatar.url  # admin user_profile
         for item in model_list:
             if formtype == item[0]:
                 form1 = item[2](request.POST)
