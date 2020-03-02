@@ -17,7 +17,7 @@ class Report(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT) 
     record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE, related_name='rr')
     ref_record = models.ForeignKey(acc.models.Record, on_delete=models.CASCADE, related_name='rrr')
-    record = models.ForeignKey(acc.models.Licence, on_delete=models.CASCADE, related_name='rl')
+    licence = models.ForeignKey(acc.models.Licence, on_delete=models.CASCADE, related_name='rl')
     status = models.ForeignKey(acc.models.AdAzStatus, on_delete=models.PROTECT)
     totalcomment = models.TextField(null=True, blank= True)
     is_done = models.BooleanField(default=False)
