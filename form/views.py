@@ -73,9 +73,9 @@ def delete_report(request):
         raise Http404
 
 
-def send_file_ftp(ftp, filename, report_name):
-    fp = open('{}.pdf'.format(report_name), 'rb')
-    ftp.storbinary('STOR %s' % os.path.basename(filename), fp, 1024)
+def send_file_ftp(ftp_obj, filename, report_name):
+    fp = open(report_name, 'rb')
+    ftp_obj.storbinary('STOR %s' % os.path.basename(filename), fp, 8192)
 
 
 def save_router(request, formtype):
@@ -567,8 +567,10 @@ def save_router(request, formtype):
                             ftp.mkd(item[0])
                         ftp.cwd(item[0])
                         # try:
+                        print(obj.licence.number)
+                        print(report_name)
                         send_file_ftp(
-                            ftp, f'{obj.licence.number}.pdf', report_name)
+                            ftp, '{}.pdf'.format(obj.licence.number), report_name)
                         os.remove(report_name)
                         obj.has_pdf = True
                         obj.save()
