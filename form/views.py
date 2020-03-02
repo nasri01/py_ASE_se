@@ -13,7 +13,7 @@ from django.template.loader import render_to_string
 from weasyprint import CSS, HTML
 from weasyprint.fonts import FontConfiguration
 
-from acc.models import CalDevice, Licence, Record, UserProfile
+from acc.models import CalDevice, Licence, Record, UserProfile, AdTestType0
 from report.models import Encode, Report
 from ww.local_settings import (dl_ftp_host, dl_ftp_passwd, dl_ftp_user,
                                domain_name)

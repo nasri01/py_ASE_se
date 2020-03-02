@@ -25,4 +25,4 @@ class Report(models.Model):
     class Meta:
         verbose_name_plural = "سابقه گزارشات"
     def __str__(self):
-        return  'report_summary' + str(self.Licence)
+        return  'report_summary' + str(self.licence)
