@@ -739,7 +739,7 @@ def pdf(request):
 def reportview(request):
     if request.method == 'GET':
         if Group.objects.get(name='hospital') in request.user.groups.all():
-            data=report.objects.filter(licence__number=request.GET['licence_num']).filter(
+            data=report.objects.filter(licence__number=request.GET['licence_number']).filter(
                 request__hospital__user__id__exact=request.user.id)
         else:
             data=report.objects.filter(

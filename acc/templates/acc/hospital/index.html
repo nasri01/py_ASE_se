@@ -157,7 +157,7 @@
 
 
 
-                                {% for req in request %}
+                                {% for req in request_list %}
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ req.date }}</td>
@@ -220,48 +220,48 @@
                     <!--///////////////////////////////////-->
                     <thead class="thead-light">
                         <tr class="t-row">
-                            {% Comment %} <th class="th-sm">{{firstrow.2}}</th>
+                            <!-- <th class="th-sm">{{firstrow.2}}</th>
                             <th class="th-sm">{{firstrow.3}}</th>
-                            <th class="th-sm">{{firstrow.4}}</th> {% endcomment %}
-                            <th class="th-sm">{{firstrow.5}}</th>
-                            <th class="th-sm">{{firstrow.6}}</th>
-                            <th class="th-sm">{{firstrow.7}}</th>
-                            <th class="th-sm">{{firstrow.8}}</th>
-                            <th class="th-sm">{{firstrow.9}}</th>
-                            <th class="th-sm">{{firstrow.10}}</th>
-                            <th class="th-sm">{{firstrow.11}}</th>
-                            <th class="th-sm">{{firstrow.12}}</th>
-                            <th class="th-sm">{{firstrow.13}}</th>
-                            <th class="th-sm">{{firstrow.14}}</th>
-                            <th class="th-sm">{{firstrow.15}}</th>
+                            <th class="th-sm">{{firstrow.4}}</th>  -->
+                            <th class="th-sm">{{table_header.5}}</th>
+                            <th class="th-sm">{{table_header.6}}</th>
+                            <th class="th-sm">{{table_header.7}}</th>
+                            <th class="th-sm">{{table_header.8}}</th>
+                            <th class="th-sm">{{table_header.9}}</th>
+                            <th class="th-sm">{{table_header.10}}</th>
+                            <th class="th-sm">{{table_header.11}}</th>
+                            <th class="th-sm">{{table_header.12}}</th>
+                            <th class="th-sm">{{table_header.13}}</th>
+                            <th class="th-sm">{{table_header.14}}</th>
+                            <th class="th-sm">{{table_header.15}}</th>
                             <th class="th-sm">PDF</th>
 
                         </tr>
                     </thead>
-                    {% for i in data %}
+                    {% for row in data_rows %}
 
                     <tr class="t-row">
-                        {% Comment %} <td>{{i.0}}</td>
-                        <td>{{i.1}}</td>
-                        <td>{{i.2}}</td> {% endcomment %}
-                        <td>{{i.3}}</td>
-                        <td>{{i.4}}</td>
-                        <td>{{i.5}}</td>
-                        <td>{{i.6}}</td>
-                        <td>{{i.7}}</td>
-                        <td>{{i.8}}</td>
-                        <td>{{i.9}}</td>
-                        <td>{{i.10}}</td>
-                        <td>{{firstrow.0}}</td>
-                        <td>{{i.11}}</td>
+                         <!-- <td>{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                        <td>{{row.2}}</td>  -->
+                        <td>{{row.3}}</td>
+                        <td>{{row.4}}</td>
+                        <td>{{row.5}}</td>
+                        <td>{{row.6}}</td>
+                        <td>{{row.7}}</td>
+                        <td>{{row.8}}</td>
+                        <td>{{row.9}}</td>
+                        <td>{{row.10}}</td>
+                        <td>{{table_header.0}}</td>
+                        <td>{{row.11}}</td>
 
                         <td>
-                            {{i.12}}
+                            {{row.12}}
                         </td>
                                                             
-                        {% if i.11 != -1 %}
+                        {% if row.11 != -1 %}
                             <form method="GET" action="{% url 'view_report'%}">
-                                <td> <button type="submit" value="{{i.11}}" name="licence_num" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
+                                <td> <button type="submit" value="{{row.11}}" name="licence_number" class="btn"><img src="{% static 'img/arrow-pointing-down.png' %}" class="download-icon" alt="download-icon"></td>
                             </form>
                         {% endif %}
 
@@ -277,7 +277,7 @@
                 {% endif %}
             </div>
             <!-- end of data-box -->
-            {% Comment %} <div class="row">
+            <!-- <div class="row">
 
                 <div class="col-md-12 col-lg-5">
                     <div class="data-box-em">
@@ -295,7 +295,7 @@
                         <canvas id="doughnutChart"></canvas>
                     </div>
                 </div>
-            </div> {% endcomment %}
+            </div>  -->
             <!---row end -->
 
 
@@ -309,8 +309,7 @@
 
 
 
-
-{% Comment %} <script>
+ <!-- <script>
 
 
 
@@ -332,5 +331,5 @@
     });
 
 
-</script> {% endcomment %}
+</script>  -->
 {% endblock %}
