@@ -80,6 +80,7 @@ def send_file_ftp(ftp_obj, filename, report_name):
 
 def save_router(request, formtype):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
+        print(request.POST)
         avatar_url = UserProfile.objects.get(
             id=1).avatar.url  # admin user_profile
         for item in model_list:
