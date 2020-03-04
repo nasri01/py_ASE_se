@@ -125,7 +125,6 @@ def save_router(request, formtype):
                             sform.licence = Licence.objects.create(number=ln)
                         else:
                             ln = -1
-
                         if (request.POST['status'] == '1'):
                             sform.is_done = True
                         else:
@@ -133,7 +132,8 @@ def save_router(request, formtype):
                         green_status = f'اطلاعات {item[0]} با موفقیت ذخیره شد! شماره گواهی:{ln}'
 
                     elif request.POST['op_type'] == 'save_edit':
-                        sform.record = data.record
+                        record = data.record
+                        sform.record = record
                         ln = data.licence.number
                         if (request.POST['status'] == '1'):
                             sform.is_done = True
@@ -158,7 +158,8 @@ def save_router(request, formtype):
                         green_status = f'اطلاعات با موفقیت ذخیره شد! شماره گواهی ریکالیبراسیون:{ln}'
 
                     elif request.POST['op_type'] == 'save_edit_recal':
-                        sform.record = data.record
+                        record = data.record
+                        sform.record = record
                         ln = data.licence.number
                         if (request.POST['status'] == '1'):
                             ref_data.is_done = True
