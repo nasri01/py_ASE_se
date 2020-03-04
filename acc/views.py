@@ -180,7 +180,7 @@ def show_recalibration_list(request):
                 row.append(obj.status.status)  # 9
                 row.append(obj.date.strftime("%Y-%m-%d"))  # 10
                 if obj.status.id != 4:
-                    row.append(obj.Licence.number)  # 11
+                    row.append(obj.licence.number)  # 11
                 else:
                     row.append('-')  # 11
                 row.append(obj.record.number)  # 12
