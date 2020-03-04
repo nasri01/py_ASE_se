@@ -336,7 +336,7 @@ def save_router(request, formtype):
                             template_name = 'report/AED/licence1.html'
 
                         elif (item[1] == AnesthesiaMachine_1):
-                            template_name = 'report/anesthesiamachine/licence1.html'
+                            template_name = 'report/AnesthesiaMachine/licence1.html'
 
                         elif (item[1] == Defibrilator_1):
                             template_name = 'report/Defibrilator/licence1.html'
