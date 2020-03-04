@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['panel.azmasaba.ir', 'www.panel.azmasaba.ir' 'localhost']
@@ -119,10 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home2/kaadir/panel.azmasaba.ir/static'
-#STATIC_ROOT = '/home/kaadcoir/public_html/qc/static'
+# STATIC_ROOT = '/home2/kaadir/panel.azmasaba.ir/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'ww/static/'),
 
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ww/static/'),]
+STATICFILES_DIRS = ['/home2/kaadir/panel.azmasaba.ir/static']
 
 MEDIA_ROOT = '/home2/kaadir/panel.azmasaba.ir/media'
 MEDIA_URL = '/media/'
