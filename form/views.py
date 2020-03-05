@@ -202,7 +202,7 @@ def save_router(request, formtype):
                         host=dl_ftp_host,
                         user=dl_ftp_user,
                         passwd=dl_ftp_passwd
-                    ) as ftp:
+                        ) as ftp:
                         ftp.set_debuglevel(2)
                         obj = item[1].objects.get(record=record)
                         # ===================================Begin-File Backing=================================================
@@ -517,13 +517,13 @@ def save_router(request, formtype):
                                     data.append(0)
                             else:
                                 data.append(2)
-
+                        print('1')
                         user_profile = UserProfile.objects.get(user=obj.user)
                         today_datetime = jdatetime.datetime.today()
                         font_config = FontConfiguration()
                         html = render_to_string(template_name, {
                             'form': obj, 'time': today_datetime, 'user_profile': user_profile, 'data': data, 'domain_name': domain_name})
-
+                        print('2')
                         css_root = static('/css')
                         css1 = CSS(
                             filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
@@ -536,6 +536,8 @@ def save_router(request, formtype):
                         # ===================================End-File Backing=================================================
 
                         # ===================================Begin-File Processing=================================================
+                        
+                        print('3')
                         encode_query = Encode.objects.filter(
                             hospital=obj.device.hospital)
                         if len(encode_query) == 0:
@@ -562,13 +564,21 @@ def save_router(request, formtype):
                         if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
                         ftp.cwd(str(obj.request.number))
+                        
+                        print('5')
                         if not str(obj.device.section.eng_name) in ftp.nlst():
                             ftp.mkd(str(obj.device.section.eng_name))
                         ftp.cwd(str(obj.device.section.eng_name))
+                        
+                        print('4')
                         if not item[0] in ftp.nlst():
                             ftp.mkd(item[0])
+                        
+                        print('6')
                         ftp.cwd(item[0])
+
                         # try:
+                        
                         print(obj.licence.number)
                         print(report_name)
                         send_file_ftp(
