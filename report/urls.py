@@ -5,6 +5,6 @@ urlpatterns = [
     path('xlsx/', views.xlsx, name='report-xlsx'),
     path('request_summary/', views.show_request_summary, name='req_summary'),
     # path('pdf/', views.pdf1, name='report-pdf1'),
-    path('pdf1/', views.pdf, name='report-pdf'),
+    # path('pdf1/', views.pdf, name='report-pdf'),
     path('view/', views.reportview , name='view_report'),
 ]
