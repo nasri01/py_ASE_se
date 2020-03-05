@@ -248,7 +248,7 @@ def xlsx(request):
                 req = Request.objects.all().order_by('date')
                 template_name = 'acc/admin/index.html'
 
-            for obj in query:
+            for obj in query_list:
                 chart[0] += len(obj.filter(status__id=1))
                 chart[1] += len(obj.filter(status__id=2))
                 chart[2] += len(obj.filter(status__id=3))
