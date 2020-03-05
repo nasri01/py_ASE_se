@@ -219,9 +219,9 @@ def xlsx(request):
                         instance.device.hospital.city.state.eng_name,
                         instance.device.hospital.city.eng_name,
                         encode_instance.name,
-                        report_instance[0].request.number,
-                        report_instance[0].tt,
-                        report_instance[0].licence.number
+                        instance.request.number,
+                        instance.tt,
+                        instance.licence.number
                         )
                     ws.write_url(row=cursor, col=len(data), url=url,
                              cell_format=row_format, string='show', tip='Downlaod PDF')
