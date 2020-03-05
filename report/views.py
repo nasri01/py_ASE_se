@@ -39,7 +39,7 @@ def xlsx(request):
     if request.method == 'GET':
         query_end_year, query_end_month, query_end_day = request.GET['end_date'].split(
             '/')
-        query_start_year, query_start_month, sd = request.GET['start_date'].split(
+        query_start_year, query_start_month, query_start_day = request.GET['start_date'].split(
             '/')
 
         query_end_year = int(query_end_year)
