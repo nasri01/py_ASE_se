@@ -138,7 +138,7 @@ def xlsx(request):
                 encode_instance.name,
                 instance.request.number,
                 instance.device.section.eng_name,
-                instance[0].tt.name,
+                instance.tt.name,
                 instance.licence.number,
                 )
             )
