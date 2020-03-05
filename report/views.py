@@ -54,12 +54,12 @@ def xlsx(request):
         # because quering from data base we should consider filter data via utc time
         QUERY_START_DATE = jdatetime.datetime(
             query_start_date.year, query_start_date.month, query_start_date.day, 19, 30
-            ).astimezone(pytz.timezone('UTC'))
+        ).astimezone(pytz.timezone('UTC'))
         QUERY_END_DATE = jdatetime.datetime(
             query_end_year, query_end_month, query_end_day, 19, 30).astimezone(pytz.timezone('UTC'))
         if QUERY_END_DATE < QUERY_START_DATE:
             return render(request, 'acc/hospital/index.html', {'date_error': 'بازه زمانی وارد شده نا معتبر است',
-                        'flag': 1})  # , 'date': jdatetime.date.today(),
+                                                               'flag': 1})  # , 'date': jdatetime.date.today(),
 
         # Create Excel
         row = []
@@ -73,61 +73,76 @@ def xlsx(request):
 
         if recal:
             if Group.objects.get(name='admin') in request.user.groups.all():  # admin
-                for model in model_list:
-                    model_query = model.objects.filter(date__gte=QUERY_START_DATE).filter(
-                        date__lte=QUERY_END_DATE).filter(is_recal=True)
-                    query_list.append(model_query)
+                # for model in model_list:
+                report_query = Report.objects.filter(date__gte=QUERY_START_DATE).filter(
+                    date__lte=QUERY_END_DATE).filter(is_recal=True)
+                # query_list.append(model_query)
             else:  # hospital
-                for model in model_list:
-                    model_query = model.objects.filter(date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
-                        request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
-                    query_list.append(model_query)
+                # for model in model_list:
+                report_query = Report.objects.filter(date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
+                    request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
+                # query_list.append(model_query)
         else:
             if Group.objects.get(name='admin') in request.user.groups.all():
-                for model in model_list:
-                    model_query = model.objects.filter(
-                        date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE)
-                    query_list.append(model_query)
+                # for model in model_list:
+                report_query = Report.objects.filter(
+                    date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE)
+                # query_list.append(model_query)
             else:  # Hospital
-                for model in model_list:
-                    model_query = model.objects.filter(
-                        date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
-                        request__hospital__user__id__exact=request.user.id)
-                    query_list.append(model_query)
+                # for model in model_list:
+                report_query = Report.objects.filter(
+                    date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
+                    request__hospital__user__id__exact=request.user.id)
+                # query_list.append(model_query)
 
-        for index, query in enumerate(query_list):
-            for instance in query:
-                row = []
-                row.append(instance.device.hospital.city.state.name)  # 0
-                row.append(instance.device.hospital.city.name)  # 1
-                row.append(instance.device.hospital.name)  # 2
-                row.append(instance.device.section.name)  # 3
-                row.append(instance.device.name.type.name)  # 4
-                row.append(instance.device.name.creator.name)  # 5
-                row.append(instance.device.name.name)  # 6
-                row.append(instance.device.serial_number)  # 7
-                if str(instance.device.property_number) != 'None':
-                    row.append(instance.device.property_number)  # 8
-                else:
-                    row.append('-')
-                row.append(instance.status.status)  # 9
-                row.append(instance.date.strftime("%Y-%m-%d"))  # 10
-                if instance.status.id != 4:
-                    row.append(instance.licence.number)  # 11
-                else:
-                    row.append('-')  # 11
-                if index == 0:
-                    row.append('-SPO2-' + instance.totalcomment)  # 12*
-                elif index == 1:
-                    row.append('-ECG-' + instance.totalcomment)  # 12*
-                elif index == 2:
-                    row.append('-NIBP-' + instance.totalcomment)  # 12*
-                elif index == 3:
-                    row.append('-Safety-' + instance.totalcomment)  # 12*
-                else:
-                    row.append(instance.totalcomment)  # 12*
-                row.append(instance.status.id)  # 13
-                table_rows.append(row)
+        # for index, query in enumerate(query_list):
+        for instance in report_query:
+            row = []
+            row.append(instance.device.hospital.city.state.name)  # 0
+            row.append(instance.device.hospital.city.name)  # 1
+            row.append(instance.device.hospital.name)  # 2
+            row.append(instance.device.section.name)  # 3
+            row.append(instance.device.name.type.name)  # 4
+            row.append(instance.device.name.creator.name)  # 5
+            row.append(instance.device.name.name)  # 6
+            row.append(instance.device.serial_number)  # 7
+            if str(instance.device.property_number) != 'None':
+                row.append(instance.device.property_number)  # 8
+            else:
+                row.append('-')
+            row.append(instance.status.status)  # 9
+            row.append(instance.date.strftime("%Y-%m-%d"))  # 10
+            if instance.status.id != 4:
+                row.append(instance.licence.number)  # 11
+            else:
+                row.append('-')  # 11
+            if instance.tt.type == 'MonitorSpo2':
+                row.append('-SPO2-' + instance.totalcomment)  # 12*
+            elif instance.tt.type == 'MonitorECG':
+                row.append('-ECG-' + instance.totalcomment)  # 12*
+            elif instance.tt.type == 'MonitorNIBP':
+                row.append('-NIBP-' + instance.totalcomment)  # 12*
+            elif instance.tt.type == 'MonitorSafety':
+                row.append('-Safety-' + instance.totalcomment)  # 12*
+            else:
+                row.append(instance.totalcomment)  # 12*
+            row.append(instance.status.id)  # 13
+            
+            encode_instance = Encode.objects.get(
+                    hospital=instance.device.hospital)
+            
+            row.append('https://{}/reports/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(#14
+                dl_domain_name,
+                instance.device.hospital.city.state.eng_name,
+                instance.device.hospital.city.eng_name,
+                encode_instance.name,
+                instance.request.number,
+                instance.section.eng_name,
+                instance[0].tt.name,
+                instance.licence.number,
+                )
+            )
+            table_rows.append(row)
 
         table_header_list = AdExcelArg.objects.all().order_by('id')
         if request.GET['action'] == 'download':
@@ -141,24 +156,24 @@ def xlsx(request):
 
             # first row
             table_header = (str(table_header_list[1]),
-                         str(table_header_list[2]),
-                         str(table_header_list[3]),
-                         str(table_header_list[4]),
-                         str(table_header_list[5]),
-                         str(table_header_list[6]),
-                         str(table_header_list[7]),
-                         str(table_header_list[8]),
-                         str(table_header_list[9]),
-                         str(table_header_list[10]),
-                         str(table_header_list[11]),
-                         str(table_header_list[12]),
-                         str(table_header_list[13]),
-                         str(table_header_list[14]),
-                         str(table_header_list[15]),
-                         'PDF'
-                         )
+                            str(table_header_list[2]),
+                            str(table_header_list[3]),
+                            str(table_header_list[4]),
+                            str(table_header_list[5]),
+                            str(table_header_list[6]),
+                            str(table_header_list[7]),
+                            str(table_header_list[8]),
+                            str(table_header_list[9]),
+                            str(table_header_list[10]),
+                            str(table_header_list[11]),
+                            str(table_header_list[12]),
+                            str(table_header_list[13]),
+                            str(table_header_list[14]),
+                            str(table_header_list[15]),
+                            'PDF'
+                            )
             table_header_format = wb.add_format({'font_size': 11, 'align': 'center',
-                                'valign': 'vcenter', 'bottom': True, 'left': True})
+                                                 'valign': 'vcenter', 'bottom': True, 'left': True})
 
             ws.write_row(row=0, col=0, data=table_header,
                          cell_format=table_header_format)
@@ -190,41 +205,32 @@ def xlsx(request):
                     row_format = table_header_format
 
                 row_data = (cursor,
-                        row[0],  # ostan
-                        row[1],  # shahr
-                        row[2],  # name moshtari
-                        row[3],  # mahale esteqrar
-                        row[4],  # mahsul
-                        row[5],  # tolid konande
-                        row[6],  # model
-                        row[7],  # shoamre serial
-                        row[8],  # kode amval
-                        row[9],  # vaziate azmoon
-                        row[10],  # tarikh calibration
-                        str(table_header_list[0]),  # etebare calibration
-                        row[11],  # shomare govahi
-                        row[12],  # tozihat
-                        )
+                            row[0],  # ostan
+                            row[1],  # shahr
+                            row[2],  # name moshtari
+                            row[3],  # mahale esteqrar
+                            row[4],  # mahsul
+                            row[5],  # tolid konande
+                            row[6],  # model
+                            row[7],  # shoamre serial
+                            row[8],  # kode amval
+                            row[9],  # vaziate azmoon
+                            row[10],  # tarikh calibration
+                            str(table_header_list[0]),  # etebare calibration
+                            row[11],  # shomare govahi
+                            row[12],  # tozihat
+                            )
 
                 ws.write_row(row=cursor, col=0, data=row_data,
                              cell_format=row_format)
-                report_instance = Report.objects.filter(
-                    licence__number=row[11])
-                if len(report_instance):
-                    encode_instance = Encode.objects.get(
-                        hospital=instance.device.hospital)
-                    # Esfahan/Esfahan/a01610228fe998f515a72dd730294d87/100/AMBULANCE/AED
-                    url = 'https://{}/reports/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(
-                        dl_domain_name,
-                        instance.device.hospital.city.state.eng_name,
-                        instance.device.hospital.city.eng_name,
-                        encode_instance.name,
-                        instance.request.number,
-                        instance.section.eng_name,
-                        report_instance[0].tt.name,
-                        instance.licence.number,
-                        )
-                    ws.write_url(row=cursor, col=len(data), url=url,
+
+                # report_instance = Report.objects.filter(
+                #     licence__number=row[11])
+                # if len(report_instance):
+                
+                # Esfahan/Esfahan/a01610228fe998f515a72dd730294d87/100/AMBULANCE/AED
+
+                ws.write_url(row=cursor, col=len(row_data)-1, url=row[14],
                              cell_format=row_format, string='show', tip='Downlaod PDF')
 
                 cursor += 1
@@ -320,16 +326,17 @@ def show_request_summary(request):
 
             return response
 
+
 def reportview(request):
     if request.method == 'GET':
         if Group.objects.get(name='hospital') in request.user.groups.all():
-            data=report.objects.filter(licence__number=request.GET['licence_number']).filter(
+            data = report.objects.filter(licence__number=request.GET['licence_number']).filter(
                 request__hospital__user__id__exact=request.user.id)
         else:
-            data=report.objects.filter(
+            data = report.objects.filter(
                 licence__number=request.GET['licence_num'])
         if len(data) != 0:
-            name=Encode.objects.get(hospital=data[0].device.hospital)
+            name = Encode.objects.get(hospital=data[0].device.hospital)
             return redirect('https://{}/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(
                 dl_domain_name,
                 data[0].request.hospital.city.state.name,
@@ -339,7 +346,7 @@ def reportview(request):
                 data[0].device.section.name,
                 data[0].tt,
                 data[0].licence.number
-                ))
+            ))
 
         raise Http404
     else:
