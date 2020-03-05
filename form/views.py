@@ -341,12 +341,20 @@ def save_router(request, formtype):
 
                         elif (item[1] == Defibrilator_1):
                             template_name = 'report/Defibrilator/licence1.html'
-
+                            diff = abs(obj.s7d_e1_en - obj.s7d_e1_es)
+                            data.append(max(diff, obj.s7d_e1_en * 0.15))  # 0
+                            # if (diff > 4 or diff > obj.s7d_e1_en * 0.15):  # 1
+                            #     data.append(0)
+                            # else:
+                            #     data.append(1)
                         elif (item[1] == ECG_1):
-                            template_name = 'report/ECG/licence1.html'
+                            template_name='report/ECG/licence1.html'
+                            k=int(obj.s5_e1_v) * int(obj.s5_e1_a)
+                            data.append(k)  # 0
+                            data.append((2 ** 0.5) * k)  # 1
 
                         elif (item[1] == ElectroCauter_1):
-                            template_name = 'report/ElectroCauter/licence1.html'
+                            template_name='report/ElectroCauter/licence1.html'
                             data.append(abs(obj.s3a_e1_m - obj.s3a_e1_s))  # 0
                             data.append(
                                 (abs(obj.s3a_e1_m - obj.s3a_e1_m) / obj.s3a_e1_s) * 100)  # 1
@@ -398,7 +406,7 @@ def save_router(request, formtype):
                                 (abs(obj.s3e_e3_m - obj.s3e_e3_s) / obj.s3e_e3_s) * 100)  # 29
 
                         elif (item[1] == FlowMeter_1):
-                            template_name = 'report/FlowMeter/licence1.html'
+                            template_name='report/FlowMeter/licence1.html'
                             data.append(abs(int(obj.s1_e1_rlpm) - 0.5))  # 0
                             data.append(abs(int(obj.s1_e2_rlpm) - 2))  # 1
                             data.append(abs(int(obj.s1_e3_rlpm) - 4))  # 2
@@ -413,21 +421,21 @@ def save_router(request, formtype):
                             data.append(round(data[5] * (100/15), 2))  # 11
 
                         elif (item[1] == InfusionPump_1):
-                            template_name = 'report/InfusionPump/licence1.html'
+                            template_name='report/InfusionPump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
                             data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
                         elif (item[1] == ManoMeter_1):
-                            template_name = 'report/ManoMeter/licence1.html'
+                            template_name='report/ManoMeter/licence1.html'
                             data.append(abs(obj.s2_e1_sp - obj.s2_e1_np))  # 0
                             data.append(abs(obj.s2_e2_sp - obj.s2_e2_np))  # 1
                             data.append(abs(obj.s2_e3_sp - obj.s2_e3_np))  # 2
                             data.append(abs(obj.s2_e4_sp - obj.s2_e4_np))  # 3
 
-                        elif (item[1] == Spo2_1):
-                            template_name = 'report/spo2/licence1.html'
-                            ss = 0
-                            sss = 0
+                        elif (item[1] == spo2_1):
+                            template_name='report/spo2/licence1.html'
+                            ss=0
+                            sss=0
                             data.append((int(obj.s2_e1_spo2) - 70)**2)  # 0
                             data.append((int(obj.s2_e2_spo2) - 75)**2)  # 1
                             data.append((int(obj.s2_e3_spo2) - 80)**2)  # 2
@@ -451,9 +459,12 @@ def save_router(request, formtype):
                             for i in range(12, 17):
                                 sss += data[i]
                             data.append(int(((sss/5)**0.5)*100)/100)  # 17
+                            k=int(obj.s5_e1_v) * int(obj.s5_e1_a)
+                            data.append(k)  # 18
+                            data.append((2 ** 0.5) * k)  # 19
 
                         elif (item[1] == Suction_1):
-                            template_name = 'report/Suction/licence1.html'
+                            template_name='report/Suction/licence1.html'
                             data.append(abs(int(obj.s1_e1_rr)))  # 0
                             data.append(abs(int(obj.s1_e2_rr)))  # 1
                             data.append(abs(int(obj.s1_e3_rr) - 100))  # 2
@@ -474,12 +485,12 @@ def save_router(request, formtype):
                             data.append(abs(int(obj.s2_e2_rr) - 150))  # 17
 
                         elif (item[1] == SyringePump_1):
-                            template_name = 'report/SyringePump/licence1.html'
+                            template_name='report/SyringePump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
                             data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
                         elif (item[1] == Ventilator_1):
-                            template_name = 'report/Ventilator/licence1.html'
+                            template_name='report/Ventilator/licence1.html'
                             if obj.s16_e1 <= 550 and obj.s16_e1 >= 450:  # 0
                                 data.append(1)
                             else:
@@ -518,37 +529,37 @@ def save_router(request, formtype):
                             else:
                                 data.append(2)
                         print('1')
-                        user_profile = UserProfile.objects.get(user=obj.user)
-                        today_datetime = jdatetime.datetime.today()
-                        font_config = FontConfiguration()
-                        html = render_to_string(template_name, {
+                        user_profile=UserProfile.objects.get(user = obj.user)
+                        today_datetime=jdatetime.datetime.today()
+                        font_config=FontConfiguration()
+                        html=render_to_string(template_name, {
                             'form': obj, 'time': today_datetime, 'user_profile': user_profile, 'data': data, 'domain_name': domain_name})
                         print('2')
-                        css_root = static('/css')
-                        css1 = CSS(
-                            filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
-                        css2 = CSS(
-                            filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
-                        report_name = 'report_{}.pdf'.format(obj.record.number)
+                        css_root=static('/css')
+                        css1=CSS(
+                            filename = f'{BASE_DIR}{css_root}/sop2-pdf.css')
+                        css2=CSS(
+                            filename = f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
+                        report_name='report_{}.pdf'.format(obj.record.number)
 
-                        HTML(string=html).write_pdf(
-                            report_name, font_config=font_config, stylesheets=[css1, css2])
+                        HTML(string = html).write_pdf(
+                            report_name, font_config = font_config, stylesheets = [css1, css2])
                         # ===================================End-File Backing=================================================
 
                         # ===================================Begin-File Processing=================================================
-                        
+
                         print('3')
-                        encode_query = Encode.objects.filter(
-                            hospital=obj.device.hospital)
+                        encode_query=Encode.objects.filter(
+                            hospital = obj.device.hospital)
                         if len(encode_query) == 0:
-                            filename = '12' + str(obj.device.hospital.user.id)
-                            filename = hashlib.md5(
+                            filename='12' + str(obj.device.hospital.user.id)
+                            filename=hashlib.md5(
                                 filename.encode()).hexdigest()
-                            encode_instance = Encode.objects.create(
-                                hospital=obj.device.hospital, name=filename)
+                            encode_instance=Encode.objects.create(
+                                hospital = obj.device.hospital, name = filename)
                             encode_instance.save()
                         else:
-                            filename = encode_query[0].name
+                            filename=encode_query[0].name
 
                         # ===================================Begin-FTP Stuf=================================================
                         ftp.cwd('pdf')
@@ -564,33 +575,33 @@ def save_router(request, formtype):
                         if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
                         ftp.cwd(str(obj.request.number))
-                        
+
                         print('5')
                         if not str(obj.device.section.eng_name) in ftp.nlst():
                             ftp.mkd(str(obj.device.section.eng_name))
                         ftp.cwd(str(obj.device.section.eng_name))
-                        
+
                         print('4')
                         if not item[0] in ftp.nlst():
                             ftp.mkd(item[0])
-                        
+
                         print('6')
                         ftp.cwd(item[0])
 
                         # try:
-                        
+
                         print(obj.licence.number)
                         print(report_name)
                         send_file_ftp(
                             ftp, '{}.pdf'.format(obj.licence.number), report_name)
                         os.remove(report_name)
-                        obj.has_pdf = True
+                        obj.has_pdf=True
                         obj.save()
                         green_status += '<br> PDF ذخیره شد!!!'
-                        report_instance = Report.objects.create(tt=AdTestType0.objects.get(type=item[0]), device=obj.device,
-                                                                request=obj.request, date=obj.date, user=obj.user, status=obj.status,
-                                                                record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
-                                                                is_done=obj.is_done, totalcomment=obj.totalcomment)
+                        report_instance=Report.objects.create(tt = AdTestType0.objects.get(type=item[0]), device = obj.device,
+                                                                request = obj.request, date = obj.date, user = obj.user, status = obj.status,
+                                                                record = obj.record, licence = obj.licence, is_recal = obj.is_recal, ref_record = obj.ref_record,
+                                                                is_done = obj.is_done, totalcomment = obj.totalcomment)
                         report_instance.save()
                         # except:
                         #     return HttpResponse('Error while sending to host!!!!')

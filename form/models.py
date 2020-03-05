@@ -205,16 +205,16 @@ class MonitorECG_1(models.Model):
     s2_e10_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='me1s2e10comment', default=1)
 
-    s3_e1_hr = models.IntegerField(30)
+    s3_e1_hr = models.IntegerField(default=30)
     s3_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e1comment', default=1)
-    s3_e2_hr = models.IntegerField(default=30)
+    s3_e2_hr = models.IntegerField(default=0)
     s3_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e2comment', default=1)
-    s3_e3_hr = models.IntegerField(default=30)
+    s3_e3_hr = models.IntegerField(default=0)
     s3_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e3comment', default=1)
-    s3_e4_hr = models.IntegerField(default=30)
+    s3_e4_hr = models.IntegerField(default=0)
     s3_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e4comment', default=1)
     s3_e5_hr = models.IntegerField(default=80)
@@ -223,13 +223,13 @@ class MonitorECG_1(models.Model):
     s3_e6_hr = models.IntegerField(default=200)
     s3_e6_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e6comment', default=1)
-    s3_e7_hr = models.IntegerField(default=200)
+    s3_e7_hr = models.IntegerField(default=0)
     s3_e7_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e7comment', default=1)
-    s3_e8_hr = models.IntegerField(default=200)
+    s3_e8_hr = models.IntegerField(default=0)
     s3_e8_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e8comment', default=1)
-    s3_e9_hr = models.IntegerField(default=200)
+    s3_e9_hr = models.IntegerField(default=0)
     s3_e9_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s3e9comment', default=1)
     s3_e10_hr = models.IntegerField(default=30)
@@ -292,8 +292,8 @@ class MonitorECG_1(models.Model):
     s7_e5_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e5comment', default=1)
 
-    s8_e1_bdisp = models.FloatField()
-    s8_e1_slope = models.FloatField()
+    s8_e1_bdisp = models.FloatField(null=True, blank=True)
+    s8_e1_slope = models.FloatField(null=True, blank=True)
     s8_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s8e1comment', default=1)
 
@@ -456,7 +456,7 @@ class AED_1(models.Model):
                                        related_name='aed1s0e13comment', default=1)
 
     test_type = models.ForeignKey(
-        acc.models.AdTestType, on_delete=models.CASCADE, related_name='aed1tt')
+        acc.models.AdTestType, on_delete=models.CASCADE, related_name='aed1tt', default=3)
 
     # s1_e1_res = models.FloatField(default=-1)
     # s1_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
@@ -1076,9 +1076,9 @@ class AnesthesiaMachine_1(models.Model):
     # s13_e1_ro2n2of = models.IntegerField(default=-1)
     s13_e2_ro2f = models.IntegerField()
     # s13_e2_ro2n2of = models.IntegerField(default=-1)
-    s13_e3_o2p = models.IntegerField()
-    s13_e3_ro2d = models.IntegerField()
-    s13_e3_ro2c = models.IntegerField()
+    s13_e3_o2p = models.IntegerField()#N/A
+    s13_e3_ro2d = models.IntegerField()#N/A
+    s13_e3_ro2c = models.IntegerField()#N/A
 
     s14_e1 = models.IntegerField()
     s14_e2 = models.IntegerField()
@@ -1087,8 +1087,8 @@ class AnesthesiaMachine_1(models.Model):
     s15_e2 = models.FloatField()
     s15_e3 = models.FloatField()
 
-    s16_e1 = models.IntegerField()
-    s16_e2 = models.IntegerField()
+    s16_e1 = models.IntegerField()#500 +-15
+    s16_e2 = models.IntegerField()#500 +- 15 
 
     s17_e03 = models.IntegerField(default=-1)
     s17_e04 = models.IntegerField(default=-1)
@@ -1096,10 +1096,10 @@ class AnesthesiaMachine_1(models.Model):
     s17_e02 = models.IntegerField(default=-1)
     s17_e1 = models.IntegerField()
     s17_e2 = models.IntegerField()
-    s17_e3 = models.IntegerField(default=-1)
-    s17_e4 = models.IntegerField(default=-1)
-    s17_e5 = models.FloatField()
-    s17_e6 = models.IntegerField()
+    s17_e3 = models.FloatField(default=-1)
+    s17_e4 = models.FloatField(default=-1)
+    s17_e5 = models.FloatField()# 1:2 (split)
+    s17_e6 = models.IntegerField()# range(20,40)
 
     s18_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='am1s18e1comment', default=1)
@@ -1485,7 +1485,7 @@ class Defibrilator_1(models.Model):
 
     s7d_e1_en = models.IntegerField()
     s7d_e1_es = models.IntegerField()
-    s7d_e1_ec = models.IntegerField()
+    # s7d_e1_ec = models.IntegerField()
     s7d_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='df1s7de1comment', default=1)
 
@@ -1618,15 +1618,15 @@ class ECG_1(models.Model):
     cal_dev_4_xd = models.DateField()
 
     
-    s1_e1_damp = models.FloatField()
+    # s1_e1_damp = models.FloatField()
     s1_e1_ramp = models.FloatField()
     s1_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='e1s1e1comment', default=1)
-    s1_e2_damp = models.FloatField()
+    # s1_e2_damp = models.FloatField()
     s1_e2_ramp = models.FloatField()
     s1_e2_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='e1s1e2comment', default=1)
-    s1_e3_damp = models.FloatField()
+    # s1_e3_damp = models.FloatField()
     s1_e3_ramp = models.FloatField()
     s1_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='e1s1e3comment', default=1)
@@ -1742,8 +1742,8 @@ class ECG_1(models.Model):
     s12_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='e1s12e4comment', default=1)
 
-    s13_e1_va = models.FloatField()
-    s13_e1_watt = models.FloatField()
+    # s13_e1_va = models.FloatField()
+    # s13_e1_watt = models.FloatField()
     s13_e1_v = models.FloatField()
     s13_e1_a = models.FloatField()
 
@@ -2179,8 +2179,8 @@ class Spo2_1(models.Model):
     s4_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='sp1s4e4comment')
 
-    s5_e1_va = models.FloatField()
-    s5_e1_watt = models.FloatField()
+    # s5_e1_va = models.FloatField()
+    # s5_e1_watt = models.FloatField()
     s5_e1_v = models.FloatField()
     s5_e1_a = models.FloatField()
 
@@ -2292,25 +2292,25 @@ class Suction_1(models.Model):
     s0_e23_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                        related_name='su1s0e23comment', default=1)
     # TODO permisible error
-    s1_e1_rr = models.IntegerField()
-    s1_e2_rr = models.IntegerField()
-    s1_e3_rr = models.IntegerField()
-    s1_e4_rr = models.IntegerField()
-    s1_e5_rr = models.IntegerField()
-    s1_e6_rr = models.IntegerField()
-    s1_e7_rr = models.IntegerField()
-    s1_e8_rr = models.IntegerField()
-    s1_e9_rr = models.IntegerField()
-    s1_e10_rr = models.IntegerField()
+    s1_e1_rr = models.IntegerField(null=True, blank=True)
+    s1_e2_rr = models.IntegerField(null=True, blank=True)
+    s1_e3_rr = models.IntegerField(null=True, blank=True)
+    s1_e4_rr = models.IntegerField(null=True, blank=True)
+    s1_e5_rr = models.IntegerField(null=True, blank=True)
+    s1_e6_rr = models.IntegerField(null=True, blank=True)
+    s1_e7_rr = models.IntegerField(null=True, blank=True)
+    s1_e8_rr = models.IntegerField(null=True, blank=True)
+    s1_e9_rr = models.IntegerField(null=True, blank=True)
+    s1_e10_rr = models.IntegerField(null=True, blank=True)
 
-    s2_e1_rr = models.IntegerField()
-    s2_e2_rr = models.IntegerField()
-    s2_e3_rr = models.IntegerField()
-    s2_e4_rr = models.IntegerField()
-    s2_e5_rr = models.IntegerField()
-    s2_e6_rr = models.IntegerField()
-    s2_e7_rr = models.IntegerField()
-    s2_e8_rr = models.IntegerField()
+    s2_e1_rr = models.IntegerField(null=True, blank=True)
+    s2_e2_rr = models.IntegerField(null=True, blank=True)
+    s2_e3_rr = models.IntegerField(null=True, blank=True)
+    s2_e4_rr = models.IntegerField(null=True, blank=True)
+    s2_e5_rr = models.IntegerField(null=True, blank=True)
+    s2_e6_rr = models.IntegerField(null=True, blank=True)
+    s2_e7_rr = models.IntegerField(null=True, blank=True)
+    s2_e8_rr = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return 'Suction : ' + str(self.licence)
@@ -2617,15 +2617,15 @@ class ElectroCauter_1(models.Model):
     # s3b_e7_s = models.FloatField(default=-1)
     # s3b_e7_m = models.FloatField(default=-1)
 
-    s3c_e1_1 = models.FloatField()
-    s3c_e1_s = models.FloatField()
-    s3c_e1_m = models.FloatField()
-    s3c_e2_1 = models.FloatField()
-    s3c_e2_s = models.FloatField()
-    s3c_e2_m = models.FloatField()
-    s3c_e3_1 = models.FloatField()
-    s3c_e3_s = models.FloatField()
-    s3c_e3_m = models.FloatField()
+    # s3c_e1_1 = models.FloatField()
+    # s3c_e1_s = models.FloatField()
+    # s3c_e1_m = models.FloatField()
+    # s3c_e2_1 = models.FloatField()
+    # s3c_e2_s = models.FloatField()
+    # s3c_e2_m = models.FloatField()
+    # s3c_e3_1 = models.FloatField()
+    # s3c_e3_s = models.FloatField()
+    # s3c_e3_m = models.FloatField()
     # s3c_e4_1 = models.FloatField(default=-1)
     # s3c_e4_s = models.FloatField(default=-1)
     # s3c_e4_m = models.FloatField(default=-1)
@@ -2991,7 +2991,7 @@ class Ventilator_1(models.Model):
     #                                   related_name='ven1s5e1comment')
 
     # s6_e1_rff = models.IntegerField(default=-1)
-    s6_e1_ffr = models.IntegerField()
+    # s6_e1_ffr = models.IntegerField()
 
     # s7_e1_si1 = models.IntegerField(default=-1)
     # s7_e1_si2 = models.IntegerField(default=-1)
@@ -3012,9 +3012,9 @@ class Ventilator_1(models.Model):
     # s13_e1 = models.IntegerField(default=-1)
     # s13_e2 = models.IntegerField(default=-1)
 
-    s14_e1 = models.IntegerField()
-    s14_e2 = models.IntegerField()
-    s14_e3 = models.IntegerField()
+    s14_e1 = models.FloatField()
+    s14_e2 = models.FloatField()
+    s14_e3 = models.FloatField()
 
     s15_e1 = models.IntegerField()
     s15_e2 = models.IntegerField()

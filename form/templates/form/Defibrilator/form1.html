@@ -3733,6 +3733,8 @@
 
 
 
+
+
   /////////////////////////////// table 8
 
 
@@ -4326,7 +4328,7 @@
 
   $("#id_s12_e1_cc")
     .focusout(function () {
-      if ($("#id_s12_e1_cc").val() > 3 && ($("#id_s12_e1_cc").val().length != 0)) {
+      if ($("#id_s12_e1_cc").val() < 3 && ($("#id_s12_e1_cc").val().length != 0)) {
         $("#id_s12_e1_cc").css("background-color", "#f24858");
         $("#id_s12_e1_cc").css("color", "white");
 
@@ -4335,7 +4337,7 @@
         $("#id_s12_e1_comment").val("2");
 
       }
-      else if (($("#id_s12_e1_cc").val() <= 3) || ($("#id_s12_e1_cc").val().length == 0)) {
+      else if (($("#id_s12_e1_cc").val() >= 3) || ($("#id_s12_e1_cc").val().length == 0)) {
         $("#id_s12_e1_cc").css("background-color", "white");
         $("#id_s12_e1_cc").css("color", "black");
 
@@ -4349,7 +4351,7 @@
 
   $("#id_s12_e2_cc")
     .focusout(function () {
-      if ($("#id_s12_e2_cc").val() > 3 && ($("#id_s12_e2_cc").val().length != 0)) {
+      if ($("#id_s12_e2_cc").val() < 3 && ($("#id_s12_e2_cc").val().length != 0)) {
         $("#id_s12_e2_cc").css("background-color", "#f24858");
         $("#id_s12_e2_cc").css("color", "white");
 
@@ -4358,7 +4360,7 @@
         $("#id_s12_e2_comment").val("2");
 
       }
-      else if (($("#id_s12_e2_cc").val() <= 3) || ($("#id_s12_e2_cc").val().length == 0)) {
+      else if (($("#id_s12_e2_cc").val() >= 3) || ($("#id_s12_e2_cc").val().length == 0)) {
         $("#id_s12_e2_cc").css("background-color", "white");
         $("#id_s12_e2_cc").css("color", "black");
 
@@ -4372,7 +4374,7 @@
 
   $("#id_s12_e3_cc")
     .focusout(function () {
-      if ($("#id_s12_e3_cc").val() > 3 && ($("#id_s12_e3_cc").val().length != 0)) {
+      if ($("#id_s12_e3_cc").val() < 3 && ($("#id_s12_e3_cc").val().length != 0)) {
         $("#id_s12_e3_cc").css("background-color", "#f24858");
         $("#id_s12_e3_cc").css("color", "white");
 
@@ -4381,7 +4383,7 @@
         $("#id_s12_e3_comment").val("2");
 
       }
-      else if (($("#id_s12_e3_cc").val() <= 3) || ($("#id_s12_e3_cc").val().length == 0)) {
+      else if (($("#id_s12_e3_cc").val() >= 3) || ($("#id_s12_e3_cc").val().length == 0)) {
         $("#id_s12_e3_cc").css("background-color", "white");
         $("#id_s12_e3_cc").css("color", "black");
 
