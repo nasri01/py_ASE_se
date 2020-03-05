@@ -137,7 +137,7 @@ def xlsx(request):
                 instance.device.hospital.city.eng_name,
                 encode_instance.name,
                 instance.request.number,
-                instance.section.eng_name,
+                instance.device.section.eng_name,
                 instance[0].tt.name,
                 instance.licence.number,
                 )
