@@ -74,24 +74,24 @@ def xlsx(request):
         if recal:
             if Group.objects.get(name='admin') in request.user.groups.all():  # admin
                 for model in model_list:
-                    model_query = model.objects.filter(date__gte=start).filter(
-                        date__lte=end).filter(is_recal=True)
+                    model_query = model.objects.filter(date__gte=QUERY_START_DATE).filter(
+                        date__lte=QUERY_END_DATE).filter(is_recal=True)
                     query_list.append(model_query)
             else:  # hospital
                 for model in model_list:
-                    model_query = model.objects.filter(date__gte=start).filter(date__lte=end).filter(
+                    model_query = model.objects.filter(date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
                         request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
                     query_list.append(model_query)
         else:
             if Group.objects.get(name='admin') in request.user.groups.all():
                 for model in model_list:
                     model_query = model.objects.filter(
-                        date__gte=start).filter(date__lte=end)
+                        date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE)
                     query_list.append(model_query)
             else:  # Hospital
                 for model in model_list:
                     model_query = model.objects.filter(
-                        date__gte=start).filter(date__lte=end).filter(
+                        date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
                         request__hospital__user__id__exact=request.user.id)
                     query_list.append(model_query)
 
