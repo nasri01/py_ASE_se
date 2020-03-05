@@ -251,7 +251,7 @@ def xlsx(request):
                     hospital__user=request.user).order_by('date')
                 template_name = 'acc/hospital/index.html'
             else:
-                req = Request.objects.all().order_by('date')
+                request_list = Request.objects.all().order_by('date')
                 template_name = 'acc/admin/index.html'
 
             for obj in query_list:
