@@ -145,17 +145,7 @@ def xlsx(request):
             table_rows.append(row)
 
         table_header_list = AdExcelArg.objects.all().order_by('id')
-        if request.GET['action'] == 'download':
-
-            output = io.BytesIO()
-            wb = xlsxwriter.Workbook(output)
-            ws = wb.add_worksheet()
-            ws.right_to_left()
-            ws.set_default_row(height=40)
-            ws.set_column(0, 15, 17)
-
-            # first row
-            table_header = (str(table_header_list[1]),
+        table_header = (str(table_header_list[1]),
                             str(table_header_list[2]),
                             str(table_header_list[3]),
                             str(table_header_list[4]),
@@ -172,6 +162,18 @@ def xlsx(request):
                             str(table_header_list[15]),
                             'PDF'
                             )
+                            
+        if request.GET['action'] == 'download':
+
+            output = io.BytesIO()
+            wb = xlsxwriter.Workbook(output)
+            ws = wb.add_worksheet()
+            ws.right_to_left()
+            ws.set_default_row(height=40)
+            ws.set_column(0, 15, 17)
+
+            # first row
+            
             table_header_format = wb.add_format({'font_size': 11, 'align': 'center',
                                                  'valign': 'vcenter', 'bottom': True, 'left': True})
 
