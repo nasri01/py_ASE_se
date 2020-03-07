@@ -62,9 +62,13 @@ def xlsx(request):
                                                                'flag': 1})  # , 'date': jdatetime.date.today(),
 
         # Create Excel
-        row = []
-        table_rows = []
         query_list = []
+        chart_data = {
+            'total_green': 0,
+            'total_yellow': 0,
+            'total_red': 0,
+            'total_blue': 0,
+        }
         try:
             if request.GET['is_recal'] == 'on':
                 recal = True
@@ -74,28 +78,40 @@ def xlsx(request):
         if recal:
             if Group.objects.get(name='admin') in request.user.groups.all():  # admin
                 # for model in model_list:
-                report_query = Report.objects.filter(date__gte=QUERY_START_DATE).filter(
+                report_query = Report.objects.filter(
+                    date__gte=QUERY_START_DATE).filter(
                     date__lte=QUERY_END_DATE).filter(is_recal=True)
                 # query_list.append(model_query)
             else:  # hospital
                 # for model in model_list:
-                report_query = Report.objects.filter(date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
+                report_query = Report.objects.filter(
+                    date__gte=QUERY_START_DATE).filter(
+                    date__lte=QUERY_END_DATE).filter(
                     request__hospital__user__id__exact=request.user.id).filter(is_recal=True)
                 # query_list.append(model_query)
         else:
             if Group.objects.get(name='admin') in request.user.groups.all():
                 # for model in model_list:
                 report_query = Report.objects.filter(
-                    date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE)
+                    date__gte=QUERY_START_DATE).filter(
+                    date__lte=QUERY_END_DATE)
                 # query_list.append(model_query)
             else:  # Hospital
                 # for model in model_list:
                 report_query = Report.objects.filter(
-                    date__gte=QUERY_START_DATE).filter(date__lte=QUERY_END_DATE).filter(
+                    date__gte=QUERY_START_DATE).filter(
+                    date__lte=QUERY_END_DATE).filter(
                     request__hospital__user__id__exact=request.user.id)
                 # query_list.append(model_query)
-
+        
+        
+        chart_data['total_green'] = len(report_query.filter(status__id=1))
+        chart_data['total_yellow'] = len(report_query.filter(status__id=2))
+        chart_data['total_red'] = len(report_query.filter(status__id=3))
+        chart_data['total_blue'] = len(report_query.filter(status__id=4))
         # for index, query in enumerate(query_list):
+        
+        table_rows = []
         for instance in report_query:
             row = []
             row.append(instance.device.hospital.city.state.name)  # 0
@@ -127,11 +143,11 @@ def xlsx(request):
             else:
                 row.append(instance.totalcomment)  # 12*
             row.append(instance.status.id)  # 13
-            
+
             encode_instance = Encode.objects.get(
-                    hospital=instance.device.hospital)
-            
-            row.append('https://{}/reports/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(#14
+                hospital=instance.device.hospital)
+
+            row.append('https://{}/reports/pdf/{}/{}/{}/{}/{}/{}/{}.pdf'.format(  # 14
                 dl_domain_name,
                 instance.device.hospital.city.state.eng_name,
                 instance.device.hospital.city.eng_name,
@@ -140,40 +156,44 @@ def xlsx(request):
                 instance.device.section.eng_name,
                 instance.tt.type,
                 instance.licence.number,
-                )
+            )
             )
             table_rows.append(row)
 
         table_header_list = AdExcelArg.objects.all().order_by('id')
         table_header = (str(table_header_list[1]),
-                            str(table_header_list[2]),
-                            str(table_header_list[3]),
-                            str(table_header_list[4]),
-                            str(table_header_list[5]),
-                            str(table_header_list[6]),
-                            str(table_header_list[7]),
-                            str(table_header_list[8]),
-                            str(table_header_list[9]),
-                            str(table_header_list[10]),
-                            str(table_header_list[11]),
-                            str(table_header_list[12]),
-                            str(table_header_list[13]),
-                            str(table_header_list[14]),
-                            str(table_header_list[15]),
-                            'PDF'
-                            )
-                            
+                        str(table_header_list[2]),
+                        str(table_header_list[3]),
+                        str(table_header_list[4]),
+                        str(table_header_list[5]),
+                        str(table_header_list[6]),
+                        str(table_header_list[7]),
+                        str(table_header_list[8]),
+                        str(table_header_list[9]),
+                        str(table_header_list[10]),
+                        str(table_header_list[11]),
+                        str(table_header_list[12]),
+                        str(table_header_list[13]),
+                        str(table_header_list[14]),
+                        str(table_header_list[15]),
+                        'PDF'
+                        )
+
         if request.GET['action'] == 'download':
 
             output = io.BytesIO()
             wb = xlsxwriter.Workbook(output)
-            ws = wb.add_worksheet()
+            ws = wb.add_worksheet(name='Data')
+            chart_ws = wb.add_worksheet(name='Charts')
+
+            chart_ws.right_to_left()
             ws.right_to_left()
+
             ws.set_default_row(height=40)
             ws.set_column(0, 15, 17)
 
             # first row
-            
+
             table_header_format = wb.add_format({'font_size': 11, 'align': 'center',
                                                  'valign': 'vcenter', 'bottom': True, 'left': True})
 
@@ -229,7 +249,7 @@ def xlsx(request):
                 # report_instance = Report.objects.filter(
                 #     licence__number=row[11])
                 # if len(report_instance):
-                
+
                 # Esfahan/Esfahan/a01610228fe998f515a72dd730294d87/100/AMBULANCE/AED
 
                 ws.write_url(row=cursor, col=len(row_data)-1, url=row[14],
