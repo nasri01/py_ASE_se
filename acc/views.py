@@ -15,7 +15,6 @@ try:
     color_scheme = Parameters.objects.get(name__exact='color').value
 except:
     color_scheme = '17a2b8'
-fr1 = AdExcelArg.objects.all().order_by('id')
 # model_list = [MonitorSpo2_1, MonitorECG_1, MonitorNIBP_1, MonitorSafety_1, AED_1, AnesthesiaMachine_1,
 #               Defibrilator_1, ECG_1, FlowMeter_1, InfusionPump_1, ManoMeter_1, Spo2_1, Suction_1, SyringePump_1,
 #               Ventilator_1, ElectroCauter_1, CantTest, report]

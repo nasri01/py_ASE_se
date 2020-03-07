@@ -103,14 +103,13 @@ def xlsx(request):
                     date__lte=QUERY_END_DATE).filter(
                     request__hospital__user__id__exact=request.user.id)
                 # query_list.append(model_query)
-        
-        
+
         chart_data['total_green'] = len(report_query.filter(status__id=1))
         chart_data['total_yellow'] = len(report_query.filter(status__id=2))
         chart_data['total_red'] = len(report_query.filter(status__id=3))
         chart_data['total_blue'] = len(report_query.filter(status__id=4))
         # for index, query in enumerate(query_list):
-        
+
         table_rows = []
         for instance in report_query:
             row = []
@@ -265,7 +264,8 @@ def xlsx(request):
             return response
 
         else:  # display table
-            user_profile = UserProfile.objects.get(user=request.user)
+            avatar_url = UserProfile.objects.get(
+                id=1).avatar.url  # admin user_profile
 
             chart = [0, 0, 0, 0]
             if Group.objects.get(name='hospital') in request.user.groups.all():
@@ -285,8 +285,11 @@ def xlsx(request):
             for req in request_list:
                 req.date = req.date.today()
 
-            pass_data = {'table_header': table_header, 'table_rows': table_rows,
-                         'request': request_list, 'user_profile': user_profile, 'chart': chart}
+            pass_data = {
+                        'table_header': table_header, 'table_rows': table_rows,
+                        'request': request_list, 'avatar_url': avatar_url,
+                        'user_name': request.user.first_name, 'chart': chart
+                        }
 
             if Group.objects.get(name='admin') in request.user.groups.all():
                 pass_data['admin'] = 1
