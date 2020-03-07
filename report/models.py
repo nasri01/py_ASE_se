@@ -22,6 +22,7 @@ class Report(models.Model):
     totalcomment = models.TextField(null=True, blank= True)
     is_done = models.BooleanField(default=False)
     is_recal = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False)
     class Meta:
         verbose_name_plural = "سابقه گزارشات"
     def __str__(self):
