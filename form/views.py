@@ -599,7 +599,7 @@ def save_router(request, formtype):
                         green_status += '<br> PDF ذخیره شد!!!'
                         report_query = Report.objects.filter(record=obj.record)
                         if not len(report_query):
-                            report_instance=Report.objects.create(tt = AdTestType0.objects.get(type=item[0]), device = obj.device,
+                            report_instance=Report.objects.create(tt = AdTestType0.objects.get(type=(item[0] if item[0] != 'spo2' else 'PulseOximetry')), device = obj.device,
                                                                     request = obj.request, date = obj.date, user = obj.user, status = obj.status,
                                                                     record = obj.record, licence = obj.licence, is_recal = obj.is_recal, ref_record = obj.ref_record,
                                                                     is_done = obj.is_done, totalcomment = obj.totalcomment)
