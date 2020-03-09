@@ -80,7 +80,6 @@ def send_file_ftp(ftp_obj, filename, report_name):
 
 def save_router(request, formtype):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
-        print(request.POST)
         avatar_url = UserProfile.objects.get(
             id=1).avatar.url  # admin user_profile
         for item in model_list:
@@ -432,7 +431,7 @@ def save_router(request, formtype):
                             data.append(abs(obj.s2_e3_sp - obj.s2_e3_np))  # 2
                             data.append(abs(obj.s2_e4_sp - obj.s2_e4_np))  # 3
 
-                        elif (item[1] == spo2_1):
+                        elif (item[1] == Spo2_1):
                             template_name='report/spo2/licence1.html'
                             ss=0
                             sss=0
