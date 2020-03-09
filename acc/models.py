@@ -99,7 +99,7 @@ class City(models.Model):
 
 class Section(models.Model):
     name = models.TextField(verbose_name='نام بخش')
-    eng_name = models.TextField(verbose_name='نام انگلیسی بخش)
+    eng_name = models.TextField(verbose_name='نام انگلیسی بخش')
 
     class Meta:
         verbose_name_plural = "بخش های بیمارستان"
