@@ -98,7 +98,7 @@ class City(models.Model):
 
 
 class Section(models.Model):
-    name = models.TextField()
+    name = models.TextField(verbose_name='نام بخش')
     eng_name = models.TextField()
 
     class Meta:
