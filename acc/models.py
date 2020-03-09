@@ -64,7 +64,7 @@ class AdTestType1(models.Model):  # bf/cf ac/dc
 
 
 class Country(models.Model):
-    name = models.TextField()
+    name = models.TextField(verbose_name='نام کشور')
 
     class Meta:
         verbose_name_plural = "کشور ها"
@@ -74,9 +74,9 @@ class Country(models.Model):
 
 
 class State(models.Model):
-    name = models.TextField()
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    eng_name = models.TextField()
+    name = models.TextField(verbose_name='نام استان')
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, verbose_name='نام کشور')
+    eng_name = models.TextField(verbose_name='نام انگلیسی استان')
 
     class Meta:
         verbose_name_plural = "استان ها"
@@ -86,9 +86,9 @@ class State(models.Model):
 
 
 class City(models.Model):
-    state = models.ForeignKey(State, on_delete=models.CASCADE)
-    name = models.TextField()
-    eng_name = models.TextField()
+    state = models.ForeignKey(State, on_delete=models.CASCADE, verbose_name='نام استان')
+    name = models.TextField(verbose_name='نام شهر')
+    eng_name = models.TextField(verbose_name='نام انگلیسی شهر')
 
     class Meta:
         verbose_name_plural = "شهر ها"
@@ -99,7 +99,7 @@ class City(models.Model):
 
 class Section(models.Model):
     name = models.TextField(verbose_name='نام بخش')
-    eng_name = models.TextField()
+    eng_name = models.TextField(verbose_name='نام انگلیسی بخش)
 
     class Meta:
         verbose_name_plural = "بخش های بیمارستان"
@@ -120,11 +120,11 @@ class Parameters(models.Model):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='شناسه کاربر')
     avatar = models.ImageField(
-        upload_to='avatar/')
+        upload_to='avatar/', verbose_name='تصویر کاربر')
     signature = models.ImageField(
-        upload_to='signature/', null=True, blank=True)
+        upload_to='signature/', null=True, blank=True, verbose_name='تصویر امضا')
     status = models.ForeignKey(AdAccStatus, on_delete=models.PROTECT)
 
     class Meta:
@@ -135,10 +135,10 @@ class UserProfile(models.Model):
 
 
 class Hospital(models.Model):
-    name = models.TextField()
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-    address = models.TextField()
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    name = models.TextField(verbose_name='نام بیمارستان')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='شهر')
+    address = models.TextField(verbose_name='آدرس بیمارستان')
+    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='شناسه کاربری بیمارستان')
 
     class Meta:
         verbose_name_plural = "2_بیمارستان ها"
@@ -148,9 +148,9 @@ class Hospital(models.Model):
 
 
 class Company(models.Model):
-    name = models.TextField()
-    en_name = models.TextField()
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    name = models.TextField(verbose_name='نام شرکت')
+    en_name = models.TextField(verbose_name='نام انگلیسی شرکت')
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, verbose_name='کشور')
 
     class Meta:
         verbose_name_plural = "شرکت های سازنده"
@@ -160,7 +160,7 @@ class Company(models.Model):
 
 
 class DeviceType(models.Model):
-    name = models.TextField()
+    name = models.TextField(verbose_name='نوع دستگاه')
 
     class Meta:
         verbose_name_plural = "نوع دستگاه ها"
@@ -170,9 +170,9 @@ class DeviceType(models.Model):
 
 
 class Device(models.Model):
-    name = models.TextField()
-    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
-    creator = models.ForeignKey(Company, on_delete=models.CASCADE)
+    name = models.TextField(verbose_name='اسم مدل دستگاه')
+    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, verbose_name='نوع دستگاه')
+    creator = models.ForeignKey(Company, on_delete=models.CASCADE, verbose_name='شرکت سازنده')
 
     class Meta:
         verbose_name_plural = "لیست دستگاه"
@@ -182,12 +182,12 @@ class Device(models.Model):
 
 
 class CalDevice(models.Model):
-    name = models.TextField()
-    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
-    creator = models.ForeignKey(Company, on_delete=models.CASCADE)
-    serial = models.CharField(max_length=30)
-    calibration_date = models.DateField()
-    calibration_Expire_date = models.DateField()
+    name = models.TextField(verbose_name='نام دستگاه کالیبره')
+    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, verbose_name='نوع دستگاه')
+    creator = models.ForeignKey(Company, on_delete=models.CASCADE, verbose_name='شرکت سازنده')
+    serial = models.CharField(max_length=30, verbose_name='سریال دستگاه کالیبره')
+    calibration_date = models.DateField(verbose_name='تاریخ شروع کالیبراسیون')
+    calibration_Expire_date = models.DateField(verbose_name='تاریخ اتمام کالیبراسیون')
 
     class Meta:
         verbose_name_plural = "4_دستگاه های کنترل کیفی"
@@ -197,11 +197,11 @@ class CalDevice(models.Model):
 
 
 class AllDevice(models.Model):
-    name = models.ForeignKey(Device, on_delete=models.CASCADE)
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
-    section = models.ForeignKey(Section, on_delete=models.CASCADE)
-    serial_number = models.TextField(null=True, blank=True)
-    property_number = models.IntegerField(null=True, blank=True)
+    name = models.ForeignKey(Device, on_delete=models.CASCADE, verbose_name='نام مدل دستگاه')
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, verbose_name='نام بیمارستان')
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, verbose_name='نام بخش')
+    serial_number = models.TextField(null=True, blank=True, verbose_name='شماره سریال دستگاه')
+    property_number = models.IntegerField(null=True, blank=True, verbose_name='شماره اموال دستگاه')
 
     class Meta:
         verbose_name_plural = "3_دستگاه های ثبت شده"
@@ -211,11 +211,11 @@ class AllDevice(models.Model):
 
 
 class Request(models.Model):
-    date = jmodels.jDateField()
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
-    number = models.IntegerField()
+    date = jmodels.jDateField(verbose_name='تاریخ میلادی دستگاه')
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, verbose_name='نام بیمارستان')
+    number = models.IntegerField(verbose_name='شماره درخواست')
     status = models.ForeignKey(
-        AdReqStatus, on_delete=models.CASCADE, default=1)
+        AdReqStatus, on_delete=models.CASCADE, default=1, verbose_name='وضعیت درخواست')
 
     class Meta:
         verbose_name_plural = "5_لیست درخواست ها"
@@ -225,7 +225,7 @@ class Request(models.Model):
 
 
 class Record(models.Model):
-    number = models.IntegerField(primary_key=True)
+    number = models.IntegerField(primary_key=True, verbose_name='شماره رکورد')
 
     class Meta:
         verbose_name_plural = "شماره رکورد"
@@ -235,7 +235,7 @@ class Record(models.Model):
 
 
 class Licence(models.Model):
-    number = models.IntegerField()
+    number = models.IntegerField(verbose_name='شماره گواهی')
 
     class Meta:
         verbose_name_plural = "شماره گواهی"
@@ -245,9 +245,9 @@ class Licence(models.Model):
 
 
 class Accessory(models.Model):
-    name = models.CharField(max_length=50)
-    type = models.ForeignKey(DeviceType, on_delete=models.PROTECT)
-    company = models.ForeignKey(Company, on_delete=models.PROTECT)
+    name = models.CharField(max_length=50, verbose_name='نام لوازم جانبی')
+    type = models.ForeignKey(DeviceType, on_delete=models.PROTECT, verbose_name='نوع لوازم جانبی')
+    company = models.ForeignKey(Company, on_delete=models.PROTECT, verbose_name='شرکت سازنده')
 
     class Meta:
         verbose_name_plural = "لوازم جانبی"
@@ -267,7 +267,7 @@ class AdExcelArg(models.Model):
 
 
 class Comment(models.Model):
-    comment = models.CharField(max_length=50)
+    comment = models.CharField(max_length=50, verbose_name='شرح توضیح')
 
     class Meta:
         verbose_name_plural = "توضیحات"
