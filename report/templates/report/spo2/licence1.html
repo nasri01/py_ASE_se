@@ -112,7 +112,7 @@
         <span>
           {{ form.totalcomment }}
         </span>
-        
+
       </div>
 
       <ul style="direction: rtl;">
@@ -452,70 +452,6 @@
             </div>
         </div> -->
     <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
-      <div style="font-weight: bold;">
-        <span class="time">:(ISO80601-2-61:2011</span>
-        استاندارد
-        <span class="time">201.11.8.101.1</span>
-        1.الزامات ایجاد وقفه در منبع تغذیه(بند
-      </div>
-      <table style="margin: auto;width: 100%;font-size: 12pt;text-align: center;" class="tb-2 time">
-        <thead>
-          <tr>
-            <th rowspan="2">SETTING</th>
-            <th rowspan="2">Alarm System Condition</th>
-            <th colspan="2">RESULT</th>
-            <th rowspan="2" style="min-width:6cm;">Description</th>
-          </tr>
-          <tr>
-            <th>OK</th>
-            <th>REJ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowspan="2">Power Supply Failure</td>
-            <td>At least a Medium Priority Technical Alarm</td>
-            {% if form.s1_e1_comment.id == 1 %}
-            <td>&#10004;</td>
-            <td></td>
-            {% elif form.s1_e1_comment.id == 2 %}
-            <td></td>
-            <td></td>
-            {% else %}
-            <td></td>
-            <td>&#10004;</td>
-            {% endif %}
-            {% if form.s1_e1_comment.id == 1%}
-            <td></td>
-            {% else %}
-            <td>{{ form.s1_e1_comment }}</td>
-            {% endif %}
-
-          </tr>
-          <tr>
-            <td>Switchover to an internal electrical power source information signalor a Low priority technical alarm
-            </td>
-            {% if form.s1_e2_comment.id == 1 %}
-            <td>&#10004;</td>
-            <td></td>
-            {% elif form.s1_e2_comment.id == 2 %}
-            <td></td>
-            <td></td>
-            {% else %}
-            <td></td>
-            <td>&#10004;</td>
-            {% endif %}
-            {% if form.s1_e2_comment.id == 1%}
-            <td></td>
-            {% else %}
-            <td>{{ form.s1_e2_comment }}</td>
-            {% endif %}
-          </tr>
-        </tbody>
-
-      </table>
-
-      <br>
       <div style="font-weight: bold;">
         <span class="time">:(ISO 80601-2-61:2011</span>
         استاندارد
