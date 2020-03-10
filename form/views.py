@@ -346,11 +346,12 @@ def save_router(request, formtype):
                             #     data.append(0)
                             # else:
                             #     data.append(1)
+                     
                         elif (item[1] == ECG_1):
                             template_name='report/ECG/licence1.html'
                             k=int(obj.s5_e1_v) * int(obj.s5_e1_a)
                             data.append(k)  # 0
-                            data.append((2 ** 0.5) * k)  # 1
+                            data.append(format(( 2 ** 0.5) * k, '.2f'))  # 1
 
                         elif (item[1] == ElectroCauter_1):
                             template_name='report/ElectroCauter/licence1.html'
@@ -460,7 +461,7 @@ def save_router(request, formtype):
                             data.append(int(((sss/5)**0.5)*100)/100)  # 17
                             k=int(obj.s5_e1_v) * int(obj.s5_e1_a)
                             data.append(k)  # 18
-                            data.append((2 ** 0.5) * k)  # 19
+                            data.append(format(( 2 ** 0.5) * k, '.2f'))  # 19
 
                         elif (item[1] == Suction_1):
                             template_name='report/Suction/licence1.html'
@@ -527,13 +528,13 @@ def save_router(request, formtype):
                                     data.append(0)
                             else:
                                 data.append(2)
-                        print('1')
+                       
                         user_profile=UserProfile.objects.get(user = obj.user)
                         today_datetime=jdatetime.datetime.today()
                         font_config=FontConfiguration()
                         html=render_to_string(template_name, {
                             'form': obj, 'time': today_datetime, 'user_profile': user_profile, 'data': data, 'domain_name': domain_name})
-                        print('2')
+                    
                         css_root=static('/css')
                         css1=CSS(
                             filename = f'{BASE_DIR}{css_root}/sop2-pdf.css')
@@ -547,7 +548,7 @@ def save_router(request, formtype):
 
                         # ===================================Begin-File Processing=================================================
 
-                        print('3')
+                    
                         encode_query=Encode.objects.filter(
                             hospital = obj.device.hospital)
                         if len(encode_query) == 0:
@@ -568,23 +569,23 @@ def save_router(request, formtype):
                         if not obj.device.hospital.city.eng_name in ftp.nlst():
                             ftp.mkd(obj.device.hospital.city.eng_name)
                         ftp.cwd(obj.device.hospital.city.eng_name)
-                        if not filename in ftp.nlst():
+                        if not str(obj.device.hospital.user.id) + filename in ftp.nlst():
                             ftp.mkd(filename)
                         ftp.cwd(filename)
                         if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
                         ftp.cwd(str(obj.request.number))
 
-                        print('5')
+                    
                         if not str(obj.device.section.eng_name) in ftp.nlst():
                             ftp.mkd(str(obj.device.section.eng_name))
                         ftp.cwd(str(obj.device.section.eng_name))
 
-                        print('4')
+                    
                         if not item[0] in ftp.nlst():
                             ftp.mkd(item[0])
 
-                        print('6')
+                    
                         ftp.cwd(item[0])
 
                         # try:
