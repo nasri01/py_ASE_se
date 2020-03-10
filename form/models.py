@@ -765,7 +765,7 @@ class MonitorSafety_1(models.Model):
     # s1_e1_res = models.IntegerField()
     # s1_e2_res = models.IntegerField()
     # s1_e3_res = models.IntegerField()
-    s1_e4_res = models.IntegerField()
+    s1_e4_res = models.FloatField()
 
     s2_e1_aplc = models.FloatField()
     s2_e1_noaplc = models.FloatField()
