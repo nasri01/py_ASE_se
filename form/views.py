@@ -570,7 +570,7 @@ def save_router(request, formtype):
                             ftp.mkd(obj.device.hospital.city.eng_name)
                         ftp.cwd(obj.device.hospital.city.eng_name)
                         if not str(obj.device.hospital.user.id) + filename in ftp.nlst():
-                            ftp.mkd(filename)
+                            ftp.mkd(str(obj.device.hospital.user.id) + filename)
                         ftp.cwd(filename)
                         if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
