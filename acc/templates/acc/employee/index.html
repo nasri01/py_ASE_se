@@ -17,26 +17,7 @@
 {% else %}
 <title>کنترل پنل کارمندان</title>
 {% endif %}
-<div
-    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
 
-    <div style="display:block;width:100%;">
-    <a href="{% url 'admin:acc_accessory_add'%}" target="_blank">
-        <button class="btn btn-danger" style="display:block;width:100%;" > افزودن لوازم جانبی </button>
-    </a>  
-    </div>
-    <div style="height: 10px;">
-    </div>
-    <!--<a class="btn btn-warning" href="{% url 'admin:acc_comment_add'%}"  target="_blank" style="width: 100%;" >افزودن کامنت</a>-->
-    <button class="btn btn-secondary" type="submit" formaction="{% url 'admin:acc_comment_add'%}"
-      style="display:block;width:100%;" formnovalidate> افزودن کامنت </button>
-
-
-    <div style="height: 10px;"></div>
-    <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='MonitorSpo2' %}"
-      formnovalidate>بارگزاری مجدد فرم</button>
-
-  </div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5 col-xl-4 col-md-12" style="direction: rtl;height: 800px;overflow: hidden;">
