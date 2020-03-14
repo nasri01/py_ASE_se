@@ -82,14 +82,14 @@
                     <div class="header-img">
                         <img src="{% static 'img/logo2.jpg' %}" alt="logo2" class="logo2">
                         <img src="{% static 'img/sairan.svg' %}" alt="logo" class="logo">
-                       
-                    </div>
-                        <br>
-                    <div class="alert alert-info" style="margin-bottom: 0;text-align: center;" role="alert"1>
-                        شرکت آزما صبای اسپادانا نماینده رسمی کنترل کیفی تجهیزات پزشکی شرکت صاایران
-                          </div>
 
-                    <div class="login-box"  style="font-family: light-iransans;margin-top: 15px;padding-top: 0;">
+                    </div>
+                    <br>
+                    <div class="alert alert-info" style="margin-bottom: 0;text-align: center;" role="alert" 1>
+                        شرکت آزما صبای اسپادانا نماینده رسمی کنترل کیفی تجهیزات پزشکی شرکت صاایران
+                    </div>
+
+                    <div class="login-box" style="font-family: light-iransans;margin-top: 15px;padding-top: 0;">
                         <form method="post" action="{% url 'login1'%}">
                             {% csrf_token %}
 
@@ -122,19 +122,6 @@
 
                                             }
                                         });
-//     $( "#target" ).focusout(function() {
-//         // alert()
-//         if($("#target").val()>1){
-//             // alert( "Handler for .focus() called." );
-//             $('#target').css('background-color', 'red');
-//         }
-//         else{
-//             $('#target').css('background-color', 'white');
-//         }
-// });
-
-
-
 
                                     </script>
                                 </label>
@@ -191,8 +178,11 @@
                             <div style="height: 15px;"></div>
 
                             <div class="sr-btn">
-                                <a href="https://www.sairanmed.ir" class="demo-btn mu" style="color: black;text-align: center;padding-top: 9px;"><img style="width: 15px;margin-left: 5px;" src="{% static 'img/home-icon.svg'%}">بازگشت به سایت</a>
-                                
+                                <a href="https://www.sairanmed.ir" class="demo-btn mu"
+                                    style="color: black;text-align: center;padding-top: 9px;"><img
+                                        style="width: 15px;margin-left: 5px;"
+                                        src="{% static 'img/home-icon.svg'%}">بازگشت به سایت</a>
+
                                 <input type="submit" value="ورود به سیستم" class="submit-btn mu"
                                     style="background-color:#{{color}};">
 
@@ -260,25 +250,9 @@
                     </div>
 
                     <div style="background-color:#{{color}};" class="bar">
-
                     </div>
-
-
-
-
-
-
                     <!--<img src="img/sairan.svg" style="margin: auto;" alt="logo" class="logo">-->
-
                 </div>
-
-
-
-
-
-
-
-
             </div>
 
         </div>
