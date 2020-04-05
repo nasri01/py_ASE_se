@@ -1,9 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
-<form method="POST" class="post-form">
-  <div
+<div
     style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
     <div style="display:block;width:100%;">
     <a href="{% url 'admin:acc_accessory_add'%}" target="_blank">
@@ -19,6 +17,8 @@
     <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='MonitorSpo2' %}"
       formnovalidate>بارگزاری مجدد فرم</button>
   </div>
+<form method="POST" class="post-form">
+  
   {% csrf_token %}
 
   <table class="table-bordered">
