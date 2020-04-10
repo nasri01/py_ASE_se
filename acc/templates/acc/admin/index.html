@@ -87,7 +87,8 @@
                                         <!-- <br> -->
                                         <div style="height: 250px;"></div>
                                         <!-- <div class="card card-body" style="border:none;"> -->
-                                        <form action="{% url 'report-xlsx' %}" method="GET">
+                                        {% comment %} <form action="{% url 'report-xlsx' %}" method="GET"> {% endcomment %}
+                                        <form method="GET">
                                             <div class="fm">
                                                 <div>
                                                     <div class="form-group">
