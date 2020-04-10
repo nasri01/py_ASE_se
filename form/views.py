@@ -612,14 +612,15 @@ def save_router(request, formtype):
                         os.remove(report_name)
                         obj.has_pdf = True
                         obj.save()
-                        green_status += '<br> PDF ذخیره شد!!!'
+                        green_status += 'PDF ذخیره شد!!!'
                         report_query = Report.objects.filter(record=obj.record)
-                        if not len(report_query):
-                            report_instance = Report.objects.create(tt=AdTestType0.objects.get(type=(item[0] if item[0] != 'spo2' else 'PulseOximetry')), device=obj.device,
-                                                                    request=obj.request, date=obj.date, user=obj.user, status=obj.status,
-                                                                    record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
-                                                                    is_done=obj.is_done, totalcomment=obj.totalcomment)
-                            report_instance.save()
+                        if len(report_query):
+                            report_query[0].delete()
+                        report_instance = Report.objects.create(tt=AdTestType0.objects.get(type=(item[0] if item[0] != 'spo2' else 'PulseOximetry')), device=obj.device,
+                                                                request=obj.request, date=obj.date, user=obj.user, status=obj.status,
+                                                                record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
+                                                                is_done=obj.is_done, totalcomment=obj.totalcomment)
+                        report_instance.save()
                         # except:
                         #     return HttpResponse('Error while sending to host!!!!')
                         # ===================================End-FTP Stuf=================================================

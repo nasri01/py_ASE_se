@@ -186,7 +186,7 @@ def show_recalibration_list(request):
                 row.append(obj.status.id)  # 13
                 table_rows.append(row)
 
-        return render(request, 'acc/employee/recalibration_list.html', {'table_header': table_header, 'data': table_rows})
+        return render(request, 'acc/employee/recalibration_list.html', {'table_header': table_header, 'table_rows': table_rows})
     else:
         raise Http404
 
