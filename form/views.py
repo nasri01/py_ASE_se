@@ -201,7 +201,7 @@ def save_router(request, formtype):
                         host=dl_ftp_host,
                         user=dl_ftp_user,
                         passwd=dl_ftp_passwd
-                        ) as ftp:
+                    ) as ftp:
                         ftp.set_debuglevel(2)
                         obj = item[1].objects.get(record=record)
                         # ===================================Begin-File Backing=================================================
@@ -234,7 +234,7 @@ def save_router(request, formtype):
                                 sss += data[i]
                             data.append(int(((sss/5)**0.5)*100)/100)  # 17
 
-                        elif (item[1] == MonitorNIBP_1):
+                        elif item[1] == MonitorNIBP_1:
                             template_name = 'report/Monitor/NIBP/licence1.html'
                             data1 = []
                             data2 = []
@@ -295,23 +295,23 @@ def save_router(request, formtype):
                             data2.append(int(obj.s2_e6_pr3.split('/')[1]))
 
                             for id in range(3):
-                                data1[id] = abs(data1[id] - 30)
-                                data2[id] = abs(data2[id] - 60)
+                                data1[id] = abs(data1[id] - 60)
+                                data2[id] = abs(data2[id] - 30)
                             for id in range(3, 6):
-                                data1[id] = abs(data1[id] - 50)
-                                data2[id] = abs(data2[id] - 80)
-                            for id in range(6, 9):
                                 data1[id] = abs(data1[id] - 80)
-                                data2[id] = abs(data2[id] - 120)
+                                data2[id] = abs(data2[id] - 50)
+                            for id in range(6, 9):
+                                data1[id] = abs(data1[id] - 120)
+                                data2[id] = abs(data2[id] - 80)
                             for id in range(9, 12):
-                                data1[id] = abs(data1[id] - 150)
-                                data2[id] = abs(data2[id] - 200)
+                                data1[id] = abs(data1[id] - 200)
+                                data2[id] = abs(data2[id] - 150)
                             for id in range(12, 15):
-                                data1[id] = abs(data1[id] - 15)
-                                data2[id] = abs(data2[id] - 35)
+                                data1[id] = abs(data1[id] - 35)
+                                data2[id] = abs(data2[id] - 15)
                             for id in range(15, 18):
-                                data1[id] = abs(data1[id] - 70)
-                                data2[id] = abs(data2[id] - 100)
+                                data1[id] = abs(data1[id] - 100)
+                                data2[id] = abs(data2[id] - 70)
 
                             print(data1)
                             print(data2)
@@ -340,21 +340,36 @@ def save_router(request, formtype):
 
                         elif (item[1] == Defibrilator_1):
                             template_name = 'report/Defibrilator/licence1.html'
+
+                            diff = abs(obj.s7a_e1_se - obj.s7a_e1_es)
+                            data.append(max(diff, 0.15 * obj.s7a_e1_se))  # 0
+                            diff = abs(obj.s7a_e2_se - obj.s7a_e2_es)
+                            data.append(max(diff, 0.15 * obj.s7a_e2_se))  # 1
+                            diff = abs(obj.s7a_e3_se - obj.s7a_e3_es)
+                            data.append(max(diff, 0.15 * obj.s7a_e3_se))  # 2
+
+                            diff = abs(obj.s7c_e1_se - obj.s7c_e1_es)
+                            data.append(max(diff, 0.15 * obj.s7c_e1_se))  # 3
+                            diff = abs(obj.s7c_e2_se - obj.s7c_e2_es)
+                            data.append(max(diff, 0.15 * obj.s7c_e2_se))  # 4
+                            diff = abs(obj.s7c_e3_se - obj.s7c_e3_es)
+                            data.append(max(diff, 0.15 * obj.s7c_e3_se))  # 5
                             diff = abs(obj.s7d_e1_en - obj.s7d_e1_es)
-                            data.append(max(diff, obj.s7d_e1_en * 0.15))  # 0
+                            data.append(max(diff, 0.15 * obj.s7d_e1_en))  # 6
+                            data.append( 0.85 * obj.s8_e1_en)  # 7
                             # if (diff > 4 or diff > obj.s7d_e1_en * 0.15):  # 1
                             #     data.append(0)
                             # else:
                             #     data.append(1)
-                     
+
                         elif (item[1] == ECG_1):
-                            template_name='report/ECG/licence1.html'
-                            k=int(obj.s5_e1_v) * int(obj.s5_e1_a)
+                            template_name = 'report/ECG/licence1.html'
+                            k = int(obj.s13_e1_v) * int(obj.s13_e1_a)
                             data.append(k)  # 0
-                            data.append(format(( 2 ** 0.5) * k, '.2f'))  # 1
+                            data.append(format((2 ** 0.5) * k, '.2f'))  # 1
 
                         elif (item[1] == ElectroCauter_1):
-                            template_name='report/ElectroCauter/licence1.html'
+                            template_name = 'report/ElectroCauter/licence1.html'
                             data.append(abs(obj.s3a_e1_m - obj.s3a_e1_s))  # 0
                             data.append(
                                 (abs(obj.s3a_e1_m - obj.s3a_e1_m) / obj.s3a_e1_s) * 100)  # 1
@@ -375,15 +390,18 @@ def save_router(request, formtype):
                             data.append(
                                 (abs(obj.s3b_e3_m - obj.s3b_e3_s) / obj.s3b_e3_s) * 100)  # 11
 
-                            data.append(abs(obj.s3c_e1_m - obj.s3c_e1_s))  # 12
-                            data.append(
-                                (abs(obj.s3c_e1_m - obj.s3c_e1_s) / obj.s3c_e1_s) * 100)  # 13
-                            data.append(abs(obj.s3c_e2_m - obj.s3c_e2_s))  # 14
-                            data.append(
-                                (abs(obj.s3c_e2_m - obj.s3c_e2_s) / obj.s3c_e2_s) * 100)  # 15
-                            data.append(abs(obj.s3c_e3_m - obj.s3c_e3_s))  # 16
-                            data.append(
-                                (abs(obj.s3c_e3_m - obj.s3c_e3_s) / obj.s3c_e3_s) * 100)  # 17
+                            data.append('')
+                            data.append('')
+                            data.append('')
+                            # data.append(abs(obj.s3c_e1_m - obj.s3c_e1_s))  # 12
+                            # data.append(
+                            #     (abs(obj.s3c_e1_m - obj.s3c_e1_s) / obj.s3c_e1_s) * 100)  # 13
+                            # data.append(abs(obj.s3c_e2_m - obj.s3c_e2_s))  # 14
+                            # data.append(
+                            #     (abs(obj.s3c_e2_m - obj.s3c_e2_s) / obj.s3c_e2_s) * 100)  # 15
+                            # data.append(abs(obj.s3c_e3_m - obj.s3c_e3_s))  # 16
+                            # data.append(
+                            #     (abs(obj.s3c_e3_m - obj.s3c_e3_s) / obj.s3c_e3_s) * 100)  # 17
 
                             data.append(abs(obj.s3d_e1_m - obj.s3d_e1_s))  # 18
                             data.append(
@@ -406,36 +424,36 @@ def save_router(request, formtype):
                                 (abs(obj.s3e_e3_m - obj.s3e_e3_s) / obj.s3e_e3_s) * 100)  # 29
 
                         elif (item[1] == FlowMeter_1):
-                            template_name='report/FlowMeter/licence1.html'
-                            data.append(abs(int(obj.s1_e1_rlpm) - 0.5))  # 0
-                            data.append(abs(int(obj.s1_e2_rlpm) - 2))  # 1
-                            data.append(abs(int(obj.s1_e3_rlpm) - 4))  # 2
-                            data.append(abs(int(obj.s1_e4_rlpm) - 7))  # 3
-                            data.append(abs(int(obj.s1_e5_rlpm) - 10))  # 4
-                            data.append(abs(int(obj.s1_e6_rlpm) - 15))  # 5
-                            data.append(data[0] * 200)  # 6
-                            data.append(data[1] * 50)  # 7
-                            data.append(data[2] * 25)  # 8
+                            template_name = 'report/FlowMeter/licence1.html'
+                            data.append(abs(float(obj.s1_e1_rlpm) - 0.5))  # 0
+                            data.append(abs(float(obj.s1_e2_rlpm) - 2))  # 1
+                            data.append(abs(float(obj.s1_e3_rlpm) - 4))  # 2
+                            data.append(abs(float(obj.s1_e4_rlpm) - 7))  # 3
+                            data.append(abs(float(obj.s1_e5_rlpm) - 10))  # 4
+                            data.append(abs(float(obj.s1_e6_rlpm) - 15))  # 5
+                            data.append(round(data[0] * 200), 2)  # 6
+                            data.append(round(data[1] * 50), 2)  # 7
+                            data.append(round(data[2] * 25), 2)  # 8
                             data.append(round(data[3] * (100/7), 2))  # 9
-                            data.append(data[4] * 10)  # 10
+                            data.append(round(data[4] * 10), 2)  # 10
                             data.append(round(data[5] * (100/15), 2))  # 11
 
                         elif (item[1] == InfusionPump_1):
-                            template_name='report/InfusionPump/licence1.html'
+                            template_name = 'report/InfusionPump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
                             data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
                         elif (item[1] == ManoMeter_1):
-                            template_name='report/ManoMeter/licence1.html'
+                            template_name = 'report/ManoMeter/licence1.html'
                             data.append(abs(obj.s2_e1_sp - obj.s2_e1_np))  # 0
                             data.append(abs(obj.s2_e2_sp - obj.s2_e2_np))  # 1
                             data.append(abs(obj.s2_e3_sp - obj.s2_e3_np))  # 2
                             data.append(abs(obj.s2_e4_sp - obj.s2_e4_np))  # 3
 
                         elif (item[1] == Spo2_1):
-                            template_name='report/spo2/licence1.html'
-                            ss=0
-                            sss=0
+                            template_name = 'report/spo2/licence1.html'
+                            ss = 0
+                            sss = 0
                             data.append((int(obj.s2_e1_spo2) - 70)**2)  # 0
                             data.append((int(obj.s2_e2_spo2) - 75)**2)  # 1
                             data.append((int(obj.s2_e3_spo2) - 80)**2)  # 2
@@ -459,12 +477,12 @@ def save_router(request, formtype):
                             for i in range(12, 17):
                                 sss += data[i]
                             data.append(int(((sss/5)**0.5)*100)/100)  # 17
-                            k=int(obj.s5_e1_v) * int(obj.s5_e1_a)
+                            k = int(obj.s5_e1_v) * int(obj.s5_e1_a)
                             data.append(k)  # 18
-                            data.append(format(( 2 ** 0.5) * k, '.2f'))  # 19
+                            data.append(format((2 ** 0.5) * k, '.2f'))  # 19
 
                         elif (item[1] == Suction_1):
-                            template_name='report/Suction/licence1.html'
+                            template_name = 'report/Suction/licence1.html'
                             data.append(abs(int(obj.s1_e1_rr)))  # 0
                             data.append(abs(int(obj.s1_e2_rr)))  # 1
                             data.append(abs(int(obj.s1_e3_rr) - 100))  # 2
@@ -485,12 +503,12 @@ def save_router(request, formtype):
                             data.append(abs(int(obj.s2_e2_rr) - 150))  # 17
 
                         elif (item[1] == SyringePump_1):
-                            template_name='report/SyringePump/licence1.html'
+                            template_name = 'report/SyringePump/licence1.html'
                             data.append(abs((int(obj.s6_e1_mf) - 50)*2))  # 0
                             data.append(abs(int(obj.s6_e2_mf) - 100))  # 1
 
                         elif (item[1] == Ventilator_1):
-                            template_name='report/Ventilator/licence1.html'
+                            template_name = 'report/Ventilator/licence1.html'
                             if obj.s16_e1 <= 550 and obj.s16_e1 >= 450:  # 0
                                 data.append(1)
                             else:
@@ -528,38 +546,37 @@ def save_router(request, formtype):
                                     data.append(0)
                             else:
                                 data.append(2)
-                       
-                        user_profile=UserProfile.objects.get(user = obj.user)
-                        today_datetime=jdatetime.datetime.today()
-                        font_config=FontConfiguration()
-                        html=render_to_string(template_name, {
-                            'form': obj, 'time': today_datetime, 'user_profile': user_profile, 'data': data, 'domain_name': domain_name})
-                    
-                        css_root=static('/css')
-                        css1=CSS(
-                            filename = f'{BASE_DIR}{css_root}/sop2-pdf.css')
-                        css2=CSS(
-                            filename = f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
-                        report_name='report_{}.pdf'.format(obj.record.number)
 
-                        HTML(string = html).write_pdf(
-                            report_name, font_config = font_config, stylesheets = [css1, css2])
+                        user_profile = UserProfile.objects.get(user=obj.user)
+                        today_datetime = jdatetime.datetime.today()
+                        font_config = FontConfiguration()
+                        html = render_to_string(template_name, {
+                            'form': obj, 'time': today_datetime, 'user_profile': user_profile, 'data': data, 'domain_name': domain_name})
+
+                        css_root = static('/css')
+                        css1 = CSS(
+                            filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
+                        css2 = CSS(
+                            filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
+                        report_name = 'report_{}.pdf'.format(obj.record.number)
+
+                        HTML(string=html).write_pdf(
+                            report_name, font_config=font_config, stylesheets=[css1, css2])
                         # ===================================End-File Backing=================================================
 
                         # ===================================Begin-File Processing=================================================
 
-                    
-                        encode_query=Encode.objects.filter(
-                            hospital = obj.device.hospital)
+                        encode_query = Encode.objects.filter(
+                            hospital=obj.device.hospital)
                         if len(encode_query) == 0:
-                            filename='12' + str(obj.device.hospital.user.id)
-                            filename=hashlib.md5(
+                            filename = '12' + str(obj.device.hospital.user.id)
+                            filename = hashlib.md5(
                                 filename.encode()).hexdigest()
-                            encode_instance=Encode.objects.create(
-                                hospital = obj.device.hospital, name = filename)
+                            encode_instance = Encode.objects.create(
+                                hospital=obj.device.hospital, name=filename)
                             encode_instance.save()
                         else:
-                            filename=encode_query[0].name
+                            filename = encode_query[0].name
 
                         # ===================================Begin-FTP Stuf=================================================
                         ftp.cwd('pdf')
@@ -570,22 +587,20 @@ def save_router(request, formtype):
                             ftp.mkd(obj.device.hospital.city.eng_name)
                         ftp.cwd(obj.device.hospital.city.eng_name)
                         if not str(obj.device.hospital.id) + '_' + filename in ftp.nlst():
-                            ftp.mkd(str(obj.device.hospital.id) + '_' + filename)
+                            ftp.mkd(str(obj.device.hospital.id) +
+                                    '_' + filename)
                         ftp.cwd(str(obj.device.hospital.id) + '_' + filename)
                         if not str(obj.request.number) in ftp.nlst():
                             ftp.mkd(str(obj.request.number))
                         ftp.cwd(str(obj.request.number))
 
-                    
                         if not str(obj.device.section.eng_name) in ftp.nlst():
                             ftp.mkd(str(obj.device.section.eng_name))
                         ftp.cwd(str(obj.device.section.eng_name))
 
-                    
                         if not item[0] in ftp.nlst():
                             ftp.mkd(item[0])
 
-                    
                         ftp.cwd(item[0])
 
                         # try:
@@ -595,15 +610,15 @@ def save_router(request, formtype):
                         send_file_ftp(
                             ftp, '{}.pdf'.format(obj.licence.number), report_name)
                         os.remove(report_name)
-                        obj.has_pdf=True
+                        obj.has_pdf = True
                         obj.save()
                         green_status += '<br> PDF ذخیره شد!!!'
                         report_query = Report.objects.filter(record=obj.record)
                         if not len(report_query):
-                            report_instance=Report.objects.create(tt = AdTestType0.objects.get(type=(item[0] if item[0] != 'spo2' else 'PulseOximetry')), device = obj.device,
-                                                                    request = obj.request, date = obj.date, user = obj.user, status = obj.status,
-                                                                    record = obj.record, licence = obj.licence, is_recal = obj.is_recal, ref_record = obj.ref_record,
-                                                                    is_done = obj.is_done, totalcomment = obj.totalcomment)
+                            report_instance = Report.objects.create(tt=AdTestType0.objects.get(type=(item[0] if item[0] != 'spo2' else 'PulseOximetry')), device=obj.device,
+                                                                    request=obj.request, date=obj.date, user=obj.user, status=obj.status,
+                                                                    record=obj.record, licence=obj.licence, is_recal=obj.is_recal, ref_record=obj.ref_record,
+                                                                    is_done=obj.is_done, totalcomment=obj.totalcomment)
                             report_instance.save()
                         # except:
                         #     return HttpResponse('Error while sending to host!!!!')

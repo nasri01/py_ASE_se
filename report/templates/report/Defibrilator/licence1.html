@@ -108,7 +108,7 @@
         <div>موارد عدم شمول:</div>
         <span>
           {{ form.totalcomment }}
-        </span> 
+        </span>
 
       </div>
       <span style="font-weight: bold;">تجهيزات آزمون:</span>
@@ -181,12 +181,14 @@
 
             <td style="height: 3.5cm;">
               <!-- <div class="stmp"></div> -->
-            <img style="width: 4cm; height:4cm; margin-left: 2cm;" src="https://{{ domain_name }}/static/img/stamp.png">
+              <img style="width: 4cm; height:4cm; margin-left: 2cm;"
+                src="https://{{ domain_name }}/static/img/stamp.png">
             </td>
             <td style="height: 3.5cm;position: relative;">
               <span style="position: absolute;top: 2cm;right: 3cm;">حمیدرضا رضایتمند</span>
               <!-- <div class="signature"></div> -->
-            <img style="width: 6cm; height:4cm; margin-right: 2cm;" src="https://{{ domain_name }}/static/img/signature.png">
+              <img style="width: 6cm; height:4cm; margin-right: 2cm;"
+                src="https://{{ domain_name }}/static/img/signature.png">
             </td>
           </tr>
 
@@ -699,14 +701,14 @@
         تست های کمی:
       </div>
       <div>
-          کلاس دستگاه:
+        کلاس دستگاه:
         <div class="time" style="text-align: left;">
           {% if form.test_type.id == 4 %}
           Class I &Internally Powered &#9635;
           {% else %}
           Class I &Internally Powered &#9633;
           {% endif %}
-          
+
           {% if form.test_type.id == 1 %}
           Internally Powered &#9635;
           {% else %}
@@ -723,12 +725,12 @@
           {% else %}
           Class II &#9633;
           {% endif %}
-          
-          
-          </div>
 
-          
-        
+
+        </div>
+
+
+
       </div>
 
       <div style="font-weight: bold;">
@@ -1233,7 +1235,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e1_lc4}}</td>
-            
+
             <!-- {% if form.s4_e1_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1245,7 +1247,7 @@
             {% else %}
             <td class="time">{{form.s4_e1_lc2}}</td>
             {% endif %} -->
-            
+
             <td class="time"></td>
             <td class="time"></td>
             <td class="time">{{form.s4_e1_lc1}}</td>
@@ -1273,7 +1275,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e2_lc4}}</td>
-            
+
             <!-- {% if form.s4_e2_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1287,7 +1289,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s4_e2_lc1}}</td>
             <td style="text-align: right;">- خاموش </td>
           </tr>
@@ -1312,7 +1314,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e3_lc4}}</td>
-            
+
             <!-- {% if form.s4_e3_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1326,7 +1328,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s4_e3_lc1}}</td>
             <td class="time" style="text-align: right;"> Standby -</td>
           </tr>
@@ -1351,7 +1353,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e4_lc4}}</td>
-            
+
             <!-- {% if form.s4_e4_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1365,7 +1367,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s4_e4_lc1}}</td>
             <td style="text-align: right;">- پلاریته معکوس</td>
           </tr>
@@ -1390,7 +1392,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e5_lc4}}</td>
-            
+
             <!-- {% if form.s4_e5_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1404,7 +1406,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s4_e5_lc1}}</td>
             <td style="text-align: right;">
               - طی شارژ
@@ -1434,7 +1436,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e6_lc4}}</td>
-            
+
             <!-- {% if form.s4_e6_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1448,7 +1450,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s4_e6_lc1}}</td>
             <td style="text-align: right;width: 2.75cm;">
               - 1دقیقه
@@ -1486,7 +1488,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e7_lc4}}</td>
-            
+
             <!-- {% if form.s4_e7_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1526,7 +1528,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s4_e8_lc4}}</td>
-            
+
             <!-- {% if form.s4_e8_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1540,7 +1542,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s4_e8_lc1}}</td>
             <td style="text-align: right;">- طی آنالیز ریتم</td>
           </tr>
@@ -1565,7 +1567,7 @@
             <td class="time">50</td>
             <td class="time">50</td>
             <td class="time">{{form.s4_e9_lc4}}</td>
-            
+
             <!-- {% if form.s4_e9_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1605,7 +1607,7 @@
             <td class="time">50</td>
             <td class="time">50</td>
             <td class="time">{{form.s4_e10_lc4}}</td>
-            
+
             <!-- {% if form.s4_e10_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1618,7 +1620,7 @@
             <td class="time">{{form.s4_e10_lc2}}</td>
             {% endif %}
              -->
-             <td class="time"></td>
+            <td class="time"></td>
             <td class="time"></td>
             <td class="time">{{form.s4_e10_lc1}}</td>
             <td style="text-align: right;">- قطع زمین حفاظتی</td>
@@ -1728,7 +1730,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e1_lc4}}</td>
-            
+
             <!-- {% if form.s5_e1_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1741,7 +1743,7 @@
             <td class="time">{{form.s5_e1_lc2}}</td>
             {% endif %} -->
             <td class="time"></td>
-            <td class="time"></td>            
+            <td class="time"></td>
             <td class="time">{{form.s5_e1_lc1}}</td>
             <td style="text-align: right;">- روشن</td>
             <td rowspan="8">عادی</td>
@@ -1767,7 +1769,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e2_lc4}}</td>
-            
+
             <!-- {% if form.s5_e2_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1781,7 +1783,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e2_lc1}}</td>
             <td style="text-align: right;">- خاموش </td>
           </tr>
@@ -1806,7 +1808,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e3_lc4}}</td>
-            
+
             <!-- {% if form.s5_e3_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1820,7 +1822,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e3_lc1}}</td>
             <td class="time" style="text-align: right;"> Standby -</td>
           </tr>
@@ -1845,7 +1847,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e4_lc4}}</td>
-            
+
             <!-- {% if form.s5_e4_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1859,7 +1861,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e4_lc1}}</td>
             <td style="text-align: right;">- پلاریته معکوس</td>
           </tr>
@@ -1884,7 +1886,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e5_lc4}}</td>
-            
+
             <!-- {% if form.s5_e5_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1898,7 +1900,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e5_lc1}}</td>
             <td style="text-align: right;">
               - طی شارژ
@@ -1928,7 +1930,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e6_lc4}}</td>
-            
+
             <!-- {% if form.s5_e6_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1942,7 +1944,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e6_lc1}}</td>
             <td style="text-align: right;width: 2.75cm;">
               - 1دقیقه
@@ -1980,7 +1982,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e7_lc4}}</td>
-            
+
             <!-- {% if form.s5_e7_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -1994,7 +1996,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e7_lc1}}</td>
             <td style="text-align: right;">- 1ثانیه بعد از تخلیه
               <br>
@@ -2021,7 +2023,7 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td class="time">{{form.s5_e8_lc4}}</td>
-            
+
             <!-- {% if form.s5_e8_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -2035,7 +2037,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e8_lc1}}</td>
             <td style="text-align: right;">- طی آنالیز ریتم</td>
           </tr>
@@ -2060,7 +2062,7 @@
             <td class="time">50</td>
             <td class="time">50</td>
             <td class="time">{{form.s5_e9_lc4}}</td>
-            
+
             <!-- {% if form.s5_e9_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -2074,7 +2076,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e9_lc1}}</td>
             <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
             <td rowspan="2">تک اشکالی</td>
@@ -2101,7 +2103,7 @@
             <td class="time">50</td>
             <td class="time">50</td>
             <td class="time">{{form.s5_e10_lc4}}</td>
-            
+
             <!-- {% if form.s5_e10_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -2115,7 +2117,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s5_e10_lc1}}</td>
             <td style="text-align: right;">- قطع زمین حفاظتی</td>
           </tr>
@@ -2181,7 +2183,7 @@
             <td class="time">5000</td>
             <td class="time">100</td>
             <td class="time">{{form.s6_e1_lc4}}</td>
-            
+
             <!-- {% if form.s6_e1_lc3 == -1%}
             <td class="time"></td>
             {% else %}
@@ -2195,7 +2197,7 @@
             {% endif %} -->
             <td class="time"></td>
             <td class="time"></td>
-            
+
             <td class="time">{{form.s6_e1_lc1}}</td>
             <td>اعمال ولتاژ 110% ولتاژ نامی بین قسمت کاربردی ایزوله و زمین</td>
             <td>تک اشکالی</td>
@@ -2284,7 +2286,7 @@
           <td></td>
           {% endif %}
           <td class="time">{{ form.s7a_e1_v }}</td>
-          <td class="time">{{ form.s7a_e1_ec }}</td>
+          <td class="time">{{ data.0 }}</td>
           <td class="time">{{ form.s7a_e1_em }}</td>
           <td class="time">{{ form.s7a_e1_es }}</td>
           <td class="time">50</td>
@@ -2307,7 +2309,7 @@
           <td></td>
           {% endif %}
           <td class="time">{{ form.s7a_e2_v }}</td>
-          <td class="time">{{ form.s7a_e2_ec }}</td>
+          <td class="time">{{ data.1 }}</td>
           <td class="time">{{ form.s7a_e2_em }}</td>
           <td class="time">{{ form.s7a_e2_es }}</td>
           <td class="time">100</td>
@@ -2330,7 +2332,7 @@
           <td></td>
           {% endif %}
           <td class="time">{{ form.s7a_e3_v }}</td>
-          <td class="time">{{ form.s7a_e3_ec }}</td>
+          <td class="time">{{ data.2 }}</td>
           <td class="time">{{ form.s7a_e3_em }}</td>
           <td class="time">{{ form.s7a_e3_es }}</td>
           <td class="time">200</td>
@@ -2529,7 +2531,7 @@
           <td></td>
           {% endif %}
           <td class="time">{{ form.s7c_e1_v }}</td>
-          <td class="time">{{ form.s7c_e1_ec }}</td>
+          <td class="time">{{ data.3 }}</td>
           <td class="time">{{ form.s7c_e1_em }}</td>
           <td class="time">{{ form.s7c_e1_es }}</td>
           <td class="time">10</td>
@@ -2552,7 +2554,7 @@
           <td></td>
           {% endif %}
           <td class="time">{{ form.s7c_e2_v }}</td>
-          <td class="time">{{ form.s7c_e2_ec }}</td>
+          <td class="time">{{ data.4 }}</td>
           <td class="time">{{ form.s7c_e2_em }}</td>
           <td class="time">{{ form.s7c_e2_es }}</td>
           <td class="time">30</td>
@@ -2575,7 +2577,7 @@
           <td></td>
           {% endif %}
           <td class="time">{{ form.s7c_e3_v }}</td>
-          <td class="time">{{ form.s7c_e3_ec }}</td>
+          <td class="time">{{ data.5 }}</td>
           <td class="time">{{ form.s7c_e3_em }}</td>
           <td class="time">{{ form.s7c_e3_es }}</td>
           <td class="time">50</td>
@@ -2673,7 +2675,7 @@
           <td>&#10004;</td>
           <td></td>
           {% endif %}
-          <td class="time">{{ data.0 }}</td>
+          <td class="time">{{ data.6 }}</td>
           <td class="time">{{form.s7d_e1_es}}</td>
           <td class="time">{{form.s7d_e1_en}}</td>
         </tr>
@@ -2736,7 +2738,7 @@
           <td>&#10004;</td>
           <td></td>
           {% endif %}
-          <td class="time">{{form.s8_e1_ec}}</td>
+          <td class="time">{{ data.7 }}</td>
           <td class="time">{{form.s8_e1_em2}}</td>
           <td class="time">{{form.s8_e1_em1}}</td>
           <td class="time">{{form.s8_e1_en}}</td>
@@ -3155,7 +3157,9 @@
           <td rowspan="2">
             مقدار انرژی تنظیمی
             <br>
-            (اغلب کمتر از 50J)(J)
+            (اغلب کمتر از
+            <span class="time">50</span>
+            J)(J)
           </td>
         </tr>
         <tr class="time">
@@ -3184,7 +3188,7 @@
             از
           </td>
           <td class="time">{{ form.s11_e1_t }}</td>
-          <td class="time"> {{ form.s11_e1_en }} 50</td>
+          <td class="time"> {{ form.s11_e1_en }}</td>
         </tr>
       </table>
 
@@ -3227,15 +3231,14 @@
           <td></td>
           {% endif %}
           <td>
-            <span>3</span>
-
-            <span style="font-family: 'B Nazanin';">شوک</span>
+            <span style="font-family: 'B Nazanin';">شوک </span>
+            3
           </td>
           <td>{{ form.s12_e1_cc }}</td>
           <td>{{ form.s12_e1_en }}</td>
         </tr>
 
-        <tr>
+        <tr class="time">
           {% if form.s12_e2_comment.id == 1%}
           <td></td>
           {% else %}
@@ -3252,15 +3255,14 @@
           <td></td>
           {% endif %}
           <td>
-            <span>3</span>
-
-            <span style="font-family: 'B Nazanin';">شوک</span>
+            <span style="font-family: 'B Nazanin';">شوک </span>
+            3
           </td>
           <td>{{ form.s12_e2_cc }}</td>
           <td>{{ form.s12_e2_en }}</td>
         </tr>
 
-        <tr>
+        <tr class="time">
           {% if form.s12_e3_comment.id == 1%}
           <td></td>
           {% else %}
@@ -3277,9 +3279,8 @@
           <td></td>
           {% endif %}
           <td>
-            <span>3</span>
-
-            <span style="font-family: 'B Nazanin';">شوک</span>
+            <span style="font-family: 'B Nazanin';">شوک </span>
+            3
           </td>
           <td>{{ form.s12_e3_cc }}</td>
           <td>{{ form.s12_e3_en }}</td>
@@ -3287,13 +3288,14 @@
       </table>
 
       <div style="width:100%;direction: rtl; text-align: right;">
-        <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://{{domain_name}}{{ user_profile.signature.url }}" alt=""
-            style="height: 6cm;">
+        <div style="margin-bottom: -5cm;" class="sign-2"><img
+            src="http://{{domain_name}}{{ user_profile.signature.url }}" alt="" style="height: 6cm;">
         </div>
       </div>
       <div style="margin-top: -4.5cm;font-family:'B Zar' ">
         <div style="display: inline-block;">سمت:{{ user_profile.status.status }}</div>
-        <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ user_profile.user.first_name }}</div>
+        <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ user_profile.user.first_name }}
+        </div>
       </div>
 
       <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 8 از 8</div>

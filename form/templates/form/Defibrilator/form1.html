@@ -1,9 +1,23 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
-<form method="POST" class="post-form">
-
+<div
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+    <div style="display:block;width:100%;">
+    <a href="{% url 'admin:acc_accessory_add'%}" target="_blank">
+        <button class="btn btn-danger" style="display:block;width:100%;" > افزودن لوازم جانبی </button>
+    </a>  
+    </div>
+    <div style="height: 10px;">
+    </div>
+    <a href="{% url 'admin:acc_comment_add'%}" target="_blank">
+        <button class="btn btn-secondary" style="display:block;width:100%;" > افزودن کامنت </button>
+    </a>
+    <div style="height: 10px;"></div>
+    <button class="btn btn-info" type="submit" form="myform" formaction="{% url 'reload' formtype='Defibrilator' %}"
+      formnovalidate>بارگزاری مجدد فرم</button>
+  </div>
+<form method="POST" class="post-form" id="myform">
   {% csrf_token %}
 
   <table class="table-bordered">
@@ -562,8 +576,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e1_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e1_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e1_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e1_lc3 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
+            <!-- <td>{% render_field form.s4_e1_lc2 style="width:50px;"%}</td> -->
             <td>{% render_field form.s4_e1_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- روشن</td>
             <td rowspan="8">عادی</td>
@@ -577,8 +593,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e2_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e2_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e2_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e2_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e2_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e2_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- خاموش </td>
           </tr>
@@ -591,8 +609,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e3_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e3_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e3_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e3_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e3_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e3_lc1 style="width:50px;"%}</td>
             <td class="time" style="text-align: right;"> Standby -</td>
           </tr>
@@ -605,8 +625,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e4_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e4_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e4_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e4_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e4_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e4_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- پلاریته معکوس</td>
           </tr>
@@ -619,8 +641,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e5_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e5_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e5_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e5_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e5_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e5_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">
               - طی شارژ تا
@@ -637,8 +661,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e6_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e6_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e6_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e6_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e6_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e6_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">
               - 1دقیقه
@@ -665,8 +691,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e7_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e7_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e7_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e7_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e7_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e7_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- 1ثانیه بعد از تخلیه در بار 50 اهم به مدت 1 دقیقه</td>
           </tr>
@@ -679,8 +707,10 @@
             <td class="time">10</td>
             <td class="time">10</td>
             <td>{% render_field form.s4_e8_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e8_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e8_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e8_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e8_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e8_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- طی آنالیز ریتم</td>
           </tr>
@@ -693,8 +723,10 @@
             <td class="time">50</td>
             <td class="time">50</td>
             <td>{% render_field form.s4_e9_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e9_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e9_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e9_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e9_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e9_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- قطع یکی از سیمهای تغذیه</td>
             <td rowspan="2">تک اشکالی</td>
@@ -709,8 +741,10 @@
             <td class="time">50</td>
             <td class="time">50</td>
             <td>{% render_field form.s4_e10_lc4 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e10_lc3 style="width:50px;"%}</td>
-            <td>{% render_field form.s4_e10_lc2 style="width:50px;"%}</td>
+            <!-- <td>{% render_field form.s4_e10_lc3 style="width:50px;"%}</td>
+            <td>{% render_field form.s4_e10_lc2 style="width:50px;"%}</td> -->
+            <td></td>
+            <td></td>
             <td>{% render_field form.s4_e10_lc1 style="width:50px;"%}</td>
             <td style="text-align: right;direction: rtl;">- قطع زمین حفاظتی</td>
           </tr>

@@ -198,12 +198,14 @@
 
                     <td style="height: 3.5cm;">
                         <!-- <div class="stmp"></div> -->
-            <img style="width: 4cm; height:4cm; margin-left: 2cm;" src="https://{{ domain_name }}/static/img/stamp.png">
+                        <img style="width: 4cm; height:4cm; margin-left: 2cm;"
+                            src="https://{{ domain_name }}/static/img/stamp.png">
                     </td>
                     <td style="height: 3.5cm;position: relative;">
                         <span style="position: absolute;top: 2cm;right: 3cm;">حمیدرضا رضایتمند</span>
                         <!-- <div class="signature"></div> -->
-            <img style="width: 6cm; height:4cm; margin-right: 2cm;" src="https://{{ domain_name }}/static/img/signature.png">
+                        <img style="width: 6cm; height:4cm; margin-right: 2cm;"
+                            src="https://{{ domain_name }}/static/img/signature.png">
                     </td>
                 </tr>
 
@@ -1108,14 +1110,16 @@
                         <td class="time">REJ</td>
                         <td class="time">OK</td>
                     </tr>
-                    <tr>
-                        {% if data.12 > 5 or data.13 > 15 %}
+                    <tr>                        
+                        <!-- {% if data.12 > 5 or data.13 > 15 %}
                         <td>&#10004;</td>
                         <td></td>
                         {% else %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td></td>
+                        <td></td>
                         <td>{{ form.s3c_e1_m }}</td>
                         <td>{{ form.s3c_e1_s }}</td>
                         <td style="font-family: 'B Nazanin';">
@@ -1130,13 +1134,15 @@
                         <td>{{ form.s3c_e1_1 }}</td>
                     </tr>
                     <tr>
-                        {% if data.14 > 5 or data.15 > 15 %}
+                        <!-- {% if data.14 > 5 or data.15 > 15 %}
                         <td>&#10004;</td>
                         <td></td>
                         {% else %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td></td>
+                        <td></td>
                         <td>{{ form.s3c_e2_m }}</td>
                         <td>{{ form.s3c_e2_s }}</td>
                         <td style="font-family: 'B Nazanin';">
@@ -1151,13 +1157,15 @@
                         <td>{{ form.s3c_e2_1 }}</td>
                     </tr>
                     <tr>
-                        {% if data.16 > 5 or data.17 > 15 %}
+                        <!-- {% if data.16 > 5 or data.17 > 15 %}
                         <td>&#10004;</td>
                         <td></td>
                         {% else %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% endif %}
+                        {% endif %} -->
+                        <td></td>
+                        <td></td>
                         <td>{{ form.s3c_e3_m }}</td>
                         <td>{{ form.s3c_e3_s }}</td>
                         <td style="font-family: 'B Nazanin';">
@@ -2018,7 +2026,7 @@
                         {% if form.s4c_e1 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4c_e1 == -1 %}
+                        {% elif form.s4c_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
@@ -2027,6 +2035,8 @@
                         {% endif %}
                         {% if form.s4c_e1 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4c_e1 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4c_e1}}</td>
                         {% endif %}
@@ -2040,15 +2050,18 @@
                         {% if form.s4c_e2 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4c_e2 == -1 %}
+                        {% elif form.s4c_e2 == -1 or form.s4c_e2 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+                        
                         {% if form.s4c_e2 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4c_e2 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4c_e2}}</td>
                         {% endif %}
@@ -2062,15 +2075,18 @@
                         {% if form.s4c_e3 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4c_e3 == -1 %}
+                        {% elif form.s4c_e3 == -1 or form.s4c_e3 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4c_e3 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4c_e3 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4c_e3}}</td>
                         {% endif %}
@@ -2104,18 +2120,22 @@
                         {% if form.s4d_e1 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4d_e1 == -1 %}
+                        {% elif form.s4d_e1 == -1 or form.s4d_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4d_e1 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4d_e1 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4d_e1}}</td>
                         {% endif %}
+
                         <td style="width: 5cm;">
                             میلی آمپر&ge;
                             <span class="time">150</span>
@@ -2126,16 +2146,20 @@
                         {% if form.s4d_e2 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4d_e2 == -1 %}
+                        {% elif form.s4d_e2 == -1 or form.s4d_e2 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4d_e2 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4d_e2 == None %}
+                        <td class="time"></td>
                         {% else %}
+
                         <td class="time">{{ form.s4d_e2}}</td>
                         {% endif %}
                         <td>
@@ -2148,15 +2172,18 @@
                         {% if form.s4d_e3 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4d_e3 == -1 %}
+                        {% elif form.s4d_e3 == -1 or form.s4d_e3 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4d_e3 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4d_e3 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4d_e3}}</td>
                         {% endif %}
@@ -2190,15 +2217,18 @@
                         {% if form.s4e_e1 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4e_e1 == -1 %}
+                        {% elif form.s4e_e1 == -1 or form.s4e_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4e_e1 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4e_e1 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4e_e1}}</td>
                         {% endif %}
@@ -2212,15 +2242,18 @@
                         {% if form.s4e_e2 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4e_e2 == -1 %}
+                        {% elif form.s4e_e2 == -1 or form.s4e_e2 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4e_e2 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4e_e2 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4e_e2}}</td>
                         {% endif %}
@@ -2234,15 +2267,18 @@
                         {% if form.s4e_e3 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4e_e3 == -1 %}
+                        {% elif form.s4e_e3 == -1 or form.s4e_e3 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4e_e3 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4e_e3 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4e_e3}}</td>
                         {% endif %}
@@ -2308,18 +2344,22 @@
                         {% if form.s4f_e1 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4f_e1 == -1 %}
+                        {% elif form.s4f_e1 == -1 or form.s4f_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4f_e1 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4f_e1 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4f_e1}}</td>
                         {% endif %}
+
                         <td style="width: 5cm;">
                             میلی آمپر&ge;
                             <span class="time">150</span>
@@ -2330,18 +2370,22 @@
                         {% if form.s4f_e2 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4f_e2 == -1 %}
+                        {% elif form.s4f_e2 == -1 or form.s4f_e2 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4f_e2 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4f_e2 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4f_e2}}</td>
                         {% endif %}
+
                         <td>
                             میلی آمپر&ge;
                             <span class="time">150</span>
@@ -2352,18 +2396,22 @@
                         {% if form.s4f_e3 <= 150 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4f_e3 == -1 %}
+                        {% elif form.s4f_e3 == -1 or form.s4f_e3 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4f_e3 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4f_e3 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4f_e3}}</td>
                         {% endif %}
+
                         <td>
                             میلی آمپر&ge;
                             <span class="time">150</span>
@@ -2398,18 +2446,22 @@
                         {% if form.s4g_e1 <= form.s4g_e1_p2000 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4g_e1 == -1 %}
+                        {% elif form.s4g_e1 == -1 or form.s4g_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4g_e1 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4g_e1 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4g_e1}}</td>
                         {% endif %}
+
                         <td class="time">{{ form.s4g_e1_p2000 }}</td>
 
                         <!-- <td class="time" style="line-height: 0.25cm;width: 5cm;">
@@ -2428,18 +2480,22 @@
                         {% if form.s4g_e2 <= form.s4g_e2_p2000 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4g_e2 == -1 %}
+                        {% elif form.s4g_e2 == -1 or form.s4g_e2 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
                         {% if form.s4g_e2 == -1 %}
                         <td class="time">N/A</td>
+                        {% elif form.s4g_e2 == None %}
+                        <td class="time"></td>
                         {% else %}
                         <td class="time">{{ form.s4g_e2}}</td>
                         {% endif %}
+
                         <td class="time">{{ form.s4g_e2_p2000 }}</td>
                         <!-- <td class="time" style="line-height: 0.25cm;">
 
@@ -2601,7 +2657,7 @@
                         <td>OK</td>
                     </tr>
                     <tr>
-                        <td>.</td>
+                        <td></td>
                         <td></td>
                         <td class="time">{{ form.s4i_e1 }}</td>
 
@@ -2893,14 +2949,22 @@
                         {% if form.s4m_e1 <= 100 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4m_e1 == -1 %}
+                        {% elif form.s4m_e1 == -1 or form.s4m_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
+                        {% if form.s4m_e1 == -1%}
+                        <td class="time">N/A</td>
+                        {% elif form.s4m_e1 == None%}
+                        <td class="time"></td>
+                        {% else %}
                         <td class="time">{{ form.s4m_e1 }}</td>
+                        {% endif %}
+
                         <td style="width: 5cm;">
                             <span>&le;</span>
                             میلی آمپر
@@ -2912,14 +2976,21 @@
                         {% if form.s4m_e2 <= 100 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4m_e2 == -1 %}
+                        {% elif form.s4m_e2 == -1 or form.s4m_e2 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
+                        {% if form.s4m_e2 == -1%}
+                        <td class="time">N/A</td>
+                        {% elif form.s4m_e2 == None%}
+                        <td class="time"></td>
+                        {% else %}
                         <td class="time">{{ form.s4m_e2 }}</td>
+                        {% endif %}
                         <td>
                             <span>&le;</span>
                             میلی آمپر
@@ -2965,14 +3036,22 @@
                         {% if form.s4n_e1 <= 100 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s4n_e1 == -1 %}
+                        {% elif form.s4n_e1 == -1 or form.s4n_e1 == None %}
                         <td></td>
                         <td></td>
                         {% else %}
                         <td>&#10004;</td>
                         <td></td>
                         {% endif %}
+
+                        {% if form.s4n_e1 == -1%}
+                        <td class="time">N/A</td>
+                        {% elif form.s4n_e1 == None %}
+                        <td class="time"></td>
+                        {% else %}
                         <td class="time">{{ form.s4n_e1 }}</td>
+                        {% endif %}
+
                         <td style="width: 5cm;">
                             <span>&le;</span>
                             میلی آمپر
@@ -2981,17 +3060,24 @@
                         <td style="font-weight: bold;">برش</td>
                     </tr>
                     <tr>
-                            {% if form.s4n_e2 <= 100 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s4n_e2 == -1 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s4n_e2 <= 100 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s4n_e2 == -1 or form.s4n_e2 == None %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
+
+                        {% if form.s4n_e2 == -1%}
+                        <td class="time">N/A</td>
+                        {% elif form.s4n_e2 == None%}
+                        <td class="time"></td>
+                        {% else %}
                         <td class="time">{{ form.s4n_e2 }}</td>
+                        {% endif %}
                         <td>
                             <span>&le;</span>
                             میلی آمپر
@@ -3453,16 +3539,16 @@
                         <td style="font-weight: bold;">برش</td>
                     </tr>
                     <tr>
-                            {% if form.s5a_e2 <= 50 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s5a_e2 == -1 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s5a_e2 <= 50 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s5a_e2 == -1 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">{{ form.s5a_e2 }}</td>
                         <td>
                             <span class="time">≤</span>
@@ -3503,16 +3589,16 @@
                         <td class="time">OK</td>
                     </tr>
                     <tr>
-                            {% if form.s5b_e1 <= 50 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s5b_e1 == -1 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s5b_e1 <= 50 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s5b_e1 == -1 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">{{ form.s5b_e1 }}</td>
                         <td style="width: 5cm;">
                             <span class="time">≤</span>
@@ -3522,16 +3608,16 @@
                         <td style="font-weight: bold;">برش</td>
                     </tr>
                     <tr>
-                            {% if form.s5b_e2 <= 50 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s5b_e2 == -1 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s5b_e2 <= 50 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s5b_e2 == -1 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">{{ form.s5b_e2 }}</td>
                         <td>
                             <span class="time">≤</span>
@@ -3642,20 +3728,20 @@
             <br>
             <div style="font-weight: bold;">• تست های ایمـنی الکتـریکی :</div>
             <div>
-                    کلاس دستگاه:
-                  <div class="time" style="text-align: left;">
+                کلاس دستگاه:
+                <div class="time" style="text-align: left;">
                     {% if form.test_type.id == 4 %}
                     Class I &Internally Powered &#9635;
                     {% else %}
                     Class I &Internally Powered &#9633;
                     {% endif %}
-                    
+
                     {% if form.test_type.id == 1 %}
                     Internally Powered &#9635;
                     {% else %}
                     Internally Powered &#9633;
                     {% endif %}
-          
+
                     {% if form.test_type.id == 2 %}
                     Class I &#9635;
                     {% else %}
@@ -3666,13 +3752,13 @@
                     {% else %}
                     Class II &#9633;
                     {% endif %}
-                    
-                    
-                    </div>
-          
-                    
-                  
+
+
                 </div>
+
+
+
+            </div>
             <div style="font-weight: bold;">1. مقاومت زمین حفاظتی :</div>
             <div>مقدار اندازه گیری شده: {{ form.s11_e1_res }} اهم</div>
 
@@ -3691,40 +3777,40 @@
                         <td>Ok</td>
                     </tr>
                     <tr>
-                            {% if form.s11_e1_comment.id == 1%}
-                            <td></td>
-                            {% else %}
-                            <td>{{ form.s11_e1_comment }}</td>
-                            {% endif %}
-                            {% if form.s11_e1_comment.id == 1 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s11_e1_comment.id == 2 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s11_e1_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s11_e1_comment }}</td>
+                        {% endif %}
+                        {% if form.s11_e1_comment.id == 1 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s11_e1_comment.id == 2 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">0.1</td>
                         <td>جدا شدنی</td>
                     </tr>
                     <tr>
-                            {% if form.s11_e2_comment.id == 1%}
-                            <td></td>
-                            {% else %}
-                            <td>{{ form.s11_e2_comment }}</td>
-                            {% endif %}
-                            {% if form.s11_e2_comment.id == 1 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s11_e2_comment.id == 2 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s11_e2_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s11_e2_comment }}</td>
+                        {% endif %}
+                        {% if form.s11_e2_comment.id == 1 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s11_e2_comment.id == 2 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">0.2</td>
                         <td>جدا نشدنی</td>
                     </tr>
@@ -3750,23 +3836,23 @@
                         <td>Ok</td>
                     </tr>
                     <tr>
-                            {% if form.s12_e1_comment.id == 1%}
-                            <td rowspan="4"></td>
-                            {% else %}
-                            <td rowspan="4">{{ form.s12_e1_comment }}</td>
-                            {% endif %}
-                            {% if form.s12_e1_comment.id == 1 %}
-                            <td rowspan="4"></td>
-                            <td rowspan="4">&#10004;</td>
-                            {% elif form.s12_e1_comment.id == 2 %}
-                            <td rowspan="4"></td>
-                            <td rowspan="4"></td>
-                            {% else %}
-                            <td rowspan="4">&#10004;</td>
-                            <td rowspan="4"></td>
-                            {% endif %}
+                        {% if form.s12_e1_comment.id == 1%}
+                        <td rowspan="4"></td>
+                        {% else %}
+                        <td rowspan="4">{{ form.s12_e1_comment }}</td>
+                        {% endif %}
+                        {% if form.s12_e1_comment.id == 1 %}
+                        <td rowspan="4"></td>
+                        <td rowspan="4">&#10004;</td>
+                        {% elif form.s12_e1_comment.id == 2 %}
+                        <td rowspan="4"></td>
+                        <td rowspan="4"></td>
+                        {% else %}
+                        <td rowspan="4">&#10004;</td>
+                        <td rowspan="4"></td>
+                        {% endif %}
                         <td class="time">5000</td>
-                        <td rowspan="4">{{ form.s12_e1_lc }}</td>
+                        <td rowspan="4" class="time">{{ form.s12_e1_lc }}</td>
                         <td style="text-align: right;">- روشن</td>
                         <td rowspan="4">عادی</td>
                     </tr>
@@ -3795,23 +3881,23 @@
                         <td style="text-align: right;">- پلاریته معکوس</td>
                     </tr>
                     <tr>
-                            {% if form.s12_e2_comment.id == 1%}
-                            <td></td>
-                            {% else %}
-                            <td>{{ form.s12_e2_comment }}</td>
-                            {% endif %}
-                            {% if form.s12_e2_comment.id == 1 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s12_e2_comment.id == 2 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s12_e2_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s12_e2_comment }}</td>
+                        {% endif %}
+                        {% if form.s12_e2_comment.id == 1 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s12_e2_comment.id == 2 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">10000</td>
-                        <td class="time"></td>{{ form.s12_e2_lc }}</td>
+                        <td class="time">{{ form.s12_e2_lc }}</td>
                         <td style="text-align: right;">- قطع یکی از سیمهای تغذیه</td>
                         <td>تک اشکالی</td>
                     </tr>
@@ -3820,12 +3906,13 @@
 
             </table>
             <div style="font-weight: bold;">نکات : </div>
-            <ul style="direction: rtl;">
-                <li>در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمت های کاربردی نوع Fبه زمین متصل و از
-                    آن جدا می باشند نیز تکرار شود.</li>
-                <li>اگر کلاس دستگاه، کلاس Internally Powered را شامل می شود، تست های فوق باید با وجود باتری در دستگاه و
-                    با برق AC و بار دیگر با خارج نمودن باتری از دستگاه و با برقAC تکرار شود.</li>
-            </ul>
+            <div style="direction: rtl;" >
+                -در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمت های کاربردی نوع Fبه زمین متصل و از
+                    آن جدا می باشند نیز تکرار شود.
+                    <br>
+                -اگر کلاس دستگاه، کلاس Internally Powered را شامل می شود، تست های فوق باید با وجود باتری در دستگاه و
+                    با برق AC و بار دیگر با خارج نمودن باتری از دستگاه و با برقAC تکرار شود.
+            </div>
 
 
 
@@ -3881,21 +3968,21 @@
                         <td>Ok</td>
                     </tr>
                     <tr>
-                            {% if form.s13_e1_comment.id == 1%}
-                            <td rowspan="4"></td>
-                            {% else %}
-                            <td rowspan="4">{{ form.s13_e1_comment }}</td>
-                            {% endif %}
-                            {% if form.s13_e1_comment.id == 1 %}
-                            <td rowspan="4"></td>
-                            <td rowspan="4">&#10004;</td>
-                            {% elif form.s13_e1_comment.id == 2 %}
-                            <td rowspan="4"></td>
-                            <td rowspan="4"></td>
-                            {% else %}
-                            <td rowspan="4">&#10004;</td>
-                            <td rowspan="4"></td>
-                            {% endif %}
+                        {% if form.s13_e1_comment.id == 1%}
+                        <td rowspan="4"></td>
+                        {% else %}
+                        <td rowspan="4">{{ form.s13_e1_comment }}</td>
+                        {% endif %}
+                        {% if form.s13_e1_comment.id == 1 %}
+                        <td rowspan="4"></td>
+                        <td rowspan="4">&#10004;</td>
+                        {% elif form.s13_e1_comment.id == 2 %}
+                        <td rowspan="4"></td>
+                        <td rowspan="4"></td>
+                        {% else %}
+                        <td rowspan="4">&#10004;</td>
+                        <td rowspan="4"></td>
+                        {% endif %}
                         <td class="time">100</td>
                         <td class="time" rowspan="4">{{ form.s13_e1_lc }}</td>
                         <td style="text-align: right;">- روشن</td>
@@ -3926,21 +4013,21 @@
                         <td style="text-align: right;">- پلاریته معکوس</td>
                     </tr>
                     <tr>
-                            {% if form.s13_e2_comment.id == 1%}
-                            <td></td>
-                            {% else %}
-                            <td>{{ form.s13_e2_comment }}</td>
-                            {% endif %}
-                            {% if form.s13_e2_comment.id == 1 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s13_e2_comment.id == 2 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s13_e2_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s13_e2_comment }}</td>
+                        {% endif %}
+                        {% if form.s13_e2_comment.id == 1 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s13_e2_comment.id == 2 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time">500</td>
                         <td class="time">{{ form.s13_e2_lc }}</td>
                         <td style="text-align: right;">- قطع یکی از سیمهای تغذیه – قطع زمین حفاظتی</td>
@@ -3952,13 +4039,14 @@
 
 
             <div style="font-weight: bold;">نکات : </div>
-            <ul style="direction: rtl;">
-                <li>در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمت های کاربردی نوع Fبه زمین متصل و از
-                    آن جدا می‌باشند نیز تکرار شود.</li>
-                <li>اگر کلاس دستگاه، کلاس Internally Powered را شامل می شود، تست های فوق باید با وجود باتری در دستگاه و
+            <div style="direction: rtl;">
+                -در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمت های کاربردی نوع Fبه زمین متصل و از
+                    آن جدا می‌باشند نیز تکرار شود.
+                    <br>
+                -اگر کلاس دستگاه، کلاس Internally Powered را شامل می شود، تست های فوق باید با وجود باتری در دستگاه و
                     با برق AC و بار دیگر با خارج نمودن باتری از دستگاه و با برقAC و حالت سوم تنها با باتری و بدون برق AC
-                    تکرار شود.</li>
-            </ul>
+                    تکرار شود.
+            </div>
             <div style="font-weight: bold;">4. جریان نشتی بیمار:</div>
 
             <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
@@ -3994,21 +4082,21 @@
                         <td><span>1</span></td>
                     </tr>
                     <tr>
-                            {% if form.s14_e1_comment.id == 1%}
-                            <td rowspan="4"></td>
-                            {% else %}
-                            <td rowspan="4">{{ form.s14_e1_comment }}</td>
-                            {% endif %}
-                            {% if form.s14_e1_comment.id == 1 %}
-                            <td rowspan="4"></td>
-                            <td rowspan="4">&#10004;</td>
-                            {% elif form.s14_e1_comment.id == 2 %}
-                            <td rowspan="4"></td>
-                            <td rowspan="4"></td>
-                            {% else %}
-                            <td rowspan="4">&#10004;</td>
-                            <td rowspan="4"></td>
-                            {% endif %}
+                        {% if form.s14_e1_comment.id == 1%}
+                        <td rowspan="4"></td>
+                        {% else %}
+                        <td rowspan="4">{{ form.s14_e1_comment }}</td>
+                        {% endif %}
+                        {% if form.s14_e1_comment.id == 1 %}
+                        <td rowspan="4"></td>
+                        <td rowspan="4">&#10004;</td>
+                        {% elif form.s14_e1_comment.id == 2 %}
+                        <td rowspan="4"></td>
+                        <td rowspan="4"></td>
+                        {% else %}
+                        <td rowspan="4">&#10004;</td>
+                        <td rowspan="4"></td>
+                        {% endif %}
                         <td class="time"><span>100</span></td>
                         <td class="time"><span>10</span></td>
                         <td class="time"><span>10</span></td>
@@ -4063,21 +4151,21 @@
                         <td><span>- پلاریته معکوس</span></td>
                     </tr>
                     <tr>
-                            {% if form.s14_e2_comment.id == 1%}
-                            <td rowspan="2"></td>
-                            {% else %}
-                            <td rowspan="2">{{ form.s14_e2_comment }}</td>
-                            {% endif %}
-                            {% if form.s14_e2_comment.id == 1 %}
-                            <td rowspan="2"></td>
-                            <td rowspan="2">&#10004;</td>
-                            {% elif form.s14_e2_comment.id == 2 %}
-                            <td rowspan="2"></td>
-                            <td rowspan="2"></td>
-                            {% else %}
-                            <td rowspan="2">&#10004;</td>
-                            <td rowspan="2"></td>
-                            {% endif %}
+                        {% if form.s14_e2_comment.id == 1%}
+                        <td rowspan="2"></td>
+                        {% else %}
+                        <td rowspan="2">{{ form.s14_e2_comment }}</td>
+                        {% endif %}
+                        {% if form.s14_e2_comment.id == 1 %}
+                        <td rowspan="2"></td>
+                        <td rowspan="2">&#10004;</td>
+                        {% elif form.s14_e2_comment.id == 2 %}
+                        <td rowspan="2"></td>
+                        <td rowspan="2"></td>
+                        {% else %}
+                        <td rowspan="2">&#10004;</td>
+                        <td rowspan="2"></td>
+                        {% endif %}
                         <td class="time"><span>500</span></td>
                         <td class="time">50</td>
                         <td class="time"><span>50</span></td>
@@ -4246,21 +4334,21 @@
                         <td><span>- پلاریته معکوس</span></td>
                     </tr>
                     <tr>
-                            {% if form.s15_e2_comment.id == 1%}
-                            <td rowspan="2"></td>
-                            {% else %}
-                            <td rowspan="2">{{ form.s15_e2_comment }}</td>
-                            {% endif %}
-                            {% if form.s15_e2_comment.id == 1 %}
-                            <td rowspan="2"></td>
-                            <td rowspan="2">&#10004;</td>
-                            {% elif form.s15_e2_comment.id == 2 %}
-                            <td rowspan="2"></td>
-                            <td rowspan="2"></td>
-                            {% else %}
-                            <td rowspan="2">&#10004;</td>
-                            <td rowspan="2"></td>
-                            {% endif %}
+                        {% if form.s15_e2_comment.id == 1%}
+                        <td rowspan="2"></td>
+                        {% else %}
+                        <td rowspan="2">{{ form.s15_e2_comment }}</td>
+                        {% endif %}
+                        {% if form.s15_e2_comment.id == 1 %}
+                        <td rowspan="2"></td>
+                        <td rowspan="2">&#10004;</td>
+                        {% elif form.s15_e2_comment.id == 2 %}
+                        <td rowspan="2"></td>
+                        <td rowspan="2"></td>
+                        {% else %}
+                        <td rowspan="2">&#10004;</td>
+                        <td rowspan="2"></td>
+                        {% endif %}
                         <td class="time"><span>500</span></td>
                         <td class="time">50</td>
                         <td class="time"><span>50</span></td>
@@ -4325,21 +4413,21 @@
                         <td><span>1</span></td>
                     </tr>
                     <tr>
-                            {% if form.s16_e1_comment.id == 1%}
-                            <td></td>
-                            {% else %}
-                            <td>{{ form.s16_e1_comment }}</td>
-                            {% endif %}
-                            {% if form.s16_e1_comment.id == 1 %}
-                            <td></td>
-                            <td>&#10004;</td>
-                            {% elif form.s16_e1_comment.id == 2 %}
-                            <td></td>
-                            <td></td>
-                            {% else %}
-                            <td>&#10004;</td>
-                            <td></td>
-                            {% endif %}
+                        {% if form.s16_e1_comment.id == 1%}
+                        <td></td>
+                        {% else %}
+                        <td>{{ form.s16_e1_comment }}</td>
+                        {% endif %}
+                        {% if form.s16_e1_comment.id == 1 %}
+                        <td></td>
+                        <td>&#10004;</td>
+                        {% elif form.s16_e1_comment.id == 2 %}
+                        <td></td>
+                        <td></td>
+                        {% else %}
+                        <td>&#10004;</td>
+                        <td></td>
+                        {% endif %}
                         <td class="time"><span>5000</span></td>
                         <td class="time"><span>100</span></td>
                         <td class="time">{{ form.s16_e1_lc4 }}</td>
@@ -4408,13 +4496,14 @@
             </table>
             <br><br><br>
             <div style="width:100%;direction: rtl; text-align: right;">
-                    <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://{{domain_name}}{{ user_profile.signature.url }}" alt=""
-                        style="height: 6cm;">
-                    </div>
+                <div style="margin-bottom: -5cm;" class="sign-2"><img
+                        src="http://{{domain_name}}{{ user_profile.signature.url }}" alt="" style="height: 6cm;">
+                </div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ user_profile.status.status }}</div>
-                <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده: {{ user_profile.user.first_name }}
+                <div style="display: inline-block;margin-left: 9cm;z-index: 1;">آزمون کننده:
+                    {{ user_profile.user.first_name }}
                 </div>
             </div>
             <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 16 از 16</div>

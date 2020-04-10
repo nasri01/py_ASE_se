@@ -1,10 +1,23 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
-
-
-<form method="POST" class="post-form">
+<div
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+    <div style="display:block;width:100%;">
+    <a href="{% url 'admin:acc_accessory_add'%}" target="_blank">
+        <button class="btn btn-danger" style="display:block;width:100%;" > افزودن لوازم جانبی </button>
+    </a>  
+    </div>
+    <div style="height: 10px;">
+    </div>
+    <a href="{% url 'admin:acc_comment_add'%}" target="_blank">
+        <button class="btn btn-secondary" style="display:block;width:100%;" > افزودن کامنت </button>
+    </a>
+    <div style="height: 10px;"></div>
+    <button class="btn btn-info" type="submit" form="myform" formaction="{% url 'reload' formtype='Ventilator' %}"
+      formnovalidate>بارگزاری مجدد فرم</button>
+  </div>
+<form method="POST" class="post-form" id="myform">
 
   {% csrf_token %}
 
@@ -1061,7 +1074,7 @@
             <td><span>ریت تنفس</span></td>
             <td><span>زمان دم</span></td>
             <td><span>زمان بازدم</span></td>
-            <td><span>نسبت دم به &divide;بازدم</span></td>
+            <td><span>نسبت دم به بازدم</span></td>
             <td><span>فشار</span></td>
             <td><span>فلو</span></td>
           </tr>
@@ -1071,7 +1084,7 @@
             <td>12</td>
             <td>{{ form.s16_1e1 }}</td>
             <td>{{ form.s16_1e2 }}</td>
-            <td>1:2</td>
+            <td>0.5</td>
             <td>20</td>
             <td>{{ form.s16_1e3 }}</td>
           </tr>
@@ -1247,14 +1260,10 @@
         </div>
       </div>
       <br><br><br>
-
     </div>
-
-
     <!--//////////////////////////////////////////////////////////-->
 
   </table>
-
 </form>
 
 <script>
@@ -1981,12 +1990,12 @@
 
   $("#id_s15_e2")
     .focusout(function () {
-      if (($("#id_s15_e2").val() > 3450 || $("#id_s15_e2").val() < 2550) && ($("#id_s15_e2").val().length != 0)) {
+      if (($("#id_s15_e2").val() > 575 || $("#id_s15_e2").val() < 425) && ($("#id_s15_e2").val().length != 0)) {
         $("#id_s15_e2").css("background-color", "#f24858");
         $("#id_s15_e2").css("color", "white");
 
       }
-      else if (($("#id_s15_e2").val() <= 3450 && $("#id_s15_e2").val() >= 2550) || ($("#id_s15_e2").val().length == 0)) {
+      else if (($("#id_s15_e2").val() <= 575 && $("#id_s15_e2").val() >= 425) || ($("#id_s15_e2").val().length == 0)) {
         $("#id_s15_e2").css("background-color", "white");
         $("#id_s15_e2").css("color", "black");
       }
@@ -2089,9 +2098,6 @@
       }
     });
 
-
-
-
   $("#id_s16_e7")
     .focusout(function () {
 
@@ -2109,6 +2115,7 @@
         $("#id_s16_e7").css("color", "black");
       }
     });
+
 
   ///////table 17
 

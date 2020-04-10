@@ -36,40 +36,6 @@
         font-family: "Times New Roman";
     }
 
-        {
-        #.cover {
-            #
-        }
-
-            {
-            # font-family: 'BLotus', Tahoma;
-            #
-        }
-
-            {
-            #
-        }
-
-        #
-    }
-
-        {
-        #.page-1 {
-            #
-        }
-
-            {
-            # font-family: 'Nazanin', Tahoma;
-            #
-        }
-
-            {
-            #
-        }
-
-        #
-    }
-
     .tb-4 td {
         padding: 0.03cm 0.1cm;
 
@@ -220,12 +186,14 @@
 
                     <td style="height: 3.5cm;">
                         <!-- <div class="stmp"></div> -->
-            <img style="width: 4cm; height:4cm; margin-left: 2cm;" src="https://{{ domain_name }}/static/img/stamp.png">
+                        <img style="width: 4cm; height:4cm; margin-left: 2cm;"
+                            src="https://{{ domain_name }}/static/img/stamp.png">
                     </td>
                     <td style="height: 3.5cm;position: relative;">
                         <span style="position: absolute;top: 2cm;right: 3cm;">حمیدرضا رضایتمند</span>
                         <!-- <div class="signature"></div> -->
-            <img style="width: 6cm; height:4cm; margin-right: 2cm;" src="https://{{ domain_name }}/static/img/signature.png">
+                        <img style="width: 6cm; height:4cm; margin-right: 2cm;"
+                            src="https://{{ domain_name }}/static/img/signature.png">
                     </td>
                 </tr>
 
@@ -492,7 +460,7 @@
                         {% if form.s0_e12_comment.id == 1%}
                         <td></td>
                         {% else %}
-                        <td>{{ form.s0_e12_comment }}</td>
+                        <td class="time">{{ form.s0_e12_comment }}</td>
                         {% endif %}
                         {% if form.s0_e12_comment.id == 1 %}
                         <td></td>
@@ -511,7 +479,7 @@
                         {% if form.s0_e13_comment.id == 1%}
                         <td></td>
                         {% else %}
-                        <td>{{ form.s0_e13_comment }}</td>
+                        <td class="time">{{ form.s0_e13_comment }}</td>
                         {% endif %}
                         {% if form.s0_e13_comment.id == 1 %}
                         <td></td>
@@ -683,7 +651,7 @@
                         {% if form.s0_e22_comment.id == 1%}
                         <td></td>
                         {% else %}
-                        <td>{{ form.s0_e22_comment }}</td>
+                        <td class="time">{{ form.s0_e22_comment }}</td>
                         {% endif %}
                         {% if form.s0_e22_comment.id == 1 %}
                         <td></td>
@@ -699,15 +667,15 @@
                         <td>22</td>
                     </tr>
                     <tr>
-                        {% if form.s0_e1_comment.id == 1%}
+                        {% if form.s0_e23_comment.id == 1%}
                         <td></td>
                         {% else %}
-                        <td>{{ form.s0_e1_comment }}</td>
+                        <td>{{ form.s0_e23_comment }}</td>
                         {% endif %}
-                        {% if form.s0_e1_comment.id == 1 %}
+                        {% if form.s0_e23_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
-                        {% elif form.s0_e1_comment.id == 2 %}
+                        {% elif form.s0_e23_comment.id == 2 %}
                         <td></td>
                         <td></td>
                         {% else %}
@@ -723,7 +691,7 @@
 
             <br>
             <div>
-                <div style="position: absolute;left: 4cm;bottom: 2cm;">صفحه 2 از 4</div>
+                <div style="position: absolute;left: 4cm;bottom: 1cm;">صفحه 2 از 4</div>
 
             </div>
         </div>
@@ -731,69 +699,66 @@
 
 
 
-
-
-
     <div class="page-2 page1" style="font-family:'B Nazanin';">
-            <div style="text-align: center;width: 100%;height: 5cm;">
-                    <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
-                        <span>
-                            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
-                            شماره گزارش:
-                        </span><br>
-                        <span>
-                            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                            تاريخ صدور:
-        
-                        </span><br>
-                        <span>
-                            <span class="time">F51037</span>
-                            شماره مدرک:
-        
-                        </span>
-                    </span>
-                    <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
-                        گزارش آزمون کنترل کیفی
-                        <br>
-                        دستگاه پمپ سرنگ
-                    </span>
-                </div>
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                    <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+                    شماره گزارش:
+                </span><br>
+                <span>
+                    <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                    تاريخ صدور:
+
+                </span><br>
+                <span>
+                    <span class="time">F51037</span>
+                    شماره مدرک:
+
+                </span>
+            </span>
+            <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                گزارش آزمون کنترل کیفی
+                <br>
+                دستگاه پمپ سرنگ
+            </span>
+        </div>
         <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
             <div>
                 <span style="font-weight: bold;font-size: 18pt;">تستهای کمی:</span>
                 <br>
                 <div>
-          کلاس دستگاه:
-        <div class="time" style="text-align: left;">
-          {% if form.test_type.id == 4 %}
-          Class I &Internally Powered &#9635;
-          {% else %}
-          Class I &Internally Powered &#9633;
-          {% endif %}
-          
-          {% if form.test_type.id == 1 %}
-          Internally Powered &#9635;
-          {% else %}
-          Internally Powered &#9633;
-          {% endif %}
+                    کلاس دستگاه:
+                    <div class="time" style="text-align: left;">
+                        {% if form.test_type.id == 4 %}
+                        Class I &Internally Powered &#9635;
+                        {% else %}
+                        Class I &Internally Powered &#9633;
+                        {% endif %}
 
-          {% if form.test_type.id == 2 %}
-          Class I &#9635;
-          {% else %}
-          Class I &#9633;
-          {% endif %}
-          {% if form.test_type.id == 3 %}
-          Class II &#9635;
-          {% else %}
-          Class II &#9633;
-          {% endif %}
-          
-          
-          </div>
+                        {% if form.test_type.id == 1 %}
+                        Internally Powered &#9635;
+                        {% else %}
+                        Internally Powered &#9633;
+                        {% endif %}
 
-          
-        
-      </div>
+                        {% if form.test_type.id == 2 %}
+                        Class I &#9635;
+                        {% else %}
+                        Class I &#9633;
+                        {% endif %}
+                        {% if form.test_type.id == 3 %}
+                        Class II &#9635;
+                        {% else %}
+                        Class II &#9633;
+                        {% endif %}
+
+
+                    </div>
+
+
+
+                </div>
                 <div style="font-weight: bold;">
                     <span class="time">:([2]</span>
                     ازمرجع
@@ -801,7 +766,9 @@
                     1) مقاومت زمین حفاظتی(مطابق بند
                 </div>
                 <div>
-                    مقدار اندازه گیری شده: {{form.s1_res}}اهم
+                    مقدار اندازه گیری شده: 
+                    <span class="time">{{form.s1_res}}</span>
+                    اهم
                 </div>
 
             </div>
@@ -810,7 +777,7 @@
 
 
 
-            <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-4">
+            <table style="text-align:center;margin: auto;width: 95%;" class="tb-4">
                 <tbody>
                     <tr>
                         <td rowspan="2" style="min-width: 5cm;">توضیحات</td>
@@ -824,7 +791,11 @@
                         <td>Ok</td>
                     </tr>
                     <tr>
-                        <td>{{form.s1_e1_comment}}</td>
+                        <td>
+                            {% if form.s1_e1_comment.id != 1 %}
+                                {{form.s1_e1_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s1_e1_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -839,7 +810,11 @@
                         <td>جدا شدنی</td>
                     </tr>
                     <tr>
-                        <td>{{form.s1_e2_comment}}</td>
+                        <td>
+                            {% if form.s1_e2_comment.id != 1 %}
+                                {{form.s1_e2_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s1_e2_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -873,7 +848,7 @@
 
 
 
-            <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-4">
+            <table style="text-align:center;margin: auto;width: 95%;" class="tb-4">
 
                 <tbody>
                     <tr>
@@ -889,7 +864,11 @@
                         <td>Ok</td>
                     </tr>
                     <tr>
-                        <td>{{form.s2_e1_comment}}</td>
+                        <td>
+                            {% if form.s2_e1_comment.id != 1 %}
+                                {{form.s2_e1_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s2_e1_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -906,7 +885,11 @@
                         <td rowspan="4">عادی</td>
                     </tr>
                     <tr>
-                        <td>{{form.s2_e2_comment}}</td>
+                        <td>
+                            {% if form.s2_e2_comment.id != 1 %}
+                                {{form.s2_e2_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s2_e2_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -922,7 +905,11 @@
                         <td style="text-align: right;">- خاموش </td>
                     </tr>
                     <tr>
-                        <td>{{form.s2_e3_comment}}</td>
+                        <td>
+                            {% if form.s2_e3_comment.id != 1 %}
+                                {{form.s2_e3_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s2_e3_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -938,7 +925,11 @@
                         <td class="time" style="text-align: right;"> Standby -</td>
                     </tr>
                     <tr>
-                        <td>{{form.s2_e4_comment}}</td>
+                        <td>
+                            {% if form.s2_e4_comment.id != 1 %}
+                                {{form.s2_e4_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s2_e4_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -954,7 +945,11 @@
                         <td style="text-align: right;">- پلاریته معکوس</td>
                     </tr>
                     <tr>
-                        <td>{{form.s2_e5_comment}}</td>
+                        <td>
+                            {% if form.s2_e5_comment.id != 1 %}
+                                {{form.s2_e5_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s2_e5_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -975,10 +970,6 @@
 
             </table>
 
-
-
-
-
             <div>نکات:</div>
             <div style="margin-right: 1cm;">
                 1) در هریک از شرایط کاری فوق در صورت امکان باید تست در حالتی که قسمتهای کاربردی نوع F به زمین متصل و
@@ -995,7 +986,7 @@
                 3) جریان نشتی محفظه(بند
             </div>
 
-            <table style="text-align:center;margin: auto;width: 95%;font-weight: bold;" class="tb-2 tb-4">
+            <table style="text-align:center;margin: auto;width: 95%;" class="tb-2 tb-4">
                 <tbody>
                     <tr>
                         <td rowspan="2" style="min-width:5cm;">توضیحات</td>
@@ -1010,7 +1001,11 @@
                         <td>Ok</td>
                     </tr>
                     <tr>
-                        <td>{{form.s3_e1_comment}}</td>
+                        <td>
+                            {% if form.s3_e1_comment.id != 1 %}
+                                {{form.s3_e1_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s3_e1_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1027,7 +1022,11 @@
                         <td rowspan="4">عادی</td>
                     </tr>
                     <tr>
-                        <td>{{form.s3_e2_comment}}</td>
+                        <td>
+                            {% if form.s3_e2_comment.id != 1 %}
+                                {{form.s3_e2_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s3_e2_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1043,7 +1042,11 @@
                         <td style="text-align: right;">- خاموش </td>
                     </tr>
                     <tr>
-                        <td>{{form.s3_e3_comment}}</td>
+                        <td>
+                            {% if form.s3_e3_comment.id != 1 %}
+                                {{form.s3_e3_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s3_e3_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1059,7 +1062,11 @@
                         <td class="time" style="text-align: right;"> Standby -</td>
                     </tr>
                     <tr>
-                        <td>{{form.s3_e4_comment}}</td>
+                        <td>
+                            {% if form.s3_e4_comment.id != 1 %}
+                                {{form.s3_e4_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s3_e4_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1075,7 +1082,11 @@
                         <td style="text-align: right;">- پلاریته معکوس</td>
                     </tr>
                     <tr>
-                        <td>{{form.s3_e5_comment}}</td>
+                        <td>
+                            {% if form.s3_e5_comment.id != 1 %}
+                                {{form.s3_e5_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s3_e5_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1113,44 +1124,44 @@
 
 
     <div class="page-3 page1" style="font-family:'B Nazanin';">
-            <div style="text-align: center;width: 100%;height: 5cm;">
-                    <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
-                        <span>
-                            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
-                            شماره گزارش:
-                        </span><br>
-                        <span>
-                            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                            تاريخ صدور:
-        
-                        </span><br>
-                        <span>
-                            <span class="time">F51037</span>
-                            شماره مدرک:
-        
-                        </span>
-                    </span>
-                    <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
-                        گزارش آزمون کنترل کیفی
-                        <br>
-                        دستگاه پمپ سرنگ
-                    </span>
-                </div>
+        <div style="text-align: center;width: 100%;height: 5cm;">
+            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+                <span>
+                    <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+                    شماره گزارش:
+                </span><br>
+                <span>
+                    <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+                    تاريخ صدور:
+
+                </span><br>
+                <span>
+                    <span class="time">F51037</span>
+                    شماره مدرک:
+
+                </span>
+            </span>
+            <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                گزارش آزمون کنترل کیفی
+                <br>
+                دستگاه پمپ سرنگ
+            </span>
+        </div>
         <div style="margin-right: 2cm;margin-left: 4cm;">
-                <div style="font-weight: bold;">
-                    <span class="time">:([3]</span>
-                    ازمرجع
-                    <span class="time">19.4</span>
-                    و طبق بند
-                    <span class="time">[2]</span>
-                    از مرجع
-                    <sapn class="time">19</sapn>
-                    4) جریان نشتی بیمار(طبق
+            <div style="font-weight: bold;">
+                <span class="time">:([3]</span>
+                ازمرجع
+                <span class="time">19.4</span>
+                و طبق بند
+                <span class="time">[2]</span>
+                از مرجع
+                <sapn class="time">19</sapn>
+                4) جریان نشتی بیمار(طبق
             </div>
 
 
 
-           <table style="margin: auto;width: 100%;text-align: center;" class="time tb-5">
+            <table style="margin: auto;width: 100%;text-align: center;" class="time tb-5">
                 <tbody>
                     <tr>
                         <td colspan="3" style="border: none;"></td>
@@ -1214,8 +1225,8 @@
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <!-- <td>{{form.s4_e1_aclc}}</td>
                         <td>{{form.s4_e1_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
@@ -1248,8 +1259,8 @@
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <!-- <td>{{form.s4_e2_aclc}}</td>
                         <td>{{form.s4_e2_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
@@ -1281,8 +1292,8 @@
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <!-- <td>{{form.s4_e3_aclc}}</td>
                         <td>{{form.s4_e3_dclc}}</td> -->
                         <td style="text-align: right;">Standby -</td>
@@ -1310,8 +1321,8 @@
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <!-- <td>{{form.s4_e4_aclc}}</td>
                         <td>{{form.s4_e4_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
@@ -1341,8 +1352,8 @@
                         <td>50</td>
                         <td>50</td>
                         <td>50</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <!-- <td>{{form.s4_e5_aclc}}</td>
                         <td>{{form.s4_e5_dclc}}</td> -->
                         <td style="font-family: 'B Nazanin';text-align: right;">
@@ -1379,8 +1390,8 @@
                         <td>50</td>
                         <!-- <td>{{form.s4_e6_aclc}}</td>
                         <td>{{form.s4_e6_dclc}}</td> -->
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td></td>
+                        <td></td>
                         <td style="font-family: 'B Nazanin';text-align: right;">
                             <span>- قطع زمین حفاظتی</span>
                         </td>
@@ -1425,7 +1436,11 @@
 
                     </tr>
                     <tr>
-                        <td style="font-family: 'B Nazanin';text-align: right;">{{form.s5_e1_comment}}</td>
+                        <td style="font-family: 'B Nazanin';text-align: center;">
+                            {% if form.s5_e1_comment.id != 1 %}
+                                {{form.s5_e1_comment}}
+                            {% endif %}
+                        </td>
                         {% if form.s5_e1_comment.id == 1 %}
                         <td></td>
                         <td>&#10004;</td>
@@ -1494,13 +1509,13 @@
                     </tr>
                 </tbody>
             </table>
-<br>
+            <br>
             <div style="font-weight: bold;">
                 7) فشار ماکزیمم
             </div>
 
             <table style="margin: auto;width: 100%;text-align: center;" class="tb-5 time">
-                        
+
                 <tbody>
                     <tr style="font-family: 'B Nazanin';">
                         <td rowspan="2">فلوی تنظیمی
@@ -1556,9 +1571,9 @@
             </div>
 
             <div style="width:100%;direction: rtl; text-align: right;">
-                <div style="margin-bottom: -5cm;" class="sign-2"><img src="http://{{domain_name}}{{ user_profile.signature.url }}" alt=""
-            style="height: 6cm;">
-        </div>
+                <div style="margin-bottom: -5cm;" class="sign-2"><img
+                        src="http://{{domain_name}}{{ user_profile.signature.url }}" alt="" style="height: 6cm;">
+                </div>
             </div>
             <div style="margin-top: -4.5cm;font-family:'B Zar' ">
                 <div style="display: inline-block;">سمت:{{ user_profile.status.status }}</div>

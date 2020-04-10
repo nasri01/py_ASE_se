@@ -1,10 +1,22 @@
 {% load static %}
 {% load widget_tweaks %}
-
-
-
-
-<form method="POST" class="post-form">
+<div
+    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+    <div style="display:block;width:100%;">
+    <a href="{% url 'admin:acc_accessory_add'%}" target="_blank">
+        <button class="btn btn-danger" style="display:block;width:100%;" > افزودن لوازم جانبی </button>
+    </a>  
+    </div>
+    <div style="height: 10px;">
+    </div>
+    <a href="{% url 'admin:acc_comment_add'%}" target="_blank">
+        <button class="btn btn-secondary" style="display:block;width:100%;" > افزودن کامنت </button>
+    </a>
+    <div style="height: 10px;"></div>
+    <button class="btn btn-info" type="submit" form="myform" formaction="{% url 'reload' formtype='ElectroCauter' %}"
+      formnovalidate>بارگزاری مجدد فرم</button>
+  </div>
+<form method="POST" class="post-form" id="myform">
 
   {% csrf_token %}
 
@@ -4503,20 +4515,20 @@
 
   //////////////////////////////////////////////////////////////////////////////   ghesmat 2
 
-  $("#id_s1_res")
+  $("#id_s11_e1_res")
     .focusout(function () {
-      if ($("#id_s1_res").val() > 0.1 && ($("#id_s1_res").val().length != 0)) {
-        $("#id_s1_res").css("background-color", "#f24858");
-        $("#id_s1_res").css("color", "white");
+      if ($("#id_s11_e1_res").val() > 0.1 && ($("#id_s11_e1_res").val().length != 0)) {
+        $("#id_s11_e1_res").css("background-color", "#f24858");
+        $("#id_s11_e1_res").css("color", "white");
 
         $("#id_s11_e1_comment").css("background-color", "#f24858");
         $("#id_s11_e1_comment").css("color", "white");
         $("#id_s11_e1_comment").val("2");
 
       }
-      else if (($("#id_s1_res").val() <= 0.1) || ($("#id_s1_res").val().length == 0)) {
-        $("#id_s1_res").css("background-color", "white");
-        $("#id_s1_res").css("color", "black");
+      else if (($("#id_s11_e1_res").val() <= 0.1) || ($("#id_s11_e1_res").val().length == 0)) {
+        $("#id_s11_e1_res").css("background-color", "white");
+        $("#id_s11_e1_res").css("color", "black");
 
         $("#id_s11_e1_comment").css("background-color", "white");
         $("#id_s11_e1_comment").css("color", "black");
@@ -4526,18 +4538,62 @@
 
 
 
-      if ($("#id_s1_res").val() > 0.2 && ($("#id_s1_res").val().length != 0)) {
-        $("#id_s1_res").css("background-color", "#f24858");
-        $("#id_s1_res").css("color", "white");
+      if ($("#id_s11_e1_res").val() > 0.2 && ($("#id_s11_e1_res").val().length != 0)) {
+        $("#id_s11_e1_res").css("background-color", "#f24858");
+        $("#id_s11_e1_res").css("color", "white");
 
         $("#id_s11_e2_comment").css("background-color", "#f24858");
         $("#id_s11_e2_comment").css("color", "white");
         $("#id_s11_e2_comment").val("2");
 
       }
-      else if (($("#id_s1_res").val() <= 0.2) || ($("#id_s1_res").val().length == 0)) {
-        $("#id_s1_res").css("background-color", "white");
-        $("#id_s1_res").css("color", "black");
+      else if (($("#id_s11_e1_res").val() <= 0.2) || ($("#id_s11_e1_res").val().length == 0)) {
+        $("#id_s11_e1_res").css("background-color", "white");
+        $("#id_s11_e1_res").css("color", "black");
+
+        $("#id_s11_e2_comment").css("background-color", "white");
+        $("#id_s11_e2_comment").css("color", "black");
+        $("#id_s11_e2_comment").val("1");
+
+      }
+
+    });
+
+    $("#id_s11_e2_res")
+    .focusout(function () {
+      if ($("#id_s11_e2_res").val() > 0.1 && ($("#id_s11_e2_res").val().length != 0)) {
+        $("#id_s11_e2_res").css("background-color", "#f24858");
+        $("#id_s11_e2_res").css("color", "white");
+
+        $("#id_s11_e2_comment").css("background-color", "#f24858");
+        $("#id_s11_e2_comment").css("color", "white");
+        $("#id_s11_e2_comment").val("2");
+
+      }
+      else if (($("#id_s11_e2_res").val() <= 0.1) || ($("#id_s11_e2_res").val().length == 0)) {
+        $("#id_s11_e2_res").css("background-color", "white");
+        $("#id_s11_e2_res").css("color", "black");
+
+        $("#id_s11_e2_comment").css("background-color", "white");
+        $("#id_s11_e2_comment").css("color", "black");
+        $("#id_s11_e2_comment").val("1");
+
+      }
+
+
+
+      if ($("#id_s11_e2_res").val() > 0.2 && ($("#id_s11_e2_res").val().length != 0)) {
+        $("#id_s11_e2_res").css("background-color", "#f24858");
+        $("#id_s11_e2_res").css("color", "white");
+
+        $("#id_s11_e2_comment").css("background-color", "#f24858");
+        $("#id_s11_e2_comment").css("color", "white");
+        $("#id_s11_e2_comment").val("2");
+
+      }
+      else if (($("#id_s11_e2_res").val() <= 0.2) || ($("#id_s11_e2_res").val().length == 0)) {
+        $("#id_s11_e2_res").css("background-color", "white");
+        $("#id_s11_e2_res").css("color", "black");
 
         $("#id_s11_e2_comment").css("background-color", "white");
         $("#id_s11_e2_comment").css("color", "black");

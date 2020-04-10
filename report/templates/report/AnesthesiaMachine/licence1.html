@@ -1876,7 +1876,7 @@
       <div style="font-weight: bold;">
         13) فلومترها(مرجع 1)
       </div>
-      {# todo anesthesia s13 #}
+      
 
       <table style="margin: auto;width: 100%;text-align: center;" class="tb-4">
         <tbody>
@@ -2008,7 +2008,9 @@
         <tr>
           <td>مقدار قرائت شده : {{ form.s14_e1 }}</td>
           <td>مقدار قرائت شده : {{ form.s14_e2 }}</td>
-          {% if form.s14_e1 <= 250 and form.s14_e1 >= 100  %}
+          <td></td>
+          <td></td>
+          <!-- {% if form.s14_e1 <= 250 and form.s14_e1 >= 100  %}
           <td></td>
           <td>&#10004;</td>
           {% elif form.s14_e1 == -1 %}
@@ -2017,7 +2019,7 @@
           {% else %}
           <td>&#10004;</td>
           <td></td>
-          {% endif %}
+          {% endif %} -->
         </tr>
 
       </table>

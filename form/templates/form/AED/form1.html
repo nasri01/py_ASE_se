@@ -3,10 +3,7 @@
 
 
 <link rel="stylesheet" href="{% static 'css/spo2-styles.css' %}">
-
-
-<form method="POST" class="post-form">
-  <div
+<div
     style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
 
     <div style="display:block;width:100%;">
@@ -26,10 +23,13 @@
 
 
     <div style="height: 10px;"></div>
-    <button class="btn btn-info" type="submit" formaction="{% url 'reload' formtype='AED' %}" formnovalidate>بارگزاری
+    <button class="btn btn-info" type="submit" form="myform" formaction="{% url 'reload' formtype='AED' %}" formnovalidate>بارگزاری
       مجدد فرم</button>
 
   </div>
+
+<form method="POST" class="post-form" id="myform">
+  
   {% csrf_token %}
 
   <table class="table-bordered">
