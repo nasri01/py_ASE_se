@@ -80,11 +80,7 @@
             {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
 
           </span>
-
-
           <!--
-  
-  
     <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
 
         </div>
@@ -114,9 +110,6 @@
 
           </div>
           <br><br>
-
-
-
         </div>
 
       </div>
@@ -2899,12 +2892,12 @@
 
   $("#id_s16_e2")
     .focusout(function () {
-      if (($("#id_s16_e2").val() > 3450 || $("#id_s16_e2").val() < 2550) && ($("#id_s16_e2").val().length != 0)) {
+      if (($("#id_s16_e2").val() > 575 || $("#id_s16_e2").val() < 425) && ($("#id_s16_e2").val().length != 0)) {
         $("#id_s16_e2").css("background-color", "#f24858");
         $("#id_s16_e2").css("color", "white");
 
       }
-      else if (($("#id_s16_e2").val() <= 3450 && $("#id_s16_e2").val() >= 2550) || ($("#id_s16_e2").val().length == 0)) {
+      else if (($("#id_s16_e2").val() <= 575 && $("#id_s16_e2").val() >= 425) || ($("#id_s16_e2").val().length == 0)) {
         $("#id_s16_e2").css("background-color", "white");
         $("#id_s16_e2").css("color", "black");
       }
@@ -2999,12 +2992,12 @@
 
   $("#id_s17_e6")
     .focusout(function () {
-      if (($("#id_s17_e6").val() > 22 || $("#id_s17_e6").val() < 18) && ($("#id_s17_e6").val().length != 0)) {
+      if (($("#id_s17_e6").val() > 33 || $("#id_s17_e6").val() < 27) && ($("#id_s17_e6").val().length != 0)) {
         $("#id_s17_e6").css("background-color", "#f24858");
         $("#id_s17_e6").css("color", "white");
 
       }
-      else if (($("#id_s17_e6").val() <= 22 && $("#id_s17_e6").val() >= 18) || ($("#id_s17_e6").val().length == 0)) {
+      else if (($("#id_s17_e6").val() <= 33 && $("#id_s17_e6").val() >= 27) || ($("#id_s17_e6").val().length == 0)) {
         $("#id_s17_e6").css("background-color", "white");
         $("#id_s17_e6").css("color", "black");
       }

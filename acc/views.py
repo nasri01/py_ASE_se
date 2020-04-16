@@ -3,9 +3,9 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User
 from django.shortcuts import Http404, redirect, render
-from django.template import RequestContext
 
-from acc.models import Hospital, Parameters, Request, AdExcelArg
+
+from acc.models import Parameters, Request, AdExcelArg
 from form.forms import *
 from report.models import Report
 
@@ -248,7 +248,8 @@ def show_report_list(request):
 def edit_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
-            avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
+            avatar_url = UserProfile.objects.get(
+                id=1).avatar.url  # admin user_profile
             try:
                 for model in model_list:
                     model_query = model[1].objects.filter(
@@ -287,7 +288,8 @@ def edit_report(request):
 def recal_report(request):
     if Group.objects.get(name='admin') in request.user.groups.all() or Group.objects.get(name='employee') in request.user.groups.all():
         if (request.method == 'GET'):
-            avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
+            avatar_url = UserProfile.objects.get(
+                id=1).avatar.url  # admin user_profile
             for model in model_list:
                 model_query = model[1].objects.filter(record__number=int(request.GET['record_number'])).filter(
                     is_done__exact=False)

@@ -1680,7 +1680,7 @@ class ECG_1(models.Model):
                                       related_name='e1s6e2comment', default=1)
     s6_e3_ramp = models.FloatField()
     s6_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
-                                      related_name='e1s6e3comment', default=1)
+                                      related_name='e1s6e3comment', default=1, blank=True)
 
     s7_e1_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='e1s7e1comment', default=1)

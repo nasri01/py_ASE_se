@@ -8,7 +8,7 @@ import pytz
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.shortcuts import Http404, HttpResponse, redirect, render
+from django.shortcuts import Http404, redirect, render
 from django.template.loader import render_to_string
 from weasyprint import CSS, HTML
 from weasyprint.fonts import FontConfiguration

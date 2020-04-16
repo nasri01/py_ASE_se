@@ -2,21 +2,21 @@
 {% load widget_tweaks %}
 
 <div
-    style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
-    <div style="display:block;width:100%;">
+  style="text-align: center ;padding: 10px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);background-color: white;border-radius: 10px;position: fixed;left: 40px;bottom: 15px;z-index: 100;">
+  <div style="display:block;width:100%;">
     <a href="{% url 'admin:acc_accessory_add'%}" target="_blank">
-        <button class="btn btn-danger" style="display:block;width:100%;" > افزودن لوازم جانبی </button>
-    </a>  
-    </div>
-    <div style="height: 10px;">
-    </div>
-    <a href="{% url 'admin:acc_comment_add'%}" target="_blank">
-        <button class="btn btn-secondary" style="display:block;width:100%;" > افزودن کامنت </button>
+      <button class="btn btn-danger" style="display:block;width:100%;"> افزودن لوازم جانبی </button>
     </a>
-    <div style="height: 10px;"></div>
-    <button class="btn btn-info" type="submit" form="myform" formaction="{% url 'reload' formtype='Defibrilator' %}"
-      formnovalidate>بارگزاری مجدد فرم</button>
   </div>
+  <div style="height: 10px;">
+  </div>
+  <a href="{% url 'admin:acc_comment_add'%}" target="_blank">
+    <button class="btn btn-secondary" style="display:block;width:100%;"> افزودن کامنت </button>
+  </a>
+  <div style="height: 10px;"></div>
+  <button class="btn btn-info" type="submit" form="myform" formaction="{% url 'reload' formtype='Defibrilator' %}"
+    formnovalidate>بارگزاری مجدد فرم</button>
+</div>
 <form method="POST" class="post-form" id="myform">
   {% csrf_token %}
 
@@ -115,9 +115,6 @@
 
           </div>
           <br><br>
-
-
-
         </div>
 
       </div>
@@ -1034,7 +1031,7 @@
           <td></td>
           <td></td>
           <td>{% render_field form.s7a_e1_v style="width:50px;"%}</td>
-          <td>{% render_field form.s7a_e1_ec style="width:50px;"%}</td>
+          <td id="id_s7a_e1_ec">{% render_field form.s7a_e1_ec style="width:50px;"%}</td>
           <td>{% render_field form.s7a_e1_em style="width:50px;"%}</td>
           <td>{% render_field form.s7a_e1_es style="width:50px;"%}</td>
           <td class="time">{{ form.s7a_e1_se }}</td>
@@ -1045,7 +1042,7 @@
           <td></td>
           <td></td>
           <td>{% render_field form.s7a_e2_v style="width:50px;"%}</td>
-          <td>{% render_field form.s7a_e2_ec style="width:50px;"%}</td>
+          <td id="id_s7a_e2_ec">{% render_field form.s7a_e2_ec style="width:50px;"%}</td>
           <td>{% render_field form.s7a_e2_em style="width:50px;"%}</td>
           <td>{% render_field form.s7a_e2_es style="width:50px;"%}</td>
           <td class="time">{{ form.s7a_e2_se }}</td>
@@ -1056,7 +1053,7 @@
           <td></td>
           <td></td>
           <td>{% render_field form.s7a_e3_v style="width:50px;"%}</td>
-          <td>{% render_field form.s7a_e3_ec style="width:50px;"%}</td>
+          <td id="id_s7a_e3_ec">{% render_field form.s7a_e3_ec style="width:50px;"%}</td>
           <td>{% render_field form.s7a_e3_em style="width:50px;"%}</td>
           <td>{% render_field form.s7a_e3_es style="width:50px;"%}</td>
           <td class="time">{{ form.s7a_e3_se }}</td>
@@ -1177,7 +1174,7 @@
           <td></td>
           <td></td>
           <td>{% render_field form.s7c_e1_v style="width:50px;"%}</td>
-          <td>{% render_field form.s7c_e1_ec style="width:50px;"%}</td>
+          <td id="id_s7c_e1_ec">{% render_field form.s7c_e1_ec style="width:50px;"%}</td>
           <td>{% render_field form.s7c_e1_em style="width:50px;"%}</td>
           <td>{% render_field form.s7c_e1_es style="width:50px;"%}</td>
           <td class="time">{{ form.s7c_e1_se }}</td>
@@ -1188,7 +1185,7 @@
           <td></td>
           <td></td>
           <td>{% render_field form.s7c_e2_v style="width:50px;"%}</td>
-          <td>{% render_field form.s7c_e2_ec style="width:50px;"%}</td>
+          <td id="id_s7c_e2_ec">{% render_field form.s7c_e2_ec style="width:50px;"%}</td>
           <td>{% render_field form.s7c_e2_em style="width:50px;"%}</td>
           <td>{% render_field form.s7c_e2_es style="width:50px;"%}</td>
           <td class="time">{{ form.s7c_e2_se }}</td>
@@ -1199,7 +1196,7 @@
           <td></td>
           <td></td>
           <td>{% render_field form.s7c_e3_v style="width:50px;"%}</td>
-          <td>{% render_field form.s7c_e3_ec style="width:50px;"%}</td>
+          <td id="id_s7c_e3_ec">{% render_field form.s7c_e3_ec style="width:50px;"%}</td>
           <td>{% render_field form.s7c_e3_em style="width:50px;"%}</td>
           <td>{% render_field form.s7c_e3_es style="width:50px;"%}</td>
           <td class="time">{{ form.s7c_e3_se }}</td>
@@ -1248,7 +1245,7 @@
           <td>{{form.s7d_e1_comment}}</td>
           <td></td>
           <td></td>
-          <td class="time">{{form.s7d_e1_ec}}</td>
+          <td id="id_s7d_e1_ec" class="time">{{form.s7d_e1_ec}}</td>
           <td class="time">{{form.s7d_e1_es}}</td>
           <td class="time">{{form.s7d_e1_en}}</td>
         </tr>
@@ -1297,7 +1294,7 @@
           <td>{{form.s8_e1_comment}}</td>
           <td></td>
           <td></td>
-          <td>{% render_field form.s8_e1_ec style="width:50px;"%}</td>
+          <td id="id_s8_e1_ec">{% render_field form.s8_e1_ec style="width:50px;"%}</td>
           <td>{% render_field form.s8_e1_em2 style="width:50px;"%}</td>
           <td>{% render_field form.s8_e1_em1 style="width:50px;"%}</td>
           <td>{% render_field form.s8_e1_en  style="width:50px;"%}</td>

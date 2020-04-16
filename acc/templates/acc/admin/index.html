@@ -82,106 +82,110 @@
                     
                     </div>
                     <div class=" excel-report">
-                                        <div class="excel-btn">گزارش Excel</div>
-                                        <!-- <br> -->
-                                        <!-- <br> -->
-                                        <div style="height: 250px;"></div>
-                                        <!-- <div class="card card-body" style="border:none;"> -->
-                                        {% comment %} <form action="{% url 'report-xlsx' %}" method="GET"> {% endcomment %}
-                                        <form method="GET">
-                                            <div class="fm">
-                                                <div>
-                                                    <div class="form-group">
+                        <div class="excel-btn">گزارش Excel</div>
+                        <!-- <br> -->
+                        <!-- <br> -->
+                        <div style="height: 250px;"></div>
+                        <!-- <div class="card card-body" style="border:none;"> -->
+                        {% comment %} <form action="{% url 'report-xlsx' %}" method="GET">
+                            {% endcomment %}
+                            <!-- <form method="GET" id="myform"> -->
+                            <div class="fm">
+                                <div>
+                                    <div class="form-group">
 
-                                                        <br>
-
-
-
-                                                        <!-- <div class="row" style="direction: ltr;">
-                                                            <div class="col-md-12">
-
-                                                                <select name="hospitals"
-                                                                    class="mdb-select colorful-select dropdown-primary md-form"
-                                                                    multiple searchable="جستجو">
-                                                                    {% for hospital in hosplist %}
-                                                                    <option value="{{ hospital.id }}">{{ hospital.name}}
-                                                                        -
-                                                                        {{ hospital.city.name}}</option>
-                                                                    {% endfor%}
-
-                                                                </select>
-                                                            </div>
-                                                        </div>  -->
+                                        <br>
 
 
-                                                        <script>
 
-                                                            // Material Select Initialization
-                                                            $(document).ready(function () {
-                                                                $('.mdb-select').materialSelect();
-                                                            });
+                                        <!-- <div class="row" style="direction: ltr;">
+                                            <div class="col-md-12">
 
-                                                        </script>
-                                                        <br>
+                                                <select name="hospitals"
+                                                    class="mdb-select colorful-select dropdown-primary md-form"
+                                                    multiple searchable="جستجو">
+                                                    {% for hospital in hosplist %}
+                                                    <option value="{{ hospital.id }}">{{ hospital.name}}
+                                                        -
+                                                        {{ hospital.city.name}}</option>
+                                                    {% endfor%}
 
-
-                                                        <label>از: </label>
-
-                                                        <input type="text" required name="start_date" id="date_input"
-                                                            class="form-control inp">
-                                                        <img src="{% static 'img/calender.svg' %}" id="date_btn"
-                                                            height="25px">
-
-
-                                                        <script>
-                                                            Calendar.setup({
-                                                                inputField: 'date_input',
-                                                                button: 'date_btn',
-                                                                ifFormat: '%Y/%m/%d',
-                                                                dateType: 'jalali'
-                                                            });
-                                                        </script>
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>تا: </label>
-                                                        <input type="text" required name="end_date" id="date_input_2"
-                                                            class="form-control inp">
-                                                        <img src="{% static 'img/calender.svg' %}" id="date_btn_2"
-                                                            height="25px">
-                                                        <script>
-                                                            Calendar.setup({
-                                                                inputField: 'date_input_2',
-                                                                button: 'date_btn_2',
-                                                                ifFormat: '%Y/%m/%d',
-                                                                dateType: 'jalali'
-                                                            });
-                                                        </script>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="is_recal"
-                                                                class="custom-control-input" id="defaultUnchecked">
-                                                            <label class="custom-control-label"
-                                                                for="defaultUnchecked">فقط گزارشات
-                                                                ریکالیبراسیون</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </select>
                                             </div>
+                                        </div>  -->
 
 
-                                            <div class="flex-btn">
-                                                <button type="submit" class="btn btn-primary" name="action" value="show"
-                                                    style="border-radius: 20px;width: 125px;padding: 10px 0;background-color: #114476;border-color:#114476;">نمایش</button>
-                                                <button type="submit" class="btn btn-success" name="action"
-                                                    value="download"
-                                                    style="border-radius: 20px;width: 125px;padding: 10px 0;">دانلود</button>
-                                            </div>
-                                        </form>
-                                        <!-- </div> -->
+                                        <script>
+
+                                            // Material Select Initialization
+                                            $(document).ready(function () {
+                                                $('.mdb-select').materialSelect();
+                                            });
+
+                                        </script>
+                                        <br>
 
 
+                                        <label>از: </label>
+
+                                        <input type="text" required name="start_date" id="date_input"
+                                            class="form-control inp">
+                                        <img src="{% static 'img/calender.svg' %}" id="date_btn"
+                                            height="25px">
+
+
+                                        <script>
+                                            Calendar.setup({
+                                                inputField: 'date_input',
+                                                button: 'date_btn',
+                                                ifFormat: '%Y/%m/%d',
+                                                dateType: 'jalali'
+                                            });
+                                        </script>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>تا: </label>
+                                        <input type="text" required name="end_date" id="date_input_2"
+                                            class="form-control inp">
+                                        <img src="{% static 'img/calender.svg' %}" id="date_btn_2"
+                                            height="25px">
+                                        <script>
+                                            Calendar.setup({
+                                                inputField: 'date_input_2',
+                                                button: 'date_btn_2',
+                                                ifFormat: '%Y/%m/%d',
+                                                dateType: 'jalali'
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="is_recal"
+                                                class="custom-control-input" id="defaultUnchecked">
+                                            <label class="custom-control-label"
+                                                for="defaultUnchecked">فقط گزارشات
+                                                ریکالیبراسیون</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-btn">
+                                <button class="btn btn-primary"
+                                    style="border-radius: 20px;width: 125px;padding: 10px 0;background-color: #114476;border-color:#114476;">
+                                    <a href="" id="id_show">
+                                        نمایش
+                                    </a>
+                                </button>
+                                <button class="btn btn-success"
+                                    style="border-radius: 20px;width: 125px;padding: 10px 0;">
+                                    <a href="" id="id_downlaod">
+                                        دانلود
+                                    </a>
+                                </button>
+                            </div>
+                            <!-- </form> -->
+                            <!-- </div> -->
                         </div>
                     </div>
                     <br>
@@ -201,10 +205,6 @@
                                     </tr>
                                 </thead>
                                 <tbody style="height: 100px;">
-
-
-
-
                                     {% for req in request_list %}
                                     <tr>
                                         <td>{{ forloop.counter }}</td>
@@ -232,19 +232,13 @@
                                                     {% endif %}
                                         </td>
                                     </tr>
-
                                     {% endfor %}
-
-
-
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--  -->
             <div class="col-lg-8 col-md-12" style="direction: rtl;">
                 <div class="data-box">
 
