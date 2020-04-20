@@ -15,7 +15,7 @@
 <div class="container-fluid">
 
     <div class="row" style="width: 480px;margin: auto;text-align: center;">
-        <div class="col-lg-4 col-md-12" style="direction: rtl;">
+        <div style="direction: rtl;">
             <div>
                 <div style="width: 100%;text-align: center;">
                     <img src="{% static 'img/sairan.svg' %}" class="logo" alt="">
@@ -125,11 +125,12 @@
 
 
                             <div class="flex-btn">
-                                <a target="_blank" id="show" href="#" type="submit" class="btn btn-primary" name="action" 
-                                style="border-radius: 20px;width: 125px;padding: 10px 0;background-color: #114476;border-color:#114476;">نمایش</a>
+                                <a target="_blank" id="show" href="#" type="submit" class="btn btn-primary"
+                                    name="action"
+                                    style="border-radius: 20px;width: 125px;padding: 10px 0;background-color: #114476;border-color:#114476;">نمایش</a>
                                 <a id="download" href="#" class="btn btn-success" name="action"
-                                style="border-radius: 20px;width: 125px;padding: 10px 0;">دانلود</a>
-    
+                                    style="border-radius: 20px;width: 125px;padding: 10px 0;">دانلود</a>
+
                             </div>
                         </form>
                         <!-- </div> -->
@@ -198,7 +199,7 @@
             </div>
         </div>
         <!--  -->
-  
+
 
     </div>
     <!--  -->
@@ -209,41 +210,41 @@
 
 <script type="text/javascript">
 
-    function f1(){
+    function f1() {
         var check;
-        if( document.getElementById("defaultUnchecked").checked ==true ){
-            check="recall";
+        if (document.getElementById("defaultUnchecked").checked == true) {
+            check = "recall";
         }
-        else{
-            check="all";
+        else {
+            check = "all";
         }
 
-        var in1=document.getElementById("date_input").value;
-        var in2=document.getElementById("date_input_2").value;
+        var in1 = document.getElementById("date_input").value;
+        var in2 = document.getElementById("date_input_2").value;
 
 
-        document.getElementById("show").href="panel.azmasaba.ir/report/xlsx/"+check+ "/"+in1+"/"+in2+'/show';
-        document.getElementById("download").href="panel.azmasaba.ir/report/xlsx/"+check+ "/"+in1+"/"+in2+'/download';
+        document.getElementById("show").href = "panel.azmasaba.ir/report/xlsx/" + check + "/" + in1 + "/" + in2 + '/show';
+        document.getElementById("download").href = "panel.azmasaba.ir/report/xlsx/" + check + "/" + in1 + "/" + in2 + '/download';
 
 
     }
     f1();
-    document.getElementById("date_input").onchange = function() {
+    document.getElementById("date_input").onchange = function () {
         f1();
     };
-    document.getElementById("date_input_2").onchange = function() {
+    document.getElementById("date_input_2").onchange = function () {
         f1();
     };
-    document.getElementById("defaultUnchecked").onchange = function() {
+    document.getElementById("defaultUnchecked").onchange = function () {
         f1();
     };
 
-  </script>
+</script>
 
 
 
 
- <!-- <script>
+<!-- <script>
 
 
 
