@@ -35,18 +35,7 @@ modellist = ['MonitorSpo2', 'MonitorECG', 'MonitorNIBP', 'MonitorSafety', 'Defib
              'Suction', 'ElectroCauter', 'ManoMeter', 'CantTest']
 
 
-def xlsx(request, filtering, start_day, end_day, operation_type):
-    query_end_year, query_end_month, query_end_day = end_day.split(
-        '/')
-    query_start_year, query_start_month, query_start_day = start_day.split(
-        '/')
-
-    query_end_year = int(query_end_year)
-    query_end_month = int(query_end_month)
-    query_end_day = int(query_end_day)
-    query_start_year = int(query_start_year)
-    query_start_month = int(query_start_month)
-    query_start_day = int(query_start_day)
+def xlsx(request, filtering, query_start_year, query_start_month, query_start_day, query_end_year, query_end_month, query_end_day, operation_type):
 
     query_start_date = jdatetime.date(
         query_start_year, query_start_month, query_start_day) - timedelta(days=1)
