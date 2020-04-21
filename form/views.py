@@ -66,6 +66,9 @@ def delete_report(request):
                 record__number=int(request.GET['record_number']))
             if len(modelobj) == 1:
                 modelobj[0].delete()
+                modelobj = Report.objects.filter(
+                    record__number=int(request.GET['record_number']))
+                modelobj[0].delete()
                 break
 
         return redirect('report_list')
