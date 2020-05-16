@@ -86,7 +86,7 @@
             <td class="no-border"><span> {{ form.device.section.name }}</span>محل انجام: </td>
             <td class="no-border"><span class="time">
             {% if form.device.property_number != None %}
-            {{form.device.property_number}}
+                {{form.device.property_number}}
             {% endif %}
             </span>کداموال :</td>
         </tr>
@@ -184,29 +184,29 @@
     
     <div class="page-1 page1" style="font-family:'B Nazanin';">
     <div style="text-align: center;width: 100%;height: 5cm;">
-            <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
-                <span>
-                <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
-                شماره گزارش: 
-              </span><br>
-                <span>
-                <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
-                تاريخ صدور: 
-                    
-                 </span><br>
-                <span>
-                    <span class="time">F51012</span>
-                شماره مدرک: 
+        <span style="display: inline-block;font-size: 14pt;font-weight: bold;position:absolute;left: 4cm;top: 1cm;">
+            <span>
+            <span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>
+            شماره گزارش: 
+            </span><br>
+            <span>
+            <span class="time"> {{ time.year }}/{{ time.month }}/{{ time.day }} </span>
+            تاريخ صدور: 
                 
-                 </span>
-              </span> 
-    
-              <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
-                  گزارش آزمون کنترل کیفی 
-                  <br>
-              <span class="time">NIBP</span>
-                  دستگاه سنجش فشار خون 
-              </span>         
+                </span><br>
+            <span>
+                <span class="time">F51012</span>
+            شماره مدرک: 
+            
+                </span>
+            </span> 
+
+            <span style="padding-top: 1cm; display:inline-block;font-size: 25pt;font-family:'B Titr'; ">
+                گزارش آزمون کنترل کیفی 
+                <br>
+            <span class="time">NIBP</span>
+                دستگاه سنجش فشار خون 
+            </span>         
         </div>
             <div style="margin-right: 2cm;margin-left: 4cm;height: 35cm;">
         <div style="font-weight: bold;">
@@ -243,40 +243,44 @@
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e1_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e1_nibpp }}</td>
               <td rowspan="8" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">3 mmHg or 3% of reading</td>
-              {% if data.6.0 >= 3 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+              
+              {% if data.6.0 == 0 %}
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               {% endif %} 
+
             </tr>
             <tr>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e2_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e2_nibpp }}</td>
-              {% if data.6.1 >= 3 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+              
+              {% if data.6.1 == 0 %}
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               {% endif %} 
 
             </tr>
-
 
             <tr>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e3_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e3_nibpp }}</td>
-              {% if data.6.2 >= 3.6 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+
+              {% if data.6.2 == 0 %}
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               {% endif %} 
+
             </tr>
 
 
@@ -284,67 +288,76 @@
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e4_simp }}</td>
               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e4_nibpp }}</td>
-               {% if data.6.3 >= 6 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+              
+              {% if data.6.3 == 0 %}
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
               {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
               {% endif %} 
             </tr>
 
             <tr>
-              <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Hospital</td>
-              <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Monometer</td>
-                 <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50</td>
-               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_simp }}</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_nibpp }}</td>
-               {% if data.6.4 >= 3 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              {% endif %} 
+                <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Hospital</td>
+                <td rowspan="4" style="padding-bottom: 0.03cm;padding-top: 0.03cm;">Monometer</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">50</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_simp }}</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e5_nibpp }}</td>
+
+                {% if data.6.4 == 0 %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                {% else %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                {% endif %} 
+
             </tr>
 
             <tr>
-               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
-               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_simp }}</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_nibpp }}</td>
-               {% if data.6.5 >= 3 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              {% endif %} 
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">80</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_simp }}</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e6_nibpp }}</td>
+                
+                {% if data.6.5 == 0 %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                {% else %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                {% endif %} 
+
             </tr>
 
             <tr>
-                 <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
-               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_simp }}</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_nibpp }}</td>
-               {% if data.6.6 >= 3.6 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              {% endif %} 
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">120</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_simp }}</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e7_nibpp }}</td>
+
+                {% if data.6.6 == 0 %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                {% else %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                {% endif %} 
+
             </tr>
 
             <tr>
-                 <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
-               <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_simp }}</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_nibpp }}</td>
-               {% if data.6.7 >= 6 %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              {% else %}
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
-              <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
-              {% endif %} 
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">200</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_simp }}</td>
+                <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">{{ form.s1_e8_nibpp }}</td>
+                
+                {% if data.6.7 == 0 %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                {% else %}
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;">&#10004;</td>
+                    <td style="padding-bottom: 0.03cm;padding-top: 0.03cm;"></td>
+                {% endif %} 
+
             </tr>
           </tbody>
 

@@ -50,47 +50,29 @@
         <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
           <span style="margin-right: 30px;"> نام دستگاه : </span>
           <span>
-
-
             {% render_field form.device style="display:inline;width:50%;"  class="search-a" searchable="Search here.." %}
-
           </span>
           <br>
           <!-- / -->
-
           <span style="margin-right: 17px;"> شماره درخواست : </span>
           <span class="ee">
-
-
-
             {% render_field form.request  id="select-state" class="search-a" style="display:inline;width:50%;"%}
-
-
-
           </span>
           <br>
           <span style="margin-right: 17px;"> رطوبت محیطی : </span>
           <br>
           <span class="ee">
             {% render_field form.humidity style="display:block;max-width:500px;width:50%;"%}
-
           </span>
-
           <br>
           <!-- / -->
           <label style="margin-right: 17px;"> دمای محیطی : </label>
           <br>
           <span class="ee">
             {% render_field form.temp  style="display:block;max-width:500px;width:50%;"%}
-
           </span>
-
-
           <!--
-  
-  
     <input type="text" style="display: inline-block;text-align: right;" class="form-control" name="request-number" disabled> -->
-
         </div>
 
         <div class="col-md-6 col-sm-12" style="margin-top: 10px;">
@@ -111,17 +93,10 @@
             <span class="ee">
               {{form.cal_dev3}}
             </span><br>
-
           </div>
           <br><br>
-
-
-
         </div>
-
       </div>
-
-
       <!--</form>-->
 
       <br><br>
@@ -148,9 +123,7 @@
             <td>At least a Medium Priority Technical Alarm</td>
             <td></td>
             <td>
-
-              {% render_field form.s1_e1_comment  style="display:block;max-width:500px;width:100%;"%}
-
+              <td>{{form.s1_e1_comment}}</td>
             </td>
           </tr>
           <tr>
@@ -160,16 +133,13 @@
             <td>{{form.s1_e2_comment}}</td>
           </tr>
         </tbody>
-
       </table>
-
 
 
       <br><br>
       <span style="font-weight: bold;">
         2.درستی SpO2(بند201.12.1.101.1استاندارد61:2011-2-ISO 80601)
       </span>
-
 
       <br><br>
 
@@ -182,7 +152,6 @@
           </tr>
 
           <tr>
-
             <th>SpO<sub>2</sub>(%)</th>
             <th>PR(BPM)</th>
             <th>SpO<sub>2</sub>(%)</th>
@@ -297,8 +266,6 @@
           <th colspan="2">صحت نرخ پالس تعیین شده در دفترچه راهنمای دستگاه</th>
         </tr>
 
-
-
         <tr>
           <td colspan="3">20-250 BPM</td>
           <td colspan="2">At 20 bpm to 250 bpm : ± 3 bpm</td>
@@ -313,9 +280,9 @@
         </tr>
 
         <tr>
-          <th>SpO <sub>2</sub>(%)</th>
+          <th>SpO<sub>2</sub>(%)</th>
           <th>PR(BMP)</th>
-          <th>SpO <sub>2</sub>(%)</th>
+          <th>SpO<sub>2</sub>(%)</th>
           <th>PR(BMP)</th>
 
         </tr>
@@ -388,7 +355,7 @@
 
 
       <!--</div>-->
-      {#/////////////////////////////////////////////#}
+      <!-- //////////////////////////////////////////////////////////// -->
       <br>
 
 

@@ -853,7 +853,7 @@
           <td>10 ms</td>
           <td rowspan="3" style="font-family: 'B Nazanin';font-size: 12pt;">دستگاه شمارش کند</td>
           <td>{{ form.s3_e7_hr }}</td>
-          {% if  form.s3_e7_comment.id == 1 %}
+          {% if form.s3_e7_comment.id == 1 %}
                 <td>&#10004;</td>
                 <td></td>  
               {% elif form.s3_e7_comment.id == 2%}
@@ -976,9 +976,7 @@
             {% endif %}
         </tr>
       </tbody>
-
     </table>
-
 
             <br><br>
 
@@ -1239,22 +1237,21 @@
           <td>{{ form.s6_e1_ramp }}</td>
           <td>0.5 mm</td>
           {% if form.s6_e1_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s6_e1_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
-            <td>
-                {% if form.s6_e1_comment.id == 1%}
-                {% else %}
-                {{ form.s6_e1_comment }}
-                {% endif %}
-      
-                  </td>
+            <td>&#10004;</td>
+            <td></td>
+          {% elif form.s6_e1_comment.id == 2 %}
+            <td></td>
+            <td></td>
+          {% else %}
+            <td></td>
+            <td>&#10004;</td>
+          {% endif %}
+          <td>
+          {% if form.s6_e1_comment.id == 1%}
+          {% else %}
+          {{ form.s6_e1_comment }}
+          {% endif %}
+          </td>
       
         </tr>
         <tr>
@@ -1263,22 +1260,21 @@
           <td>{{ form.s6_e2_ramp }}</td>
           <td>1 mm</td>
           {% if form.s6_e2_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s6_e2_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
-            <td>
-          {% if form.s6_e2_comment.id == 1%}
+            <td>&#10004;</td>
+            <td></td>
+          {% elif form.s6_e2_comment.id == 2 %}
+            <td></td>
+            <td></td>
           {% else %}
-          {{ form.s6_e2_comment }}
+            <td></td>
+            <td>&#10004;</td>
           {% endif %}
-
-            </td>
+          <td>
+            {% if form.s6_e2_comment.id == 1%}
+            {% else %}
+            {{ form.s6_e2_comment }}
+            {% endif %}
+          </td>
 
         </tr>
       <tr>
@@ -1289,24 +1285,22 @@
           <td>2 mm</td>
       
             {% if form.s6_e3_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s6_e3_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
+              <td>&#10004;</td>
+              <td></td>
+            {% elif form.s6_e3_comment.id == 2 %}
+              <td></td>
+              <td></td>
+            {% else %}
+              <td></td>
+              <td>&#10004;</td>
+            {% endif %}
             <td>
-                {% if form.s6_e3_comment.id == 1%}
-                {% else %}
-                {{ form.s6_e3_comment }}
-                {% endif %}
-      
-                  </td>
-      
-
+              {% if form.s6_e3_comment.id == 1%}
+              {% else %}
+              {{ form.s6_e3_comment }}
+              {% endif %}
+            </td>
+  
         </tr>
       </tbody>
 
@@ -1385,21 +1379,22 @@
               <td>{{ form.s7_e1_damp }}</td>
               <td>{{ form.s7_e1_ramp }}</td>
               <td style="background-color: grey;"></td>
-          {% if form.s7_e1_comment.id == 1 %}
+              {% if form.s7_e1_comment.id == 1 %}
                 <td>&#10004;</td>
                 <td></td>
-                {% elif form.s7_e1_comment.id == 2 %}
+              {% elif form.s7_e1_comment.id == 2 %}
                 <td></td>
                 <td></td>
-                {% else %}
+              {% else %}
                 <td></td>
                 <td>&#10004;</td>
-                {% endif %}
+              {% endif %}
+              
               {% if form.s7_e1_comment.id == 1%}
-          <td></td>
-            {% else %}
-            <td>{{ form.s7_e1_comment }}</td>
-            {% endif %}
+                <td></td>
+              {% else %}
+                <td>{{ form.s7_e1_comment }}</td>
+              {% endif %}
             </tr>
           <tr>
               <td>Amp(mv)</td>
@@ -1408,21 +1403,23 @@
               <td rowspan="2">{{ form.s7_e2_damp }}</td>
               <td rowspan="2">{{ form.s7_e2_ramp }}</td>
               <td rowspan="2">71%-110% @5Hz</td>
+              
               {% if form.s7_e2_comment.id == 1 %}
                 <td rowspan="2">&#10004;</td>
                 <td rowspan="2"></td>
-                {% elif form.s7_e2_comment.id == 2 %}
+              {% elif form.s7_e2_comment.id == 2 %}
                 <td rowspan="2"></td>
                 <td rowspan="2"></td>
-                {% else %}
+              {% else %}
                 <td rowspan="2"></td>
                 <td rowspan="2">&#10004;</td>
-                {% endif %}
+              {% endif %}
+              
               {% if form.s7_e2_comment.id == 1%}
-          <td rowspan="2"></td>
-            {% else %}
-            <td rowspan="2">{{ form.s7_e2_comment }}</td>
-            {% endif %}
+                <td rowspan="2"></td>
+              {% else %}
+                <td rowspan="2">{{ form.s7_e2_comment }}</td>
+              {% endif %}
 
             </tr>
           <tr>
@@ -1436,21 +1433,23 @@
               <td rowspan="2">{{ form.s7_e3_damp }}</td>
               <td rowspan="2">{{ form.s7_e3_ramp }}</td>
               <td rowspan="2">71%-110% @5Hz</td>
+              
               {% if form.s7_e3_comment.id == 1 %}
                 <td rowspan="2">&#10004;</td>
                 <td rowspan="2"></td>
-                {% elif form.s7_e3_comment.id == 2 %}
+              {% elif form.s7_e3_comment.id == 2 %}
                 <td rowspan="2"></td>
                 <td rowspan="2"></td>
-                {% else %}
+              {% else %}
                 <td rowspan="2"></td>
                 <td rowspan="2">&#10004;</td>
-                {% endif %}
+              {% endif %}
+              
               {% if form.s7_e3_comment.id == 1%}
-          <td rowspan="2"></td>
-            {% else %}
-            <td rowspan="2">{{ form.s7_e3_comment }}</td>
-            {% endif %}
+                <td rowspan="2"></td>
+              {% else %}
+                <td rowspan="2">{{ form.s7_e3_comment }}</td>
+              {% endif %}
 
             </tr>
           <tr>
@@ -1490,42 +1489,46 @@
           <td>{{ form.s7_e4_damp }}</td>
           <td>{{ form.s7_e4_ramp }}</td>
           <td style="background-color: grey;"></td>
+          
           {% if form.s7_e4_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s7_e4_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
+            <td>&#10004;</td>
+            <td></td>
+          {% elif form.s7_e4_comment.id == 2 %}
+            <td></td>
+            <td></td>
+          {% else %}
+            <td></td>
+            <td>&#10004;</td>
+          {% endif %}
+          
           {% if form.s7_e4_comment.id == 1%}
-          <td></td>
-            {% else %}
+            <td></td>
+          {% else %}
             <td>{{ form.s7_e4_comment }}</td>
-            {% endif %}
+          {% endif %}
         </tr>
         <tr>
           <td>20</td>
           <td>{{ form.s7_e5_damp }}</td>
           <td>{{ form.s7_e5_ramp }}</td>
           <td>75%-100% @200ms</td>
+          
           {% if form.s7_e5_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s7_e5_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
+            <td>&#10004;</td>
+            <td></td>
+          {% elif form.s7_e5_comment.id == 2 %}
+            <td></td>
+            <td></td>
+          {% else %}
+            <td></td>
+            <td>&#10004;</td>
+          {% endif %}
+          
           {% if form.s7_e5_comment.id == 1%}
-          <td></td>
-            {% else %}
+            <td></td>
+          {% else %}
             <td>{{ form.s7_e5_comment }}</td>
-            {% endif %}
+          {% endif %}
 
         </tr>
       </tbody>
@@ -1563,30 +1566,27 @@
           <td>{{ form.s8_e1_slope }}</td>
           <td>0.3 mv/s</td>
 
-            {% if form.s8_e1_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s8_e1_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
+          {% if form.s8_e1_comment.id == 1 %}
+            <td>&#10004;</td>
+            <td></td>
+          {% elif form.s8_e1_comment.id == 2 %}
+            <td></td>
+            <td></td>
+          {% else %}
+            <td></td>
+            <td>&#10004;</td>
+          {% endif %}
+
           {% if form.s8_e1_comment.id == 1%}
-          <td></td>
-            {% else %}
+            <td></td>
+          {% else %}
             <td>{{ form.s8_e1_comment }}</td>
-            {% endif %}
+          {% endif %}
+
         </tr>
       </tbody>
 
     </table>
-
-
-
-
-
 
         <br>
         <div style="font-weight: bold;">
@@ -1610,21 +1610,24 @@
       <tbody>
         <tr>
           <td>Gain Indicator</td>
+          
           {% if form.s9_e1_comment.id == 1 %}
-                <td>&#10004;</td>
-                <td></td>
-                {% elif form.s9_e1_comment.id == 2 %}
-                <td></td>
-                <td></td>
-                {% else %}
-                <td></td>
-                <td>&#10004;</td>
-                {% endif %}
+            <td>&#10004;</td>
+            <td></td>
+          {% elif form.s9_e1_comment.id == 2 %}
+            <td></td>
+            <td></td>
+          {% else %}
+            <td></td>
+            <td>&#10004;</td>
+          {% endif %}
+          
           {% if form.s9_e1_comment.id == 1%}
-          <td></td>
-            {% else %}
+            <td></td>
+          {% else %}
             <td>{{ form.s9_e1_comment }}</td>
-            {% endif %}
+          {% endif %}
+          
         </tr>
       </tbody>
 

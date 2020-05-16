@@ -283,11 +283,11 @@ class MonitorECG_1(models.Model):
     s7_e3_ramp = models.FloatField(null=True, blank=True)
     s7_e3_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e3comment', default=1)
-    s7_e4_damp = models.FloatField(default=2)
+    s7_e4_damp = models.FloatField(default=200)
     s7_e4_ramp = models.FloatField(null=True, blank=True)
     s7_e4_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e4comment', default=1)
-    s7_e5_damp = models.FloatField(default=2)
+    s7_e5_damp = models.FloatField(default=200)
     s7_e5_ramp = models.FloatField(null=True, blank=True)
     s7_e5_comment = models.ForeignKey(acc.models.Comment, on_delete=models.PROTECT,
                                       related_name='me1s7e5comment', default=1)

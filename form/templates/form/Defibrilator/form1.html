@@ -3749,6 +3749,33 @@
   });
 
 
+$("#id_s7d_e1_es").focusout(function () {
+
+
+  var def = $("#id_s7d_e1_en").val() - $("#id_s7d_e1_es").val();
+  if (def < 0)
+    def = -def;
+  $("#id_s7d_e1_ec").val(def);
+  if ((def > 4 && def > 0.15 * $("#id_s7d_e1_en").val()) && ($("#id_s7d_e1_ec").val().length != 0)) {
+    $("#id_s7d_e1_ec").css("background-color", "#f24858");
+    $("#id_s7d_e1_ec").css("color", "white");
+
+    $("#id_s7d_e1_comment").css("background-color", "#f24858");
+    $("#id_s7d_e1_comment").css("color", "white");
+    $("#id_s7d_e1_comment").val("2");
+
+  }
+  else if ((def <= 4 || def <= 0.15 * $("#id_s7d_e1_en").val()) || ($("#id_s7d_e1_ec").val().length == 0)) {
+    $("#id_s7d_e1_ec").css("background-color", "white");
+    $("#id_s7d_e1_ec").css("color", "black");
+
+    $("#id_s7d_e1_comment").css("background-color", "white");
+    $("#id_s7d_e1_comment").css("color", "black");
+    $("#id_s7d_e1_comment").val("1");
+
+  }
+});
+
 
 
 
@@ -3758,18 +3785,18 @@
   $("#id_s8_e1_em2").focusout(function () {
 
 
-    if (($("#id_s8_e1_em2").val() < 0.85 * $("#id_s8_e1_em1").val()) && ($("#id_s8_e1_ec").val().length != 0)) {
-      $("#id_s8_e1_em2").css("background-color", "#f24858");
-      $("#id_s8_e1_em2").css("color", "white");
+    if (($("#id_s8_e1_em2").val() < 0.85 * $("#id_s8_e1_em1").val()) && ($("#id_s8_e1_em2").val().length != 0)) {
+      $("#id_s8_e1_ec").css("background-color", "#f24858");
+      $("#id_s8_e1_ec").css("color", "white");
 
       $("#id_s8_e1_comment").css("background-color", "#f24858");
       $("#id_s8_e1_comment").css("color", "white");
       $("#id_s8_e1_comment").val("2");
 
     }
-    else if (($("#id_s8_e1_em2").val() >= 0.85 * $("#id_s8_e1_em1").val()) || ($("#id_s8_e1_ec").val().length == 0)) {
-      $("#id_s8_e1_em2").css("background-color", "white");
-      $("#id_s8_e1_em2").css("color", "black");
+    else if (($("#id_s8_e1_em2").val() >= 0.85 * $("#id_s8_e1_em1").val()) || ($("#id_s8_e1_em2").val().length == 0)) {
+      $("#id_s8_e1_ec").css("background-color", "white");
+      $("#id_s8_e1_ec").css("color", "black");
 
       $("#id_s8_e1_comment").css("background-color", "white");
       $("#id_s8_e1_comment").css("color", "black");
