@@ -73,7 +73,8 @@ def logout(request):
 
 @login_required
 def route_to_dashboard(request):
-    avatar_url = UserProfile.objects.get(id=1).avatar.url  # admin user_profile
+    id = models.IntegerField(primary_key=True)
+    avatar_url = UserProfile.objects.all()[0].avatar.url  # admin user_profile
     if Group.objects.get(name='admin') in request.user.groups.all():
         try:
             request.GET['employee']  # if the admin asked for user_dashboard
