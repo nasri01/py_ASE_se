@@ -73,7 +73,11 @@ def logout(request):
 
 @login_required
 def route_to_dashboard(request):
+<<<<<<< HEAD
     id = models.IntegerField(primary_key=True)
+=======
+id = models.IntegerField(primary_key=True)
+>>>>>>> 1bd1dfff7c054349cb36c2916e65184222e91758
     avatar_url = UserProfile.objects.all()[0].avatar.url  # admin user_profile
     if Group.objects.get(name='admin') in request.user.groups.all():
         try:
