@@ -562,7 +562,7 @@ def save_router(request, formtype):
                         filename=f'{BASE_DIR}{css_root}/sop2-pdf.css')
                     css2 = CSS(
                         filename=f'{BASE_DIR}{css_root}/bootstrap-v4.min.css')
-                                            report_name = 'report_{}.pdf'.format(obj.record.number)
+                    report_name = 'report_{}.pdf'.format(obj.record.number)
 
                     HTML(string=html).write_pdf(
                         report_name, font_config=font_config, stylesheets=[css1, css2])
