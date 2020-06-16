@@ -62,7 +62,7 @@
         <tr>
           <td class="no-border"><span> {{ time.year }}/{{ time.month }}/{{ time.day }} </span> تاريخ صدور:
           </td>
-          <td class="no-border"><span class="time">{{form.licence.number}}</span>شماره گواهينامه: </td>
+          <td class="no-border"><span class="time">{{ form.date|date:"y" }}-{{form.licence.number}}</span>شماره گواهينامه: </td>
 
         </tr>
         <tr>

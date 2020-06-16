@@ -1800,17 +1800,27 @@
 
 
   // ///////////////////////////// table 6
+    var reject_1 = 0;
+    var reject_2 = 0;
 
   $("#id_s5_e1_bflc")
     .focusout(function () {
       if ($("#id_s5_e1_bflc").val() > 5000 && ($("#id_s5_e1_bflc").val().length != 0)) {
         $("#id_s5_e1_bflc").css("background-color", "#f24858");
         $("#id_s5_e1_bflc").css("color", "white");
-
+        reject_1 = 1;
       }
       else if (($("#id_s5_e1_bflc").val() <= 5000) || ($("#id_s5_e1_bflc").val().length == 0)) {
         $("#id_s5_e1_bflc").css("background-color", "white");
         $("#id_s5_e1_bflc").css("color", "black");
+        reject_1 = 0;
+      }
+      if (reject_1 == 0 && reject_2 == 0) {
+        $("#id_s5_e1_comment").css("background-color", "white");
+        $("#id_s5_e1_comment").css("color", "black");
+      }else{
+        $("#id_s5_e1_comment").css("background-color", "#f24858");
+        $("#id_s5_e1_comment").css("color", "white");
       }
     });
 
@@ -1819,11 +1829,20 @@
       if ($("#id_s5_e1_cflc").val() > 100 && ($("#id_s5_e1_cflc").val().length != 0)) {
         $("#id_s5_e1_cflc").css("background-color", "#f24858");
         $("#id_s5_e1_cflc").css("color", "white");
+        reject_2 = 1;
 
       }
       else if (($("#id_s5_e1_cflc").val() <= 100) || ($("#id_s5_e1_cflc").val().length == 0)) {
         $("#id_s5_e1_cflc").css("background-color", "white");
         $("#id_s5_e1_cflc").css("color", "black");
+        reject_2 = 0;
+      }
+      if (reject_1 == 0 && reject_2 == 0) {
+        $("#id_s5_e1_comment").css("background-color", "white");
+        $("#id_s5_e1_comment").css("color", "black");
+      }else{
+        $("#id_s5_e1_comment").css("background-color", "#f24858");
+        $("#id_s5_e1_comment").css("color", "white");
       }
     });
 

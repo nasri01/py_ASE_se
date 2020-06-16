@@ -9,7 +9,7 @@ from ftplib import FTP
 from jdatetime import timedelta
 from form.models import *
 from .models import Report, Encode
-from ww.local_settings import dl_ftp_host, dl_ftp_passwd, dl_ftp_user, dl_domain_name, domain_name
+from ww.local_settings import DL_FTP_HOST, DL_FTP_PASSWD, DL_FTP_USER, dl_domain_name, domain_name
 
 
 from acc.models import AdExcelArg, UserProfile, Request, DeviceType, AdTestType0
