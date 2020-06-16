@@ -583,29 +583,29 @@ def save_router(request, formtype):
                         filename = encode_query[0].name
 
                     # ===================================Begin-FTP Stuf=================================================
-                   ftp.cwd('pdf')
-                        if not obj.device.hospital.city.state.eng_name in ftp.nlst():
-                            ftp.mkd(obj.device.hospital.city.state.eng_name)
-                        ftp.cwd(obj.device.hospital.city.state.eng_name)
-                        if not obj.device.hospital.city.eng_name in ftp.nlst():
-                            ftp.mkd(obj.device.hospital.city.eng_name)
-                        ftp.cwd(obj.device.hospital.city.eng_name)
-                        if not str(obj.device.hospital.id) + '_' + filename in ftp.nlst():
-                            ftp.mkd(str(obj.device.hospital.id) +
-                                    '_' + filename)
-                        ftp.cwd(str(obj.device.hospital.id) + '_' + filename)
-                        if not str(obj.request.number) in ftp.nlst():
-                            ftp.mkd(str(obj.request.number))
-                        ftp.cwd(str(obj.request.number))
+                    ftp.cwd('pdf')
+                    if not obj.device.hospital.city.state.eng_name in ftp.nlst():
+                        ftp.mkd(obj.device.hospital.city.state.eng_name)
+                    ftp.cwd(obj.device.hospital.city.state.eng_name)
+                    if not obj.device.hospital.city.eng_name in ftp.nlst():
+                        ftp.mkd(obj.device.hospital.city.eng_name)
+                    ftp.cwd(obj.device.hospital.city.eng_name)
+                    if not str(obj.device.hospital.id) + '_' + filename in ftp.nlst():
+                        ftp.mkd(str(obj.device.hospital.id) +
+                                '_' + filename)
+                    ftp.cwd(str(obj.device.hospital.id) + '_' + filename)
+                    if not str(obj.request.number) in ftp.nlst():
+                        ftp.mkd(str(obj.request.number))
+                    ftp.cwd(str(obj.request.number))
 
-                        if not str(obj.device.section.eng_name) in ftp.nlst():
-                            ftp.mkd(str(obj.device.section.eng_name))
-                        ftp.cwd(str(obj.device.section.eng_name))
+                    if not str(obj.device.section.eng_name) in ftp.nlst():
+                        ftp.mkd(str(obj.device.section.eng_name))
+                    ftp.cwd(str(obj.device.section.eng_name))
 
-                        if not item[0] in ftp.nlst():
-                            ftp.mkd(item[0])
+                    if not item[0] in ftp.nlst():
+                        ftp.mkd(item[0])
 
-                        ftp.cwd(item[0])
+                    ftp.cwd(item[0])
 
                     # try:
 
