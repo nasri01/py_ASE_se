@@ -613,7 +613,7 @@ def save_router(request, formtype):
                     print(report_name)
                     send_file_ftp(
                         ftp, '{}.pdf'.format(obj.licence.number), report_name)
-                        os.remove(report_name)
+                    os.remove(report_name)
                     obj.has_pdf = True
                     obj.save()
                     green_status += 'PDF ذخیره شد!!!'
