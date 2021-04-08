@@ -4,7 +4,7 @@ CairoSVG==2.4.2
 cffi==1.13.2
 cssselect2==0.2.2
 defusedxml==0.6.0
-Django==2.2.10
+Django==2.2.20
 django-jalali==3.1.0
 django-weasyprint==0.5.5
 django-widget-tweaks==1.4.5
