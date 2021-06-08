@@ -11,7 +11,7 @@ django-widget-tweaks==1.4.5
 html5lib==1.0.1
 jdatetime==3.6.2
 mysqlclient==1.4.6
-Pillow==6.2.1
+Pillow==8.2.0
 psycopg2-binary==2.8.4
 pycparser==2.19
 Pyphen==0.9.5
